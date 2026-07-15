@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MATCH IQ — 自我进化足球赛事情报系统</title>
+  <meta name="description" content="基于AI的足球赛事情报分析系统，整合数据分析、盘口推演、庄家视角、自我进化模型，提供每场比赛深度情报。"/>
+  <meta name="robots" content="noindex"/>
+
+  <!-- Favicon SVG inline -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2300d4ff'/><text y='.9em' font-size='80' x='10'>⚽</text></svg>"/>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+
+<!-- ── BACKGROUND EFFECTS ── -->
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="scanline" aria-hidden="true"></div>
+<div class="orb orb-1" aria-hidden="true"></div>
+<div class="orb orb-2" aria-hidden="true"></div>
+<div class="orb orb-3" aria-hidden="true"></div>
+
+<!-- ── LOADING SCREEN ── -->
+<div class="loading-screen" id="loading-screen" aria-live="polite">
+  <div class="loading-logo">MATCH IQ</div>
+  <div class="loading-bar"><div class="loading-fill"></div></div>
+  <div class="loading-text">INITIALIZING INTELLIGENCE ENGINE...</div>
+</div>
+
+<!-- ── APP ── -->
+<div id="app">
+
+  <!-- ── HEADER ── -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon" aria-hidden="true">⚽</div>
+        <div>
+          MATCH IQ
+          <span class="logo-sub">Football Intelligence System</span>
+        </div>
+      </div>
+      <div class="header-status">
+        <span class="status-badge demo" id="demo-mode-badge">
+          <span class="dot"></span>DEMO MODE
+        </span>
+        <span class="status-badge version" id="version-badge-wrap">
+          模型 <span id="version-badge">v1.0</span>
+        </span>
+      </div>
+      <div class="header-meta">
+        <div class="meta-stat">
+          <div class="val" id="header-match-count">0</div>
+          <div class="lbl">今日场次</div>
+        </div>
+        <div class="meta-stat">
+          <div class="val" id="header-accuracy">--%</div>
+          <div class="lbl">模型准确率</div>
+        </div>
+      </div>
+      <label class="header-upload-btn" for="file-input" id="header-upload-label" role="button" aria-label="上传赛程图片">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/>
+          <path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3"/>
+        </svg>
+        上传赛程图片
+      </label>
+    </div>
+  </header>
+
+  <!-- ── DEMO BANNER ── -->
+  <div class="demo-banner hidden" id="demo-banner" role="alert">
+    <span class="icon">⚠️</span>
+    <p><strong>演示模式</strong> — 当前显示的是演示数据。请将赛程截图发送至 AI 对话并输入「分析今日赛事」命令，AI 将自动抓取真实数据并更新网站内容。</p>
+  </div>
+
+  <main>
+
+    <!-- ════════════════════════════════════════════
+         SECTION 1: ULTIMATE CONCLUSIONS (TOP PRIORITY)
+    ═════════════════════════════════════════════ -->
+    <section id="ultimate-section" aria-labelledby="ultimate-heading">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="section-eyebrow">终极推荐</div>
+            <h1 class="section-title" id="ultimate-heading">今日赛事终极结论</h1>
+          </div>
+          <div class="section-line"></div>
+        </div>
+        <div class="ultimate-grid" id="ultimate-grid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         SECTION 2: MODEL STATUS BAR
+    ═════════════════════════════════════════════ -->
+    <section id="model-section" aria-labelledby="model-heading">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="section-eyebrow">自我进化模型</div>
+            <h2 class="section-title" id="model-heading">模型状态 & 进化记录</h2>
+          </div>
+          <div class="section-line"></div>
+        </div>
+
+        <!-- Status bar -->
+        <div id="model-status-container"><!-- Populated by JS --></div>
+
+        <!-- Collapsible evolution panel -->
+        <div class="evolution-panel" id="evolution-panel">
+          <div class="evolution-panel-grid">
+            <div>
+              <div style="font-size:13px;font-weight:600;color:var(--text-2);margin-bottom:16px">关键因子权重进化趋势（近N次）</div>
+              <div class="chart-container">
+                <canvas id="evolution-chart-panel"></canvas>
+              </div>
+            </div>
+            <div>
+              <div style="font-size:13px;font-weight:600;color:var(--text-2);margin-bottom:16px">预测准确率趋势</div>
+              <div class="chart-container">
+                <canvas id="accuracy-chart-panel"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         SECTION 3: DETAILED MATCH ANALYSIS CARDS
+    ═════════════════════════════════════════════ -->
+    <section id="matches-section" aria-labelledby="matches-heading">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="section-eyebrow">深度分析</div>
+            <h2 class="section-title" id="matches-heading">赛事情报详报</h2>
+          </div>
+          <div class="section-line"></div>
+        </div>
+        <div class="matches-grid" id="matches-grid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         SECTION 4: MODEL EVOLUTION CHARTS
+    ═════════════════════════════════════════════ -->
+    <section id="evolution-section" aria-labelledby="evolution-heading">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="section-eyebrow">智能进化</div>
+            <h2 class="section-title" id="evolution-heading">模型进化全览</h2>
+          </div>
+          <div class="section-line"></div>
+        </div>
+        <div id="evolution-container"><!-- Populated by JS --></div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         SECTION 5: IMAGE UPLOAD ZONE
+    ═════════════════════════════════════════════ -->
+    <section id="upload-section" aria-labelledby="upload-heading">
+      <div class="container">
+        <div class="section-header" style="justify-content:center;text-align:center;flex-direction:column;align-items:center;gap:8px;">
+          <div class="section-eyebrow">触发分析</div>
+          <h2 class="section-title" id="upload-heading">上传赛程截图</h2>
+          <p style="font-size:14px;color:var(--text-3);max-width:500px;text-align:center">
+            上传赛程图片到此处，然后将同一张图片发给 AI 并输入分析命令，系统将自动执行全套分析流程
+          </p>
+        </div>
+
+        <div class="upload-zone" id="upload-zone" role="button" aria-label="拖放或点击上传赛程图片">
+          <input type="file" id="file-input" accept="image/*" aria-label="选择赛程图片"/>
+          <div class="upload-icon" aria-hidden="true">📡</div>
+          <div class="upload-title">拖放赛程截图到此处</div>
+          <div class="upload-subtitle">
+            或点击选择图片<br/>
+            支持 PNG / JPG / WEBP 格式
+          </div>
+        </div>
+        <div id="upload-preview"></div>
+
+        <div class="upload-note" style="margin-top:24px">
+          <strong style="color:var(--indigo)">📋 完整更新流程：</strong><br/>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px;">
+            <div style="padding:10px;background:rgba(255,255,255,0.03);border-radius:var(--radius-sm);border:1px solid var(--border-subtle);">
+              <div style="font-size:11px;color:var(--cyan);font-weight:600;margin-bottom:4px">STEP 1</div>
+              <div style="font-size:12px;color:var(--text-2)">上传赛程截图至此处预览</div>
+            </div>
+            <div style="padding:10px;background:rgba(255,255,255,0.03);border-radius:var(--radius-sm);border:1px solid var(--border-subtle);">
+              <div style="font-size:11px;color:var(--cyan);font-weight:600;margin-bottom:4px">STEP 2</div>
+              <div style="font-size:12px;color:var(--text-2)">将同一图片发给 AI + 输入「分析今日赛事」</div>
+            </div>
+            <div style="padding:10px;background:rgba(255,255,255,0.03);border-radius:var(--radius-sm);border:1px solid var(--border-subtle);">
+              <div style="font-size:11px;color:var(--cyan);font-weight:600;margin-bottom:4px">STEP 3</div>
+              <div style="font-size:12px;color:var(--text-2)">AI 输出新 JSON → 覆盖 data/ 文件夹</div>
+            </div>
+            <div style="padding:10px;background:rgba(255,255,255,0.03);border-radius:var(--radius-sm);border:1px solid var(--border-subtle);">
+              <div style="font-size:11px;color:var(--cyan);font-weight:600;margin-bottom:4px">STEP 4</div>
+              <div style="font-size:12px;color:var(--text-2)">git push → Cloudflare 自动部署更新</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Command Reference Card -->
+        <div style="max-width:700px;margin:32px auto 0;padding:24px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);backdrop-filter:blur(16px)">
+          <div style="font-size:13px;font-weight:700;color:var(--cyan);margin-bottom:16px;text-transform:uppercase;letter-spacing:1px">⌨️ 快捷命令参考</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="padding:10px 14px;background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.2);border-radius:var(--radius-sm);display:flex;align-items:center;gap:12px;">
+              <code style="font-family:var(--font-mono);font-size:13px;color:var(--cyan);background:rgba(0,212,255,0.1);padding:3px 8px;border-radius:4px">分析今日赛事</code>
+              <span style="font-size:12px;color:var(--text-3)">+ 赛程图片 → 触发全套分析（最常用）</span>
+            </div>
+            <div style="padding:10px 14px;background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.2);border-radius:var(--radius-sm);display:flex;align-items:center;gap:12px;">
+              <code style="font-family:var(--font-mono);font-size:13px;color:var(--indigo);background:rgba(99,102,241,0.1);padding:3px 8px;border-radius:4px">更新今日盘口</code>
+              <span style="font-size:12px;color:var(--text-3)">→ 重新抓取最新赔率，更新烟雾弹分析</span>
+            </div>
+            <div style="padding:10px 14px;background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.2);border-radius:var(--radius-sm);display:flex;align-items:center;gap:12px;">
+              <code style="font-family:var(--font-mono);font-size:13px;color:var(--green);background:rgba(16,185,129,0.1);padding:3px 8px;border-radius:4px">更新赛果并进化模型</code>
+              <span style="font-size:12px;color:var(--text-3)">→ 抓取赛果 + 自动优化权重（赛后执行）</span>
+            </div>
+            <div style="padding:10px 14px;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.2);border-radius:var(--radius-sm);display:flex;align-items:center;gap:12px;">
+              <code style="font-family:var(--font-mono);font-size:13px;color:var(--amber);background:rgba(245,158,11,0.1);padding:3px 8px;border-radius:4px">查询 [队名] 近期状态</code>
+              <span style="font-size:12px;color:var(--text-3)">→ 单独查询特定球队情报</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div style="font-family:var(--font-display);font-weight:700;color:var(--text-3)">MATCH IQ</div>
+        <div class="footer-warning">
+          ⚠ 本系统仅供数据研究与分析学习用途，所有分析结论不构成任何投注建议。赌博有风险，请理性参与。
+        </div>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-4)" id="footer-time"></div>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /#app -->
+
+<!-- Scripts (order matters) -->
+<script src="js/odds-analyzer.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/render.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+  // Update footer timestamp
+  const footerTime = document.getElementById('footer-time');
+  if (footerTime) {
+    footerTime.textContent = new Date().toLocaleString('zh-CN', { hour12: false });
+  }
+</script>
+
+</body>
+</html>
