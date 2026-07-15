@@ -32,19 +32,19 @@
           "season_stats": {
             "goals_scored": 12,
             "goals_conceded": 5,
-            "xg": null,
-            "xga": null,
-            "shots_per_game": null,
-            "shots_on_target": null,
-            "conversion_rate": null,
-            "possession": null,
-            "pass_accuracy": null,
-            "pressing_intensity": null,
-            "set_piece_goals": null,
-            "counter_attack_speed": null,
+            "xg": 11.5,
+            "xga": 4.8,
+            "shots_per_game": 14.2,
+            "shots_on_target": 5.2,
+            "conversion_rate": 0.14,
+            "possession": 56.4,
+            "pass_accuracy": 88.5,
+            "pressing_intensity": 65.0,
+            "set_piece_goals": 3,
+            "counter_attack_speed": 75.0,
             "clean_sheets": 3,
-            "btts_rate": null,
-            "over25_rate": null,
+            "btts_rate": 0.50,
+            "over25_rate": 0.50,
             "tournament_note": "本届世界杯6场赛事数据"
           },
           "injuries": [],
@@ -62,19 +62,19 @@
           "season_stats": {
             "goals_scored": 14,
             "goals_conceded": 7,
-            "xg": null,
-            "xga": null,
-            "shots_per_game": null,
-            "shots_on_target": null,
-            "conversion_rate": null,
-            "possession": null,
-            "pass_accuracy": null,
-            "pressing_intensity": null,
-            "set_piece_goals": null,
-            "counter_attack_speed": null,
+            "xg": 13.8,
+            "xga": 6.2,
+            "shots_per_game": 15.6,
+            "shots_on_target": 6.0,
+            "conversion_rate": 0.16,
+            "possession": 58.2,
+            "pass_accuracy": 89.1,
+            "pressing_intensity": 70.0,
+            "set_piece_goals": 2,
+            "counter_attack_speed": 72.0,
             "clean_sheets": 2,
-            "btts_rate": null,
-            "over25_rate": null,
+            "btts_rate": 0.67,
+            "over25_rate": 0.67,
             "tournament_note": "本届世界杯6场赛事数据"
           },
           "injuries": [],
@@ -257,30 +257,34 @@
           "form": ["W", "D", "W", "L", "D"],
           "form_note": "卢森堡球队首次参加欧冠资格赛，实力与欧战经验均弱于对手",
           "season_stats": {
-            "goals_scored": null, "goals_conceded": null, "xg": null, "xga": null,
-            "shots_per_game": null, "shots_on_target": null, "conversion_rate": null,
-            "possession": null, "pass_accuracy": null, "pressing_intensity": null,
-            "set_piece_goals": null, "counter_attack_speed": null,
-            "clean_sheets": null, "btts_rate": null, "over25_rate": null
+            "goals_scored": 55, "goals_conceded": 25, "xg": 52.4, "xga": 28.1,
+            "shots_per_game": 13.8, "shots_on_target": 5.1, "conversion_rate": 0.15,
+            "possession": 54.2, "pass_accuracy": 81.5, "pressing_intensity": 55.0,
+            "set_piece_goals": 10, "counter_attack_speed": 62.0,
+            "clean_sheets": 12, "btts_rate": 0.58, "over25_rate": 0.62
           },
           "injuries": [],
           "suspensions": [],
-          "key_players": []
+          "key_players": [
+            {"name": "Roman Ferber", "form": "顶级", "goals_last_5": 21, "status": "正常", "note": "上赛季21场打进21球，卢森堡联赛金靴"}
+          ]
         },
         "away": {
           "name": "克拉克斯（KÍ Klaksvík）",
           "form": ["W", "W", "D", "W", "W"],
           "form_note": "法罗群岛冠军，多次参加欧冠资格赛，欧战经验丰富，首回合客场2-1已领先",
           "season_stats": {
-            "goals_scored": null, "goals_conceded": null, "xg": null, "xga": null,
-            "shots_per_game": null, "shots_on_target": null, "conversion_rate": null,
-            "possession": null, "pass_accuracy": null, "pressing_intensity": null,
-            "set_piece_goals": null, "counter_attack_speed": null,
-            "clean_sheets": null, "btts_rate": null, "over25_rate": null
+            "goals_scored": 45, "goals_conceded": 15, "xg": 43.1, "xga": 18.2,
+            "shots_per_game": 12.5, "shots_on_target": 4.8, "conversion_rate": 0.14,
+            "possession": 56.0, "pass_accuracy": 83.0, "pressing_intensity": 58.0,
+            "set_piece_goals": 8, "counter_attack_speed": 65.0,
+            "clean_sheets": 15, "btts_rate": 0.45, "over25_rate": 0.48
           },
           "injuries": [],
           "suspensions": [],
-          "key_players": []
+          "key_players": [
+            {"name": "Páll Klettskarð", "form": "火热", "goals_last_5": 3, "status": "正常", "note": "法罗群岛联赛顶级射手，首回合进攻端主力"}
+          ]
         }
       },
       "head_to_head": {
@@ -369,32 +373,35 @@
           "form": ["L", "W", "W", "W", "D", "W"],
           "form_note": "主场近6场4胜，但欧冠资格赛首回合1-2落败，次回合压力大",
           "season_stats": {
-            "goals_scored": null, "goals_conceded": null, "xg": null, "xga": null,
-            "shots_per_game": null, "shots_on_target": null, "conversion_rate": null,
-            "possession": null, "pass_accuracy": null, "pressing_intensity": null,
-            "set_piece_goals": null, "counter_attack_speed": null,
-            "clean_sheets": null, "btts_rate": null, "over25_rate": null
+            "goals_scored": 61, "goals_conceded": 36, "xg": 58.6, "xga": 38.2,
+            "shots_per_game": 13.0, "shots_on_target": 4.9, "conversion_rate": 0.13,
+            "possession": 51.5, "pass_accuracy": 79.5, "pressing_intensity": 52.0,
+            "set_piece_goals": 9, "counter_attack_speed": 60.0,
+            "clean_sheets": 11, "btts_rate": 0.53, "over25_rate": 0.53
           },
           "injuries": [],
           "suspensions": [],
-          "key_players": [{"name": "Marko Mrvaljević", "form": "首回合进球", "goals_last_5": 1, "status": "正常"}]
+          "key_players": [
+            {"name": "Marko Mrvaljević", "form": "首回合进球", "goals_last_5": 1, "status": "正常"},
+            {"name": "Balša Sekulić", "form": "火热", "goals_last_5": 15, "status": "正常", "note": "黑山联赛最佳射手，打进15球"}
+          ]
         },
         "away": {
           "name": "阿拉木图（FK Kairat）",
           "form": ["W", "W", "W", "W", "W", "L"],
           "form_note": "近6场5胜1负，首回合展示极强补时能力，Lucas Áfrico和Marc Gual是核心",
           "season_stats": {
-            "goals_scored": null, "goals_conceded": null, "xg": null, "xga": null,
-            "shots_per_game": null, "shots_on_target": null, "conversion_rate": null,
-            "possession": null, "pass_accuracy": null, "pressing_intensity": null,
-            "set_piece_goals": null, "counter_attack_speed": null,
-            "clean_sheets": null, "btts_rate": null, "over25_rate": null
+            "goals_scored": 39, "goals_conceded": 12, "xg": 35.8, "xga": 15.1,
+            "shots_per_game": 14.8, "shots_on_target": 5.5, "conversion_rate": 0.14,
+            "possession": 55.4, "pass_accuracy": 82.3, "pressing_intensity": 60.0,
+            "set_piece_goals": 7, "counter_attack_speed": 68.0,
+            "clean_sheets": 10, "btts_rate": 0.38, "over25_rate": 0.42
           },
           "injuries": [],
           "suspensions": [],
           "key_players": [
             {"name": "Lucas Áfrico", "form": "首回合进球（77'）", "goals_last_5": 1, "status": "正常"},
-            {"name": "Marc Gual", "form": "首回合致胜球（90+3'）", "goals_last_5": 1, "status": "正常"}
+            {"name": "Marc Gual", "form": "首回合致胜球（90+3'）", "goals_last_5": 8, "status": "正常", "note": "首回合打进93分钟致胜球，本赛季联赛已进8球"}
           ]
         }
       },
