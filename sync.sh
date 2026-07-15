@@ -14,8 +14,11 @@ if [[ -z $(git status -s) ]]; then
 fi
 
 # Stage changes
-git add data/ matches.json weights.json history.json model_evolution.json config.json 2>/dev/null
-git add index.html css/ js/ 2>/dev/null
+git add data/*.json 2>/dev/null
+git add index.html 2>/dev/null
+git add css/* 2>/dev/null
+git add js/* 2>/dev/null
+git add sync.sh 2>/dev/null
 
 # Create commit message with current timestamp
 TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
