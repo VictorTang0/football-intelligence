@@ -9,32 +9,56 @@
       "home": "英格兰",
       "away": "阿根廷",
       "date": "2026-07-16",
-      "prediction": "平局/阿根廷延长赛",
-      "actual_result": "阿根廷 2-1",
+      "actual_result": "阿根廷 2-1 英格兰",
       "is_correct": false,
-      "confidence": 62
+      "confidence": 62,
+      "predictions": {
+        "recommendation": "平局/阿根廷（延长赛）",
+        "primary_bet": "平局（延长赛）",
+        "mainstream": "英格兰直赢（散户主流，但赔付风险极高）",
+        "upset": "阿根廷逆转直赢（赔率2.90+，EV+0.15最高）",
+        "conservative": "平局1-1进入延长赛（最高真实概率方向）",
+        "most_likely_score": "1-1（延长赛）",
+        "over_under": "小球（2.5以下），信心75%"
+      }
     },
     {
       "match_id": "match_260715_201",
-      "league": "欧冠资格赛",
-      "home": "比森",
-      "away": "克拉克斯",
+      "league": "欧冠资格赛第一轮（次回合）",
+      "home": "比森（Atert Bissen·卢森堡）",
+      "away": "克拉克斯（KÍ Klaksvík·法罗群岛）",
       "date": "2026-07-16",
-      "prediction": "克拉克斯晋级 / 平客",
-      "actual_result": "克拉克斯 2-1 胜",
+      "actual_result": "比森 1-2 克拉克斯",
       "is_correct": true,
-      "confidence": 68
+      "confidence": 68,
+      "predictions": {
+        "recommendation": "克拉克斯晋级 / 本场平局或客胜",
+        "primary_bet": "克拉克斯晋级（两回合合计）",
+        "mainstream": "克拉克斯晋级（保守防守，争取本场不败）",
+        "upset": "比森主场逆转2-0赢球翻盘晋级",
+        "conservative": "本场平局0-0或1-1，克拉克斯凭首回合优势晋级",
+        "most_likely_score": "0-1或1-1（克拉克斯晋级）",
+        "over_under": "小球（2.5以下），信心72%"
+      }
     },
     {
       "match_id": "match_260715_202",
-      "league": "欧冠资格赛",
-      "home": "苏德斯卡",
-      "away": "阿拉木图",
+      "league": "欧冠资格赛第一轮（次回合）",
+      "home": "苏德斯卡（FK Sutjeska·黑山）",
+      "away": "阿拉木图（FK Kairat·哈萨克斯坦）",
       "date": "2026-07-16",
-      "prediction": "Kairat晋级 / 平局小分",
-      "actual_result": "阿拉木图 2-0 胜",
+      "actual_result": "苏德斯卡 0-2 阿拉木图",
       "is_correct": true,
-      "confidence": 71
+      "confidence": 71,
+      "predictions": {
+        "recommendation": "Kairat晋级 / 本场小分",
+        "primary_bet": "Kairat晋级（两回合合计）",
+        "mainstream": "Kairat晋级（防守反击，不求大胜）",
+        "upset": "苏德斯卡主场2-0逆转晋级",
+        "conservative": "本场平局1-1或0-0，Kairat凭首回合2-1领先晋级",
+        "most_likely_score": "0-0或1-1（Kairat晋级）",
+        "over_under": "小球（2.5以下），信心75%"
+      }
     }
   ]
 }

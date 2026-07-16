@@ -195,56 +195,18 @@
     <!-- ════════════════════════════════════════════
          SECTION 5: IMAGE UPLOAD ZONE
     ═════════════════════════════════════════════ -->
-    <section id="upload-section" aria-labelledby="upload-heading">
+    <!-- ════════════════════════════════════════════
+         SECTION 5: COMMAND REFERENCE CARD
+    ═════════════════════════════════════════════ -->
+    <section id="reference-section" aria-labelledby="reference-heading">
       <div class="container">
-        <div class="section-header" style="justify-content:center;text-align:center;flex-direction:column;align-items:center;gap:8px;">
-          <div class="section-eyebrow">触发分析</div>
-          <h2 class="section-title" id="upload-heading">上传赛程截图</h2>
-          <p style="font-size:14px;color:var(--text-3);max-width:500px;text-align:center">
-            上传赛程图片到此处，然后将同一张图片发给 AI 并输入分析命令，系统将自动执行全套分析流程
-          </p>
-        </div>
-
-        <div class="upload-zone" id="upload-zone" role="button" aria-label="拖放或点击上传赛程图片">
-          <input type="file" id="file-input" accept="image/*" aria-label="选择赛程图片"/>
-          <div class="upload-icon" aria-hidden="true">📡</div>
-          <div class="upload-title">拖放赛程截图到此处</div>
-          <div class="upload-subtitle">
-            或点击选择图片<br/>
-            支持 PNG / JPG / WEBP 格式
-          </div>
-        </div>
-        <div id="upload-preview"></div>
-
-        <div class="upload-note" style="margin-top:24px">
-          <strong style="color:var(--indigo)">📋 完整更新流程：</strong><br/>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px;">
-            <div style="padding:10px;background:rgba(255,255,255,0.03);border-radius:var(--radius-sm);border:1px solid var(--border-subtle);">
-              <div style="font-size:11px;color:var(--cyan);font-weight:600;margin-bottom:4px">STEP 1</div>
-              <div style="font-size:12px;color:var(--text-2)">上传赛程截图至此处预览</div>
-            </div>
-            <div style="padding:10px;background:rgba(255,255,255,0.03);border-radius:var(--radius-sm);border:1px solid var(--border-subtle);">
-              <div style="font-size:11px;color:var(--cyan);font-weight:600;margin-bottom:4px">STEP 2</div>
-              <div style="font-size:12px;color:var(--text-2)">将同一图片发给 AI + 输入「分析今日赛事」</div>
-            </div>
-            <div style="padding:10px;background:rgba(255,255,255,0.03);border-radius:var(--radius-sm);border:1px solid var(--border-subtle);">
-              <div style="font-size:11px;color:var(--cyan);font-weight:600;margin-bottom:4px">STEP 3</div>
-              <div style="font-size:12px;color:var(--text-2)">AI 输出新 JSON → 覆盖 data/ 文件夹</div>
-            </div>
-            <div style="padding:10px;background:rgba(255,255,255,0.03);border-radius:var(--radius-sm);border:1px solid var(--border-subtle);">
-              <div style="font-size:11px;color:var(--cyan);font-weight:600;margin-bottom:4px">STEP 4</div>
-              <div style="font-size:12px;color:var(--text-2)">git push → Cloudflare 自动部署更新</div>
-            </div>
-          </div>
-        </div>
-
         <!-- Command Reference Card -->
-        <div style="max-width:700px;margin:32px auto 0;padding:24px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);backdrop-filter:blur(16px)">
-          <div style="font-size:13px;font-weight:700;color:var(--cyan);margin-bottom:16px;text-transform:uppercase;letter-spacing:1px">⌨️ 快捷命令参考</div>
+        <div style="max-width:700px;margin:0 auto;padding:24px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);backdrop-filter:blur(16px)">
+          <div style="font-size:13px;font-weight:700;color:var(--cyan);margin-bottom:16px;text-transform:uppercase;letter-spacing:1px" id="reference-heading">⌨️ 快捷命令参考</div>
           <div style="display:flex;flex-direction:column;gap:10px;">
             <div style="padding:10px 14px;background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.2);border-radius:var(--radius-sm);display:flex;align-items:center;gap:12px;">
               <code style="font-family:var(--font-mono);font-size:13px;color:var(--cyan);background:rgba(0,212,255,0.1);padding:3px 8px;border-radius:4px">分析今日赛事</code>
-              <span style="font-size:12px;color:var(--text-3)">+ 赛程图片 → 触发全套分析（最常用）</span>
+              <span style="font-size:12px;color:var(--text-3)">+ 赛程图片 → 自动进化权重并触发分析（最常用）</span>
             </div>
             <div style="padding:10px 14px;background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.2);border-radius:var(--radius-sm);display:flex;align-items:center;gap:12px;">
               <code style="font-family:var(--font-mono);font-size:13px;color:var(--indigo);background:rgba(99,102,241,0.1);padding:3px 8px;border-radius:4px">更新今日盘口</code>
@@ -252,7 +214,7 @@
             </div>
             <div style="padding:10px 14px;background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.2);border-radius:var(--radius-sm);display:flex;align-items:center;gap:12px;">
               <code style="font-family:var(--font-mono);font-size:13px;color:var(--green);background:rgba(16,185,129,0.1);padding:3px 8px;border-radius:4px">更新赛果并进化模型</code>
-              <span style="font-size:12px;color:var(--text-3)">→ 抓取赛果 + 自动优化权重（赛后执行）</span>
+              <span style="font-size:12px;color:var(--text-3)">→ 抓取赛果 + 自动优化权重并存入历史记录</span>
             </div>
             <div style="padding:10px 14px;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.2);border-radius:var(--radius-sm);display:flex;align-items:center;gap:12px;">
               <code style="font-family:var(--font-mono);font-size:13px;color:var(--amber);background:rgba(245,158,11,0.1);padding:3px 8px;border-radius:4px">查询 [队名] 近期状态</code>

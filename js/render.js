@@ -631,20 +631,59 @@ const MatchIQRender = (() => {
     // 只保留最近十场，按时间倒序排列
     const recordsToShow = [...records].slice(-10).reverse();
 
-    return recordsToShow.map(r => `
+    return recordsToShow.map(r => {
+      const p = r.predictions || {};
+      const hasPreds = !!r.predictions;
+
+      const predDetailsHTML = hasPreds ? `
+        <div class="hc-pred-row">
+          <span class="hc-label">终极结论</span>
+          <span class="hc-val" style="color:var(--cyan);font-weight:600">${p.recommendation || '--'}</span>
+        </div>
+        <div class="hc-pred-row">
+          <span class="hc-label">首选方案</span>
+          <span class="hc-val">${p.primary_bet || '--'}</span>
+        </div>
+        <div class="hc-pred-row">
+          <span class="hc-label">大众剧本</span>
+          <span class="hc-val" style="font-size:11px;text-align:right;max-width:65%;word-break:break-all">${p.mainstream || '--'}</span>
+        </div>
+        <div class="hc-pred-row">
+          <span class="hc-label">防守路线</span>
+          <span class="hc-val" style="font-size:11px;text-align:right;max-width:65%;word-break:break-all">${p.conservative || '--'}</span>
+        </div>
+        <div class="hc-pred-row">
+          <span class="hc-label">冷门方向</span>
+          <span class="hc-val" style="color:var(--amber);font-size:11px;text-align:right;max-width:65%;word-break:break-all">${p.upset || '--'}</span>
+        </div>
+        <div class="hc-pred-row">
+          <span class="hc-label">大小球</span>
+          <span class="hc-val">${p.over_under || '--'}</span>
+        </div>
+        <div class="hc-pred-row">
+          <span class="hc-label">预期比分</span>
+          <span class="hc-val text-green" style="font-weight:600">${p.most_likely_score || '--'}</span>
+        </div>
+      ` : `
+        <div class="hc-pred-row">
+          <span class="hc-label">模型预测</span>
+          <span class="hc-val">${r.prediction || '--'}</span>
+        </div>
+      `;
+
+      return `
       <div class="history-card ${r.is_correct ? 'correct' : 'incorrect'} animate-in">
         <div class="hc-header">
           <span class="hc-league">${r.league || '--'}</span>
           <span class="hc-date">${r.date || '--'}</span>
         </div>
         <div class="hc-teams">${r.home || '主队'} vs ${r.away || '客队'}</div>
-        <div class="hc-pred-row">
-          <span class="hc-label">模型预测</span>
-          <span class="hc-val">${r.prediction || '--'}</span>
-        </div>
-        <div class="hc-pred-row">
+        
+        ${predDetailsHTML}
+        
+        <div class="hc-pred-row" style="border-top:1px solid rgba(255,255,255,0.08);margin-top:8px;padding-top:8px;">
           <span class="hc-label">实际赛果</span>
-          <span class="hc-val ${r.is_correct ? 'highlight-correct' : 'highlight-incorrect'}">${r.actual_result || '--'}</span>
+          <span class="hc-val ${r.is_correct ? 'highlight-correct' : 'highlight-incorrect'}" style="font-weight:600">${r.actual_result || '--'}</span>
         </div>
         <div class="hc-pred-row">
           <span class="hc-label">预测状态</span>
@@ -655,7 +694,8 @@ const MatchIQRender = (() => {
           <span class="hc-val">${r.confidence || '--'}%</span>
         </div>
       </div>
-    `).join('');
+      `;
+    }).join('');
   }
 
   return {
