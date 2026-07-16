@@ -1308,3 +1308,148 @@ section { padding: clamp(32px, 5vw, 64px) 0; }
   margin-right: 6px;
   vertical-align: middle;
 }
+
+/* ─── PARLAY HISTORY STYLES ─── */
+.parlay-history-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+.ph-day-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+}
+.ph-day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.01);
+  border-bottom: 1px solid var(--border-subtle);
+  user-select: none;
+}
+.ph-day-header:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+.ph-day-date {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-1);
+}
+.ph-day-stats {
+  font-size: 13px;
+  color: var(--text-3);
+  display: flex;
+  gap: 8px;
+}
+.ph-collapse-arrow {
+  font-size: 12px;
+  color: var(--text-3);
+  transition: transform var(--transition);
+}
+.ph-day-content {
+  padding: 20px;
+  transition: all var(--transition);
+  max-height: 2000px;
+  overflow: hidden;
+}
+.ph-day-content.collapsed {
+  max-height: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  border-bottom: none !important;
+}
+.ph-parlays-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+.ph-parlay-card {
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color var(--transition);
+}
+.ph-parlay-card.aggressive {
+  border-color: rgba(244, 63, 94, 0.1);
+}
+.ph-parlay-card:hover {
+  border-color: var(--cyan);
+}
+.ph-parlay-card.aggressive:hover {
+  border-color: var(--rose);
+}
+.ph-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ph-card-tag {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--cyan);
+}
+.ph-parlay-card.aggressive .ph-card-tag {
+  color: var(--rose);
+}
+.ph-card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+.ph-selections-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 0;
+  border-top: 1px dashed rgba(255, 255, 255, 0.06);
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.06);
+}
+.ph-selection-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+}
+.ph-teams {
+  color: var(--text-3);
+}
+.ph-bet {
+  font-family: var(--font-mono);
+  color: var(--text-2);
+}
+.ph-card-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-4);
+  font-family: var(--font-mono);
+}
+.parlay-status-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.parlay-status-badge.won {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--green);
+}
+.parlay-status-badge.lost {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--red);
+}
+.parlay-status-badge.pending {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--amber);
+}

@@ -759,33 +759,37 @@ const MatchIQRender = (() => {
       const rec = m.ultimate_conclusion.recommendation || '';
       const conclusions = m.conclusions || {};
 
-      // ─── 1. VALUE OPTION ───
-      let valChoice = 'home';
-      let valChoiceName = '主胜';
-      if (rec.includes('平局') || rec.includes('平')) {
-        valChoice = 'draw';
-        valChoiceName = '平局';
-      } else if (rec.includes('客胜') || rec.includes('客') || rec.includes('让负')) {
-        valChoice = 'away';
-        valChoiceName = '客胜';
-      }
+      // ─── 1. VALUE OPTION (Optimized for High Success Rate / Lower Payout) ───
+      let valChoiceName = '';
+      let valOdds = 0;
+      let valProb = 0;
 
-      let valOdds = oddsObj[valChoice];
-      let valProb = fair[valChoice];
-
-      // Integrate Handicap (让球胜平负) for Value Option if present and more favorable
-      if (m.odds_analysis.lottery_handicap && m.odds_analysis.lottery_handicap.current) {
-        const lh = m.odds_analysis.lottery_handicap;
-        const handicapText = lh.handicap || '';
-        if (rec.includes('让负') || rec.includes('受让')) {
-          valChoiceName = `让负 (${handicapText})`;
-          valOdds = lh.current.lose || 1.65;
-          valProb = Math.min(fair.away + fair.draw, 0.85); // roughly away + draw
-        } else if (rec.includes('让胜') || rec.includes('让球主胜')) {
-          valChoiceName = `让胜 (${handicapText})`;
-          valOdds = lh.current.win || 2.15;
-          valProb = Math.max(fair.home - 0.15, 0.15); // home minus draw margin
+      if (oddsObj) {
+        if (fair.home > 0.50) {
+          valChoiceName = `${m.home} 不败 (双平胜)`;
+          const dcOdds = 0.95 / ((1/oddsObj.home) + (1/oddsObj.draw));
+          valOdds = Math.max(dcOdds, 1.15);
+          valProb = Math.min(fair.home + fair.draw, 0.90);
+        } else if (fair.away > 0.50) {
+          valChoiceName = `${m.away} 不败 (双平负)`;
+          const dcOdds = 0.95 / ((1/oddsObj.away) + (1/oddsObj.draw));
+          valOdds = Math.max(dcOdds, 1.15);
+          valProb = Math.min(fair.away + fair.draw, 0.90);
+        } else {
+          if (rec.includes('客胜') || rec.includes('客') || rec.includes('让负')) {
+            valChoiceName = `${m.away} (+1.5受让胜)`;
+            valOdds = 1.28;
+            valProb = Math.min(fair.away + fair.draw + 0.12, 0.92);
+          } else {
+            valChoiceName = `${m.home} (+1.5受让胜)`;
+            valOdds = 1.28;
+            valProb = Math.min(fair.home + fair.draw + 0.12, 0.92);
+          }
         }
+      } else {
+        valChoiceName = `${m.home} 胜/平`;
+        valOdds = 1.35;
+        valProb = 0.70;
       }
 
       // ─── 2. MIXED AGGRESSIVE OPTION ───
@@ -955,6 +959,93 @@ const MatchIQRender = (() => {
     return parlaysHTML.join('') || `<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-3);border:1px dashed var(--border);border-radius:var(--radius)">无足够数量的待预测赛事可组成串关</div>`;
   }
 
+  // ─── PARLAY HISTORY RENDERER ───
+  function renderParlayHistory(historyData) {
+    const records = historyData?.parlay_records || [];
+    if (records.length === 0) {
+      return `
+        <div style="grid-column:1/-1;text-align:center;padding:48px;color:var(--text-4);border:1px dashed var(--border);border-radius:var(--radius-lg)">
+          <div style="font-size:32px;margin-bottom:12px">📅</div>
+          <div style="font-family:var(--font-display);font-size:15px;color:var(--text-3)">暂无历史串关记录</div>
+          <div style="font-size:12px;margin-top:4px">下一次执行「更新赛果并进化模型」指令时，系统将自动开始记录并进行红黑核对。</div>
+        </div>
+      `;
+    }
+
+    // Sort records by date descending
+    const sortedRecords = [...records].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    return sortedRecords.map((day, idx) => {
+      const total = day.parlays.length;
+      const won = day.parlays.filter(p => p.is_correct === true).length;
+      
+      const parlaysHTML = day.parlays.map(p => {
+        const statusBadge = p.is_correct === true 
+          ? '<span class="parlay-status-badge won">🎉 通关</span>' 
+          : p.is_correct === false 
+            ? '<span class="parlay-status-badge lost">☠ 未通过</span>' 
+            : '<span class="parlay-status-badge pending">⏳ 待定</span>';
+
+        const selectionsHTML = p.selections.map(s => {
+          let mark = '';
+          if (s.is_correct === true) {
+            mark = '<span style="color:var(--green);margin-left:6px;font-weight:bold">✓</span>';
+          } else if (s.is_correct === false) {
+            mark = '<span style="color:var(--red);margin-left:6px;font-weight:bold">✗</span>';
+          }
+          return `
+            <div class="ph-selection-row">
+              <span class="ph-teams">${s.teams}</span>
+              <span class="ph-bet">${s.selection} @ ${s.odds.toFixed(2)}${mark}</span>
+            </div>
+          `;
+        }).join('');
+
+        const evText = p.ev !== undefined ? `<div class="ph-meta-item">期望值: ${(p.ev * 100).toFixed(1)}%</div>` : '';
+
+        return `
+          <div class="ph-parlay-card ${p.type === 'value' ? '' : 'aggressive'}">
+            <div class="ph-card-header">
+              <span class="ph-card-tag">${p.type === 'value' ? '📈 价值优选' : '🔥 混合博取'}</span>
+              <span class="ph-card-title">${p.size}串1</span>
+              ${statusBadge}
+            </div>
+            <div class="ph-selections-list">
+              ${selectionsHTML}
+            </div>
+            <div class="ph-card-footer">
+              <div class="ph-meta-item">总赔率: ${p.total_odds.toFixed(2)}倍</div>
+              ${evText}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      const containerId = `ph-day-content-${idx}`;
+
+      return `
+        <div class="ph-day-card">
+          <div class="ph-day-header" onclick="document.getElementById('${containerId}').classList.toggle('collapsed')">
+            <div class="ph-day-date">📅 ${day.date}</div>
+            <div class="ph-day-stats">
+              <span>今日推荐：${total}组</span>
+              <span>·</span>
+              <span style="color:var(--green)">红单：${won}组</span>
+              <span>·</span>
+              <span>通关率：${total > 0 ? ((won / total) * 100).toFixed(0) : 0}%</span>
+            </div>
+            <div class="ph-collapse-arrow">▼</div>
+          </div>
+          <div class="ph-day-content collapsed" id="${containerId}">
+            <div class="ph-parlays-grid">
+              ${parlaysHTML}
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
   return {
     renderUltimateCard,
     renderMatchCard,
@@ -962,6 +1053,7 @@ const MatchIQRender = (() => {
     renderEvolutionSection,
     renderHistoryRecords,
     renderParlays,
+    renderParlayHistory,
     formatDate,
     formatTime
   };

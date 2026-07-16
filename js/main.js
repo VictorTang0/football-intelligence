@@ -141,6 +141,12 @@ const MatchIQ = (() => {
       historyGrid.innerHTML = MatchIQRender.renderHistoryRecords(history);
     }
 
+    // ── Parlay History Section ──
+    const parlayHistoryContainer = document.getElementById('parlay-history-container');
+    if (parlayHistoryContainer) {
+      parlayHistoryContainer.innerHTML = MatchIQRender.renderParlayHistory(history);
+    }
+
     // Init all charts after DOM is updated (only for upcoming/active matches)
     requestAnimationFrame(() => {
       initAllCharts(upcomingMatches, weights, history, evolution);

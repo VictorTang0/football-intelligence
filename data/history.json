@@ -147,5 +147,118 @@
         }
       }
     }
+  ],
+  "parlay_records": [
+    {
+      "date": "2026-07-16",
+      "parlays": [
+        {
+          "type": "value",
+          "size": 2,
+          "total_odds": 1.64,
+          "ev": 0.03,
+          "is_correct": true,
+          "selections": [
+            {
+              "match_id": "match_260715_102",
+              "teams": "英格兰 vs 阿根廷",
+              "selection": "英格兰 (+1.5受让胜)",
+              "odds": 1.28,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260715_201",
+              "teams": "比森（Atert Bissen·卢森堡） vs 克拉克斯（KÍ Klaksvík·法罗群岛）",
+              "selection": "克拉克斯（KÍ Klaksvík·法罗群岛） (+1.5受让胜)",
+              "odds": 1.28,
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "type": "aggressive",
+          "size": 2,
+          "total_odds": 10.08,
+          "ev": 0.037,
+          "is_correct": false,
+          "selections": [
+            {
+              "match_id": "match_260715_102",
+              "teams": "英格兰 vs 阿根廷",
+              "selection": "半全场 平/平（延长赛）或平/英格兰胜",
+              "odds": 4.8,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260715_201",
+              "teams": "比森（Atert Bissen·卢森堡） vs 克拉克斯（KÍ Klaksvík·法罗群岛）",
+              "selection": "总进球数 1-2球",
+              "odds": 2.1,
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "type": "value",
+          "size": 3,
+          "total_odds": 1.88,
+          "ev": -0.071,
+          "is_correct": true,
+          "selections": [
+            {
+              "match_id": "match_260715_102",
+              "teams": "英格兰 vs 阿根廷",
+              "selection": "英格兰 (+1.5受让胜)",
+              "odds": 1.28,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260715_201",
+              "teams": "比森（Atert Bissen·卢森堡） vs 克拉克斯（KÍ Klaksvík·法罗群岛）",
+              "selection": "克拉克斯（KÍ Klaksvík·法罗群岛） (+1.5受让胜)",
+              "odds": 1.28,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260715_202",
+              "teams": "苏德斯卡（FK Sutjeska·黑山） vs 阿拉木图（FK Kairat·哈萨克斯坦）",
+              "selection": "阿拉木图（FK Kairat·哈萨克斯坦） 不败 (双平负)",
+              "odds": 1.15,
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "type": "aggressive",
+          "size": 3,
+          "total_odds": 41.33,
+          "ev": -0.081,
+          "is_correct": false,
+          "selections": [
+            {
+              "match_id": "match_260715_102",
+              "teams": "英格兰 vs 阿根廷",
+              "selection": "半全场 平/平（延长赛）或平/英格兰胜",
+              "odds": 4.8,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260715_201",
+              "teams": "比森（Atert Bissen·卢森堡） vs 克拉克斯（KÍ Klaksvík·法罗群岛）",
+              "selection": "总进球数 1-2球",
+              "odds": 2.1,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260715_202",
+              "teams": "苏德斯卡（FK Sutjeska·黑山） vs 阿拉木图（FK Kairat·哈萨克斯坦）",
+              "selection": "胜平负 苏德斯卡（FK Sutjeska·黑山）胜",
+              "odds": 4.1,
+              "is_correct": false
+            }
+          ]
+        }
+      ]
+    }
   ]
 }
