@@ -1,0 +1,24 @@
+# Match IQ Customization Rules
+
+## 1. 今日预测和更新盘口工作流规范
+
+在执行以下两项核心工作流时，分析师模型必须包含检索更新最新的新闻、社媒预测、大众情绪与舆论消息：
+1. **今日预测工作流 (分析今日赛事 / Command A)**
+2. **更新盘口工作流 (更新今日盘口 / Command B)**
+
+### 🔍 情报检索与更新标准：
+- **已验证新闻 (`intelligence.verified_news`)**：
+  - 使用搜索引擎主动检索各场比赛双方的最新的主帅采访、伤停调整、战术倾斜等资讯。
+  - 填入 2 条及以上最近 24 小时内已证实的权威报道，包括标题、来源、正面/负面影响评估（`impact`）与验证标记（`verified: true`）。
+- **社媒预测与舆论讨论 (`intelligence.social_buzz`)**：
+  - 检索社交平台和论坛上球迷对本场对决的舆论动向与情绪走向。
+  - 提炼大众当前热议的核心话题（`notable_discussion`）、当前主要情绪倾向（`sentiment`，如盲目乐观、悲观防冷、分歧剧烈等），以及 trending keywords 热词标记。
+- **媒体与算法模型预测 (`intelligence.media_predictions`)**：
+  - 搜集主流足球媒体（The Athletic, ESPN）或分析模型（Opta, WhoScored）公布的倾向预测及最可能比分。
+- **环境变量 (`weather_impact` / `venue_notes`)**：
+  - 获取比赛当天的天气温湿度（尤其是雨雪、高温）以及场地相关信息（如主客场球迷占比、旅行疲劳等）。
+
+### 🧠 决策进化与盘口修正机制：
+1. 将检索到的情报结构化写入 `matches.json` 中对应赛事的 `intelligence` 部分。
+2. 结合大众情绪和热议点，重新核对**“庄家意图推演 (`bookmaker_intent`)”**和**“烟雾弹避险 (`smoke_screens`)”**，研判庄家是否利用大众舆论进行资金诱导或制造题材陷阱。
+3. 若新情报与舆论变化改变了原有的分析面，立即修正 `ultimate_conclusion.recommendation`，并将比赛卡片的 `prediction_updated` 属性设为 `true`，以在界面上显示“预测更新”徽章。

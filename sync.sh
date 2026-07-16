@@ -15,6 +15,7 @@ fi
 
 # Stage changes
 git add data/*.json 2>/dev/null
+git add .agents/* 2>/dev/null
 git add index.html 2>/dev/null
 git add css/* 2>/dev/null
 git add js/* 2>/dev/null
