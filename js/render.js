@@ -15,6 +15,15 @@ const MatchIQRender = (() => {
     return d.toLocaleString('zh-CN', { month:'numeric', day:'numeric', hour:'2-digit', minute:'2-digit', hour12: false });
   }
 
+  function formatMatchNo(id) {
+    if (!id) return '';
+    const parts = id.split('_');
+    if (parts.length >= 3) {
+      return `No.${parts[parts.length - 1]}`;
+    }
+    return id.replace('match_', 'No.');
+  }
+
   function formatDate(isoStr) {
     if (!isoStr) return '初始化';
     const d = new Date(isoStr);
@@ -98,7 +107,7 @@ const MatchIQRender = (() => {
     return `
     <div class="ultimate-card ${rClass} animate-in" id="uc-${match.id}">
       <div class="uc-header">
-        <span class="uc-league">${match.league || '--'}${warningBadge}${updatedBadge}</span>
+        <span class="uc-league"><span class="match-no-badge">${formatMatchNo(match.id)}</span>${match.league || '--'}${warningBadge}${updatedBadge}</span>
         <span class="uc-kickoff">${formatTime(match.kickoff)}</span>
       </div>
       <div class="uc-teams">
@@ -532,7 +541,7 @@ const MatchIQRender = (() => {
     <div class="match-card animate-in" id="card-${match.id}">
       <div class="mc-header">
         <div class="mc-team">
-          <div class="mc-team-league">${match.league || ''}${warningBadge}${updatedBadge}</div>
+          <div class="mc-team-league"><span class="match-no-badge">${formatMatchNo(match.id)}</span>${match.league || ''}${warningBadge}${updatedBadge}</div>
           <div class="mc-team-name">${match.home || '主队'}</div>
           <div class="mc-team-xg">xG ${home.season_stats?.xg?.toFixed(1) || '--'} · 射门 ${home.season_stats?.shots_per_game || '--'}/场</div>
         </div>
@@ -906,7 +915,7 @@ const MatchIQRender = (() => {
 
       const matchesListHTML = selected.map(b => `
         <div class="parlay-match-item">
-          <span class="parlay-match-teams">${b.home} vs ${b.away}</span>
+          <span class="parlay-match-teams"><span class="match-no-badge-sm">${formatMatchNo(b.id)}</span>${b.home} vs ${b.away}</span>
           <span class="parlay-match-odds" style="color: ${type === 'value' ? 'var(--cyan)' : 'var(--rose)'}">${b[type].name} @ ${b[type].odds.toFixed(2)}</span>
         </div>
       `).join('');
