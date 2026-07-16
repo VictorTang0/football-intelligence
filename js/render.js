@@ -548,20 +548,22 @@ const MatchIQRender = (() => {
           <div class="mc-team-xg">xG ${away.season_stats?.xg?.toFixed(1) || '--'} · 射门 ${away.season_stats?.shots_per_game || '--'}/场</div>
         </div>
       </div>
+      <button class="collapsible-trigger" data-expand-text="展开分析数据与盘口详情 ▾" data-collapse-text="收起分析数据与盘口详情 ▴">展开分析数据与盘口详情 ▾</button>
+      <div class="collapsible-body">
+        <div class="mc-tabs" id="tabs-${match.id}">
+          <div class="mc-tab active" data-tab="stats"   data-match="${match.id}">📊 数据</div>
+          <div class="mc-tab"        data-tab="odds"    data-match="${match.id}">💹 盘口</div>
+          <div class="mc-tab"        data-tab="intel"   data-match="${match.id}">🔍 情报</div>
+          <div class="mc-tab"        data-tab="conclusions" data-match="${match.id}">🎯 结论</div>
+          <div class="mc-tab"        data-tab="factors" data-match="${match.id}">⚙️ 因子</div>
+        </div>
 
-      <div class="mc-tabs" id="tabs-${match.id}">
-        <div class="mc-tab active" data-tab="stats"   data-match="${match.id}">📊 数据</div>
-        <div class="mc-tab"        data-tab="odds"    data-match="${match.id}">💹 盘口</div>
-        <div class="mc-tab"        data-tab="intel"   data-match="${match.id}">🔍 情报</div>
-        <div class="mc-tab"        data-tab="conclusions" data-match="${match.id}">🎯 结论</div>
-        <div class="mc-tab"        data-tab="factors" data-match="${match.id}">⚙️ 因子</div>
+        ${renderStatsPane(match, 'stats')}
+        ${renderOddsPane(match)}
+        ${renderIntelPane(match)}
+        ${renderConclusionsPane(match)}
+        ${renderFactorsPane(match, weightsData)}
       </div>
-
-      ${renderStatsPane(match, 'stats')}
-      ${renderOddsPane(match)}
-      ${renderIntelPane(match)}
-      ${renderConclusionsPane(match)}
-      ${renderFactorsPane(match, weightsData)}
     </div>`;
   }
 
@@ -708,9 +710,10 @@ const MatchIQRender = (() => {
           <span class="hc-date">${r.date || '--'}</span>
         </div>
         <div class="hc-teams">${r.home || '主队'} vs ${r.away || '客队'}</div>
-        
-        ${predDetailsHTML}
-        
+        <button class="collapsible-trigger" data-expand-text="查看预测详情 ▾" data-collapse-text="收起预测详情 ▴">查看预测详情 ▾</button>
+        <div class="collapsible-body">
+          ${predDetailsHTML}
+        </div>
         <div class="hc-pred-row" style="border-top:1px solid rgba(255,255,255,0.08);margin-top:8px;padding-top:8px;">
           <span class="hc-label">实际赛果</span>
           <span class="hc-val ${r.is_correct ? 'highlight-correct' : 'highlight-incorrect'}" style="font-weight:600">${r.actual_result || '--'}</span>

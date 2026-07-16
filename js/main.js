@@ -388,6 +388,48 @@ const MatchIQ = (() => {
 // ─── BOOT ───
 document.addEventListener('DOMContentLoaded', () => {
   MatchIQ.init().then(() => {
-    MatchIQ.startAutoRefresh(300000); // refresh every 5 min
+    // Wait for initial load
+  });
+
+  // ─── MOBILE NAVBAR LISTENERS ───
+  const menuToggle = document.getElementById('mobile-menu-toggle');
+  const menuDropdown = document.getElementById('mobile-menu-dropdown');
+  
+  if (menuToggle && menuDropdown) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = menuToggle.classList.toggle('open');
+      menuDropdown.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    // Close menu when a link is clicked
+    menuDropdown.addEventListener('click', (e) => {
+      if (e.target.classList.contains('mobile-menu-link')) {
+        menuToggle.classList.remove('open');
+        menuDropdown.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // ─── COLLAPSIBLE MOB BLOCKS GLOBAL TOGGLER ───
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('.collapsible-trigger');
+    if (trigger) {
+      const parent = trigger.parentElement;
+      const body = parent.querySelector('.collapsible-body');
+      if (body) {
+        const isExpanded = body.classList.toggle('expanded');
+        trigger.textContent = isExpanded ? trigger.getAttribute('data-collapse-text') : trigger.getAttribute('data-expand-text');
+        
+        // Re-trigger radar charts or factors charts if inside match-card
+        if (isExpanded) {
+          const activeTab = parent.querySelector('.mc-tab.active');
+          if (activeTab) {
+            activeTab.click();
+          }
+        }
+      }
+    }
   });
 });
