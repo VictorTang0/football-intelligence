@@ -1183,7 +1183,9 @@
             "low_block_resilience": 7.0,
             "superstar_impact": 7.5
           },
-          "injuries": [],
+          "injuries": [
+            "欧马尔·布利 (中场)"
+          ],
           "suspensions": [],
           "key_players": [
             {
@@ -1225,7 +1227,13 @@
             "low_block_resilience": 8.8,
             "superstar_impact": 5.8
           },
-          "injuries": [],
+          "injuries": [
+            "马库斯·里德 (前锋)",
+            "伊万·詹图 (中场)",
+            "大卫·约翰森 (中场)",
+            "马蒂亚斯·克里斯滕森 (后卫)",
+            "保罗·伊弗森 (前锋)"
+          ],
           "suspensions": [],
           "key_players": [
             {
@@ -1304,8 +1312,32 @@
         }
       },
       "intelligence": {
-        "verified_news": [],
-        "media_predictions": [],
+        "verified_news": [
+          {
+            "title": "奥勒松遭遇大面积伤病潮，多达 5 名一队队员缺席",
+            "source": "FotMob",
+            "impact": "高负面",
+            "verified": true
+          },
+          {
+            "title": "瓦勒伦加中场核心欧马尔·布利确认因伤缺阵",
+            "source": "Betshoot",
+            "impact": "中度负面",
+            "verified": true
+          }
+        ],
+        "media_predictions": [
+          {
+            "source": "Sportsmole",
+            "prediction": "瓦勒伦加胜",
+            "score": "2-0"
+          },
+          {
+            "source": "MightyTips",
+            "prediction": "瓦勒伦加胜",
+            "score": "2-1"
+          }
+        ],
         "social_buzz": {
           "sentiment": "正常",
           "notable_discussion": "主队球迷期待稳拿三分"
@@ -2808,7 +2840,13 @@
             "low_block_resilience": 8.0,
             "superstar_impact": 7.5
           },
-          "injuries": [],
+          "injuries": [
+            "克里斯蒂安·罗尔丹 (中场 - 股四头肌)",
+            "亚历克斯·罗尔丹 (后卫 - 臀部)",
+            "耶马尔 (中卫 - 大腿拉伤)",
+            "金基熙 (后卫 - 小腿拉伤)",
+            "德拉维加 (前锋 - 膝盖大修)"
+          ],
           "suspensions": [],
           "key_players": []
         },
@@ -2841,7 +2879,9 @@
             "low_block_resilience": 5.8,
             "superstar_impact": 6.5
           },
-          "injuries": [],
+          "injuries": [
+            "主教练菲尔·内维尔下课 (变动)"
+          ],
           "suspensions": [],
           "key_players": []
         }
@@ -2911,8 +2951,32 @@
         }
       },
       "intelligence": {
-        "verified_news": [],
-        "media_predictions": [],
+        "verified_news": [
+          {
+            "title": "西雅图海湾人伤兵满营，罗尔丹兄弟与主力中卫集体缺阵",
+            "source": "Sounder At Heart",
+            "impact": "高负面",
+            "verified": true
+          },
+          {
+            "title": "波特兰伐木者解雇主帅内维尔，临时主帅卡西迪紧急救火",
+            "source": "Sportsmole",
+            "impact": "中性",
+            "verified": true
+          }
+        ],
+        "media_predictions": [
+          {
+            "source": "Sportsmole",
+            "prediction": "西雅图海湾人胜",
+            "score": "2-1"
+          },
+          {
+            "source": "FootballWhispers",
+            "prediction": "西雅图海湾人胜",
+            "score": "1-0"
+          }
+        ],
         "social_buzz": {},
         "weather_impact": "无影响",
         "venue_notes": "流明球场魔鬼主场支持度"
