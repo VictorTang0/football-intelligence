@@ -739,7 +739,7 @@ const MatchIQRender = (() => {
     }
 
     // Map each match to its Value and Aggressive options
-    const parsedBets = activeMatches.map(m => {
+    const parsedBets = activeMatches.map((m, index) => {
       const oddsObj = m.odds_analysis.pinnacle.current;
       const fair = {};
       const total = (1/oddsObj.home) + (1/oddsObj.draw) + (1/oddsObj.away);
@@ -779,50 +779,86 @@ const MatchIQRender = (() => {
         }
       }
 
-      // ─── 2. AGGRESSIVE OPTION (Correct Score, Total Goals, Half-Full) ───
-      let aggChoiceName = '平局';
-      let aggOdds = oddsObj.draw;
-      let aggProb = fair.draw;
+      // ─── 2. MIXED AGGRESSIVE OPTION ───
+      let aggChoiceName = '';
+      let aggOdds = 0;
+      let aggProb = 0;
 
       const score = conclusions.most_likely_score || '';
       const halfFull = conclusions.half_full || '';
-      const ou = conclusions.over_under || '';
+      
+      const mixType = index % 4; // 0: 半全场, 1: 总进球数, 2: 胜平负/让球博冷, 3: 比分/其他
 
-      if (score && score !== '--') {
-        const cleanScore = score.split('或')[0].trim();
-        aggChoiceName = `比分 ${cleanScore}`;
-        if (cleanScore === '0-0') {
-          aggOdds = 7.50;
-          aggProb = fair.draw * 0.45;
-        } else if (cleanScore === '1-1') {
-          aggOdds = 6.00;
-          aggProb = fair.draw * 0.55;
-        } else if (cleanScore === '1-0' || cleanScore === '2-1') {
-          aggOdds = 6.80;
-          aggProb = fair.home * 0.38;
-        } else if (cleanScore === '0-1' || cleanScore === '1-2') {
-          aggOdds = 7.80;
-          aggProb = fair.away * 0.38;
-        } else {
-          aggOdds = 8.50;
-          aggProb = 0.12;
-        }
-      } else if (halfFull && halfFull !== '--') {
+      if (mixType === 0 && halfFull && halfFull !== '--') {
         aggChoiceName = `半全场 ${halfFull}`;
-        if (halfFull === '平/平') {
-          aggOdds = 4.80;
-          aggProb = fair.draw * 0.70;
-        } else if (halfFull === '胜/胜') {
-          aggOdds = 3.20;
-          aggProb = fair.home * 0.70;
-        } else {
-          aggOdds = 5.50;
-          aggProb = 0.18;
+        if (halfFull.includes('平/平')) { aggOdds = 4.80; aggProb = fair.draw * 0.70; }
+        else if (halfFull.includes('平/胜') || halfFull.includes('平/负')) { aggOdds = 5.50; aggProb = 0.18; }
+        else if (halfFull.includes('胜/负') || halfFull.includes('负/胜')) { aggOdds = 25.0; aggProb = 0.03; }
+        else { aggOdds = 3.50; aggProb = 0.25; }
+      } 
+      else if (mixType === 1) {
+        // 总进球数区间 (1-2, 3-4, 5-6)
+        let totalGoals = 2; // default
+        if (score && score !== '--') {
+          const s = score.split('或')[0].trim();
+          const parts = s.split('-');
+          if (parts.length === 2) totalGoals = parseInt(parts[0]) + parseInt(parts[1]);
         }
-      } else if (ou && ou !== '--') {
-        aggChoiceName = `大小球 ${ou}`;
-        aggOdds = 1.95;
-        aggProb = 0.50;
+        if (totalGoals <= 2) {
+          aggChoiceName = '总进球数 1-2球';
+          aggOdds = 2.10;
+          aggProb = 0.45;
+        } else if (totalGoals <= 4) {
+          aggChoiceName = '总进球数 3-4球';
+          aggOdds = 2.60;
+          aggProb = 0.35;
+        } else {
+          aggChoiceName = '总进球数 5-6球';
+          aggOdds = 7.50;
+          aggProb = 0.10;
+        }
+      }
+      else if (mixType === 2) {
+        // 胜平负/让球博冷 (Pick the highest odds among 1x2 that is reasonable)
+        if (fair.draw > 0.25 && oddsObj.draw > 3.0) {
+          aggChoiceName = '胜平负 平局';
+          aggOdds = oddsObj.draw;
+          aggProb = fair.draw;
+        } else if (fair.away > 0.20 && oddsObj.away > 3.5) {
+          aggChoiceName = `胜平负 ${m.away}胜`;
+          aggOdds = oddsObj.away;
+          aggProb = fair.away;
+        } else if (fair.home > 0.20 && oddsObj.home > 3.5) {
+          aggChoiceName = `胜平负 ${m.home}胜`;
+          aggOdds = oddsObj.home;
+          aggProb = fair.home;
+        } else if (m.odds_analysis.lottery_handicap && m.odds_analysis.lottery_handicap.current) {
+          const lh = m.odds_analysis.lottery_handicap;
+          const hcText = lh.handicap || '';
+          aggChoiceName = `让球胜平负 平局 (${hcText})`;
+          aggOdds = lh.current.draw || 3.40;
+          aggProb = 0.28;
+        } else {
+          aggChoiceName = `胜平负 平局`;
+          aggOdds = oddsObj.draw;
+          aggProb = fair.draw;
+        }
+      }
+      else {
+        // mixType === 3: 比分 (Correct Score)
+        if (score && score !== '--') {
+          const cleanScore = score.split('或')[0].trim();
+          aggChoiceName = `比分 ${cleanScore}`;
+          if (cleanScore === '0-0') { aggOdds = 7.50; aggProb = fair.draw * 0.45; }
+          else if (cleanScore === '1-1') { aggOdds = 6.00; aggProb = fair.draw * 0.55; }
+          else if (cleanScore === '1-0' || cleanScore === '2-1') { aggOdds = 6.80; aggProb = fair.home * 0.38; }
+          else if (cleanScore === '0-1' || cleanScore === '1-2') { aggOdds = 7.80; aggProb = fair.away * 0.38; }
+          else { aggOdds = 8.50; aggProb = 0.12; }
+        } else {
+          aggChoiceName = `胜平负 平局`;
+          aggOdds = oddsObj.draw;
+          aggProb = fair.draw;
+        }
       }
 
       return {
@@ -858,8 +894,9 @@ const MatchIQRender = (() => {
 
       // Styling parameters
       let tagClass = type === 'value' ? 'value-high' : 'value-aggressive';
-      let tagText = type === 'value' ? '📈 价值优选' : '🔥 高赔博取';
+      let tagText = type === 'value' ? '📈 价值优选' : '🔥 混合博取 (高倍)';
       let cardClass = type === 'value' ? '' : 'aggressive';
+      let titleText = type === 'value' ? `${size}串1 组合` : `${size}串1 混合串关`;
 
       let riskText = '低风险';
       if (size >= 8) riskText = type === 'value' ? '高风险' : '极高风险';
@@ -875,12 +912,12 @@ const MatchIQRender = (() => {
       `).join('');
 
       return `
-        <div class="parlay-card animate-in">
+        <div class="parlay-card ${cardClass} animate-in">
           <div>
             <span class="parlay-tag ${tagClass}">${tagText}</span>
             <span class="parlay-risk">${riskText}</span>
           </div>
-          <div class="parlay-title">${size}串1 组合</div>
+          <div class="parlay-title">${titleText}</div>
           <div class="parlay-ev">组合期望收益 (EV): <span style="color:${totalEv >= 0 ? 'var(--green)' : 'var(--red)'};font-weight:700">${(totalEv * 100).toFixed(1)}%</span></div>
           <div class="parlay-matches-list">
             ${matchesListHTML}
