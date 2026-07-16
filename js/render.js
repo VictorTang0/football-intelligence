@@ -92,11 +92,13 @@ const MatchIQRender = (() => {
 
     const isHighUpsetRisk = (match.conclusions?.upset_probability || 0) >= 0.35;
     const warningBadge = isHighUpsetRisk ? `<span class="upset-warning-badge glow-pulse">⚠ 爆冷预警</span>` : '';
+    const isUpdated = match.prediction_updated === true;
+    const updatedBadge = isUpdated ? `<span class="prediction-updated-badge">⚡ 预测更新</span>` : '';
 
     return `
     <div class="ultimate-card ${rClass} animate-in" id="uc-${match.id}">
       <div class="uc-header">
-        <span class="uc-league">${match.league || '--'}${warningBadge}</span>
+        <span class="uc-league">${match.league || '--'}${warningBadge}${updatedBadge}</span>
         <span class="uc-kickoff">${formatTime(match.kickoff)}</span>
       </div>
       <div class="uc-teams">
@@ -523,12 +525,14 @@ const MatchIQRender = (() => {
 
     const isHighUpsetRisk = (match.conclusions?.upset_probability || 0) >= 0.35;
     const warningBadge = isHighUpsetRisk ? `<span class="upset-warning-badge glow-pulse">⚠ 爆冷预警</span>` : '';
+    const isUpdated = match.prediction_updated === true;
+    const updatedBadge = isUpdated ? `<span class="prediction-updated-badge">⚡ 预测更新</span>` : '';
 
     return `
     <div class="match-card animate-in" id="card-${match.id}">
       <div class="mc-header">
         <div class="mc-team">
-          <div class="mc-team-league">${match.league || ''}${warningBadge}</div>
+          <div class="mc-team-league">${match.league || ''}${warningBadge}${updatedBadge}</div>
           <div class="mc-team-name">${match.home || '主队'}</div>
           <div class="mc-team-xg">xG ${home.season_stats?.xg?.toFixed(1) || '--'} · 射门 ${home.season_stats?.shots_per_game || '--'}/场</div>
         </div>
