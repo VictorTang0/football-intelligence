@@ -156,8 +156,6 @@ const MatchIQ = (() => {
         match.away || '客队'
       );
 
-      // Odds chart
-      MatchIQCharts.initOddsMovementChart(`odds-chart-${match.id}`, match.odds_analysis || {});
 
       // Factor chart (first match only or all)
       MatchIQCharts.initFactorChart(`factor-chart-${match.id}`, {}, weights);
@@ -209,7 +207,8 @@ const MatchIQ = (() => {
                 match.home, match.away
               );
             } else if (tabName === 'odds') {
-              MatchIQCharts.initOddsMovementChart(`odds-chart-${matchId}`, match.odds_analysis || {});
+              // No odds chart needed
+
             } else if (tabName === 'factors') {
               MatchIQCharts.initFactorChart(`factor-chart-${matchId}`, {}, state.weights);
             }

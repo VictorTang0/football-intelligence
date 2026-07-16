@@ -339,9 +339,6 @@ const MatchIQRender = (() => {
         </div>
       </div>
 
-      <div style="margin-top:20px;position:relative;height:200px;">
-        <canvas id="odds-chart-${match.id}"></canvas>
-      </div>
 
       <div style="margin-top:16px;padding:16px;background:rgba(255,255,255,0.02);border:1px solid var(--border-subtle);border-radius:var(--radius);">
         <div style="font-size:12px;color:var(--text-3);margin-bottom:10px;text-transform:uppercase;letter-spacing:1px">散户vs庄家视角对比</div>
