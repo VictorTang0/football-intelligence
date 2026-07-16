@@ -90,10 +90,13 @@ const MatchIQRender = (() => {
     const color = recColor(conf);
     const rClass = riskClass(uc.risk_level || '中');
 
+    const isHighUpsetRisk = (match.conclusions?.upset_probability || 0) >= 0.35;
+    const warningBadge = isHighUpsetRisk ? `<span class="upset-warning-badge glow-pulse">⚠ 爆冷预警</span>` : '';
+
     return `
     <div class="ultimate-card ${rClass} animate-in" id="uc-${match.id}">
       <div class="uc-header">
-        <span class="uc-league">${match.league || '--'}</span>
+        <span class="uc-league">${match.league || '--'}${warningBadge}</span>
         <span class="uc-kickoff">${formatTime(match.kickoff)}</span>
       </div>
       <div class="uc-teams">
@@ -218,6 +221,7 @@ const MatchIQRender = (() => {
     }).join('');
 
     const ah = odds.asian_handicap || {};
+    const jc = odds.lottery_handicap || {};
     const ou = odds.over_under || {};
 
     const smokes = (odds.smoke_screens || []).map(s =>
@@ -256,7 +260,7 @@ const MatchIQRender = (() => {
         </div>
       </div>
 
-      <div class="odds-section" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px">
+      <div class="odds-section" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:16px;margin-top:16px">
         <div style="padding:16px;background:rgba(255,255,255,0.02);border:1px solid var(--border-subtle);border-radius:var(--radius);">
           <div class="odds-section-title">亚盘分析</div>
           <div style="font-size:13px;color:var(--text-2)">
@@ -264,6 +268,15 @@ const MatchIQRender = (() => {
             <div style="margin-bottom:8px">主 ${ah.initial?.home_odds || '--'} → <span class="odds-val ${oddsChangeClass(ah.initial?.home_odds||0, ah.current?.home_odds||0)}">${ah.current?.home_odds || '--'}</span></div>
             <div style="margin-bottom:8px">客 ${ah.initial?.away_odds || '--'} → <span class="odds-val ${oddsChangeClass(ah.initial?.away_odds||0, ah.current?.away_odds||0)}">${ah.current?.away_odds || '--'}</span></div>
             <div style="font-size:12px;color:var(--text-3);margin-top:8px">${ah.movement_signal || '--'}</div>
+          </div>
+        </div>
+        <div style="padding:16px;background:rgba(255,255,255,0.02);border:1px solid var(--border-subtle);border-radius:var(--radius);">
+          <div class="odds-section-title">竞彩让球</div>
+          <div style="font-size:13px;color:var(--text-2)">
+            <div style="margin-bottom:8px">让球规格：<span class="font-mono text-rose">${jc.handicap || '--'}</span></div>
+            <div style="margin-bottom:8px">让胜 ${jc.initial?.win || '--'} → <span class="odds-val ${oddsChangeClass(jc.initial?.win||0, jc.current?.win||0)}">${jc.current?.win || '--'}</span></div>
+            <div style="margin-bottom:8px">让平 ${jc.initial?.draw || '--'} → <span class="odds-val ${oddsChangeClass(jc.initial?.draw||0, jc.current?.draw||0)}">${jc.current?.draw || '--'}</span></div>
+            <div style="margin-bottom:8px">让负 ${jc.initial?.lose || '--'} → <span class="odds-val ${oddsChangeClass(jc.initial?.lose||0, jc.current?.lose||0)}">${jc.current?.lose || '--'}</span></div>
           </div>
         </div>
         <div style="padding:16px;background:rgba(255,255,255,0.02);border:1px solid var(--border-subtle);border-radius:var(--radius);">
@@ -494,11 +507,14 @@ const MatchIQRender = (() => {
     const away = match.team_stats?.away || {};
     const w = match.weather || {};
 
+    const isHighUpsetRisk = (match.conclusions?.upset_probability || 0) >= 0.35;
+    const warningBadge = isHighUpsetRisk ? `<span class="upset-warning-badge glow-pulse">⚠ 爆冷预警</span>` : '';
+
     return `
     <div class="match-card animate-in" id="card-${match.id}">
       <div class="mc-header">
         <div class="mc-team">
-          <div class="mc-team-league">${match.league || ''}</div>
+          <div class="mc-team-league">${match.league || ''}${warningBadge}</div>
           <div class="mc-team-name">${match.home || '主队'}</div>
           <div class="mc-team-xg">xG ${home.season_stats?.xg?.toFixed(1) || '--'} · 射门 ${home.season_stats?.shots_per_game || '--'}/场</div>
         </div>

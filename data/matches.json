@@ -74,7 +74,9 @@
             "clean_sheets": 3,
             "btts_rate": 0.5,
             "over25_rate": 0.5,
-            "tournament_note": "本届世界杯6场赛事数据"
+            "tournament_note": "本届世界杯6场赛事数据",
+            "low_block_resilience": 8.5,
+            "superstar_impact": 9.2
           },
           "injuries": [],
           "suspensions": [],
@@ -129,7 +131,9 @@
             "clean_sheets": 2,
             "btts_rate": 0.67,
             "over25_rate": 0.67,
-            "tournament_note": "本届世界杯6场赛事数据"
+            "tournament_note": "本届世界杯6场赛事数据",
+            "low_block_resilience": 9.5,
+            "superstar_impact": 9.8
           },
           "injuries": [],
           "suspensions": [],
@@ -244,6 +248,19 @@
           "away_support": 0.18,
           "confidence_level": "高",
           "mainstream_narrative": "英格兰本届状态最佳，贝林厄姆是本届最佳球员"
+        },
+        "lottery_handicap": {
+          "handicap": "主让1球",
+          "initial": {
+            "win": 5.65,
+            "draw": 4.1,
+            "lose": 1.45
+          },
+          "current": {
+            "win": 5.65,
+            "draw": 4.1,
+            "lose": 1.45
+          }
         }
       },
       "intelligence": {
@@ -498,7 +515,9 @@
             "counter_attack_speed": 62.0,
             "clean_sheets": 12,
             "btts_rate": 0.58,
-            "over25_rate": 0.62
+            "over25_rate": 0.62,
+            "low_block_resilience": 6.5,
+            "superstar_impact": 5.5
           },
           "injuries": [],
           "suspensions": [],
@@ -537,7 +556,9 @@
             "counter_attack_speed": 65.0,
             "clean_sheets": 15,
             "btts_rate": 0.45,
-            "over25_rate": 0.48
+            "over25_rate": 0.48,
+            "low_block_resilience": 8.5,
+            "superstar_impact": 6.8
           },
           "injuries": [],
           "suspensions": [],
@@ -642,6 +663,19 @@
           "away_support": 0.3,
           "confidence_level": "中",
           "mainstream_narrative": "比森主场最后一搏"
+        },
+        "lottery_handicap": {
+          "handicap": "主受让1球",
+          "initial": {
+            "win": 1.48,
+            "draw": 3.9,
+            "lose": 5.1
+          },
+          "current": {
+            "win": 1.46,
+            "draw": 4.0,
+            "lose": 5.2
+          }
         }
       },
       "intelligence": {
@@ -801,7 +835,9 @@
             "counter_attack_speed": 60.0,
             "clean_sheets": 11,
             "btts_rate": 0.53,
-            "over25_rate": 0.53
+            "over25_rate": 0.53,
+            "low_block_resilience": 7.2,
+            "superstar_impact": 5.0
           },
           "injuries": [],
           "suspensions": [],
@@ -847,7 +883,9 @@
             "counter_attack_speed": 68.0,
             "clean_sheets": 10,
             "btts_rate": 0.38,
-            "over25_rate": 0.42
+            "over25_rate": 0.42,
+            "low_block_resilience": 9.2,
+            "superstar_impact": 7.0
           },
           "injuries": [],
           "suspensions": [],
@@ -958,6 +996,19 @@
           "away_support": 0.42,
           "confidence_level": "中",
           "mainstream_narrative": "Kairat领先晋级"
+        },
+        "lottery_handicap": {
+          "handicap": "主受让1球",
+          "initial": {
+            "win": 1.68,
+            "draw": 3.6,
+            "lose": 3.9
+          },
+          "current": {
+            "win": 1.68,
+            "draw": 3.6,
+            "lose": 3.9
+          }
         }
       },
       "intelligence": {
@@ -1127,7 +1178,9 @@
             "clean_sheets": null,
             "btts_rate": null,
             "over25_rate": null,
-            "season_record": "4W-2D-6L, 14pts, 11th"
+            "season_record": "4W-2D-6L, 14pts, 11th",
+            "low_block_resilience": 7.0,
+            "superstar_impact": 7.5
           },
           "injuries": [],
           "suspensions": [],
@@ -1160,7 +1213,9 @@
             "clean_sheets": null,
             "btts_rate": null,
             "over25_rate": null,
-            "season_record": "2W-6D-4L, 12pts, 12th"
+            "season_record": "2W-6D-4L, 12pts, 12th",
+            "low_block_resilience": 8.8,
+            "superstar_impact": 5.8
           },
           "injuries": [],
           "suspensions": [],
@@ -1261,6 +1316,19 @@
           "away_support": 0.1,
           "confidence_level": "高",
           "mainstream_narrative": "瓦勒伦加主场取胜"
+        },
+        "lottery_handicap": {
+          "handicap": "主让1球",
+          "initial": {
+            "win": 2.6,
+            "draw": 3.35,
+            "lose": 2.22
+          },
+          "current": {
+            "win": 2.5,
+            "draw": 3.4,
+            "lose": 2.3
+          }
         }
       },
       "intelligence": {

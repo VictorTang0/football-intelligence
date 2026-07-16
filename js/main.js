@@ -52,13 +52,12 @@ const MatchIQ = (() => {
     const norm = (v, max) => Math.min(+(v / max * 10).toFixed(1), 10);
     return [
       norm(s.goals_scored || 0, maxGoals),                       // 进攻效率
-      norm(50 - (s.goals_conceded || 30), 50),                   // 防守稳定
+      s.low_block_resilience !== undefined ? s.low_block_resilience : norm(50 - (s.goals_conceded || 30), 50), // 大巴防守
       norm((s.conversion_rate || 0.2) * 100, 40),                // 射门转化
       norm(s.xg || 50, 90),                                      // xG能力
-      norm(s.pressing_intensity || 60, 100),                     // 压迫强度
+      s.superstar_impact !== undefined ? s.superstar_impact : norm(s.pressing_intensity || 60, 100), // 巨星破局
       norm(s.set_piece_goals || 8, 20),                          // 定位球
       norm(s.possession || 50, 70),                              // 中场控制
-      // Near-form approximation from conversion + shots
       norm(s.shots_on_target || 5, 10),                          // 近期状态
     ];
   }

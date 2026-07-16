@@ -32,7 +32,7 @@ const MatchIQCharts = (() => {
     if (!canvas) return null;
     const ctx = canvas.getContext('2d');
 
-    const labels = ['进攻效率','防守稳定','射门转化','xG能力','压迫强度','定位球','中场控制','近期状态'];
+    const labels = ['进攻效率','大巴防守','射门转化','xG能力','巨星破局','定位球','中场控制','近期状态'];
 
     // Destroy existing chart if any
     if (canvas._chart) { canvas._chart.destroy(); }
