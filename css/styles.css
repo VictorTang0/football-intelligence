@@ -821,7 +821,7 @@ section { padding: clamp(32px, 5vw, 64px) 0; }
 /* ─── SIDE INDEX NAVIGATION ─── */
 .side-index {
   position: fixed;
-  right: 12px;
+  right: 22px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 90;
@@ -846,9 +846,9 @@ section { padding: clamp(32px, 5vw, 64px) 0; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
+  width: 10px;
+  height: 20px;
+  border-radius: 5px;
   background: var(--text-4);
   color: transparent;
   font-family: var(--font-body);
@@ -872,13 +872,13 @@ section { padding: clamp(32px, 5vw, 64px) 0; }
 }
 .side-index-link:hover,
 .side-index-link.active {
-  width: 76px;
-  height: 24px;
-  border-radius: 12px;
+  width: 84px;
+  height: 26px;
+  border-radius: 13px;
   background: var(--cyan-dim);
   border-color: var(--cyan);
   color: var(--cyan);
-  padding: 0 8px;
+  padding: 0 10px;
   box-shadow: var(--cyan-glow);
   font-size: 11px;
 }
