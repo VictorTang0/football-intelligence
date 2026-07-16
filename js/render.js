@@ -898,7 +898,8 @@ const MatchIQRender = (() => {
       else if (size >= 4) riskText = type === 'value' ? '中风险' : '中高风险';
       else if (size >= 3) riskText = type === 'value' ? '中低风险' : '中风险';
 
-      const matchesListHTML = selected.map(b => `
+      const displaySelected = [...selected].sort((a, b) => a.id.localeCompare(b.id));
+      const matchesListHTML = displaySelected.map(b => `
         <div class="parlay-match-item">
           <span class="parlay-match-teams"><span class="match-no-badge-sm">${formatMatchNo(b.id)}</span>${b.home} vs ${b.away}</span>
           <span class="parlay-match-odds" style="color: ${type === 'value' ? 'var(--cyan)' : 'var(--rose)'}">${b[type].name} @ ${b[type].odds.toFixed(2)}</span>
