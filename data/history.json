@@ -13,14 +13,42 @@
       "is_correct": false,
       "confidence": 62,
       "predictions": {
-        "recommendation": "平局/阿根廷（延长赛）",
-        "primary_bet": "平局（延长赛）",
-        "mainstream": "英格兰直赢（散户主流，但赔付风险极高）",
-        "aggressive": "阿根廷1-2逆转或点球大战胜出",
-        "upset": "阿根廷逆转直赢（赔率2.90+，EV+0.15最高）",
-        "conservative": "平局1-1进入延长赛（最高真实概率方向）",
-        "most_likely_score": "1-1（延长赛）",
-        "over_under": "小球（2.5以下），信心75%"
+        "recommendation": {
+          "val": "平局/阿根廷（延长赛）",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "平局（延长赛）",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "英格兰直赢（散户主流，但赔付风险极高）",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "阿根廷1-2逆转或点球大战胜出",
+          "correct": true
+        },
+        "upset": {
+          "val": "阿根廷逆转直赢（赔率2.90+，EV+0.15最高）",
+          "correct": true
+        },
+        "conservative": {
+          "val": "平局1-1进入延长赛（最高真实概率方向）",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平/平（延长赛）或平/英格兰胜",
+          "correct": false
+        },
+        "over_under": {
+          "val": "小球（2.5以下），信心75%",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "1-1（延长赛）",
+          "correct": false
+        }
       }
     },
     {
@@ -33,14 +61,42 @@
       "is_correct": true,
       "confidence": 68,
       "predictions": {
-        "recommendation": "克拉克斯晋级 / 本场平局或客胜",
-        "primary_bet": "克拉克斯晋级（两回合合计）",
-        "mainstream": "克拉克斯晋级（保守防守，争取本场不败）",
-        "aggressive": "比森1-0胜，但仍需再进1球（加时赛）",
-        "upset": "比森主场逆转2-0赢球翻盘晋级",
-        "conservative": "本场平局0-0或1-1，克拉克斯凭首回合优势晋级",
-        "most_likely_score": "0-1或1-1（克拉克斯晋级）",
-        "over_under": "小球（2.5以下），信心72%"
+        "recommendation": {
+          "val": "克拉克斯晋级 / 本场平局或客胜",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "克拉克斯晋级（两回合合计）",
+          "correct": true
+        },
+        "mainstream": {
+          "val": "克拉克斯晋级（保守防守，争取本场不败）",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比森1-0胜，但仍需再进1球（加时赛）",
+          "correct": false
+        },
+        "upset": {
+          "val": "比森主场逆转2-0赢球翻盘晋级",
+          "correct": false
+        },
+        "conservative": {
+          "val": "本场平局0-0或1-1，克拉克斯凭首回合优势晋级",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平/客胜 或 平/平（克拉克斯晋级）",
+          "correct": true
+        },
+        "over_under": {
+          "val": "小球（2.5以下），信心72%",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "0-1或1-1（克拉克斯晋级）",
+          "correct": false
+        }
       }
     },
     {
@@ -53,14 +109,42 @@
       "is_correct": true,
       "confidence": 71,
       "predictions": {
-        "recommendation": "Kairat晋级 / 本场小分",
-        "primary_bet": "Kairat晋级（两回合合计）",
-        "mainstream": "Kairat晋级（防守反击，不求大胜）",
-        "aggressive": "苏德斯卡1-0胜，Kairat凭首回合优势晋级（加时赛需再分胜负）",
-        "upset": "苏德斯卡主场2-0逆转晋级",
-        "conservative": "本场平局1-1或0-0，Kairat凭首回合2-1领先晋级",
-        "most_likely_score": "0-0或1-1（Kairat晋级）",
-        "over_under": "小球（2.5以下），信心75%"
+        "recommendation": {
+          "val": "Kairat晋级 / 本场小分",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "Kairat晋级（两回合合计）",
+          "correct": true
+        },
+        "mainstream": {
+          "val": "Kairat晋级（防守反击，不求大胜）",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "苏德斯卡1-0胜，Kairat凭首回合优势晋级（加时赛需再分胜负）",
+          "correct": false
+        },
+        "upset": {
+          "val": "苏德斯卡主场2-0逆转晋级",
+          "correct": false
+        },
+        "conservative": {
+          "val": "本场平局1-1或0-0，Kairat凭首回合2-1领先晋级",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平/平 或 平/客胜（Kairat晋级）",
+          "correct": true
+        },
+        "over_under": {
+          "val": "小球（2.5以下），信心75%",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "0-0或1-1（Kairat晋级）",
+          "correct": false
+        }
       }
     }
   ]

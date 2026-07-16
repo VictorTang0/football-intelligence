@@ -631,43 +631,35 @@ const MatchIQRender = (() => {
     // 只保留最近十场，按时间倒序排列
     const recordsToShow = [...records].slice(-10).reverse();
 
+    // 辅助函数：根据预测正确性打勾
+    const renderPredRow = (label, item, customStyle = '') => {
+      if (!item) return '';
+      const val = typeof item === 'object' ? (item.val || '--') : item;
+      const isCorrect = typeof item === 'object' ? !!item.correct : false;
+      const checkmark = isCorrect ? ' <span style="color:var(--green);font-weight:bold;margin-left:4px">✅</span>' : '';
+      
+      return `
+        <div class="hc-pred-row">
+          <span class="hc-label">${label}</span>
+          <span class="hc-val" ${customStyle ? `style="${customStyle}"` : ''}>${val}${checkmark}</span>
+        </div>
+      `;
+    };
+
     return recordsToShow.map(r => {
       const p = r.predictions || {};
       const hasPreds = !!r.predictions;
 
       const predDetailsHTML = hasPreds ? `
-        <div class="hc-pred-row">
-          <span class="hc-label">终极结论</span>
-          <span class="hc-val" style="color:var(--cyan);font-weight:600">${p.recommendation || '--'}</span>
-        </div>
-        <div class="hc-pred-row">
-          <span class="hc-label">首选方案</span>
-          <span class="hc-val">${p.primary_bet || '--'}</span>
-        </div>
-        <div class="hc-pred-row">
-          <span class="hc-label">大众剧本</span>
-          <span class="hc-val" style="font-size:11px;text-align:right;max-width:65%;word-break:break-all">${p.mainstream || '--'}</span>
-        </div>
-        <div class="hc-pred-row">
-          <span class="hc-label">激进结论</span>
-          <span class="hc-val" style="color:var(--rose);font-size:11px;text-align:right;max-width:65%;word-break:break-all">${p.aggressive || '--'}</span>
-        </div>
-        <div class="hc-pred-row">
-          <span class="hc-label">防守路线</span>
-          <span class="hc-val" style="font-size:11px;text-align:right;max-width:65%;word-break:break-all">${p.conservative || '--'}</span>
-        </div>
-        <div class="hc-pred-row">
-          <span class="hc-label">冷门方向</span>
-          <span class="hc-val" style="color:var(--amber);font-size:11px;text-align:right;max-width:65%;word-break:break-all">${p.upset || '--'}</span>
-        </div>
-        <div class="hc-pred-row">
-          <span class="hc-label">大小球</span>
-          <span class="hc-val">${p.over_under || '--'}</span>
-        </div>
-        <div class="hc-pred-row">
-          <span class="hc-label">预期比分</span>
-          <span class="hc-val text-green" style="font-weight:600">${p.most_likely_score || '--'}</span>
-        </div>
+        ${renderPredRow('终极结论', p.recommendation, 'color:var(--cyan);font-weight:600')}
+        ${renderPredRow('首选方案', p.primary_bet)}
+        ${renderPredRow('大众剧本', p.mainstream, 'font-size:11px;text-align:right;max-width:65%;word-break:break-all')}
+        ${renderPredRow('激进结论', p.aggressive, 'color:var(--rose);font-size:11px;text-align:right;max-width:65%;word-break:break-all')}
+        ${renderPredRow('防守路线', p.conservative, 'font-size:11px;text-align:right;max-width:65%;word-break:break-all')}
+        ${renderPredRow('冷门方向', p.upset, 'color:var(--amber);font-size:11px;text-align:right;max-width:65%;word-break:break-all')}
+        ${renderPredRow('半全场预测', p.half_full, 'font-size:11px;text-align:right;max-width:65%;word-break:break-all')}
+        ${renderPredRow('大小球', p.over_under)}
+        ${renderPredRow('预期比分', p.most_likely_score, 'font-weight:600;color:var(--green)')}
       ` : `
         <div class="hc-pred-row">
           <span class="hc-label">模型预测</span>
