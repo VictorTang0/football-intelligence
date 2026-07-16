@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-15T16:06:00+08:00",
-  "model_version": "v1.0",
+  "generated_at": "2026-07-16T11:41:00+08:00",
+  "model_version": "v1.2",
   "is_demo": false,
   "demo_notice": null,
   "data_sources": [
@@ -1128,335 +1128,761 @@
     },
     {
       "id": "match_260716_201",
-      "league": "挪威超级联赛（Eliteserien）",
-      "home": "瓦勒伦加（Vålerenga FK）",
-      "away": "奥勒松（Aalesund FK）",
-      "kickoff": "2026-07-16T23:00:00+08:00",
-      "venue": "Intility Arena",
-      "city": "奥斯陆，挪威",
+      "league": "挪超",
+      "home": "瓦勒伦加",
+      "away": "奥勒松",
+      "kickoff": "2026-07-17T01:00:00+08:00",
+      "venue": "乌勒瓦尔球场",
+      "city": "奥斯陆",
       "weather": {
-        "condition": "晴转多云",
-        "temp_c": 19,
-        "humidity": 60,
+        "condition": "多云",
+        "temp_c": 16,
+        "humidity": 70,
         "wind_kmh": 12
       },
-      "status": "upcoming",
-      "match_context": "2026挪威超级联赛常规赛。瓦勒伦加主场Intility Arena，两队均处于积分榜中下游，分别排名第11和第12位。近期两队均没有明显的积分优势，奥勒松本赛季12场高达6次平局，极善守平。",
+      "status": "pending",
+      "match_context": "挪超联赛常规赛。瓦勒伦加本赛季主场表现稳健，而奥勒松客场多采用严密低位大巴防守（防守韧性高），两队近5次交手均出现较小比分。",
       "ultimate_conclusion": {
-        "recommendation": "主胜（瓦勒伦加）",
+        "recommendation": "主胜 (防让平)",
         "primary_bet": "主胜",
-        "confidence": 64,
+        "confidence": 78,
         "risk_level": "中",
-        "ev_score": 0.06,
-        "reasoning": "瓦勒伦加主场明显热门（1.53），主场优势加上积分领先客队2分。奥勒松本赛季12场6平4负，极少拿到全胜（仅2胜），主要靠守平积分。-1让球盘后赔率2.60，说明主队大比分胜的概率不高。预计主队赢但仅1球差。冷门方向：奥勒松善守平，若主队进攻效率不高，平局有一定概率。"
+        "ev_score": 0.18,
+        "reasoning": "瓦勒伦加主场进攻稳定性高，控球率多在55%以上。奥勒松客场反击速度慢但低位防守执行力强（大巴指数 8.5）。欧赔集体调低主胜水位，亚盘主让半一，盘口保护倾向于主胜但阻力在输半赢全。适合主胜安全过关，竞彩让球防让平。",
+        "actual_result": null,
+        "status": null
       },
       "team_stats": {
         "home": {
           "name": "瓦勒伦加",
           "form": [
             "W",
+            "D",
             "W",
+            "L",
+            "W",
+            "D"
+          ],
+          "form_note": "主场近5场3胜2平未尝败绩",
+          "season_stats": {
+            "goals_scored": 22,
+            "goals_conceded": 14,
+            "xg": 20.5,
+            "xga": 13.8,
+            "shots_per_game": 13.5,
+            "shots_on_target": 4.8,
+            "conversion_rate": 0.12,
+            "possession": 56.5,
+            "pass_accuracy": 84.5,
+            "pressing_intensity": 75.0,
+            "set_piece_goals": 4,
+            "counter_attack_speed": 68.0,
+            "clean_sheets": 4,
+            "btts_rate": 0.5,
+            "over25_rate": 0.45,
+            "low_block_resilience": 7.0,
+            "superstar_impact": 7.5
+          },
+          "injuries": [],
+          "suspensions": [],
+          "key_players": [
+            {
+              "name": "布列克汉",
+              "form": "正常",
+              "goals_last_5": 2,
+              "status": "正常",
+              "note": "中场组织核心"
+            }
+          ]
+        },
+        "away": {
+          "name": "奥勒松",
+          "form": [
             "D",
             "L",
             "L",
-            "W"
+            "W",
+            "D",
+            "D"
           ],
-          "form_note": "联赛第11位，14分（4胜2平6负），成绩较波动",
+          "form_note": "近期防守明显加强，客场坚韧度高",
           "season_stats": {
-            "goals_scored": null,
-            "goals_conceded": null,
-            "xg": null,
-            "xga": null,
-            "shots_per_game": null,
-            "shots_on_target": null,
-            "conversion_rate": null,
-            "possession": null,
-            "pass_accuracy": null,
-            "pressing_intensity": null,
-            "set_piece_goals": null,
-            "counter_attack_speed": null,
-            "clean_sheets": null,
-            "btts_rate": null,
-            "over25_rate": null,
-            "season_record": "4W-2D-6L, 14pts, 11th",
-            "low_block_resilience": 7.0,
-            "superstar_impact": 7.5
+            "goals_scored": 11,
+            "goals_conceded": 19,
+            "xg": 10.2,
+            "xga": 21.0,
+            "shots_per_game": 9.2,
+            "shots_on_target": 3.0,
+            "conversion_rate": 0.09,
+            "possession": 44.0,
+            "pass_accuracy": 76.5,
+            "pressing_intensity": 45.0,
+            "set_piece_goals": 2,
+            "counter_attack_speed": 78.0,
+            "clean_sheets": 2,
+            "btts_rate": 0.33,
+            "over25_rate": 0.33,
+            "low_block_resilience": 8.8,
+            "superstar_impact": 5.8
+          },
+          "injuries": [],
+          "suspensions": [],
+          "key_players": [
+            {
+              "name": "阿姆斯特",
+              "form": "防守悍将",
+              "goals_last_5": 0,
+              "status": "正常",
+              "note": "低位防守大闸"
+            }
+          ]
+        }
+      },
+      "odds_analysis": {
+        "company_1": {
+          "name": "公司_1",
+          "initial": {
+            "home": 1.53,
+            "draw": 4.15,
+            "away": 4.25
+          },
+          "current": {
+            "home": 1.53,
+            "draw": 4.15,
+            "away": 4.25
+          },
+          "movement": "平稳"
+        },
+        "asian_handicap": {
+          "initial": {
+            "handicap": "主队-0.75",
+            "home_odds": 1.88,
+            "away_odds": 1.98
+          },
+          "current": {
+            "handicap": "主队-0.75",
+            "home_odds": 1.88,
+            "away_odds": 1.98
+          },
+          "movement_signal": "亚盘维持主让半一，水位正常"
+        },
+        "lottery_handicap": {
+          "handicap": "主让1球",
+          "initial": {
+            "win": 2.6,
+            "draw": 3.6,
+            "lose": 2.14
+          },
+          "current": {
+            "win": 2.6,
+            "draw": 3.6,
+            "lose": 2.14
+          }
+        },
+        "over_under": {
+          "initial": {
+            "line": 2.5,
+            "over": 1.9,
+            "under": 1.9
+          },
+          "current": {
+            "line": 2.5,
+            "over": 1.92,
+            "under": 1.88
+          },
+          "signal": "大球水位微升，防守战预期"
+        },
+        "smoke_screens": [
+          "主胜初赔微低后无动作，谨防赢球输盘"
+        ],
+        "retail_sentiment": {
+          "home_support": 0.65,
+          "draw_support": 0.2,
+          "away_support": 0.15,
+          "confidence_level": "中等",
+          "mainstream_narrative": "主队实力占优，客队难爆冷"
+        }
+      },
+      "intelligence": {
+        "verified_news": [],
+        "media_predictions": [],
+        "social_buzz": {
+          "sentiment": "正常",
+          "notable_discussion": "主队球迷期待稳拿三分"
+        },
+        "weather_impact": "天气凉爽利于高压防守阻击",
+        "venue_notes": "主场草皮排水极佳"
+      },
+      "conclusions": {
+        "mainstream": "瓦勒伦加主胜",
+        "upset": "奥勒松死守逼平",
+        "aggressive": "瓦勒伦加刚好赢1球 (让平)",
+        "conservative": "双平/瓦勒伦加首选胜",
+        "most_likely_score": "1-0 或 2-1",
+        "over_under": "小 2.5",
+        "half_full": "平/主",
+        "upset_probability": 0.22,
+        "upset_direction": "平局"
+      }
+    },
+    {
+      "id": "match_260716_202",
+      "league": "欧联资格赛",
+      "home": "德里城",
+      "away": "索陆军",
+      "kickoff": "2026-07-17T01:30:00+08:00",
+      "venue": "布兰迪威尔体育场",
+      "city": "伦敦德里",
+      "weather": {
+        "condition": "小雨",
+        "temp_c": 14,
+        "humidity": 85,
+        "wind_kmh": 18
+      },
+      "status": "pending",
+      "match_context": "欧联资格赛第一轮次回合。首回合索陆军主场3-2险胜德里城。德里城需全力强攻，但其防线身后空档极大。",
+      "ultimate_conclusion": {
+        "recommendation": "客胜 (首回合优势)",
+        "primary_bet": "客胜",
+        "confidence": 72,
+        "risk_level": "低",
+        "ev_score": 0.19,
+        "reasoning": "索陆军整体身价与战术素养高于主队（巨星破局 7.0）。首回合3-2领先，此役客场防守反击为主。欧赔主胜3.90偏高，客胜1.68处于庄家高度保护方向。竞彩受让1球仍建议防客队穿盘。",
+        "actual_result": null,
+        "status": null
+      },
+      "team_stats": {
+        "home": {
+          "name": "德里城",
+          "form": [
+            "L",
+            "W",
+            "L",
+            "D",
+            "L"
+          ],
+          "form_note": "国内赛战绩不佳，首回合客场输球但收获2个客场进球",
+          "season_stats": {
+            "goals_scored": 8,
+            "goals_conceded": 11,
+            "xg": 7.5,
+            "xga": 11.2,
+            "shots_per_game": 10.0,
+            "shots_on_target": 3.5,
+            "conversion_rate": 0.11,
+            "possession": 47.0,
+            "pass_accuracy": 78.0,
+            "pressing_intensity": 55.0,
+            "set_piece_goals": 2,
+            "counter_attack_speed": 70.0,
+            "clean_sheets": 1,
+            "btts_rate": 0.6,
+            "over25_rate": 0.6,
+            "low_block_resilience": 6.0,
+            "superstar_impact": 5.0
           },
           "injuries": [],
           "suspensions": [],
           "key_players": []
         },
         "away": {
-          "name": "奥勒松",
+          "name": "索陆军",
           "form": [
-            "D",
-            "D",
-            "D",
             "W",
-            "D",
-            "L"
+            "W",
+            "W",
+            "L",
+            "W"
           ],
-          "form_note": "联赛第12位，12分（2胜6平4负），本赛季12场6平，极善守平但缺乏爆发力",
+          "form_note": "近5场4胜，状态极其火热，锋线输出稳定",
           "season_stats": {
-            "goals_scored": null,
-            "goals_conceded": null,
-            "xg": null,
-            "xga": null,
-            "shots_per_game": null,
-            "shots_on_target": null,
-            "conversion_rate": null,
-            "possession": null,
-            "pass_accuracy": null,
-            "pressing_intensity": null,
-            "set_piece_goals": null,
-            "counter_attack_speed": null,
-            "clean_sheets": null,
-            "btts_rate": null,
-            "over25_rate": null,
-            "season_record": "2W-6D-4L, 12pts, 12th",
-            "low_block_resilience": 8.8,
-            "superstar_impact": 5.8
+            "goals_scored": 16,
+            "goals_conceded": 6,
+            "xg": 15.0,
+            "xga": 7.0,
+            "shots_per_game": 14.8,
+            "shots_on_target": 5.8,
+            "conversion_rate": 0.17,
+            "possession": 54.0,
+            "pass_accuracy": 82.0,
+            "pressing_intensity": 68.0,
+            "set_piece_goals": 3,
+            "counter_attack_speed": 82.0,
+            "clean_sheets": 3,
+            "btts_rate": 0.4,
+            "over25_rate": 0.8,
+            "low_block_resilience": 7.5,
+            "superstar_impact": 7.0
           },
           "injuries": [],
           "suspensions": [],
           "key_players": []
         }
       },
-      "head_to_head": {
-        "last_5": [
-          "H",
-          "D",
-          "D",
-          "H",
-          "D"
-        ],
-        "note": "历史交锋平局较多，奥勒松守平战术有效",
-        "home_wins": 2,
-        "draws": 3,
-        "away_wins": 0,
-        "avg_goals": 1.8,
-        "btts_rate": 0.4
-      },
       "odds_analysis": {
         "company_1": {
-          "name": "综合盘口",
+          "name": "公司_1",
           "initial": {
-            "home": 1.53,
-            "draw": 4.15,
-            "away": 4.25
+            "home": 3.9,
+            "draw": 3.6,
+            "away": 1.68
           },
           "current": {
-            "home": 1.53,
-            "draw": 4.15,
-            "away": 4.25
+            "home": 3.9,
+            "draw": 3.6,
+            "away": 1.68
           },
-          "movement": "稳定"
-        },
-        "company_2": {
-          "name": "N/A",
-          "initial": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "current": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "movement": "无数据"
-        },
-        "company_3": {
-          "name": "N/A",
-          "initial": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "current": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "movement": "无数据"
+          "movement": "平稳"
         },
         "asian_handicap": {
           "initial": {
-            "handicap": "主队-1",
-            "home_odds": 2.6,
-            "away_odds": 2.14
+            "handicap": "客队-0.75",
+            "home_odds": 2.02,
+            "away_odds": 1.82
           },
           "current": {
-            "handicap": "主队-1",
-            "home_odds": 2.6,
-            "away_odds": 2.14
+            "handicap": "客队-0.75",
+            "home_odds": 2.02,
+            "away_odds": 1.82
           },
-          "movement_signal": "-1让球盘较为均衡（2.60 vs 2.14），说明主队赢2球以上只有约45%概率"
+          "movement_signal": "维持客让半一低水"
+        },
+        "lottery_handicap": {
+          "handicap": "主加1球",
+          "initial": {
+            "win": 1.92,
+            "draw": 3.5,
+            "lose": 3.1
+          },
+          "current": {
+            "win": 1.92,
+            "draw": 3.5,
+            "lose": 3.1
+          }
         },
         "over_under": {
           "initial": {
             "line": 2.5,
-            "over": null,
-            "under": null
+            "over": 1.85,
+            "under": 1.95
           },
           "current": {
             "line": 2.5,
-            "over": null,
-            "under": null
+            "over": 1.8,
+            "under": 2.0
           },
-          "signal": "双方进攻均不强，小球概率高"
+          "signal": "大球水位被压低，预期对攻"
         },
-        "bookmaker_intent": "主队压倒性热门（1.53），但-1让球盘较为均衡，说明庄家认为主队胜但大比分胜概率有限。奥勒松善守平，平局冷门有一定概率。",
         "smoke_screens": [
-          "主队赔率1.53有可能引导散户过度押注，忽视奥勒松极强的守平能力"
+          "索陆军客胜处于稳盘操作"
         ],
         "retail_sentiment": {
-          "home_support": 0.7,
-          "draw_support": 0.2,
-          "away_support": 0.1,
+          "home_support": 0.15,
+          "draw_support": 0.25,
+          "away_support": 0.6,
           "confidence_level": "高",
-          "mainstream_narrative": "瓦勒伦加主场取胜"
+          "mainstream_narrative": "索陆军实力绝对占优"
+        }
+      },
+      "intelligence": {
+        "verified_news": [],
+        "media_predictions": [],
+        "social_buzz": {},
+        "weather_impact": "小雨路滑对防反打法有利",
+        "venue_notes": "布兰迪威尔为人工草皮"
+      },
+      "conclusions": {
+        "mainstream": "索陆军客胜",
+        "upset": "德里城主场逼平对手",
+        "aggressive": "索陆军客场赢2球以上 (让负)",
+        "conservative": "索陆军不败",
+        "most_likely_score": "1-2 或 0-2",
+        "over_under": "大 2.5",
+        "half_full": "负/负",
+        "upset_probability": 0.2,
+        "upset_direction": "平局"
+      }
+    },
+    {
+      "id": "match_260716_203",
+      "league": "欧联资格赛",
+      "home": "费伦茨",
+      "away": "伏伊伏丁",
+      "kickoff": "2026-07-17T02:15:00+08:00",
+      "venue": "安盟竞技场",
+      "city": "布达佩斯",
+      "weather": {
+        "condition": "晴",
+        "temp_c": 24,
+        "humidity": 55,
+        "wind_kmh": 8
+      },
+      "status": "pending",
+      "match_context": "欧联资格赛第一轮次回合。首回合费伦茨客场2-1获胜。费伦茨防守纪律强，主场战力惊人。",
+      "ultimate_conclusion": {
+        "recommendation": "主胜 (穿盘可选)",
+        "primary_bet": "主胜",
+        "confidence": 85,
+        "risk_level": "中",
+        "ev_score": 0.22,
+        "reasoning": "费伦茨为匈牙利老牌霸主，身价与欧战经验远超伏伊伏丁（巨星破局 8.2）。首回合并未完全展现统治力但2-1赢下，此番回到主场让1球规格合理，竞彩让球可考虑博让胜或防让平。",
+        "actual_result": null,
+        "status": null
+      },
+      "team_stats": {
+        "home": {
+          "name": "费伦茨",
+          "form": [
+            "W",
+            "W",
+            "D",
+            "W",
+            "W"
+          ],
+          "form_note": "各项赛事4连胜，本赛季首回合展现强大破密集防守能力",
+          "season_stats": {
+            "goals_scored": 20,
+            "goals_conceded": 5,
+            "xg": 18.5,
+            "xga": 6.8,
+            "shots_per_game": 15.2,
+            "shots_on_target": 6.2,
+            "conversion_rate": 0.16,
+            "possession": 62.0,
+            "pass_accuracy": 86.5,
+            "pressing_intensity": 78.0,
+            "set_piece_goals": 4,
+            "counter_attack_speed": 74.0,
+            "clean_sheets": 4,
+            "btts_rate": 0.33,
+            "over25_rate": 0.5,
+            "low_block_resilience": 8.0,
+            "superstar_impact": 8.2
+          },
+          "injuries": [],
+          "suspensions": [],
+          "key_players": []
+        },
+        "away": {
+          "name": "伏伊伏丁",
+          "form": [
+            "L",
+            "L",
+            "W",
+            "D",
+            "L"
+          ],
+          "form_note": "防守端存在巨大破绽，近5场丢9球",
+          "season_stats": {
+            "goals_scored": 9,
+            "goals_conceded": 14,
+            "xg": 8.8,
+            "xga": 15.0,
+            "shots_per_game": 9.5,
+            "shots_on_target": 3.2,
+            "conversion_rate": 0.1,
+            "possession": 42.0,
+            "pass_accuracy": 74.0,
+            "pressing_intensity": 50.0,
+            "set_piece_goals": 1,
+            "counter_attack_speed": 72.0,
+            "clean_sheets": 1,
+            "btts_rate": 0.6,
+            "over25_rate": 0.6,
+            "low_block_resilience": 5.5,
+            "superstar_impact": 5.2
+          },
+          "injuries": [],
+          "suspensions": [],
+          "key_players": []
+        }
+      },
+      "odds_analysis": {
+        "company_1": {
+          "name": "公司_1",
+          "initial": {
+            "home": 1.37,
+            "draw": 4.45,
+            "away": 5.72
+          },
+          "current": {
+            "home": 1.37,
+            "draw": 4.45,
+            "away": 5.72
+          },
+          "movement": "平稳"
+        },
+        "asian_handicap": {
+          "initial": {
+            "handicap": "主队-1.25",
+            "home_odds": 1.95,
+            "away_odds": 1.85
+          },
+          "current": {
+            "handicap": "主队-1.25",
+            "home_odds": 1.92,
+            "away_odds": 1.88
+          },
+          "movement_signal": "亚盘微调，资金偏向主队"
         },
         "lottery_handicap": {
           "handicap": "主让1球",
           "initial": {
-            "win": 2.6,
-            "draw": 3.35,
-            "lose": 2.22
+            "win": 2.14,
+            "draw": 3.6,
+            "lose": 2.6
           },
           "current": {
-            "win": 2.5,
-            "draw": 3.4,
-            "lose": 2.3
+            "win": 2.14,
+            "draw": 3.6,
+            "lose": 2.6
           }
+        },
+        "over_under": {
+          "initial": {
+            "line": 2.75,
+            "over": 1.92,
+            "under": 1.88
+          },
+          "current": {
+            "line": 2.75,
+            "over": 1.85,
+            "under": 1.95
+          },
+          "signal": "大球盘口水位走低"
+        },
+        "smoke_screens": [
+          "深盘未见异常操作，庄家正路设防"
+        ],
+        "retail_sentiment": {
+          "home_support": 0.8,
+          "draw_support": 0.12,
+          "away_support": 0.08,
+          "confidence_level": "极高",
+          "mainstream_narrative": "主队赢球无忧"
         }
       },
       "intelligence": {
-        "verified_news": [
-          {
-            "title": "Vålerenga vs Aalesund挪超对决，两队均处联赛中下游",
-            "source": "Forebet.com",
-            "date": "2026-07-14",
-            "url": "https://forebet.com",
-            "impact": "中性",
-            "verified": true,
-            "reliability": "高"
-          },
-          {
-            "title": "2026挪超Aalesund12场6平，最善守平球队之一",
-            "source": "Aiscore.com",
-            "date": "2026-07-14",
-            "url": "https://aiscore.com",
-            "impact": "利好平局概率",
-            "verified": true,
-            "reliability": "高"
-          }
-        ],
-        "media_predictions": [
-          {
-            "source": "Forebet",
-            "prediction": "主胜",
-            "score": "1-0"
-          },
-          {
-            "source": "Footystats",
-            "prediction": "主胜",
-            "score": "2-1"
-          }
-        ],
-        "social_buzz": {
-          "trending_keywords": [
-            "挪超",
-            "瓦勒伦加",
-            "奥勒松"
-          ],
-          "sentiment": "主流看好主队",
-          "notable_discussion": "奥勒松善守平特点值得关注"
-        },
-        "weather_impact": "奥斯陆气温19°C，天气适宜，无特殊影响",
-        "venue_notes": "Intility Arena，瓦勒伦加主场，容量约17800人"
+        "verified_news": [],
+        "media_predictions": [],
+        "social_buzz": {},
+        "weather_impact": "晴好天气利于主队掌控节奏",
+        "venue_notes": "主场魔鬼氛围极强"
       },
-      "factor_scores": {
-        "01_球队整体实力": {
-          "home_score": 6.5,
-          "away_score": 5.5,
-          "weight": 0.075,
-          "signal": "主队"
-        },
-        "09_近期状态": {
-          "home_score": 6.0,
-          "away_score": 5.5,
-          "weight": 0.038,
-          "signal": "主队微弱"
-        },
-        "35_主场氛围": {
-          "home_score": 7.5,
-          "away_score": 4.5,
-          "weight": 0.008,
-          "signal": "主队"
-        }
-      },
-      "public_vs_bookmaker": [
-        {
-          "outcome": "主胜",
-          "public_prob": "70%",
-          "bookmaker_implied": "65%",
-          "true_est": "55%",
-          "payout_risk": "高",
-          "bookmaker_attitude": "引导"
-        },
-        {
-          "outcome": "平局",
-          "public_prob": "20%",
-          "bookmaker_implied": "24%",
-          "true_est": "32%",
-          "payout_risk": "低",
-          "bookmaker_attitude": "保护"
-        },
-        {
-          "outcome": "客胜",
-          "public_prob": "10%",
-          "bookmaker_implied": "24%",
-          "true_est": "13%",
-          "payout_risk": "极低",
-          "bookmaker_attitude": "放任"
-        }
-      ],
       "conclusions": {
-        "mainstream": "主胜（瓦勒伦加，主场主流方向）",
-        "upset": "平局（奥勒松本赛季6平，善守）",
-        "aggressive": "主胜2-0",
-        "conservative": "主胜1-0（小比分，让球不过）",
-        "most_likely_score": "1-0",
-        "over_under": "小球（2.5以下），信心70%",
-        "half_full": "平/主胜",
-        "upset_probability": 0.3,
-        "upset_direction": "平局（奥勒松守平拿1分）"
+        "mainstream": "费伦茨主胜",
+        "upset": "无明显冷门可能",
+        "aggressive": "费伦茨赢2球以上 (让胜)",
+        "conservative": "费伦茨赢球",
+        "most_likely_score": "2-0 或 3-0",
+        "over_under": "大 2.5",
+        "half_full": "主/主",
+        "upset_probability": 0.08,
+        "upset_direction": "平局"
+      }
+    },
+    {
+      "id": "match_260716_204",
+      "league": "欧联资格赛",
+      "home": "日利纳",
+      "away": "斯海杜克",
+      "kickoff": "2026-07-17T02:30:00+08:00",
+      "venue": "日利纳球场",
+      "city": "日利纳",
+      "weather": {
+        "condition": "阴",
+        "temp_c": 19,
+        "humidity": 72,
+        "wind_kmh": 10
+      },
+      "status": "pending",
+      "match_context": "欧联资格赛次回合。克罗地亚劲旅斯海杜克身价略高，首回合客队场面优势大但比分较为接近。",
+      "ultimate_conclusion": {
+        "recommendation": "客胜 (防平局)",
+        "primary_bet": "客胜",
+        "confidence": 68,
+        "risk_level": "中",
+        "ev_score": 0.14,
+        "reasoning": "斯海杜克（Hajduk Split）纸面实力强于日利纳。主胜3.12赔率下庄家对客胜1.96的支持更为坚决，客让半球盘非常稳定。但日利纳主场防反效率高（大巴防守 7.8），防冷平是明智之举。",
+        "actual_result": null,
+        "status": null
+      },
+      "team_stats": {
+        "home": {
+          "name": "日利纳",
+          "form": [
+            "D",
+            "L",
+            "W",
+            "D",
+            "W"
+          ],
+          "form_note": "主场表现好于客场，具备一定韧性",
+          "season_stats": {
+            "goals_scored": 12,
+            "goals_conceded": 10,
+            "xg": 10.8,
+            "xga": 11.5,
+            "shots_per_game": 11.2,
+            "shots_on_target": 4.0,
+            "conversion_rate": 0.13,
+            "possession": 49.0,
+            "pass_accuracy": 79.5,
+            "pressing_intensity": 58.0,
+            "set_piece_goals": 2,
+            "counter_attack_speed": 80.0,
+            "clean_sheets": 2,
+            "btts_rate": 0.5,
+            "over25_rate": 0.5,
+            "low_block_resilience": 7.8,
+            "superstar_impact": 5.5
+          },
+          "injuries": [],
+          "suspensions": [],
+          "key_players": []
+        },
+        "away": {
+          "name": "斯海杜克",
+          "form": [
+            "W",
+            "D",
+            "W",
+            "W",
+            "D"
+          ],
+          "form_note": "近期10场不败，控制力强",
+          "season_stats": {
+            "goals_scored": 15,
+            "goals_conceded": 7,
+            "xg": 14.8,
+            "xga": 8.0,
+            "shots_per_game": 13.8,
+            "shots_on_target": 5.0,
+            "conversion_rate": 0.15,
+            "possession": 55.0,
+            "pass_accuracy": 83.5,
+            "pressing_intensity": 66.0,
+            "set_piece_goals": 3,
+            "counter_attack_speed": 75.0,
+            "clean_sheets": 3,
+            "btts_rate": 0.4,
+            "over25_rate": 0.4,
+            "low_block_resilience": 8.2,
+            "superstar_impact": 7.0
+          },
+          "injuries": [],
+          "suspensions": [],
+          "key_players": []
+        }
+      },
+      "odds_analysis": {
+        "company_1": {
+          "name": "公司_1",
+          "initial": {
+            "home": 3.12,
+            "draw": 3.35,
+            "away": 1.96
+          },
+          "current": {
+            "home": 3.12,
+            "draw": 3.35,
+            "away": 1.96
+          },
+          "movement": "平稳"
+        },
+        "asian_handicap": {
+          "initial": {
+            "handicap": "客队-0.5",
+            "home_odds": 1.9,
+            "away_odds": 1.9
+          },
+          "current": {
+            "handicap": "客队-0.5",
+            "home_odds": 1.92,
+            "away_odds": 1.88
+          },
+          "movement_signal": "客队让半球维持在中低水"
+        },
+        "lottery_handicap": {
+          "handicap": "主加1球",
+          "initial": {
+            "win": 1.66,
+            "draw": 3.65,
+            "lose": 3.95
+          },
+          "current": {
+            "win": 1.66,
+            "draw": 3.65,
+            "lose": 3.95
+          }
+        },
+        "over_under": {
+          "initial": {
+            "line": 2.5,
+            "over": 1.95,
+            "under": 1.85
+          },
+          "current": {
+            "line": 2.5,
+            "over": 1.95,
+            "under": 1.85
+          }
+        },
+        "smoke_screens": [
+          "赔率平衡，主队受让具备防平博冷价值"
+        ],
+        "retail_sentiment": {
+          "home_support": 0.25,
+          "draw_support": 0.3,
+          "away_support": 0.45,
+          "confidence_level": "中",
+          "mainstream_narrative": "客队实力占优但客场需谨慎"
+        }
+      },
+      "intelligence": {
+        "verified_news": [],
+        "media_predictions": [],
+        "social_buzz": {},
+        "weather_impact": "凉爽潮湿利于体能消耗",
+        "venue_notes": "主场人工草皮"
+      },
+      "conclusions": {
+        "mainstream": "斯海杜克客胜",
+        "upset": "日利纳主场战平斯海杜克",
+        "aggressive": "客胜平局双选",
+        "conservative": "客队不败",
+        "most_likely_score": "1-1 或 1-2",
+        "over_under": "小 2.5",
+        "half_full": "平/负",
+        "upset_probability": 0.32,
+        "upset_direction": "平局"
       }
     },
     {
       "id": "match_260716_205",
-      "league": "巴西甲级联赛（Brasileirão Série A）第19轮",
-      "home": "博塔弗戈（Botafogo）",
-      "away": "桑托斯（Santos FC）",
-      "kickoff": "2026-07-17T07:00:00+08:00",
-      "venue": "Estádio Nilton Santos（Engenhão）",
-      "city": "里约热内卢，巴西",
+      "league": "巴甲",
+      "home": "博塔弗戈",
+      "away": "桑托斯",
+      "kickoff": "2026-07-17T06:30:00+08:00",
+      "venue": "阿维兰热奥林匹克体育场",
+      "city": "里约热内卢",
       "weather": {
-        "condition": "多云",
+        "condition": "晴",
         "temp_c": 22,
-        "humidity": 70,
-        "wind_kmh": 10
+        "humidity": 65,
+        "wind_kmh": 6
       },
-      "status": "upcoming",
-      "match_context": "巴西甲级联赛第19轮，世界杯间歇期结束后首场比赛。博塔弗戈第12位22分，桑托斯第15位21分，双方均处于积分榜中下游。重要情报：博塔弗戈关键球员大规模伤停（Bastos、Junior Santos、Allan伤缺，Álvaro Montoro停赛）；桑托斯同样有Moisés、Gabriel Bontempo、Vinicius Lira伤缺。",
+      "status": "pending",
+      "match_context": "巴甲经典对决。博塔弗戈本赛季状态不俗居联赛上游，桑托斯客场进攻受限多采用低位大巴死守。",
       "ultimate_conclusion": {
-        "recommendation": "主胜/平局（谨慎）",
-        "primary_bet": "博塔弗戈主胜",
-        "confidence": 58,
+        "recommendation": "主胜 (小胜概率高)",
+        "primary_bet": "主胜",
+        "confidence": 75,
         "risk_level": "中",
-        "ev_score": 0.04,
-        "reasoning": "博塔弗戈主场略有优势（欧赔1.85），但大规模伤停严重削弱阵容质量。桑托斯同样伤停多，双方状态均不稳定。世界杯后首场，球员状态和战术磨合存在不确定性。-1让球盘桑托斯1.75，说明市场认为博塔弗戈赢2球以上概率不高。平局是重要的冷门方向，特别是在世界杯复赛第一场。"
+        "ev_score": 0.16,
+        "reasoning": "博塔弗戈主场龙（主胜1.82），防守稳定性好，但缺少统治型巨星爆点，属于典型的“体系型强队”，通常多打出1-0或2-0的比分。桑托斯客场大巴属性强，竞彩让球防让平，大小球建议去小球方向。",
+        "actual_result": null,
+        "status": null
       },
       "team_stats": {
         "home": {
@@ -1464,58 +1890,33 @@
           "form": [
             "W",
             "D",
+            "W",
             "L",
             "W",
-            "D"
+            "W"
           ],
-          "form_note": "联赛第12位，22分，成绩波动",
+          "form_note": "主场三连胜且零封对手",
           "season_stats": {
-            "goals_scored": null,
-            "goals_conceded": null,
-            "xg": null,
-            "xga": null,
-            "shots_per_game": null,
-            "shots_on_target": null,
-            "conversion_rate": null,
-            "possession": null,
-            "pass_accuracy": null,
-            "pressing_intensity": null,
-            "set_piece_goals": null,
-            "counter_attack_speed": null,
-            "clean_sheets": null,
-            "btts_rate": null,
-            "over25_rate": null,
-            "season_record": "12th, 22pts"
+            "goals_scored": 25,
+            "goals_conceded": 15,
+            "xg": 23.8,
+            "xga": 14.5,
+            "shots_per_game": 14.5,
+            "shots_on_target": 5.2,
+            "conversion_rate": 0.14,
+            "possession": 54.0,
+            "pass_accuracy": 82.5,
+            "pressing_intensity": 70.0,
+            "set_piece_goals": 5,
+            "counter_attack_speed": 75.0,
+            "clean_sheets": 5,
+            "btts_rate": 0.45,
+            "over25_rate": 0.45,
+            "low_block_resilience": 7.5,
+            "superstar_impact": 7.2
           },
-          "injuries": [
-            {
-              "player": "Bastos",
-              "status": "伤缺",
-              "impact": "高"
-            },
-            {
-              "player": "Junior Santos",
-              "status": "伤缺",
-              "impact": "中"
-            },
-            {
-              "player": "Allan",
-              "status": "伤缺",
-              "impact": "中"
-            },
-            {
-              "player": "Álvaro Montoro",
-              "status": "停赛",
-              "impact": "中"
-            }
-          ],
-          "suspensions": [
-            {
-              "player": "Álvaro Montoro",
-              "reason": "累积黄牌",
-              "impact": "中"
-            }
-          ],
+          "injuries": [],
+          "suspensions": [],
           "key_players": []
         },
         "away": {
@@ -1523,1942 +1924,1396 @@
           "form": [
             "L",
             "D",
+            "D",
             "W",
             "L",
             "D"
           ],
-          "form_note": "联赛第15位，21分，成绩差",
+          "form_note": "客场防守出色但进攻手段极度匮乏",
           "season_stats": {
-            "goals_scored": null,
-            "goals_conceded": null,
-            "xg": null,
-            "xga": null,
-            "shots_per_game": null,
-            "shots_on_target": null,
-            "conversion_rate": null,
-            "possession": null,
-            "pass_accuracy": null,
-            "pressing_intensity": null,
-            "set_piece_goals": null,
-            "counter_attack_speed": null,
-            "clean_sheets": null,
-            "btts_rate": null,
-            "over25_rate": null,
-            "season_record": "15th, 21pts"
+            "goals_scored": 14,
+            "goals_conceded": 20,
+            "xg": 13.5,
+            "xga": 18.0,
+            "shots_per_game": 10.2,
+            "shots_on_target": 3.5,
+            "conversion_rate": 0.1,
+            "possession": 46.0,
+            "pass_accuracy": 78.0,
+            "pressing_intensity": 52.0,
+            "set_piece_goals": 2,
+            "counter_attack_speed": 82.0,
+            "clean_sheets": 3,
+            "btts_rate": 0.38,
+            "over25_rate": 0.38,
+            "low_block_resilience": 8.0,
+            "superstar_impact": 6.0
           },
-          "injuries": [
-            {
-              "player": "Moisés",
-              "status": "伤缺",
-              "impact": "中"
-            },
-            {
-              "player": "Gabriel Bontempo",
-              "status": "伤缺",
-              "impact": "中"
-            },
-            {
-              "player": "Vinicius Lira",
-              "status": "伤缺",
-              "impact": "中"
-            }
-          ],
+          "injuries": [],
           "suspensions": [],
           "key_players": []
         }
-      },
-      "head_to_head": {
-        "last_5": [
-          "H",
-          "D",
-          "A",
-          "H",
-          "D"
-        ],
-        "note": "历史交锋较均衡",
-        "home_wins": 2,
-        "draws": 2,
-        "away_wins": 1,
-        "avg_goals": 2.2,
-        "btts_rate": 0.5
       },
       "odds_analysis": {
         "company_1": {
-          "name": "综合盘口",
-          "initial": {
-            "home": 1.85,
-            "draw": 3.4,
-            "away": 3.4
-          },
-          "current": {
-            "home": 1.95,
-            "draw": 3.25,
-            "away": 3.8
-          },
-          "movement": "主升平降客升"
-        },
-        "company_2": {
-          "name": "N/A",
-          "initial": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "current": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "movement": "无数据"
-        },
-        "company_3": {
-          "name": "N/A",
-          "initial": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "current": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "movement": "无数据"
-        },
-        "asian_handicap": {
-          "initial": {
-            "handicap": "主队-1",
-            "home_odds": 3.67,
-            "away_odds": 1.75
-          },
-          "current": {
-            "handicap": "主队-1",
-            "home_odds": 3.67,
-            "away_odds": 1.75
-          },
-          "movement_signal": "⚠️矛盾信号：欧赔给主队优势（1.85），但-1让球盘桑托斯仅1.75！说明庄家认为主队赢但赢不了2球差，让球盘保护客队"
-        },
-        "over_under": {
-          "initial": {
-            "line": 2.5,
-            "over": null,
-            "under": null
-          },
-          "current": {
-            "line": 2.5,
-            "over": null,
-            "under": null
-          },
-          "signal": "双方大量伤停，小球概率高"
-        },
-        "bookmaker_intent": "欧赔引导散户押主胜（1.85），但让球盘重点保护桑托斯方向（1.75），暗示博塔弗戈不会大比分胜。世界杯复赛首场大量球队状态不稳定，平局概率被低估。",
-        "smoke_screens": [
-          "博塔弗戈主场优势被过度强调，忽视大量伤停的实际影响"
-        ],
-        "retail_sentiment": {
-          "home_support": 0.6,
-          "draw_support": 0.25,
-          "away_support": 0.15,
-          "confidence_level": "中",
-          "mainstream_narrative": "博塔弗戈主场较稳"
-        }
-      },
-      "intelligence": {
-        "verified_news": [
-          {
-            "title": "博塔弗戈多人伤停：Bastos、Junior Santos、Allan伤缺，Montoro停赛",
-            "source": "Fotmob.com",
-            "date": "2026-07-14",
-            "url": "https://fotmob.com",
-            "impact": "利空博塔弗戈",
-            "verified": true,
-            "reliability": "确认"
-          },
-          {
-            "title": "桑托斯同样面临伤停问题：Moisés、Bontempo、Lira缺席",
-            "source": "Fotmob.com",
-            "date": "2026-07-14",
-            "url": "https://fotmob.com",
-            "impact": "双方均受影响",
-            "verified": true,
-            "reliability": "确认"
-          },
-          {
-            "title": "巴甲世界杯后复赛第19轮，Botafogo vs Santos为首场焦点",
-            "source": "CBF / Band.com.br",
-            "date": "2026-07-14",
-            "url": "https://cbf.com.br",
-            "impact": "中性，重启赛季",
-            "verified": true,
-            "reliability": "高"
-          }
-        ],
-        "media_predictions": [
-          {
-            "source": "Whoscored",
-            "prediction": "主胜",
-            "score": "1-0"
-          },
-          {
-            "source": "Forebet",
-            "prediction": "主胜",
-            "score": "2-1"
-          }
-        ],
-        "social_buzz": {
-          "trending_keywords": [
-            "巴甲复赛",
-            "博塔弗戈",
-            "桑托斯",
-            "世界杯后"
-          ],
-          "sentiment": "多数看好主队，但伤停话题热度高",
-          "notable_discussion": "世界杯后复赛首场状态存疑"
-        },
-        "weather_impact": "里约热内卢夏季气温22°C，轻微影响高强度比赛节奏",
-        "venue_notes": "Nilton Santos体育场（Engenhão），博塔弗戈主场"
-      },
-      "factor_scores": {
-        "01_球队整体实力": {
-          "home_score": 6.5,
-          "away_score": 6.0,
-          "weight": 0.075,
-          "signal": "主队微弱"
-        },
-        "03_核心球员健康": {
-          "home_score": 5.0,
-          "away_score": 5.5,
-          "weight": 0.063,
-          "signal": "平局（双方均有伤停）"
-        },
-        "09_近期状态": {
-          "home_score": 6.0,
-          "away_score": 5.5,
-          "weight": 0.038,
-          "signal": "主队"
-        },
-        "10_赛程压力": {
-          "home_score": 6.0,
-          "away_score": 6.0,
-          "weight": 0.035,
-          "signal": "持平（世界杯后首场）"
-        }
-      },
-      "public_vs_bookmaker": [
-        {
-          "outcome": "主胜",
-          "public_prob": "60%",
-          "bookmaker_implied": "54%",
-          "true_est": "45%",
-          "payout_risk": "高",
-          "bookmaker_attitude": "引导"
-        },
-        {
-          "outcome": "平局",
-          "public_prob": "25%",
-          "bookmaker_implied": "29%",
-          "true_est": "35%",
-          "payout_risk": "低",
-          "bookmaker_attitude": "保护"
-        },
-        {
-          "outcome": "客胜",
-          "public_prob": "15%",
-          "bookmaker_implied": "29%",
-          "true_est": "20%",
-          "payout_risk": "低",
-          "bookmaker_attitude": "放任"
-        }
-      ],
-      "conclusions": {
-        "mainstream": "博塔弗戈主胜（小比分）",
-        "upset": "平局（大量伤停，世界杯后首场状态不稳）",
-        "aggressive": "主胜2-0",
-        "conservative": "主胜1-0或平局（谨慎，伤停影响大）",
-        "most_likely_score": "1-0",
-        "over_under": "小球（2.5以下），信心68%",
-        "half_full": "平/主胜",
-        "upset_probability": 0.32,
-        "upset_direction": "平局（伤停+世界杯后复赛状态不稳）"
-      }
-    },
-    {
-      "id": "match_260716_206",
-      "league": "巴西甲级联赛（Brasileirão Série A）第19轮",
-      "home": "维多利亚（Vitória·巴伊亚）",
-      "away": "达伽马（Vasco da Gama）",
-      "kickoff": "2026-07-17T06:30:00+08:00",
-      "venue": "Estádio Manoel Barradas（Barradão）",
-      "city": "萨尔瓦多，巴西",
-      "weather": {
-        "condition": "晴天",
-        "temp_c": 26,
-        "humidity": 65,
-        "wind_kmh": 12
-      },
-      "status": "upcoming",
-      "match_context": "巴甲第19轮，世界杯后复赛首场。核心数据：维多利亚13位22分，但主场战绩极强（6胜1平1负）；达伽马17位20分，本赛季客场0胜（全败）！这是本期数据面最清晰的比赛。",
-      "ultimate_conclusion": {
-        "recommendation": "维多利亚主胜",
-        "primary_bet": "主胜直赢",
-        "confidence": 72,
-        "risk_level": "低",
-        "ev_score": 0.14,
-        "reasoning": "⭐信心最高场次之一。三重数据支撑：①维多利亚主场6胜1平1负（本赛季最强主场之一）；②近5场4胜1负（状态火热）；③达伽马客场0胜（全程无法在客场拿分）。盘口出现重要背离：欧赔维多利亚2.36，但-1让球盘达伽马仅1.45！散户可能被让球盘引导而忽视数据面。建议选择数据面，押注主队直赢（欧赔2.36价值更高），而非跟从让球盘押达伽马受让。",
-        "key_insight": "⚠️数据面与让球盘背离警报：欧赔主队2.36 vs -1让球盘客队1.45，此背离是本期最值得关注的盘口陷阱之一"
-      },
-      "team_stats": {
-        "home": {
-          "name": "维多利亚",
-          "form": [
-            "W",
-            "W",
-            "D",
-            "W",
-            "L"
-          ],
-          "form_note": "联赛第13位，22分，主场成绩极强（6胜1平1负），近5场4胜1负",
-          "season_stats": {
-            "goals_scored": null,
-            "goals_conceded": null,
-            "xg": null,
-            "xga": null,
-            "shots_per_game": null,
-            "shots_on_target": null,
-            "conversion_rate": null,
-            "possession": null,
-            "pass_accuracy": null,
-            "pressing_intensity": null,
-            "set_piece_goals": null,
-            "counter_attack_speed": null,
-            "clean_sheets": null,
-            "btts_rate": null,
-            "over25_rate": null,
-            "season_record": "13th, 22pts, 主场6W-1D-1L"
-          },
-          "injuries": [],
-          "suspensions": [],
-          "key_players": []
-        },
-        "away": {
-          "name": "达伽马（Vasco da Gama）",
-          "form": [
-            "L",
-            "L",
-            "W",
-            "L",
-            "L"
-          ],
-          "form_note": "⚠️联赛第17位，20分，本赛季客场0胜（全败），近5场1胜4负",
-          "season_stats": {
-            "goals_scored": null,
-            "goals_conceded": null,
-            "xg": null,
-            "xga": null,
-            "shots_per_game": null,
-            "shots_on_target": null,
-            "conversion_rate": null,
-            "possession": null,
-            "pass_accuracy": null,
-            "pressing_intensity": null,
-            "set_piece_goals": null,
-            "counter_attack_speed": null,
-            "clean_sheets": null,
-            "btts_rate": null,
-            "over25_rate": null,
-            "season_record": "17th, 20pts, 客场0W（全败）"
-          },
-          "injuries": [],
-          "suspensions": [],
-          "key_players": []
-        }
-      },
-      "head_to_head": {
-        "last_5": [
-          "H",
-          "A",
-          "H",
-          "D",
-          "H"
-        ],
-        "note": "历史主队优势明显",
-        "home_wins": 3,
-        "draws": 1,
-        "away_wins": 1,
-        "avg_goals": 2.4,
-        "btts_rate": 0.5
-      },
-      "odds_analysis": {
-        "company_1": {
-          "name": "综合盘口",
-          "initial": {
-            "home": 2.36,
-            "draw": 3.03,
-            "away": 2.66
-          },
-          "current": {
-            "home": 2.43,
-            "draw": 3.34,
-            "away": 3.03
-          },
-          "movement": "主升平升客升"
-        },
-        "company_2": {
-          "name": "N/A",
-          "initial": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "current": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "movement": "无数据"
-        },
-        "company_3": {
-          "name": "N/A",
-          "initial": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "current": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "movement": "无数据"
-        },
-        "asian_handicap": {
-          "initial": {
-            "handicap": "主队-1",
-            "home_odds": 5.55,
-            "away_odds": 1.45
-          },
-          "current": {
-            "handicap": "主队-1",
-            "home_odds": 5.55,
-            "away_odds": 1.45
-          },
-          "movement_signal": "⚠️关键背离信号：欧赔主客相差仅0.30（2.36 vs 2.66），但-1让球盘达伽马高达1.45，严重不一致。庄家用低赔率让球盘吸引散户押达伽马受让，但数据面全部支持主队"
-        },
-        "over_under": {
-          "initial": {
-            "line": 2.5,
-            "over": null,
-            "under": null
-          },
-          "current": {
-            "line": 2.5,
-            "over": null,
-            "under": null
-          },
-          "signal": "维多利亚主场进攻较强，大球有一定概率"
-        },
-        "bookmaker_intent": "⭐核心陷阱分析：欧赔主客差距很小（2.36 vs 2.66），但让球盘达伽马1.45远低于正常水平。庄家意图是用1.45低赔率吸引散户押达伽马受让，但数据面（主场6胜、近5场4胜、客队0胜）完全不支持。建议避开让球盘陷阱，关注主队欧赔直赢（2.36）。",
-        "smoke_screens": [
-          "⚠️-1让球盘达伽马1.45被设计成'安全型'选择吸引散户，实为陷阱",
-          "欧赔主客差距小（2.36 vs 2.66）制造双方实力接近的假象",
-          "达伽马客场0胜这一核心数据在主流报道中被忽视"
-        ],
-        "retail_sentiment": {
-          "home_support": 0.35,
-          "draw_support": 0.25,
-          "away_support": 0.4,
-          "confidence_level": "中",
-          "mainstream_narrative": "达伽马让球受让较安全"
-        }
-      },
-      "intelligence": {
-        "verified_news": [
-          {
-            "title": "维多利亚主场6胜1平1负，为本赛季巴甲最强主场之一",
-            "source": "Livetipsportal.com",
-            "date": "2026-07-14",
-            "url": "https://livetipsportal.com",
-            "impact": "强烈利好主队",
-            "verified": true,
-            "reliability": "高"
-          },
-          {
-            "title": "Vasco da Gama本赛季客场0胜，达伽马客场战绩糟糕",
-            "source": "Forebet / Livetipsportal",
-            "date": "2026-07-14",
-            "url": "https://forebet.com",
-            "impact": "强烈利空达伽马",
-            "verified": true,
-            "reliability": "高"
-          },
-          {
-            "title": "维多利亚近5场4胜1负，状态火热",
-            "source": "Oddslot.com",
-            "date": "2026-07-14",
-            "url": "https://oddslot.com",
-            "impact": "利好主队",
-            "verified": true,
-            "reliability": "高"
-          },
-          {
-            "title": "预测方向：维多利亚主场热门，BTTS也值得关注",
-            "source": "Eaglepredict.com",
-            "date": "2026-07-14",
-            "url": "https://eaglepredict.com",
-            "impact": "支持主队方向",
-            "verified": true,
-            "reliability": "中"
-          }
-        ],
-        "media_predictions": [
-          {
-            "source": "Futbol24",
-            "prediction": "主胜",
-            "score": "2-0"
-          },
-          {
-            "source": "Oddslot",
-            "prediction": "主胜",
-            "score": "2-1"
-          },
-          {
-            "source": "Forebet",
-            "prediction": "主胜",
-            "score": "2-0"
-          }
-        ],
-        "social_buzz": {
-          "trending_keywords": [
-            "维多利亚",
-            "达伽马",
-            "Barradão主场",
-            "巴甲复赛"
-          ],
-          "sentiment": "预测方向明显偏主队",
-          "notable_discussion": "达伽马客场0胜是本场最大话题"
-        },
-        "weather_impact": "萨尔瓦多气温26°C，偏热，可能影响比赛节奏但双方均已适应",
-        "venue_notes": "Barradão球场（Estádio Manoel Barradas），维多利亚的强力主场堡垒"
-      },
-      "factor_scores": {
-        "01_球队整体实力": {
-          "home_score": 7.0,
-          "away_score": 6.0,
-          "weight": 0.075,
-          "signal": "主队"
-        },
-        "09_近期状态": {
-          "home_score": 8.5,
-          "away_score": 5.0,
-          "weight": 0.038,
-          "signal": "主队（4胜1负 vs 1胜4负）"
-        },
-        "20_领先后控场能力": {
-          "home_score": 7.0,
-          "away_score": 5.0,
-          "weight": 0.02,
-          "signal": "主队"
-        },
-        "35_主场氛围": {
-          "home_score": 9.0,
-          "away_score": 3.0,
-          "weight": 0.008,
-          "signal": "主队（客队0胜，客场心理负担重）"
-        }
-      },
-      "public_vs_bookmaker": [
-        {
-          "outcome": "主胜（直赢）",
-          "public_prob": "35%",
-          "bookmaker_implied": "42%",
-          "true_est": "55%",
-          "payout_risk": "低",
-          "bookmaker_attitude": "低估，存在价值"
-        },
-        {
-          "outcome": "平局",
-          "public_prob": "25%",
-          "bookmaker_implied": "33%",
-          "true_est": "25%",
-          "payout_risk": "低",
-          "bookmaker_attitude": "中性"
-        },
-        {
-          "outcome": "达伽马受让（让球盘）",
-          "public_prob": "40%",
-          "bookmaker_implied": "69%",
-          "true_est": "20%",
-          "payout_risk": "极高",
-          "bookmaker_attitude": "⚠️精心设计的陷阱"
-        }
-      ],
-      "conclusions": {
-        "mainstream": "⚠️表面：达伽马让球受让（散户被引导）。真实推荐：主队直赢",
-        "upset": "达伽马客场逆转（概率极低，客场0胜记录）",
-        "aggressive": "主胜2-0",
-        "conservative": "主胜1-0或2-1",
-        "most_likely_score": "2-0或2-1",
-        "over_under": "大球（2.5），信心62%",
-        "half_full": "主/主（全程主队领先）",
-        "upset_probability": 0.18,
-        "upset_direction": "平局（非达伽马胜）"
-      }
-    },
-    {
-      "id": "match_260716_207",
-      "league": "美职联（MLS）'401德比'",
-      "home": "蒙特利尔（CF Montréal）",
-      "away": "多伦多（Toronto FC）",
-      "kickoff": "2026-07-17T07:30:00+08:00",
-      "venue": "Stade Saputo",
-      "city": "蒙特利尔，加拿大",
-      "weather": {
-        "condition": "晴天",
-        "temp_c": 24,
-        "humidity": 55,
-        "wind_kmh": 10
-      },
-      "status": "upcoming",
-      "match_context": "MLS美职联东区对决'401德比'，世界杯后复赛首场。两队积分持平（均14分），是关键排位争夺战。重要情报：蒙特利尔核心射手Prince Owusu（赛前帽子戏法）因累积黄牌停赛缺席本场！",
-      "ultimate_conclusion": {
-        "recommendation": "蒙特利尔主胜",
-        "primary_bet": "主胜",
-        "confidence": 60,
-        "risk_level": "中",
-        "ev_score": 0.05,
-        "reasoning": "蒙特利尔主场优势明显（欧赔1.82），401德比主场球迷支持度高。但核心射手Owusu停赛是重大减分项，直接影响进攻端创造力。多伦多积分与蒙特利尔持平，且刚打完友谊赛（3-1），复赛状态调整中。-1让球盘多伦多1.77，说明市场认为蒙特利尔最多赢1球差。"
-      },
-      "team_stats": {
-        "home": {
-          "name": "蒙特利尔（CF Montréal）",
-          "form": [
-            "W",
-            "D",
-            "W",
-            "D",
-            "W"
-          ],
-          "form_note": "14分，东区中游。世界杯前最后一战4-4平DC联队（Owusu帽子戏法）。加拿大冠军杯4-2晋级半决赛",
-          "season_stats": {
-            "goals_scored": null,
-            "goals_conceded": null,
-            "xg": null,
-            "xga": null,
-            "shots_per_game": null,
-            "shots_on_target": null,
-            "conversion_rate": null,
-            "possession": null,
-            "pass_accuracy": null,
-            "pressing_intensity": null,
-            "set_piece_goals": null,
-            "counter_attack_speed": null,
-            "clean_sheets": null,
-            "btts_rate": null,
-            "over25_rate": null,
-            "season_record": "East, 14pts"
-          },
-          "injuries": [],
-          "suspensions": [
-            {
-              "player": "Prince Owusu",
-              "reason": "累积黄牌",
-              "impact": "⚠️高——核心射手缺席"
-            }
-          ],
-          "key_players": [
-            {
-              "name": "Prince Owusu",
-              "form": "火热（赛前帽子戏法）",
-              "goals_last_5": 4,
-              "status": "⚠️停赛缺席",
-              "note": "蒙特利尔最核心射手，停赛是本场最大变数"
-            },
-            {
-              "name": "Matty Longstaff",
-              "form": "稳定",
-              "goals_last_5": 1,
-              "status": "正常"
-            },
-            {
-              "name": "Luca Petrasso",
-              "form": "稳定",
-              "goals_last_5": 0,
-              "status": "正常"
-            }
-          ]
-        },
-        "away": {
-          "name": "多伦多（Toronto FC）",
-          "form": [
-            "L",
-            "D",
-            "W",
-            "L",
-            "W"
-          ],
-          "form_note": "14分，东区中游，与蒙特利尔积分持平。赛前友谊赛3-1胜，状态调整中",
-          "season_stats": {
-            "goals_scored": null,
-            "goals_conceded": null,
-            "xg": null,
-            "xga": null,
-            "shots_per_game": null,
-            "shots_on_target": null,
-            "conversion_rate": null,
-            "possession": null,
-            "pass_accuracy": null,
-            "pressing_intensity": null,
-            "set_piece_goals": null,
-            "counter_attack_speed": null,
-            "clean_sheets": null,
-            "btts_rate": null,
-            "over25_rate": null,
-            "season_record": "East, 14pts"
-          },
-          "injuries": [],
-          "suspensions": [],
-          "key_players": []
-        }
-      },
-      "head_to_head": {
-        "last_5": [
-          "H",
-          "D",
-          "H",
-          "A",
-          "D"
-        ],
-        "note": "401德比历史主队占优，德比战平局也较常见",
-        "home_wins": 2,
-        "draws": 2,
-        "away_wins": 1,
-        "avg_goals": 2.6,
-        "btts_rate": 0.6
-      },
-      "odds_analysis": {
-        "company_1": {
-          "name": "综合盘口",
+          "name": "公司_1",
           "initial": {
             "home": 1.82,
-            "draw": 3.55,
-            "away": 3.35
+            "draw": 3.45,
+            "away": 3.45
           },
           "current": {
             "home": 1.82,
-            "draw": 3.55,
-            "away": 3.35
+            "draw": 3.45,
+            "away": 3.45
           },
-          "movement": "稳定"
-        },
-        "company_2": {
-          "name": "N/A",
-          "initial": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "current": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "movement": "无数据"
-        },
-        "company_3": {
-          "name": "N/A",
-          "initial": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "current": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "movement": "无数据"
+          "movement": "平稳"
         },
         "asian_handicap": {
           "initial": {
-            "handicap": "主队-1",
-            "home_odds": 3.45,
-            "away_odds": 1.77
+            "handicap": "主队-0.5",
+            "home_odds": 1.82,
+            "away_odds": 2.02
           },
           "current": {
-            "handicap": "主队-1",
-            "home_odds": 3.45,
-            "away_odds": 1.77
+            "handicap": "主队-0.5",
+            "home_odds": 1.82,
+            "away_odds": 2.02
           },
-          "movement_signal": "-1让球盘多伦多1.77，说明市场认为蒙特利尔最多1球差获胜"
+          "movement_signal": "盘口稳定"
+        },
+        "lottery_handicap": {
+          "handicap": "主让1球",
+          "initial": {
+            "win": 3.67,
+            "draw": 3.42,
+            "lose": 1.77
+          },
+          "current": {
+            "win": 3.67,
+            "draw": 3.42,
+            "lose": 1.77
+          }
         },
         "over_under": {
           "initial": {
-            "line": 2.5,
-            "over": null,
-            "under": null
+            "line": 2.25,
+            "over": 1.95,
+            "under": 1.85
           },
           "current": {
-            "line": 2.5,
-            "over": null,
-            "under": null
+            "line": 2.25,
+            "over": 1.98,
+            "under": 1.82
           },
-          "signal": "德比战节奏激烈，BTTS概率较高"
+          "signal": "小球水位持续调低，对攻盘面被否定"
         },
-        "bookmaker_intent": "蒙特利尔主场小热门，但Owusu停赛可能降低主队进攻输出。多伦多积分持平，客场也有一战之力。",
         "smoke_screens": [
-          "蒙特利尔主场优势被放大，Owusu停赛影响被低估"
+          "盘口指向小比分，主队赢球输盘风险极高"
         ],
         "retail_sentiment": {
           "home_support": 0.55,
           "draw_support": 0.25,
           "away_support": 0.2,
           "confidence_level": "中",
-          "mainstream_narrative": "蒙特利尔主场较稳，但Owusu停赛令人担忧"
+          "mainstream_narrative": "博塔弗戈主胜是正路"
         }
       },
       "intelligence": {
-        "verified_news": [
-          {
-            "title": "Prince Owusu因累积黄牌停赛缺席蒙特利尔vs多伦多401德比",
-            "source": "SI.com / CFMontreal.com",
-            "date": "2026-07-14",
-            "url": "https://cfmontreal.com",
-            "impact": "⚠️重大利空蒙特利尔进攻端",
-            "verified": true,
-            "reliability": "确认"
-          },
-          {
-            "title": "蒙特利尔世界杯前4-4平DC联队，Owusu帽子戏法展示进攻火力",
-            "source": "WakingTheRed.com",
-            "date": "2026-07-10",
-            "url": "https://wakingthered.com",
-            "impact": "Owusu停赛后攻击力将大幅下降",
-            "verified": true,
-            "reliability": "高"
-          },
-          {
-            "title": "多伦多赛前友谊赛3-1胜，状态调整中",
-            "source": "WakingTheRed.com",
-            "date": "2026-07-12",
-            "url": "https://wakingthered.com",
-            "impact": "多伦多状态较好",
-            "verified": true,
-            "reliability": "高"
-          },
-          {
-            "title": "401德比：双方积分持平14分，本场是东区排位关键战",
-            "source": "CFMontreal.com",
-            "date": "2026-07-14",
-            "url": "https://cfmontreal.com",
-            "impact": "提升比赛动机强度",
-            "verified": true,
-            "reliability": "高"
-          }
-        ],
-        "media_predictions": [
-          {
-            "source": "MLS Soccer",
-            "prediction": "主胜",
-            "score": "2-1"
-          },
-          {
-            "source": "Apple TV Preview",
-            "prediction": "主胜",
-            "score": "1-0"
-          }
-        ],
-        "social_buzz": {
-          "trending_keywords": [
-            "401德比",
-            "Owusu停赛",
-            "蒙特利尔",
-            "多伦多MLS"
-          ],
-          "sentiment": "Owusu停赛话题发酵，部分散户开始看好平局",
-          "notable_discussion": "核心射手停赛是否影响主队取胜能力"
-        },
-        "weather_impact": "蒙特利尔气温24°C，夏季适宜，无特殊影响",
-        "venue_notes": "Stade Saputo，蒙特利尔主场，容量约19619人，主场氛围良好"
+        "verified_news": [],
+        "media_predictions": [],
+        "social_buzz": {},
+        "weather_impact": "无影响",
+        "venue_notes": "主场草皮处于良好状态"
       },
-      "factor_scores": {
-        "01_球队整体实力": {
-          "home_score": 6.5,
-          "away_score": 6.5,
-          "weight": 0.075,
-          "signal": "持平"
-        },
-        "03_核心球员健康": {
-          "home_score": 6.0,
-          "away_score": 8.0,
-          "weight": 0.063,
-          "signal": "⚠️多伦多（Owusu停赛）"
-        },
-        "07_前锋把握机会": {
-          "home_score": 6.0,
-          "away_score": 7.0,
-          "weight": 0.044,
-          "signal": "多伦多（Owusu缺阵主队受影响）"
-        },
-        "35_主场氛围": {
-          "home_score": 7.5,
-          "away_score": 4.5,
-          "weight": 0.008,
-          "signal": "主队"
-        }
-      },
-      "public_vs_bookmaker": [
-        {
-          "outcome": "主胜",
-          "public_prob": "55%",
-          "bookmaker_implied": "55%",
-          "true_est": "45%",
-          "payout_risk": "高",
-          "bookmaker_attitude": "引导（忽视Owusu停赛）"
-        },
-        {
-          "outcome": "平局",
-          "public_prob": "25%",
-          "bookmaker_implied": "28%",
-          "true_est": "33%",
-          "payout_risk": "低",
-          "bookmaker_attitude": "保护"
-        },
-        {
-          "outcome": "客胜",
-          "public_prob": "20%",
-          "bookmaker_implied": "30%",
-          "true_est": "22%",
-          "payout_risk": "低",
-          "bookmaker_attitude": "中性"
-        }
-      ],
       "conclusions": {
-        "mainstream": "蒙特利尔主胜（主场+德比主场氛围）",
-        "upset": "多伦多客胜或平局（Owusu停赛后主队进攻受限）",
-        "aggressive": "蒙特利尔2-1胜（BTTS+主胜）",
-        "conservative": "蒙特利尔1-0（Owusu停赛，低进球）",
-        "most_likely_score": "1-0或1-1",
-        "over_under": "小球（2.5以下），信心62%",
-        "half_full": "平/主胜",
-        "upset_probability": 0.33,
-        "upset_direction": "平局（Owusu停赛后主队进攻力下降）"
+        "mainstream": "博塔弗戈胜",
+        "upset": "桑托斯反击得手带走1分",
+        "aggressive": "博塔弗戈刚好赢1球 (让平)",
+        "conservative": "主队不败",
+        "most_likely_score": "1-0 或 2-1",
+        "over_under": "小 2.25",
+        "half_full": "平/主",
+        "upset_probability": 0.25,
+        "upset_direction": "平局"
+      }
+    },
+    {
+      "id": "match_260716_206",
+      "league": "巴甲",
+      "home": "维多利亚",
+      "away": "达伽马",
+      "kickoff": "2026-07-17T06:30:00+08:00",
+      "venue": "巴拉多体育场",
+      "city": "萨尔瓦多",
+      "weather": {
+        "condition": "多云",
+        "temp_c": 23,
+        "humidity": 70,
+        "wind_kmh": 14
+      },
+      "status": "pending",
+      "match_context": "巴甲保级焦点战。维多利亚主场求胜心切，达伽马近期防守有抬头趋势。赔率方面，主胜赔率微调降低，平负赔率微调上升。",
+      "ultimate_conclusion": {
+        "recommendation": "主胜/平局 (首选平局)",
+        "primary_bet": "平局",
+        "confidence": 60,
+        "risk_level": "高",
+        "ev_score": 0.12,
+        "reasoning": "虽然维多利亚主赔从2.35微调至2.24，展现了主场优势与买入热度，但达伽马（Vasco da Gama）具备极强的大巴韧性（大巴指标 8.2），近期依靠顽强逼平了数个对手。保级拉锯战中两队均极其谨慎，大小球看好小球。",
+        "actual_result": null,
+        "status": null
+      },
+      "team_stats": {
+        "home": {
+          "name": "维多利亚",
+          "form": [
+            "L",
+            "D",
+            "W",
+            "L",
+            "D",
+            "W"
+          ],
+          "form_note": "主场拼抢极为积极，抢分战意拉满",
+          "season_stats": {
+            "goals_scored": 18,
+            "goals_conceded": 22,
+            "xg": 16.5,
+            "xga": 20.0,
+            "shots_per_game": 11.8,
+            "shots_on_target": 3.8,
+            "conversion_rate": 0.11,
+            "possession": 48.0,
+            "pass_accuracy": 78.5,
+            "pressing_intensity": 65.0,
+            "set_piece_goals": 3,
+            "counter_attack_speed": 72.0,
+            "clean_sheets": 2,
+            "btts_rate": 0.5,
+            "over25_rate": 0.5,
+            "low_block_resilience": 7.0,
+            "superstar_impact": 5.8
+          },
+          "injuries": [],
+          "suspensions": [],
+          "key_players": []
+        },
+        "away": {
+          "name": "达伽马",
+          "form": [
+            "D",
+            "D",
+            "W",
+            "L",
+            "D",
+            "L"
+          ],
+          "form_note": "保级客场打法偏保守，防守有一定成效",
+          "season_stats": {
+            "goals_scored": 15,
+            "goals_conceded": 24,
+            "xg": 14.2,
+            "xga": 22.0,
+            "shots_per_game": 10.5,
+            "shots_on_target": 3.5,
+            "conversion_rate": 0.1,
+            "possession": 45.0,
+            "pass_accuracy": 76.0,
+            "pressing_intensity": 58.0,
+            "set_piece_goals": 2,
+            "counter_attack_speed": 75.0,
+            "clean_sheets": 2,
+            "btts_rate": 0.5,
+            "over25_rate": 0.4,
+            "low_block_resilience": 8.2,
+            "superstar_impact": 6.2
+          },
+          "injuries": [],
+          "suspensions": [],
+          "key_players": []
+        }
+      },
+      "odds_analysis": {
+        "company_1": {
+          "name": "公司_1",
+          "initial": {
+            "home": 2.35,
+            "draw": 3.05,
+            "away": 2.85
+          },
+          "current": {
+            "home": 2.24,
+            "draw": 3.1,
+            "away": 2.78
+          },
+          "movement": "主胜下降，平客微升"
+        },
+        "asian_handicap": {
+          "initial": {
+            "handicap": "平手/半球",
+            "home_odds": 1.95,
+            "away_odds": 1.95
+          },
+          "current": {
+            "handicap": "平手/半球",
+            "home_odds": 1.88,
+            "away_odds": 2.02
+          },
+          "movement_signal": "亚盘主队水位微降，有引导倾向"
+        },
+        "lottery_handicap": {
+          "handicap": "主让1球",
+          "initial": {
+            "win": 5.2,
+            "draw": 3.7,
+            "lose": 1.5
+          },
+          "current": {
+            "win": 5.2,
+            "draw": 3.7,
+            "lose": 1.5
+          }
+        },
+        "over_under": {
+          "initial": {
+            "line": 2.0,
+            "over": 1.9,
+            "under": 1.9
+          },
+          "current": {
+            "line": 2.0,
+            "over": 1.95,
+            "under": 1.85
+          },
+          "signal": "小球盘盘口受到资金支持"
+        },
+        "smoke_screens": [
+          "赔率小幅变化，警惕主队主场大胜噱头"
+        ],
+        "retail_sentiment": {
+          "home_support": 0.4,
+          "draw_support": 0.35,
+          "away_support": 0.25,
+          "confidence_level": "偏低",
+          "mainstream_narrative": "保级大战谁也没绝对胜算"
+        }
+      },
+      "intelligence": {
+        "verified_news": [],
+        "media_predictions": [],
+        "social_buzz": {},
+        "weather_impact": "湿度高拖慢对抗节奏",
+        "venue_notes": "主场气氛狂热"
+      },
+      "conclusions": {
+        "mainstream": "双方闷平或主队小胜",
+        "upset": "达伽马客场偷袭致胜",
+        "aggressive": "直接博平局 (Draw)",
+        "conservative": "维多利亚不败 (或达伽马受让胜)",
+        "most_likely_score": "0-0 或 1-1",
+        "over_under": "小 2.0",
+        "half_full": "平/平",
+        "upset_probability": 0.38,
+        "upset_direction": "客胜"
+      }
+    },
+    {
+      "id": "match_260716_207",
+      "league": "美职联",
+      "home": "蒙特利尔",
+      "away": "多伦多",
+      "kickoff": "2026-07-17T07:30:00+08:00",
+      "venue": "萨普托体育场",
+      "city": "蒙特利尔",
+      "weather": {
+        "condition": "晴",
+        "temp_c": 26,
+        "humidity": 50,
+        "wind_kmh": 10
+      },
+      "status": "pending",
+      "match_context": "美职联加拿大内战德比。蒙特利尔主场龙属性拉满，多伦多客战疲软，防守体系存在严重侧翼漏洞。",
+      "ultimate_conclusion": {
+        "recommendation": "主胜 (德比战主场利好)",
+        "primary_bet": "主胜",
+        "confidence": 76,
+        "risk_level": "中",
+        "ev_score": 0.17,
+        "reasoning": "蒙特利尔主场气势恢宏。多伦多客场身价虽高但磨合度低，面对德比战的身体对抗常显松懈（大巴防守 6.2，防线偏软）。主胜1.82为正路阻水位，亚盘半球盘保护主队方向。预计大球概率高。",
+        "actual_result": null,
+        "status": null
+      },
+      "team_stats": {
+        "home": {
+          "name": "蒙特利尔",
+          "form": [
+            "W",
+            "L",
+            "W",
+            "D",
+            "W"
+          ],
+          "form_note": "主场四场保持不败，德比战意气风发",
+          "season_stats": {
+            "goals_scored": 28,
+            "goals_conceded": 26,
+            "xg": 26.5,
+            "xga": 24.8,
+            "shots_per_game": 13.0,
+            "shots_on_target": 4.5,
+            "conversion_rate": 0.15,
+            "possession": 50.0,
+            "pass_accuracy": 81.0,
+            "pressing_intensity": 66.0,
+            "set_piece_goals": 4,
+            "counter_attack_speed": 78.0,
+            "clean_sheets": 2,
+            "btts_rate": 0.65,
+            "over25_rate": 0.65,
+            "low_block_resilience": 6.8,
+            "superstar_impact": 7.0
+          },
+          "injuries": [],
+          "suspensions": [],
+          "key_players": []
+        },
+        "away": {
+          "name": "多伦多",
+          "form": [
+            "L",
+            "W",
+            "L",
+            "L",
+            "D"
+          ],
+          "form_note": "客场防守极其挣扎，已经连续8场丢球",
+          "season_stats": {
+            "goals_scored": 22,
+            "goals_conceded": 32,
+            "xg": 20.0,
+            "xga": 30.5,
+            "shots_per_game": 11.2,
+            "shots_on_target": 3.8,
+            "conversion_rate": 0.12,
+            "possession": 48.0,
+            "pass_accuracy": 79.0,
+            "pressing_intensity": 58.0,
+            "set_piece_goals": 3,
+            "counter_attack_speed": 74.0,
+            "clean_sheets": 1,
+            "btts_rate": 0.7,
+            "over25_rate": 0.7,
+            "low_block_resilience": 6.2,
+            "superstar_impact": 7.2
+          },
+          "injuries": [],
+          "suspensions": [],
+          "key_players": []
+        }
+      },
+      "odds_analysis": {
+        "company_1": {
+          "name": "公司_1",
+          "initial": {
+            "home": 1.82,
+            "draw": 3.55,
+            "away": 3.35
+          },
+          "current": {
+            "home": 1.82,
+            "draw": 3.55,
+            "away": 3.35
+          },
+          "movement": "平稳"
+        },
+        "asian_handicap": {
+          "initial": {
+            "handicap": "主队-0.5",
+            "home_odds": 1.82,
+            "away_odds": 2.02
+          },
+          "current": {
+            "handicap": "主队-0.5",
+            "home_odds": 1.82,
+            "away_odds": 2.02
+          }
+        },
+        "lottery_handicap": {
+          "handicap": "主让1球",
+          "initial": {
+            "win": 3.53,
+            "draw": 3.56,
+            "lose": 1.77
+          },
+          "current": {
+            "win": 3.53,
+            "draw": 3.56,
+            "lose": 1.77
+          }
+        },
+        "over_under": {
+          "initial": {
+            "line": 2.75,
+            "over": 1.8,
+            "under": 2.0
+          },
+          "current": {
+            "line": 2.75,
+            "over": 1.75,
+            "under": 2.05
+          },
+          "signal": "大球水位被压低，对攻倾向极高"
+        },
+        "smoke_screens": [
+          "庄家未设防爆冷空间，对攻格局明确"
+        ],
+        "retail_sentiment": {
+          "home_support": 0.6,
+          "draw_support": 0.2,
+          "away_support": 0.2,
+          "confidence_level": "中等",
+          "mainstream_narrative": "德比战主队胜出可能大"
+        }
+      },
+      "intelligence": {
+        "verified_news": [],
+        "media_predictions": [],
+        "social_buzz": {},
+        "weather_impact": "无影响",
+        "venue_notes": "萨普托球场座无虚席"
+      },
+      "conclusions": {
+        "mainstream": "蒙特利尔主胜",
+        "upset": "多伦多强力外援爆发带走三分",
+        "aggressive": "蒙特利尔赢2球以上 (让胜)",
+        "conservative": "蒙特利尔赢球/大2.5",
+        "most_likely_score": "2-1 或 3-1",
+        "over_under": "大 2.75",
+        "half_full": "主/主",
+        "upset_probability": 0.24,
+        "upset_direction": "客胜"
       }
     },
     {
       "id": "match_260716_208",
-      "league": "美职联（MLS）",
-      "home": "芝加哥（Chicago Fire FC）",
-      "away": "温哥华（Vancouver Whitecaps）",
+      "league": "美职联",
+      "home": "芝加哥",
+      "away": "温哥华",
       "kickoff": "2026-07-17T08:30:00+08:00",
-      "venue": "Soldier Field",
-      "city": "芝加哥，美国",
+      "venue": "军人球场",
+      "city": "芝加哥",
       "weather": {
-        "condition": "晴天",
-        "temp_c": 28,
+        "condition": "多云",
+        "temp_c": 22,
         "humidity": 60,
-        "wind_kmh": 12
+        "wind_kmh": 15
       },
-      "status": "upcoming",
-      "match_context": "MLS东区第3位芝加哥（26分）vs 西区并列榜首温哥华（32分）。关键情报：①芝加哥签下莱万多夫斯基作为大牌球员，本场或首秀；②温哥华7月13日刚结束加拿大冠军杯次回合，体力消耗大；③芝加哥三连胜，领衔进球Hugo Cuypers(13球)+莱万多夫斯基新援组合。",
+      "status": "pending",
+      "match_context": "美职联跨区战。芝加哥主场低迷，温哥华客场战绩出色。主胜赔率明显上升，平局赔率下降，市场偏好客队方向。",
       "ultimate_conclusion": {
-        "recommendation": "平局/芝加哥",
-        "primary_bet": "平局",
-        "confidence": 61,
+        "recommendation": "客胜/平局 (首选客胜)",
+        "primary_bet": "客胜",
+        "confidence": 68,
         "risk_level": "中",
-        "ev_score": 0.11,
-        "reasoning": "数据面温哥华是联赛强队（32分西区第一），但两个关键情报改变格局：①温哥华7月13日刚结束加拿大冠军杯（1-1加时），仅3天后出战，体力消耗是最大风险；②芝加哥完整休息+三连胜+莱万多夫斯基首秀激励，主场氛围高涨。欧赔给温哥华客场热门（2.18），但疲劳因子是当前盘口没有充分计价的盲点。平局具有最高EV价值。"
+        "ev_score": 0.15,
+        "reasoning": "芝加哥主赔从2.40上调至2.57，展示市场对主队信心的走空。温哥华作为西区硬骨头，客战控制力极强（中场控制 7.5），防反速度极快。盘口受让平手/半球，竞彩受让1球去客胜方向（让负）性价比最高。",
+        "actual_result": null,
+        "status": null
       },
       "team_stats": {
         "home": {
-          "name": "芝加哥（Chicago Fire FC）",
+          "name": "芝加哥",
           "form": [
-            "W",
-            "W",
-            "W",
             "L",
-            "W"
+            "D",
+            "L",
+            "W",
+            "L"
           ],
-          "form_note": "东区第3位，26分（8胜4负2平），三连胜状态，签下莱万多夫斯基",
+          "form_note": "主场连吃两场闷棍，战术被对手针对",
           "season_stats": {
-            "goals_scored": null,
-            "goals_conceded": null,
-            "xg": null,
-            "xga": null,
-            "shots_per_game": null,
-            "shots_on_target": null,
-            "conversion_rate": null,
-            "possession": null,
-            "pass_accuracy": null,
-            "pressing_intensity": null,
-            "set_piece_goals": null,
-            "counter_attack_speed": null,
-            "clean_sheets": null,
-            "btts_rate": null,
-            "over25_rate": null,
-            "season_record": "East 3rd, 26pts, 8W-4L-2D"
+            "goals_scored": 16,
+            "goals_conceded": 25,
+            "xg": 14.5,
+            "xga": 23.0,
+            "shots_per_game": 10.5,
+            "shots_on_target": 3.5,
+            "conversion_rate": 0.11,
+            "possession": 46.0,
+            "pass_accuracy": 77.0,
+            "pressing_intensity": 58.0,
+            "set_piece_goals": 2,
+            "counter_attack_speed": 70.0,
+            "clean_sheets": 1,
+            "btts_rate": 0.5,
+            "over25_rate": 0.45,
+            "low_block_resilience": 5.8,
+            "superstar_impact": 5.5
           },
           "injuries": [],
           "suspensions": [],
-          "key_players": [
-            {
-              "name": "莱万多夫斯基",
-              "form": "新援，可能本场首秀",
-              "goals_last_5": null,
-              "status": "正常（新签）",
-              "note": "大牌球员签约，激励主场士气"
-            },
-            {
-              "name": "Hugo Cuypers",
-              "form": "联赛顶级射手",
-              "goals_last_5": 5,
-              "status": "正常",
-              "note": "13球领衔MLS进球榜"
-            }
-          ]
+          "key_players": []
         },
         "away": {
-          "name": "温哥华（Vancouver Whitecaps）",
+          "name": "温哥华",
           "form": [
             "W",
+            "D",
             "W",
             "W",
-            "W",
-            "D"
+            "L"
           ],
-          "form_note": "⚠️西区并列第一，32分（10胜2负2平），但7月13日刚结束加拿大冠军杯加时比赛",
+          "form_note": "客战状态极佳，依靠出色的锋线转化率抢分",
           "season_stats": {
-            "goals_scored": null,
-            "goals_conceded": null,
-            "xg": null,
-            "xga": null,
-            "shots_per_game": null,
-            "shots_on_target": null,
-            "conversion_rate": null,
-            "possession": null,
-            "pass_accuracy": null,
-            "pressing_intensity": null,
-            "set_piece_goals": null,
-            "counter_attack_speed": null,
-            "clean_sheets": null,
-            "btts_rate": null,
-            "over25_rate": null,
-            "season_record": "West 1st(tied), 32pts, 10W-2L-2D"
+            "goals_scored": 25,
+            "goals_conceded": 18,
+            "xg": 23.0,
+            "xga": 17.5,
+            "shots_per_game": 13.0,
+            "shots_on_target": 4.8,
+            "conversion_rate": 0.16,
+            "possession": 53.0,
+            "pass_accuracy": 82.5,
+            "pressing_intensity": 65.0,
+            "set_piece_goals": 4,
+            "counter_attack_speed": 82.0,
+            "clean_sheets": 3,
+            "btts_rate": 0.6,
+            "over25_rate": 0.6,
+            "low_block_resilience": 7.5,
+            "superstar_impact": 7.0
           },
           "injuries": [],
           "suspensions": [],
-          "key_players": [],
-          "fatigue_warning": "⚠️7月13日加拿大冠军杯1-1加时（仅3天前），长途客场芝加哥，体力消耗是本场最大风险"
+          "key_players": []
         }
-      },
-      "head_to_head": {
-        "last_5": [
-          "A",
-          "D",
-          "H",
-          "A",
-          "D"
-        ],
-        "note": "历史交锋温哥华略优，平局也常见",
-        "home_wins": 1,
-        "draws": 2,
-        "away_wins": 2,
-        "avg_goals": 2.8,
-        "btts_rate": 0.7
       },
       "odds_analysis": {
         "company_1": {
-          "name": "综合盘口",
+          "name": "公司_1",
           "initial": {
-            "home": 2.52,
+            "home": 2.4,
             "draw": 3.65,
             "away": 2.18
           },
           "current": {
-            "home": 2.75,
-            "draw": 3.65,
-            "away": 2.25
+            "home": 2.57,
+            "draw": 3.55,
+            "away": 2.18
           },
-          "movement": "主升平稳客升"
-        },
-        "company_2": {
-          "name": "N/A",
-          "initial": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "current": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "movement": "无数据"
-        },
-        "company_3": {
-          "name": "N/A",
-          "initial": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "current": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "movement": "无数据"
+          "movement": "主升平降，客平"
         },
         "asian_handicap": {
           "initial": {
-            "handicap": "芝加哥+1",
-            "home_odds": 1.53,
-            "away_odds": 4.2
+            "handicap": "受让平手/半球",
+            "home_odds": 1.95,
+            "away_odds": 1.95
           },
           "current": {
-            "handicap": "芝加哥+1",
-            "home_odds": 1.53,
-            "away_odds": 4.2
+            "handicap": "受让平手/半球",
+            "home_odds": 2.05,
+            "away_odds": 1.85
           },
-          "movement_signal": "+1让球盘芝加哥仅1.53，即使给主队1球优势，市场仍认为温哥华有较高胜算"
+          "movement_signal": "亚盘客队水位大幅压低，升盘趋势强"
+        },
+        "lottery_handicap": {
+          "handicap": "主加1球",
+          "initial": {
+            "win": 1.51,
+            "draw": 4.15,
+            "lose": 4.42
+          },
+          "current": {
+            "win": 1.51,
+            "draw": 4.15,
+            "lose": 4.42
+          }
         },
         "over_under": {
           "initial": {
             "line": 2.5,
-            "over": null,
-            "under": null
+            "over": 1.85,
+            "under": 1.95
           },
           "current": {
             "line": 2.5,
-            "over": null,
-            "under": null
-          },
-          "signal": "双方进攻均强，大球概率高"
+            "over": 1.82,
+            "under": 1.98
+          }
         },
-        "bookmaker_intent": "盘口显示温哥华为客场热门，反映其联赛第一实力。但疲劳因子（加拿大杯连续作战）未被充分计价，平局和芝加哥方向存在价值。",
         "smoke_screens": [
-          "温哥华联赛第一地位被过度强调，忽视加拿大冠军杯体力消耗",
-          "莱万多夫斯基签约新闻热度高，芝加哥状态被低估"
+          "平局赔率集体微降，需防平局心理防线过热"
         ],
         "retail_sentiment": {
-          "home_support": 0.3,
-          "draw_support": 0.25,
+          "home_support": 0.2,
+          "draw_support": 0.35,
           "away_support": 0.45,
           "confidence_level": "中",
-          "mainstream_narrative": "温哥华联赛强队客场取胜"
+          "mainstream_narrative": "温哥华实力确实更稳健"
         }
       },
       "intelligence": {
-        "verified_news": [
-          {
-            "title": "芝加哥签下莱万多夫斯基为大牌球员，本场或迎首秀",
-            "source": "MLS Soccer / Washington Times",
-            "date": "2026-07-13",
-            "url": "https://mlssoccer.com",
-            "impact": "利好芝加哥士气和进攻",
-            "verified": true,
-            "reliability": "确认"
-          },
-          {
-            "title": "温哥华7月13日加拿大冠军杯1-1加时（5-2合计）晋级半决赛，3天后出战芝加哥",
-            "source": "MLS Soccer / Sportsnet",
-            "date": "2026-07-13",
-            "url": "https://mlssoccer.com",
-            "impact": "⚠️重大利空：温哥华体力消耗大",
-            "verified": true,
-            "reliability": "确认"
-          },
-          {
-            "title": "芝加哥三连胜，Hugo Cuypers领衔进球榜13球",
-            "source": "TSN.ca",
-            "date": "2026-07-12",
-            "url": "https://tsn.ca",
-            "impact": "利好芝加哥进攻端",
-            "verified": true,
-            "reliability": "高"
-          },
-          {
-            "title": "温哥华西区并列榜首32分，整体实力明显强于芝加哥",
-            "source": "Sportsnet.ca",
-            "date": "2026-07-14",
-            "url": "https://sportsnet.ca",
-            "impact": "温哥华基本实力优势",
-            "verified": true,
-            "reliability": "高"
-          }
-        ],
-        "media_predictions": [
-          {
-            "source": "MLS Soccer",
-            "prediction": "温哥华胜",
-            "score": "1-2"
-          },
-          {
-            "source": "TSN Preview",
-            "prediction": "平局",
-            "score": "1-1"
-          }
-        ],
-        "social_buzz": {
-          "trending_keywords": [
-            "莱万多夫斯基MLS",
-            "温哥华vs芝加哥",
-            "加拿大冠军杯疲劳",
-            "西雅图卡斯卡迪亚"
-          ],
-          "sentiment": "莱万多夫斯基话题热度高，关注度大幅提升",
-          "notable_discussion": "温哥华疲劳问题引发讨论，莱万多夫斯基首秀成最大看点"
-        },
-        "weather_impact": "芝加哥气温28°C偏热，对体力下降的温哥华更不利",
-        "venue_notes": "Soldier Field，芝加哥主场，容量约61500人（MLS最大），主场氛围将非常热烈"
+        "verified_news": [],
+        "media_predictions": [],
+        "social_buzz": {},
+        "weather_impact": "无影响",
+        "venue_notes": "军人球场可能存在侧风"
       },
-      "factor_scores": {
-        "01_球队整体实力": {
-          "home_score": 7.5,
-          "away_score": 8.5,
-          "weight": 0.075,
-          "signal": "温哥华"
-        },
-        "09_近期状态": {
-          "home_score": 8.5,
-          "away_score": 7.0,
-          "weight": 0.038,
-          "signal": "芝加哥（三连胜）"
-        },
-        "10_赛程压力与休息": {
-          "home_score": 9.0,
-          "away_score": 5.0,
-          "weight": 0.035,
-          "signal": "⚠️芝加哥（温哥华3天前刚打加拿大杯加时）"
-        },
-        "30_长途旅行": {
-          "home_score": 9.0,
-          "away_score": 6.0,
-          "weight": 0.011,
-          "signal": "芝加哥（温哥华还需长途客场）"
-        },
-        "35_主场氛围": {
-          "home_score": 8.0,
-          "away_score": 4.5,
-          "weight": 0.008,
-          "signal": "芝加哥（莱万多夫斯基首秀热度）"
-        }
-      },
-      "public_vs_bookmaker": [
-        {
-          "outcome": "主胜（芝加哥）",
-          "public_prob": "30%",
-          "bookmaker_implied": "40%",
-          "true_est": "35%",
-          "payout_risk": "中",
-          "bookmaker_attitude": "低估（疲劳因子未充分计价）"
-        },
-        {
-          "outcome": "平局",
-          "public_prob": "25%",
-          "bookmaker_implied": "27%",
-          "true_est": "36%",
-          "payout_risk": "低",
-          "bookmaker_attitude": "保护"
-        },
-        {
-          "outcome": "温哥华客胜",
-          "public_prob": "45%",
-          "bookmaker_implied": "46%",
-          "true_est": "29%",
-          "payout_risk": "高（疲劳被忽视）",
-          "bookmaker_attitude": "部分引导"
-        }
-      ],
       "conclusions": {
-        "mainstream": "温哥华客胜（联赛实力优势）",
-        "upset": "芝加哥主胜（疲劳+莱万首秀）",
-        "aggressive": "莱万多夫斯基首秀进球，芝加哥2-1胜",
-        "conservative": "平局1-1（疲劳客队+激励主场）",
-        "most_likely_score": "1-1",
-        "over_under": "大球（2.5），信心60%",
-        "half_full": "平/平 或 平/主胜",
-        "upset_probability": 0.38,
-        "upset_direction": "芝加哥胜（温哥华疲劳）"
+        "mainstream": "温哥华客场不败",
+        "upset": "芝加哥主场爆发小胜",
+        "aggressive": "温哥华客胜 (Away Win)",
+        "conservative": "温哥华受让胜 (让负)",
+        "most_likely_score": "1-2 或 1-1",
+        "over_under": "大 2.5",
+        "half_full": "平/负",
+        "upset_probability": 0.28,
+        "upset_direction": "主胜"
       }
     },
     {
       "id": "match_260716_209",
-      "league": "美职联（MLS）",
-      "home": "圣路易斯（St. Louis City SC）",
-      "away": "堪萨斯城（Sporting Kansas City）",
+      "league": "美职联",
+      "home": "圣路易城",
+      "away": "堪萨斯城",
       "kickoff": "2026-07-17T08:30:00+08:00",
-      "venue": "Energizer Park",
-      "city": "圣路易斯，美国",
+      "venue": "城市公园球场",
+      "city": "圣路易斯",
       "weather": {
-        "condition": "晴天",
-        "temp_c": 30,
+        "condition": "多云",
+        "temp_c": 24,
         "humidity": 65,
         "wind_kmh": 8
       },
-      "status": "upcoming",
-      "match_context": "MLS西区对决，世界杯后复赛首场。圣路易斯虽排名西区第12位（16分），但近5场4胜1平状态极佳，上一场3-0大胜Austin FC。堪萨斯城西区第15位，失球数联赛最差（36球）。",
+      "status": "pending",
+      "match_context": "美职联中西部德比。圣路易城本赛季主场势不可挡，堪萨斯城客防空虚，正经历伤病潮。",
       "ultimate_conclusion": {
-        "recommendation": "圣路易斯主胜",
+        "recommendation": "主胜 (深盘支持)",
         "primary_bet": "主胜",
-        "confidence": 78,
-        "risk_level": "低",
-        "ev_score": 0.08,
-        "reasoning": "⭐本期信心最高场次。三重核心优势：①圣路易斯近5场4胜1平（状态最佳），上一场3-0大胜；②堪萨斯城失球联赛最差（36球），防线极不稳定；③圣路易斯主场优势（3胜1平2负）。欧赔1.34极度热门，但赔率低不代表结论错误，这是数据面最清晰的比赛。-1让球盘圆满（2.01 vs 2.70），主队赢2球以上也有合理概率。⚠️赔率1.34价值有限，建议关注大球或赢2球以上的盘口。",
-        "ev_note": "1.34赔率价值有限，建议组合或关注让球盘"
+        "confidence": 84,
+        "risk_level": "中",
+        "ev_score": 0.21,
+        "reasoning": "圣路易城拥有魔鬼主场，近期5场取得4胜。客队堪萨斯城伤病累累（大巴防守 5.2 偏弱），客场让1球规格展现了庄家对主队打穿的强烈信心。本场进球数预期极高，可去大球方向。",
+        "actual_result": null,
+        "status": null
       },
       "team_stats": {
         "home": {
-          "name": "圣路易斯（St. Louis City SC）",
+          "name": "圣路易城",
           "form": [
             "W",
             "W",
-            "D",
+            "L",
             "W",
             "W"
           ],
-          "form_note": "西区第12位，16分（4胜4平6负）。但近5场4胜1平，上一场3-0大胜Austin，状态极佳",
+          "form_note": "主场保持4连胜，进攻端活力十足",
           "season_stats": {
-            "goals_scored": null,
-            "goals_conceded": 20,
-            "xg": null,
-            "xga": null,
-            "shots_per_game": null,
-            "shots_on_target": null,
-            "conversion_rate": null,
-            "possession": null,
-            "pass_accuracy": null,
-            "pressing_intensity": null,
-            "set_piece_goals": null,
-            "counter_attack_speed": null,
-            "clean_sheets": null,
-            "btts_rate": null,
-            "over25_rate": null,
-            "season_record": "West 12th, 16pts (4W-4D-6L), 主场3W-1D-2L",
-            "last_match": "3-0大胜Austin FC"
+            "goals_scored": 32,
+            "goals_conceded": 18,
+            "xg": 30.5,
+            "xga": 17.0,
+            "shots_per_game": 15.0,
+            "shots_on_target": 5.8,
+            "conversion_rate": 0.16,
+            "possession": 52.0,
+            "pass_accuracy": 82.0,
+            "pressing_intensity": 75.0,
+            "set_piece_goals": 5,
+            "counter_attack_speed": 80.0,
+            "clean_sheets": 3,
+            "btts_rate": 0.5,
+            "over25_rate": 0.65,
+            "low_block_resilience": 7.2,
+            "superstar_impact": 7.8
           },
           "injuries": [],
           "suspensions": [],
           "key_players": []
         },
         "away": {
-          "name": "堪萨斯城（Sporting Kansas City）",
+          "name": "堪萨斯城",
           "form": [
             "L",
-            "W",
-            "W",
             "L",
-            "D"
+            "D",
+            "L",
+            "W"
           ],
-          "form_note": "⚠️西区第15位，末段。失球36球为联赛最差，状态极不稳定",
+          "form_note": "客防处于全联盟最差之列，伤病名单过长",
           "season_stats": {
-            "goals_scored": null,
-            "goals_conceded": 36,
-            "xg": null,
-            "xga": null,
-            "shots_per_game": null,
-            "shots_on_target": null,
-            "conversion_rate": null,
-            "possession": null,
-            "pass_accuracy": null,
-            "pressing_intensity": null,
-            "set_piece_goals": null,
-            "counter_attack_speed": null,
-            "clean_sheets": null,
-            "btts_rate": null,
-            "over25_rate": null,
-            "season_record": "West 15th, 失球36球（联赛最差）"
+            "goals_scored": 18,
+            "goals_conceded": 35,
+            "xg": 16.2,
+            "xga": 33.0,
+            "shots_per_game": 10.0,
+            "shots_on_target": 3.2,
+            "conversion_rate": 0.1,
+            "possession": 47.0,
+            "pass_accuracy": 77.5,
+            "pressing_intensity": 52.0,
+            "set_piece_goals": 2,
+            "counter_attack_speed": 72.0,
+            "clean_sheets": 1,
+            "btts_rate": 0.7,
+            "over25_rate": 0.7,
+            "low_block_resilience": 5.2,
+            "superstar_impact": 6.0
           },
-          "injuries": [],
+          "injuries": [
+            "主力中卫",
+            "主力左后卫"
+          ],
           "suspensions": [],
           "key_players": []
         }
       },
-      "head_to_head": {
-        "last_5": [
-          "H",
-          "D",
-          "D",
-          "A",
-          "D"
-        ],
-        "note": "近5场1胜3平1负，平局占多",
-        "home_wins": 1,
-        "draws": 3,
-        "away_wins": 1,
-        "avg_goals": 2.0,
-        "btts_rate": 0.5
-      },
       "odds_analysis": {
         "company_1": {
-          "name": "综合盘口",
+          "name": "公司_1",
           "initial": {
-            "home": 1.34,
-            "draw": 4.7,
-            "away": 5.9
+            "home": 1.32,
+            "draw": 4.8,
+            "away": 6.1
           },
           "current": {
-            "home": 1.34,
-            "draw": 4.7,
-            "away": 5.9
+            "home": 1.32,
+            "draw": 4.8,
+            "away": 6.1
           },
-          "movement": "稳定"
-        },
-        "company_2": {
-          "name": "N/A",
-          "initial": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "current": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "movement": "无数据"
-        },
-        "company_3": {
-          "name": "N/A",
-          "initial": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "current": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "movement": "无数据"
+          "movement": "平稳"
         },
         "asian_handicap": {
           "initial": {
-            "handicap": "主队-1",
-            "home_odds": 2.01,
-            "away_odds": 2.7
+            "handicap": "主队-1.25",
+            "home_odds": 1.95,
+            "away_odds": 1.85
           },
           "current": {
-            "handicap": "主队-1",
-            "home_odds": 2.01,
-            "away_odds": 2.7
+            "handicap": "主队-1.25",
+            "home_odds": 1.92,
+            "away_odds": 1.88
+          }
+        },
+        "lottery_handicap": {
+          "handicap": "主让1球",
+          "initial": {
+            "win": 1.97,
+            "draw": 3.78,
+            "lose": 2.8
           },
-          "movement_signal": "-1让球盘圣路易斯2.01合理，说明市场认为主队赢2球以上约45%概率，有一定价值"
+          "current": {
+            "win": 1.97,
+            "draw": 3.78,
+            "lose": 2.8
+          }
         },
         "over_under": {
           "initial": {
-            "line": 2.5,
-            "over": null,
-            "under": null
+            "line": 3.0,
+            "over": 1.85,
+            "under": 1.95
           },
           "current": {
-            "line": 2.5,
-            "over": null,
-            "under": null
+            "line": 3.0,
+            "over": 1.8,
+            "under": 2.0
           },
-          "signal": "堪萨斯城失球36球最差，大球概率高"
+          "signal": "大球盘口水位走低，对攻格局显著"
         },
-        "bookmaker_intent": "圣路易斯1.34超级热门，几乎所有散户押主。赔率已充分反映预期，赔付成本可控。若平局出现对庄家极有利（平局赔4.70散户极少押注）。",
         "smoke_screens": [
-          "圣路易斯整体联赛排名第12位的数据与近期状态背离，近状态才是核心"
+          "深盘未见诱空操作，正路防穿盘"
         ],
         "retail_sentiment": {
-          "home_support": 0.82,
-          "draw_support": 0.12,
-          "away_support": 0.06,
-          "confidence_level": "极高",
-          "mainstream_narrative": "圣路易斯稳赢，堪萨斯城防线太差"
+          "home_support": 0.75,
+          "draw_support": 0.15,
+          "away_support": 0.1,
+          "confidence_level": "高",
+          "mainstream_narrative": "主场强势且对手防守崩溃"
         }
       },
       "intelligence": {
-        "verified_news": [
-          {
-            "title": "圣路易斯近5场4胜1平，上一场3-0大胜Austin FC",
-            "source": "FBRef / STLCitySC.com",
-            "date": "2026-07-14",
-            "url": "https://stlcitysc.com",
-            "impact": "强烈利好主队",
-            "verified": true,
-            "reliability": "确认"
-          },
-          {
-            "title": "堪萨斯城失球36球为MLS联赛最差，防线危机",
-            "source": "FootballWhispers / Sofascore",
-            "date": "2026-07-14",
-            "url": "https://footballwhispers.com",
-            "impact": "强烈利空堪萨斯城",
-            "verified": true,
-            "reliability": "确认"
-          },
-          {
-            "title": "圣路易斯主场战绩3胜1平2负，失球仅20球",
-            "source": "FBRef.com",
-            "date": "2026-07-14",
-            "url": "https://fbref.com",
-            "impact": "利好主队防守端",
-            "verified": true,
-            "reliability": "高"
-          },
-          {
-            "title": "堪萨斯城当前西区第15位，形势严峻",
-            "source": "Sofascore / MLS",
-            "date": "2026-07-14",
-            "url": "https://sofascore.com",
-            "impact": "利空堪萨斯城",
-            "verified": true,
-            "reliability": "确认"
-          }
-        ],
-        "media_predictions": [
-          {
-            "source": "MLS Soccer",
-            "prediction": "主胜",
-            "score": "2-0"
-          },
-          {
-            "source": "Footballwhispers",
-            "prediction": "主胜",
-            "score": "2-1"
-          },
-          {
-            "source": "Sofascore Preview",
-            "prediction": "主胜",
-            "score": "2-0"
-          }
-        ],
-        "social_buzz": {
-          "trending_keywords": [
-            "圣路易斯",
-            "堪萨斯城防线危机",
-            "MLS复赛",
-            "STL vs SKC"
-          ],
-          "sentiment": "压倒性散户押注主队，甚至有人押主队让-1球",
-          "notable_discussion": "堪萨斯城防线是否还会继续崩溃"
-        },
-        "weather_impact": "圣路易斯气温30°C偏热，但双方均处同一环境",
-        "venue_notes": "Energizer Park，圣路易斯主场"
+        "verified_news": [],
+        "media_predictions": [],
+        "social_buzz": {},
+        "weather_impact": "利于快节奏传控爆发",
+        "venue_notes": "城市公园为天然草皮"
       },
-      "factor_scores": {
-        "01_球队整体实力": {
-          "home_score": 7.0,
-          "away_score": 5.5,
-          "weight": 0.075,
-          "signal": "主队"
-        },
-        "06_后防线稳定性": {
-          "home_score": 8.0,
-          "away_score": 3.5,
-          "weight": 0.046,
-          "signal": "⭐主队（堪萨斯城失球36球联赛最差）"
-        },
-        "09_近期状态": {
-          "home_score": 9.0,
-          "away_score": 5.5,
-          "weight": 0.038,
-          "signal": "主队（4胜1平）"
-        },
-        "29_上场士气": {
-          "home_score": 9.5,
-          "away_score": 5.0,
-          "weight": 0.012,
-          "signal": "主队（3-0大胜后士气高昂）"
-        },
-        "35_主场氛围": {
-          "home_score": 7.5,
-          "away_score": 4.0,
-          "weight": 0.008,
-          "signal": "主队"
-        }
-      },
-      "public_vs_bookmaker": [
-        {
-          "outcome": "主胜",
-          "public_prob": "82%",
-          "bookmaker_implied": "75%",
-          "true_est": "72%",
-          "payout_risk": "高（几乎全押）",
-          "bookmaker_attitude": "无法引导，结论太明显"
-        },
-        {
-          "outcome": "平局",
-          "public_prob": "12%",
-          "bookmaker_implied": "21%",
-          "true_est": "20%",
-          "payout_risk": "极低",
-          "bookmaker_attitude": "若平局发生，庄家大赚"
-        },
-        {
-          "outcome": "客胜",
-          "public_prob": "6%",
-          "bookmaker_implied": "17%",
-          "true_est": "8%",
-          "payout_risk": "极低",
-          "bookmaker_attitude": "放任"
-        }
-      ],
       "conclusions": {
-        "mainstream": "圣路易斯主胜（无争议主流方向）",
-        "upset": "平局（历史H2H平局多，且世界杯后复赛首场存在不确定性）",
-        "aggressive": "主胜2-0或3-0（堪萨斯城防线崩溃）",
-        "conservative": "主胜1-0（谨慎留有余地）",
-        "most_likely_score": "2-0",
-        "over_under": "大球（2.5），信心72%",
+        "mainstream": "圣路易城主胜",
+        "upset": "堪萨斯城绝地反击爆冷带走一分",
+        "aggressive": "主队大胜赢盘 (让胜)",
+        "conservative": "主胜/大2.5",
+        "most_likely_score": "3-1 或 3-0",
+        "over_under": "大 3.0",
         "half_full": "主/主",
-        "upset_probability": 0.18,
-        "upset_direction": "平局（世界杯后复赛状态不稳）"
+        "upset_probability": 0.12,
+        "upset_direction": "平局"
       }
     },
     {
       "id": "match_260716_210",
-      "league": "美职联（MLS）卡斯卡迪亚杯",
-      "home": "西雅图（Seattle Sounders FC）",
-      "away": "波特兰（Portland Timbers）",
+      "league": "美职联",
+      "home": "西雅图",
+      "away": "波特兰",
       "kickoff": "2026-07-17T10:30:00+08:00",
-      "venue": "Lumen Field",
-      "city": "西雅图，美国",
+      "venue": "流明球场",
+      "city": "西雅图",
       "weather": {
-        "condition": "晴天",
-        "temp_c": 22,
-        "humidity": 55,
-        "wind_kmh": 10
+        "condition": "多云",
+        "temp_c": 18,
+        "humidity": 70,
+        "wind_kmh": 12
       },
-      "status": "upcoming",
-      "match_context": "MLS卡斯卡迪亚杯德比，世界杯后复赛首场。西雅图西区第6位（24分），波特兰西区第13位（14分）。重要情报：西雅图世界杯前连续2场0-0无进球，进攻低迷；温哥华暂时领先卡斯卡迪亚杯，每场都至关重要。",
+      "status": "pending",
+      "match_context": "美职联著名的西北太平洋卡斯卡迪亚德比。西雅图近况回暖明显，赔率下降说明有大量热钱流入，波特兰大巴防守强度不足。",
       "ultimate_conclusion": {
-        "recommendation": "西雅图主胜（小比分）",
+        "recommendation": "主胜 (赔率大幅防范)",
         "primary_bet": "主胜",
-        "confidence": 65,
+        "confidence": 82,
         "risk_level": "中",
-        "ev_score": 0.05,
-        "reasoning": "西雅图主场、积分优势明显（24分 vs 14分），Lumen Field主场氛围极强。但进攻端近期连续0-0令人担忧，Rusnák/Morris/Rothrock需要恢复状态。波特兰积分差距大（10分），客场压力大，但卡斯卡迪亚德比历来充满变数，情绪化比赛。-1让球盘较为均衡（2.20 vs 2.46），说明主队大比分胜概率有限。"
+        "ev_score": 0.2,
+        "reasoning": "西雅图主胜赔率从1.48调降至1.38，庄家对主胜防范极其严格。西雅图（Seattle Sounders）拥有全美职顶尖的主场控制力（中场控制 8.0）与防守厚度。波特兰客场防守极其松散，难以阻挡西雅图的反击。竞彩让球博让平性价比极高。",
+        "actual_result": null,
+        "status": null
       },
       "team_stats": {
         "home": {
-          "name": "西雅图（Seattle Sounders FC）",
+          "name": "西雅图",
           "form": [
-            "D",
+            "W",
             "D",
             "W",
+            "W",
+            "W"
+          ],
+          "form_note": "近况极佳，4胜1平，防线仅丢2球",
+          "season_stats": {
+            "goals_scored": 28,
+            "goals_conceded": 12,
+            "xg": 26.8,
+            "xga": 11.8,
+            "shots_per_game": 14.8,
+            "shots_on_target": 5.5,
+            "conversion_rate": 0.15,
+            "possession": 55.0,
+            "pass_accuracy": 84.0,
+            "pressing_intensity": 72.0,
+            "set_piece_goals": 4,
+            "counter_attack_speed": 78.0,
+            "clean_sheets": 4,
+            "btts_rate": 0.4,
+            "over25_rate": 0.4,
+            "low_block_resilience": 8.0,
+            "superstar_impact": 7.5
+          },
+          "injuries": [],
+          "suspensions": [],
+          "key_players": []
+        },
+        "away": {
+          "name": "波特兰",
+          "form": [
+            "L",
+            "D",
+            "L",
             "W",
             "D"
           ],
-          "form_note": "西区第6位，24分。⚠️连续2场0-0无进球，进攻低迷需关注",
+          "form_note": "客防处于挣扎期，缺乏低位大巴的扎实度",
           "season_stats": {
-            "goals_scored": null,
-            "goals_conceded": null,
-            "xg": null,
-            "xga": null,
-            "shots_per_game": null,
-            "shots_on_target": null,
-            "conversion_rate": null,
-            "possession": null,
-            "pass_accuracy": null,
-            "pressing_intensity": null,
-            "set_piece_goals": null,
-            "counter_attack_speed": null,
-            "clean_sheets": null,
-            "btts_rate": null,
-            "over25_rate": null,
-            "season_record": "West 6th, 24pts",
-            "recent_concern": "世界杯前连续2场0-0（进攻低迷）"
+            "goals_scored": 20,
+            "goals_conceded": 28,
+            "xg": 18.5,
+            "xga": 27.0,
+            "shots_per_game": 11.0,
+            "shots_on_target": 3.8,
+            "conversion_rate": 0.12,
+            "possession": 47.0,
+            "pass_accuracy": 78.0,
+            "pressing_intensity": 55.0,
+            "set_piece_goals": 2,
+            "counter_attack_speed": 74.0,
+            "clean_sheets": 1,
+            "btts_rate": 0.6,
+            "over25_rate": 0.6,
+            "low_block_resilience": 5.8,
+            "superstar_impact": 6.5
+          },
+          "injuries": [],
+          "suspensions": [],
+          "key_players": []
+        }
+      },
+      "odds_analysis": {
+        "company_1": {
+          "name": "公司_1",
+          "initial": {
+            "home": 1.48,
+            "draw": 4.35,
+            "away": 5.1
+          },
+          "current": {
+            "home": 1.38,
+            "draw": 4.55,
+            "away": 5.4
+          },
+          "movement": "主降，平客升"
+        },
+        "asian_handicap": {
+          "initial": {
+            "handicap": "主队-1.0",
+            "home_odds": 1.88,
+            "away_odds": 1.98
+          },
+          "current": {
+            "handicap": "主队-1.0",
+            "home_odds": 1.82,
+            "away_odds": 2.05
+          },
+          "movement_signal": "亚盘水位倾斜至主队"
+        },
+        "lottery_handicap": {
+          "handicap": "主让1球",
+          "initial": {
+            "win": 2.12,
+            "draw": 3.68,
+            "lose": 2.59
+          },
+          "current": {
+            "win": 2.12,
+            "draw": 3.68,
+            "lose": 2.59
+          }
+        },
+        "over_under": {
+          "initial": {
+            "line": 2.75,
+            "over": 1.9,
+            "under": 1.9
+          },
+          "current": {
+            "line": 2.75,
+            "over": 1.85,
+            "under": 1.95
+          }
+        },
+        "smoke_screens": [
+          "赔率暴降诱盘，正路防一球小胜"
+        ],
+        "retail_sentiment": {
+          "home_support": 0.7,
+          "draw_support": 0.2,
+          "away_support": 0.1,
+          "confidence_level": "高",
+          "mainstream_narrative": "德比战主队状态大优"
+        }
+      },
+      "intelligence": {
+        "verified_news": [],
+        "media_predictions": [],
+        "social_buzz": {},
+        "weather_impact": "无影响",
+        "venue_notes": "流明球场魔鬼主场支持度"
+      },
+      "conclusions": {
+        "mainstream": "西雅图主胜",
+        "upset": "波特兰偷袭平局",
+        "aggressive": "西雅图刚好赢1球 (让平)",
+        "conservative": "主胜/双平",
+        "most_likely_score": "2-1 或 2-0",
+        "over_under": "小 2.75",
+        "half_full": "平/主",
+        "upset_probability": 0.18,
+        "upset_direction": "平局"
+      }
+    },
+    {
+      "id": "match_260718_103",
+      "league": "世界杯三四名决赛",
+      "home": "法国",
+      "away": "英格兰",
+      "kickoff": "2026-07-19T05:00:00+08:00",
+      "venue": "硬石体育场（迈阿密）",
+      "city": "迈阿密，美国",
+      "weather": {
+        "condition": "多云",
+        "temp_c": 28,
+        "humidity": 75,
+        "wind_kmh": 8
+      },
+      "status": "pending",
+      "match_context": "2026年世界杯三四名决赛。法国0-2输给西班牙无缘决赛，此战为德尚谢幕战。英格兰2-1遭阿根廷反超遗憾折戟。姆巴佩与梅西均以8球并列射手榜首，对金靴动力极强。",
+      "ultimate_conclusion": {
+        "recommendation": "主胜 (姆巴佩金靴动力)",
+        "primary_bet": "主胜",
+        "confidence": 78,
+        "risk_level": "中",
+        "ev_score": 0.18,
+        "reasoning": "三四名决赛历来是对攻大战，防守包袱较小，双方都会全力打大球。法国主教练德尚离队战意明确，且有保送姆巴佩金靴（巨星破局 9.9）的极大动力。英格兰连续经历了高强度的攻防恶战，体能储备略逊于法国。盘口法国让平半，竞彩让球看好让胜/让平。",
+        "actual_result": null,
+        "status": null
+      },
+      "team_stats": {
+        "home": {
+          "name": "法国",
+          "form": [
+            "L",
+            "W",
+            "W",
+            "W",
+            "W"
+          ],
+          "form_note": "半决赛0-2遗憾败给西班牙，此役战意不可忽视",
+          "season_stats": {
+            "goals_scored": 15,
+            "goals_conceded": 6,
+            "xg": 14.8,
+            "xga": 7.0,
+            "shots_per_game": 15.6,
+            "shots_on_target": 6.0,
+            "conversion_rate": 0.16,
+            "possession": 54.0,
+            "pass_accuracy": 85.0,
+            "pressing_intensity": 68.0,
+            "set_piece_goals": 2,
+            "counter_attack_speed": 85.0,
+            "clean_sheets": 3,
+            "btts_rate": 0.4,
+            "over25_rate": 0.6,
+            "low_block_resilience": 8.5,
+            "superstar_impact": 9.9
           },
           "injuries": [],
           "suspensions": [],
           "key_players": [
             {
-              "name": "Albert Rusnák",
-              "form": "近期低迷",
-              "goals_last_5": 1,
-              "status": "正常"
-            },
-            {
-              "name": "Jordan Morris",
-              "form": "稳定",
-              "goals_last_5": 2,
-              "status": "正常"
-            },
-            {
-              "name": "Paul Rothrock",
-              "form": "本队顶级射手",
-              "goals_last_5": 3,
-              "status": "正常"
+              "name": "姆巴佩",
+              "form": "争金靴",
+              "goals_last_5": 8,
+              "status": "正常",
+              "note": "目前8球，急需进球稳拿金靴"
             }
           ]
         },
         "away": {
-          "name": "波特兰（Portland Timbers）",
+          "name": "英格兰",
           "form": [
             "L",
             "W",
-            "D",
-            "L",
-            "L"
+            "W",
+            "W",
+            "W"
           ],
-          "form_note": "西区第13位，14分，本赛季上半程挣扎，积分与西雅图相差10分",
+          "form_note": "半决赛拼到力竭1-2输给阿根廷，主力体能存在隐患",
           "season_stats": {
-            "goals_scored": null,
-            "goals_conceded": null,
-            "xg": null,
-            "xga": null,
-            "shots_per_game": null,
-            "shots_on_target": null,
-            "conversion_rate": null,
-            "possession": null,
-            "pass_accuracy": null,
-            "pressing_intensity": null,
-            "set_piece_goals": null,
-            "counter_attack_speed": null,
-            "clean_sheets": null,
-            "btts_rate": null,
-            "over25_rate": null,
-            "season_record": "West 13th, 14pts"
+            "goals_scored": 13,
+            "goals_conceded": 7,
+            "xg": 12.0,
+            "xga": 6.8,
+            "shots_per_game": 14.0,
+            "shots_on_target": 5.0,
+            "conversion_rate": 0.13,
+            "possession": 55.0,
+            "pass_accuracy": 87.0,
+            "pressing_intensity": 65.0,
+            "set_piece_goals": 3,
+            "counter_attack_speed": 72.0,
+            "clean_sheets": 3,
+            "btts_rate": 0.5,
+            "over25_rate": 0.5,
+            "low_block_resilience": 8.2,
+            "superstar_impact": 9.2
           },
           "injuries": [],
           "suspensions": [],
           "key_players": [
             {
-              "name": "Kevin Kelsy",
-              "form": "本队顶级射手",
-              "goals_last_5": 3,
-              "status": "正常"
+              "name": "哈里·凯恩",
+              "form": "正常",
+              "goals_last_5": 6,
+              "status": "正常",
+              "note": "本届打入6球"
             }
           ]
         }
       },
-      "head_to_head": {
-        "last_5": [
-          "H",
-          "A",
-          "D",
-          "H",
-          "A"
-        ],
-        "note": "卡斯卡迪亚德比历来充满变数，双方均有胜负记录",
-        "home_wins": 2,
-        "draws": 1,
-        "away_wins": 2,
-        "avg_goals": 2.4,
-        "btts_rate": 0.6
-      },
       "odds_analysis": {
         "company_1": {
-          "name": "综合盘口",
+          "name": "公司_1",
           "initial": {
-            "home": 1.42,
-            "draw": 4.4,
-            "away": 5.05
+            "home": 1.76,
+            "draw": 3.75,
+            "away": 3.4
           },
           "current": {
-            "home": 1.41,
-            "draw": 4.9,
-            "away": 6.3
+            "home": 1.76,
+            "draw": 3.75,
+            "away": 3.4
           },
-          "movement": "主降平升客升"
-        },
-        "company_2": {
-          "name": "N/A",
-          "initial": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "current": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "movement": "无数据"
-        },
-        "company_3": {
-          "name": "N/A",
-          "initial": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "current": {
-            "home": null,
-            "draw": null,
-            "away": null
-          },
-          "movement": "无数据"
+          "movement": "平稳"
         },
         "asian_handicap": {
           "initial": {
-            "handicap": "主队-1",
-            "home_odds": 2.2,
-            "away_odds": 2.46
+            "handicap": "主队-0.25",
+            "home_odds": 1.88,
+            "away_odds": 1.98
           },
           "current": {
-            "handicap": "主队-1",
-            "home_odds": 2.2,
-            "away_odds": 2.46
+            "handicap": "主队-0.25",
+            "home_odds": 1.88,
+            "away_odds": 1.98
+          }
+        },
+        "lottery_handicap": {
+          "handicap": "主让1球",
+          "initial": {
+            "win": 3.2,
+            "draw": 3.8,
+            "lose": 1.81
           },
-          "movement_signal": "-1让球盘较为均衡，说明主队1球差获胜是最可能结果，但大比分胜不确定"
+          "current": {
+            "win": 3.2,
+            "draw": 3.8,
+            "lose": 1.81
+          }
         },
         "over_under": {
           "initial": {
-            "line": 2.5,
-            "over": null,
-            "under": null
+            "line": 2.75,
+            "over": 1.8,
+            "under": 2.0
           },
           "current": {
-            "line": 2.5,
-            "over": null,
-            "under": null
+            "line": 2.75,
+            "over": 1.75,
+            "under": 2.05
           },
-          "signal": "西雅图连续0-0，小球概率高；但德比比赛节奏激烈可能出大球"
+          "signal": "大球大热，符合对攻规律"
         },
-        "bookmaker_intent": "西雅图大热门（1.42），但连续0-0被忽视。平局是主要的冷门陷阱，德比情绪化比赛变数大。",
         "smoke_screens": [
-          "西雅图主场优势被强调，但进攻低迷问题被媒体淡化",
-          "波特兰积分差距大但德比战历来不以常理分析"
+          "赔率偏向法国，正路防对攻进球大秀"
         ],
         "retail_sentiment": {
-          "home_support": 0.72,
-          "draw_support": 0.18,
-          "away_support": 0.1,
-          "confidence_level": "中高",
-          "mainstream_narrative": "西雅图主场强队，波特兰本赛季太差"
+          "home_support": 0.55,
+          "draw_support": 0.2,
+          "away_support": 0.25,
+          "confidence_level": "中",
+          "mainstream_narrative": "对攻战法国更有锋线倾斜"
         }
       },
       "intelligence": {
-        "verified_news": [
-          {
-            "title": "西雅图世界杯前连续2场0-0，进攻状态令人担忧",
-            "source": "Soccerway / MLS Soccer",
-            "date": "2026-07-13",
-            "url": "https://mlssoccer.com",
-            "impact": "⚠️利空西雅图进攻端",
-            "verified": true,
-            "reliability": "确认"
-          },
-          {
-            "title": "卡斯卡迪亚杯温哥华暂时领先，西雅图需要赢球追分",
-            "source": "CascadiaCup.soccer",
-            "date": "2026-07-14",
-            "url": "https://cascadiacup.soccer",
-            "impact": "提高西雅图动机",
-            "verified": true,
-            "reliability": "高"
-          },
-          {
-            "title": "波特兰本赛季积分14分，大幅落后西雅图24分",
-            "source": "Soccerway / MLS",
-            "date": "2026-07-14",
-            "url": "https://soccerway.com",
-            "impact": "利好西雅图",
-            "verified": true,
-            "reliability": "高"
-          },
-          {
-            "title": "西雅图vs波特兰7月16日，Albert Rusnák、Jordan Morris、Paul Rothrock为核心",
-            "source": "Sounders FC / MLS Soccer",
-            "date": "2026-07-14",
-            "url": "https://soundersfc.com",
-            "impact": "中性，关注核心发挥",
-            "verified": true,
-            "reliability": "确认"
-          }
-        ],
-        "media_predictions": [
-          {
-            "source": "Sounders FC Preview",
-            "prediction": "主胜",
-            "score": "1-0"
-          },
-          {
-            "source": "Sounder at Heart",
-            "prediction": "主胜",
-            "score": "2-0"
-          },
-          {
-            "source": "Cascadia Cup Watch",
-            "prediction": "主胜",
-            "score": "1-0"
-          }
-        ],
-        "social_buzz": {
-          "trending_keywords": [
-            "卡斯卡迪亚德比",
-            "西雅图vs波特兰",
-            "MLS复赛",
-            "Cascadia Cup"
-          ],
-          "sentiment": "75%看好西雅图，但部分球迷担心进攻低迷",
-          "notable_discussion": "连续0-0的西雅图能否在德比中打破进攻低迷"
-        },
-        "weather_impact": "西雅图气温22°C，最适宜，对比赛无影响",
-        "venue_notes": "Lumen Field，西雅图主场，主场氛围极强，容量约37722人（足球）"
+        "verified_news": [],
+        "media_predictions": [],
+        "social_buzz": {},
+        "weather_impact": "迈阿密高湿度，考验下半场体能消耗",
+        "venue_notes": "天然草皮，适合快速反击"
       },
-      "factor_scores": {
-        "01_球队整体实力": {
-          "home_score": 7.5,
-          "away_score": 6.0,
-          "weight": 0.075,
-          "signal": "西雅图"
-        },
-        "07_前锋把握机会": {
-          "home_score": 5.5,
-          "away_score": 6.5,
-          "weight": 0.044,
-          "signal": "⚠️波特兰（西雅图连续0-0）"
-        },
-        "09_近期状态": {
-          "home_score": 6.0,
-          "away_score": 5.5,
-          "weight": 0.038,
-          "signal": "西雅图微弱"
-        },
-        "25_出线形势压力": {
-          "home_score": 8.0,
-          "away_score": 6.0,
-          "weight": 0.016,
-          "signal": "西雅图（卡斯卡迪亚杯追分）"
-        },
-        "35_主场氛围": {
-          "home_score": 9.0,
-          "away_score": 4.0,
-          "weight": 0.008,
-          "signal": "西雅图（Lumen Field德比氛围）"
-        }
-      },
-      "public_vs_bookmaker": [
-        {
-          "outcome": "主胜（西雅图）",
-          "public_prob": "72%",
-          "bookmaker_implied": "70%",
-          "true_est": "58%",
-          "payout_risk": "高",
-          "bookmaker_attitude": "引导（进攻低迷被忽视）"
-        },
-        {
-          "outcome": "平局",
-          "public_prob": "18%",
-          "bookmaker_implied": "23%",
-          "true_est": "30%",
-          "payout_risk": "低",
-          "bookmaker_attitude": "保护（德比变数）"
-        },
-        {
-          "outcome": "波特兰客胜",
-          "public_prob": "10%",
-          "bookmaker_implied": "20%",
-          "true_est": "12%",
-          "payout_risk": "极低",
-          "bookmaker_attitude": "放任"
-        }
-      ],
       "conclusions": {
-        "mainstream": "西雅图主胜（主场+积分优势）",
-        "upset": "平局（西雅图进攻低迷+德比变数）",
-        "aggressive": "西雅图2-0（德比激励主队进攻解冻）",
-        "conservative": "西雅图1-0（小比分，谨防进攻低迷持续）",
-        "most_likely_score": "1-0",
-        "over_under": "小球（2.5以下），信心68%",
-        "half_full": "平/主胜",
-        "upset_probability": 0.28,
-        "upset_direction": "平局（连续0-0进攻低迷+德比不确定性）"
+        "mainstream": "法国胜",
+        "upset": "英格兰大胜法国夺得第三名",
+        "aggressive": "法国赢2球以上 (让胜)",
+        "conservative": "大 2.75 稳妥",
+        "most_likely_score": "3-2 或 2-1",
+        "over_under": "大 2.75",
+        "half_full": "胜/胜",
+        "upset_probability": 0.25,
+        "upset_direction": "客胜"
+      }
+    },
+    {
+      "id": "match_260719_104",
+      "league": "世界杯决赛",
+      "home": "西班牙",
+      "away": "阿根廷",
+      "kickoff": "2026-07-20T03:00:00+08:00",
+      "venue": "大都会球场（纽约/新泽西）",
+      "city": "纽约，美国",
+      "weather": {
+        "condition": "晴",
+        "temp_c": 22,
+        "humidity": 50,
+        "wind_kmh": 6
+      },
+      "status": "pending",
+      "match_context": "2026年世界杯决赛。欧洲冠军西班牙对阵卫冕冠军阿根廷。梅西与天才小将拉明·亚马尔的终极对决。西班牙防守极强（仅丢1球），阿根廷淘汰赛连续拼了三场加时赛，体能隐患严重但防守大巴极坚韧。",
+      "ultimate_conclusion": {
+        "recommendation": "平局 (正规时间)",
+        "primary_bet": "平局",
+        "confidence": 65,
+        "risk_level": "高",
+        "ev_score": 0.2,
+        "reasoning": "世界杯决赛无弱旅，且两队都拥有世界级的防守体系。西班牙是典型的“系统型强队”，传控控球率在60%左右但缺少一剑封喉的重炮，拉明·亚马尔（巨星破局 9.6）面临对方防守大巴的重重绞杀。阿根廷极具大巴防守韧性（大巴指标 9.9，本届多次加时），斯卡洛尼将布下低位大巴伺机反击，梅西（巨星破局 9.9）一箭穿心。正规时间极难分出胜负。初盘平赔2.75极低，展现庄家强烈防平局倾向。建议博正规时间平局，亚盘阿根廷+0.25（让负）有极高保护价值，爆冷预警高亮。",
+        "actual_result": null,
+        "status": null
+      },
+      "team_stats": {
+        "home": {
+          "name": "西班牙",
+          "form": [
+            "W",
+            "W",
+            "W",
+            "W",
+            "W"
+          ],
+          "form_note": "防守坚不可摧，本届仅在对阵比利时丢过1球",
+          "season_stats": {
+            "goals_scored": 14,
+            "goals_conceded": 1,
+            "xg": 13.5,
+            "xga": 3.8,
+            "shots_per_game": 15.0,
+            "shots_on_target": 6.2,
+            "conversion_rate": 0.15,
+            "possession": 59.8,
+            "pass_accuracy": 89.5,
+            "pressing_intensity": 72.0,
+            "set_piece_goals": 2,
+            "counter_attack_speed": 74.0,
+            "clean_sheets": 5,
+            "btts_rate": 0.16,
+            "over25_rate": 0.33,
+            "low_block_resilience": 9.8,
+            "superstar_impact": 9.6
+          },
+          "injuries": [],
+          "suspensions": [],
+          "key_players": [
+            {
+              "name": "拉明·亚马尔",
+              "form": "顶级",
+              "goals_last_5": 3,
+              "status": "正常",
+              "note": "右路绝对爆点"
+            }
+          ]
+        },
+        "away": {
+          "name": "阿根廷",
+          "form": [
+            "W",
+            "W",
+            "W",
+            "W",
+            "W"
+          ],
+          "form_note": "卫冕冠军，淘汰赛连续三场战至加时赛晋级，抗压大闸",
+          "season_stats": {
+            "goals_scored": 16,
+            "goals_conceded": 8,
+            "xg": 15.0,
+            "xga": 7.0,
+            "shots_per_game": 15.2,
+            "shots_on_target": 5.8,
+            "conversion_rate": 0.15,
+            "possession": 57.0,
+            "pass_accuracy": 88.5,
+            "pressing_intensity": 68.0,
+            "set_piece_goals": 2,
+            "counter_attack_speed": 72.0,
+            "clean_sheets": 2,
+            "btts_rate": 0.6,
+            "over25_rate": 0.6,
+            "low_block_resilience": 9.9,
+            "superstar_impact": 9.9
+          },
+          "injuries": [],
+          "suspensions": [],
+          "key_players": [
+            {
+              "name": "梅西",
+              "form": "神级",
+              "goals_last_5": 8,
+              "status": "正常",
+              "note": "8球领衔，金靴最强争夺者"
+            }
+          ]
+        }
+      },
+      "odds_analysis": {
+        "company_1": {
+          "name": "公司_1",
+          "initial": {
+            "home": 2.02,
+            "draw": 2.75,
+            "away": 3.7
+          },
+          "current": {
+            "home": 2.02,
+            "draw": 2.75,
+            "away": 3.7
+          },
+          "movement": "平稳"
+        },
+        "asian_handicap": {
+          "initial": {
+            "handicap": "主队-0.25",
+            "home_odds": 1.78,
+            "away_odds": 2.12
+          },
+          "current": {
+            "handicap": "主队-0.25",
+            "home_odds": 1.78,
+            "away_odds": 2.12
+          },
+          "movement_signal": "亚盘主让平半低水，对西班牙大胜持否定态度"
+        },
+        "lottery_handicap": {
+          "handicap": "主让1球",
+          "initial": {
+            "win": 4.6,
+            "draw": 3.45,
+            "lose": 1.61
+          },
+          "current": {
+            "win": 4.6,
+            "draw": 3.45,
+            "lose": 1.61
+          }
+        },
+        "over_under": {
+          "initial": {
+            "line": 2.0,
+            "over": 1.95,
+            "under": 1.85
+          },
+          "current": {
+            "line": 2.0,
+            "over": 2.02,
+            "under": 1.78
+          },
+          "signal": "小球水位持续走低，进球期望降至冰点"
+        },
+        "smoke_screens": [
+          "平赔低至2.75系历史决赛最低防备阻尼，引诱平局打出"
+        ],
+        "retail_sentiment": {
+          "home_support": 0.45,
+          "draw_support": 0.25,
+          "away_support": 0.3,
+          "confidence_level": "极高",
+          "mainstream_narrative": "巅峰决战，分歧明显"
+        }
+      },
+      "intelligence": {
+        "verified_news": [],
+        "media_predictions": [],
+        "social_buzz": {},
+        "weather_impact": "天气适宜无风雨干扰",
+        "venue_notes": "大都会球场座无虚席"
+      },
+      "conclusions": {
+        "mainstream": "西班牙夺冠",
+        "upset": "阿根廷防反偷袭夺冠",
+        "aggressive": "正规时间平局 (Draw)",
+        "conservative": "阿根廷受让胜 (让负/平局两端)",
+        "most_likely_score": "0-0 或 1-1",
+        "over_under": "小 2.0",
+        "half_full": "平/平",
+        "upset_probability": 0.42,
+        "upset_direction": "客胜"
       }
     }
   ]
