@@ -649,6 +649,10 @@ const MatchIQRender = (() => {
           <span class="hc-val" style="font-size:11px;text-align:right;max-width:65%;word-break:break-all">${p.mainstream || '--'}</span>
         </div>
         <div class="hc-pred-row">
+          <span class="hc-label">激进结论</span>
+          <span class="hc-val" style="color:var(--rose);font-size:11px;text-align:right;max-width:65%;word-break:break-all">${p.aggressive || '--'}</span>
+        </div>
+        <div class="hc-pred-row">
           <span class="hc-label">防守路线</span>
           <span class="hc-val" style="font-size:11px;text-align:right;max-width:65%;word-break:break-all">${p.conservative || '--'}</span>
         </div>
