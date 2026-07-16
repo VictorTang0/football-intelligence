@@ -621,11 +621,49 @@ const MatchIQRender = (() => {
     </div>` : ''}`;
   }
 
+  // ─── HISTORY RECORDS SECTION ───
+  function renderHistoryRecords(historyData) {
+    const records = historyData?.records || [];
+    if (records.length === 0) {
+      return `<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-3);border:1px dashed var(--border);border-radius:var(--radius)">暂无已完赛预测历史</div>`;
+    }
+
+    // 只保留最近十场，按时间倒序排列
+    const recordsToShow = [...records].slice(-10).reverse();
+
+    return recordsToShow.map(r => `
+      <div class="history-card ${r.is_correct ? 'correct' : 'incorrect'} animate-in">
+        <div class="hc-header">
+          <span class="hc-league">${r.league || '--'}</span>
+          <span class="hc-date">${r.date || '--'}</span>
+        </div>
+        <div class="hc-teams">${r.home || '主队'} vs ${r.away || '客队'}</div>
+        <div class="hc-pred-row">
+          <span class="hc-label">模型预测</span>
+          <span class="hc-val">${r.prediction || '--'}</span>
+        </div>
+        <div class="hc-pred-row">
+          <span class="hc-label">实际赛果</span>
+          <span class="hc-val ${r.is_correct ? 'highlight-correct' : 'highlight-incorrect'}">${r.actual_result || '--'}</span>
+        </div>
+        <div class="hc-pred-row">
+          <span class="hc-label">预测状态</span>
+          <span class="hc-status-badge ${r.is_correct ? 'correct' : 'incorrect'}">${r.is_correct ? '预测正确' : '预测偏差'}</span>
+        </div>
+        <div class="hc-pred-row">
+          <span class="hc-label">信心指数</span>
+          <span class="hc-val">${r.confidence || '--'}%</span>
+        </div>
+      </div>
+    `).join('');
+  }
+
   return {
     renderUltimateCard,
     renderMatchCard,
     renderModelStatus,
     renderEvolutionSection,
+    renderHistoryRecords,
     formatDate,
     formatTime
   };

@@ -731,3 +731,89 @@ section { padding: clamp(32px, 5vw, 64px) 0; }
   .ultimate-grid { grid-template-columns: 1fr; }
   .conclusion-summary { grid-template-columns: 1fr; }
 }
+
+/* ─── HISTORICAL RECORD CARD ─── */
+.history-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 350px), 1fr));
+  gap: var(--gap);
+  margin-top: 24px;
+}
+.history-card {
+  border-radius: var(--radius);
+  background: rgba(13, 21, 39, 0.4);
+  border: 1px solid var(--border-subtle);
+  padding: 18px;
+  position: relative;
+  transition: all var(--transition);
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+.history-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border);
+  background: rgba(18, 30, 56, 0.55);
+}
+.history-card.correct {
+  border-left: 4px solid var(--green);
+}
+.history-card.incorrect {
+  border-left: 4px solid var(--red);
+}
+.hc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 11px;
+}
+.hc-league {
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+}
+.hc-date {
+  color: var(--text-3);
+}
+.hc-teams {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-1);
+  margin-bottom: 10px;
+}
+.hc-pred-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-top: 1px solid rgba(255,255,255,0.03);
+  font-size: 12px;
+}
+.hc-label {
+  color: var(--text-3);
+}
+.hc-val {
+  color: var(--text-2);
+  font-weight: 500;
+}
+.hc-val.highlight-correct {
+  color: var(--green);
+  text-shadow: 0 0 10px rgba(16,185,129,0.3);
+}
+.hc-val.highlight-incorrect {
+  color: var(--red);
+}
+.hc-status-badge {
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+}
+.hc-status-badge.correct {
+  background: var(--green-dim);
+  color: var(--green);
+}
+.hc-status-badge.incorrect {
+  background: var(--red-dim);
+  color: var(--red);
+}

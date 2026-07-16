@@ -66,6 +66,7 @@ const MatchIQ = (() => {
   // ─── RENDER APP ───
   function renderApp() {
     const matches = state.matches?.matches || [];
+    const upcomingMatches = matches.filter(m => m.status !== 'finished');
     const weights = state.weights;
     const history = state.history;
     const evolution = state.evolution;
@@ -82,7 +83,7 @@ const MatchIQ = (() => {
     const matchCountEl = document.getElementById('header-match-count');
     const accEl = document.getElementById('header-accuracy');
     if (versionBadge) versionBadge.textContent = weights?.version || 'v1.0';
-    if (matchCountEl) matchCountEl.textContent = matches.length;
+    if (matchCountEl) matchCountEl.textContent = upcomingMatches.length;
     if (accEl) {
       const acc = history?.accuracy_rate;
       accEl.textContent = acc !== null && acc !== undefined ? (acc * 100).toFixed(1) + '%' : '--';
@@ -91,7 +92,7 @@ const MatchIQ = (() => {
     // ── Ultimate Conclusions Section ──
     const ucGrid = document.getElementById('ultimate-grid');
     if (ucGrid) {
-      if (matches.length === 0) {
+      if (upcomingMatches.length === 0) {
         ucGrid.innerHTML = `
           <div style="grid-column:1/-1;text-align:center;padding:48px;color:var(--text-4);">
             <div style="font-size:48px;margin-bottom:16px">📡</div>
@@ -99,7 +100,7 @@ const MatchIQ = (() => {
             <div style="font-size:13px">请发送赛程图片触发分析</div>
           </div>`;
       } else {
-        ucGrid.innerHTML = matches.map(m => MatchIQRender.renderUltimateCard(m)).join('');
+        ucGrid.innerHTML = upcomingMatches.map(m => MatchIQRender.renderUltimateCard(m)).join('');
       }
     }
 
@@ -113,13 +114,13 @@ const MatchIQ = (() => {
     // ── Match Cards ──
     const matchesGrid = document.getElementById('matches-grid');
     if (matchesGrid) {
-      if (matches.length === 0) {
+      if (upcomingMatches.length === 0) {
         matchesGrid.innerHTML = `
           <div style="text-align:center;padding:64px;color:var(--text-4);">
             <div style="font-size:13px">暂无比赛分析数据</div>
           </div>`;
       } else {
-        matchesGrid.innerHTML = matches.map(m => MatchIQRender.renderMatchCard(m, weights)).join('');
+        matchesGrid.innerHTML = upcomingMatches.map(m => MatchIQRender.renderMatchCard(m, weights)).join('');
       }
     }
 
@@ -129,9 +130,15 @@ const MatchIQ = (() => {
       evoContainer.innerHTML = MatchIQRender.renderEvolutionSection(evolution, history);
     }
 
-    // Init all charts after DOM is updated
+    // ── History Records Section ──
+    const historyGrid = document.getElementById('history-records-grid');
+    if (historyGrid) {
+      historyGrid.innerHTML = MatchIQRender.renderHistoryRecords(history);
+    }
+
+    // Init all charts after DOM is updated (only for upcoming/active matches)
     requestAnimationFrame(() => {
-      initAllCharts(matches, weights, history, evolution);
+      initAllCharts(upcomingMatches, weights, history, evolution);
       bindTabEvents();
     });
   }
