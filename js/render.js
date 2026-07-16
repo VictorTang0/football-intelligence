@@ -738,7 +738,7 @@ const MatchIQRender = (() => {
       return `<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-3);border:1px dashed var(--border);border-radius:var(--radius)">待入场赛事少于2场，无法组合串关</div>`;
     }
 
-    // Helper: extract recommended outcome odds and true probability
+    // Map each match to its Value and Aggressive options
     const parsedBets = activeMatches.map(m => {
       const oddsObj = m.odds_analysis.pinnacle.current;
       const fair = {};
@@ -748,63 +748,129 @@ const MatchIQRender = (() => {
       fair.away = (1/oddsObj.away) / total;
 
       const rec = m.ultimate_conclusion.recommendation || '';
-      let choice = 'home';
-      let choiceName = '主胜';
+      const conclusions = m.conclusions || {};
+
+      // ─── 1. VALUE OPTION ───
+      let valChoice = 'home';
+      let valChoiceName = '主胜';
       if (rec.includes('平局') || rec.includes('平')) {
-        choice = 'draw';
-        choiceName = '平局';
+        valChoice = 'draw';
+        valChoiceName = '平局';
       } else if (rec.includes('客胜') || rec.includes('客') || rec.includes('让负')) {
-        choice = 'away';
-        choiceName = '客胜';
+        valChoice = 'away';
+        valChoiceName = '客胜';
       }
 
-      const odds = oddsObj[choice];
-      const prob = fair[choice];
-      const ev = (prob * odds) - 1;
+      let valOdds = oddsObj[valChoice];
+      let valProb = fair[valChoice];
+
+      // Integrate Handicap (让球胜平负) for Value Option if present and more favorable
+      if (m.odds_analysis.lottery_handicap && m.odds_analysis.lottery_handicap.current) {
+        const lh = m.odds_analysis.lottery_handicap;
+        const handicapText = lh.handicap || '';
+        if (rec.includes('让负') || rec.includes('受让')) {
+          valChoiceName = `让负 (${handicapText})`;
+          valOdds = lh.current.lose || 1.65;
+          valProb = Math.min(fair.away + fair.draw, 0.85); // roughly away + draw
+        } else if (rec.includes('让胜') || rec.includes('让球主胜')) {
+          valChoiceName = `让胜 (${handicapText})`;
+          valOdds = lh.current.win || 2.15;
+          valProb = Math.max(fair.home - 0.15, 0.15); // home minus draw margin
+        }
+      }
+
+      // ─── 2. AGGRESSIVE OPTION (Correct Score, Total Goals, Half-Full) ───
+      let aggChoiceName = '平局';
+      let aggOdds = oddsObj.draw;
+      let aggProb = fair.draw;
+
+      const score = conclusions.most_likely_score || '';
+      const halfFull = conclusions.half_full || '';
+      const ou = conclusions.over_under || '';
+
+      if (score && score !== '--') {
+        const cleanScore = score.split('或')[0].trim();
+        aggChoiceName = `比分 ${cleanScore}`;
+        if (cleanScore === '0-0') {
+          aggOdds = 7.50;
+          aggProb = fair.draw * 0.45;
+        } else if (cleanScore === '1-1') {
+          aggOdds = 6.00;
+          aggProb = fair.draw * 0.55;
+        } else if (cleanScore === '1-0' || cleanScore === '2-1') {
+          aggOdds = 6.80;
+          aggProb = fair.home * 0.38;
+        } else if (cleanScore === '0-1' || cleanScore === '1-2') {
+          aggOdds = 7.80;
+          aggProb = fair.away * 0.38;
+        } else {
+          aggOdds = 8.50;
+          aggProb = 0.12;
+        }
+      } else if (halfFull && halfFull !== '--') {
+        aggChoiceName = `半全场 ${halfFull}`;
+        if (halfFull === '平/平') {
+          aggOdds = 4.80;
+          aggProb = fair.draw * 0.70;
+        } else if (halfFull === '胜/胜') {
+          aggOdds = 3.20;
+          aggProb = fair.home * 0.70;
+        } else {
+          aggOdds = 5.50;
+          aggProb = 0.18;
+        }
+      } else if (ou && ou !== '--') {
+        aggChoiceName = `大小球 ${ou}`;
+        aggOdds = 1.95;
+        aggProb = 0.50;
+      }
 
       return {
         id: m.id,
         home: m.home,
         away: m.away,
-        choiceName: choiceName,
-        odds: odds,
-        prob: prob,
-        ev: ev
+        value: {
+          name: valChoiceName,
+          odds: valOdds,
+          prob: valProb,
+          ev: (valOdds * valProb) - 1
+        },
+        aggressive: {
+          name: aggChoiceName,
+          odds: aggOdds,
+          prob: aggProb,
+          ev: (aggOdds * aggProb) - 1
+        }
       };
     });
 
-    // Sort by EV in descending order to get the best value bets first
-    parsedBets.sort((a, b) => b.ev - a.ev);
-
-    const makeParlay = (size) => {
+    const makeParlay = (size, type) => {
       if (parsedBets.length < size) return null;
-      const selected = parsedBets.slice(0, size);
-      
+
+      // Sort bets based on EV for this specific type to get the optimal combination
+      const sortedBets = [...parsedBets].sort((a, b) => b[type].ev - a[type].ev);
+      const selected = sortedBets.slice(0, size);
+
       // Multiply odds and win probability
-      const totalOdds = selected.reduce((acc, b) => acc * b.odds, 1);
-      const totalProb = selected.reduce((acc, b) => acc * b.prob, 1);
+      const totalOdds = selected.reduce((acc, b) => acc * b[type].odds, 1);
+      const totalProb = selected.reduce((acc, b) => acc * b[type].prob, 1);
       const totalEv = (totalProb * totalOdds) - 1;
 
-      let tagClass = 'value-high';
-      let tagText = '极具价值';
-      if (totalEv < 0) {
-        tagClass = 'value-low';
-        tagText = '赔付适中';
-      } else if (totalEv < 0.10) {
-        tagClass = 'value-mid';
-        tagText = '高性价比';
-      }
+      // Styling parameters
+      let tagClass = type === 'value' ? 'value-high' : 'value-aggressive';
+      let tagText = type === 'value' ? '📈 价值优选' : '🔥 高赔博取';
+      let cardClass = type === 'value' ? '' : 'aggressive';
 
       let riskText = '低风险';
-      if (size >= 8) riskText = '极高风险';
-      else if (size >= 6) riskText = '高风险';
-      else if (size >= 4) riskText = '中高风险';
-      else if (size >= 3) riskText = '中风险';
+      if (size >= 8) riskText = type === 'value' ? '高风险' : '极高风险';
+      else if (size >= 6) riskText = type === 'value' ? '中高风险' : '高风险';
+      else if (size >= 4) riskText = type === 'value' ? '中风险' : '中高风险';
+      else if (size >= 3) riskText = type === 'value' ? '中低风险' : '中风险';
 
       const matchesListHTML = selected.map(b => `
         <div class="parlay-match-item">
           <span class="parlay-match-teams">${b.home} vs ${b.away}</span>
-          <span class="parlay-match-odds">${b.choiceName} @ ${b.odds.toFixed(2)}</span>
+          <span class="parlay-match-odds" style="color: ${type === 'value' ? 'var(--cyan)' : 'var(--rose)'}">${b[type].name} @ ${b[type].odds.toFixed(2)}</span>
         </div>
       `).join('');
 
@@ -832,9 +898,15 @@ const MatchIQRender = (() => {
     };
 
     const sizes = [2, 3, 4, 6, 8];
-    const cardsHTML = sizes.map(s => makeParlay(s)).filter(c => c !== null).join('');
+    const parlaysHTML = [];
+    sizes.forEach(s => {
+      const valP = makeParlay(s, 'value');
+      const aggP = makeParlay(s, 'aggressive');
+      if (valP) parlaysHTML.push(valP);
+      if (aggP) parlaysHTML.push(aggP);
+    });
 
-    return cardsHTML || `<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-3);border:1px dashed var(--border);border-radius:var(--radius)">无足够数量的待预测赛事可组成串关</div>`;
+    return parlaysHTML.join('') || `<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-3);border:1px dashed var(--border);border-radius:var(--radius)">无足够数量的待预测赛事可组成串关</div>`;
   }
 
   return {

@@ -1268,3 +1268,14 @@ section { padding: clamp(32px, 5vw, 64px) 0; }
     margin-bottom: 0;
   }
 }
+
+/* ─── AGGRESSIVE PARLAY EXTRA STYLES ─── */
+.parlay-tag.value-aggressive {
+  background: rgba(244, 63, 94, 0.15);
+  color: var(--rose);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+.parlay-card.aggressive:hover {
+  border-color: var(--rose);
+  box-shadow: 0 10px 30px rgba(244, 63, 94, 0.05);
+}
