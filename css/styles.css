@@ -1453,3 +1453,34 @@ section { padding: clamp(32px, 5vw, 64px) 0; }
   background: rgba(245, 158, 11, 0.15);
   color: var(--amber);
 }
+
+/* ─── PARLAY FILTER TABS ─── */
+.parlay-tabs {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  margin-bottom: 20px;
+}
+.parlay-tab-btn {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-3);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.parlay-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-2);
+  border-color: var(--border);
+}
+.parlay-tab-btn.active {
+  background: rgba(0, 212, 255, 0.08);
+  color: var(--cyan);
+  border-color: var(--cyan);
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.1);
+}

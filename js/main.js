@@ -13,7 +13,8 @@ const MatchIQ = (() => {
     history: null,
     evolution: null,
     initialized: false,
-    usingDemo: false
+    usingDemo: false,
+    parlayFilter: 'all'
   };
 
   // ─── DATA LOADING ───
@@ -106,7 +107,20 @@ const MatchIQ = (() => {
     // ── EV-Optimized Parlays Section ──
     const parlayContainer = document.getElementById('parlay-container');
     if (parlayContainer) {
-      parlayContainer.innerHTML = MatchIQRender.renderParlays(upcomingMatches);
+      let filteredUpcoming = upcomingMatches;
+      if (state.parlayFilter === 'sameday' && upcomingMatches.length > 0) {
+        const sorted = [...upcomingMatches].sort((a, b) => new Date(a.kickoff) - new Date(b.kickoff));
+        const earliestDate = new Date(sorted[0].kickoff).toLocaleDateString('zh-CN', {
+          year: 'numeric', month: '2-digit', day: '2-digit'
+        }).replace(/\//g, '-');
+        filteredUpcoming = sorted.filter(m => {
+          const mDate = new Date(m.kickoff).toLocaleDateString('zh-CN', {
+            year: 'numeric', month: '2-digit', day: '2-digit'
+          }).replace(/\//g, '-');
+          return mDate === earliestDate;
+        });
+      }
+      parlayContainer.innerHTML = MatchIQRender.renderParlays(filteredUpcoming);
     }
 
     // ── Model Status ──
@@ -191,6 +205,38 @@ const MatchIQ = (() => {
 
   // ─── TAB EVENTS ───
   function bindTabEvents() {
+    // Parlay filter tab buttons
+    document.querySelectorAll('.parlay-tab-btn').forEach(btn => {
+      if (btn.dataset.bound) return;
+      btn.dataset.bound = 'true';
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.parlay-tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        state.parlayFilter = btn.dataset.type;
+        
+        // Trigger partial render for parlay container
+        const matches = state.matches?.matches || [];
+        const upcomingMatches = matches.filter(m => m.status !== 'finished');
+        const parlayContainer = document.getElementById('parlay-container');
+        if (parlayContainer) {
+          let filteredUpcoming = upcomingMatches;
+          if (state.parlayFilter === 'sameday' && upcomingMatches.length > 0) {
+            const sorted = [...upcomingMatches].sort((a, b) => new Date(a.kickoff) - new Date(b.kickoff));
+            const earliestDate = new Date(sorted[0].kickoff).toLocaleDateString('zh-CN', {
+              year: 'numeric', month: '2-digit', day: '2-digit'
+            }).replace(/\//g, '-');
+            filteredUpcoming = sorted.filter(m => {
+              const mDate = new Date(m.kickoff).toLocaleDateString('zh-CN', {
+                year: 'numeric', month: '2-digit', day: '2-digit'
+              }).replace(/\//g, '-');
+              return mDate === earliestDate;
+            });
+          }
+          parlayContainer.innerHTML = MatchIQRender.renderParlays(filteredUpcoming);
+        }
+      });
+    });
+
     document.querySelectorAll('.mc-tab').forEach(tab => {
       tab.addEventListener('click', () => {
         const matchId = tab.dataset.match;

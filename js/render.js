@@ -759,38 +759,19 @@ const MatchIQRender = (() => {
       const rec = m.ultimate_conclusion.recommendation || '';
       const conclusions = m.conclusions || {};
 
-      // ─── 1. VALUE OPTION (Optimized for High Success Rate / Lower Payout) ───
-      let valChoiceName = '';
-      let valOdds = 0;
-      let valProb = 0;
-
-      if (oddsObj) {
-        if (fair.home > 0.50) {
-          valChoiceName = `${m.home} 不败 (双平胜)`;
-          const dcOdds = 0.95 / ((1/oddsObj.home) + (1/oddsObj.draw));
-          valOdds = Math.max(dcOdds, 1.15);
-          valProb = Math.min(fair.home + fair.draw, 0.90);
-        } else if (fair.away > 0.50) {
-          valChoiceName = `${m.away} 不败 (双平负)`;
-          const dcOdds = 0.95 / ((1/oddsObj.away) + (1/oddsObj.draw));
-          valOdds = Math.max(dcOdds, 1.15);
-          valProb = Math.min(fair.away + fair.draw, 0.90);
-        } else {
-          if (rec.includes('客胜') || rec.includes('客') || rec.includes('让负')) {
-            valChoiceName = `${m.away} (+1.5受让胜)`;
-            valOdds = 1.28;
-            valProb = Math.min(fair.away + fair.draw + 0.12, 0.92);
-          } else {
-            valChoiceName = `${m.home} (+1.5受让胜)`;
-            valOdds = 1.28;
-            valProb = Math.min(fair.home + fair.draw + 0.12, 0.92);
-          }
-        }
-      } else {
-        valChoiceName = `${m.home} 胜/平`;
-        valOdds = 1.35;
-        valProb = 0.70;
+      // ─── 1. VALUE OPTION (Standard 1x2 - 无让球胜平负) ───
+      let valChoice = 'home';
+      let valChoiceName = '主胜 (无让球胜平负)';
+      if (rec.includes('平局') || rec.includes('平')) {
+        valChoice = 'draw';
+        valChoiceName = '平局 (无让球胜平负)';
+      } else if (rec.includes('客胜') || rec.includes('客')) {
+        valChoice = 'away';
+        valChoiceName = '客胜 (无让球胜平负)';
       }
+
+      let valOdds = oddsObj[valChoice] || 1.80;
+      let valProb = fair[valChoice] || 0.50;
 
       // ─── 2. MIXED AGGRESSIVE OPTION ───
       let aggChoiceName = '';
