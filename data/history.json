@@ -1,6 +1,40 @@
 {
-  "total_predictions": 0,
-  "correct_predictions": 0,
-  "accuracy_rate": null,
-  "records": []
+  "total_predictions": 3,
+  "correct_predictions": 2,
+  "accuracy_rate": 0.6667,
+  "records": [
+    {
+      "match_id": "match_260715_102",
+      "league": "世界杯半决赛",
+      "home": "英格兰",
+      "away": "阿根廷",
+      "date": "2026-07-16",
+      "prediction": "平局/阿根廷延长赛",
+      "actual_result": "阿根廷 2-1",
+      "is_correct": false,
+      "confidence": 62
+    },
+    {
+      "match_id": "match_260715_201",
+      "league": "欧冠资格赛",
+      "home": "比森",
+      "away": "克拉克斯",
+      "date": "2026-07-16",
+      "prediction": "克拉克斯晋级 / 平客",
+      "actual_result": "克拉克斯 2-1 胜",
+      "is_correct": true,
+      "confidence": 68
+    },
+    {
+      "match_id": "match_260715_202",
+      "league": "欧冠资格赛",
+      "home": "苏德斯卡",
+      "away": "阿拉木图",
+      "date": "2026-07-16",
+      "prediction": "Kairat晋级 / 平局小分",
+      "actual_result": "阿拉木图 2-0 胜",
+      "is_correct": true,
+      "confidence": 71
+    }
+  ]
 }
