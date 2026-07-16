@@ -1148,7 +1148,7 @@
         "confidence": 78,
         "risk_level": "中",
         "ev_score": -0.11,
-        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场隐含胜率为: 主胜 57.8%, 平局 21.3%, 客胜 20.8%。客队低位大巴指标为 8.8，主队巨星爆点指标为 7.5。综合6家公司让球规格波动和冷门模型演算，得出爆冷综合概率为 29%。",
+        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场合理胜率为: 主胜 57.8%, 平局 21.3%, 客胜 20.8%。客队低位大巴指标为 8.8，主队巨星爆点指标为 7.5。通过对比散户支持率与合理隐含胜率，得出散户对本场偏好存在轻微偏差，赔付风险模型自动输出态度为：中性。结合交锋历史及6家公司让球规格波动，得出冷门综合概率为 29%。",
         "actual_result": null,
         "status": null
       },
@@ -1439,7 +1439,44 @@
         "half_full": "平/主",
         "upset_probability": 0.29,
         "upset_direction": "平局"
-      }
+      },
+      "h2h": {
+        "last_5": [
+          "H",
+          "H",
+          "D",
+          "H",
+          "A"
+        ],
+        "avg_goals": 2.2,
+        "btts_rate": 0.4
+      },
+      "public_vs_bookmaker": [
+        {
+          "outcome": "主胜",
+          "public_prob": "65%",
+          "bookmaker_implied": "65%",
+          "true_est": "57.8%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        },
+        {
+          "outcome": "平局",
+          "public_prob": "20%",
+          "bookmaker_implied": "24%",
+          "true_est": "21.3%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        },
+        {
+          "outcome": "客胜",
+          "public_prob": "15%",
+          "bookmaker_implied": "24%",
+          "true_est": "20.8%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        }
+      ]
     },
     {
       "id": "match_260716_202",
@@ -1463,7 +1500,7 @@
         "confidence": 72,
         "risk_level": "低",
         "ev_score": -0.11,
-        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场隐含胜率为: 主胜 22.7%, 平局 24.6%, 客胜 52.7%。客队低位大巴指标为 7.5，主队巨星爆点指标为 5.0。综合6家公司让球规格波动和冷门模型演算，得出爆冷综合概率为 71%。",
+        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场合理胜率为: 主胜 22.7%, 平局 24.6%, 客胜 52.7%。客队低位大巴指标为 7.5，主队巨星爆点指标为 5.0。通过对比散户支持率与合理隐含胜率，得出散户对本场偏好存在轻微偏差，赔付风险模型自动输出态度为：中性。结合交锋历史及6家公司让球规格波动，得出冷门综合概率为 71%。",
         "actual_result": null,
         "status": null
       },
@@ -1701,7 +1738,38 @@
         "half_full": "负/负",
         "upset_probability": 0.71,
         "upset_direction": "平局"
-      }
+      },
+      "h2h": {
+        "last_5": [],
+        "avg_goals": null,
+        "btts_rate": null
+      },
+      "public_vs_bookmaker": [
+        {
+          "outcome": "主胜",
+          "public_prob": "15%",
+          "bookmaker_implied": "26%",
+          "true_est": "22.7%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        },
+        {
+          "outcome": "平局",
+          "public_prob": "25%",
+          "bookmaker_implied": "28%",
+          "true_est": "24.6%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        },
+        {
+          "outcome": "客胜",
+          "public_prob": "60%",
+          "bookmaker_implied": "60%",
+          "true_est": "52.7%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        }
+      ]
     },
     {
       "id": "match_260716_203",
@@ -1725,7 +1793,7 @@
         "confidence": 85,
         "risk_level": "中",
         "ev_score": -0.11,
-        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场隐含胜率为: 主胜 64.6%, 平局 19.9%, 客胜 15.5%。客队低位大巴指标为 5.5，主队巨星爆点指标为 8.2。综合6家公司让球规格波动和冷门模型演算，得出爆冷综合概率为 23%。",
+        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场合理胜率为: 主胜 64.6%, 平局 19.9%, 客胜 15.5%。客队低位大巴指标为 5.5，主队巨星爆点指标为 8.2。通过对比散户支持率与合理隐含胜率，得出散户对本场偏好存在轻微偏差，赔付风险模型自动输出态度为：中性, 防范。结合交锋历史及6家公司让球规格波动，得出冷门综合概率为 23%。",
         "actual_result": null,
         "status": null
       },
@@ -1963,7 +2031,38 @@
         "half_full": "主/主",
         "upset_probability": 0.23,
         "upset_direction": "平局"
-      }
+      },
+      "h2h": {
+        "last_5": [],
+        "avg_goals": null,
+        "btts_rate": null
+      },
+      "public_vs_bookmaker": [
+        {
+          "outcome": "主胜",
+          "public_prob": "80%",
+          "bookmaker_implied": "73%",
+          "true_est": "64.6%",
+          "payout_risk": "中",
+          "bookmaker_attitude": "防范"
+        },
+        {
+          "outcome": "平局",
+          "public_prob": "12%",
+          "bookmaker_implied": "22%",
+          "true_est": "19.9%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        },
+        {
+          "outcome": "客胜",
+          "public_prob": "8%",
+          "bookmaker_implied": "17%",
+          "true_est": "15.5%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        }
+      ]
     },
     {
       "id": "match_260716_204",
@@ -1987,7 +2086,7 @@
         "confidence": 68,
         "risk_level": "中",
         "ev_score": -0.11,
-        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场隐含胜率为: 主胜 28.4%, 平局 26.4%, 客胜 45.2%。客队低位大巴指标为 8.2，主队巨星爆点指标为 5.5。综合6家公司让球规格波动和冷门模型演算，得出爆冷综合概率为 64%。",
+        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场合理胜率为: 主胜 28.4%, 平局 26.4%, 客胜 45.2%。客队低位大巴指标为 8.2，主队巨星爆点指标为 5.5。通过对比散户支持率与合理隐含胜率，得出散户对本场偏好存在轻微偏差，赔付风险模型自动输出态度为：中性。结合交锋历史及6家公司让球规格波动，得出冷门综合概率为 64%。",
         "actual_result": null,
         "status": null
       },
@@ -2224,7 +2323,38 @@
         "half_full": "平/负",
         "upset_probability": 0.64,
         "upset_direction": "平局"
-      }
+      },
+      "h2h": {
+        "last_5": [],
+        "avg_goals": null,
+        "btts_rate": null
+      },
+      "public_vs_bookmaker": [
+        {
+          "outcome": "主胜",
+          "public_prob": "25%",
+          "bookmaker_implied": "32%",
+          "true_est": "28.4%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        },
+        {
+          "outcome": "平局",
+          "public_prob": "30%",
+          "bookmaker_implied": "30%",
+          "true_est": "26.4%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        },
+        {
+          "outcome": "客胜",
+          "public_prob": "45%",
+          "bookmaker_implied": "51%",
+          "true_est": "45.2%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        }
+      ]
     },
     {
       "id": "match_260716_205",
@@ -2248,7 +2378,7 @@
         "confidence": 75,
         "risk_level": "中",
         "ev_score": -0.11,
-        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场隐含胜率为: 主胜 48.7%, 平局 25.7%, 客胜 25.7%。客队低位大巴指标为 8.0，主队巨星爆点指标为 7.2。综合6家公司让球规格波动和冷门模型演算，得出爆冷综合概率为 36%。",
+        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场合理胜率为: 主胜 48.7%, 平局 25.7%, 客胜 25.7%。客队低位大巴指标为 8.0，主队巨星爆点指标为 7.2。通过对比散户支持率与合理隐含胜率，得出散户对本场偏好存在轻微偏差，赔付风险模型自动输出态度为：中性。结合交锋历史及6家公司让球规格波动，得出冷门综合概率为 36%。",
         "actual_result": null,
         "status": null
       },
@@ -2488,7 +2618,38 @@
         "half_full": "平/主",
         "upset_probability": 0.36,
         "upset_direction": "平局"
-      }
+      },
+      "h2h": {
+        "last_5": [],
+        "avg_goals": null,
+        "btts_rate": null
+      },
+      "public_vs_bookmaker": [
+        {
+          "outcome": "主胜",
+          "public_prob": "55%",
+          "bookmaker_implied": "55%",
+          "true_est": "48.7%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        },
+        {
+          "outcome": "平局",
+          "public_prob": "25%",
+          "bookmaker_implied": "29%",
+          "true_est": "25.7%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        },
+        {
+          "outcome": "客胜",
+          "public_prob": "20%",
+          "bookmaker_implied": "29%",
+          "true_est": "25.7%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        }
+      ]
     },
     {
       "id": "match_260716_206",
@@ -2512,7 +2673,7 @@
         "confidence": 60,
         "risk_level": "高",
         "ev_score": -0.11,
-        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场隐含胜率为: 主胜 39.6%, 平局 28.6%, 客胜 31.9%。客队低位大巴指标为 8.2，主队巨星爆点指标为 5.8。综合6家公司让球规格波动和冷门模型演算，得出爆冷综合概率为 51%。",
+        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场合理胜率为: 主胜 39.6%, 平局 28.6%, 客胜 31.9%。客队低位大巴指标为 8.2，主队巨星爆点指标为 5.8。通过对比散户支持率与合理隐含胜率，得出散户对本场偏好存在轻微偏差，赔付风险模型自动输出态度为：中性。结合交锋历史及6家公司让球规格波动，得出冷门综合概率为 51%。",
         "actual_result": null,
         "status": null
       },
@@ -2752,7 +2913,38 @@
         "half_full": "平/平",
         "upset_probability": 0.51,
         "upset_direction": "客胜"
-      }
+      },
+      "h2h": {
+        "last_5": [],
+        "avg_goals": null,
+        "btts_rate": null
+      },
+      "public_vs_bookmaker": [
+        {
+          "outcome": "主胜",
+          "public_prob": "40%",
+          "bookmaker_implied": "45%",
+          "true_est": "39.6%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        },
+        {
+          "outcome": "平局",
+          "public_prob": "35%",
+          "bookmaker_implied": "32%",
+          "true_est": "28.6%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        },
+        {
+          "outcome": "客胜",
+          "public_prob": "25%",
+          "bookmaker_implied": "36%",
+          "true_est": "31.9%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        }
+      ]
     },
     {
       "id": "match_260716_207",
@@ -2776,7 +2968,7 @@
         "confidence": 76,
         "risk_level": "中",
         "ev_score": -0.11,
-        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场隐含胜率为: 主胜 48.6%, 平局 24.9%, 客胜 26.4%。客队低位大巴指标为 6.2，主队巨星爆点指标为 7.0。综合6家公司让球规格波动和冷门模型演算，得出爆冷综合概率为 36%。",
+        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场合理胜率为: 主胜 48.6%, 平局 24.9%, 客胜 26.4%。客队低位大巴指标为 6.2，主队巨星爆点指标为 7.0。通过对比散户支持率与合理隐含胜率，得出散户对本场偏好存在轻微偏差，赔付风险模型自动输出态度为：中性, 防范。结合交锋历史及6家公司让球规格波动，得出冷门综合概率为 36%。",
         "actual_result": null,
         "status": null
       },
@@ -3013,7 +3205,38 @@
         "half_full": "主/主",
         "upset_probability": 0.36,
         "upset_direction": "客胜"
-      }
+      },
+      "h2h": {
+        "last_5": [],
+        "avg_goals": null,
+        "btts_rate": null
+      },
+      "public_vs_bookmaker": [
+        {
+          "outcome": "主胜",
+          "public_prob": "60%",
+          "bookmaker_implied": "55%",
+          "true_est": "48.6%",
+          "payout_risk": "中",
+          "bookmaker_attitude": "防范"
+        },
+        {
+          "outcome": "平局",
+          "public_prob": "20%",
+          "bookmaker_implied": "28%",
+          "true_est": "24.9%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        },
+        {
+          "outcome": "客胜",
+          "public_prob": "20%",
+          "bookmaker_implied": "30%",
+          "true_est": "26.4%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        }
+      ]
     },
     {
       "id": "match_260716_208",
@@ -3037,7 +3260,7 @@
         "confidence": 68,
         "risk_level": "中",
         "ev_score": -0.11,
-        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场隐含胜率为: 主胜 34.4%, 平局 24.9%, 客胜 40.6%。客队低位大巴指标为 7.5，主队巨星爆点指标为 5.5。综合6家公司让球规格波动和冷门模型演算，得出爆冷综合概率为 59%。",
+        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场合理胜率为: 主胜 34.4%, 平局 24.9%, 客胜 40.6%。客队低位大巴指标为 7.5，主队巨星爆点指标为 5.5。通过对比散户支持率与合理隐含胜率，得出散户对本场偏好存在轻微偏差，赔付风险模型自动输出态度为：中性, 防范。结合交锋历史及6家公司让球规格波动，得出冷门综合概率为 59%。",
         "actual_result": null,
         "status": null
       },
@@ -3274,7 +3497,38 @@
         "half_full": "平/负",
         "upset_probability": 0.59,
         "upset_direction": "主胜"
-      }
+      },
+      "h2h": {
+        "last_5": [],
+        "avg_goals": null,
+        "btts_rate": null
+      },
+      "public_vs_bookmaker": [
+        {
+          "outcome": "主胜",
+          "public_prob": "20%",
+          "bookmaker_implied": "39%",
+          "true_est": "34.4%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        },
+        {
+          "outcome": "平局",
+          "public_prob": "35%",
+          "bookmaker_implied": "28%",
+          "true_est": "24.9%",
+          "payout_risk": "中",
+          "bookmaker_attitude": "防范"
+        },
+        {
+          "outcome": "客胜",
+          "public_prob": "45%",
+          "bookmaker_implied": "46%",
+          "true_est": "40.6%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        }
+      ]
     },
     {
       "id": "match_260716_209",
@@ -3298,7 +3552,7 @@
         "confidence": 84,
         "risk_level": "中",
         "ev_score": -0.11,
-        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场隐含胜率为: 主胜 67.1%, 平局 18.4%, 客胜 14.5%。客队低位大巴指标为 5.2，主队巨星爆点指标为 7.8。综合6家公司让球规格波动和冷门模型演算，得出爆冷综合概率为 22%。",
+        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场合理胜率为: 主胜 67.1%, 平局 18.4%, 客胜 14.5%。客队低位大巴指标为 5.2，主队巨星爆点指标为 7.8。通过对比散户支持率与合理隐含胜率，得出散户对本场偏好存在轻微偏差，赔付风险模型自动输出态度为：中性。结合交锋历史及6家公司让球规格波动，得出冷门综合概率为 22%。",
         "actual_result": null,
         "status": null
       },
@@ -3538,7 +3792,38 @@
         "half_full": "主/主",
         "upset_probability": 0.22,
         "upset_direction": "平局"
-      }
+      },
+      "h2h": {
+        "last_5": [],
+        "avg_goals": null,
+        "btts_rate": null
+      },
+      "public_vs_bookmaker": [
+        {
+          "outcome": "主胜",
+          "public_prob": "75%",
+          "bookmaker_implied": "76%",
+          "true_est": "67.1%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        },
+        {
+          "outcome": "平局",
+          "public_prob": "15%",
+          "bookmaker_implied": "21%",
+          "true_est": "18.4%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        },
+        {
+          "outcome": "客胜",
+          "public_prob": "10%",
+          "bookmaker_implied": "16%",
+          "true_est": "14.5%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        }
+      ]
     },
     {
       "id": "match_260716_210",
@@ -3562,7 +3847,7 @@
         "confidence": 82,
         "risk_level": "中",
         "ev_score": -0.11,
-        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场隐含胜率为: 主胜 64.1%, 平局 19.5%, 客胜 16.4%。客队低位大巴指标为 5.8，主队巨星爆点指标为 7.5。综合6家公司让球规格波动和冷门模型演算，得出爆冷综合概率为 24%。",
+        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场合理胜率为: 主胜 64.1%, 平局 19.5%, 客胜 16.4%。客队低位大巴指标为 5.8，主队巨星爆点指标为 7.5。通过对比散户支持率与合理隐含胜率，得出散户对本场偏好存在轻微偏差，赔付风险模型自动输出态度为：中性。结合交锋历史及6家公司让球规格波动，得出冷门综合概率为 24%。",
         "actual_result": null,
         "status": null
       },
@@ -3831,7 +4116,44 @@
         "half_full": "平/主",
         "upset_probability": 0.24,
         "upset_direction": "平局"
-      }
+      },
+      "h2h": {
+        "last_5": [
+          "H",
+          "D",
+          "A",
+          "A",
+          "H"
+        ],
+        "avg_goals": 2.6,
+        "btts_rate": 0.6
+      },
+      "public_vs_bookmaker": [
+        {
+          "outcome": "主胜",
+          "public_prob": "70%",
+          "bookmaker_implied": "72%",
+          "true_est": "64.1%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        },
+        {
+          "outcome": "平局",
+          "public_prob": "20%",
+          "bookmaker_implied": "22%",
+          "true_est": "19.5%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        },
+        {
+          "outcome": "客胜",
+          "public_prob": "10%",
+          "bookmaker_implied": "19%",
+          "true_est": "16.4%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        }
+      ]
     },
     {
       "id": "match_260718_103",
@@ -3855,7 +4177,7 @@
         "confidence": 78,
         "risk_level": "中",
         "ev_score": -0.11,
-        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场隐含胜率为: 主胜 50.3%, 平局 23.6%, 客胜 26.1%。客队低位大巴指标为 8.2，主队巨星爆点指标为 9.9。综合6家公司让球规格波动和冷门模型演算，得出爆冷综合概率为 36%。",
+        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场合理胜率为: 主胜 50.3%, 平局 23.6%, 客胜 26.1%。客队低位大巴指标为 8.2，主队巨星爆点指标为 9.9。通过对比散户支持率与合理隐含胜率，得出散户对本场偏好存在轻微偏差，赔付风险模型自动输出态度为：中性。结合交锋历史及6家公司让球规格波动，得出冷门综合概率为 36%。",
         "actual_result": null,
         "status": null
       },
@@ -4108,7 +4430,44 @@
         "half_full": "胜/胜",
         "upset_probability": 0.36,
         "upset_direction": "客胜"
-      }
+      },
+      "h2h": {
+        "last_5": [
+          "H",
+          "A",
+          "D",
+          "H",
+          "H"
+        ],
+        "avg_goals": 2.8,
+        "btts_rate": 0.8
+      },
+      "public_vs_bookmaker": [
+        {
+          "outcome": "主胜",
+          "public_prob": "55%",
+          "bookmaker_implied": "57%",
+          "true_est": "50.3%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        },
+        {
+          "outcome": "平局",
+          "public_prob": "20%",
+          "bookmaker_implied": "27%",
+          "true_est": "23.6%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        },
+        {
+          "outcome": "客胜",
+          "public_prob": "25%",
+          "bookmaker_implied": "29%",
+          "true_est": "26.1%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        }
+      ]
     },
     {
       "id": "match_260719_104",
@@ -4132,7 +4491,7 @@
         "confidence": 65,
         "risk_level": "高",
         "ev_score": -0.11,
-        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场隐含胜率为: 主胜 43.9%, 平局 32.2%, 客胜 23.9%。客队低位大巴指标为 9.9，主队巨星爆点指标为 9.6。综合6家公司让球规格波动和冷门模型演算，得出爆冷综合概率为 37%。",
+        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场合理胜率为: 主胜 43.9%, 平局 32.2%, 客胜 23.9%。客队低位大巴指标为 9.9，主队巨星爆点指标为 9.6。通过对比散户支持率与合理隐含胜率，得出散户对本场偏好存在轻微偏差，赔付风险模型自动输出态度为：中性。结合交锋历史及6家公司让球规格波动，得出冷门综合概率为 37%。",
         "actual_result": null,
         "status": null
       },
@@ -4386,7 +4745,44 @@
         "half_full": "平/平",
         "upset_probability": 0.37,
         "upset_direction": "客胜"
-      }
+      },
+      "h2h": {
+        "last_5": [
+          "D",
+          "A",
+          "H",
+          "D",
+          "A"
+        ],
+        "avg_goals": 2.4,
+        "btts_rate": 0.6
+      },
+      "public_vs_bookmaker": [
+        {
+          "outcome": "主胜",
+          "public_prob": "45%",
+          "bookmaker_implied": "50%",
+          "true_est": "43.9%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        },
+        {
+          "outcome": "平局",
+          "public_prob": "25%",
+          "bookmaker_implied": "36%",
+          "true_est": "32.2%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        },
+        {
+          "outcome": "客胜",
+          "public_prob": "30%",
+          "bookmaker_implied": "27%",
+          "true_est": "23.9%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        }
+      ]
     }
   ]
 }

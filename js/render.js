@@ -176,7 +176,8 @@ const MatchIQRender = (() => {
     }).join('');
 
     // H2H summary
-    const h2hResult = h2h.last_5 ? h2h.last_5.map(r => `<span class="form-dot ${r === 'H' ? 'W' : r === 'A' ? 'L' : 'D'}" style="width:22px;height:22px;font-size:10px">${r === 'H' ? '主' : r === 'A' ? '客' : '平'}</span>`).join('') : '--';
+    const hasH2H = h2h && h2h.last_5 && h2h.last_5.length > 0;
+    const h2hResult = hasH2H ? h2h.last_5.map(r => `<span class="form-dot ${r === 'H' ? 'W' : r === 'A' ? 'L' : 'D'}" style="width:22px;height:22px;font-size:10px">${r === 'H' ? '主' : r === 'A' ? '客' : '平'}</span>`).join('') : '';
 
     return `
     <div class="mc-pane ${paneId === 'stats' ? 'active' : ''}" id="pane-${match.id}-stats">
@@ -190,11 +191,12 @@ const MatchIQRender = (() => {
       </div>
       <div style="margin-top:20px; padding:14px; background:rgba(255,255,255,0.02); border:1px solid var(--border-subtle); border-radius:var(--radius);">
         <div style="font-size:12px;color:var(--text-3);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;">交锋历史（近5场）</div>
+        ${hasH2H ? `
         <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
           <div style="display:flex;gap:4px;">${h2hResult}</div>
           <span class="tag">平均进球 ${h2h.avg_goals || '--'}</span>
           <span class="tag">双方进球率 ${h2h.btts_rate ? (h2h.btts_rate*100).toFixed(0)+'%' : '--'}</span>
-        </div>
+        </div>` : `<div style="font-size:13px;color:var(--text-4);padding:4px 0;">双方无历史交锋</div>`}
       </div>
     </div>`;
   }
