@@ -731,12 +731,119 @@ const MatchIQRender = (() => {
     }).join('');
   }
 
+  // ─── EV PARLAYS RENDERER ───
+  function renderParlays(matches) {
+    const activeMatches = (matches || []).filter(m => m.status === 'pending' && m.odds_analysis && m.odds_analysis.pinnacle);
+    if (activeMatches.length < 2) {
+      return `<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-3);border:1px dashed var(--border);border-radius:var(--radius)">待入场赛事少于2场，无法组合串关</div>`;
+    }
+
+    // Helper: extract recommended outcome odds and true probability
+    const parsedBets = activeMatches.map(m => {
+      const oddsObj = m.odds_analysis.pinnacle.current;
+      const fair = {};
+      const total = (1/oddsObj.home) + (1/oddsObj.draw) + (1/oddsObj.away);
+      fair.home = (1/oddsObj.home) / total;
+      fair.draw = (1/oddsObj.draw) / total;
+      fair.away = (1/oddsObj.away) / total;
+
+      const rec = m.ultimate_conclusion.recommendation || '';
+      let choice = 'home';
+      let choiceName = '主胜';
+      if (rec.includes('平局') || rec.includes('平')) {
+        choice = 'draw';
+        choiceName = '平局';
+      } else if (rec.includes('客胜') || rec.includes('客') || rec.includes('让负')) {
+        choice = 'away';
+        choiceName = '客胜';
+      }
+
+      const odds = oddsObj[choice];
+      const prob = fair[choice];
+      const ev = (prob * odds) - 1;
+
+      return {
+        id: m.id,
+        home: m.home,
+        away: m.away,
+        choiceName: choiceName,
+        odds: odds,
+        prob: prob,
+        ev: ev
+      };
+    });
+
+    // Sort by EV in descending order to get the best value bets first
+    parsedBets.sort((a, b) => b.ev - a.ev);
+
+    const makeParlay = (size) => {
+      if (parsedBets.length < size) return null;
+      const selected = parsedBets.slice(0, size);
+      
+      // Multiply odds and win probability
+      const totalOdds = selected.reduce((acc, b) => acc * b.odds, 1);
+      const totalProb = selected.reduce((acc, b) => acc * b.prob, 1);
+      const totalEv = (totalProb * totalOdds) - 1;
+
+      let tagClass = 'value-high';
+      let tagText = '极具价值';
+      if (totalEv < 0) {
+        tagClass = 'value-low';
+        tagText = '赔付适中';
+      } else if (totalEv < 0.10) {
+        tagClass = 'value-mid';
+        tagText = '高性价比';
+      }
+
+      let riskText = '低风险';
+      if (size >= 8) riskText = '极高风险';
+      else if (size >= 6) riskText = '高风险';
+      else if (size >= 4) riskText = '中高风险';
+      else if (size >= 3) riskText = '中风险';
+
+      const matchesListHTML = selected.map(b => `
+        <div class="parlay-match-item">
+          <span class="parlay-match-teams">${b.home} vs ${b.away}</span>
+          <span class="parlay-match-odds">${b.choiceName} @ ${b.odds.toFixed(2)}</span>
+        </div>
+      `).join('');
+
+      return `
+        <div class="parlay-card animate-in">
+          <div>
+            <span class="parlay-tag ${tagClass}">${tagText}</span>
+            <span class="parlay-risk">${riskText}</span>
+          </div>
+          <div class="parlay-title">${size}串1 组合</div>
+          <div class="parlay-ev">组合期望收益 (EV): <span style="color:${totalEv >= 0 ? 'var(--green)' : 'var(--red)'};font-weight:700">${(totalEv * 100).toFixed(1)}%</span></div>
+          <div class="parlay-matches-list">
+            ${matchesListHTML}
+          </div>
+          <div class="parlay-summary">
+            <span>组合总赔率</span>
+            <span class="parlay-summary-val">${totalOdds.toFixed(2)} 倍</span>
+          </div>
+          <div class="parlay-summary" style="margin-top:8px; border-top:none; padding-top:0;">
+            <span>数学期望概率</span>
+            <span class="parlay-summary-val">${(totalProb * 100).toFixed(2)}%</span>
+          </div>
+        </div>
+      `;
+    };
+
+    const sizes = [2, 3, 4, 6, 8];
+    const cardsHTML = sizes.map(s => makeParlay(s)).filter(c => c !== null).join('');
+
+    return cardsHTML || `<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-3);border:1px dashed var(--border);border-radius:var(--radius)">无足够数量的待预测赛事可组成串关</div>`;
+  }
+
   return {
     renderUltimateCard,
     renderMatchCard,
     renderModelStatus,
     renderEvolutionSection,
     renderHistoryRecords,
+    renderParlays,
     formatDate,
     formatTime
   };

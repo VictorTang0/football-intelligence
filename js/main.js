@@ -103,6 +103,12 @@ const MatchIQ = (() => {
       }
     }
 
+    // ── EV-Optimized Parlays Section ──
+    const parlayContainer = document.getElementById('parlay-container');
+    if (parlayContainer) {
+      parlayContainer.innerHTML = MatchIQRender.renderParlays(upcomingMatches);
+    }
+
     // ── Model Status ──
     const statusContainer = document.getElementById('model-status-container');
     if (statusContainer) {
