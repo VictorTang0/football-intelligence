@@ -817,3 +817,117 @@ section { padding: clamp(32px, 5vw, 64px) 0; }
   background: var(--red-dim);
   color: var(--red);
 }
+
+/* ─── SIDE INDEX NAVIGATION ─── */
+.side-index {
+  position: fixed;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  pointer-events: auto;
+}
+.side-index-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.side-index-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.side-index-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px;
+}
+.side-index-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-4);
+  border: 1px solid transparent;
+  transition: all var(--transition);
+}
+.side-index-text {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: var(--text-3);
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all var(--transition);
+  pointer-events: none;
+  background: rgba(6, 11, 20, 0.75);
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+.side-index-link:hover .side-index-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+.side-index-link:hover .side-index-dot,
+.side-index-link.active .side-index-dot {
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+  transform: scale(1.3);
+}
+.side-index-link.active .side-index-text {
+  color: var(--cyan);
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ─── BACK TO TOP BUTTON ─── */
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(13, 21, 39, 0.75);
+  border: 1px solid var(--border);
+  color: var(--cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 90;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: all var(--transition);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.back-to-top:hover {
+  background: rgba(18, 30, 56, 0.9);
+  border-color: var(--border-bright);
+  box-shadow: var(--cyan-glow);
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+/* ─── RESPONSIVE FOR SIDE NAVIGATION ─── */
+@media (max-width: 1200px) {
+  .side-index {
+    display: none; /* Hide side nav index on smaller screens to avoid overlapping card contents */
+  }
+}
+

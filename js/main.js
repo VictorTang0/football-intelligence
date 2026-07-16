@@ -287,12 +287,79 @@ const MatchIQ = (() => {
     reader.readAsDataURL(file);
   }
 
+  // ─── NAVIGATION & BACK TO TOP ───
+  function initNavigation() {
+    const sideLinks = document.querySelectorAll('.side-index-link');
+    const backToTop = document.getElementById('back-to-top');
+    const sections = Array.from(sideLinks).map(link => document.getElementById(link.dataset.target)).filter(Boolean);
+
+    // Scroll listener for Scrollspy and Back-to-Top fade-in
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY + 120; // offset for sticky header
+
+      // 1. Scrollspy active link highlight
+      let currentSectionId = '';
+      for (const section of sections) {
+        if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+          currentSectionId = section.id;
+        }
+      }
+      
+      // Fallback to first section if at very top
+      if (window.scrollY < 200 && sections.length > 0) {
+        currentSectionId = sections[0].id;
+      }
+      
+      sideLinks.forEach(link => {
+        if (link.dataset.target === currentSectionId) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+
+      // 2. Back to Top visibility
+      if (window.scrollY > 300) {
+        backToTop?.classList.add('visible');
+      } else {
+        backToTop?.classList.remove('visible');
+      }
+    }, { passive: true });
+
+    // Smooth scroll for nav links
+    sideLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const targetId = link.dataset.target;
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          const headerOffset = 70; // height of sticky header
+          const elementPosition = targetEl.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Smooth scroll back to top
+    backToTop?.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+
   // ─── INIT ───
   async function init() {
     try {
       await loadAllData();
       renderApp();
-      initUploadZone();
+      initNavigation();
       state.initialized = true;
     } catch (err) {
       console.error('[MatchIQ] Init error:', err);
