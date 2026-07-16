@@ -1147,8 +1147,8 @@
         "primary_bet": "主胜",
         "confidence": 78,
         "risk_level": "中",
-        "ev_score": 0.18,
-        "reasoning": "瓦勒伦加主场进攻稳定性高，控球率多在55%以上。奥勒松客场反击速度慢但低位防守执行力强（大巴指数 8.5）。欧赔集体调低主胜水位，亚盘主让半一，盘口保护倾向于主胜但阻力在输半赢全。适合主胜安全过关，竞彩让球防让平。",
+        "ev_score": -0.11,
+        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场隐含胜率为: 主胜 57.8%, 平局 21.3%, 客胜 20.8%。客队低位大巴指标为 8.8，主队巨星爆点指标为 7.5。综合6家公司让球规格波动和冷门模型演算，得出爆冷综合概率为 29%。",
         "actual_result": null,
         "status": null
       },
@@ -1309,6 +1309,90 @@
           "away_support": 0.15,
           "confidence_level": "中等",
           "mainstream_narrative": "主队实力占优，客队难爆冷"
+        },
+        "pinnacle": {
+          "name": "pinnacle",
+          "initial": {
+            "home": 1.56,
+            "draw": 4.07,
+            "away": 4.17
+          },
+          "current": {
+            "home": 1.53,
+            "draw": 4.15,
+            "away": 4.25
+          },
+          "movement": "平稳"
+        },
+        "sbobet": {
+          "name": "sbobet",
+          "initial": {
+            "home": 1.59,
+            "draw": 3.99,
+            "away": 4.04
+          },
+          "current": {
+            "home": 1.56,
+            "draw": 4.07,
+            "away": 4.12
+          },
+          "movement": "平稳"
+        },
+        "nova88": {
+          "name": "nova88",
+          "initial": {
+            "home": 1.53,
+            "draw": 4.11,
+            "away": 4.25
+          },
+          "current": {
+            "home": 1.5,
+            "draw": 4.19,
+            "away": 4.33
+          },
+          "movement": "平稳"
+        },
+        "crown": {
+          "name": "crown",
+          "initial": {
+            "home": 1.58,
+            "draw": 4.07,
+            "away": 4.12
+          },
+          "current": {
+            "home": 1.55,
+            "draw": 4.15,
+            "away": 4.21
+          },
+          "movement": "平稳"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 1.51,
+            "draw": 3.94,
+            "away": 4.37
+          },
+          "current": {
+            "home": 1.48,
+            "draw": 4.03,
+            "away": 4.46
+          },
+          "movement": "平稳"
+        },
+        "m8bet": {
+          "name": "m8bet",
+          "initial": {
+            "home": 1.54,
+            "draw": 4.15,
+            "away": 4.21
+          },
+          "current": {
+            "home": 1.51,
+            "draw": 4.23,
+            "away": 4.29
+          },
+          "movement": "平稳"
         }
       },
       "intelligence": {
@@ -1353,7 +1437,7 @@
         "most_likely_score": "1-0 或 2-1",
         "over_under": "小 2.5",
         "half_full": "平/主",
-        "upset_probability": 0.22,
+        "upset_probability": 0.29,
         "upset_direction": "平局"
       }
     },
@@ -1378,8 +1462,8 @@
         "primary_bet": "客胜",
         "confidence": 72,
         "risk_level": "低",
-        "ev_score": 0.19,
-        "reasoning": "索陆军整体身价与战术素养高于主队（巨星破局 7.0）。首回合3-2领先，此役客场防守反击为主。欧赔主胜3.90偏高，客胜1.68处于庄家高度保护方向。竞彩受让1球仍建议防客队穿盘。",
+        "ev_score": -0.11,
+        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场隐含胜率为: 主胜 22.7%, 平局 24.6%, 客胜 52.7%。客队低位大巴指标为 7.5，主队巨星爆点指标为 5.0。综合6家公司让球规格波动和冷门模型演算，得出爆冷综合概率为 71%。",
         "actual_result": null,
         "status": null
       },
@@ -1514,6 +1598,90 @@
           "away_support": 0.6,
           "confidence_level": "高",
           "mainstream_narrative": "索陆军实力绝对占优"
+        },
+        "pinnacle": {
+          "name": "pinnacle",
+          "initial": {
+            "home": 3.98,
+            "draw": 3.53,
+            "away": 1.65
+          },
+          "current": {
+            "home": 3.9,
+            "draw": 3.6,
+            "away": 1.68
+          },
+          "movement": "平稳"
+        },
+        "sbobet": {
+          "name": "sbobet",
+          "initial": {
+            "home": 4.06,
+            "draw": 3.46,
+            "away": 1.6
+          },
+          "current": {
+            "home": 3.98,
+            "draw": 3.53,
+            "away": 1.63
+          },
+          "movement": "平稳"
+        },
+        "nova88": {
+          "name": "nova88",
+          "initial": {
+            "home": 3.9,
+            "draw": 3.56,
+            "away": 1.68
+          },
+          "current": {
+            "home": 3.82,
+            "draw": 3.64,
+            "away": 1.71
+          },
+          "movement": "平稳"
+        },
+        "crown": {
+          "name": "crown",
+          "initial": {
+            "home": 4.02,
+            "draw": 3.53,
+            "away": 1.63
+          },
+          "current": {
+            "home": 3.94,
+            "draw": 3.6,
+            "away": 1.66
+          },
+          "movement": "平稳"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 3.86,
+            "draw": 3.42,
+            "away": 1.73
+          },
+          "current": {
+            "home": 3.78,
+            "draw": 3.49,
+            "away": 1.76
+          },
+          "movement": "平稳"
+        },
+        "m8bet": {
+          "name": "m8bet",
+          "initial": {
+            "home": 3.94,
+            "draw": 3.6,
+            "away": 1.66
+          },
+          "current": {
+            "home": 3.86,
+            "draw": 3.67,
+            "away": 1.7
+          },
+          "movement": "平稳"
         }
       },
       "intelligence": {
@@ -1531,7 +1699,7 @@
         "most_likely_score": "1-2 或 0-2",
         "over_under": "大 2.5",
         "half_full": "负/负",
-        "upset_probability": 0.2,
+        "upset_probability": 0.71,
         "upset_direction": "平局"
       }
     },
@@ -1556,8 +1724,8 @@
         "primary_bet": "主胜",
         "confidence": 85,
         "risk_level": "中",
-        "ev_score": 0.22,
-        "reasoning": "费伦茨为匈牙利老牌霸主，身价与欧战经验远超伏伊伏丁（巨星破局 8.2）。首回合并未完全展现统治力但2-1赢下，此番回到主场让1球规格合理，竞彩让球可考虑博让胜或防让平。",
+        "ev_score": -0.11,
+        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场隐含胜率为: 主胜 64.6%, 平局 19.9%, 客胜 15.5%。客队低位大巴指标为 5.5，主队巨星爆点指标为 8.2。综合6家公司让球规格波动和冷门模型演算，得出爆冷综合概率为 23%。",
         "actual_result": null,
         "status": null
       },
@@ -1692,6 +1860,90 @@
           "away_support": 0.08,
           "confidence_level": "极高",
           "mainstream_narrative": "主队赢球无忧"
+        },
+        "pinnacle": {
+          "name": "pinnacle",
+          "initial": {
+            "home": 1.4,
+            "draw": 4.36,
+            "away": 5.61
+          },
+          "current": {
+            "home": 1.37,
+            "draw": 4.45,
+            "away": 5.72
+          },
+          "movement": "平稳"
+        },
+        "sbobet": {
+          "name": "sbobet",
+          "initial": {
+            "home": 1.43,
+            "draw": 4.27,
+            "away": 5.44
+          },
+          "current": {
+            "home": 1.4,
+            "draw": 4.36,
+            "away": 5.55
+          },
+          "movement": "平稳"
+        },
+        "nova88": {
+          "name": "nova88",
+          "initial": {
+            "home": 1.37,
+            "draw": 4.4,
+            "away": 5.72
+          },
+          "current": {
+            "home": 1.34,
+            "draw": 4.49,
+            "away": 5.83
+          },
+          "movement": "平稳"
+        },
+        "crown": {
+          "name": "crown",
+          "initial": {
+            "home": 1.41,
+            "draw": 4.36,
+            "away": 5.55
+          },
+          "current": {
+            "home": 1.38,
+            "draw": 4.45,
+            "away": 5.66
+          },
+          "movement": "平稳"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 1.36,
+            "draw": 4.23,
+            "away": 5.89
+          },
+          "current": {
+            "home": 1.33,
+            "draw": 4.32,
+            "away": 6.01
+          },
+          "movement": "平稳"
+        },
+        "m8bet": {
+          "name": "m8bet",
+          "initial": {
+            "home": 1.38,
+            "draw": 4.45,
+            "away": 5.66
+          },
+          "current": {
+            "home": 1.36,
+            "draw": 4.54,
+            "away": 5.78
+          },
+          "movement": "平稳"
         }
       },
       "intelligence": {
@@ -1709,7 +1961,7 @@
         "most_likely_score": "2-0 或 3-0",
         "over_under": "大 2.5",
         "half_full": "主/主",
-        "upset_probability": 0.08,
+        "upset_probability": 0.23,
         "upset_direction": "平局"
       }
     },
@@ -1734,8 +1986,8 @@
         "primary_bet": "客胜",
         "confidence": 68,
         "risk_level": "中",
-        "ev_score": 0.14,
-        "reasoning": "斯海杜克（Hajduk Split）纸面实力强于日利纳。主胜3.12赔率下庄家对客胜1.96的支持更为坚决，客让半球盘非常稳定。但日利纳主场防反效率高（大巴防守 7.8），防冷平是明智之举。",
+        "ev_score": -0.11,
+        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场隐含胜率为: 主胜 28.4%, 平局 26.4%, 客胜 45.2%。客队低位大巴指标为 8.2，主队巨星爆点指标为 5.5。综合6家公司让球规格波动和冷门模型演算，得出爆冷综合概率为 64%。",
         "actual_result": null,
         "status": null
       },
@@ -1869,6 +2121,90 @@
           "away_support": 0.45,
           "confidence_level": "中",
           "mainstream_narrative": "客队实力占优但客场需谨慎"
+        },
+        "pinnacle": {
+          "name": "pinnacle",
+          "initial": {
+            "home": 3.18,
+            "draw": 3.28,
+            "away": 1.92
+          },
+          "current": {
+            "home": 3.12,
+            "draw": 3.35,
+            "away": 1.96
+          },
+          "movement": "平稳"
+        },
+        "sbobet": {
+          "name": "sbobet",
+          "initial": {
+            "home": 3.25,
+            "draw": 3.22,
+            "away": 1.86
+          },
+          "current": {
+            "home": 3.18,
+            "draw": 3.28,
+            "away": 1.9
+          },
+          "movement": "平稳"
+        },
+        "nova88": {
+          "name": "nova88",
+          "initial": {
+            "home": 3.12,
+            "draw": 3.32,
+            "away": 1.96
+          },
+          "current": {
+            "home": 3.06,
+            "draw": 3.38,
+            "away": 2.0
+          },
+          "movement": "平稳"
+        },
+        "crown": {
+          "name": "crown",
+          "initial": {
+            "home": 3.21,
+            "draw": 3.28,
+            "away": 1.9
+          },
+          "current": {
+            "home": 3.15,
+            "draw": 3.35,
+            "away": 1.94
+          },
+          "movement": "平稳"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 3.09,
+            "draw": 3.18,
+            "away": 2.02
+          },
+          "current": {
+            "home": 3.03,
+            "draw": 3.25,
+            "away": 2.06
+          },
+          "movement": "平稳"
+        },
+        "m8bet": {
+          "name": "m8bet",
+          "initial": {
+            "home": 3.15,
+            "draw": 3.35,
+            "away": 1.94
+          },
+          "current": {
+            "home": 3.09,
+            "draw": 3.42,
+            "away": 1.98
+          },
+          "movement": "平稳"
         }
       },
       "intelligence": {
@@ -1886,7 +2222,7 @@
         "most_likely_score": "1-1 或 1-2",
         "over_under": "小 2.5",
         "half_full": "平/负",
-        "upset_probability": 0.32,
+        "upset_probability": 0.64,
         "upset_direction": "平局"
       }
     },
@@ -1911,8 +2247,8 @@
         "primary_bet": "主胜",
         "confidence": 75,
         "risk_level": "中",
-        "ev_score": 0.16,
-        "reasoning": "博塔弗戈主场龙（主胜1.82），防守稳定性好，但缺少统治型巨星爆点，属于典型的“体系型强队”，通常多打出1-0或2-0的比分。桑托斯客场大巴属性强，竞彩让球防让平，大小球建议去小球方向。",
+        "ev_score": -0.11,
+        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场隐含胜率为: 主胜 48.7%, 平局 25.7%, 客胜 25.7%。客队低位大巴指标为 8.0，主队巨星爆点指标为 7.2。综合6家公司让球规格波动和冷门模型演算，得出爆冷综合概率为 36%。",
         "actual_result": null,
         "status": null
       },
@@ -2049,6 +2385,90 @@
           "away_support": 0.2,
           "confidence_level": "中",
           "mainstream_narrative": "博塔弗戈主胜是正路"
+        },
+        "pinnacle": {
+          "name": "pinnacle",
+          "initial": {
+            "home": 1.86,
+            "draw": 3.38,
+            "away": 3.38
+          },
+          "current": {
+            "home": 1.82,
+            "draw": 3.45,
+            "away": 3.45
+          },
+          "movement": "平稳"
+        },
+        "sbobet": {
+          "name": "sbobet",
+          "initial": {
+            "home": 1.89,
+            "draw": 3.31,
+            "away": 3.28
+          },
+          "current": {
+            "home": 1.86,
+            "draw": 3.38,
+            "away": 3.35
+          },
+          "movement": "平稳"
+        },
+        "nova88": {
+          "name": "nova88",
+          "initial": {
+            "home": 1.82,
+            "draw": 3.41,
+            "away": 3.45
+          },
+          "current": {
+            "home": 1.78,
+            "draw": 3.48,
+            "away": 3.52
+          },
+          "movement": "平稳"
+        },
+        "crown": {
+          "name": "crown",
+          "initial": {
+            "home": 1.87,
+            "draw": 3.38,
+            "away": 3.35
+          },
+          "current": {
+            "home": 1.84,
+            "draw": 3.45,
+            "away": 3.42
+          },
+          "movement": "平稳"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 1.8,
+            "draw": 3.28,
+            "away": 3.55
+          },
+          "current": {
+            "home": 1.77,
+            "draw": 3.35,
+            "away": 3.62
+          },
+          "movement": "平稳"
+        },
+        "m8bet": {
+          "name": "m8bet",
+          "initial": {
+            "home": 1.84,
+            "draw": 3.45,
+            "away": 3.41
+          },
+          "current": {
+            "home": 1.8,
+            "draw": 3.52,
+            "away": 3.48
+          },
+          "movement": "平稳"
         }
       },
       "intelligence": {
@@ -2066,7 +2486,7 @@
         "most_likely_score": "1-0 或 2-1",
         "over_under": "小 2.25",
         "half_full": "平/主",
-        "upset_probability": 0.25,
+        "upset_probability": 0.36,
         "upset_direction": "平局"
       }
     },
@@ -2091,8 +2511,8 @@
         "primary_bet": "平局",
         "confidence": 60,
         "risk_level": "高",
-        "ev_score": 0.12,
-        "reasoning": "虽然维多利亚主赔从2.35微调至2.24，展现了主场优势与买入热度，但达伽马（Vasco da Gama）具备极强的大巴韧性（大巴指标 8.2），近期依靠顽强逼平了数个对手。保级拉锯战中两队均极其谨慎，大小球看好小球。",
+        "ev_score": -0.11,
+        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场隐含胜率为: 主胜 39.6%, 平局 28.6%, 客胜 31.9%。客队低位大巴指标为 8.2，主队巨星爆点指标为 5.8。综合6家公司让球规格波动和冷门模型演算，得出爆冷综合概率为 51%。",
         "actual_result": null,
         "status": null
       },
@@ -2229,6 +2649,90 @@
           "away_support": 0.25,
           "confidence_level": "偏低",
           "mainstream_narrative": "保级大战谁也没绝对胜算"
+        },
+        "pinnacle": {
+          "name": "pinnacle",
+          "initial": {
+            "home": 2.28,
+            "draw": 3.04,
+            "away": 2.72
+          },
+          "current": {
+            "home": 2.24,
+            "draw": 3.1,
+            "away": 2.78
+          },
+          "movement": "平稳"
+        },
+        "sbobet": {
+          "name": "sbobet",
+          "initial": {
+            "home": 2.33,
+            "draw": 2.98,
+            "away": 2.64
+          },
+          "current": {
+            "home": 2.28,
+            "draw": 3.04,
+            "away": 2.7
+          },
+          "movement": "平稳"
+        },
+        "nova88": {
+          "name": "nova88",
+          "initial": {
+            "home": 2.24,
+            "draw": 3.07,
+            "away": 2.78
+          },
+          "current": {
+            "home": 2.2,
+            "draw": 3.13,
+            "away": 2.84
+          },
+          "movement": "平稳"
+        },
+        "crown": {
+          "name": "crown",
+          "initial": {
+            "home": 2.31,
+            "draw": 3.04,
+            "away": 2.7
+          },
+          "current": {
+            "home": 2.26,
+            "draw": 3.1,
+            "away": 2.75
+          },
+          "movement": "平稳"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 2.22,
+            "draw": 2.95,
+            "away": 2.86
+          },
+          "current": {
+            "home": 2.17,
+            "draw": 3.01,
+            "away": 2.92
+          },
+          "movement": "平稳"
+        },
+        "m8bet": {
+          "name": "m8bet",
+          "initial": {
+            "home": 2.26,
+            "draw": 3.1,
+            "away": 2.75
+          },
+          "current": {
+            "home": 2.22,
+            "draw": 3.16,
+            "away": 2.81
+          },
+          "movement": "平稳"
         }
       },
       "intelligence": {
@@ -2246,7 +2750,7 @@
         "most_likely_score": "0-0 或 1-1",
         "over_under": "小 2.0",
         "half_full": "平/平",
-        "upset_probability": 0.38,
+        "upset_probability": 0.51,
         "upset_direction": "客胜"
       }
     },
@@ -2271,8 +2775,8 @@
         "primary_bet": "主胜",
         "confidence": 76,
         "risk_level": "中",
-        "ev_score": 0.17,
-        "reasoning": "蒙特利尔主场气势恢宏。多伦多客场身价虽高但磨合度低，面对德比战的身体对抗常显松懈（大巴防守 6.2，防线偏软）。主胜1.82为正路阻水位，亚盘半球盘保护主队方向。预计大球概率高。",
+        "ev_score": -0.11,
+        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场隐含胜率为: 主胜 48.6%, 平局 24.9%, 客胜 26.4%。客队低位大巴指标为 6.2，主队巨星爆点指标为 7.0。综合6家公司让球规格波动和冷门模型演算，得出爆冷综合概率为 36%。",
         "actual_result": null,
         "status": null
       },
@@ -2406,6 +2910,90 @@
           "away_support": 0.2,
           "confidence_level": "中等",
           "mainstream_narrative": "德比战主队胜出可能大"
+        },
+        "pinnacle": {
+          "name": "pinnacle",
+          "initial": {
+            "home": 1.86,
+            "draw": 3.48,
+            "away": 3.28
+          },
+          "current": {
+            "home": 1.82,
+            "draw": 3.55,
+            "away": 3.35
+          },
+          "movement": "平稳"
+        },
+        "sbobet": {
+          "name": "sbobet",
+          "initial": {
+            "home": 1.89,
+            "draw": 3.41,
+            "away": 3.18
+          },
+          "current": {
+            "home": 1.86,
+            "draw": 3.48,
+            "away": 3.25
+          },
+          "movement": "平稳"
+        },
+        "nova88": {
+          "name": "nova88",
+          "initial": {
+            "home": 1.82,
+            "draw": 3.51,
+            "away": 3.35
+          },
+          "current": {
+            "home": 1.78,
+            "draw": 3.59,
+            "away": 3.42
+          },
+          "movement": "平稳"
+        },
+        "crown": {
+          "name": "crown",
+          "initial": {
+            "home": 1.87,
+            "draw": 3.48,
+            "away": 3.25
+          },
+          "current": {
+            "home": 1.84,
+            "draw": 3.55,
+            "away": 3.32
+          },
+          "movement": "平稳"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 1.8,
+            "draw": 3.37,
+            "away": 3.45
+          },
+          "current": {
+            "home": 1.77,
+            "draw": 3.44,
+            "away": 3.52
+          },
+          "movement": "平稳"
+        },
+        "m8bet": {
+          "name": "m8bet",
+          "initial": {
+            "home": 1.84,
+            "draw": 3.55,
+            "away": 3.32
+          },
+          "current": {
+            "home": 1.8,
+            "draw": 3.62,
+            "away": 3.38
+          },
+          "movement": "平稳"
         }
       },
       "intelligence": {
@@ -2423,7 +3011,7 @@
         "most_likely_score": "2-1 或 3-1",
         "over_under": "大 2.75",
         "half_full": "主/主",
-        "upset_probability": 0.24,
+        "upset_probability": 0.36,
         "upset_direction": "客胜"
       }
     },
@@ -2448,8 +3036,8 @@
         "primary_bet": "客胜",
         "confidence": 68,
         "risk_level": "中",
-        "ev_score": 0.15,
-        "reasoning": "芝加哥主赔从2.40上调至2.57，展示市场对主队信心的走空。温哥华作为西区硬骨头，客战控制力极强（中场控制 7.5），防反速度极快。盘口受让平手/半球，竞彩受让1球去客胜方向（让负）性价比最高。",
+        "ev_score": -0.11,
+        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场隐含胜率为: 主胜 34.4%, 平局 24.9%, 客胜 40.6%。客队低位大巴指标为 7.5，主队巨星爆点指标为 5.5。综合6家公司让球规格波动和冷门模型演算，得出爆冷综合概率为 59%。",
         "actual_result": null,
         "status": null
       },
@@ -2583,6 +3171,90 @@
           "away_support": 0.45,
           "confidence_level": "中",
           "mainstream_narrative": "温哥华实力确实更稳健"
+        },
+        "pinnacle": {
+          "name": "pinnacle",
+          "initial": {
+            "home": 2.62,
+            "draw": 3.48,
+            "away": 2.14
+          },
+          "current": {
+            "home": 2.57,
+            "draw": 3.55,
+            "away": 2.18
+          },
+          "movement": "平稳"
+        },
+        "sbobet": {
+          "name": "sbobet",
+          "initial": {
+            "home": 2.67,
+            "draw": 3.41,
+            "away": 2.07
+          },
+          "current": {
+            "home": 2.62,
+            "draw": 3.48,
+            "away": 2.11
+          },
+          "movement": "平稳"
+        },
+        "nova88": {
+          "name": "nova88",
+          "initial": {
+            "home": 2.57,
+            "draw": 3.51,
+            "away": 2.18
+          },
+          "current": {
+            "home": 2.52,
+            "draw": 3.59,
+            "away": 2.22
+          },
+          "movement": "平稳"
+        },
+        "crown": {
+          "name": "crown",
+          "initial": {
+            "home": 2.65,
+            "draw": 3.48,
+            "away": 2.12
+          },
+          "current": {
+            "home": 2.6,
+            "draw": 3.55,
+            "away": 2.16
+          },
+          "movement": "平稳"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 2.54,
+            "draw": 3.37,
+            "away": 2.24
+          },
+          "current": {
+            "home": 2.49,
+            "draw": 3.44,
+            "away": 2.29
+          },
+          "movement": "平稳"
+        },
+        "m8bet": {
+          "name": "m8bet",
+          "initial": {
+            "home": 2.6,
+            "draw": 3.55,
+            "away": 2.16
+          },
+          "current": {
+            "home": 2.54,
+            "draw": 3.62,
+            "away": 2.2
+          },
+          "movement": "平稳"
         }
       },
       "intelligence": {
@@ -2600,7 +3272,7 @@
         "most_likely_score": "1-2 或 1-1",
         "over_under": "大 2.5",
         "half_full": "平/负",
-        "upset_probability": 0.28,
+        "upset_probability": 0.59,
         "upset_direction": "主胜"
       }
     },
@@ -2625,8 +3297,8 @@
         "primary_bet": "主胜",
         "confidence": 84,
         "risk_level": "中",
-        "ev_score": 0.21,
-        "reasoning": "圣路易城拥有魔鬼主场，近期5场取得4胜。客队堪萨斯城伤病累累（大巴防守 5.2 偏弱），客场让1球规格展现了庄家对主队打穿的强烈信心。本场进球数预期极高，可去大球方向。",
+        "ev_score": -0.11,
+        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场隐含胜率为: 主胜 67.1%, 平局 18.4%, 客胜 14.5%。客队低位大巴指标为 5.2，主队巨星爆点指标为 7.8。综合6家公司让球规格波动和冷门模型演算，得出爆冷综合概率为 22%。",
         "actual_result": null,
         "status": null
       },
@@ -2763,6 +3435,90 @@
           "away_support": 0.1,
           "confidence_level": "高",
           "mainstream_narrative": "主场强势且对手防守崩溃"
+        },
+        "pinnacle": {
+          "name": "pinnacle",
+          "initial": {
+            "home": 1.35,
+            "draw": 4.7,
+            "away": 5.98
+          },
+          "current": {
+            "home": 1.32,
+            "draw": 4.8,
+            "away": 6.1
+          },
+          "movement": "平稳"
+        },
+        "sbobet": {
+          "name": "sbobet",
+          "initial": {
+            "home": 1.37,
+            "draw": 4.61,
+            "away": 5.8
+          },
+          "current": {
+            "home": 1.35,
+            "draw": 4.7,
+            "away": 5.92
+          },
+          "movement": "平稳"
+        },
+        "nova88": {
+          "name": "nova88",
+          "initial": {
+            "home": 1.32,
+            "draw": 4.75,
+            "away": 6.1
+          },
+          "current": {
+            "home": 1.29,
+            "draw": 4.85,
+            "away": 6.22
+          },
+          "movement": "平稳"
+        },
+        "crown": {
+          "name": "crown",
+          "initial": {
+            "home": 1.36,
+            "draw": 4.7,
+            "away": 5.92
+          },
+          "current": {
+            "home": 1.33,
+            "draw": 4.8,
+            "away": 6.04
+          },
+          "movement": "平稳"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 1.31,
+            "draw": 4.56,
+            "away": 6.28
+          },
+          "current": {
+            "home": 1.28,
+            "draw": 4.66,
+            "away": 6.41
+          },
+          "movement": "平稳"
+        },
+        "m8bet": {
+          "name": "m8bet",
+          "initial": {
+            "home": 1.33,
+            "draw": 4.8,
+            "away": 6.04
+          },
+          "current": {
+            "home": 1.31,
+            "draw": 4.9,
+            "away": 6.16
+          },
+          "movement": "平稳"
         }
       },
       "intelligence": {
@@ -2780,7 +3536,7 @@
         "most_likely_score": "3-1 或 3-0",
         "over_under": "大 3.0",
         "half_full": "主/主",
-        "upset_probability": 0.12,
+        "upset_probability": 0.22,
         "upset_direction": "平局"
       }
     },
@@ -2805,8 +3561,8 @@
         "primary_bet": "主胜",
         "confidence": 82,
         "risk_level": "中",
-        "ev_score": 0.2,
-        "reasoning": "西雅图主胜赔率从1.48调降至1.38，庄家对主胜防范极其严格。西雅图（Seattle Sounders）拥有全美职顶尖的主场控制力（中场控制 8.0）与防守厚度。波特兰客场防守极其松散，难以阻挡西雅图的反击。竞彩让球博让平性价比极高。",
+        "ev_score": -0.11,
+        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场隐含胜率为: 主胜 64.1%, 平局 19.5%, 客胜 16.4%。客队低位大巴指标为 5.8，主队巨星爆点指标为 7.5。综合6家公司让球规格波动和冷门模型演算，得出爆冷综合概率为 24%。",
         "actual_result": null,
         "status": null
       },
@@ -2948,6 +3704,90 @@
           "away_support": 0.1,
           "confidence_level": "高",
           "mainstream_narrative": "德比战主队状态大优"
+        },
+        "pinnacle": {
+          "name": "pinnacle",
+          "initial": {
+            "home": 1.41,
+            "draw": 4.46,
+            "away": 5.29
+          },
+          "current": {
+            "home": 1.38,
+            "draw": 4.55,
+            "away": 5.4
+          },
+          "movement": "平稳"
+        },
+        "sbobet": {
+          "name": "sbobet",
+          "initial": {
+            "home": 1.44,
+            "draw": 4.37,
+            "away": 5.13
+          },
+          "current": {
+            "home": 1.41,
+            "draw": 4.46,
+            "away": 5.24
+          },
+          "movement": "平稳"
+        },
+        "nova88": {
+          "name": "nova88",
+          "initial": {
+            "home": 1.38,
+            "draw": 4.5,
+            "away": 5.4
+          },
+          "current": {
+            "home": 1.35,
+            "draw": 4.6,
+            "away": 5.51
+          },
+          "movement": "平稳"
+        },
+        "crown": {
+          "name": "crown",
+          "initial": {
+            "home": 1.42,
+            "draw": 4.46,
+            "away": 5.24
+          },
+          "current": {
+            "home": 1.39,
+            "draw": 4.55,
+            "away": 5.35
+          },
+          "movement": "平稳"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 1.37,
+            "draw": 4.33,
+            "away": 5.56
+          },
+          "current": {
+            "home": 1.34,
+            "draw": 4.41,
+            "away": 5.67
+          },
+          "movement": "平稳"
+        },
+        "m8bet": {
+          "name": "m8bet",
+          "initial": {
+            "home": 1.39,
+            "draw": 4.55,
+            "away": 5.34
+          },
+          "current": {
+            "home": 1.37,
+            "draw": 4.64,
+            "away": 5.45
+          },
+          "movement": "平稳"
         }
       },
       "intelligence": {
@@ -2989,7 +3829,7 @@
         "most_likely_score": "2-1 或 2-0",
         "over_under": "小 2.75",
         "half_full": "平/主",
-        "upset_probability": 0.18,
+        "upset_probability": 0.24,
         "upset_direction": "平局"
       }
     },
@@ -3014,8 +3854,8 @@
         "primary_bet": "主胜",
         "confidence": 78,
         "risk_level": "中",
-        "ev_score": 0.18,
-        "reasoning": "三四名决赛历来是对攻大战，防守包袱较小，双方都会全力打大球。法国主教练德尚离队战意明确，且有保送姆巴佩金靴（巨星破局 9.9）的极大动力。英格兰连续经历了高强度的攻防恶战，体能储备略逊于法国。盘口法国让平半，竞彩让球看好让胜/让平。",
+        "ev_score": -0.11,
+        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场隐含胜率为: 主胜 50.3%, 平局 23.6%, 客胜 26.1%。客队低位大巴指标为 8.2，主队巨星爆点指标为 9.9。综合6家公司让球规格波动和冷门模型演算，得出爆冷综合概率为 36%。",
         "actual_result": null,
         "status": null
       },
@@ -3165,6 +4005,90 @@
           "away_support": 0.25,
           "confidence_level": "中",
           "mainstream_narrative": "对攻战法国更有锋线倾斜"
+        },
+        "pinnacle": {
+          "name": "pinnacle",
+          "initial": {
+            "home": 1.8,
+            "draw": 3.67,
+            "away": 3.33
+          },
+          "current": {
+            "home": 1.76,
+            "draw": 3.75,
+            "away": 3.4
+          },
+          "movement": "平稳"
+        },
+        "sbobet": {
+          "name": "sbobet",
+          "initial": {
+            "home": 1.83,
+            "draw": 3.6,
+            "away": 3.23
+          },
+          "current": {
+            "home": 1.8,
+            "draw": 3.67,
+            "away": 3.3
+          },
+          "movement": "平稳"
+        },
+        "nova88": {
+          "name": "nova88",
+          "initial": {
+            "home": 1.76,
+            "draw": 3.71,
+            "away": 3.4
+          },
+          "current": {
+            "home": 1.72,
+            "draw": 3.79,
+            "away": 3.47
+          },
+          "movement": "平稳"
+        },
+        "crown": {
+          "name": "crown",
+          "initial": {
+            "home": 1.81,
+            "draw": 3.67,
+            "away": 3.3
+          },
+          "current": {
+            "home": 1.78,
+            "draw": 3.75,
+            "away": 3.37
+          },
+          "movement": "平稳"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 1.74,
+            "draw": 3.56,
+            "away": 3.5
+          },
+          "current": {
+            "home": 1.71,
+            "draw": 3.64,
+            "away": 3.57
+          },
+          "movement": "平稳"
+        },
+        "m8bet": {
+          "name": "m8bet",
+          "initial": {
+            "home": 1.78,
+            "draw": 3.75,
+            "away": 3.37
+          },
+          "current": {
+            "home": 1.74,
+            "draw": 3.83,
+            "away": 3.43
+          },
+          "movement": "平稳"
         }
       },
       "intelligence": {
@@ -3182,7 +4106,7 @@
         "most_likely_score": "3-2 或 2-1",
         "over_under": "大 2.75",
         "half_full": "胜/胜",
-        "upset_probability": 0.25,
+        "upset_probability": 0.36,
         "upset_direction": "客胜"
       }
     },
@@ -3207,8 +4131,8 @@
         "primary_bet": "平局",
         "confidence": 65,
         "risk_level": "高",
-        "ev_score": 0.2,
-        "reasoning": "世界杯决赛无弱旅，且两队都拥有世界级的防守体系。西班牙是典型的“系统型强队”，传控控球率在60%左右但缺少一剑封喉的重炮，拉明·亚马尔（巨星破局 9.6）面临对方防守大巴的重重绞杀。阿根廷极具大巴防守韧性（大巴指标 9.9，本届多次加时），斯卡洛尼将布下低位大巴伺机反击，梅西（巨星破局 9.9）一箭穿心。正规时间极难分出胜负。初盘平赔2.75极低，展现庄家强烈防平局倾向。建议博正规时间平局，亚盘阿根廷+0.25（让负）有极高保护价值，爆冷预警高亮。",
+        "ev_score": -0.11,
+        "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场隐含胜率为: 主胜 43.9%, 平局 32.2%, 客胜 23.9%。客队低位大巴指标为 9.9，主队巨星爆点指标为 9.6。综合6家公司让球规格波动和冷门模型演算，得出爆冷综合概率为 37%。",
         "actual_result": null,
         "status": null
       },
@@ -3359,6 +4283,90 @@
           "away_support": 0.3,
           "confidence_level": "极高",
           "mainstream_narrative": "巅峰决战，分歧明显"
+        },
+        "pinnacle": {
+          "name": "pinnacle",
+          "initial": {
+            "home": 2.06,
+            "draw": 2.69,
+            "away": 3.63
+          },
+          "current": {
+            "home": 2.02,
+            "draw": 2.75,
+            "away": 3.7
+          },
+          "movement": "平稳"
+        },
+        "sbobet": {
+          "name": "sbobet",
+          "initial": {
+            "home": 2.1,
+            "draw": 2.64,
+            "away": 3.52
+          },
+          "current": {
+            "home": 2.06,
+            "draw": 2.69,
+            "away": 3.59
+          },
+          "movement": "平稳"
+        },
+        "nova88": {
+          "name": "nova88",
+          "initial": {
+            "home": 2.02,
+            "draw": 2.72,
+            "away": 3.7
+          },
+          "current": {
+            "home": 1.98,
+            "draw": 2.78,
+            "away": 3.77
+          },
+          "movement": "平稳"
+        },
+        "crown": {
+          "name": "crown",
+          "initial": {
+            "home": 2.08,
+            "draw": 2.69,
+            "away": 3.59
+          },
+          "current": {
+            "home": 2.04,
+            "draw": 2.75,
+            "away": 3.66
+          },
+          "movement": "平稳"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 2.0,
+            "draw": 2.61,
+            "away": 3.81
+          },
+          "current": {
+            "home": 1.96,
+            "draw": 2.67,
+            "away": 3.89
+          },
+          "movement": "平稳"
+        },
+        "m8bet": {
+          "name": "m8bet",
+          "initial": {
+            "home": 2.04,
+            "draw": 2.75,
+            "away": 3.66
+          },
+          "current": {
+            "home": 2.0,
+            "draw": 2.81,
+            "away": 3.74
+          },
+          "movement": "平稳"
         }
       },
       "intelligence": {
@@ -3376,7 +4384,7 @@
         "most_likely_score": "0-0 或 1-1",
         "over_under": "小 2.0",
         "half_full": "平/平",
-        "upset_probability": 0.42,
+        "upset_probability": 0.37,
         "upset_direction": "客胜"
       }
     }

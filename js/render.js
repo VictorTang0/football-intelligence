@@ -202,21 +202,36 @@ const MatchIQRender = (() => {
   // ─── ODDS PANE ───
   function renderOddsPane(match) {
     const odds = match.odds_analysis || {};
-    const companies = ['company_1', 'company_2', 'company_3'].filter(c => odds[c]);
+    const bookKeys = ['pinnacle', 'sbobet', 'nova88', 'crown', 'hkjc', 'm8bet'];
+    const fallbackKeys = ['company_1', 'company_2', 'company_3'];
+    const bookNames = {
+      pinnacle: "平博 (Pinnacle)",
+      sbobet: "利记 (SBOBET)",
+      nova88: "新宝 (Nova88)",
+      crown: "皇冠 (Crown)",
+      hkjc: "马会 (HKJC)",
+      m8bet: "沙巴 (M8Bet)"
+    };
 
-    const oddsRows = companies.map(c => {
-      const co = odds[c];
+    let activeKeys = bookKeys.filter(k => odds[k]);
+    if (activeKeys.length === 0) {
+      activeKeys = fallbackKeys.filter(k => odds[k]);
+    }
+
+    const oddsRows = activeKeys.map(k => {
+      const co = odds[k];
+      const name = co.name || bookNames[k] || k;
       const hi = co.initial; const hc = co.current;
       return `
         <tr>
-          <td style="text-align:left;color:var(--text-2);font-weight:600">${co.name}</td>
+          <td style="text-align:left;color:var(--text-2);font-weight:600">${name}</td>
           <td>${hi.home?.toFixed(2)}</td>
           <td class="odds-val ${oddsChangeClass(hi.home, hc.home)}">${hc.home?.toFixed(2)} <span class="movement-arrow">${oddsArrow(hi.home, hc.home)}</span></td>
           <td>${hi.draw?.toFixed(2)}</td>
           <td class="odds-val ${oddsChangeClass(hi.draw, hc.draw)}">${hc.draw?.toFixed(2)} <span class="movement-arrow">${oddsArrow(hi.draw, hc.draw)}</span></td>
           <td>${hi.away?.toFixed(2)}</td>
           <td class="odds-val ${oddsChangeClass(hi.away, hc.away)}">${hc.away?.toFixed(2)} <span class="movement-arrow">${oddsArrow(hi.away, hc.away)}</span></td>
-          <td style="color:var(--text-3);font-size:11px">${co.movement}</td>
+          <td style="color:var(--text-3);font-size:11px">${co.movement || '平稳'}</td>
         </tr>`;
     }).join('');
 
