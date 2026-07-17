@@ -154,6 +154,8 @@ def create_complete_match(raw_match):
                 "form": ["W", "D", "L", "W", "D"],
                 "form_note": f"近期表现稳定，主场韧性良好",
                 "season_stats": get_stats_by_tier(home_tier),
+                "motivation": 0.80,
+                "motivation_note": "主队常规战意，抢分期望高",
                 "injuries": [],
                 "suspensions": [],
                 "key_players": [
@@ -171,6 +173,8 @@ def create_complete_match(raw_match):
                 "form": ["D", "L", "W", "D", "L"],
                 "form_note": f"客场打法偏防守反击",
                 "season_stats": get_stats_by_tier(away_tier),
+                "motivation": 0.75,
+                "motivation_note": "客队客场防御为主，常规防守战意",
                 "injuries": [],
                 "suspensions": [],
                 "key_players": [

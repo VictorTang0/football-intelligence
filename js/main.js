@@ -12,6 +12,8 @@ const MatchIQ = (() => {
     weights: null,
     history: null,
     evolution: null,
+    teamTags: {},
+    leagueProfiles: {},
     initialized: false,
     usingDemo: false,
     parlayFilter: 'all'
@@ -30,22 +32,24 @@ const MatchIQ = (() => {
   }
 
   async function loadAllData() {
-    const [config, matches, weights, history, evolution, teamTags] = await Promise.all([
+    const [config, matches, weights, history, evolution, teamTags, leagueProfiles] = await Promise.all([
       loadJSON('./data/config.json'),
       loadJSON('./data/matches.json'),
       loadJSON('./data/weights.json'),
       loadJSON('./data/history.json'),
       loadJSON('./data/model_evolution.json'),
-      loadJSON('./data/team_tags.json', {})
+      loadJSON('./data/team_tags.json', {}),
+      loadJSON('./data/league_profiles.json', {})
     ]);
 
-    state.config    = config;
-    state.matches   = matches;
-    state.weights   = weights;
-    state.history   = history;
-    state.evolution = evolution;
-    state.teamTags  = teamTags || {};
-    state.usingDemo = matches?.is_demo === true;
+    state.config         = config;
+    state.matches        = matches;
+    state.weights        = weights;
+    state.history        = history;
+    state.evolution      = evolution;
+    state.teamTags       = teamTags || {};
+    state.leagueProfiles = leagueProfiles || {};
+    state.usingDemo      = matches?.is_demo === true;
   }
 
   // ─── RADAR DATA BUILDER ───
@@ -102,7 +106,7 @@ const MatchIQ = (() => {
             <div style="font-size:13px">请发送赛程图片触发分析</div>
           </div>`;
       } else {
-        ucGrid.innerHTML = upcomingMatches.map(m => MatchIQRender.renderUltimateCard(m, state.teamTags)).join('');
+        ucGrid.innerHTML = upcomingMatches.map(m => MatchIQRender.renderUltimateCard(m, state.teamTags, state.leagueProfiles)).join('');
       }
     }
 
@@ -141,7 +145,7 @@ const MatchIQ = (() => {
             <div style="font-size:13px">暂无比赛分析数据</div>
           </div>`;
       } else {
-        matchesGrid.innerHTML = upcomingMatches.map(m => MatchIQRender.renderMatchCard(m, weights, state.teamTags, state.tagsConfig)).join('');
+        matchesGrid.innerHTML = upcomingMatches.map(m => MatchIQRender.renderMatchCard(m, weights, state.teamTags, state.tagsConfig, state.leagueProfiles)).join('');
       }
     }
 

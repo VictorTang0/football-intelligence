@@ -150,8 +150,27 @@ const MatchIQRender = (() => {
     return 'mid';
   }
 
+  function formatMotivationBadge(team) {
+    if (!team || team.motivation === undefined) return '';
+    const val = Math.round(team.motivation * 100);
+    const note = team.motivation_note || '战意评估中';
+    let border = 'rgba(255, 152, 0, 0.4)';
+    let color = '#ff9800';
+    let bg = 'rgba(255, 152, 0, 0.08)';
+    if (val >= 85) {
+      border = 'rgba(244, 67, 54, 0.4)';
+      color = '#ff5252';
+      bg = 'rgba(244, 67, 54, 0.08)';
+    } else if (val <= 45) {
+      border = 'rgba(158, 158, 158, 0.4)';
+      color = '#9e9e9e';
+      bg = 'rgba(158, 158, 158, 0.08)';
+    }
+    return `<span class="motivation-badge" style="border:1px solid ${border}; color:${color}; background:${bg}; font-size:10px; padding:1px 4px; border-radius:4px; margin-left:6px; font-weight:700; display:inline-block; vertical-align:middle;" title="战意说明: ${note}">🔥 战意:${val}%</span>`;
+  }
+
   // ─── ULTIMATE CONCLUSION CARD ───
-  function renderUltimateCard(match, teamTags) {
+  function renderUltimateCard(match, teamTags, leagueProfiles) {
     const uc = match.ultimate_conclusion || {};
     const home = match.team_stats?.home || {};
     const away = match.team_stats?.away || {};
@@ -173,20 +192,30 @@ const MatchIQRender = (() => {
       return `<span class="team-card-tag-badge" data-tooltip="${desc}" style="cursor:help;">${tag.emoji} ${tag.name} Lvl ${tag.level}</span>`;
     };
 
+    const leagueName = match.league || '';
+    let profile = null;
+    if (leagueProfiles) {
+      const matchedKey = Object.keys(leagueProfiles).find(k => leagueName.includes(k) || k.includes(leagueName));
+      if (matchedKey) {
+        profile = leagueProfiles[matchedKey];
+      }
+    }
+    const leagueTag = profile ? `<span class="league-profile-badge" style="border:1px solid rgba(0, 188, 212, 0.4); color:#00bcd4; background:rgba(0, 188, 212, 0.08); font-size:10px; padding:1px 4px; border-radius:4px; margin-left:6px; font-weight:700; cursor:help;" title="联赛特征: ${profile.characteristics}">📊 ${profile.name} 特征</span>` : '';
+
     return `
     <div class="ultimate-card ${rClass} animate-in" id="uc-${match.id}">
       <div class="uc-header">
-        <span class="uc-league"><span class="match-no-badge">${formatMatchNo(match.id)}</span>${match.league || '--'}${warningBadge}${updatedBadge}</span>
+        <span class="uc-league"><span class="match-no-badge">${formatMatchNo(match.id)}</span>${match.league || '--'}${leagueTag}${warningBadge}${updatedBadge}</span>
         <span class="uc-kickoff">${formatTime(match.kickoff)}</span>
       </div>
       <div class="uc-teams">
         <div class="uc-team">
-          <div class="uc-team-name">${match.home || '主队'} ${formatTeamTagBadge(homeTag)}</div>
+          <div class="uc-team-name">${match.home || '主队'} ${formatMotivationBadge(home)} ${formatTeamTagBadge(homeTag)}</div>
           <div class="uc-team-form">${formDots(home.form)}</div>
         </div>
         <div class="vs-badge">VS</div>
         <div class="uc-team away">
-          <div class="uc-team-name">${formatTeamTagBadge(awayTag)} ${match.away || '客队'}</div>
+          <div class="uc-team-name">${formatTeamTagBadge(awayTag)} ${formatMotivationBadge(away)} ${match.away || '客队'}</div>
           <div class="uc-team-form">${formDots(away.form)}</div>
         </div>
       </div>
@@ -556,7 +585,32 @@ const MatchIQRender = (() => {
   // ─── CONCLUSIONS PANE ───
   function renderConclusionsPane(match) {
     const c = match.conclusions || {};
+    const uc = match.ultimate_conclusion || {};
+    const conf = uc.confidence || 0;
     const upsetPct = c.upset_probability ? (c.upset_probability * 100).toFixed(0) : '0';
+
+    const hideUpset = (conf >= 80 && (!c.upset || c.upset.includes('无') || c.upset === '--'));
+    const hideAggressive = (conf >= 80 && (!c.aggressive || c.aggressive.includes('无') || c.aggressive === '--'));
+
+    const upsetHtml = hideUpset ? 
+      `<div class="conclusion-card upset empty-card" style="opacity: 0.5; border: 1px dashed var(--border-subtle); background: transparent;">
+        <div class="cc-label">冷门方向</div>
+        <div class="cc-value" style="font-style: italic; color: var(--text-4);">无明显爆冷路径</div>
+      </div>` :
+      `<div class="conclusion-card upset">
+        <div class="cc-label">冷门方向</div>
+        <div class="cc-value">${c.upset || '--'}</div>
+      </div>`;
+
+    const aggressiveHtml = hideAggressive ? 
+      `<div class="conclusion-card aggressive empty-card" style="opacity: 0.5; border: 1px dashed var(--border-subtle); background: transparent;">
+        <div class="cc-label">激进结论</div>
+        <div class="cc-value" style="font-style: italic; color: var(--text-4);">无额外激进方案</div>
+      </div>` :
+      `<div class="conclusion-card aggressive">
+        <div class="cc-label">激进结论</div>
+        <div class="cc-value">${c.aggressive || '--'}</div>
+      </div>`;
 
     return `
     <div class="mc-pane" id="pane-${match.id}-conclusions">
@@ -565,14 +619,8 @@ const MatchIQRender = (() => {
           <div class="cc-label">主流方向</div>
           <div class="cc-value">${c.mainstream || '--'}</div>
         </div>
-        <div class="conclusion-card upset">
-          <div class="cc-label">冷门方向</div>
-          <div class="cc-value">${c.upset || '--'}</div>
-        </div>
-        <div class="conclusion-card aggressive">
-          <div class="cc-label">激进结论</div>
-          <div class="cc-value">${c.aggressive || '--'}</div>
-        </div>
+        ${upsetHtml}
+        ${aggressiveHtml}
         <div class="conclusion-card conservative">
           <div class="cc-label">信心结论</div>
           <div class="cc-value">${c.conservative || '--'}</div>
@@ -702,7 +750,7 @@ const MatchIQRender = (() => {
   }
 
   // ─── FULL MATCH CARD ───
-  function renderMatchCard(match, weightsData, teamTags, tagsConfig) {
+  function renderMatchCard(match, weightsData, teamTags, tagsConfig, leagueProfiles) {
     const home = match.team_stats?.home || {};
     const away = match.team_stats?.away || {};
     const w = match.weather || {};
@@ -742,12 +790,22 @@ const MatchIQRender = (() => {
     if (match.conclusions?.upset_trend === 'down') trendBadges.push('<span class="trend-badge upset-down">▼ 冷门概率下降</span>');
     const trendHTML = trendBadges.length > 0 ? `<div style="margin-top:6px;display:flex;justify-content:center;gap:4px;flex-wrap:wrap;">${trendBadges.join('')}</div>` : '';
 
+    const leagueName = match.league || '';
+    let profile = null;
+    if (leagueProfiles) {
+      const matchedKey = Object.keys(leagueProfiles).find(k => leagueName.includes(k) || k.includes(leagueName));
+      if (matchedKey) {
+        profile = leagueProfiles[matchedKey];
+      }
+    }
+    const leagueTag = profile ? `<span class="league-profile-badge" style="border:1px solid rgba(0, 188, 212, 0.4); color:#00bcd4; background:rgba(0, 188, 212, 0.08); font-size:10px; padding:1px 4px; border-radius:4px; margin-left:6px; font-weight:700; cursor:help;" title="联赛特征: ${profile.characteristics}">📊 ${profile.name} 特征</span>` : '';
+
     return `
     <div class="match-card animate-in" id="card-${match.id}">
       <div class="mc-header">
         <div class="mc-team">
-          <div class="mc-team-league"><span class="match-no-badge">${formatMatchNo(match.id)}</span>${match.league || ''}${warningBadge}${updatedBadge}</div>
-          <div class="mc-team-name">${match.home || '主队'}</div>
+          <div class="mc-team-league"><span class="match-no-badge">${formatMatchNo(match.id)}</span>${match.league || ''}${leagueTag}${warningBadge}${updatedBadge}</div>
+          <div class="mc-team-name">${match.home || '主队'} ${formatMotivationBadge(home)}</div>
           ${homeTagsHTML}
           <div class="mc-team-xg" style="margin-top:4px;">xG ${home.season_stats?.xg?.toFixed(1) || '--'} · 射门 ${home.season_stats?.shots_per_game || '--'}/场</div>
         </div>
@@ -760,7 +818,7 @@ const MatchIQRender = (() => {
         </div>
         <div class="mc-team away">
           <div class="mc-team-league">&nbsp;</div>
-          <div class="mc-team-name">${match.away || '客队'}</div>
+          <div class="mc-team-name">${formatMotivationBadge(away)} ${match.away || '客队'}</div>
           ${awayTagsHTML}
           <div class="mc-team-xg" style="margin-top:4px;">xG ${away.season_stats?.xg?.toFixed(1) || '--'} · 射门 ${away.season_stats?.shots_per_game || '--'}/场</div>
         </div>
