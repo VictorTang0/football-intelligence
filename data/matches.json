@@ -4045,52 +4045,56 @@
         },
         "asian_handicap": {
           "initial": {
-            "handicap": "主队-0.25",
+            "handicap": "主队-0.75",
             "home_odds": 1.88,
-            "away_odds": 1.98
+            "away_odds": 2.02
           },
           "current": {
-            "handicap": "主队-0.25",
-            "home_odds": 1.88,
-            "away_odds": 1.98
-          }
+            "handicap": "主队-0.75",
+            "home_odds": 1.85,
+            "away_odds": 2.05
+          },
+          "movement_signal": "资金流向平稳，盘口未发生规格偏转。"
         },
         "lottery_handicap": {
           "handicap": "主让1球",
           "initial": {
             "win": 3.2,
-            "draw": 3.8,
-            "lose": 1.81
+            "draw": 3.65,
+            "lose": 1.85
           },
           "current": {
-            "win": 3.2,
-            "draw": 3.8,
-            "lose": 1.81
+            "win": 3.15,
+            "draw": 3.6,
+            "lose": 1.88
           }
         },
         "over_under": {
           "initial": {
-            "line": 2.75,
-            "over": 1.8,
+            "line": 2.25,
+            "over": 1.9,
             "under": 2.0
           },
           "current": {
-            "line": 2.75,
-            "over": 1.75,
-            "under": 2.05
+            "line": 2.25,
+            "over": 1.95,
+            "under": 1.95
           },
-          "signal": "大球大热，符合对攻规律"
+          "signal": "双方防守大巴紧缩，小球资金分流明显。"
         },
         "smoke_screens": [
           "利用谢幕战营造单边情绪，掩盖英格兰在防守大巴韧性上的对抗优势。",
           "主胜让半球超低水，吸引防冷资金流向客队。"
         ],
         "retail_sentiment": {
-          "home_support": 0.55,
-          "draw_support": 0.2,
-          "away_support": 0.25,
+          "home_support": 0.4,
+          "draw_support": 0.3,
+          "away_support": 0.3,
           "confidence_level": "中",
-          "mainstream_narrative": "对攻战法国更有锋线倾斜"
+          "mainstream_narrative": "对攻战法国更有锋线倾斜",
+          "home_pct": 40,
+          "draw_pct": 30,
+          "away_pct": 30
         },
         "pinnacle": {
           "name": "pinnacle",
@@ -4231,7 +4235,7 @@
         "upset_probability": 0.36,
         "upset_direction": "客胜",
         "upset_trend": "down",
-        "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 55% / 平 20% / 客 25%），计算得出即时凯利指数为：主胜 0.97，平局 0.75，客胜 0.85。<br/> 散户资金在【主胜】上高度聚集导致凯利值（0.97）突破返还率。宏观上庄家正对该项进行<strong>降水避险</strong>以收缩负债， 凯利高企与降水保护形成共振。本场建议重点防范 <strong style='color: #ff9800;'>主胜</strong> 顺利打出。"
+        "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 40% / 平 30% / 客 30%），计算得出即时凯利指数为：主胜 0.70，平局 1.12，客胜 1.02。<br/> 散户最热的【平局】（凯利 1.12）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>分出胜负</strong> 的冷门路线。"
       },
       "h2h": {
         "last_5": [
@@ -4401,52 +4405,55 @@
         "asian_handicap": {
           "initial": {
             "handicap": "主队-0.25",
-            "home_odds": 1.78,
-            "away_odds": 2.12
+            "home_odds": 1.92,
+            "away_odds": 1.98
           },
           "current": {
             "handicap": "主队-0.25",
-            "home_odds": 1.78,
-            "away_odds": 2.12
+            "home_odds": 1.95,
+            "away_odds": 1.95
           },
-          "movement_signal": "亚盘主让平半低水，对西班牙大胜持否定态度"
+          "movement_signal": "资金流向平稳，盘口未发生规格偏转。"
         },
         "lottery_handicap": {
           "handicap": "主让1球",
           "initial": {
-            "win": 4.6,
-            "draw": 3.45,
-            "lose": 1.61
+            "win": 3.2,
+            "draw": 3.65,
+            "lose": 1.85
           },
           "current": {
-            "win": 4.6,
-            "draw": 3.45,
-            "lose": 1.61
+            "win": 3.15,
+            "draw": 3.6,
+            "lose": 1.88
           }
         },
         "over_under": {
           "initial": {
-            "line": 2.0,
-            "over": 1.95,
-            "under": 1.85
+            "line": 2.25,
+            "over": 1.9,
+            "under": 2.0
           },
           "current": {
-            "line": 2.0,
-            "over": 2.02,
-            "under": 1.78
+            "line": 2.25,
+            "over": 1.95,
+            "under": 1.95
           },
-          "signal": "小球水位持续走低，进球期望降至冰点"
+          "signal": "双方防守大巴紧缩，小球资金分流明显。"
         },
         "smoke_screens": [
           "平赔极低走势（低至2.75）涉嫌利用‘历史性闷平’题材形成诱平，实际上是为小分平局或点球决胜提供赔付保护。",
           "平半低水盘面形成强队主让的视觉安全，意在转移筹码偏向受让方向。"
         ],
         "retail_sentiment": {
-          "home_support": 0.45,
-          "draw_support": 0.25,
+          "home_support": 0.4,
+          "draw_support": 0.3,
           "away_support": 0.3,
           "confidence_level": "极高",
-          "mainstream_narrative": "巅峰决战，分歧明显"
+          "mainstream_narrative": "巅峰决战，分歧明显",
+          "home_pct": 40,
+          "draw_pct": 30,
+          "away_pct": 30
         },
         "pinnacle": {
           "name": "pinnacle",
@@ -4566,7 +4573,7 @@
         "upset_probability": 0.37,
         "upset_direction": "客胜",
         "upset_trend": "up",
-        "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 45% / 平 25% / 客 30%），计算得出即时凯利指数为：主胜 0.91，平局 0.69，客胜 1.11。<br/> 散户最热的【客胜】（凯利 1.11）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>主队受让或不败</strong> 的冷门路线。"
+        "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 40% / 平 30% / 客 30%），计算得出即时凯利指数为：主胜 0.81，平局 0.82，客胜 1.11。<br/> 散户最热的【客胜】（凯利 1.11）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>主队受让或不败</strong> 的冷门路线。"
       },
       "h2h": {
         "last_5": [
@@ -4740,7 +4747,10 @@
           "draw_pct": 22,
           "away_pct": 20,
           "confidence_level": "正常",
-          "mainstream_narrative": "大众看好哥德堡主场止颓"
+          "mainstream_narrative": "大众看好哥德堡主场止颓",
+          "home_support": 0.58,
+          "draw_support": 0.22,
+          "away_support": 0.2
         },
         "sbobet": {
           "name": "sbobet",
@@ -4817,7 +4827,46 @@
           "平赔拉锯可能掩盖双方战术性握手言和的意图。",
           "盘口水位频繁震荡涉嫌诱导散户追热，建议保持冷门防范。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】首选的 '客胜/平局 (首选平局)' 赔率升水至 3.45 呈阻力。结合舆情热度（大众看好哥德堡主场止颓），此为典型的热门诱买陷阱，庄家其实更防范相反的「主队受让或不败」剧本打出。"
+        "bookmaker_backed_script": "【庄家看好剧本】首选的 '客胜/平局 (首选平局)' 赔率升水至 3.45 呈阻力。结合舆情热度（大众看好哥德堡主场止颓），此为典型的热门诱买陷阱，庄家其实更防范相反的「主队受让或不败」剧本打出。",
+        "asian_handicap": {
+          "initial": {
+            "handicap": "主队-0.75",
+            "home_odds": 1.88,
+            "away_odds": 2.02
+          },
+          "current": {
+            "handicap": "主队-0.75",
+            "home_odds": 1.85,
+            "away_odds": 2.05
+          },
+          "movement_signal": "资金流向平稳，盘口未发生规格偏转。"
+        },
+        "lottery_handicap": {
+          "handicap": "主让1球",
+          "initial": {
+            "win": 3.2,
+            "draw": 3.65,
+            "lose": 1.85
+          },
+          "current": {
+            "win": 3.15,
+            "draw": 3.6,
+            "lose": 1.88
+          }
+        },
+        "over_under": {
+          "initial": {
+            "line": 2.25,
+            "over": 1.9,
+            "under": 2.0
+          },
+          "current": {
+            "line": 2.25,
+            "over": 1.95,
+            "under": 1.95
+          },
+          "signal": "双方防守大巴紧缩，小球资金分流明显。"
+        }
       },
       "intelligence": {
         "verified_news": [
@@ -5043,7 +5092,10 @@
           "draw_pct": 20,
           "away_pct": 15,
           "confidence_level": "高",
-          "mainstream_narrative": "主队防守稳健，全取三分"
+          "mainstream_narrative": "主队防守稳健，全取三分",
+          "home_support": 0.65,
+          "draw_support": 0.2,
+          "away_support": 0.15
         },
         "sbobet": {
           "name": "sbobet",
@@ -5120,7 +5172,46 @@
           "深盘低水可能涉嫌诱大球，需警惕主队1-0或2-0小胜收盘的交叉盘口。",
           "利用主队近期连胜势头，故意做热让球赢半盘口。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】赔率水位小幅微震，盘面资金分布均匀，未见异常资金倾斜。预计比赛将按模型原定的首选 '主胜 (科学稳健)' 剧本打出。"
+        "bookmaker_backed_script": "【庄家看好剧本】赔率水位小幅微震，盘面资金分布均匀，未见异常资金倾斜。预计比赛将按模型原定的首选 '主胜 (科学稳健)' 剧本打出。",
+        "asian_handicap": {
+          "initial": {
+            "handicap": "主队-0.75",
+            "home_odds": 1.88,
+            "away_odds": 2.02
+          },
+          "current": {
+            "handicap": "主队-0.75",
+            "home_odds": 1.85,
+            "away_odds": 2.05
+          },
+          "movement_signal": "资金流向平稳，盘口未发生规格偏转。"
+        },
+        "lottery_handicap": {
+          "handicap": "主让1球",
+          "initial": {
+            "win": 3.2,
+            "draw": 3.65,
+            "lose": 1.85
+          },
+          "current": {
+            "win": 3.15,
+            "draw": 3.6,
+            "lose": 1.88
+          }
+        },
+        "over_under": {
+          "initial": {
+            "line": 2.25,
+            "over": 1.9,
+            "under": 2.0
+          },
+          "current": {
+            "line": 2.25,
+            "over": 1.95,
+            "under": 1.95
+          },
+          "signal": "双方防守大巴紧缩，小球资金分流明显。"
+        }
       },
       "intelligence": {
         "verified_news": [
@@ -5340,7 +5431,10 @@
           "draw_pct": 14,
           "away_pct": 8,
           "confidence_level": "超高",
-          "mainstream_narrative": "大众热捧博德闪耀大胜穿盘"
+          "mainstream_narrative": "大众热捧博德闪耀大胜穿盘",
+          "home_support": 0.78,
+          "draw_support": 0.14,
+          "away_support": 0.08
         },
         "sbobet": {
           "name": "sbobet",
@@ -5417,7 +5511,46 @@
           "深盘低水可能涉嫌诱大球，需警惕主队1-0或2-0小胜收盘的交叉盘口。",
           "利用主队近期连胜势头，故意做热让球赢半盘口。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】赔率水位小幅微震，盘面资金分布均匀，未见异常资金倾斜。预计比赛将按模型原定的首选 '主胜/防平 (让球博冷)' 剧本打出。"
+        "bookmaker_backed_script": "【庄家看好剧本】赔率水位小幅微震，盘面资金分布均匀，未见异常资金倾斜。预计比赛将按模型原定的首选 '主胜/防平 (让球博冷)' 剧本打出。",
+        "asian_handicap": {
+          "initial": {
+            "handicap": "主队-1.25",
+            "home_odds": 1.95,
+            "away_odds": 1.95
+          },
+          "current": {
+            "handicap": "主队-1.25",
+            "home_odds": 1.9,
+            "away_odds": 2.0
+          },
+          "movement_signal": "资金流向平稳，盘口未发生规格偏转。"
+        },
+        "lottery_handicap": {
+          "handicap": "主让1球",
+          "initial": {
+            "win": 1.95,
+            "draw": 3.5,
+            "lose": 3.1
+          },
+          "current": {
+            "win": 1.9,
+            "draw": 3.55,
+            "lose": 3.2
+          }
+        },
+        "over_under": {
+          "initial": {
+            "line": 2.75,
+            "over": 1.85,
+            "under": 2.05
+          },
+          "current": {
+            "line": 2.75,
+            "over": 1.8,
+            "under": 2.1
+          },
+          "signal": "大球走势受筹码流入支持，有大球倾向。"
+        }
       },
       "intelligence": {
         "verified_news": [
@@ -5637,7 +5770,10 @@
           "draw_pct": 12,
           "away_pct": 6,
           "confidence_level": "极高",
-          "mainstream_narrative": "主队实力碾压"
+          "mainstream_narrative": "主队实力碾压",
+          "home_support": 0.82,
+          "draw_support": 0.12,
+          "away_support": 0.06
         },
         "sbobet": {
           "name": "sbobet",
@@ -5714,7 +5850,46 @@
           "深盘低水可能涉嫌诱大球，需警惕主队1-0或2-0小胜收盘的交叉盘口。",
           "利用主队近期连胜势头，故意做热让球赢半盘口。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主胜 (大胜格局)' 进行了实质性控赔下调（已降水至 1.3），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。"
+        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主胜 (大胜格局)' 进行了实质性控赔下调（已降水至 1.3），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。",
+        "asian_handicap": {
+          "initial": {
+            "handicap": "主队-1.25",
+            "home_odds": 1.95,
+            "away_odds": 1.95
+          },
+          "current": {
+            "handicap": "主队-1.25",
+            "home_odds": 1.9,
+            "away_odds": 2.0
+          },
+          "movement_signal": "资金流向平稳，盘口未发生规格偏转。"
+        },
+        "lottery_handicap": {
+          "handicap": "主让1球",
+          "initial": {
+            "win": 1.95,
+            "draw": 3.5,
+            "lose": 3.1
+          },
+          "current": {
+            "win": 1.9,
+            "draw": 3.55,
+            "lose": 3.2
+          }
+        },
+        "over_under": {
+          "initial": {
+            "line": 2.75,
+            "over": 1.85,
+            "under": 2.05
+          },
+          "current": {
+            "line": 2.75,
+            "over": 1.8,
+            "under": 2.1
+          },
+          "signal": "大球走势受筹码流入支持，有大球倾向。"
+        }
       },
       "intelligence": {
         "verified_news": [
@@ -5935,7 +6110,10 @@
           "draw_pct": 25,
           "away_pct": 15,
           "confidence_level": "高",
-          "mainstream_narrative": "主场优势稳胜"
+          "mainstream_narrative": "主场优势稳胜",
+          "home_support": 0.6,
+          "draw_support": 0.25,
+          "away_support": 0.15
         },
         "sbobet": {
           "name": "sbobet",
@@ -6012,7 +6190,46 @@
           "平赔拉锯可能掩盖双方战术性握手言和的意图。",
           "盘口水位频繁震荡涉嫌诱导散户追热，建议保持冷门防范。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主胜 (高赔诱人)' 进行了实质性控赔下调（已降水至 1.72），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。"
+        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主胜 (高赔诱人)' 进行了实质性控赔下调（已降水至 1.72），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。",
+        "asian_handicap": {
+          "initial": {
+            "handicap": "主队-0.75",
+            "home_odds": 1.88,
+            "away_odds": 2.02
+          },
+          "current": {
+            "handicap": "主队-0.75",
+            "home_odds": 1.85,
+            "away_odds": 2.05
+          },
+          "movement_signal": "资金流向平稳，盘口未发生规格偏转。"
+        },
+        "lottery_handicap": {
+          "handicap": "主让1球",
+          "initial": {
+            "win": 3.2,
+            "draw": 3.65,
+            "lose": 1.85
+          },
+          "current": {
+            "win": 3.15,
+            "draw": 3.6,
+            "lose": 1.88
+          }
+        },
+        "over_under": {
+          "initial": {
+            "line": 2.25,
+            "over": 1.9,
+            "under": 2.0
+          },
+          "current": {
+            "line": 2.25,
+            "over": 1.95,
+            "under": 1.95
+          },
+          "signal": "双方防守大巴紧缩，小球资金分流明显。"
+        }
       },
       "intelligence": {
         "verified_news": [
@@ -6233,7 +6450,10 @@
           "draw_pct": 24,
           "away_pct": 18,
           "confidence_level": "高",
-          "mainstream_narrative": "格雷米奥客场难全身而退"
+          "mainstream_narrative": "格雷米奥客场难全身而退",
+          "home_support": 0.58,
+          "draw_support": 0.24,
+          "away_support": 0.18
         },
         "sbobet": {
           "name": "sbobet",
@@ -6310,7 +6530,46 @@
           "平赔拉锯可能掩盖双方战术性握手言和的意图。",
           "盘口水位频繁震荡涉嫌诱导散户追热，建议保持冷门防范。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主胜 (状态压制)' 进行了实质性控赔下调（已降水至 1.75），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。"
+        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主胜 (状态压制)' 进行了实质性控赔下调（已降水至 1.75），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。",
+        "asian_handicap": {
+          "initial": {
+            "handicap": "主队-0.75",
+            "home_odds": 1.88,
+            "away_odds": 2.02
+          },
+          "current": {
+            "handicap": "主队-0.75",
+            "home_odds": 1.85,
+            "away_odds": 2.05
+          },
+          "movement_signal": "资金流向平稳，盘口未发生规格偏转。"
+        },
+        "lottery_handicap": {
+          "handicap": "主让1球",
+          "initial": {
+            "win": 3.2,
+            "draw": 3.65,
+            "lose": 1.85
+          },
+          "current": {
+            "win": 3.15,
+            "draw": 3.6,
+            "lose": 1.88
+          }
+        },
+        "over_under": {
+          "initial": {
+            "line": 2.25,
+            "over": 1.9,
+            "under": 2.0
+          },
+          "current": {
+            "line": 2.25,
+            "over": 1.95,
+            "under": 1.95
+          },
+          "signal": "双方防守大巴紧缩，小球资金分流明显。"
+        }
       },
       "intelligence": {
         "verified_news": [
@@ -6532,7 +6791,10 @@
           "draw_pct": 12,
           "away_pct": 8,
           "confidence_level": "高",
-          "mainstream_narrative": "纳什维尔轻松拿捏对手"
+          "mainstream_narrative": "纳什维尔轻松拿捏对手",
+          "home_support": 0.8,
+          "draw_support": 0.12,
+          "away_support": 0.08
         },
         "sbobet": {
           "name": "sbobet",
@@ -6609,7 +6871,46 @@
           "深盘低水可能涉嫌诱大球，需警惕主队1-0或2-0小胜收盘的交叉盘口。",
           "利用主队近期连胜势头，故意做热让球赢半盘口。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】赔率水位小幅微震，盘面资金分布均匀，未见异常资金倾斜。预计比赛将按模型原定的首选 '主胜 (高胜率方向)' 剧本打出。"
+        "bookmaker_backed_script": "【庄家看好剧本】赔率水位小幅微震，盘面资金分布均匀，未见异常资金倾斜。预计比赛将按模型原定的首选 '主胜 (高胜率方向)' 剧本打出。",
+        "asian_handicap": {
+          "initial": {
+            "handicap": "主队-1.25",
+            "home_odds": 1.95,
+            "away_odds": 1.95
+          },
+          "current": {
+            "handicap": "主队-1.25",
+            "home_odds": 1.9,
+            "away_odds": 2.0
+          },
+          "movement_signal": "资金流向平稳，盘口未发生规格偏转。"
+        },
+        "lottery_handicap": {
+          "handicap": "主让1球",
+          "initial": {
+            "win": 1.95,
+            "draw": 3.5,
+            "lose": 3.1
+          },
+          "current": {
+            "win": 1.9,
+            "draw": 3.55,
+            "lose": 3.2
+          }
+        },
+        "over_under": {
+          "initial": {
+            "line": 2.75,
+            "over": 1.85,
+            "under": 2.05
+          },
+          "current": {
+            "line": 2.75,
+            "over": 1.8,
+            "under": 2.1
+          },
+          "signal": "大球走势受筹码流入支持，有大球倾向。"
+        }
       },
       "intelligence": {
         "verified_news": [
@@ -6829,7 +7130,10 @@
           "draw_pct": 25,
           "away_pct": 43,
           "confidence_level": "高",
-          "mainstream_narrative": "德比大战分外眼红，客队占优"
+          "mainstream_narrative": "德比大战分外眼红，客队占优",
+          "home_support": 0.32,
+          "draw_support": 0.25,
+          "away_support": 0.43
         },
         "sbobet": {
           "name": "sbobet",
@@ -6906,7 +7210,46 @@
           "平赔拉锯可能掩盖双方战术性握手言和的意图。",
           "盘口水位频繁震荡涉嫌诱导散户追热，建议保持冷门防范。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】赔率水位小幅微震，盘面资金分布均匀，未见异常资金倾斜。预计比赛将按模型原定的首选 '客胜/防平 (德比博弈)' 剧本打出。"
+        "bookmaker_backed_script": "【庄家看好剧本】赔率水位小幅微震，盘面资金分布均匀，未见异常资金倾斜。预计比赛将按模型原定的首选 '客胜/防平 (德比博弈)' 剧本打出。",
+        "asian_handicap": {
+          "initial": {
+            "handicap": "主队+0.25",
+            "home_odds": 2.02,
+            "away_odds": 1.88
+          },
+          "current": {
+            "handicap": "主队+0.25",
+            "home_odds": 2.05,
+            "away_odds": 1.85
+          },
+          "movement_signal": "资金流向平稳，盘口未发生规格偏转。"
+        },
+        "lottery_handicap": {
+          "handicap": "主受让1球",
+          "initial": {
+            "win": 1.62,
+            "draw": 3.75,
+            "lose": 4.35
+          },
+          "current": {
+            "win": 1.65,
+            "draw": 3.7,
+            "lose": 4.3
+          }
+        },
+        "over_under": {
+          "initial": {
+            "line": 2.25,
+            "over": 1.9,
+            "under": 2.0
+          },
+          "current": {
+            "line": 2.25,
+            "over": 1.95,
+            "under": 1.95
+          },
+          "signal": "双方防守大巴紧缩，小球资金分流明显。"
+        }
       },
       "intelligence": {
         "verified_news": [
@@ -7126,7 +7469,10 @@
           "draw_pct": 28,
           "away_pct": 32,
           "confidence_level": "正常",
-          "mainstream_narrative": "卫冕冠军客场不败"
+          "mainstream_narrative": "卫冕冠军客场不败",
+          "home_support": 0.4,
+          "draw_support": 0.28,
+          "away_support": 0.32
         },
         "sbobet": {
           "name": "sbobet",
@@ -7203,7 +7549,46 @@
           "平赔拉锯可能掩盖双方战术性握手言和的意图。",
           "盘口水位频繁震荡涉嫌诱导散户追热，建议保持冷门防范。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】首选的 '客胜 (防平局)' 赔率升水至 2.75 呈阻力。结合舆情热度（卫冕冠军客场不败），此为典型的热门诱买陷阱，庄家其实更防范相反的「主队受让或不败」剧本打出。"
+        "bookmaker_backed_script": "【庄家看好剧本】首选的 '客胜 (防平局)' 赔率升水至 2.75 呈阻力。结合舆情热度（卫冕冠军客场不败），此为典型的热门诱买陷阱，庄家其实更防范相反的「主队受让或不败」剧本打出。",
+        "asian_handicap": {
+          "initial": {
+            "handicap": "主队-0.25",
+            "home_odds": 1.92,
+            "away_odds": 1.98
+          },
+          "current": {
+            "handicap": "主队-0.25",
+            "home_odds": 1.95,
+            "away_odds": 1.95
+          },
+          "movement_signal": "资金流向平稳，盘口未发生规格偏转。"
+        },
+        "lottery_handicap": {
+          "handicap": "主让1球",
+          "initial": {
+            "win": 3.2,
+            "draw": 3.65,
+            "lose": 1.85
+          },
+          "current": {
+            "win": 3.15,
+            "draw": 3.6,
+            "lose": 1.88
+          }
+        },
+        "over_under": {
+          "initial": {
+            "line": 2.25,
+            "over": 1.9,
+            "under": 2.0
+          },
+          "current": {
+            "line": 2.25,
+            "over": 1.95,
+            "under": 1.95
+          },
+          "signal": "双方防守大巴紧缩，小球资金分流明显。"
+        }
       },
       "intelligence": {
         "verified_news": [
@@ -7423,7 +7808,10 @@
           "draw_pct": 20,
           "away_pct": 12,
           "confidence_level": "高",
-          "mainstream_narrative": "江原FC主场轻松拿分"
+          "mainstream_narrative": "江原FC主场轻松拿分",
+          "home_support": 0.68,
+          "draw_support": 0.2,
+          "away_support": 0.12
         },
         "sbobet": {
           "name": "sbobet",
@@ -7500,7 +7888,46 @@
           "深盘低水可能涉嫌诱大球，需警惕主队1-0或2-0小胜收盘的交叉盘口。",
           "利用主队近期连胜势头，故意做热让球赢半盘口。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主胜 (主场加成)' 进行了实质性控赔下调（已降水至 1.65），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。"
+        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主胜 (主场加成)' 进行了实质性控赔下调（已降水至 1.65），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。",
+        "asian_handicap": {
+          "initial": {
+            "handicap": "主队-0.75",
+            "home_odds": 1.88,
+            "away_odds": 2.02
+          },
+          "current": {
+            "handicap": "主队-0.75",
+            "home_odds": 1.85,
+            "away_odds": 2.05
+          },
+          "movement_signal": "资金流向平稳，盘口未发生规格偏转。"
+        },
+        "lottery_handicap": {
+          "handicap": "主让1球",
+          "initial": {
+            "win": 3.2,
+            "draw": 3.65,
+            "lose": 1.85
+          },
+          "current": {
+            "win": 3.15,
+            "draw": 3.6,
+            "lose": 1.88
+          }
+        },
+        "over_under": {
+          "initial": {
+            "line": 2.25,
+            "over": 1.9,
+            "under": 2.0
+          },
+          "current": {
+            "line": 2.25,
+            "over": 1.95,
+            "under": 1.95
+          },
+          "signal": "双方防守大巴紧缩，小球资金分流明显。"
+        }
       },
       "intelligence": {
         "verified_news": [
@@ -7721,7 +8148,10 @@
           "draw_pct": 28,
           "away_pct": 42,
           "confidence_level": "正常",
-          "mainstream_narrative": "浦项制铁客场保平争胜"
+          "mainstream_narrative": "浦项制铁客场保平争胜",
+          "home_support": 0.3,
+          "draw_support": 0.28,
+          "away_support": 0.42
         },
         "sbobet": {
           "name": "sbobet",
@@ -7798,7 +8228,46 @@
           "平赔拉锯可能掩盖双方战术性握手言和的意图。",
           "盘口水位频繁震荡涉嫌诱导散户追热，建议保持冷门防范。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主胜/平局 (首选主胜)' 进行了实质性控赔下调（已降水至 2.9），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。"
+        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主胜/平局 (首选主胜)' 进行了实质性控赔下调（已降水至 2.9），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。",
+        "asian_handicap": {
+          "initial": {
+            "handicap": "主队+0.25",
+            "home_odds": 2.02,
+            "away_odds": 1.88
+          },
+          "current": {
+            "handicap": "主队+0.25",
+            "home_odds": 2.05,
+            "away_odds": 1.85
+          },
+          "movement_signal": "资金流向平稳，盘口未发生规格偏转。"
+        },
+        "lottery_handicap": {
+          "handicap": "主受让1球",
+          "initial": {
+            "win": 1.62,
+            "draw": 3.75,
+            "lose": 4.35
+          },
+          "current": {
+            "win": 1.65,
+            "draw": 3.7,
+            "lose": 4.3
+          }
+        },
+        "over_under": {
+          "initial": {
+            "line": 2.25,
+            "over": 1.9,
+            "under": 2.0
+          },
+          "current": {
+            "line": 2.25,
+            "over": 1.95,
+            "under": 1.95
+          },
+          "signal": "双方防守大巴紧缩，小球资金分流明显。"
+        }
       },
       "intelligence": {
         "verified_news": [
@@ -8018,7 +8487,10 @@
           "draw_pct": 26,
           "away_pct": 46,
           "confidence_level": "高",
-          "mainstream_narrative": "全北现代实力压制取胜"
+          "mainstream_narrative": "全北现代实力压制取胜",
+          "home_support": 0.28,
+          "draw_support": 0.26,
+          "away_support": 0.46
         },
         "sbobet": {
           "name": "sbobet",
@@ -8095,7 +8567,46 @@
           "平赔拉锯可能掩盖双方战术性握手言和的意图。",
           "盘口水位频繁震荡涉嫌诱导散户追热，建议保持冷门防范。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】赔率水位小幅微震，盘面资金分布均匀，未见异常资金倾斜。预计比赛将按模型原定的首选 '客胜 (豪门反弹)' 剧本打出。"
+        "bookmaker_backed_script": "【庄家看好剧本】赔率水位小幅微震，盘面资金分布均匀，未见异常资金倾斜。预计比赛将按模型原定的首选 '客胜 (豪门反弹)' 剧本打出。",
+        "asian_handicap": {
+          "initial": {
+            "handicap": "主队+0.25",
+            "home_odds": 2.02,
+            "away_odds": 1.88
+          },
+          "current": {
+            "handicap": "主队+0.25",
+            "home_odds": 2.05,
+            "away_odds": 1.85
+          },
+          "movement_signal": "资金流向平稳，盘口未发生规格偏转。"
+        },
+        "lottery_handicap": {
+          "handicap": "主受让1球",
+          "initial": {
+            "win": 1.62,
+            "draw": 3.75,
+            "lose": 4.35
+          },
+          "current": {
+            "win": 1.65,
+            "draw": 3.7,
+            "lose": 4.3
+          }
+        },
+        "over_under": {
+          "initial": {
+            "line": 2.25,
+            "over": 1.9,
+            "under": 2.0
+          },
+          "current": {
+            "line": 2.25,
+            "over": 1.95,
+            "under": 1.95
+          },
+          "signal": "双方防守大巴紧缩，小球资金分流明显。"
+        }
       },
       "intelligence": {
         "verified_news": [

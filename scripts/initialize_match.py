@@ -79,6 +79,30 @@ def create_complete_match(raw_match):
     p_draw = round(((1 / draw_odds) / total_implied) * 100)
     p_away = 100 - p_home - p_draw
     
+    # ─── CALCULATE HANDICAPS ───
+    if home_odds < 1.45:
+        ah_line = "主队-1.25"
+        ah_init_h, ah_init_a = 1.95, 1.95
+        jc_line = "主让1球"
+        jc_init_w, jc_init_d, jc_init_l = 1.95, 3.50, 3.10
+    elif home_odds < 1.85:
+        ah_line = "主队-0.75"
+        ah_init_h, ah_init_a = 1.88, 2.02
+        jc_line = "主让1球"
+        jc_init_w, jc_init_d, jc_init_l = 3.20, 3.65, 1.85
+    elif home_odds < 2.30:
+        ah_line = "主队-0.25"
+        ah_init_h, ah_init_a = 1.92, 1.98
+        jc_line = "主让1球"
+        jc_init_w, jc_init_d, jc_init_l = 3.20, 3.65, 1.85
+    else:
+        ah_line = "主队+0.25"
+        ah_init_h, ah_init_a = 2.02, 1.88
+        jc_line = "主受让1球"
+        jc_init_w, jc_init_d, jc_init_l = 1.62, 3.75, 4.35
+        
+    ou_line = 2.75 if (home_odds < 1.5 or away_odds < 1.8) else 2.25
+    
     match_obj = {
         "id": mid,
         "league": league,
@@ -146,10 +170,52 @@ def create_complete_match(raw_match):
                 "current": {"home": home_odds, "draw": draw_odds, "away": away_odds},
                 "movement": "最新同步"
             },
+            "asian_handicap": {
+                "initial": {
+                    "handicap": ah_line,
+                    "home_odds": ah_init_h,
+                    "away_odds": ah_init_a
+                },
+                "current": {
+                    "handicap": ah_line,
+                    "home_odds": ah_init_h,
+                    "away_odds": ah_init_a
+                },
+                "movement_signal": "盘口初开，水位平衡。"
+            },
+            "lottery_handicap": {
+                "handicap": jc_line,
+                "initial": {
+                    "win": jc_init_w,
+                    "draw": jc_init_d,
+                    "lose": jc_init_l
+                },
+                "current": {
+                    "win": jc_init_w,
+                    "draw": jc_init_d,
+                    "lose": jc_init_l
+                }
+            },
+            "over_under": {
+                "initial": {
+                    "line": ou_line,
+                    "over": 1.90,
+                    "under": 1.90
+                },
+                "current": {
+                    "line": ou_line,
+                    "over": 1.90,
+                    "under": 1.90
+                },
+                "signal": "大小盘基本均衡。"
+            },
             "retail_sentiment": {
                 "home_pct": p_home,
                 "draw_pct": p_draw,
                 "away_pct": p_away,
+                "home_support": round(p_home / 100.0, 2),
+                "draw_support": round(p_draw / 100.0, 2),
+                "away_support": round(p_away / 100.0, 2),
                 "confidence_level": "正常",
                 "mainstream_narrative": "大众倾向均衡"
             }
