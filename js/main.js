@@ -78,100 +78,162 @@ const MatchIQ = (() => {
     const evolution = state.evolution;
 
     // Demo banner
-    const demoBanner = document.getElementById('demo-banner');
-    if (demoBanner) {
-      if (state.usingDemo) demoBanner.classList.remove('hidden');
-      else demoBanner.classList.add('hidden');
+    try {
+      const demoBanner = document.getElementById('demo-banner');
+      if (demoBanner) {
+        if (state.usingDemo) demoBanner.classList.remove('hidden');
+        else demoBanner.classList.add('hidden');
+      }
+    } catch (e) {
+      console.error('[MatchIQ] Error rendering demo banner:', e);
     }
 
     // Update header badges
-    const versionBadge = document.getElementById('version-badge');
-    const matchCountEl = document.getElementById('header-match-count');
-    const accEl = document.getElementById('header-accuracy');
-    if (versionBadge) versionBadge.textContent = weights?.version || 'v1.0';
-    if (matchCountEl) matchCountEl.textContent = upcomingMatches.length;
-    if (accEl) {
-      const acc = history?.accuracy_rate;
-      accEl.textContent = acc !== null && acc !== undefined ? (acc * 100).toFixed(1) + '%' : '--';
+    try {
+      const versionBadge = document.getElementById('version-badge');
+      const matchCountEl = document.getElementById('header-match-count');
+      const accEl = document.getElementById('header-accuracy');
+      if (versionBadge) versionBadge.textContent = weights?.version || 'v1.0';
+      if (matchCountEl) matchCountEl.textContent = upcomingMatches.length;
+      if (accEl) {
+        const acc = history?.accuracy_rate;
+        accEl.textContent = acc !== null && acc !== undefined ? (acc * 100).toFixed(1) + '%' : '--';
+      }
+    } catch (e) {
+      console.error('[MatchIQ] Error rendering header badges:', e);
     }
 
     // ── Ultimate Conclusions Section ──
-    const ucGrid = document.getElementById('ultimate-grid');
-    if (ucGrid) {
-      if (upcomingMatches.length === 0) {
-        ucGrid.innerHTML = `
-          <div style="grid-column:1/-1;text-align:center;padding:48px;color:var(--text-4);">
-            <div style="font-size:48px;margin-bottom:16px">📡</div>
-            <div style="font-family:var(--font-display);font-size:20px;margin-bottom:8px">等待赛事数据</div>
-            <div style="font-size:13px">请发送赛程图片触发分析</div>
-          </div>`;
-      } else {
-        ucGrid.innerHTML = upcomingMatches.map(m => MatchIQRender.renderUltimateCard(m, state.teamTags, state.leagueProfiles)).join('');
+    try {
+      const ucGrid = document.getElementById('ultimate-grid');
+      if (ucGrid) {
+        if (upcomingMatches.length === 0) {
+          ucGrid.innerHTML = `
+            <div style="grid-column:1/-1;text-align:center;padding:48px;color:var(--text-4);">
+              <div style="font-size:48px;margin-bottom:16px">📡</div>
+              <div style="font-family:var(--font-display);font-size:20px;margin-bottom:8px">等待赛事数据</div>
+              <div style="font-size:13px">请发送赛程图片触发分析</div>
+            </div>`;
+        } else {
+          ucGrid.innerHTML = upcomingMatches.map(m => {
+            try {
+              return MatchIQRender.renderUltimateCard(m, state.teamTags, state.leagueProfiles);
+            } catch (err) {
+              console.error(`[MatchIQ] Error rendering ultimate card for ${m.id}:`, err);
+              return `<div class="ultimate-card risk-low" style="padding:24px;text-align:center;color:var(--text-4);border:1px dashed var(--border-subtle)">⚠️ 无法加载此推荐内容 (${m.home || '未知'} vs ${m.away || '未知'})</div>`;
+            }
+          }).join('');
+        }
       }
+    } catch (e) {
+      console.error('[MatchIQ] Error rendering ultimate section:', e);
     }
 
     // ── EV-Optimized Parlays Section ──
-    const parlayContainer = document.getElementById('parlay-container');
-    if (parlayContainer) {
-      let filteredUpcoming = upcomingMatches;
-      if (state.parlayFilter === 'sameday' && upcomingMatches.length > 0) {
-        const sorted = [...upcomingMatches].sort((a, b) => new Date(a.kickoff) - new Date(b.kickoff));
-        const earliestDate = new Date(sorted[0].kickoff).toLocaleDateString('zh-CN', {
-          year: 'numeric', month: '2-digit', day: '2-digit'
-        }).replace(/\//g, '-');
-        filteredUpcoming = sorted.filter(m => {
-          const mDate = new Date(m.kickoff).toLocaleDateString('zh-CN', {
+    try {
+      const parlayContainer = document.getElementById('parlay-container');
+      if (parlayContainer) {
+        let filteredUpcoming = upcomingMatches;
+        if (state.parlayFilter === 'sameday' && upcomingMatches.length > 0) {
+          const sorted = [...upcomingMatches].sort((a, b) => new Date(a.kickoff) - new Date(b.kickoff));
+          const earliestDate = new Date(sorted[0].kickoff).toLocaleDateString('zh-CN', {
             year: 'numeric', month: '2-digit', day: '2-digit'
           }).replace(/\//g, '-');
-          return mDate === earliestDate;
-        });
+          filteredUpcoming = sorted.filter(m => {
+            const mDate = new Date(m.kickoff).toLocaleDateString('zh-CN', {
+              year: 'numeric', month: '2-digit', day: '2-digit'
+            }).replace(/\//g, '-');
+            return mDate === earliestDate;
+          });
+        }
+        parlayContainer.innerHTML = MatchIQRender.renderParlays(filteredUpcoming);
       }
-      parlayContainer.innerHTML = MatchIQRender.renderParlays(filteredUpcoming);
+    } catch (e) {
+      console.error('[MatchIQ] Error rendering parlays:', e);
     }
 
     // ── Model Status ──
-    const statusContainer = document.getElementById('model-status-container');
-    if (statusContainer) {
-      statusContainer.innerHTML = MatchIQRender.renderModelStatus(weights, history, evolution);
-      document.getElementById('evolution-toggle')?.addEventListener('click', toggleEvolution);
+    try {
+      const statusContainer = document.getElementById('model-status-container');
+      if (statusContainer) {
+        statusContainer.innerHTML = MatchIQRender.renderModelStatus(weights, history, evolution);
+        document.getElementById('evolution-toggle')?.addEventListener('click', toggleEvolution);
+      }
+    } catch (e) {
+      console.error('[MatchIQ] Error rendering model status:', e);
     }
 
     // ── Match Cards ──
-    const matchesGrid = document.getElementById('matches-grid');
-    if (matchesGrid) {
-      if (upcomingMatches.length === 0) {
-        matchesGrid.innerHTML = `
-          <div style="text-align:center;padding:64px;color:var(--text-4);">
-            <div style="font-size:13px">暂无比赛分析数据</div>
-          </div>`;
-      } else {
-        matchesGrid.innerHTML = upcomingMatches.map(m => MatchIQRender.renderMatchCard(m, weights, state.teamTags, state.tagsConfig, state.leagueProfiles)).join('');
+    try {
+      const matchesGrid = document.getElementById('matches-grid');
+      if (matchesGrid) {
+        if (upcomingMatches.length === 0) {
+          matchesGrid.innerHTML = `
+            <div style="text-align:center;padding:64px;color:var(--text-4);">
+              <div style="font-size:13px">暂无比赛分析数据</div>
+            </div>`;
+        } else {
+          matchesGrid.innerHTML = upcomingMatches.map(m => {
+            try {
+              return MatchIQRender.renderMatchCard(m, weights, state.teamTags, state.tagsConfig, state.leagueProfiles);
+            } catch (err) {
+              console.error(`[MatchIQ] Error rendering match card for ${m.id}:`, err);
+              return `<div class="match-card" style="padding:24px;text-align:center;color:var(--text-4);border:1px dashed var(--border-subtle)">⚠️ 无法加载此场比赛分析 (${m.home || '未知'} vs ${m.away || '未知'})</div>`;
+            }
+          }).join('');
+        }
       }
+    } catch (e) {
+      console.error('[MatchIQ] Error rendering match cards grid:', e);
     }
 
     // ── Evolution Section ──
-    const evoContainer = document.getElementById('evolution-container');
-    if (evoContainer) {
-      evoContainer.innerHTML = MatchIQRender.renderEvolutionSection(evolution, history);
+    try {
+      const evoContainer = document.getElementById('evolution-container');
+      if (evoContainer) {
+        evoContainer.innerHTML = MatchIQRender.renderEvolutionSection(evolution, history);
+      }
+    } catch (e) {
+      console.error('[MatchIQ] Error rendering evolution section:', e);
     }
 
     // ── History Records Section ──
-    const historyGrid = document.getElementById('history-records-grid');
-    if (historyGrid) {
-      historyGrid.innerHTML = MatchIQRender.renderHistoryRecords(history);
+    try {
+      const historyGrid = document.getElementById('history-records-grid');
+      if (historyGrid) {
+        historyGrid.innerHTML = MatchIQRender.renderHistoryRecords(history);
+      }
+    } catch (e) {
+      console.error('[MatchIQ] Error rendering history grid:', e);
     }
 
     // ── Parlay History Section ──
-    const parlayHistoryContainer = document.getElementById('parlay-history-container');
-    if (parlayHistoryContainer) {
-      parlayHistoryContainer.innerHTML = MatchIQRender.renderParlayHistory(history);
+    try {
+      const parlayHistoryContainer = document.getElementById('parlay-history-container');
+      if (parlayHistoryContainer) {
+        parlayHistoryContainer.innerHTML = MatchIQRender.renderParlayHistory(history);
+      }
+    } catch (e) {
+      console.error('[MatchIQ] Error rendering parlay history:', e);
     }
 
     // Init all charts after DOM is updated (only for upcoming/active matches)
     requestAnimationFrame(() => {
-      initAllCharts(upcomingMatches, weights, history, evolution);
-      bindTabEvents();
-      updateRiskRadarAndKelly(upcomingMatches);
+      try {
+        initAllCharts(upcomingMatches, weights, history, evolution);
+      } catch (err) {
+        console.error('[MatchIQ] Error initializing charts:', err);
+      }
+      try {
+        bindTabEvents();
+      } catch (err) {
+        console.error('[MatchIQ] Error binding tab events:', err);
+      }
+      try {
+        updateRiskRadarAndKelly(upcomingMatches);
+      } catch (err) {
+        console.error('[MatchIQ] Error updating risk radar/Kelly:', err);
+      }
     });
   }
 
@@ -248,7 +310,7 @@ const MatchIQ = (() => {
     
     // 2. Kelly Bet Sizer Calculations
     const runKellyCalculations = () => {
-      const bankroll = parseFloat(bankrollInput.value) || 100;
+      const bankroll = bankrollInput ? (parseFloat(bankrollInput.value) || 100) : 100;
       upcomingMatches.forEach(m => {
         // Find Card (Ultimate Card)
         const ucCard = document.getElementById(`uc-${m.id}`);
@@ -313,7 +375,7 @@ const MatchIQ = (() => {
     };
     
     // Bind click event for sizer button
-    calcBtn.onclick = runKellyCalculations;
+    if (calcBtn) calcBtn.onclick = runKellyCalculations;
     
     // Auto run once
     runKellyCalculations();

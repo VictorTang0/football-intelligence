@@ -22,12 +22,15 @@ const MatchIQCharts = (() => {
     font: { family: "'JetBrains Mono', monospace", size: 11 }
   };
 
-  Chart.defaults.color = DEFAULTS.color.text3;
-  Chart.defaults.font.family = "'Inter', sans-serif";
-  Chart.defaults.font.size = 11;
+  if (typeof Chart !== 'undefined') {
+    Chart.defaults.color = DEFAULTS.color.text3;
+    Chart.defaults.font.family = "'Inter', sans-serif";
+    Chart.defaults.font.size = 11;
+  }
 
   // ─── TEAM RADAR CHART ───
   function initTeamRadar(canvasId, homeData, awayData, homeName, awayName) {
+    if (typeof Chart === 'undefined') return null;
     const canvas = document.getElementById(canvasId);
     if (!canvas) return null;
     const ctx = canvas.getContext('2d');
@@ -109,6 +112,7 @@ const MatchIQCharts = (() => {
 
   // ─── MODEL EVOLUTION LINE CHART ───
   function initEvolutionChart(canvasId, evolutionData) {
+    if (typeof Chart === 'undefined') return null;
     const canvas = document.getElementById(canvasId);
     if (!canvas) return null;
     const ctx = canvas.getContext('2d');
@@ -188,6 +192,7 @@ const MatchIQCharts = (() => {
 
   // ─── ACCURACY TREND CHART ───
   function initAccuracyChart(canvasId, historyData) {
+    if (typeof Chart === 'undefined') return null;
     const canvas = document.getElementById(canvasId);
     if (!canvas) return null;
     const ctx = canvas.getContext('2d');
@@ -251,6 +256,7 @@ const MatchIQCharts = (() => {
 
   // ─── FACTOR CONTRIBUTION BAR CHART ───
   function initFactorChart(canvasId, factorScores, weightsData) {
+    if (typeof Chart === 'undefined') return null;
     const canvas = document.getElementById(canvasId);
     if (!canvas) return null;
     const ctx = canvas.getContext('2d');
@@ -310,6 +316,7 @@ const MatchIQCharts = (() => {
 
   // ─── ODDS MOVEMENT CHART ───
   function initOddsMovementChart(canvasId, oddsData) {
+    if (typeof Chart === 'undefined') return null;
     const canvas = document.getElementById(canvasId);
     if (!canvas) return null;
     const ctx = canvas.getContext('2d');
