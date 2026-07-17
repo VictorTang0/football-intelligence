@@ -2,6 +2,7 @@ import json
 import os
 import urllib.request
 import urllib.parse
+from datetime import datetime
 
 def fetch_events():
     url = "https://api.infersports.dev/v1/events?sport=football"
@@ -534,8 +535,14 @@ def main():
                 ]
 
         if mid in fresh_news:
-            m["intelligence"]["verified_news"] = fresh_news[mid]
-            print(f"  Verified news updated: {len(fresh_news[mid])} items loaded.")
+            run_date = datetime.now().strftime("%Y-%m-%d")
+            updated_items = []
+            for item in fresh_news[mid]:
+                if "date" not in item or not item["date"]:
+                    item["date"] = run_date
+                updated_items.append(item)
+            m["intelligence"]["verified_news"] = updated_items
+            print(f"  Verified news updated: {len(updated_items)} items loaded.")
         if mid in fresh_social:
             m["intelligence"]["social_buzz"] = fresh_social[mid]
             print(f"  Social buzz updated.")
