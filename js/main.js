@@ -163,6 +163,18 @@ const MatchIQ = (() => {
       console.error('[MatchIQ] Error rendering model status:', e);
     }
 
+    // ── Summary Table ──
+    try {
+      const summaryContainer = document.getElementById('summary-table-container');
+      if (summaryContainer) {
+        const bankrollInput = document.getElementById('kelly-bankroll-input');
+        const bankroll = bankrollInput ? (parseFloat(bankrollInput.value) || 100) : 100;
+        summaryContainer.innerHTML = MatchIQRender.renderSummaryTable(upcomingMatches, bankroll);
+      }
+    } catch (e) {
+      console.error('[MatchIQ] Error rendering summary table:', e);
+    }
+
     // ── Match Cards ──
     try {
       const matchesGrid = document.getElementById('matches-grid');
@@ -372,6 +384,12 @@ const MatchIQ = (() => {
           }
         }
       });
+
+      // Re-render summary table with new bankroll
+      const summaryContainer = document.getElementById('summary-table-container');
+      if (summaryContainer) {
+        summaryContainer.innerHTML = MatchIQRender.renderSummaryTable(upcomingMatches, bankroll);
+      }
     };
     
     // Bind click event for sizer button

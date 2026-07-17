@@ -1342,6 +1342,109 @@ const MatchIQRender = (() => {
     }).join('');
   }
 
+  function renderSummaryTable(upcomingMatches, bankroll = 100) {
+    if (!upcomingMatches || upcomingMatches.length === 0) {
+      return `
+        <div style="text-align:center;padding:32px;color:var(--text-4);">
+          暂无今日预测赛事
+        </div>`;
+    }
+
+    const rows = upcomingMatches.map(m => {
+      const matchNo = formatMatchNo(m.id);
+      const league = m.league || '--';
+      const kickoff = formatTime(m.kickoff);
+      const matchup = `<span style="font-weight:600;color:var(--text-1);">${m.home}</span> <span style="color:var(--text-4)">VS</span> <span style="font-weight:600;color:var(--text-1);">${m.away}</span>`;
+      
+      const uc = m.ultimate_conclusion || {};
+      const rec = uc.recommendation || '分析中';
+      const conf = uc.confidence || 0;
+      const risk = uc.risk_level || '中';
+      const score = m.conclusions?.most_likely_score || '--';
+      
+      // Calculate Kelly
+      let stakeText = '观望';
+      let stakeColor = 'var(--text-3)';
+      try {
+        const oddsObj = m.odds_analysis?.pinnacle?.current || {};
+        let outcomeKey = "home";
+        if (rec.includes("平局") || rec.includes("平")) {
+          outcomeKey = "draw";
+        } else if (rec.includes("客胜") || rec.includes("客")) {
+          outcomeKey = "away";
+        }
+        const odds = oddsObj[outcomeKey] || 1.80;
+        
+        let prob = 0.50;
+        const pvb = m.public_vs_bookmaker || [];
+        const matchOutcomeName = outcomeKey === "home" ? "主胜" : outcomeKey === "draw" ? "平局" : "客胜";
+        const row = pvb.find(r => r.outcome === matchOutcomeName);
+        if (row && row.true_est) {
+          prob = parseFloat(row.true_est.replace('%', '')) / 100;
+        }
+        
+        const b = odds - 1;
+        const q = 1 - prob;
+        let kellyFraction = 0;
+        if (b > 0) {
+          kellyFraction = (prob * b - q) / b;
+        }
+        const quarterKelly = Math.max(0, kellyFraction * 0.25);
+        const recommendStake = Math.round(bankroll * quarterKelly);
+        
+        if (quarterKelly > 0) {
+          stakeText = `${recommendStake} 元 (${(quarterKelly * 100).toFixed(1)}%)`;
+          stakeColor = 'var(--cyan)';
+        } else {
+          stakeText = '观望 (EV<0)';
+          stakeColor = 'var(--red)';
+        }
+      } catch (err) {
+        console.error(err);
+      }
+
+      const confColorClass = recColor(conf);
+      const riskColor = risk.includes('低') ? 'var(--green)' : risk.includes('高') ? 'var(--red)' : 'var(--amber)';
+
+      return `
+        <tr>
+          <td class="font-mono" style="color:var(--text-3); font-weight:700;">${matchNo}</td>
+          <td><span class="tag" style="border:1px solid rgba(0, 212, 255, 0.2); color:var(--cyan); background:rgba(0, 212, 255, 0.03);">${league}</span></td>
+          <td>${kickoff}</td>
+          <td>${matchup}</td>
+          <td style="font-weight:700; color:var(--text-1);">${rec}</td>
+          <td><span class="confidence-badge ${confColorClass}" style="padding:2px 6px; border-radius:4px; font-weight:bold; font-size:11px;">${conf}%</span></td>
+          <td style="color:${riskColor}; font-weight:600;">${risk}</td>
+          <td class="font-mono" style="color:var(--green); font-weight:bold;">${score}</td>
+          <td style="color:${stakeColor}; font-weight:bold;">${stakeText}</td>
+        </tr>
+      `;
+    }).join('');
+
+    return `
+      <div style="overflow-x:auto; background:rgba(13,21,39,0.3); border:1px solid var(--border-subtle); border-radius:12px; box-shadow:0 8px 32px rgba(0,0,0,0.2); backdrop-filter:blur(8px);">
+        <table class="summary-table" style="width:100%; border-collapse:collapse; text-align:left; font-size:13px; color:var(--text-2);">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border-subtle); background:rgba(255,255,255,0.02);">
+              <th style="padding:12px 16px;">编号</th>
+              <th style="padding:12px 16px;">联赛</th>
+              <th style="padding:12px 16px;">开赛</th>
+              <th style="padding:12px 16px;">对阵</th>
+              <th style="padding:12px 16px;">预测结论</th>
+              <th style="padding:12px 16px;">置信度</th>
+              <th style="padding:12px 16px;">风险</th>
+              <th style="padding:12px 16px;">最可能比分</th>
+              <th style="padding:12px 16px;">季开资金建议</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rows}
+          </tbody>
+        </table>
+      </div>
+    `;
+  }
+
   return {
     renderUltimateCard,
     renderMatchCard,
@@ -1350,6 +1453,7 @@ const MatchIQRender = (() => {
     renderHistoryRecords,
     renderParlays,
     renderParlayHistory,
+    renderSummaryTable,
     formatDate,
     formatTime
   };
