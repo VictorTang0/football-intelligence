@@ -176,6 +176,29 @@
           ]
         },
         {
+          "type": "goals",
+          "size": 2,
+          "total_odds": 15.33,
+          "ev": -0.056,
+          "is_correct": false,
+          "selections": [
+            {
+              "match_id": "match_260715_102",
+              "teams": "英格兰 vs 阿根廷",
+              "selection": "总进球数 3球",
+              "odds": 3.65,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260715_201",
+              "teams": "比森（Atert Bissen·卢森堡） vs 克拉克斯（KÍ Klaksvík·法罗群岛）",
+              "selection": "总进球数 1球",
+              "odds": 4.2,
+              "is_correct": false
+            }
+          ]
+        },
+        {
           "type": "aggressive",
           "size": 2,
           "total_odds": 10.08,
@@ -224,6 +247,36 @@
               "teams": "苏德斯卡（FK Sutjeska·黑山） vs 阿拉木图（FK Kairat·哈萨克斯坦）",
               "selection": "主胜 (无让球胜平负)",
               "odds": 4.1,
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "type": "goals",
+          "size": 3,
+          "total_odds": 137.97,
+          "ev": -0.15,
+          "is_correct": false,
+          "selections": [
+            {
+              "match_id": "match_260715_102",
+              "teams": "英格兰 vs 阿根廷",
+              "selection": "总进球数 3球",
+              "odds": 3.65,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260715_201",
+              "teams": "比森（Atert Bissen·卢森堡） vs 克拉克斯（KÍ Klaksvík·法罗群岛）",
+              "selection": "总进球数 1球",
+              "odds": 4.2,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260715_202",
+              "teams": "苏德斯卡（FK Sutjeska·黑山） vs 阿拉木图（FK Kairat·哈萨克斯坦）",
+              "selection": "总进球数 0球",
+              "odds": 9.0,
               "is_correct": false
             }
           ]

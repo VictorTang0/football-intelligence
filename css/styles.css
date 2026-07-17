@@ -1383,11 +1383,17 @@ section { padding: clamp(32px, 5vw, 64px) 0; }
 .ph-parlay-card.aggressive {
   border-color: rgba(244, 63, 94, 0.1);
 }
+.ph-parlay-card.goals {
+  border-color: rgba(245, 158, 11, 0.1);
+}
 .ph-parlay-card:hover {
   border-color: var(--cyan);
 }
 .ph-parlay-card.aggressive:hover {
   border-color: var(--rose);
+}
+.ph-parlay-card.goals:hover {
+  border-color: var(--amber);
 }
 .ph-card-header {
   display: flex;
@@ -1401,6 +1407,9 @@ section { padding: clamp(32px, 5vw, 64px) 0; }
 }
 .ph-parlay-card.aggressive .ph-card-tag {
   color: var(--rose);
+}
+.ph-parlay-card.goals .ph-card-tag {
+  color: var(--amber);
 }
 .ph-card-title {
   font-size: 13px;
@@ -1547,4 +1556,62 @@ section { padding: clamp(32px, 5vw, 64px) 0; }
 .matchiq-tooltip.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ─── TOTAL GOALS PARLAY COLORING ─── */
+.parlay-tag.value-goals {
+  background: rgba(245, 158, 11, 0.08);
+  color: var(--amber);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+.parlay-card.goals:hover {
+  border-color: var(--amber);
+  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.08);
+}
+
+/* ─── TREND BADGE STYLES ─── */
+.trend-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-left: 6px;
+  font-family: var(--font-body);
+  vertical-align: middle;
+  text-shadow: none;
+}
+.trend-badge.confidence-up {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--green);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  animation: pulse-green-glow 2s infinite alternate;
+}
+.trend-badge.confidence-down {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--red);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  animation: pulse-red-glow 2s infinite alternate;
+}
+.trend-badge.upset-up {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--red);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  animation: pulse-red-glow 2s infinite alternate;
+}
+.trend-badge.upset-down {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--green);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  animation: pulse-green-glow 2s infinite alternate;
+}
+
+@keyframes pulse-green-glow {
+  0% { box-shadow: 0 0 2px rgba(16, 185, 129, 0.1); }
+  100% { box-shadow: 0 0 8px rgba(16, 185, 129, 0.35); }
+}
+@keyframes pulse-red-glow {
+  0% { box-shadow: 0 0 2px rgba(239, 68, 68, 0.1); }
+  100% { box-shadow: 0 0 8px rgba(239, 68, 68, 0.35); }
 }

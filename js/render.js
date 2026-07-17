@@ -198,12 +198,16 @@ const MatchIQRender = (() => {
         </div>
         <div class="uc-metrics">
           <div class="uc-metric">
-            <div class="m-val text-cyan">${conf}%</div>
+            <div class="m-val text-cyan">
+              ${conf}%
+              ${uc.confidence_trend === 'up' ? '<span class="trend-badge confidence-up">▲ 信心上升</span>' : uc.confidence_trend === 'down' ? '<span class="trend-badge confidence-down">▼ 信心下降</span>' : ''}
+            </div>
             <div class="m-lbl">信心</div>
           </div>
           <div class="uc-metric">
             <div class="m-val" style="color: ${uc.risk_level?.includes('低') ? 'var(--green)' : uc.risk_level?.includes('高') ? 'var(--red)' : 'var(--amber)'}">
               ${uc.risk_level || '--'}
+              ${match.conclusions?.upset_trend === 'up' ? '<span class="trend-badge upset-up">▲ 冷门概率上升</span>' : match.conclusions?.upset_trend === 'down' ? '<span class="trend-badge upset-down">▼ 冷门概率下降</span>' : ''}
             </div>
             <div class="m-lbl">风险</div>
           </div>
@@ -390,6 +394,12 @@ const MatchIQRender = (() => {
       <div class="bookmaker-intent">
         <h4>🎯 庄家意图推演</h4>
         <p>${odds.bookmaker_intent || '暂无分析'}</p>
+        ${odds.bookmaker_backed_script ? `
+          <div style="margin-top:12px;padding:10px 12px;background:rgba(0, 212, 255, 0.04);border:1px solid rgba(0, 212, 255, 0.2);border-radius:6px;box-shadow:0 0 10px rgba(0, 212, 255, 0.05);">
+            <div style="font-size:11px;color:var(--cyan);font-weight:700;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px;">🎬 庄家真实看好剧本</div>
+            <div style="font-size:12.5px;color:var(--text-1);line-height:1.5;">${odds.bookmaker_backed_script}</div>
+          </div>
+        ` : ''}
       </div>
 
       ${smokes ? `<div class="smoke-screens"><h4>💨 烟雾弹识别</h4><ul>${smokes}</ul></div>` : ''}
@@ -685,6 +695,14 @@ const MatchIQRender = (() => {
     const homeTagsHTML = getTeamTagsHeaderHTML(match.home);
     const awayTagsHTML = getTeamTagsHeaderHTML(match.away);
 
+    const trendBadges = [];
+    const uc = match.ultimate_conclusion || {};
+    if (uc.confidence_trend === 'up') trendBadges.push('<span class="trend-badge confidence-up">▲ 信心上升</span>');
+    if (uc.confidence_trend === 'down') trendBadges.push('<span class="trend-badge confidence-down">▼ 信心下降</span>');
+    if (match.conclusions?.upset_trend === 'up') trendBadges.push('<span class="trend-badge upset-up">▲ 冷门概率上升</span>');
+    if (match.conclusions?.upset_trend === 'down') trendBadges.push('<span class="trend-badge upset-down">▼ 冷门概率下降</span>');
+    const trendHTML = trendBadges.length > 0 ? `<div style="margin-top:6px;display:flex;justify-content:center;gap:4px;flex-wrap:wrap;">${trendBadges.join('')}</div>` : '';
+
     return `
     <div class="match-card animate-in" id="card-${match.id}">
       <div class="mc-header">
@@ -699,6 +717,7 @@ const MatchIQRender = (() => {
           <div class="mc-kickoff">${formatTime(match.kickoff)}</div>
           <div class="mc-venue">🏟 ${match.venue || '--'}</div>
           <div class="mc-weather">${w.condition ? `🌡 ${w.temp_c}°C · ${w.condition} · 湿度${w.humidity}%` : ''}</div>
+          ${trendHTML}
         </div>
         <div class="mc-team away">
           <div class="mc-team-league">&nbsp;</div>
@@ -1005,6 +1024,46 @@ const MatchIQRender = (() => {
         }
       }
 
+      // ─── 3. TOTAL GOALS OPTION (总进球数) ───
+      let goalsChoiceName = '';
+      let goalsOdds = 3.25;
+      let goalsProb = 0.35;
+      
+      let predictedTotal = 3;
+      if (score && score !== '--') {
+        const s = score.split('或')[0].trim();
+        const parts = s.split('-');
+        if (parts.length === 2) {
+          predictedTotal = parseInt(parts[0]) + parseInt(parts[1]);
+        }
+      }
+      
+      if (predictedTotal === 0) {
+        goalsChoiceName = '总进球数 0球';
+        goalsOdds = 9.00;
+        goalsProb = 0.10;
+      } else if (predictedTotal === 1) {
+        goalsChoiceName = '总进球数 1球';
+        goalsOdds = 4.20;
+        goalsProb = 0.22;
+      } else if (predictedTotal === 2) {
+        goalsChoiceName = '总进球数 2球';
+        goalsOdds = 3.25;
+        goalsProb = 0.33 + (fair.draw * 0.1);
+      } else if (predictedTotal === 3) {
+        goalsChoiceName = '总进球数 3球';
+        goalsOdds = 3.65;
+        goalsProb = 0.28 + (fair.home * 0.05);
+      } else if (predictedTotal === 4) {
+        goalsChoiceName = '总进球数 4球';
+        goalsOdds = 5.20;
+        goalsProb = 0.18 + (fair.home * 0.03);
+      } else {
+        goalsChoiceName = '总进球数 5球及以上';
+        goalsOdds = 9.50;
+        goalsProb = 0.10;
+      }
+
       return {
         id: m.id,
         home: m.home,
@@ -1014,6 +1073,12 @@ const MatchIQRender = (() => {
           odds: valOdds,
           prob: valProb,
           ev: (valOdds * valProb) - 1
+        },
+        goals: {
+          name: goalsChoiceName,
+          odds: goalsOdds,
+          prob: goalsProb,
+          ev: (goalsOdds * goalsProb) - 1
         },
         aggressive: {
           name: aggChoiceName,
@@ -1037,10 +1102,10 @@ const MatchIQRender = (() => {
       const totalEv = (totalProb * totalOdds) - 1;
 
       // Styling parameters
-      let tagClass = type === 'value' ? 'value-high' : 'value-aggressive';
-      let tagText = type === 'value' ? '📈 价值优选' : '🔥 混合博取 (高倍)';
-      let cardClass = type === 'value' ? '' : 'aggressive';
-      let titleText = type === 'value' ? `${size}串1 组合` : `${size}串1 混合串关`;
+      let tagClass = type === 'value' ? 'value-high' : type === 'goals' ? 'value-goals' : 'value-aggressive';
+      let tagText = type === 'value' ? '📈 价值优选' : type === 'goals' ? '⚽ 总进球数优选' : '🔥 混合博取 (高倍)';
+      let cardClass = type === 'value' ? '' : type === 'goals' ? 'goals' : 'aggressive';
+      let titleText = type === 'value' ? `${size}串1 组合` : type === 'goals' ? `${size}串1 总进球数` : `${size}串1 混合串关`;
 
       let riskText = '低风险';
       if (size >= 8) riskText = type === 'value' ? '高风险' : '极高风险';
@@ -1052,7 +1117,7 @@ const MatchIQRender = (() => {
       const matchesListHTML = displaySelected.map(b => `
         <div class="parlay-match-item">
           <span class="parlay-match-teams"><span class="match-no-badge-sm">${formatMatchNo(b.id)}</span>${b.home} vs ${b.away}</span>
-          <span class="parlay-match-odds" style="color: ${type === 'value' ? 'var(--cyan)' : 'var(--rose)'}">${b[type].name} @ ${b[type].odds.toFixed(2)}</span>
+          <span class="parlay-match-odds" style="color: ${type === 'value' ? 'var(--cyan)' : type === 'goals' ? 'var(--amber)' : 'var(--rose)'}">${b[type].name} @ ${b[type].odds.toFixed(2)}</span>
         </div>
       `).join('');
 
@@ -1083,8 +1148,10 @@ const MatchIQRender = (() => {
     const parlaysHTML = [];
     sizes.forEach(s => {
       const valP = makeParlay(s, 'value');
+      const goalsP = makeParlay(s, 'goals');
       const aggP = makeParlay(s, 'aggressive');
       if (valP) parlaysHTML.push(valP);
+      if (goalsP) parlaysHTML.push(goalsP);
       if (aggP) parlaysHTML.push(aggP);
     });
 
@@ -1136,9 +1203,9 @@ const MatchIQRender = (() => {
         const evText = p.ev !== undefined ? `<div class="ph-meta-item">期望值: ${(p.ev * 100).toFixed(1)}%</div>` : '';
 
         return `
-          <div class="ph-parlay-card ${p.type === 'value' ? '' : 'aggressive'}">
+          <div class="ph-parlay-card ${p.type === 'value' ? '' : p.type === 'goals' ? 'goals' : 'aggressive'}">
             <div class="ph-card-header">
-              <span class="ph-card-tag">${p.type === 'value' ? '📈 价值优选' : '🔥 混合博取'}</span>
+              <span class="ph-card-tag">${p.type === 'value' ? '📈 价值优选' : p.type === 'goals' ? '⚽ 总进球数' : '🔥 混合博取'}</span>
               <span class="ph-card-title">${p.size}串1</span>
               ${statusBadge}
             </div>
