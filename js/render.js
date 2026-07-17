@@ -170,7 +170,7 @@ const MatchIQRender = (() => {
     const formatTeamTagBadge = (tag) => {
       if (!tag) return '';
       const desc = tagDescriptions[tag.name] || '暂无说明';
-      return `<span class="team-card-tag-badge" data-tooltip="${desc}" style="cursor:help;">${tag.emoji} Lvl ${tag.level}</span>`;
+      return `<span class="team-card-tag-badge" data-tooltip="${desc}" style="cursor:help;">${tag.emoji} ${tag.name} Lvl ${tag.level}</span>`;
     };
 
     return `
