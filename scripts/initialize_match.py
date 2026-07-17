@@ -1,6 +1,7 @@
 import json
 import os
 import sys
+import random
 from datetime import datetime
 
 # Path constants
@@ -48,10 +49,30 @@ known_teams = {
 
 def get_stats_by_tier(tier):
     if tier == "strong":
-        return stats_strong
+        base = stats_strong
     elif tier == "weak":
-        return stats_weak
-    return stats_medium
+        base = stats_weak
+    else:
+        base = stats_medium
+        
+    result = {}
+    for k, v in base.items():
+        if isinstance(v, float):
+            factor = random.uniform(0.88, 1.12)
+            result[k] = round(v * factor, 1)
+        elif isinstance(v, int):
+            offset = random.randint(-2, 2)
+            result[k] = max(0, v + offset)
+        else:
+            result[k] = v
+            
+    # Correction boundaries
+    if result["conversion_rate"] > 1.0: result["conversion_rate"] = 0.12
+    if result["possession"] > 100.0: result["possession"] = 50.0
+    if result["pass_accuracy"] > 100.0: result["pass_accuracy"] = 80.0
+    
+    return result
+
 
 def create_complete_match(raw_match):
     """
