@@ -118,7 +118,10 @@ def de_vig_odds(home, draw, away):
 
 def calculate_kelly_conclusion(m):
     pinnacle_odds = m["odds_analysis"]["pinnacle"]["current"]
+    init_odds = m["odds_analysis"]["pinnacle"]["initial"]
+    
     oh, od, oa = pinnacle_odds["home"], pinnacle_odds["draw"], pinnacle_odds["away"]
+    ih, id_, ia = init_odds["home"], init_odds["draw"], init_odds["away"]
     
     sentiment = m["odds_analysis"]["retail_sentiment"]
     if "home_pct" in sentiment:
@@ -138,25 +141,40 @@ def calculate_kelly_conclusion(m):
     kelly_d = round(od * sd, 3)
     kelly_a = round(oa * sa, 3)
     
+    # Calculate macro odds movement from open to current
+    diff_h = round(oh - ih, 3)
+    diff_d = round(od - id_, 3)
+    diff_a = round(oa - ia, 3)
+    
     analysis = (
         f"即时返还率为 {payout_rate:.3f}。基于散户倾向（主 {pct_h}% / 平 {pct_d}% / 客 {pct_a}%），"
-        f"计算得出凯利指数为：主胜 {kelly_h:.2f}，平局 {kelly_d:.2f}，客胜 {kelly_a:.2f}。"
+        f"计算得出即时凯利指数为：主胜 {kelly_h:.2f}，平局 {kelly_d:.2f}，客胜 {kelly_a:.2f}。<br/>"
     )
     
-    kellys = [("主胜", kelly_h), ("平局", kelly_d), ("客胜", kelly_a)]
+    kellys = [("主胜", kelly_h, diff_h), ("平局", kelly_d, diff_d), ("客胜", kelly_a, diff_a)]
     kellys.sort(key=lambda x: x[1])
     best_protected = kellys[0][0]
     worst_risk = kellys[-1][0]
+    worst_diff = kellys[-1][2]
     
-    if kellys[-1][1] > payout_rate:
+    # Macro correlation deduction
+    worst_move = "降水" if worst_diff <= -0.02 else "升水" if worst_diff >= 0.04 else "稳定"
+    
+    if worst_move == "降水":
         analysis += (
-            f" 散户资金在【{worst_risk}】上过度聚集，致使凯利指数（{kellys[-1][1]:.2f}）突破返还率，庄家在此项面临极高赔付风险。"
-            f" 相反，庄家在【{best_protected}】（凯利指数 {kellys[0][1]:.2f}）上拥有最低赔付安全边界。本场首选庄家防范极佳的【{best_protected}】作为防冷避险方向。"
+            f" 散户资金在【{worst_risk}】上高度聚集导致凯利值（{kellys[-1][1]:.2f}）突破返还率。宏观上庄家正对该项进行<strong>降水避险</strong>以收缩负债，"
+            f" 凯利高企与降水保护形成共振。本场建议重点防范 <strong style='color: #ff9800;'>{worst_risk}</strong> 顺利打出。"
+        )
+    elif worst_move == "升水":
+        opp_side = "客队受让或不败" if worst_risk == "主胜" else "主队受让或不败" if worst_risk == "客胜" else "分出胜负"
+        analysis += (
+            f" 散户最热的【{worst_risk}】（凯利 {kellys[-1][1]:.2f}）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>，"
+            f" 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>{opp_side}</strong> 的冷门路线。"
         )
     else:
         analysis += (
-            f" 各项凯利指数均受控于返还率之下，表明资金分流均匀，庄家无爆头赔付危机。"
-            f" 首选庄家防御最优解【{best_protected}】。"
+            f" 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。"
+            f" 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>{best_protected}</strong> 剧本。"
         )
         
     return analysis
