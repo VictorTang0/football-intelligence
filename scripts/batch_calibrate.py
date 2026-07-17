@@ -183,6 +183,14 @@ def calibrate():
         json.dump(evo_db, f, ensure_ascii=False, indent=2)
         
     print(f"Calibration completed successfully! Weights normalized and version updated to v2.00.")
+    
+    # Trigger the new advanced Error Backpropagation sandbox to optimize MoE experts and fine-tune weights
+    try:
+        from error_backprop_sandbox import run_backprop_sandbox
+        print("\n--- Triggering Advanced Error Backpropagation Sandbox ---")
+        run_backprop_sandbox()
+    except Exception as e:
+        print(f"Error running backpropagation sandbox: {e}")
 
 if __name__ == "__main__":
     calibrate()

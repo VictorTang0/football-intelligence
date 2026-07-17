@@ -1,13 +1,13 @@
 {
-  "version": "v3.00",
-  "last_evolved": "2026-07-18T05:00:00.000000",
+  "version": "v2.00",
+  "last_evolved": "2026-07-18T06:57:16.013634",
   "total_matches_validated": 15,
   "overall_accuracy": 0.6,
   "factors": [
     {
       "id": "M01",
       "name": "球队基础硬实力",
-      "weight": 0.25,
+      "weight": 0.1499,
       "initial": 0.25,
       "category": "基础战力",
       "delta": 0.0,
@@ -16,7 +16,7 @@
     {
       "id": "M02",
       "name": "首发阵容健康度",
-      "weight": 0.15,
+      "weight": 0.1503,
       "initial": 0.15,
       "category": "基础战力",
       "delta": 0.0,
@@ -34,8 +34,8 @@
     {
       "id": "M04",
       "name": "中场与推进效率",
-      "weight": 0.10,
-      "initial": 0.10,
+      "weight": 0.1332,
+      "initial": 0.1,
       "category": "战术相克",
       "delta": 0.0,
       "type": "base"
@@ -52,7 +52,7 @@
     {
       "id": "M06",
       "name": "赛程密集与体能",
-      "weight": 0.05,
+      "weight": 0.0667,
       "initial": 0.05,
       "category": "动态动能",
       "delta": 0.0,
@@ -61,7 +61,7 @@
     {
       "id": "M07",
       "name": "环境气候适应性",
-      "weight": 0.05,
+      "weight": 0.0667,
       "initial": 0.05,
       "category": "环境心理",
       "delta": 0.0,
@@ -70,8 +70,8 @@
     {
       "id": "M08",
       "name": "战意与抢分压力",
-      "weight": 0.10,
-      "initial": 0.10,
+      "weight": 0.1332,
+      "initial": 0.1,
       "category": "环境心理",
       "delta": 0.0,
       "type": "base"
@@ -121,23 +121,33 @@
     "fundamental": {
       "name": "基本面专家",
       "weight": 0.35,
-      "dimensions": ["M01", "M02", "M05", "M06"]
+      "dimensions": [
+        "M01",
+        "M02",
+        "M05",
+        "M06"
+      ]
     },
     "narrative": {
       "name": "情报与战意专家",
       "weight": 0.25,
-      "dimensions": ["M03", "M04", "M07", "M08"]
+      "dimensions": [
+        "M03",
+        "M04",
+        "M07",
+        "M08"
+      ]
     },
     "odds_capital": {
       "name": "资金与赔率专家",
-      "weight": 0.40,
-      "dimensions": [] 
+      "weight": 0.4,
+      "dimensions": []
     }
   },
   "category_summary": {
-    "基础战力": 0.4,
-    "战术相克": 0.25,
-    "动态动能": 0.2,
-    "环境心理": 0.15
+    "基础战力": 0.3002,
+    "战术相克": 0.2832,
+    "动态动能": 0.2167,
+    "环境心理": 0.1999
   }
 }

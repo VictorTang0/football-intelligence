@@ -139,6 +139,7 @@ def create_complete_match(raw_match):
             "wind_kmh": 10
         },
         "status": "pending",
+        "odds_history": [],
         "match_context": f"{league}常规赛对决。{home}坐镇主场迎接{away}的挑战。",
         "ultimate_conclusion": {
             "recommendation": "待推演 (需运行盘口更新)",
