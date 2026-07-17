@@ -510,9 +510,9 @@ const MatchIQRender = (() => {
 
     const predHtml = mediaPreds.map(p => `
       <div class="media-pred-item">
-        <div class="mp-source">${p.source}</div>
+        <div class="mp-source">${p.source || p.media_name || '媒体/数据源'}</div>
         <div class="mp-prediction ${mpPredClass(p.prediction)}">${p.prediction}</div>
-        <div class="mp-score">${p.score || '--'}</div>
+        <div class="mp-score">${p.score || p.predicted_score || '--'}</div>
       </div>`).join('') || '<div style="color:var(--text-4);font-size:13px;text-align:center;padding:20px">暂无媒体预测</div>';
 
     return `
