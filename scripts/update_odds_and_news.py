@@ -2,6 +2,7 @@ import json
 import os
 import urllib.request
 import urllib.parse
+import re
 from datetime import datetime, timedelta
 
 def fetch_events():
@@ -108,6 +109,51 @@ def parse_odds_data(odds_list, base_odds):
                     "movement": "最新同步"
                 }
     return result
+
+def fetch_url_first_published_date(url):
+    if not url:
+        return None
+    try:
+        req = urllib.request.Request(
+            url,
+            headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko)'}
+        )
+        with urllib.request.urlopen(req, timeout=2.5) as response:
+            # Check Last-Modified header first
+            last_mod = response.headers.get('Last-Modified')
+            if last_mod:
+                try:
+                    dt = datetime.strptime(last_mod, "%a, %d %b %Y %H:%M:%S %Z")
+                    return dt.strftime("%Y-%m-%d")
+                except:
+                    pass
+            
+            html = response.read().decode('utf-8', errors='ignore')
+            
+            # Match standard OG tags, article publish time, schema.org JSON-LD
+            patterns = [
+                r'<meta[^>]*property="article:published_time"[^>]*content="([^"]+)"',
+                r'<meta[^>]*name="pubdate"[^>]*content="([^"]+)"',
+                r'<meta[^>]*name="publish-date"[^>]*content="([^"]+)"',
+                r'<meta[^>]*property="og:published_time"[^>]*content="([^"]+)"',
+                r'<meta[^>]*name="date"[^>]*content="([^"]+)"'
+            ]
+            for pattern in patterns:
+                m = re.search(pattern, html, re.IGNORECASE)
+                if m:
+                    extracted = m.group(1)[:10]
+                    if re.match(r'^\d{4}-\d{2}-\d{2}$', extracted):
+                        return extracted
+            
+            # JSON-LD fallback
+            json_ld_m = re.search(r'"datePublished"\s*:\s*"([^"]+)"', html, re.IGNORECASE)
+            if json_ld_m:
+                extracted = json_ld_m.group(1)[:10]
+                if re.match(r'^\d{4}-\d{2}-\d{2}$', extracted):
+                    return extracted
+    except Exception as e:
+        print(f"  [Web Scrape Warning] Could not fetch first appearance date for {url}: {e}")
+    return None
 
 def de_vig_odds(home, draw, away):
     total = (1/home) + (1/draw) + (1/away)
@@ -537,16 +583,20 @@ def main():
         if mid in fresh_news:
             kickoff_str = m.get("kickoff", "")
             try:
-                # Deduce news publication date as 1 day before kickoff
                 match_dt = datetime.strptime(kickoff_str, "%Y-%m-%d %H:%M")
-                pub_date = (match_dt - timedelta(days=1)).strftime("%Y-%m-%d")
+                fallback_pub_date = (match_dt - timedelta(days=1)).strftime("%Y-%m-%d")
             except Exception:
-                pub_date = datetime.now().strftime("%Y-%m-%d")
+                fallback_pub_date = datetime.now().strftime("%Y-%m-%d")
                 
             updated_items = []
             for item in fresh_news[mid]:
                 if "date" not in item or not item["date"]:
-                    item["date"] = pub_date
+                    url = item.get("url")
+                    first_appeared_date = fetch_url_first_published_date(url)
+                    if first_appeared_date:
+                        item["date"] = first_appeared_date
+                    else:
+                        item["date"] = fallback_pub_date
                 updated_items.append(item)
             m["intelligence"]["verified_news"] = updated_items
             print(f"  Verified news updated: {len(updated_items)} items loaded.")
