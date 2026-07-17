@@ -261,7 +261,36 @@ const MatchIQRender = (() => {
 
     // H2H summary
     const hasH2H = h2h && h2h.last_5 && h2h.last_5.length > 0;
-    const h2hResult = hasH2H ? h2h.last_5.map(r => `<span class="form-dot ${r === 'H' ? 'W' : r === 'A' ? 'L' : 'D'}" style="width:22px;height:22px;font-size:10px">${r === 'H' ? '主' : r === 'A' ? '客' : '平'}</span>`).join('') : '';
+    
+    let h2hContentHtml = '';
+    if (hasH2H) {
+      const isDetailed = typeof h2h.last_5[0] === 'object';
+      if (isDetailed) {
+        h2hContentHtml = `
+          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:8px;margin-bottom:10px;text-align:left;">
+            ${h2h.last_5.map((m, idx) => {
+              const outcome = m.outcome || 'D';
+              const dateStr = m.date ? `<span style="color:var(--text-3);font-size:11px;margin-right:6px;">[${m.date}]</span>` : '';
+              return `
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:6px 10px;background:rgba(255,255,255,0.01);border-radius:4px;border:1px solid rgba(255,255,255,0.03);font-size:12px;">
+                  <div style="display:flex;align-items:center;gap:8px;">
+                    <span class="form-dot ${outcome === 'H' ? 'W' : outcome === 'A' ? 'L' : 'D'}" style="width:18px;height:18px;font-size:8.5px;line-height:18px;text-align:center;">${outcome === 'H' ? '主' : outcome === 'A' ? '客' : '平'}</span>
+                    <span style="color:var(--text-1);font-weight:500;">${dateStr}${m.home} vs ${m.away}</span>
+                  </div>
+                  <div style="font-family:monospace;font-weight:bold;color:var(--text-1);">
+                    <span style="color:var(--accent-orange, #ff9800);">${m.score}</span> 
+                    <span style="color:var(--text-3);font-size:11px;font-weight:normal;">(${m.half_score})</span>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        `;
+      } else {
+        const dots = h2h.last_5.map(r => `<span class="form-dot ${r === 'H' ? 'W' : r === 'A' ? 'L' : 'D'}" style="width:22px;height:22px;font-size:10px">${r === 'H' ? '主' : r === 'A' ? '客' : '平'}</span>`).join('');
+        h2hContentHtml = `<div style="display:flex;gap:4px;margin-bottom:10px;text-align:left;">${dots}</div>`;
+      }
+    }
 
     return `
     <div class="mc-pane ${paneId === 'stats' ? 'active' : ''}" id="pane-${match.id}-stats">
@@ -274,13 +303,15 @@ const MatchIQRender = (() => {
         <div class="stats-table">${rows}</div>
       </div>
       <div style="margin-top:20px; padding:14px; background:rgba(255,255,255,0.02); border:1px solid var(--border-subtle); border-radius:var(--radius);">
-        <div style="font-size:12px;color:var(--text-3);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;">交锋历史（近5场）</div>
+        <div style="font-size:12px;color:var(--text-3);margin-bottom:10px;text-transform:uppercase;letter-spacing:1px;text-align:left;">交锋历史（近5场）</div>
         ${hasH2H ? `
-        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-          <div style="display:flex;gap:4px;">${h2hResult}</div>
-          <span class="tag">平均进球 ${h2h.avg_goals || '--'}</span>
-          <span class="tag">双方进球率 ${h2h.btts_rate ? (h2h.btts_rate*100).toFixed(0)+'%' : '--'}</span>
-        </div>` : `<div style="font-size:13px;color:var(--text-4);padding:4px 0;">双方无历史交锋</div>`}
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          ${h2hContentHtml}
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.04);padding-top:8px;">
+            <span class="tag">平均进球 ${h2h.avg_goals || '--'}</span>
+            <span class="tag">双方进球率 ${h2h.btts_rate ? (h2h.btts_rate*100).toFixed(0)+'%' : '--'}</span>
+          </div>
+        </div>` : `<div style="font-size:13px;color:var(--text-4);padding:4px 0;text-align:left;">双方无历史交锋</div>`}
       </div>
     </div>`;
   }
