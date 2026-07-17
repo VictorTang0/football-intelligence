@@ -872,7 +872,7 @@ section { padding: clamp(32px, 5vw, 64px) 0; }
 }
 .side-index-link:hover,
 .side-index-link.active {
-  width: 84px;
+  width: 76px;
   height: 26px;
   border-radius: 13px;
   background: var(--cyan-dim);
@@ -920,7 +920,7 @@ section { padding: clamp(32px, 5vw, 64px) 0; }
 }
 
 /* ─── RESPONSIVE FOR SIDE NAVIGATION ─── */
-@media (max-width: 1200px) {
+@media (max-width: 1350px) {
   .side-index {
     display: none; /* Hide side nav index on smaller screens to avoid overlapping card contents */
   }
