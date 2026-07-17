@@ -248,7 +248,7 @@ const MatchIQ = (() => {
     
     // 2. Kelly Bet Sizer Calculations
     const runKellyCalculations = () => {
-      const bankroll = parseFloat(bankrollInput.value) || 10000;
+      const bankroll = parseFloat(bankrollInput.value) || 100;
       upcomingMatches.forEach(m => {
         // Find Card (Ultimate Card)
         const ucCard = document.getElementById(`uc-${m.id}`);
