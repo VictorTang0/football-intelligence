@@ -1252,7 +1252,32 @@ const MatchIQRender = (() => {
       if (aggP) parlaysHTML.push(aggP);
     });
 
-    return parlaysHTML.join('') || `<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-3);border:1px dashed var(--border);border-radius:var(--radius)">无足够数量的待预测赛事可组成串关</div>`;
+    if (parlaysHTML.length === 0) {
+      return `<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-3);border:1px dashed var(--border);border-radius:var(--radius)">无足够数量的待预测赛事可组成串关</div>`;
+    }
+
+    if (parlaysHTML.length <= 4) {
+      return parlaysHTML.join('');
+    }
+
+    const visibleCards = parlaysHTML.slice(0, 4).join('');
+    const hiddenCards = parlaysHTML.slice(4).join('');
+
+    return `
+      ${visibleCards}
+      <div id="more-parlays-container" style="display: none;">
+        ${hiddenCards}
+      </div>
+      <div style="grid-column: 1/-1; text-align: center; margin-top: 24px; margin-bottom: 16px;">
+        <button onclick="document.getElementById('more-parlays-container').style.display='contents'; this.parentElement.style.display='none'" 
+                style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--text-2); padding: 12px 24px; border-radius: 20px; font-size: 14px; cursor: pointer; transition: all 0.3s ease; backdrop-filter: blur(10px);"
+                onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.style.color='var(--text-1)'"
+                onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.color='var(--text-2)'">
+          <svg style="width:16px;height:16px;display:inline-block;vertical-align:text-bottom;margin-right:6px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          展开查看剩余 ${parlaysHTML.length - 4} 个最佳组合
+        </button>
+      </div>
+    `;
   }
 
   // ─── PARLAY HISTORY RENDERER ───
