@@ -30,12 +30,13 @@ const MatchIQ = (() => {
   }
 
   async function loadAllData() {
-    const [config, matches, weights, history, evolution] = await Promise.all([
+    const [config, matches, weights, history, evolution, teamTags] = await Promise.all([
       loadJSON('./data/config.json'),
       loadJSON('./data/matches.json'),
       loadJSON('./data/weights.json'),
       loadJSON('./data/history.json'),
       loadJSON('./data/model_evolution.json'),
+      loadJSON('./data/team_tags.json', {})
     ]);
 
     state.config    = config;
@@ -43,6 +44,7 @@ const MatchIQ = (() => {
     state.weights   = weights;
     state.history   = history;
     state.evolution = evolution;
+    state.teamTags  = teamTags || {};
     state.usingDemo = matches?.is_demo === true;
   }
 
@@ -100,7 +102,7 @@ const MatchIQ = (() => {
             <div style="font-size:13px">请发送赛程图片触发分析</div>
           </div>`;
       } else {
-        ucGrid.innerHTML = upcomingMatches.map(m => MatchIQRender.renderUltimateCard(m)).join('');
+        ucGrid.innerHTML = upcomingMatches.map(m => MatchIQRender.renderUltimateCard(m, state.teamTags)).join('');
       }
     }
 
@@ -139,7 +141,7 @@ const MatchIQ = (() => {
             <div style="font-size:13px">暂无比赛分析数据</div>
           </div>`;
       } else {
-        matchesGrid.innerHTML = upcomingMatches.map(m => MatchIQRender.renderMatchCard(m, weights)).join('');
+        matchesGrid.innerHTML = upcomingMatches.map(m => MatchIQRender.renderMatchCard(m, weights, state.teamTags, state.tagsConfig)).join('');
       }
     }
 
@@ -168,6 +170,58 @@ const MatchIQ = (() => {
     });
   }
 
+  function getAdjustedWeights(match, weightsData, teamTags, tagsConfig) {
+    if (!weightsData) return null;
+    const factors = (weightsData.factors || []).map(f => ({ ...f }));
+    const tagConfigMap = {};
+    if (tagsConfig?.tags) {
+      tagsConfig.tags.forEach(t => {
+        tagConfigMap[t.name] = t;
+      });
+    }
+
+    const home = match.home;
+    const away = match.away;
+    const homeTags = teamTags?.[home]?.tags || {};
+    const awayTags = teamTags?.[away]?.tags || {};
+
+    const activeAdjustments = [];
+    const collectAdjustments = (teamName, tags) => {
+      Object.entries(tags).forEach(([name, info]) => {
+        if (info.level >= 2) {
+          const config = tagConfigMap[name];
+          if (config && config.factors) {
+            activeAdjustments.push({
+              teamName,
+              tagName: name,
+              level: info.level,
+              factorIds: config.factors
+            });
+          }
+        }
+      });
+    };
+    collectAdjustments(home, homeTags);
+    collectAdjustments(away, awayTags);
+
+    activeAdjustments.forEach(adj => {
+      adj.factorIds.forEach(fid => {
+        const factor = factors.find(f => f.id === fid);
+        if (factor) {
+          factor.weight *= (1.0 + 0.15 * adj.level);
+        }
+      });
+    });
+
+    const totalWeight = factors.reduce((sum, f) => sum + f.weight, 0);
+    if (totalWeight > 0) {
+      factors.forEach(f => {
+        f.weight = f.weight / totalWeight;
+      });
+    }
+    return { ...weightsData, factors };
+  }
+
   // ─── INITIALIZE CHARTS ───
   function initAllCharts(matches, weights, history, evolution) {
     // Radar charts for each match
@@ -184,7 +238,8 @@ const MatchIQ = (() => {
 
 
       // Factor chart (first match only or all)
-      MatchIQCharts.initFactorChart(`factor-chart-${match.id}`, {}, weights);
+      const adjW = getAdjustedWeights(match, weights, state.teamTags, state.tagsConfig);
+      MatchIQCharts.initFactorChart(`factor-chart-${match.id}`, {}, adjW);
     });
 
     // Evolution chart
@@ -268,7 +323,8 @@ const MatchIQ = (() => {
               // No odds chart needed
 
             } else if (tabName === 'factors') {
-              MatchIQCharts.initFactorChart(`factor-chart-${matchId}`, {}, state.weights);
+              const adjW = getAdjustedWeights(match, state.weights, state.teamTags, state.tagsConfig);
+              MatchIQCharts.initFactorChart(`factor-chart-${matchId}`, {}, adjW);
             }
           }, 50);
         }

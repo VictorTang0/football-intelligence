@@ -24,6 +24,44 @@ const MatchIQRender = (() => {
     return id.replace('match_', 'No.');
   }
 
+  // ─── TEAM CHARACTER TAGS UTILS ───
+  const tagEmojis = {
+    "明星演员": "🎭",
+    "剧本反转": "🔄",
+    "顺风狂飙": "🚀",
+    "欺软怕硬": "🐑",
+    "铜墙铁壁": "🧱",
+    "灌球高手": "💣",
+    "平局大师": "🤝",
+    "无心恋战": "🏳️",
+    "科学战车": "⚙️",
+    "虎头蛇尾": "⏳",
+    "伐木大队": "🪓",
+    "主场狂魔": "🏠",
+    "德比狂战士": "⚔️",
+    "抢分狂魔": "📈",
+    "续命狂人": "⏱️",
+    "只雷不雨": "⚡",
+    "逆转专家": "🔄",
+    "病毒受害者": "🦠",
+    "闪退大客车": "🛡️",
+    "杯赛狂人": "🏆"
+  };
+
+  function getImportantTag(teamName, teamTags) {
+    const record = teamTags?.[teamName];
+    if (!record || !record.tags || Object.keys(record.tags).length === 0) return null;
+    const sorted = Object.entries(record.tags).sort((a, b) => {
+      if (b[1].level !== a[1].level) {
+        return b[1].level - a[1].level;
+      }
+      return (b[1].updated_at || '').localeCompare(a[1].updated_at || '');
+    });
+    const [tagName, tagInfo] = sorted[0];
+    const emoji = tagEmojis[tagName] || '🏷️';
+    return { name: tagName, emoji, level: tagInfo.level };
+  }
+
   function formatDate(isoStr) {
     if (!isoStr) return '初始化';
     const d = new Date(isoStr);
@@ -91,7 +129,7 @@ const MatchIQRender = (() => {
   }
 
   // ─── ULTIMATE CONCLUSION CARD ───
-  function renderUltimateCard(match) {
+  function renderUltimateCard(match, teamTags) {
     const uc = match.ultimate_conclusion || {};
     const home = match.team_stats?.home || {};
     const away = match.team_stats?.away || {};
@@ -104,6 +142,14 @@ const MatchIQRender = (() => {
     const isUpdated = match.prediction_updated === true;
     const updatedBadge = isUpdated ? `<span class="prediction-updated-badge">⚡ 预测更新</span>` : '';
 
+    const homeTag = getImportantTag(match.home, teamTags);
+    const awayTag = getImportantTag(match.away, teamTags);
+
+    const formatTeamTagBadge = (tag) => {
+      if (!tag) return '';
+      return `<span class="team-card-tag-badge" title="${tag.name} (Lvl ${tag.level})">${tag.emoji} Lvl ${tag.level}</span>`;
+    };
+
     return `
     <div class="ultimate-card ${rClass} animate-in" id="uc-${match.id}">
       <div class="uc-header">
@@ -112,12 +158,12 @@ const MatchIQRender = (() => {
       </div>
       <div class="uc-teams">
         <div class="uc-team">
-          <div class="uc-team-name">${match.home || '主队'}</div>
+          <div class="uc-team-name">${match.home || '主队'} ${formatTeamTagBadge(homeTag)}</div>
           <div class="uc-team-form">${formDots(home.form)}</div>
         </div>
         <div class="vs-badge">VS</div>
         <div class="uc-team away">
-          <div class="uc-team-name">${match.away || '客队'}</div>
+          <div class="uc-team-name">${formatTeamTagBadge(awayTag)} ${match.away || '客队'}</div>
           <div class="uc-team-form">${formDots(away.form)}</div>
         </div>
       </div>
@@ -378,7 +424,7 @@ const MatchIQRender = (() => {
   }
 
   // ─── INTELLIGENCE PANE ───
-  function renderIntelPane(match) {
+  function renderIntelPane(match, teamTags) {
     const intel = match.intelligence || {};
     const news = intel.verified_news || [];
     const mediaPreds = intel.media_predictions || [];
@@ -405,8 +451,43 @@ const MatchIQRender = (() => {
         <div class="mp-score">${p.score || '--'}</div>
       </div>`).join('') || '<div style="color:var(--text-4);font-size:13px;text-align:center;padding:20px">暂无媒体预测</div>';
 
+    const getTeamTagsHTML = (teamName) => {
+      const record = teamTags?.[teamName];
+      if (!record || !record.tags || Object.keys(record.tags).length === 0) {
+        return '<span style="color:var(--text-4);font-size:12px;margin:2px">暂无特征标签</span>';
+      }
+      return Object.entries(record.tags).map(([tagName, tagInfo]) => {
+        const emoji = tagEmojis[tagName] || '🏷️';
+        return `
+          <div class="team-tag-item" style="display:inline-flex;align-items:center;background:rgba(255,255,255,0.03);border:1px solid var(--border-subtle);border-radius:4px;padding:3px 8px;font-size:12px;margin:2px;">
+            <span style="margin-right:4px">${emoji}</span>
+            <span style="color:var(--text-2);font-weight:500">${tagName}</span>
+            <span style="margin-left:6px;color:var(--cyan);font-weight:700">Lvl ${tagInfo.level}</span>
+          </div>
+        `;
+      }).join('');
+    };
+
+    const homeTagsHTML = getTeamTagsHTML(match.home);
+    const awayTagsHTML = getTeamTagsHTML(match.away);
+
     return `
     <div class="mc-pane" id="pane-${match.id}-intel">
+      <!-- Team Character Tags Section -->
+      <div style="margin-bottom:16px;padding:12px 16px;background:rgba(0, 212, 255, 0.03);border:1px solid rgba(0, 212, 255, 0.15);border-radius:var(--radius);">
+        <div style="font-size:12px;color:var(--cyan);font-weight:600;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px">🧠 球队特性性格特征（独立 Tag 体系）</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div>
+            <div style="font-size:11px;color:var(--text-3);margin-bottom:4px;font-weight:600">${match.home} 特性：</div>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;">${homeTagsHTML}</div>
+          </div>
+          <div>
+            <div style="font-size:11px;color:var(--text-3);margin-bottom:4px;font-weight:600">${match.away} 特性：</div>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;">${awayTagsHTML}</div>
+          </div>
+        </div>
+      </div>
+
       <div class="intel-grid">
         <div>
           <div style="font-size:13px;font-weight:600;color:var(--text-2);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px">已验证新闻</div>
@@ -493,21 +574,77 @@ const MatchIQRender = (() => {
   }
 
   // ─── FACTORS PANE ───
-  function renderFactorsPane(match, weightsData) {
-    const factors = weightsData?.factors || [];
+  function renderFactorsPane(match, weightsData, teamTags, tagsConfig) {
+    const originalFactors = weightsData?.factors || [];
+    const factors = originalFactors.map(f => ({ ...f }));
+    const tagConfigMap = {};
+    if (tagsConfig?.tags) {
+      tagsConfig.tags.forEach(t => {
+        tagConfigMap[t.name] = t;
+      });
+    }
+
+    const home = match.home;
+    const away = match.away;
+    const homeTags = teamTags?.[home]?.tags || {};
+    const awayTags = teamTags?.[away]?.tags || {};
+
+    const activeAdjustments = [];
+    const collectAdjustments = (teamName, tags) => {
+      Object.entries(tags).forEach(([name, info]) => {
+        if (info.level >= 2) {
+          const config = tagConfigMap[name];
+          if (config && config.factors) {
+            activeAdjustments.push({
+              teamName,
+              tagName: name,
+              level: info.level,
+              factorIds: config.factors
+            });
+          }
+        }
+      });
+    };
+    collectAdjustments(home, homeTags);
+    collectAdjustments(away, awayTags);
+
+    const adjustedFactorIds = new Set();
+    activeAdjustments.forEach(adj => {
+      adj.factorIds.forEach(fid => {
+        const factor = factors.find(f => f.id === fid);
+        if (factor) {
+          const multiplier = 1.0 + 0.15 * adj.level;
+          factor.weight *= multiplier;
+          adjustedFactorIds.add(fid);
+        }
+      });
+    });
+
+    const totalWeight = factors.reduce((sum, f) => sum + f.weight, 0);
+    if (totalWeight > 0) {
+      factors.forEach(f => {
+        f.weight = f.weight / totalWeight;
+      });
+    }
+
     const rows = factors.map(f => {
       const maxW = 0.15;
       const barW = Math.min((f.weight / maxW) * 100, 100).toFixed(0);
       const delta = f.delta || 0;
       const deltaClass = delta > 0.0001 ? 'up' : delta < -0.0001 ? 'down' : 'neutral';
       const deltaStr = delta === 0 ? '--' : (delta > 0 ? '+' : '') + (delta * 100).toFixed(2) + '%';
+      
+      const isAdjusted = adjustedFactorIds.has(f.id);
+      const adjustBadge = isAdjusted ? 
+        `<span style="margin-left:4px;color:var(--cyan);font-size:10px;font-weight:700" title="已受球队 Tag 调权">🏷️ 调权</span>` : '';
+
       return `
-        <div class="factor-row">
+        <div class="factor-row ${isAdjusted ? 'adjusted-row' : ''}">
           <span class="factor-id">${f.id}</span>
-          <span class="factor-name" title="${f.name}">${f.name}</span>
-          <span class="factor-weight">${(f.weight * 100).toFixed(2)}%</span>
+          <span class="factor-name" title="${f.name}">${f.name}${adjustBadge}</span>
+          <span class="factor-weight" style="${isAdjusted ? 'color:var(--cyan);font-weight:700' : ''}">${(f.weight * 100).toFixed(2)}%</span>
           <span class="factor-delta ${deltaClass}">${deltaStr}</span>
-          <div class="factor-bar-wrap"><div class="factor-bar-fill" style="width:${barW}%"></div></div>
+          <div class="factor-bar-wrap"><div class="factor-bar-fill" style="width:${barW}%; ${isAdjusted ? 'background:var(--cyan);box-shadow:0 0 8px var(--cyan);' : ''}"></div></div>
         </div>`;
     }).join('');
 
@@ -517,6 +654,7 @@ const MatchIQRender = (() => {
         <div>
           <div style="font-size:12px;color:var(--text-3);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px">模型版本 ${weightsData?.version || '--'}</div>
           <div style="font-size:13px;color:var(--text-2)">共 ${factors.length} 个决策因子 · 已验证 ${weightsData?.total_matches_validated || 0} 场</div>
+          ${adjustedFactorIds.size > 0 ? `<div style="font-size:11px;color:var(--cyan);margin-top:4px">⚠️ 部分决策因子已根据活跃球队性格标签自动上调权重</div>` : ''}
         </div>
         <div style="position:relative;height:180px;width:240px;">
           <canvas id="factor-chart-${match.id}"></canvas>
@@ -527,7 +665,7 @@ const MatchIQRender = (() => {
   }
 
   // ─── FULL MATCH CARD ───
-  function renderMatchCard(match, weightsData) {
+  function renderMatchCard(match, weightsData, teamTags, tagsConfig) {
     const home = match.team_stats?.home || {};
     const away = match.team_stats?.away || {};
     const w = match.weather || {};
@@ -569,9 +707,9 @@ const MatchIQRender = (() => {
 
         ${renderStatsPane(match, 'stats')}
         ${renderOddsPane(match)}
-        ${renderIntelPane(match)}
+        ${renderIntelPane(match, teamTags)}
         ${renderConclusionsPane(match)}
-        ${renderFactorsPane(match, weightsData)}
+        ${renderFactorsPane(match, weightsData, teamTags, tagsConfig)}
       </div>
     </div>`;
   }
