@@ -1,7 +1,7 @@
 {
-  "total_predictions": 3,
-  "correct_predictions": 2,
-  "accuracy_rate": 0.6667,
+  "total_predictions": 13,
+  "correct_predictions": 8,
+  "accuracy_rate": 0.6154,
   "records": [
     {
       "match_id": "match_260715_102",
@@ -146,9 +146,1112 @@
           "correct": false
         }
       }
+    },
+    {
+      "match_id": "match_260716_201",
+      "league": "挪超",
+      "home": "瓦勒伦加",
+      "away": "奥勒松",
+      "date": "2026-07-17",
+      "actual_result": "瓦勒伦加 6-1 奥勒松",
+      "is_correct": true,
+      "confidence": 78,
+      "predictions": {
+        "recommendation": {
+          "val": "主胜 (防让平)",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "主胜",
+          "correct": true
+        },
+        "mainstream": {
+          "val": "瓦勒伦加主胜",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "瓦勒伦加刚好赢1球 (让平)",
+          "correct": false
+        },
+        "upset": {
+          "val": "奥勒松死守逼平",
+          "correct": false
+        },
+        "conservative": {
+          "val": "双平/瓦勒伦加首选胜",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平/主",
+          "correct": false
+        },
+        "over_under": {
+          "val": "小 2.5",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "1-0 或 2-1",
+          "correct": false
+        }
+      }
+    },
+    {
+      "match_id": "match_260716_202",
+      "league": "欧联资格赛",
+      "home": "德里城",
+      "away": "索陆军",
+      "date": "2026-07-17",
+      "actual_result": "德里城 1-2 索陆军",
+      "is_correct": true,
+      "confidence": 72,
+      "predictions": {
+        "recommendation": {
+          "val": "客胜 (首回合优势)",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "客胜",
+          "correct": true
+        },
+        "mainstream": {
+          "val": "索陆军客胜",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "索陆军客场赢2球以上 (让负)",
+          "correct": true
+        },
+        "upset": {
+          "val": "德里城主场逼平对手",
+          "correct": true
+        },
+        "conservative": {
+          "val": "索陆军不败",
+          "correct": false
+        },
+        "half_full": {
+          "val": "负/负",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "1-2 或 0-2",
+          "correct": true
+        }
+      }
+    },
+    {
+      "match_id": "match_260716_203",
+      "league": "欧联资格赛",
+      "home": "费伦茨",
+      "away": "伏伊伏丁",
+      "date": "2026-07-17",
+      "actual_result": "费伦茨 3-0 伏伊伏丁",
+      "is_correct": true,
+      "confidence": 85,
+      "predictions": {
+        "recommendation": {
+          "val": "主胜 (穿盘可选)",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "主胜",
+          "correct": true
+        },
+        "mainstream": {
+          "val": "费伦茨主胜",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "费伦茨赢2球以上 (让胜)",
+          "correct": true
+        },
+        "upset": {
+          "val": "无明显冷门可能",
+          "correct": false
+        },
+        "conservative": {
+          "val": "费伦茨赢球",
+          "correct": true
+        },
+        "half_full": {
+          "val": "主/主",
+          "correct": true
+        },
+        "over_under": {
+          "val": "大 2.5",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "2-0 或 3-0",
+          "correct": true
+        }
+      }
+    },
+    {
+      "match_id": "match_260716_204",
+      "league": "欧联资格赛",
+      "home": "日利纳",
+      "away": "斯海杜克",
+      "date": "2026-07-17",
+      "actual_result": "日利纳 2-1 斯海杜克",
+      "is_correct": false,
+      "confidence": 68,
+      "predictions": {
+        "recommendation": {
+          "val": "客胜 (防平局)",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "客胜",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "斯海杜克客胜",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "客胜平局双选",
+          "correct": false
+        },
+        "upset": {
+          "val": "日利纳主场战平斯海杜克",
+          "correct": false
+        },
+        "conservative": {
+          "val": "客队不败",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平/负",
+          "correct": false
+        },
+        "over_under": {
+          "val": "小 2.5",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "1-1 或 1-2",
+          "correct": false
+        }
+      }
+    },
+    {
+      "match_id": "match_260716_205",
+      "league": "巴甲",
+      "home": "博塔弗戈",
+      "away": "桑托斯",
+      "date": "2026-07-17",
+      "actual_result": "博塔弗戈 2-1 桑托斯",
+      "is_correct": true,
+      "confidence": 75,
+      "predictions": {
+        "recommendation": {
+          "val": "主胜 (小胜概率高)",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "主胜",
+          "correct": true
+        },
+        "mainstream": {
+          "val": "博塔弗戈胜",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "博塔弗戈刚好赢1球 (让平)",
+          "correct": true
+        },
+        "upset": {
+          "val": "桑托斯反击得手带走1分",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队不败",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平/主",
+          "correct": true
+        },
+        "over_under": {
+          "val": "小 2.25",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "1-0 或 2-1",
+          "correct": true
+        }
+      }
+    },
+    {
+      "match_id": "match_260716_206",
+      "league": "巴甲",
+      "home": "维多利亚",
+      "away": "达伽马",
+      "date": "2026-07-17",
+      "actual_result": "维多利亚 1-0 达伽马",
+      "is_correct": true,
+      "confidence": 60,
+      "predictions": {
+        "recommendation": {
+          "val": "主胜/平局 (首选平局)",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "平局",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "双方闷平或主队小胜",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "直接博平局 (Draw)",
+          "correct": false
+        },
+        "upset": {
+          "val": "达伽马客场偷袭致胜",
+          "correct": false
+        },
+        "conservative": {
+          "val": "维多利亚不败 (或达伽马受让胜)",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平/平",
+          "correct": false
+        },
+        "over_under": {
+          "val": "小 2.0",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "0-0 或 1-1",
+          "correct": false
+        }
+      }
+    },
+    {
+      "match_id": "match_260716_207",
+      "league": "美职联",
+      "home": "蒙特利尔",
+      "away": "多伦多",
+      "date": "2026-07-17",
+      "actual_result": "蒙特利尔 0-0 多伦多",
+      "is_correct": false,
+      "confidence": 76,
+      "predictions": {
+        "recommendation": {
+          "val": "主胜 (德比战主场利好)",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "主胜",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "蒙特利尔主胜",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "蒙特利尔赢2球以上 (让胜)",
+          "correct": false
+        },
+        "upset": {
+          "val": "多伦多强力外援爆发带走三分",
+          "correct": false
+        },
+        "conservative": {
+          "val": "蒙特利尔赢球/大2.5",
+          "correct": false
+        },
+        "half_full": {
+          "val": "主/主",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.75",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "2-1 或 3-1",
+          "correct": false
+        }
+      }
+    },
+    {
+      "match_id": "match_260716_208",
+      "league": "美职联",
+      "home": "芝加哥",
+      "away": "温哥华",
+      "date": "2026-07-17",
+      "actual_result": "芝加哥 0-0 温哥华",
+      "is_correct": false,
+      "confidence": 68,
+      "predictions": {
+        "recommendation": {
+          "val": "客胜 (温哥华反击优势)",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "客胜",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "温哥华客场不败",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "温哥华客胜 (Away Win)",
+          "correct": false
+        },
+        "upset": {
+          "val": "芝加哥主场爆发小胜",
+          "correct": false
+        },
+        "conservative": {
+          "val": "温哥华受让胜 (让负)",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平/负",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "1-2 或 1-1",
+          "correct": false
+        }
+      }
+    },
+    {
+      "match_id": "match_260716_209",
+      "league": "美职联",
+      "home": "圣路易城",
+      "away": "堪萨斯城",
+      "date": "2026-07-17",
+      "actual_result": "圣路易城 3-2 堪萨斯城",
+      "is_correct": true,
+      "confidence": 84,
+      "predictions": {
+        "recommendation": {
+          "val": "主胜 (深盘支持)",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "主胜",
+          "correct": true
+        },
+        "mainstream": {
+          "val": "圣路易城主胜",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "主队大胜赢盘 (让胜)",
+          "correct": false
+        },
+        "upset": {
+          "val": "堪萨斯城绝地反击爆冷带走一分",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主胜/大2.5",
+          "correct": false
+        },
+        "half_full": {
+          "val": "主/主",
+          "correct": true
+        },
+        "over_under": {
+          "val": "大 3.0",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "3-1 或 3-0",
+          "correct": false
+        }
+      }
+    },
+    {
+      "match_id": "match_260716_210",
+      "league": "美职联",
+      "home": "西雅图",
+      "away": "波特兰",
+      "date": "2026-07-17",
+      "actual_result": "西雅图 1-5 波特兰",
+      "is_correct": false,
+      "confidence": 82,
+      "predictions": {
+        "recommendation": {
+          "val": "主胜 (赔率大幅防范)",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "主胜",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "西雅图主胜",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "西雅图刚好赢1球 (让平)",
+          "correct": false
+        },
+        "upset": {
+          "val": "波特兰偷袭平局",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主胜/双平",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平/主",
+          "correct": false
+        },
+        "over_under": {
+          "val": "小 2.75",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "2-1 或 2-0",
+          "correct": false
+        }
+      }
     }
   ],
   "parlay_records": [
+    {
+      "date": "2026-07-17",
+      "parlays": [
+        {
+          "type": "value",
+          "size": 2,
+          "total_odds": 5.64,
+          "ev": -0.215,
+          "is_correct": false,
+          "selections": [
+            {
+              "match_id": "match_260716_205",
+              "teams": "博塔弗戈 vs 桑托斯",
+              "selection": "主胜 (无让球胜平负)",
+              "odds": 1.82,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260716_206",
+              "teams": "维多利亚 vs 达伽马",
+              "selection": "平局 (无让球胜平负)",
+              "odds": 3.1,
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "type": "goals",
+          "size": 2,
+          "total_odds": 10.56,
+          "ev": 0.294,
+          "is_correct": false,
+          "selections": [
+            {
+              "match_id": "match_260716_203",
+              "teams": "费伦茨 vs 伏伊伏丁",
+              "selection": "总进球数 2球",
+              "odds": 3.25,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_204",
+              "teams": "日利纳 vs 斯海杜克",
+              "selection": "总进球数 2球",
+              "odds": 3.25,
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "type": "aggressive",
+          "size": 2,
+          "total_odds": 28.08,
+          "ev": 0.213,
+          "is_correct": false,
+          "selections": [
+            {
+              "match_id": "match_260716_203",
+              "teams": "费伦茨 vs 伏伊伏丁",
+              "selection": "让球胜平负 平局 (主让1球)",
+              "odds": 3.6,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_208",
+              "teams": "芝加哥 vs 温哥华",
+              "selection": "比分 1-2",
+              "odds": 7.8,
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "type": "value",
+          "size": 3,
+          "total_odds": 18.9,
+          "ev": -0.305,
+          "is_correct": false,
+          "selections": [
+            {
+              "match_id": "match_260716_204",
+              "teams": "日利纳 vs 斯海杜克",
+              "selection": "平局 (无让球胜平负)",
+              "odds": 3.35,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_205",
+              "teams": "博塔弗戈 vs 桑托斯",
+              "selection": "主胜 (无让球胜平负)",
+              "odds": 1.82,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260716_206",
+              "teams": "维多利亚 vs 达伽马",
+              "selection": "平局 (无让球胜平负)",
+              "odds": 3.1,
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "type": "goals",
+          "size": 3,
+          "total_odds": 38.55,
+          "ev": 0.322,
+          "is_correct": false,
+          "selections": [
+            {
+              "match_id": "match_260716_202",
+              "teams": "德里城 vs 索陆军",
+              "selection": "总进球数 3球",
+              "odds": 3.65,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260716_203",
+              "teams": "费伦茨 vs 伏伊伏丁",
+              "selection": "总进球数 2球",
+              "odds": 3.25,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_204",
+              "teams": "日利纳 vs 斯海杜克",
+              "selection": "总进球数 2球",
+              "odds": 3.25,
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "type": "aggressive",
+          "size": 3,
+          "total_odds": 99.96,
+          "ev": 0.209,
+          "is_correct": false,
+          "selections": [
+            {
+              "match_id": "match_260716_203",
+              "teams": "费伦茨 vs 伏伊伏丁",
+              "selection": "让球胜平负 平局 (主让1球)",
+              "odds": 3.6,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_207",
+              "teams": "蒙特利尔 vs 多伦多",
+              "selection": "让球胜平负 平局 (主让1球)",
+              "odds": 3.56,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260716_208",
+              "teams": "芝加哥 vs 温哥华",
+              "selection": "比分 1-2",
+              "odds": 7.8,
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "type": "value",
+          "size": 4,
+          "total_odds": 31.75,
+          "ev": -0.385,
+          "is_correct": false,
+          "selections": [
+            {
+              "match_id": "match_260716_202",
+              "teams": "德里城 vs 索陆军",
+              "selection": "客胜 (无让球胜平负)",
+              "odds": 1.68,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260716_204",
+              "teams": "日利纳 vs 斯海杜克",
+              "selection": "平局 (无让球胜平负)",
+              "odds": 3.35,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_205",
+              "teams": "博塔弗戈 vs 桑托斯",
+              "selection": "主胜 (无让球胜平负)",
+              "odds": 1.82,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260716_206",
+              "teams": "维多利亚 vs 达伽马",
+              "selection": "平局 (无让球胜平负)",
+              "odds": 3.1,
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "type": "goals",
+          "size": 4,
+          "total_odds": 140.72,
+          "ev": 0.351,
+          "is_correct": false,
+          "selections": [
+            {
+              "match_id": "match_260716_202",
+              "teams": "德里城 vs 索陆军",
+              "selection": "总进球数 3球",
+              "odds": 3.65,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260716_203",
+              "teams": "费伦茨 vs 伏伊伏丁",
+              "selection": "总进球数 2球",
+              "odds": 3.25,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_204",
+              "teams": "日利纳 vs 斯海杜克",
+              "selection": "总进球数 2球",
+              "odds": 3.25,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_207",
+              "teams": "蒙特利尔 vs 多伦多",
+              "selection": "总进球数 3球",
+              "odds": 3.65,
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "type": "aggressive",
+          "size": 4,
+          "total_odds": 209.93,
+          "ev": 0.143,
+          "is_correct": false,
+          "selections": [
+            {
+              "match_id": "match_260716_203",
+              "teams": "费伦茨 vs 伏伊伏丁",
+              "selection": "让球胜平负 平局 (主让1球)",
+              "odds": 3.6,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_206",
+              "teams": "维多利亚 vs 达伽马",
+              "selection": "总进球数 1-2球",
+              "odds": 2.1,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260716_207",
+              "teams": "蒙特利尔 vs 多伦多",
+              "selection": "让球胜平负 平局 (主让1球)",
+              "odds": 3.56,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260716_208",
+              "teams": "芝加哥 vs 温哥华",
+              "selection": "比分 1-2",
+              "odds": 7.8,
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "type": "value",
+          "size": 6,
+          "total_odds": 94.83,
+          "ev": -0.518,
+          "is_correct": false,
+          "selections": [
+            {
+              "match_id": "match_260716_202",
+              "teams": "德里城 vs 索陆军",
+              "selection": "客胜 (无让球胜平负)",
+              "odds": 1.68,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260716_203",
+              "teams": "费伦茨 vs 伏伊伏丁",
+              "selection": "主胜 (无让球胜平负)",
+              "odds": 1.37,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260716_204",
+              "teams": "日利纳 vs 斯海杜克",
+              "selection": "平局 (无让球胜平负)",
+              "odds": 3.35,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_205",
+              "teams": "博塔弗戈 vs 桑托斯",
+              "selection": "主胜 (无让球胜平负)",
+              "odds": 1.82,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260716_206",
+              "teams": "维多利亚 vs 达伽马",
+              "selection": "平局 (无让球胜平负)",
+              "odds": 3.1,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_208",
+              "teams": "芝加哥 vs 温哥华",
+              "selection": "客胜 (无让球胜平负)",
+              "odds": 2.18,
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "type": "goals",
+          "size": 6,
+          "total_odds": 1874.73,
+          "ev": 0.412,
+          "is_correct": false,
+          "selections": [
+            {
+              "match_id": "match_260716_202",
+              "teams": "德里城 vs 索陆军",
+              "selection": "总进球数 3球",
+              "odds": 3.65,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260716_203",
+              "teams": "费伦茨 vs 伏伊伏丁",
+              "selection": "总进球数 2球",
+              "odds": 3.25,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_204",
+              "teams": "日利纳 vs 斯海杜克",
+              "selection": "总进球数 2球",
+              "odds": 3.25,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_207",
+              "teams": "蒙特利尔 vs 多伦多",
+              "selection": "总进球数 3球",
+              "odds": 3.65,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_208",
+              "teams": "芝加哥 vs 温哥华",
+              "selection": "总进球数 3球",
+              "odds": 3.65,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_210",
+              "teams": "西雅图 vs 波特兰",
+              "selection": "总进球数 3球",
+              "odds": 3.65,
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "type": "aggressive",
+          "size": 6,
+          "total_odds": 1419.1,
+          "ev": -0.054,
+          "is_correct": false,
+          "selections": [
+            {
+              "match_id": "match_260716_202",
+              "teams": "德里城 vs 索陆军",
+              "selection": "总进球数 3-4球",
+              "odds": 2.6,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260716_203",
+              "teams": "费伦茨 vs 伏伊伏丁",
+              "selection": "让球胜平负 平局 (主让1球)",
+              "odds": 3.6,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_206",
+              "teams": "维多利亚 vs 达伽马",
+              "selection": "总进球数 1-2球",
+              "odds": 2.1,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260716_207",
+              "teams": "蒙特利尔 vs 多伦多",
+              "selection": "让球胜平负 平局 (主让1球)",
+              "odds": 3.56,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260716_208",
+              "teams": "芝加哥 vs 温哥华",
+              "selection": "比分 1-2",
+              "odds": 7.8,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_210",
+              "teams": "西雅图 vs 波特兰",
+              "selection": "总进球数 3-4球",
+              "odds": 2.6,
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "type": "value",
+          "size": 8,
+          "total_odds": 238.19,
+          "ev": -0.622,
+          "is_correct": false,
+          "selections": [
+            {
+              "match_id": "match_260716_202",
+              "teams": "德里城 vs 索陆军",
+              "selection": "客胜 (无让球胜平负)",
+              "odds": 1.68,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260716_203",
+              "teams": "费伦茨 vs 伏伊伏丁",
+              "selection": "主胜 (无让球胜平负)",
+              "odds": 1.37,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260716_204",
+              "teams": "日利纳 vs 斯海杜克",
+              "selection": "平局 (无让球胜平负)",
+              "odds": 3.35,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_205",
+              "teams": "博塔弗戈 vs 桑托斯",
+              "selection": "主胜 (无让球胜平负)",
+              "odds": 1.82,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260716_206",
+              "teams": "维多利亚 vs 达伽马",
+              "selection": "平局 (无让球胜平负)",
+              "odds": 3.1,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_207",
+              "teams": "蒙特利尔 vs 多伦多",
+              "selection": "主胜 (无让球胜平负)",
+              "odds": 1.82,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_208",
+              "teams": "芝加哥 vs 温哥华",
+              "selection": "客胜 (无让球胜平负)",
+              "odds": 2.18,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_210",
+              "teams": "西雅图 vs 波特兰",
+              "selection": "主胜 (无让球胜平负)",
+              "odds": 1.38,
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "type": "goals",
+          "size": 8,
+          "total_odds": 40944.05,
+          "ev": 0.221,
+          "is_correct": false,
+          "selections": [
+            {
+              "match_id": "match_260716_201",
+              "teams": "瓦勒伦加 vs 奥勒松",
+              "selection": "总进球数 1球",
+              "odds": 4.2,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_202",
+              "teams": "德里城 vs 索陆军",
+              "selection": "总进球数 3球",
+              "odds": 3.65,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260716_203",
+              "teams": "费伦茨 vs 伏伊伏丁",
+              "selection": "总进球数 2球",
+              "odds": 3.25,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_204",
+              "teams": "日利纳 vs 斯海杜克",
+              "selection": "总进球数 2球",
+              "odds": 3.25,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_207",
+              "teams": "蒙特利尔 vs 多伦多",
+              "selection": "总进球数 3球",
+              "odds": 3.65,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_208",
+              "teams": "芝加哥 vs 温哥华",
+              "selection": "总进球数 3球",
+              "odds": 3.65,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_209",
+              "teams": "圣路易城 vs 堪萨斯城",
+              "selection": "总进球数 4球",
+              "odds": 5.2,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_210",
+              "teams": "西雅图 vs 波特兰",
+              "selection": "总进球数 3球",
+              "odds": 3.65,
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "type": "aggressive",
+          "size": 8,
+          "total_odds": 17383.98,
+          "ev": -0.275,
+          "is_correct": false,
+          "selections": [
+            {
+              "match_id": "match_260716_201",
+              "teams": "瓦勒伦加 vs 奥勒松",
+              "selection": "半全场 平/主",
+              "odds": 3.5,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_202",
+              "teams": "德里城 vs 索陆军",
+              "selection": "总进球数 3-4球",
+              "odds": 2.6,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260716_203",
+              "teams": "费伦茨 vs 伏伊伏丁",
+              "selection": "让球胜平负 平局 (主让1球)",
+              "odds": 3.6,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_205",
+              "teams": "博塔弗戈 vs 桑托斯",
+              "selection": "半全场 平/主",
+              "odds": 3.5,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260716_206",
+              "teams": "维多利亚 vs 达伽马",
+              "selection": "总进球数 1-2球",
+              "odds": 2.1,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260716_207",
+              "teams": "蒙特利尔 vs 多伦多",
+              "selection": "让球胜平负 平局 (主让1球)",
+              "odds": 3.56,
+              "is_correct": true
+            },
+            {
+              "match_id": "match_260716_208",
+              "teams": "芝加哥 vs 温哥华",
+              "selection": "比分 1-2",
+              "odds": 7.8,
+              "is_correct": false
+            },
+            {
+              "match_id": "match_260716_210",
+              "teams": "西雅图 vs 波特兰",
+              "selection": "总进球数 3-4球",
+              "odds": 2.6,
+              "is_correct": false
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-07-16",
       "parlays": [
