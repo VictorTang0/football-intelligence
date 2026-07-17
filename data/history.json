@@ -1,7 +1,7 @@
 {
-  "total_predictions": 13,
+  "total_predictions": 12,
   "correct_predictions": 8,
-  "accuracy_rate": 0.6154,
+  "accuracy_rate": 0.6667,
   "records": [
     {
       "match_id": "match_260715_102",
@@ -484,54 +484,6 @@
       }
     },
     {
-      "match_id": "match_260716_208",
-      "league": "美职联",
-      "home": "芝加哥",
-      "away": "温哥华",
-      "date": "2026-07-17",
-      "actual_result": "芝加哥 0-0 温哥华",
-      "is_correct": false,
-      "confidence": 68,
-      "predictions": {
-        "recommendation": {
-          "val": "客胜 (温哥华反击优势)",
-          "correct": false
-        },
-        "primary_bet": {
-          "val": "客胜",
-          "correct": false
-        },
-        "mainstream": {
-          "val": "温哥华客场不败",
-          "correct": false
-        },
-        "aggressive": {
-          "val": "温哥华客胜 (Away Win)",
-          "correct": false
-        },
-        "upset": {
-          "val": "芝加哥主场爆发小胜",
-          "correct": false
-        },
-        "conservative": {
-          "val": "温哥华受让胜 (让负)",
-          "correct": false
-        },
-        "half_full": {
-          "val": "平/负",
-          "correct": false
-        },
-        "over_under": {
-          "val": "大 2.5",
-          "correct": false
-        },
-        "most_likely_score": {
-          "val": "1-2 或 1-1",
-          "correct": false
-        }
-      }
-    },
-    {
       "match_id": "match_260716_209",
       "league": "美职联",
       "home": "圣路易城",
@@ -681,8 +633,8 @@
         {
           "type": "aggressive",
           "size": 2,
-          "total_odds": 28.08,
-          "ev": 0.213,
+          "total_odds": 3.6,
+          "ev": -0.844,
           "is_correct": false,
           "selections": [
             {
@@ -696,8 +648,8 @@
               "match_id": "match_260716_208",
               "teams": "芝加哥 vs 温哥华",
               "selection": "比分 1-2",
-              "odds": 7.8,
-              "is_correct": false
+              "odds": 1.0,
+              "is_correct": "void"
             }
           ]
         },
@@ -764,8 +716,8 @@
         {
           "type": "aggressive",
           "size": 3,
-          "total_odds": 99.96,
-          "ev": 0.209,
+          "total_odds": 12.82,
+          "ev": -0.845,
           "is_correct": false,
           "selections": [
             {
@@ -786,8 +738,8 @@
               "match_id": "match_260716_208",
               "teams": "芝加哥 vs 温哥华",
               "selection": "比分 1-2",
-              "odds": 7.8,
-              "is_correct": false
+              "odds": 1.0,
+              "is_correct": "void"
             }
           ]
         },
@@ -868,8 +820,8 @@
         {
           "type": "aggressive",
           "size": 4,
-          "total_odds": 209.93,
-          "ev": 0.143,
+          "total_odds": 26.91,
+          "ev": -0.853,
           "is_correct": false,
           "selections": [
             {
@@ -897,16 +849,16 @@
               "match_id": "match_260716_208",
               "teams": "芝加哥 vs 温哥华",
               "selection": "比分 1-2",
-              "odds": 7.8,
-              "is_correct": false
+              "odds": 1.0,
+              "is_correct": "void"
             }
           ]
         },
         {
           "type": "value",
           "size": 6,
-          "total_odds": 94.83,
-          "ev": -0.518,
+          "total_odds": 43.5,
+          "ev": -0.779,
           "is_correct": false,
           "selections": [
             {
@@ -948,16 +900,16 @@
               "match_id": "match_260716_208",
               "teams": "芝加哥 vs 温哥华",
               "selection": "客胜 (无让球胜平负)",
-              "odds": 2.18,
-              "is_correct": false
+              "odds": 1.0,
+              "is_correct": "void"
             }
           ]
         },
         {
           "type": "goals",
           "size": 6,
-          "total_odds": 1874.73,
-          "ev": 0.412,
+          "total_odds": 513.62,
+          "ev": -0.613,
           "is_correct": false,
           "selections": [
             {
@@ -992,8 +944,8 @@
               "match_id": "match_260716_208",
               "teams": "芝加哥 vs 温哥华",
               "selection": "总进球数 3球",
-              "odds": 3.65,
-              "is_correct": false
+              "odds": 1.0,
+              "is_correct": "void"
             },
             {
               "match_id": "match_260716_210",
@@ -1007,8 +959,8 @@
         {
           "type": "aggressive",
           "size": 6,
-          "total_odds": 1419.1,
-          "ev": -0.054,
+          "total_odds": 181.94,
+          "ev": -0.879,
           "is_correct": false,
           "selections": [
             {
@@ -1043,8 +995,8 @@
               "match_id": "match_260716_208",
               "teams": "芝加哥 vs 温哥华",
               "selection": "比分 1-2",
-              "odds": 7.8,
-              "is_correct": false
+              "odds": 1.0,
+              "is_correct": "void"
             },
             {
               "match_id": "match_260716_210",
@@ -1058,8 +1010,8 @@
         {
           "type": "value",
           "size": 8,
-          "total_odds": 238.19,
-          "ev": -0.622,
+          "total_odds": 109.26,
+          "ev": -0.827,
           "is_correct": false,
           "selections": [
             {
@@ -1108,8 +1060,8 @@
               "match_id": "match_260716_208",
               "teams": "芝加哥 vs 温哥华",
               "selection": "客胜 (无让球胜平负)",
-              "odds": 2.18,
-              "is_correct": false
+              "odds": 1.0,
+              "is_correct": "void"
             },
             {
               "match_id": "match_260716_210",
@@ -1123,8 +1075,8 @@
         {
           "type": "goals",
           "size": 8,
-          "total_odds": 40944.05,
-          "ev": 0.221,
+          "total_odds": 11217.55,
+          "ev": -0.666,
           "is_correct": false,
           "selections": [
             {
@@ -1166,8 +1118,8 @@
               "match_id": "match_260716_208",
               "teams": "芝加哥 vs 温哥华",
               "selection": "总进球数 3球",
-              "odds": 3.65,
-              "is_correct": false
+              "odds": 1.0,
+              "is_correct": "void"
             },
             {
               "match_id": "match_260716_209",
@@ -1188,8 +1140,8 @@
         {
           "type": "aggressive",
           "size": 8,
-          "total_odds": 17383.98,
-          "ev": -0.275,
+          "total_odds": 2228.72,
+          "ev": -0.907,
           "is_correct": false,
           "selections": [
             {
@@ -1238,8 +1190,8 @@
               "match_id": "match_260716_208",
               "teams": "芝加哥 vs 温哥华",
               "selection": "比分 1-2",
-              "odds": 7.8,
-              "is_correct": false
+              "odds": 1.0,
+              "is_correct": "void"
             },
             {
               "match_id": "match_260716_210",
