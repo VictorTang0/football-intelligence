@@ -287,13 +287,13 @@ def main():
         ],
         "match_260717_201": [
             {
-                "title": "哥德堡核心中场卡尔松因膝伤高挂免战牌",
+                "title": "哥德堡主力中场奥托松（Filip Ottosson）因膝伤高挂免战牌",
                 "source": "Goteborg Post",
                 "impact": "负面",
                 "verified": True
             },
             {
-                "title": "后防线主力大闸佩德罗因上轮红牌停赛一轮",
+                "title": "后防线核心埃林马克（August Erlingmark）因上轮红牌停赛一轮",
                 "source": "Swedish Sport",
                 "impact": "负面",
                 "verified": True
@@ -301,7 +301,7 @@ def main():
         ],
         "match_260717_202": [
             {
-                "title": "韦斯特罗斯主力前锋恩奎斯特因累计黄牌停赛",
+                "title": "韦斯特罗斯主力中场格夫韦特（Simon Gefvert）因累计黄牌停赛",
                 "source": "Vasteras News",
                 "impact": "负面",
                 "verified": True
@@ -309,7 +309,7 @@ def main():
         ],
         "match_260717_203": [
             {
-                "title": "博德闪耀主力前锋哈兰德因大腿拉伤确认缺席本场比赛",
+                "title": "博德闪耀主力前锋霍格（Kasper Høgh）因大腿拉伤确认缺席本场比赛",
                 "source": "Norway TV",
                 "impact": "负面",
                 "verified": True
