@@ -51,6 +51,7 @@
     <div class="mobile-menu-dropdown" id="mobile-menu-dropdown">
       <ul class="mobile-menu-links">
         <li><a href="#ultimate-section" class="mobile-menu-link">今日对决</a></li>
+        <li><a href="#summary-section" class="mobile-menu-link">结论汇总</a></li>
         <li><a href="#matches-section" class="mobile-menu-link">赛事详报</a></li>
         <li><a href="#evolution-section" class="mobile-menu-link">模型进化</a></li>
         <li><a href="#history-records-section" class="mobile-menu-link">预测历史</a></li>
@@ -160,41 +161,7 @@
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════════
-         SECTION 2: MODEL STATUS BAR
-    ═════════════════════════════════════════════ -->
-    <section id="model-section" aria-labelledby="model-heading">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <div class="section-eyebrow">自我进化模型</div>
-            <h2 class="section-title" id="model-heading">模型状态 & 进化记录</h2>
-          </div>
-          <div class="section-line"></div>
-        </div>
 
-        <!-- Status bar -->
-        <div id="model-status-container"><!-- Populated by JS --></div>
-
-        <!-- Collapsible evolution panel -->
-        <div class="evolution-panel" id="evolution-panel">
-          <div class="evolution-panel-grid">
-            <div>
-              <div style="font-size:13px;font-weight:600;color:var(--text-2);margin-bottom:16px">关键因子权重进化趋势（近N次）</div>
-              <div class="chart-container">
-                <canvas id="evolution-chart-panel"></canvas>
-              </div>
-            </div>
-            <div>
-              <div style="font-size:13px;font-weight:600;color:var(--text-2);margin-bottom:16px">预测准确率趋势</div>
-              <div class="chart-container">
-                <canvas id="accuracy-chart-panel"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- ════════════════════════════════════════════
          SECTION 2.5: CENTRALIZED CONCLUSION TABLE
@@ -317,6 +284,42 @@
       </div>
     </section>
 
+    <!-- ════════════════════════════════════════════
+         SECTION 2: MODEL STATUS BAR
+    ═════════════════════════════════════════════ -->
+    <section id="model-section" aria-labelledby="model-heading">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="section-eyebrow">自我进化模型</div>
+            <h2 class="section-title" id="model-heading">模型状态 & 进化记录</h2>
+          </div>
+          <div class="section-line"></div>
+        </div>
+
+        <!-- Status bar -->
+        <div id="model-status-container"><!-- Populated by JS --></div>
+
+        <!-- Collapsible evolution panel -->
+        <div class="evolution-panel" id="evolution-panel">
+          <div class="evolution-panel-grid">
+            <div>
+              <div style="font-size:13px;font-weight:600;color:var(--text-2);margin-bottom:16px">关键因子权重进化趋势（近N次）</div>
+              <div class="chart-container">
+                <canvas id="evolution-chart-panel"></canvas>
+              </div>
+            </div>
+            <div>
+              <div style="font-size:13px;font-weight:600;color:var(--text-2);margin-bottom:16px">预测准确率趋势</div>
+              <div class="chart-container">
+                <canvas id="accuracy-chart-panel"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ── FOOTER ── -->
@@ -337,6 +340,7 @@
     <ul class="side-index-list">
       <li class="side-index-item"><a href="#ultimate-section" class="side-index-link active" data-target="ultimate-section">今日对决</a></li>
       <li class="side-index-item"><a href="#parlay-section" class="side-index-link" data-target="parlay-section">智能串关</a></li>
+      <li class="side-index-item"><a href="#summary-section" class="side-index-link" data-target="summary-section">结论汇总</a></li>
       <li class="side-index-item"><a href="#matches-section" class="side-index-link" data-target="matches-section">赛事详报</a></li>
       <li class="side-index-item"><a href="#evolution-section" class="side-index-link" data-target="evolution-section">模型进化</a></li>
       <li class="side-index-item"><a href="#history-records-section" class="side-index-link" data-target="history-records-section">预测历史</a></li>
