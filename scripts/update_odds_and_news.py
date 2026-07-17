@@ -309,10 +309,20 @@ def main():
         ],
         "match_260717_203": [
             {
-                "title": "博德闪耀主力前锋霍格（Kasper Høgh）因大腿拉伤确认缺席本场比赛",
-                "source": "Norway TV",
+                "title": "博德闪耀-后卫：比约图夫特（因伤缺阵），不过中卫冈德森能够顶替出战，对后防线影响不大。国家队国脚：中场贝格（Berg）、左后卫比约坎（Bjørkan）和前锋豪格（Hauge）三名挪威国脚的状态及能否首发出战存疑，需根据赛前最终大名单确认。",
+                "source": "Sports Mole",
                 "impact": "负面",
-                "verified": True
+                "verified": True,
+                "date": "2026-07-16",
+                "url": "https://www.sportsmole.co.uk/football/bodo-glimt/preview/preview-bodo-glimt-vs-fredrikstad-prediction-team-news-lineups_548231.html"
+            },
+            {
+                "title": "腓特烈-后卫：替补中卫克维尔（Kwill）因背伤继续缺阵。左边卫：主力左边卫索尔洛克（Solberg，本赛季已贡献2球1助攻）伤缺无法出场。其他：主力后卫弗尔（Furr）出战成疑。",
+                "source": "Sports Mole",
+                "impact": "负面",
+                "verified": True,
+                "date": "2026-07-16",
+                "url": "https://www.sportsmole.co.uk/football/bodo-glimt/preview/preview-bodo-glimt-vs-fredrikstad-prediction-team-news-lineups_548231.html"
             }
         ],
         "match_260717_204": [
