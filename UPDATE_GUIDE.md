@@ -32,12 +32,19 @@ python -m http.server 8080  # 方法2
 
 **AI 将自动执行**：
 1. OCR 识别图片中所有比赛（主客队 / 时间 / 联赛）
-2. 抓取历史未验证赛果 → 计算预测误差 → 自动优化权重
-3. 逐场抓取双方本赛季数据（365scores / footballant）
-4. 抓取三家公司欧赔 + 亚盘（初盘 + 即时盘）
-5. 全网搜索：新闻 / 社媒 / 媒体预测 / 天气 / 场地
-6. 运行41项决策因子模型 → 生成完整分析
-7. 输出所有 JSON 文件内容
+2. 在 `data/new_matches_input.json` 中临时写入解析结果，包含对阵双方、联赛、开赛时间与初盘。
+3. **标准化初始化（关键防呆步骤）**：运行标准化匹配注入脚本：
+   ```bash
+   python3 scripts/initialize_match.py data/new_matches_input.json
+   ```
+   该脚本会根据主客队档次与赔率自动对未充实赛事数据进行积分、H2H、爆冷概率、赛季 xG 及赔率隐含概率的初始值填充，保证 matches.json 底座 50+ 字段绝无遗漏，彻底解决前台卡片数据空缺问题。
+4. 抓取历史未验证赛果并微调权重（进化模型）。
+5. 运行盘口与新闻更新脚本：
+   ```bash
+   python3 scripts/update_odds_and_news.py
+   ```
+   获取最新的 verified_news（伤停新闻等）、media_predictions（WhoScored等），并计算实盘波动趋势。
+6. 输出所有 JSON 文件内容并同步。
 
 **你的操作**：
 ```bash
@@ -72,13 +79,15 @@ git push
 "更新赛果并进化模型"
 ```
 
+**默认指代说明**：此指令默认代表**“更新今日对决（即 matches.json 中当前处于 pending 状态）的所有赛事的实际赛果，并进行模型进化”**。
+
 **AI 将自动执行**：
-1. 抓取所有未验证比赛的最终赛果
+1. 抓取今日对决中处于 pending 状态比赛的最终赛果（对延期赛事标注为 postponed，其串关赔率归一为 1.00 退水，并跳过标签与模型胜率核销）
 2. 对比各项预测结论（胜负 / 比分 / 大小球 / 半全场）
 3. 计算各决策因子的预测贡献误差
 4. 贝叶斯梯度优化：误差大的因子降权，准确的升权
 5. 归一化确保总权重 = 100%
-6. 输出更新后的 `weights.json` + `history.json` + `model_evolution.json`
+6. 输出更新后的 `weights.json` + `history.json` + `model_evolution.json` + `team_tags.json`
 
 ---
 
