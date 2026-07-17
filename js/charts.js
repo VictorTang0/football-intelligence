@@ -124,11 +124,11 @@ const MatchIQCharts = (() => {
 
     // Top 5 most important factors to track
     const trackedFactors = [
-      { id: '01', name: '整体实力',  color: DEFAULTS.color.cyan },
-      { id: '03', name: '核心球员',  color: DEFAULTS.color.green },
-      { id: '09', name: '近期状态',  color: DEFAULTS.color.amber },
-      { id: '05', name: '中场控制',  color: DEFAULTS.color.purple },
-      { id: '35', name: '主场氛围',  color: DEFAULTS.color.red },
+      { id: 'M01', name: '基础实力',  color: DEFAULTS.color.cyan },
+      { id: 'M02', name: '核心健康',  color: DEFAULTS.color.green },
+      { id: 'M05', name: '近期状态',  color: DEFAULTS.color.amber },
+      { id: 'M04', name: '中场控制',  color: DEFAULTS.color.purple },
+      { id: 'M07', name: '主场环境',  color: DEFAULTS.color.red },
     ];
 
     const datasets = trackedFactors.map(f => ({

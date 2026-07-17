@@ -240,6 +240,50 @@ def calculate_kelly_conclusion(m):
     return analysis
 
 
+def apply_dynamic_fundamental_coupling(m):
+    """
+    Direction 2 & 4:
+    - If Kelly/Bookmaker detects a Trap (升水阻尼/诱买), heavily penalize confidence and override recommendation.
+    - If extreme injuries or red cards are detected in news, simulate the multiplier veto.
+    """
+    kc = m.get("conclusions", {}).get("kelly_conclusion", "")
+    
+    # 1. Odds-Fundamental Coupling (Direction 4)
+    if "阻尼升水" in kc or "诱买散户" in kc:
+        old_conf = m["ultimate_conclusion"].get("confidence", 65)
+        # Slashes confidence to show uncertainty and high risk
+        m["ultimate_conclusion"]["confidence"] = min(old_conf, 45)
+        m["ultimate_conclusion"]["risk_level"] = "极高"
+        m["conclusions"]["upset_probability"] = 0.85
+        
+        # Override the recommendation to the opposite side
+        if "主胜" in m["ultimate_conclusion"].get("recommendation", ""):
+            m["ultimate_conclusion"]["recommendation"] = "反基本面冷门 (客队不败)"
+            m["conclusions"]["upset_direction"] = "客胜/平局"
+        elif "客胜" in m["ultimate_conclusion"].get("recommendation", ""):
+            m["ultimate_conclusion"]["recommendation"] = "反基本面冷门 (主队不败)"
+            m["conclusions"]["upset_direction"] = "主胜/平局"
+        
+        m["prediction_updated"] = True
+        
+    # 2. Dynamic Multiplier Veto (Direction 2)
+    news_items = m.get("intelligence", {}).get("verified_news", [])
+    has_critical_veto = False
+    for n in news_items:
+        impact = n.get("impact", "")
+        title = n.get("title", "")
+        # Veto keywords
+        if "大面积伤缺" in title or "主力门将" in title or "全数缺席" in title or "红牌" in title:
+            has_critical_veto = True
+            break
+            
+    if has_critical_veto:
+        m["ultimate_conclusion"]["risk_level"] = "高"
+        # If confidence was very high, penalize it because of missing core components
+        if m["ultimate_conclusion"].get("confidence", 0) > 60:
+            m["ultimate_conclusion"]["confidence"] = int(m["ultimate_conclusion"]["confidence"] * 0.7)
+
+
 def main():
     path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "matches.json")
     if not os.path.exists(path):
@@ -830,6 +874,9 @@ def main():
         
         # ─── CALCULATE KELLY INDEX CONCLUSION ───
         m["conclusions"]["kelly_conclusion"] = calculate_kelly_conclusion(m)
+        
+        # ─── APPLY DYNAMIC FUNDAMENTAL COUPLING & VETO ───
+        apply_dynamic_fundamental_coupling(m)
 
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)

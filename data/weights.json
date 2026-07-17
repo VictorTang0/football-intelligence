@@ -1,348 +1,126 @@
 {
-  "version": "v2.00",
-  "last_evolved": "2026-07-18T04:53:33.200439",
+  "version": "v3.00",
+  "last_evolved": "2026-07-18T05:00:00.000000",
   "total_matches_validated": 15,
   "overall_accuracy": 0.6,
   "factors": [
     {
-      "id": "01",
-      "name": "球队整体实力",
-      "weight": 0.0528,
-      "initial": 0.075,
-      "category": "球队质量",
-      "delta": -0.0029
+      "id": "M01",
+      "name": "球队基础硬实力",
+      "weight": 0.25,
+      "initial": 0.25,
+      "category": "基础战力",
+      "delta": 0.0,
+      "type": "base"
     },
     {
-      "id": "02",
-      "name": "首发阵容质量",
-      "weight": 0.0461,
-      "initial": 0.068,
-      "category": "球队质量",
-      "delta": -0.0051
+      "id": "M02",
+      "name": "首发阵容健康度",
+      "weight": 0.15,
+      "initial": 0.15,
+      "category": "基础战力",
+      "delta": 0.0,
+      "type": "base"
     },
     {
-      "id": "03",
-      "name": "核心球员健康情况",
-      "weight": 0.1493,
-      "initial": 0.095,
-      "category": "球队质量",
-      "delta": -0.0078
+      "id": "M03",
+      "name": "战术克制与匹配",
+      "weight": 0.15,
+      "initial": 0.15,
+      "category": "战术相克",
+      "delta": 0.0,
+      "type": "base"
     },
     {
-      "id": "04",
-      "name": "攻防战术匹配度",
-      "weight": 0.0405,
-      "initial": 0.058,
-      "category": "战术",
-      "delta": -0.0031
+      "id": "M04",
+      "name": "中场与推进效率",
+      "weight": 0.10,
+      "initial": 0.10,
+      "category": "战术相克",
+      "delta": 0.0,
+      "type": "base"
     },
     {
-      "id": "05",
-      "name": "中场控制力",
-      "weight": 0.0334,
-      "initial": 0.048,
-      "category": "战术",
-      "delta": -0.0026
+      "id": "M05",
+      "name": "近期状态与动能",
+      "weight": 0.15,
+      "initial": 0.15,
+      "category": "动态动能",
+      "delta": 0.0,
+      "type": "base"
     },
     {
-      "id": "06",
-      "name": "后防线稳定性",
-      "weight": 0.0346,
-      "initial": 0.046,
-      "category": "防守",
-      "delta": 0.001
+      "id": "M06",
+      "name": "赛程密集与体能",
+      "weight": 0.05,
+      "initial": 0.05,
+      "category": "动态动能",
+      "delta": 0.0,
+      "type": "base"
     },
     {
-      "id": "07",
-      "name": "前锋把握机会能力",
-      "weight": 0.001,
-      "initial": 0.044,
-      "category": "进攻",
-      "delta": -0.0037
+      "id": "M07",
+      "name": "环境气候适应性",
+      "weight": 0.05,
+      "initial": 0.05,
+      "category": "环境心理",
+      "delta": 0.0,
+      "type": "base"
     },
     {
-      "id": "08",
-      "name": "门将状态与扑救稳定性",
-      "weight": 0.0291,
-      "initial": 0.042,
-      "category": "防守",
-      "delta": -0.0023
-    },
-    {
-      "id": "09",
-      "name": "近期比赛状态",
-      "weight": 0.1499,
-      "initial": 0.038,
-      "category": "状态",
-      "delta": -0.0025
-    },
-    {
-      "id": "10",
-      "name": "赛程压力与休息天数",
-      "weight": 0.0244,
-      "initial": 0.035,
-      "category": "状态",
-      "delta": -0.0019
-    },
-    {
-      "id": "11",
-      "name": "主教练临场调整能力",
-      "weight": 0.001,
-      "initial": 0.032,
-      "category": "管理",
-      "delta": -0.001
-    },
-    {
-      "id": "12",
-      "name": "球队整体磨合程度",
-      "weight": 0.0213,
-      "initial": 0.03,
-      "category": "球队质量",
-      "delta": -0.0011
-    },
-    {
-      "id": "13",
-      "name": "球队替补深度",
-      "weight": 0.0206,
-      "initial": 0.028,
-      "category": "球队质量",
-      "delta": 0.0
-    },
-    {
-      "id": "14",
-      "name": "后场出球抗压能力",
-      "weight": 0.0181,
-      "initial": 0.026,
-      "category": "战术",
-      "delta": -0.0014
-    },
-    {
-      "id": "15",
-      "name": "前场压迫成功率",
-      "weight": 0.0173,
-      "initial": 0.025,
-      "category": "战术",
-      "delta": -0.0014
-    },
-    {
-      "id": "16",
-      "name": "防守反击速度",
-      "weight": 0.0167,
-      "initial": 0.024,
-      "category": "战术",
-      "delta": -0.0013
-    },
-    {
-      "id": "17",
-      "name": "定位球进攻能力",
-      "weight": 0.0161,
-      "initial": 0.023,
-      "category": "进攻",
-      "delta": -0.0013
-    },
-    {
-      "id": "18",
-      "name": "定位球防守质量",
-      "weight": 0.0165,
-      "initial": 0.022,
-      "category": "防守",
-      "delta": 0.0003
-    },
-    {
-      "id": "19",
-      "name": "边路突破与传中质量",
-      "weight": 0.0147,
-      "initial": 0.021,
-      "category": "进攻",
-      "delta": -0.0012
-    },
-    {
-      "id": "20",
-      "name": "领先后的控场能力",
-      "weight": 0.014,
-      "initial": 0.02,
-      "category": "战术",
-      "delta": -0.0011
-    },
-    {
-      "id": "21",
-      "name": "落后时的追分能力",
-      "weight": 0.0136,
-      "initial": 0.0195,
-      "category": "状态",
-      "delta": -0.0011
-    },
-    {
-      "id": "22",
-      "name": "球队面对压力时的稳定性",
-      "weight": 0.001,
-      "initial": 0.019,
-      "category": "心理",
-      "delta": -0.0003
-    },
-    {
-      "id": "23",
-      "name": "对手针对性准备质量",
-      "weight": 0.0125,
-      "initial": 0.018,
-      "category": "战术",
-      "delta": -0.001
-    },
-    {
-      "id": "24",
-      "name": "红黄牌与停赛风险",
-      "weight": 0.0254,
-      "initial": 0.035,
-      "category": "纪律",
-      "delta": -0.0004
-    },
-    {
-      "id": "25",
-      "name": "小组出线形势压力",
-      "weight": 0.001,
-      "initial": 0.016,
-      "category": "心理",
-      "delta": -0.0009
-    },
-    {
-      "id": "26",
-      "name": "点球大战能力与心理素质",
-      "weight": 0.001,
-      "initial": 0.015,
-      "category": "心理",
-      "delta": -0.0018
-    },
-    {
-      "id": "27",
-      "name": "高空球争顶能力",
-      "weight": 0.0097,
-      "initial": 0.014,
-      "category": "进攻",
-      "delta": -0.0008
-    },
-    {
-      "id": "28",
-      "name": "二点球保护能力",
-      "weight": 0.009,
-      "initial": 0.013,
-      "category": "防守",
-      "delta": -0.0007
-    },
-    {
-      "id": "29",
-      "name": "上一场结果对士气的影响",
-      "weight": 0.1499,
-      "initial": 0.012,
-      "category": "心理",
-      "delta": -0.0006
-    },
-    {
-      "id": "30",
-      "name": "长途旅行与时差适应",
-      "weight": 0.0078,
-      "initial": 0.011,
-      "category": "外部",
-      "delta": -0.0006
-    },
-    {
-      "id": "31",
-      "name": "天气温度与湿度影响",
-      "weight": 0.007,
-      "initial": 0.01,
-      "category": "外部",
-      "delta": -0.0005
-    },
-    {
-      "id": "32",
-      "name": "海拔与球场环境适应",
-      "weight": 0.0067,
-      "initial": 0.0095,
-      "category": "外部",
-      "delta": -0.0005
-    },
-    {
-      "id": "33",
-      "name": "比赛场地草皮状态",
-      "weight": 0.0063,
-      "initial": 0.009,
-      "category": "外部",
-      "delta": -0.0005
-    },
-    {
-      "id": "34",
-      "name": "开球时间与生物钟影响",
-      "weight": 0.006,
-      "initial": 0.0085,
-      "category": "外部",
-      "delta": -0.0004
-    },
-    {
-      "id": "35",
-      "name": "球迷支持与主场氛围",
-      "weight": 0.001,
-      "initial": 0.008,
-      "category": "外部",
-      "delta": 0.0002
-    },
-    {
-      "id": "36",
-      "name": "裁判判罚尺度与VAR介入",
-      "weight": 0.006,
-      "initial": 0.0075,
-      "category": "外部",
-      "delta": 0.0006
-    },
-    {
-      "id": "37",
-      "name": "补水暂停对比赛节奏",
-      "weight": 0.0049,
-      "initial": 0.007,
-      "category": "外部",
-      "delta": -0.0004
-    },
-    {
-      "id": "38",
-      "name": "核心球员场外舆论状态",
-      "weight": 0.0046,
-      "initial": 0.0065,
-      "category": "心理",
-      "delta": -0.0003
-    },
-    {
-      "id": "39",
-      "name": "更衣室氛围与教练管理",
-      "weight": 0.0043,
-      "initial": 0.006,
-      "category": "管理",
-      "delta": -0.0003
-    },
-    {
-      "id": "40",
-      "name": "弱队超常发挥模型权重",
-      "weight": 0.0039,
-      "initial": 0.0055,
-      "category": "冷门",
-      "delta": -0.0003
-    },
-    {
-      "id": "41",
-      "name": "商业活动与媒体曝光",
-      "weight": 0.001,
-      "initial": 0.0005,
-      "category": "外部",
-      "delta": 0.0005
+      "id": "M08",
+      "name": "战意与抢分压力",
+      "weight": 0.10,
+      "initial": 0.10,
+      "category": "环境心理",
+      "delta": 0.0,
+      "type": "base"
     }
   ],
+  "modifiers": {
+    "core_injury": {
+      "name": "核心伤缺",
+      "multiplier": 0.6,
+      "applies_to": [
+        "M01",
+        "M02"
+      ]
+    },
+    "manager_change": {
+      "name": "换帅效应",
+      "multiplier": 1.2,
+      "applies_to": [
+        "M05",
+        "M08"
+      ]
+    },
+    "must_win_pressure": {
+      "name": "保级生死战",
+      "multiplier": 1.4,
+      "applies_to": [
+        "M08"
+      ]
+    },
+    "extreme_weather": {
+      "name": "极端恶劣天气",
+      "multiplier": 0.7,
+      "applies_to": [
+        "M03",
+        "M04"
+      ]
+    },
+    "red_card_suspension": {
+      "name": "关键球员停赛",
+      "multiplier": 0.5,
+      "applies_to": [
+        "M01"
+      ]
+    }
+  },
   "category_summary": {
-    "球队质量": 0.2901,
-    "战术": 0.1525,
-    "防守": 0.0892,
-    "进攻": 0.0415,
-    "状态": 0.1879,
-    "管理": 0.0053,
-    "心理": 0.1575,
-    "纪律": 0.0254,
-    "外部": 0.0467,
-    "冷门": 0.0039
+    "基础战力": 0.4,
+    "战术相克": 0.25,
+    "动态动能": 0.2,
+    "环境心理": 0.15
   }
 }

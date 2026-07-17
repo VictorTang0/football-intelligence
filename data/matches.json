@@ -3934,10 +3934,10 @@
       "status": "pending",
       "match_context": "2026年世界杯三四名决赛。法国0-2输给西班牙无缘决赛，此战为德尚谢幕战。英格兰2-1遭阿根廷反超遗憾折戟。姆巴佩与梅西均以8球并列射手榜首，对金靴动力极强。",
       "ultimate_conclusion": {
-        "recommendation": "主胜 (姆巴佩金靴动力)",
+        "recommendation": "反基本面冷门 (客队不败)",
         "primary_bet": "主胜",
-        "confidence": 78,
-        "risk_level": "中",
+        "confidence": 45,
+        "risk_level": "极高",
         "ev_score": -0.11,
         "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场合理胜率为: 主胜 50.3%, 平局 23.6%, 客胜 26.1%。客队低位大巴指标为 8.2，主队巨星爆点指标为 9.9。通过对比散户支持率与合理隐含胜率，得出散户对本场偏好存在轻微偏差，赔付风险模型自动输出态度为：中性。结合交锋历史及6家公司让球规格波动，得出冷门综合概率为 36%。",
         "actual_result": null,
@@ -4236,8 +4236,8 @@
         "most_likely_score": "3-2 或 2-1",
         "over_under": "大 2.75",
         "half_full": "胜/胜",
-        "upset_probability": 0.36,
-        "upset_direction": "客胜",
+        "upset_probability": 0.85,
+        "upset_direction": "客胜/平局",
         "upset_trend": "down",
         "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 40% / 平 30% / 客 30%），计算得出即时凯利指数为：主胜 0.70，平局 1.12，客胜 1.02。<br/> 散户最热的【平局】（凯利 1.12）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>分出胜负</strong> 的冷门路线。"
       },
@@ -4313,7 +4313,7 @@
           "bookmaker_attitude": "中性"
         }
       ],
-      "prediction_updated": false,
+      "prediction_updated": true,
       "head_to_head": {
         "last_5": [
           {
@@ -4380,8 +4380,8 @@
       "ultimate_conclusion": {
         "recommendation": "平局 (阿根廷大巴增防)",
         "primary_bet": "平局",
-        "confidence": 65,
-        "risk_level": "高",
+        "confidence": 45,
+        "risk_level": "极高",
         "ev_score": -0.11,
         "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场合理胜率为: 主胜 43.9%, 平局 32.2%, 客胜 23.9%。客队低位大巴指标为 9.9，主队巨星爆点指标为 9.6。通过对比散户支持率与合理隐含胜率，得出散户对本场偏好存在轻微偏差，赔付风险模型自动输出态度为：中性。结合交锋历史及6家公司让球规格波动，得出冷门综合概率为 37%。",
         "actual_result": null,
@@ -4659,7 +4659,7 @@
         "most_likely_score": "0-0 或 1-1",
         "over_under": "小 2.0",
         "half_full": "平/平",
-        "upset_probability": 0.37,
+        "upset_probability": 0.85,
         "upset_direction": "客胜",
         "upset_trend": "up",
         "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 40% / 平 30% / 客 30%），计算得出即时凯利指数为：主胜 0.81，平局 0.82，客胜 1.11。<br/> 散户最热的【客胜】（凯利 1.11）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>主队受让或不败</strong> 的冷门路线。"
@@ -6556,8 +6556,8 @@
       "ultimate_conclusion": {
         "recommendation": "主胜 (高赔诱人)",
         "primary_bet": "主胜",
-        "confidence": 70,
-        "risk_level": "中低",
+        "confidence": 49,
+        "risk_level": "高",
         "ev_score": 0.15,
         "reasoning": "布拉干RB两名首发后卫因伤病确认缺阵，且主力前锋红牌停赛，攻防实力显著打折。弗鲁米嫩塞主场求胜心切，伤停权重的提升表明弗鲁米嫩塞更易胜出。",
         "confidence_trend": "up"
@@ -8280,8 +8280,8 @@
       "ultimate_conclusion": {
         "recommendation": "客胜 (防平局)",
         "primary_bet": "蔚山现代客场不败",
-        "confidence": 70,
-        "risk_level": "中低",
+        "confidence": 49,
+        "risk_level": "高",
         "ev_score": 0.14,
         "reasoning": "大田市民防线核心因红牌停赛，防守强度大幅下降；蔚山现代锋线外援伤愈复出。在伤停权重上调的系统评估中，蔚山现代的实力优势进一步被放大。",
         "confidence_trend": "down"
@@ -9138,10 +9138,10 @@
       "status": "pending",
       "match_context": "韩职联赛常规赛。济州联主场高原环境对客队消耗极大，而浦项制铁本场遭遇大面积伤病困扰。",
       "ultimate_conclusion": {
-        "recommendation": "主胜/平局 (首选主胜)",
+        "recommendation": "反基本面冷门 (客队不败)",
         "primary_bet": "济州SK受让胜 (+1)",
-        "confidence": 66,
-        "risk_level": "中",
+        "confidence": 45,
+        "risk_level": "极高",
         "ev_score": 0.13,
         "reasoning": "浦项制铁核心前锋及后腰因伤倦勤，伤病因子权重调高对客队战力削弱较深。济州联擅长借助主场高湿度天气对客队进行体能压制，看好主队不败。",
         "confidence_trend": "up"
@@ -9427,8 +9427,8 @@
         "most_likely_score": "1-1",
         "over_under": "小 2.25",
         "half_full": "平/平",
-        "upset_probability": 0.35,
-        "upset_direction": "主胜",
+        "upset_probability": 0.85,
+        "upset_direction": "客胜/平局",
         "upset_trend": "down",
         "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 30% / 平 28% / 客 42%），计算得出即时凯利指数为：主胜 0.87，平局 0.79，客胜 0.97。<br/> 散户最热的【客胜】（凯利 0.97）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>主队受让或不败</strong> 的冷门路线。"
       },
@@ -9504,7 +9504,7 @@
           "bookmaker_attitude": "诱买"
         }
       ],
-      "prediction_updated": false,
+      "prediction_updated": true,
       "head_to_head": {
         "last_5": [
           {
@@ -9569,10 +9569,10 @@
       "status": "pending",
       "match_context": "韩职联赛常规赛。仁川联防守严密，球风极其顽硬。全北现代作为传统豪门实力深厚，且全员健康状态极佳。",
       "ultimate_conclusion": {
-        "recommendation": "客胜 (豪门反弹)",
+        "recommendation": "反基本面冷门 (主队不败)",
         "primary_bet": "全北现代胜",
-        "confidence": 71,
-        "risk_level": "中低",
+        "confidence": 45,
+        "risk_level": "极高",
         "ev_score": 0.15,
         "reasoning": "仁川联近期面临主教练战术被摸透的压力，且首发中场大脑累积黄牌停赛。全北现代阵容完整度高，在提高伤停权重的系统模拟中，客胜概率极高。",
         "confidence_trend": "stable"
@@ -9857,8 +9857,8 @@
         "most_likely_score": "0-1",
         "over_under": "小 2.25",
         "half_full": "平/客",
-        "upset_probability": 0.2,
-        "upset_direction": "平局",
+        "upset_probability": 0.85,
+        "upset_direction": "主胜/平局",
         "upset_trend": "stable",
         "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 28% / 平 26% / 客 46%），计算得出即时凯利指数为：主胜 0.91，平局 0.79，客胜 0.94。<br/> 散户最热的【客胜】（凯利 0.94）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>主队受让或不败</strong> 的冷门路线。"
       },
@@ -9934,7 +9934,7 @@
           "bookmaker_attitude": "保护"
         }
       ],
-      "prediction_updated": false,
+      "prediction_updated": true,
       "head_to_head": {
         "last_5": [
           {
