@@ -356,8 +356,8 @@ section { padding: clamp(32px, 5vw, 64px) 0; }
   display: grid; grid-template-columns: 1fr auto 1fr;
   align-items: center; gap: 20px;
 }
-.mc-team { }
-.mc-team.away { text-align: right; }
+.mc-team { text-align: center; }
+.mc-team.away { text-align: center; }
 .mc-team-name {
   font-family: var(--font-display); font-size: clamp(18px, 2.5vw, 26px);
   font-weight: 800; color: var(--text-1); letter-spacing: -0.5px;
@@ -1519,4 +1519,32 @@ section { padding: clamp(32px, 5vw, 64px) 0; }
   background: rgba(0, 212, 255, 0.08) !important;
   border-color: rgba(0, 212, 255, 0.3) !important;
   transform: translateY(-1px);
+}
+
+/* ─── GLOBAL PREMIUM HOVER TOOLTIP ─── */
+.matchiq-tooltip {
+  position: absolute;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 212, 255, 0.35);
+  color: var(--text-2);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+  width: 260px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 212, 255, 0.15);
+  z-index: 9999;
+  white-space: pre-line;
+  font-family: var(--font-body);
+  text-shadow: none;
+}
+.matchiq-tooltip.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

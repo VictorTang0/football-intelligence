@@ -501,6 +501,43 @@ const MatchIQ = (() => {
 
 // ─── BOOT ───
 document.addEventListener('DOMContentLoaded', () => {
+  // Global tooltips init
+  const tooltip = document.getElementById('matchiq-tooltip');
+  if (tooltip) {
+    document.body.addEventListener('mouseover', (e) => {
+      const target = e.target.closest('[data-tooltip]');
+      if (!target) return;
+
+      const text = target.getAttribute('data-tooltip');
+      if (!text) return;
+
+      tooltip.innerHTML = text.replace(/\n/g, '<br>');
+      tooltip.classList.add('visible');
+
+      const rect = target.getBoundingClientRect();
+      let top = rect.top + window.scrollY - tooltip.offsetHeight - 10;
+      let left = rect.left + window.scrollX + (rect.width - tooltip.offsetWidth) / 2;
+
+      if (left < 10) left = 10;
+      if (left + tooltip.offsetWidth > window.innerWidth - 10) {
+        left = window.innerWidth - tooltip.offsetWidth - 10;
+      }
+      if (rect.top - tooltip.offsetHeight < 10) {
+        top = rect.bottom + window.scrollY + 10;
+      }
+
+      tooltip.style.top = `${top}px`;
+      tooltip.style.left = `${left}px`;
+    });
+
+    document.body.addEventListener('mouseout', (e) => {
+      const target = e.target.closest('[data-tooltip]');
+      if (target && !e.relatedTarget?.closest('[data-tooltip]')) {
+        tooltip.classList.remove('visible');
+      }
+    });
+  }
+
   MatchIQ.init().then(() => {
     // Wait for initial load
   });
