@@ -24,5 +24,7 @@
   "learning_rate": 0.05,
   "min_weight": 0.001,
   "max_weight": 0.15,
-  "weight_normalization_target": 1.0
+  "weight_normalization_target": 1.0,
+  "odds_trap_threshold": 0.01,
+  "odds_protect_threshold": -0.01
 }

@@ -204,8 +204,21 @@ def calculate_kelly_conclusion(m):
     worst_risk = kellys[-1][0]
     worst_diff = kellys[-1][2]
     
+    # Load thresholds from config.json
+    trap_threshold = 0.04
+    protect_threshold = -0.02
+    try:
+        config_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "config.json")
+        if os.path.exists(config_path):
+            with open(config_path, "r", encoding="utf-8") as cf:
+                config_data = json.load(cf)
+                trap_threshold = config_data.get("odds_trap_threshold", 0.04)
+                protect_threshold = config_data.get("odds_protect_threshold", -0.02)
+    except Exception:
+        pass
+        
     # Macro correlation deduction
-    worst_move = "降水" if worst_diff <= -0.02 else "升水" if worst_diff >= 0.04 else "稳定"
+    worst_move = "降水" if worst_diff <= protect_threshold else "升水" if worst_diff >= trap_threshold else "稳定"
     
     if worst_move == "降水":
         analysis += (
