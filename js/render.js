@@ -151,7 +151,7 @@ const MatchIQRender = (() => {
   }
 
   // ─── ULTIMATE CONCLUSION CARD ───
-  function renderUltimateCard(match, teamTags) {
+  function renderUltimateCard(match) {
     const uc = match.ultimate_conclusion || {};
     const home = match.team_stats?.home || {};
     const away = match.team_stats?.away || {};
@@ -164,15 +164,6 @@ const MatchIQRender = (() => {
     const isUpdated = match.prediction_updated === true;
     const updatedBadge = isUpdated ? `<span class="prediction-updated-badge">⚡ 预测更新</span>` : '';
 
-    const homeTag = getImportantTag(match.home, teamTags);
-    const awayTag = getImportantTag(match.away, teamTags);
-
-    const formatTeamTagBadge = (tag) => {
-      if (!tag) return '';
-      const desc = tagDescriptions[tag.name] || '暂无说明';
-      return `<span class="team-card-tag-badge" title="${desc}" style="cursor:help;">${tag.emoji} Lvl ${tag.level}</span>`;
-    };
-
     return `
     <div class="ultimate-card ${rClass} animate-in" id="uc-${match.id}">
       <div class="uc-header">
@@ -181,12 +172,12 @@ const MatchIQRender = (() => {
       </div>
       <div class="uc-teams">
         <div class="uc-team">
-          <div class="uc-team-name">${match.home || '主队'} ${formatTeamTagBadge(homeTag)}</div>
+          <div class="uc-team-name">${match.home || '主队'}</div>
           <div class="uc-team-form">${formDots(home.form)}</div>
         </div>
         <div class="vs-badge">VS</div>
         <div class="uc-team away">
-          <div class="uc-team-name">${formatTeamTagBadge(awayTag)} ${match.away || '客队'}</div>
+          <div class="uc-team-name">${match.away || '客队'}</div>
           <div class="uc-team-form">${formDots(away.form)}</div>
         </div>
       </div>
@@ -447,7 +438,7 @@ const MatchIQRender = (() => {
   }
 
   // ─── INTELLIGENCE PANE ───
-  function renderIntelPane(match, teamTags) {
+  function renderIntelPane(match) {
     const intel = match.intelligence || {};
     const news = intel.verified_news || [];
     const mediaPreds = intel.media_predictions || [];
@@ -474,43 +465,8 @@ const MatchIQRender = (() => {
         <div class="mp-score">${p.score || '--'}</div>
       </div>`).join('') || '<div style="color:var(--text-4);font-size:13px;text-align:center;padding:20px">暂无媒体预测</div>';
 
-    const getTeamTagsHTML = (teamName) => {
-      const record = teamTags?.[teamName];
-      if (!record || !record.tags || Object.keys(record.tags).length === 0) {
-        return '<span style="color:var(--text-4);font-size:12px;margin:2px">暂无特征标签</span>';
-      }
-      return Object.entries(record.tags).map(([tagName, tagInfo]) => {
-        const emoji = tagEmojis[tagName] || '🏷️';
-        return `
-          <div class="team-tag-item" style="display:inline-flex;align-items:center;background:rgba(255,255,255,0.03);border:1px solid var(--border-subtle);border-radius:4px;padding:3px 8px;font-size:12px;margin:2px;">
-            <span style="margin-right:4px">${emoji}</span>
-            <span style="color:var(--text-2);font-weight:500">${tagName}</span>
-            <span style="margin-left:6px;color:var(--cyan);font-weight:700">Lvl ${tagInfo.level}</span>
-          </div>
-        `;
-      }).join('');
-    };
-
-    const homeTagsHTML = getTeamTagsHTML(match.home);
-    const awayTagsHTML = getTeamTagsHTML(match.away);
-
     return `
     <div class="mc-pane" id="pane-${match.id}-intel">
-      <!-- Team Character Tags Section -->
-      <div style="margin-bottom:16px;padding:12px 16px;background:rgba(0, 212, 255, 0.03);border:1px solid rgba(0, 212, 255, 0.15);border-radius:var(--radius);">
-        <div style="font-size:12px;color:var(--cyan);font-weight:600;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px">🧠 球队特性性格特征（独立 Tag 体系）</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-          <div>
-            <div style="font-size:11px;color:var(--text-3);margin-bottom:4px;font-weight:600">${match.home} 特性：</div>
-            <div style="display:flex;flex-wrap:wrap;gap:4px;">${homeTagsHTML}</div>
-          </div>
-          <div>
-            <div style="font-size:11px;color:var(--text-3);margin-bottom:4px;font-weight:600">${match.away} 特性：</div>
-            <div style="display:flex;flex-wrap:wrap;gap:4px;">${awayTagsHTML}</div>
-          </div>
-        </div>
-      </div>
-
       <div class="intel-grid">
         <div>
           <div style="font-size:13px;font-weight:600;color:var(--text-2);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px">已验证新闻</div>
@@ -698,12 +654,34 @@ const MatchIQRender = (() => {
     const isUpdated = match.prediction_updated === true;
     const updatedBadge = isUpdated ? `<span class="prediction-updated-badge">⚡ 预测更新</span>` : '';
 
+    const getTeamTagsHeaderHTML = (teamName) => {
+      const record = teamTags?.[teamName];
+      if (!record || !record.tags || Object.keys(record.tags).length === 0) {
+        return '';
+      }
+      const tagsHTML = Object.entries(record.tags).map(([tagName, tagInfo]) => {
+        const emoji = tagEmojis[tagName] || '🏷️';
+        const desc = tagDescriptions[tagName] || '暂无说明';
+        return `
+          <span class="team-header-tag-badge" title="${desc}" style="cursor:help;display:inline-flex;align-items:center;background:rgba(0, 212, 255, 0.05);border:1px solid rgba(0, 212, 255, 0.25);border-radius:4px;padding:1px 5px;font-size:11px;margin-left:4px;vertical-align:middle;font-family:var(--font-body);color:var(--cyan);text-shadow: 0 0 3px rgba(0, 212, 255, 0.25);">
+            <span style="margin-right:2px">${emoji}</span>
+            <span>${tagName}</span>
+            <span style="margin-left:4px;font-weight:700">Lvl ${tagInfo.level}</span>
+          </span>
+        `;
+      }).join('');
+      return `<span style="font-size:11px;color:var(--text-3);margin-left:8px;font-weight:normal;display:inline-block;vertical-align:middle;">球队特性：${tagsHTML}</span>`;
+    };
+
+    const homeTagsHTML = getTeamTagsHeaderHTML(match.home);
+    const awayTagsHTML = getTeamTagsHeaderHTML(match.away);
+
     return `
     <div class="match-card animate-in" id="card-${match.id}">
       <div class="mc-header">
         <div class="mc-team">
           <div class="mc-team-league"><span class="match-no-badge">${formatMatchNo(match.id)}</span>${match.league || ''}${warningBadge}${updatedBadge}</div>
-          <div class="mc-team-name">${match.home || '主队'}</div>
+          <div class="mc-team-name">${match.home || '主队'}${homeTagsHTML}</div>
           <div class="mc-team-xg">xG ${home.season_stats?.xg?.toFixed(1) || '--'} · 射门 ${home.season_stats?.shots_per_game || '--'}/场</div>
         </div>
         <div class="mc-center">
@@ -714,7 +692,7 @@ const MatchIQRender = (() => {
         </div>
         <div class="mc-team away">
           <div class="mc-team-league">&nbsp;</div>
-          <div class="mc-team-name">${match.away || '客队'}</div>
+          <div class="mc-team-name">${match.away || '客队'}${awayTagsHTML}</div>
           <div class="mc-team-xg">xG ${away.season_stats?.xg?.toFixed(1) || '--'} · 射门 ${away.season_stats?.shots_per_game || '--'}/场</div>
         </div>
       </div>
