@@ -225,7 +225,7 @@ const MatchIQRender = (() => {
   function renderStatsPane(match, paneId) {
     const home = match.team_stats?.home?.season_stats || {};
     const away = match.team_stats?.away?.season_stats || {};
-    const h2h  = match.head_to_head || {};
+    const h2h  = match.head_to_head || match.h2h || {};
 
     const statRows = [
       { name: '进球', h: home.goals_scored, a: away.goals_scored },
