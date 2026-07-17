@@ -6,6 +6,10 @@
 1. **今日预测工作流 (分析今日赛事 / Command A)**
 2. **更新盘口工作流 (更新今日盘口 / Command B)**
 
+### 🧱 赛事标准化录入要求（防呆机制）：
+- **禁止手动裸写骨架**：在 Command A 识别出新赛事后，**严禁**手动拼装不完整或缺少 `team_stats/season_stats` 等庞大树状字段的 JSON 骨架直接写入 `matches.json`。
+- **强制初始化流程**：必须先将识别的对阵简档输出至 `data/new_matches_input.json`，在终端运行 `python3 scripts/initialize_match.py data/new_matches_input.json` 完成全字段自动补充，之后再运行 `update_odds_and_news.py` 导入新闻与实盘波动。这能百分百避免前端球队图表与各项数据分析发生空白。
+
 ### 🔍 情报检索与更新标准：
 - **已验证新闻 (`intelligence.verified_news`)**：
   - 使用搜索引擎主动检索各场比赛双方的最新的主帅采访、伤停调整、战术倾斜等资讯。
