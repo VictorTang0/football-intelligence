@@ -1459,7 +1459,7 @@ const MatchIQRender = (() => {
           <td>${kickoff}</td>
           <td>${matchup}</td>
           <td style="font-weight:700; color:var(--text-1);">${rec}</td>
-          <td><span class="confidence-badge ${confColorClass}" style="padding:2px 6px; border-radius:4px; font-weight:bold; font-size:11px;">${conf}%</span></td>
+          <td><span class="confidence-badge ${confColorClass}" style="padding:2px 6px; border-radius:4px; font-weight:bold; font-size:12px;">${conf}%</span></td>
           <td style="color:${riskColor}; font-weight:600;">${risk}</td>
           <td class="font-mono" style="color:var(--green); font-weight:bold;">${score}</td>
           <td style="padding: 4px 8px; white-space: normal;">${multiRecHTML}</td>
