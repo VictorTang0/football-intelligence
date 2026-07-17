@@ -1,7 +1,7 @@
 {
-  "total_predictions": 12,
-  "correct_predictions": 8,
-  "accuracy_rate": 0.6667,
+  "total_predictions": 15,
+  "correct_predictions": 9,
+  "accuracy_rate": 0.6,
   "records": [
     {
       "match_id": "match_260715_102",
@@ -575,6 +575,150 @@
         },
         "most_likely_score": {
           "val": "2-1 或 2-0",
+          "correct": false
+        }
+      }
+    },
+    {
+      "match_id": "match_260717_201",
+      "league": "瑞超",
+      "home": "哥德堡",
+      "away": "布鲁马波",
+      "date": "2026-07-18",
+      "actual_result": "哥德堡 2-1 布鲁马波",
+      "is_correct": false,
+      "confidence": 62,
+      "predictions": {
+        "recommendation": {
+          "val": "客胜/平局 (首选平局)",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "布鲁马波受让胜 (让负)",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "哥德堡主场不败",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 1-1 或 1-2",
+          "correct": false
+        },
+        "upset": {
+          "val": "布鲁马波客场偷袭全取三分",
+          "correct": false
+        },
+        "conservative": {
+          "val": "布鲁马波受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平/平",
+          "correct": false
+        },
+        "over_under": {
+          "val": "小 2.5",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "1-1",
+          "correct": false
+        }
+      }
+    },
+    {
+      "match_id": "match_260717_202",
+      "league": "瑞超",
+      "home": "米亚尔比",
+      "away": "韦斯特罗斯",
+      "date": "2026-07-18",
+      "actual_result": "米亚尔比 0-0 韦斯特罗斯",
+      "is_correct": false,
+      "confidence": 75,
+      "predictions": {
+        "recommendation": {
+          "val": "主胜 (科学稳健)",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "主胜",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "米亚尔比稳拿三分",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 2-0 或 3-0",
+          "correct": false
+        },
+        "upset": {
+          "val": "防守反击逼平主队",
+          "correct": true
+        },
+        "conservative": {
+          "val": "米亚尔比赢球",
+          "correct": false
+        },
+        "half_full": {
+          "val": "主/主",
+          "correct": false
+        },
+        "over_under": {
+          "val": "小 2.5",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "2-0",
+          "correct": false
+        }
+      }
+    },
+    {
+      "match_id": "match_260717_203",
+      "league": "挪超",
+      "home": "博德闪耀",
+      "away": "腓特烈",
+      "date": "2026-07-18",
+      "actual_result": "博德闪耀 1-0 腓特烈",
+      "is_correct": true,
+      "confidence": 68,
+      "predictions": {
+        "recommendation": {
+          "val": "主胜/防平 (让球博冷)",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "腓特烈受让胜 (+2)",
+          "correct": true
+        },
+        "mainstream": {
+          "val": "博德闪耀完胜",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 1-0 或 2-1",
+          "correct": true
+        },
+        "upset": {
+          "val": "腓特烈顽强死守逼平",
+          "correct": false
+        },
+        "conservative": {
+          "val": "腓特烈受让",
+          "correct": true
+        },
+        "half_full": {
+          "val": "平/主",
+          "correct": false
+        },
+        "over_under": {
+          "val": "小 2.75",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "2-1",
           "correct": false
         }
       }

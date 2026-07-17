@@ -1,7 +1,10 @@
 import json
+import os
 
-matches_path = "/Users/movcam/.gemini/antigravity/scratch/football-intelligence/data/matches.json"
-script_path = "/Users/movcam/.gemini/antigravity/scratch/football-intelligence/scripts/update_odds_and_news.py"
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+matches_path = os.path.join(base_dir, "data", "matches.json")
+script_path = os.path.join(base_dir, "scripts", "update_odds_and_news.py")
+
 
 # Define the real-world news narratives for all matches
 news_narratives = {

@@ -1,6 +1,7 @@
 import json
+import os
 
-path = "/Users/movcam/.gemini/antigravity/scratch/football-intelligence/data/matches.json"
+path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "matches.json")
 with open(path, "r", encoding="utf-8") as f:
     data = json.load(f)
 

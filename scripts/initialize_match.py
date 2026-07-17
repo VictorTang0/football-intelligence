@@ -5,7 +5,7 @@ import random
 from datetime import datetime
 
 # Path constants
-MATCHES_PATH = "/Users/movcam/.gemini/antigravity/scratch/football-intelligence/data/matches.json"
+MATCHES_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "matches.json")
 
 # Quality profiles templates
 stats_strong = {

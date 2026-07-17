@@ -4798,7 +4798,7 @@
         "humidity": 85,
         "wind_kmh": 15
       },
-      "status": "pending",
+      "status": "finished",
       "match_context": "瑞超联赛常规赛。哥德堡近期状态低迷，且本场面临多名主力伤停的困境。布鲁马波球风坚韧，客场具备一定反弹能力。",
       "ultimate_conclusion": {
         "recommendation": "客胜/平局 (首选平局)",
@@ -4807,7 +4807,9 @@
         "risk_level": "中高",
         "ev_score": 0.12,
         "reasoning": "哥德堡核心中场卡尔松因膝伤缺阵，后防主力佩德罗红牌停赛。伤停因素权重已被系统上调，对哥德堡战术运转带来重大减损。客队布鲁马波擅长防守反击，在主队残缺防线下有望全身而退。",
-        "confidence_trend": "down"
+        "confidence_trend": "down",
+        "actual_result": "哥德堡 2-1 布鲁马波",
+        "status": "❌ 预测偏差"
       },
       "team_stats": {
         "home": {
@@ -4817,7 +4819,8 @@
             "D",
             "W",
             "L",
-            "D"
+            "D",
+            "W"
           ],
           "form_note": "主场近5场2胜1平2负，表现平庸",
           "season_stats": {
@@ -4862,7 +4865,8 @@
             "L",
             "D",
             "L",
-            "W"
+            "W",
+            "L"
           ],
           "form_note": "客场球风极韧，近3场客场保持不败",
           "season_stats": {
@@ -5230,7 +5234,7 @@
         "humidity": 60,
         "wind_kmh": 8
       },
-      "status": "pending",
+      "status": "finished",
       "match_context": "瑞超常规赛。米亚尔比战术纪律严明，首发防线整齐，近五场比赛有三场零封对手。韦斯特罗斯进攻乏力且主力射手停赛。",
       "ultimate_conclusion": {
         "recommendation": "主胜 (科学稳健)",
@@ -5239,7 +5243,9 @@
         "risk_level": "低",
         "ev_score": 0.18,
         "reasoning": "客队主力射手恩奎斯特红牌停赛，使得本就低迷的客队进攻能力进一步受损。米亚尔比防线稳固，结合本次调高的伤停权重，主队赢球信心极强。",
-        "confidence_trend": "stable"
+        "confidence_trend": "stable",
+        "actual_result": "米亚尔比 0-0 韦斯特罗斯",
+        "status": "❌ 预测偏差"
       },
       "team_stats": {
         "home": {
@@ -5249,7 +5255,8 @@
             "D",
             "W",
             "L",
-            "W"
+            "W",
+            "D"
           ],
           "form_note": "防线极其工整，近5场取得3胜且3场零封",
           "season_stats": {
@@ -5290,7 +5297,8 @@
             "L",
             "D",
             "L",
-            "W"
+            "W",
+            "D"
           ],
           "form_note": "进攻端哑火，近期客场遭遇三连败",
           "season_stats": {
@@ -5660,7 +5668,7 @@
         "humidity": 70,
         "wind_kmh": 12
       },
-      "status": "pending",
+      "status": "finished",
       "match_context": "挪超强弱对话。博德闪耀实力超群但多线作战消耗大，腓特烈防线工整，且主队主力前锋哈兰德大腿拉伤缺阵3周，战力有损。",
       "ultimate_conclusion": {
         "recommendation": "主胜/防平 (让球博冷)",
@@ -5669,7 +5677,9 @@
         "risk_level": "中",
         "ev_score": 0.15,
         "reasoning": "博德闪耀主力中锋因伤倦勤，伤停权重调高后，主队穿盘（大胜3球以上）概率骤降。腓特烈低位大巴纪律极强，预计博德闪耀仅能以小胜收尾。",
-        "confidence_trend": "stable"
+        "confidence_trend": "stable",
+        "actual_result": "博德闪耀 1-0 腓特烈",
+        "status": "✅ 预测命中"
       },
       "team_stats": {
         "home": {
@@ -5678,6 +5688,7 @@
             "W",
             "W",
             "D",
+            "W",
             "W",
             "W"
           ],
@@ -5738,7 +5749,8 @@
             "L",
             "D",
             "W",
-            "D"
+            "D",
+            "L"
           ],
           "form_note": "大巴战术工整，失球数控制极佳",
           "season_stats": {

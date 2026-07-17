@@ -228,7 +228,7 @@ def calculate_kelly_conclusion(m):
 
 
 def main():
-    path = "/Users/movcam/.gemini/antigravity/scratch/football-intelligence/data/matches.json"
+    path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "matches.json")
     if not os.path.exists(path):
         print("Matches file not found!")
         return

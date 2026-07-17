@@ -1,224 +1,224 @@
 {
   "version": "v1.20",
-  "last_evolved": "2026-07-17T13:19:39.763210",
-  "total_matches_validated": 12,
-  "overall_accuracy": 0.6667,
+  "last_evolved": "2026-07-18T04:12:00",
+  "total_matches_validated": 15,
+  "overall_accuracy": 0.6,
   "factors": [
     {
       "id": "01",
       "name": "球队整体实力",
-      "weight": 0.0724,
+      "weight": 0.0721,
       "initial": 0.075,
       "category": "球队质量",
-      "delta": -0.0026
+      "delta": -0.0029
     },
     {
       "id": "02",
       "name": "首发阵容质量",
-      "weight": 0.0646,
+      "weight": 0.0629,
       "initial": 0.068,
       "category": "球队质量",
-      "delta": -0.0034
+      "delta": -0.0051
     },
     {
       "id": "03",
       "name": "核心球员健康情况",
-      "weight": 0.0902,
+      "weight": 0.0872,
       "initial": 0.095,
       "category": "球队质量",
-      "delta": -0.0048
+      "delta": -0.0078
     },
     {
       "id": "04",
       "name": "攻防战术匹配度",
-      "weight": 0.0551,
+      "weight": 0.0549,
       "initial": 0.058,
       "category": "战术",
-      "delta": -0.0029
+      "delta": -0.0031
     },
     {
       "id": "05",
       "name": "中场控制力",
-      "weight": 0.0456,
+      "weight": 0.0454,
       "initial": 0.048,
       "category": "战术",
-      "delta": -0.0024
+      "delta": -0.0026
     },
     {
       "id": "06",
       "name": "后防线稳定性",
-      "weight": 0.0442,
+      "weight": 0.047,
       "initial": 0.046,
       "category": "防守",
-      "delta": -0.0018
+      "delta": 0.001
     },
     {
       "id": "07",
       "name": "前锋把握机会能力",
-      "weight": 0.0425,
+      "weight": 0.0403,
       "initial": 0.044,
       "category": "进攻",
-      "delta": -0.0015
+      "delta": -0.0037
     },
     {
       "id": "08",
       "name": "门将状态与扑救稳定性",
-      "weight": 0.0399,
+      "weight": 0.0397,
       "initial": 0.042,
       "category": "防守",
-      "delta": -0.0021
+      "delta": -0.0023
     },
     {
       "id": "09",
       "name": "近期比赛状态",
-      "weight": 0.0366,
+      "weight": 0.0355,
       "initial": 0.038,
       "category": "状态",
-      "delta": -0.0014
+      "delta": -0.0025
     },
     {
       "id": "10",
       "name": "赛程压力与休息天数",
-      "weight": 0.0332,
+      "weight": 0.0331,
       "initial": 0.035,
       "category": "状态",
-      "delta": -0.0018
+      "delta": -0.0019
     },
     {
       "id": "11",
       "name": "主教练临场调整能力",
-      "weight": 0.0311,
+      "weight": 0.031,
       "initial": 0.032,
       "category": "管理",
-      "delta": -0.0009
+      "delta": -0.001
     },
     {
       "id": "12",
       "name": "球队整体磨合程度",
-      "weight": 0.029,
+      "weight": 0.0289,
       "initial": 0.03,
       "category": "球队质量",
-      "delta": -0.001
+      "delta": -0.0011
     },
     {
       "id": "13",
       "name": "球队替补深度",
-      "weight": 0.0266,
+      "weight": 0.028,
       "initial": 0.028,
       "category": "球队质量",
-      "delta": -0.0014
+      "delta": 0.0
     },
     {
       "id": "14",
       "name": "后场出球抗压能力",
-      "weight": 0.0247,
+      "weight": 0.0246,
       "initial": 0.026,
       "category": "战术",
-      "delta": -0.0013
+      "delta": -0.0014
     },
     {
       "id": "15",
       "name": "前场压迫成功率",
-      "weight": 0.0237,
+      "weight": 0.0236,
       "initial": 0.025,
       "category": "战术",
-      "delta": -0.0013
+      "delta": -0.0014
     },
     {
       "id": "16",
       "name": "防守反击速度",
-      "weight": 0.0228,
+      "weight": 0.0227,
       "initial": 0.024,
       "category": "战术",
-      "delta": -0.0012
+      "delta": -0.0013
     },
     {
       "id": "17",
       "name": "定位球进攻能力",
-      "weight": 0.0218,
+      "weight": 0.0217,
       "initial": 0.023,
       "category": "进攻",
-      "delta": -0.0012
+      "delta": -0.0013
     },
     {
       "id": "18",
       "name": "定位球防守质量",
-      "weight": 0.0209,
+      "weight": 0.0223,
       "initial": 0.022,
       "category": "防守",
-      "delta": -0.0011
+      "delta": 0.0003
     },
     {
       "id": "19",
       "name": "边路突破与传中质量",
-      "weight": 0.0199,
+      "weight": 0.0198,
       "initial": 0.021,
       "category": "进攻",
-      "delta": -0.0011
+      "delta": -0.0012
     },
     {
       "id": "20",
       "name": "领先后的控场能力",
-      "weight": 0.019,
+      "weight": 0.0189,
       "initial": 0.02,
       "category": "战术",
-      "delta": -0.001
+      "delta": -0.0011
     },
     {
       "id": "21",
       "name": "落后时的追分能力",
-      "weight": 0.0185,
+      "weight": 0.0184,
       "initial": 0.0195,
       "category": "状态",
-      "delta": -0.001
+      "delta": -0.0011
     },
     {
       "id": "22",
       "name": "球队面对压力时的稳定性",
-      "weight": 0.0188,
+      "weight": 0.0187,
       "initial": 0.019,
       "category": "心理",
-      "delta": -0.0002
+      "delta": -0.0003
     },
     {
       "id": "23",
       "name": "对手针对性准备质量",
-      "weight": 0.0171,
+      "weight": 0.017,
       "initial": 0.018,
       "category": "战术",
-      "delta": -0.0009
+      "delta": -0.001
     },
     {
       "id": "24",
       "name": "红黄牌与停赛风险",
-      "weight": 0.0332,
+      "weight": 0.0346,
       "initial": 0.035,
       "category": "纪律",
-      "delta": -0.0018
+      "delta": -0.0004
     },
     {
       "id": "25",
       "name": "小组出线形势压力",
-      "weight": 0.0152,
+      "weight": 0.0151,
       "initial": 0.016,
       "category": "心理",
-      "delta": -0.0008
+      "delta": -0.0009
     },
     {
       "id": "26",
       "name": "点球大战能力与心理素质",
-      "weight": 0.0133,
+      "weight": 0.0132,
       "initial": 0.015,
       "category": "心理",
-      "delta": -0.0017
+      "delta": -0.0018
     },
     {
       "id": "27",
       "name": "高空球争顶能力",
-      "weight": 0.0133,
+      "weight": 0.0132,
       "initial": 0.014,
       "category": "进攻",
-      "delta": -0.0007
+      "delta": -0.0008
     },
     {
       "id": "28",
@@ -279,18 +279,18 @@
     {
       "id": "35",
       "name": "球迷支持与主场氛围",
-      "weight": 0.0062,
+      "weight": 0.0082,
       "initial": 0.008,
       "category": "外部",
-      "delta": -0.0018
+      "delta": 0.0002
     },
     {
       "id": "36",
       "name": "裁判判罚尺度与VAR介入",
-      "weight": 0.0071,
+      "weight": 0.0081,
       "initial": 0.0075,
       "category": "外部",
-      "delta": -0.0004
+      "delta": 0.0006
     },
     {
       "id": "37",
@@ -327,22 +327,22 @@
     {
       "id": "41",
       "name": "商业活动与媒体曝光",
-      "weight": 0.0005,
+      "weight": 0.001,
       "initial": 0.0005,
       "category": "外部",
-      "delta": 0.0
+      "delta": 0.0005
     }
   ],
   "category_summary": {
-    "球队质量": 0.2828,
-    "战术": 0.208,
-    "防守": 0.1173,
-    "进攻": 0.0975,
-    "状态": 0.0883,
-    "管理": 0.0368,
-    "心理": 0.0649,
-    "纪律": 0.0332,
-    "外部": 0.0659,
+    "球队质量": 0.2791,
+    "战术": 0.2071,
+    "防守": 0.1213,
+    "进攻": 0.095,
+    "状态": 0.087,
+    "管理": 0.0367,
+    "心理": 0.0646,
+    "纪律": 0.0346,
+    "外部": 0.0694,
     "冷门": 0.0052
   }
 }

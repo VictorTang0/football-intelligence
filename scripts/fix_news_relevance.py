@@ -2,8 +2,9 @@ import json
 import os
 
 # Paths
-matches_path = "/Users/movcam/.gemini/antigravity/scratch/football-intelligence/data/matches.json"
-script_path = "/Users/movcam/.gemini/antigravity/scratch/football-intelligence/scripts/update_odds_and_news.py"
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+matches_path = os.path.join(base_dir, "data", "matches.json")
+script_path = os.path.join(base_dir, "scripts", "update_odds_and_news.py")
 
 # 1. Update update_odds_and_news.py static fresh_news definition
 with open(script_path, "r", encoding="utf-8") as f:
