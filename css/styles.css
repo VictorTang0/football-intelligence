@@ -1648,8 +1648,14 @@ section { padding: clamp(32px, 5vw, 64px) 0; }
   font-size: 12px;
   white-space: nowrap;
 }
+.summary-table tbody tr {
+  transition: background-color 0.15s ease;
+}
+.summary-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.012);
+}
 .summary-table tbody tr:hover {
-  background: rgba(255,255,255,0.02);
+  background: rgba(255, 255, 255, 0.035) !important;
 }
 .summary-table tbody tr:last-child td {
   border-bottom: none;
@@ -1689,7 +1695,7 @@ section { padding: clamp(32px, 5vw, 64px) 0; }
 .multi-rec-box {
   display: grid;
   grid-template-columns: repeat(2, minmax(max-content, 1fr));
-  gap: 4px 12px;
+  gap: 6px 16px;
   text-align: left;
   font-size: 11px;
 }
@@ -1699,20 +1705,20 @@ section { padding: clamp(32px, 5vw, 64px) 0; }
   gap: 8px;
 }
 .mr-label {
-  color: var(--text-3);
+  color: var(--text-2);
   font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--border-subtle);
+  background: rgba(0, 212, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.2);
   border-radius: 4px;
   padding: 1px 4px;
   min-width: 32px;
   text-align: center;
-  font-weight: 600;
+  font-weight: 700;
 }
 .mr-val {
-  color: var(--text-2);
+  color: #f1f5f9;
   font-weight: 600;
 }
 .mr-val.highlight {

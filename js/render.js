@@ -1448,7 +1448,7 @@ const MatchIQRender = (() => {
           <div class="mr-item"><span class="mr-label">方向</span><span class="mr-val highlight">${primaryBet}</span></div>
           <div class="mr-item"><span class="mr-label">比分</span><span class="mr-val font-mono">${twoScores}</span></div>
           <div class="mr-item"><span class="mr-label">进球</span><span class="mr-val font-mono">${twoGoals}</span></div>
-          <div class="mr-item"><span class="mr-label">半全</span><span class="mr-val" style="color:var(--indigo);">${halfFullClean}</span></div>
+          <div class="mr-item"><span class="mr-label">半全</span><span class="mr-val" style="color:#818cf8;">${halfFullClean}</span></div>
         </div>
       `;
 
