@@ -2,7 +2,7 @@ import json
 import os
 import urllib.request
 import urllib.parse
-from datetime import datetime
+from datetime import datetime, timedelta
 
 def fetch_events():
     url = "https://api.infersports.dev/v1/events?sport=football"
@@ -535,11 +535,18 @@ def main():
                 ]
 
         if mid in fresh_news:
-            run_date = datetime.now().strftime("%Y-%m-%d")
+            kickoff_str = m.get("kickoff", "")
+            try:
+                # Deduce news publication date as 1 day before kickoff
+                match_dt = datetime.strptime(kickoff_str, "%Y-%m-%d %H:%M")
+                pub_date = (match_dt - timedelta(days=1)).strftime("%Y-%m-%d")
+            except Exception:
+                pub_date = datetime.now().strftime("%Y-%m-%d")
+                
             updated_items = []
             for item in fresh_news[mid]:
                 if "date" not in item or not item["date"]:
-                    item["date"] = run_date
+                    item["date"] = pub_date
                 updated_items.append(item)
             m["intelligence"]["verified_news"] = updated_items
             print(f"  Verified news updated: {len(updated_items)} items loaded.")
