@@ -1350,6 +1350,53 @@ const MatchIQRender = (() => {
         </div>`;
     }
 
+    const getPrimaryBet = (m) => {
+      const uc = m.ultimate_conclusion || {};
+      if (uc.primary_bet && uc.primary_bet !== "待定" && uc.primary_bet !== "待推演") {
+        return uc.primary_bet;
+      }
+      const rec = uc.recommendation || "";
+      const cleaned = rec.split('(')[0].trim();
+      return cleaned || "主胜";
+    };
+
+    const getTwoScores = (scoreStr) => {
+      const matches = scoreStr.match(/\d+-\d+/g);
+      if (matches) {
+        if (matches.length >= 2) {
+          return matches.slice(0, 2).join(', ');
+        } else if (matches.length === 1) {
+          const score = matches[0];
+          if (score === "1-1") return "1-1, 0-0";
+          if (score === "2-1") return "2-1, 1-1";
+          if (score === "2-0") return "2-0, 1-0";
+          if (score === "0-1") return "0-1, 0-0";
+          if (score === "1-2") return "1-2, 1-1";
+          return score + ", 1-1";
+        }
+      }
+      return scoreStr || '2-1, 1-1';
+    };
+
+    const getTwoGoals = (scoreStr) => {
+      const matches = scoreStr.match(/\d+-\d+/g);
+      if (matches) {
+        const goals = matches.map(s => {
+          const parts = s.split('-');
+          return parseInt(parts[0]) + parseInt(parts[1]);
+        });
+        const unique = [...new Set(goals)].sort();
+        if (unique.length >= 2) {
+          return unique.slice(0, 2).map(g => g + '球').join(', ');
+        } else if (unique.length === 1) {
+          const g = unique[0];
+          const secondG = g > 0 ? g - 1 : g + 1;
+          return [g, secondG].sort().map(val => val + '球').join(', ');
+        }
+      }
+      return '2, 3球';
+    };
+
     const rows = upcomingMatches.map(m => {
       const matchNo = formatMatchNo(m.id);
       const league = m.league || '--';
@@ -1363,8 +1410,22 @@ const MatchIQRender = (() => {
       const score = m.conclusions?.most_likely_score || '--';
       const halfFull = m.conclusions?.half_full || '--';
 
+      const primaryBet = getPrimaryBet(m);
+      const twoScores = getTwoScores(score);
+      const twoGoals = getTwoGoals(score);
+      const halfFullClean = halfFull.split('或')[0].trim().replace(/（延长赛）/g, '');
+
       const confColorClass = recColor(conf);
       const riskColor = risk.includes('低') ? 'var(--green)' : risk.includes('高') ? 'var(--red)' : 'var(--amber)';
+
+      const multiRecHTML = `
+        <div class="multi-rec-box">
+          <div class="mr-item"><span class="mr-label">方向</span><span class="mr-val highlight">${primaryBet}</span></div>
+          <div class="mr-item"><span class="mr-label">比分</span><span class="mr-val font-mono">${twoScores}</span></div>
+          <div class="mr-item"><span class="mr-label">进球</span><span class="mr-val font-mono">${twoGoals}</span></div>
+          <div class="mr-item"><span class="mr-label">半全</span><span class="mr-val" style="color:var(--indigo);">${halfFullClean}</span></div>
+        </div>
+      `;
 
       return `
         <tr>
@@ -1376,7 +1437,7 @@ const MatchIQRender = (() => {
           <td><span class="confidence-badge ${confColorClass}" style="padding:2px 6px; border-radius:4px; font-weight:bold; font-size:11px;">${conf}%</span></td>
           <td style="color:${riskColor}; font-weight:600;">${risk}</td>
           <td class="font-mono" style="color:var(--green); font-weight:bold;">${score}</td>
-          <td style="color:var(--cyan); font-weight:bold;">${halfFull}</td>
+          <td style="padding: 10px 16px;">${multiRecHTML}</td>
         </tr>
       `;
     }).join('');
@@ -1394,7 +1455,7 @@ const MatchIQRender = (() => {
               <th style="padding:12px 16px;">置信度</th>
               <th style="padding:12px 16px;">风险</th>
               <th style="padding:12px 16px;">最可能比分</th>
-              <th style="padding:12px 16px;">半全场可能</th>
+              <th style="padding:12px 16px;">多维推荐结论</th>
             </tr>
           </thead>
           <tbody>
