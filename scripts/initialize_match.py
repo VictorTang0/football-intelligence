@@ -170,7 +170,8 @@ def create_complete_match(raw_match):
             "over_under": "小 2.5",
             "half_full": "平/主",
             "upset_probability": 0.25,
-            "upset_direction": "客胜"
+            "upset_direction": "客胜",
+            "kelly_conclusion": "待运行 update_odds_and_news.py 进行实盘凯利指数计算与赔付风险研判。"
         },
         "h2h": {
             "last_5": ["D", "H", "A", "H", "D"],

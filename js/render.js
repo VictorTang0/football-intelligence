@@ -568,6 +568,14 @@ const MatchIQRender = (() => {
           <div class="up-direction">方向：${c.upset_direction || '未知'}</div>
         </div>
       </div>
+      ${c.kelly_conclusion ? `
+      <div class="kelly-conclusion-box" style="margin-top: 15px; padding: 12px; background: rgba(255, 152, 0, 0.08); border-left: 4px solid #ff9800; border-radius: 4px; text-align: left;">
+        <div style="font-weight: bold; font-size: 13px; margin-bottom: 6px; color: #ff9800; display: flex; align-items: center; gap: 6px;">
+          <span>📊 凯利指数智能分析结论</span>
+        </div>
+        <div style="font-size: 12.5px; line-height: 1.6; color: #d0d0d0;">${c.kelly_conclusion}</div>
+      </div>
+      ` : ''}
     </div>`;
   }
 

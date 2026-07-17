@@ -116,6 +116,52 @@ def de_vig_odds(home, draw, away):
         "away": (1/away) / total
     }
 
+def calculate_kelly_conclusion(m):
+    pinnacle_odds = m["odds_analysis"]["pinnacle"]["current"]
+    oh, od, oa = pinnacle_odds["home"], pinnacle_odds["draw"], pinnacle_odds["away"]
+    
+    sentiment = m["odds_analysis"]["retail_sentiment"]
+    if "home_pct" in sentiment:
+        sh = sentiment["home_pct"] / 100.0
+        sd = sentiment["draw_pct"] / 100.0
+        sa = sentiment["away_pct"] / 100.0
+        pct_h, pct_d, pct_a = sentiment["home_pct"], sentiment["draw_pct"], sentiment["away_pct"]
+    else:
+        sh = sentiment.get("home_support", 0.33)
+        sd = sentiment.get("draw_support", 0.33)
+        sa = sentiment.get("away_support", 0.33)
+        pct_h, pct_d, pct_a = round(sh * 100), round(sd * 100), round(sa * 100)
+        
+    payout_rate = round(1 / ((1/oh) + (1/od) + (1/oa)), 3)
+    
+    kelly_h = round(oh * sh, 3)
+    kelly_d = round(od * sd, 3)
+    kelly_a = round(oa * sa, 3)
+    
+    analysis = (
+        f"即时返还率为 {payout_rate:.3f}。基于散户倾向（主 {pct_h}% / 平 {pct_d}% / 客 {pct_a}%），"
+        f"计算得出凯利指数为：主胜 {kelly_h:.2f}，平局 {kelly_d:.2f}，客胜 {kelly_a:.2f}。"
+    )
+    
+    kellys = [("主胜", kelly_h), ("平局", kelly_d), ("客胜", kelly_a)]
+    kellys.sort(key=lambda x: x[1])
+    best_protected = kellys[0][0]
+    worst_risk = kellys[-1][0]
+    
+    if kellys[-1][1] > payout_rate:
+        analysis += (
+            f" 散户资金在【{worst_risk}】上过度聚集，致使凯利指数（{kellys[-1][1]:.2f}）突破返还率，庄家在此项面临极高赔付风险。"
+            f" 相反，庄家在【{best_protected}】（凯利指数 {kellys[0][1]:.2f}）上拥有最低赔付安全边界。本场首选庄家防范极佳的【{best_protected}】作为防冷避险方向。"
+        )
+    else:
+        analysis += (
+            f" 各项凯利指数均受控于返还率之下，表明资金分流均匀，庄家无爆头赔付危机。"
+            f" 首选庄家防御最优解【{best_protected}】。"
+        )
+        
+    return analysis
+
+
 def main():
     path = "/Users/movcam/.gemini/antigravity/scratch/football-intelligence/data/matches.json"
     if not os.path.exists(path):
@@ -564,6 +610,9 @@ def main():
                 backed_script = "【庄家看好剧本】水位双向对等拉锯，资金对流平稳，庄家旨在通过高频抽水实现盈利均衡，未露出明显资金偏护倾向。"
         
         m["odds_analysis"]["bookmaker_backed_script"] = backed_script
+        
+        # ─── CALCULATE KELLY INDEX CONCLUSION ───
+        m["conclusions"]["kelly_conclusion"] = calculate_kelly_conclusion(m)
 
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
