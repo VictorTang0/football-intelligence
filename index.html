@@ -94,9 +94,32 @@
   <div class="demo-banner hidden" id="demo-banner" role="alert">
     <span class="icon">⚠️</span>
     <p><strong>演示模式</strong> — 当前显示的是演示数据。请将赛程截图发送至 AI 对话并输入「分析今日赛事」命令，AI 将自动抓取真实数据并更新网站内容。</p>
-  </div>
-
   <main>
+
+    <!-- ── Risk Radar & Bankroll Calculator Banner ── -->
+    <div class="risk-bankroll-banner container" style="margin-top:24px; margin-bottom:12px; display:grid; grid-template-columns: 2fr 1.2fr; gap:16px;">
+      <!-- Risk Radar Panel -->
+      <div class="risk-radar-panel" style="padding:16px; background:rgba(255, 61, 0, 0.05); border:1px solid rgba(255, 61, 0, 0.2); border-radius:12px; box-shadow:0 0 15px rgba(255, 61, 0, 0.05); overflow:hidden;">
+        <div style="font-size:12px; color:#ff3d00; font-weight:700; margin-bottom:8px; text-transform:uppercase; letter-spacing:1px; display:flex; align-items:center; gap:6px;">
+          <span style="display:inline-block; width:8px; height:8px; background:#ff3d00; border-radius:50%; box-shadow:0 0 8px #ff3d00;" class="glow-pulse"></span>
+          🚨 异常赔付风控雷达 (Live Risk Anomaly Radar)
+        </div>
+        <div id="risk-radar-ticker" style="font-size:13px; color:var(--text-1); line-height:1.6; height:45px; overflow-y:auto;">
+          <span style="color:var(--text-4); font-style:italic;">雷达检测中... 暂未发现触发变盘阀值异常的赛事</span>
+        </div>
+      </div>
+      <!-- Bankroll & Kelly Calculator Panel -->
+      <div class="bankroll-kelly-panel" style="padding:16px; background:rgba(0, 212, 255, 0.05); border:1px solid rgba(0, 212, 255, 0.2); border-radius:12px; box-shadow:0 0 15px rgba(0, 212, 255, 0.05);">
+        <div style="font-size:12px; color:var(--cyan); font-weight:700; margin-bottom:8px; text-transform:uppercase; letter-spacing:1px;">
+          💰 凯利公式资金分配器 (Kelly Calculator)
+        </div>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <input type="number" id="kelly-bankroll-input" value="10000" placeholder="可用本金" style="width:100px; padding:6px 10px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.15); border-radius:6px; color:var(--text-1); font-family:var(--font-mono); font-size:13px; outline:none;" />
+          <span style="font-size:12px; color:var(--text-3);">元</span>
+          <button id="kelly-calc-btn" style="padding:6px 12px; background:var(--cyan); color:#000; border:none; border-radius:6px; font-size:12px; font-weight:700; cursor:pointer;" title="计算推荐投注额">计算资金量化</button>
+        </div>
+      </div>
+    </div>
 
     <!-- ════════════════════════════════════════════
          SECTION 1: ULTIMATE CONCLUSIONS (TOP PRIORITY)

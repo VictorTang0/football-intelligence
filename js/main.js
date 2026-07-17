@@ -171,7 +171,152 @@ const MatchIQ = (() => {
     requestAnimationFrame(() => {
       initAllCharts(upcomingMatches, weights, history, evolution);
       bindTabEvents();
+      updateRiskRadarAndKelly(upcomingMatches);
     });
+  }
+
+  // ─── RISK RADAR & KELLY SIZER ───
+  function updateRiskRadarAndKelly(upcomingMatches) {
+    const ticker = document.getElementById('risk-radar-ticker');
+    const calcBtn = document.getElementById('kelly-calc-btn');
+    const bankrollInput = document.getElementById('kelly-bankroll-input');
+    
+    if (!ticker) return;
+    
+    // 1. Process Risk Radar Alerts
+    const alerts = [];
+    const trap_t = state.config?.odds_trap_threshold || 0.01;
+    const protect_t = state.config?.odds_protect_threshold || -0.01;
+    
+    upcomingMatches.forEach(m => {
+      const odds = m.odds_analysis || {};
+      const pinnacle = odds.pinnacle || {};
+      const current = pinnacle.current;
+      const initial = pinnacle.initial;
+      
+      if (!current || !initial) return;
+      
+      const oh = current.home, od = current.draw, oa = current.away;
+      const ih = initial.home, id_ = initial.draw, ia = initial.away;
+      
+      if (!oh || !od || !oa || !ih || !id_ || !ia) return;
+      
+      const sentiment = odds.retail_sentiment || {};
+      let sh = 0.33, sd = 0.33, sa = 0.33;
+      if (sentiment.home_pct !== undefined) {
+        sh = sentiment.home_pct / 100;
+        sd = sentiment.draw_pct / 100;
+        sa = sentiment.away_pct / 100;
+      } else if (sentiment.home_support !== undefined) {
+        sh = sentiment.home_support;
+        sd = sentiment.draw_support;
+        sa = sentiment.away_support;
+      }
+      
+      const kelly_h = oh * sh;
+      const kelly_d = od * sd;
+      const kelly_a = oa * sa;
+      
+      const diff_h = oh - ih;
+      const diff_d = od - id_;
+      const diff_a = oa - ia;
+      
+      const kellys = [
+        { label: "主胜", val: kelly_h, diff: diff_h },
+        { label: "平局", val: kelly_d, diff: diff_d },
+        { label: "客胜", val: kelly_a, diff: diff_a }
+      ];
+      kellys.sort((a, b) => b.val - a.val); // Sort descending to find worst risk (highest kelly)
+      
+      const worst = kellys[0];
+      const matchNo = m.id.replace('match_', 'No.');
+      const matchDesc = `${m.home} vs ${m.away}`;
+      
+      if (worst.diff <= protect_t) {
+        alerts.push(`<div style="margin-bottom:6px; color:#4caf50; font-size:12.5px;">🟢 <strong>${matchNo} ${matchDesc}</strong>: 散户爆买【${worst.label}】 庄家即时降水保护 (${worst.diff > 0 ? '+' : ''}${worst.diff.toFixed(2)})，主推方向可信度高！</div>`);
+      } else if (worst.diff >= trap_t) {
+        const opp = worst.label === "主胜" ? "客队不败" : worst.label === "客胜" ? "主队不败" : "胜负手";
+        alerts.push(`<div style="margin-bottom:6px; color:#ff5252; font-size:12.5px;">🚨 <strong>${matchNo} ${matchDesc}</strong>: 散户热买【${worst.label}】 但庄家反向阻尼升水 (${worst.diff > 0 ? '+' : ''}${worst.diff.toFixed(2)})，触发<strong>【资本诱盘陷阱】</strong>警报，推荐走【${opp}】冷门！</div>`);
+      }
+    });
+    
+    if (alerts.length > 0) {
+      ticker.innerHTML = alerts.join('');
+    } else {
+      ticker.innerHTML = `<span style="color:var(--text-4); font-style:italic; font-size:12.5px;">雷达检测中... 暂未发现触发变盘阀值异常的赛事</span>`;
+    }
+    
+    // 2. Kelly Bet Sizer Calculations
+    const runKellyCalculations = () => {
+      const bankroll = parseFloat(bankrollInput.value) || 10000;
+      upcomingMatches.forEach(m => {
+        // Find Card (Ultimate Card)
+        const ucCard = document.getElementById(`uc-${m.id}`);
+        if (ucCard) {
+          let sizerEl = ucCard.querySelector('.kelly-sizer-badge');
+          if (!sizerEl) {
+            const metricsEl = ucCard.querySelector('.uc-metrics');
+            if (metricsEl) {
+              sizerEl = document.createElement('div');
+              sizerEl.className = 'kelly-sizer-badge';
+              sizerEl.style.cssText = 'margin-top:12px; padding:8px 12px; background:rgba(0, 212, 255, 0.05); border:1px solid rgba(0, 212, 255, 0.2); border-radius:6px; font-size:12.5px; color:var(--text-2); text-align:center;';
+              metricsEl.parentNode.insertBefore(sizerEl, metricsEl.nextSibling);
+            }
+          }
+          if (sizerEl) {
+            const uc = m.ultimate_conclusion || {};
+            const recommendation = uc.recommendation || "";
+            const oddsObj = m.odds_analysis?.pinnacle?.current || {};
+            
+            let odds = 1.80; // default
+            let prob = 0.50; // default
+            
+            // Match recommendation to odds key
+            let outcomeKey = "home";
+            if (recommendation.includes("平局") || recommendation.includes("平")) {
+              outcomeKey = "draw";
+            } else if (recommendation.includes("客胜") || recommendation.includes("客")) {
+              outcomeKey = "away";
+            }
+            
+            odds = oddsObj[outcomeKey] || 1.80;
+            
+            // Find True Est from public_vs_bookmaker if available
+            const pvb = m.public_vs_bookmaker || [];
+            const matchOutcomeName = outcomeKey === "home" ? "主胜" : outcomeKey === "draw" ? "平局" : "客胜";
+            const row = pvb.find(r => r.outcome === matchOutcomeName);
+            if (row && row.true_est) {
+              prob = parseFloat(row.true_est.replace('%', '')) / 100;
+            }
+            
+            // Fractional Kelly multiplier (using quarter-kelly 0.25 to prevent over-betting)
+            const b = odds - 1;
+            const q = 1 - prob;
+            let kellyFraction = 0;
+            if (b > 0) {
+              kellyFraction = (prob * b - q) / b;
+            }
+            
+            const quarterKelly = Math.max(0, kellyFraction * 0.25);
+            const recommendStake = Math.round(bankroll * quarterKelly);
+            
+            if (quarterKelly > 0) {
+              sizerEl.innerHTML = `🧮 <strong>量化资金管理</strong>: 季凯比率 <span style="color:var(--cyan);font-weight:700">${(quarterKelly*100).toFixed(2)}%</span> · 推荐投注额 <span style="color:var(--cyan);font-weight:700">${recommendStake} 元</span>`;
+              sizerEl.style.display = 'block';
+            } else {
+              sizerEl.innerHTML = `🧮 <strong>量化资金管理</strong>: 期望值为负 (EV < 0) · <span style="color:var(--red);font-weight:700">建议观望 (No Bet)</span>`;
+              sizerEl.style.display = 'block';
+            }
+          }
+        }
+      });
+    };
+    
+    // Bind click event for sizer button
+    calcBtn.onclick = runKellyCalculations;
+    
+    // Auto run once
+    runKellyCalculations();
   }
 
   function getAdjustedWeights(match, weightsData, teamTags, tagsConfig) {

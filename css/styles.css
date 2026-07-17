@@ -1245,6 +1245,9 @@ section { padding: clamp(32px, 5vw, 64px) 0; }
 }
 
 @media (max-width: 768px) {
+  .risk-bankroll-banner {
+    grid-template-columns: 1fr !important;
+  }
   .parlay-container {
     display: flex !important;
     overflow-x: auto !important;
