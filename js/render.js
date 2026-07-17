@@ -1361,47 +1361,7 @@ const MatchIQRender = (() => {
       const conf = uc.confidence || 0;
       const risk = uc.risk_level || '中';
       const score = m.conclusions?.most_likely_score || '--';
-      
-      // Calculate Kelly
-      let stakeText = '观望';
-      let stakeColor = 'var(--text-3)';
-      try {
-        const oddsObj = m.odds_analysis?.pinnacle?.current || {};
-        let outcomeKey = "home";
-        if (rec.includes("平局") || rec.includes("平")) {
-          outcomeKey = "draw";
-        } else if (rec.includes("客胜") || rec.includes("客")) {
-          outcomeKey = "away";
-        }
-        const odds = oddsObj[outcomeKey] || 1.80;
-        
-        let prob = 0.50;
-        const pvb = m.public_vs_bookmaker || [];
-        const matchOutcomeName = outcomeKey === "home" ? "主胜" : outcomeKey === "draw" ? "平局" : "客胜";
-        const row = pvb.find(r => r.outcome === matchOutcomeName);
-        if (row && row.true_est) {
-          prob = parseFloat(row.true_est.replace('%', '')) / 100;
-        }
-        
-        const b = odds - 1;
-        const q = 1 - prob;
-        let kellyFraction = 0;
-        if (b > 0) {
-          kellyFraction = (prob * b - q) / b;
-        }
-        const quarterKelly = Math.max(0, kellyFraction * 0.25);
-        const recommendStake = Math.round(bankroll * quarterKelly);
-        
-        if (quarterKelly > 0) {
-          stakeText = `${recommendStake} 元 (${(quarterKelly * 100).toFixed(1)}%)`;
-          stakeColor = 'var(--cyan)';
-        } else {
-          stakeText = '观望 (EV<0)';
-          stakeColor = 'var(--red)';
-        }
-      } catch (err) {
-        console.error(err);
-      }
+      const halfFull = m.conclusions?.half_full || '--';
 
       const confColorClass = recColor(conf);
       const riskColor = risk.includes('低') ? 'var(--green)' : risk.includes('高') ? 'var(--red)' : 'var(--amber)';
@@ -1416,7 +1376,7 @@ const MatchIQRender = (() => {
           <td><span class="confidence-badge ${confColorClass}" style="padding:2px 6px; border-radius:4px; font-weight:bold; font-size:11px;">${conf}%</span></td>
           <td style="color:${riskColor}; font-weight:600;">${risk}</td>
           <td class="font-mono" style="color:var(--green); font-weight:bold;">${score}</td>
-          <td style="color:${stakeColor}; font-weight:bold;">${stakeText}</td>
+          <td style="color:var(--cyan); font-weight:bold;">${halfFull}</td>
         </tr>
       `;
     }).join('');
@@ -1434,7 +1394,7 @@ const MatchIQRender = (() => {
               <th style="padding:12px 16px;">置信度</th>
               <th style="padding:12px 16px;">风险</th>
               <th style="padding:12px 16px;">最可能比分</th>
-              <th style="padding:12px 16px;">季开资金建议</th>
+              <th style="padding:12px 16px;">半全场可能</th>
             </tr>
           </thead>
           <tbody>
