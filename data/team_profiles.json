@@ -1,0 +1,54 @@
+{
+  "profiles": {
+    "曼城": {
+      "injury_resilience": 0.85,
+      "streak_fatigue_threshold": 6,
+      "comeback_probability": 0.75
+    },
+    "皇家马德里": {
+      "injury_resilience": 0.90,
+      "streak_fatigue_threshold": 7,
+      "comeback_probability": 0.85
+    },
+    "拜仁慕尼黑": {
+      "injury_resilience": 0.80,
+      "streak_fatigue_threshold": 5,
+      "comeback_probability": 0.60
+    },
+    "阿森纳": {
+      "injury_resilience": 0.70,
+      "streak_fatigue_threshold": 4,
+      "comeback_probability": 0.50
+    },
+    "巴黎圣日耳曼": {
+      "injury_resilience": 0.65,
+      "streak_fatigue_threshold": 4,
+      "comeback_probability": 0.45
+    },
+    "国际米兰": {
+      "injury_resilience": 0.75,
+      "streak_fatigue_threshold": 5,
+      "comeback_probability": 0.65
+    },
+    "尤文图斯": {
+      "injury_resilience": 0.60,
+      "streak_fatigue_threshold": 3,
+      "comeback_probability": 0.55
+    },
+    "巴塞罗那": {
+      "injury_resilience": 0.70,
+      "streak_fatigue_threshold": 4,
+      "comeback_probability": 0.60
+    },
+    "阿斯顿维拉": {
+      "injury_resilience": 0.40,
+      "streak_fatigue_threshold": 3,
+      "comeback_probability": 0.35
+    },
+    "DEFAULT": {
+      "injury_resilience": 0.50,
+      "streak_fatigue_threshold": 4,
+      "comeback_probability": 0.30
+    }
+  }
+}

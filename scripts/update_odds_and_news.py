@@ -167,6 +167,10 @@ def calculate_kelly_conclusion(m):
     pinnacle_odds = m["odds_analysis"]["pinnacle"]["current"]
     init_odds = m["odds_analysis"]["pinnacle"]["initial"]
     
+    odds_history = m.get("odds_history", [])
+    if odds_history:
+        init_odds = odds_history[0].get("pinnacle", init_odds)
+        
     oh, od, oa = pinnacle_odds["home"], pinnacle_odds["draw"], pinnacle_odds["away"]
     ih, id_, ia = init_odds["home"], init_odds["draw"], init_odds["away"]
     
@@ -266,7 +270,7 @@ def apply_dynamic_fundamental_coupling(m):
         
         m["prediction_updated"] = True
         
-    # 2. Dynamic Multiplier Veto (Direction 2)
+    # 2. Dynamic Multiplier Veto with Team Resilience (Direction 2)
     news_items = m.get("intelligence", {}).get("verified_news", [])
     has_critical_veto = False
     for n in news_items:
@@ -278,10 +282,22 @@ def apply_dynamic_fundamental_coupling(m):
             break
             
     if has_critical_veto:
+        try:
+            profiles_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "team_profiles.json")
+            with open(profiles_path, "r", encoding="utf-8") as pf:
+                profiles = json.load(pf).get("profiles", {})
+        except Exception:
+            profiles = {}
+            
+        home_resilience = profiles.get(m["home"], profiles.get("DEFAULT", {})).get("injury_resilience", 0.5)
+        away_resilience = profiles.get(m["away"], profiles.get("DEFAULT", {})).get("injury_resilience", 0.5)
+        avg_resilience = (home_resilience + away_resilience) / 2
+        
         m["ultimate_conclusion"]["risk_level"] = "高"
-        # If confidence was very high, penalize it because of missing core components
+        # If confidence was very high, penalize it, but buffer it using the resilience index
         if m["ultimate_conclusion"].get("confidence", 0) > 60:
-            m["ultimate_conclusion"]["confidence"] = int(m["ultimate_conclusion"]["confidence"] * 0.7)
+            penalty = 0.6 + (avg_resilience * 0.3)
+            m["ultimate_conclusion"]["confidence"] = int(m["ultimate_conclusion"]["confidence"] * penalty)
 
 
 def main():
@@ -714,6 +730,20 @@ def main():
         api_odds = []
         if ev:
             api_odds = fetch_odds(ev['id'])
+            
+        if "odds_history" not in m:
+            m["odds_history"] = []
+            
+        # Push current snapshot BEFORE updating
+        if "odds_analysis" in m and "pinnacle" in m["odds_analysis"] and "current" in m["odds_analysis"]["pinnacle"]:
+            now_str = datetime.now().isoformat()
+            m["odds_history"].append({
+                "timestamp": now_str,
+                "pinnacle": m["odds_analysis"]["pinnacle"]["current"],
+                "kelly_conclusion": m.get("conclusions", {}).get("kelly_conclusion", "")
+            })
+            # Keep history trimmed to last 20 entries to save space
+            m["odds_history"] = m["odds_history"][-20:]
             
         old_intent = m.get("odds_analysis", {}).get("bookmaker_intent", "")
         m["odds_analysis"] = {**m.get("odds_analysis", {}), **parse_odds_data(api_odds, base)}

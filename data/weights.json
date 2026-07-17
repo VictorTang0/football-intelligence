@@ -117,6 +117,23 @@
       ]
     }
   },
+  "experts": {
+    "fundamental": {
+      "name": "基本面专家",
+      "weight": 0.35,
+      "dimensions": ["M01", "M02", "M05", "M06"]
+    },
+    "narrative": {
+      "name": "情报与战意专家",
+      "weight": 0.25,
+      "dimensions": ["M03", "M04", "M07", "M08"]
+    },
+    "odds_capital": {
+      "name": "资金与赔率专家",
+      "weight": 0.40,
+      "dimensions": [] 
+    }
+  },
   "category_summary": {
     "基础战力": 0.4,
     "战术相克": 0.25,
