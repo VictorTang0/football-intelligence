@@ -8497,7 +8497,7 @@
         "humidity": 65,
         "wind_kmh": 10
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-18T17:55:01.730925",
@@ -8526,7 +8526,9 @@
         "risk_level": "中",
         "ev_score": 0.0,
         "reasoning": "世界杯比赛双方战术意图各有侧重。 基本面上，法国在【环境气候适应性】上拥有明显优势（评分 8.8 对 8.2），但英格兰在【首发阵容健康度】上（评分 9.8 对 6.5）给主队带来制约。结合战意（主 72% / 客 74%），即时欧指 1.68 / 3.85 / 3.65 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主胜】。",
-        "confidence_trend": "up"
+        "confidence_trend": "up",
+        "actual_result": "法国 1-1 英格兰",
+        "status": "✅ 预测命中"
       },
       "team_stats": {
         "home": {
@@ -8536,7 +8538,8 @@
             "D",
             "W",
             "L",
-            "W"
+            "W",
+            "D"
           ],
           "form_note": "近期整体状态稳健，主场防御力强悍",
           "season_stats": {
@@ -8579,7 +8582,8 @@
             "W",
             "L",
             "D",
-            "W"
+            "W",
+            "D"
           ],
           "form_note": "赛程密集导致体能略显疲软，但斗志高昂",
           "season_stats": {
