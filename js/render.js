@@ -1469,8 +1469,13 @@ const MatchIQRender = (() => {
       // Determine dynamic tag next to matchup based on confidence and risk
       let tagHtml = "";
       if (conf >= 85) {
+        // Ultra Banker: Gold text with glowing border
+        tagHtml = ` <span style="font-size:10px; font-weight:bold; color:#ffd700; background:rgba(255, 215, 0, 0.08); border:1px solid rgba(255, 215, 0, 0.35); padding:2px 5px; border-radius:4px; margin-left:6px; white-space:nowrap; vertical-align:middle; display:inline-block; line-height:1; box-shadow:0 0 5px rgba(255,215,0,0.1);">超稳胆</span>`;
+      } else if (conf >= 78) {
+        // Banker: Green badge
         tagHtml = ` <span style="font-size:10px; font-weight:bold; color:#10b981; background:rgba(16, 185, 129, 0.08); border:1px solid rgba(16, 185, 129, 0.25); padding:2px 5px; border-radius:4px; margin-left:6px; white-space:nowrap; vertical-align:middle; display:inline-block; line-height:1;">稳胆</span>`;
       } else if (conf >= 70) {
+        // Parlayable: Indigo/Purple badge
         tagHtml = ` <span style="font-size:10px; font-weight:bold; color:#818cf8; background:rgba(129, 140, 248, 0.08); border:1px solid rgba(129, 140, 248, 0.25); padding:2px 5px; border-radius:4px; margin-left:6px; white-space:nowrap; vertical-align:middle; display:inline-block; line-height:1;">可串关</span>`;
       } else if (conf <= 50 || risk === "高" || risk === "极高") {
         tagHtml = ` <span style="font-size:10px; font-weight:bold; color:#ef4444; background:rgba(239, 68, 68, 0.08); border:1px solid rgba(239, 68, 68, 0.25); padding:2px 5px; border-radius:4px; margin-left:6px; white-space:nowrap; vertical-align:middle; display:inline-block; line-height:1;">建议观望</span>`;
