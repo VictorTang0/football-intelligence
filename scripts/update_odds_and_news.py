@@ -329,6 +329,18 @@ def main():
         "match_260719_104": {"home": 2.02, "draw": 2.75, "away": 3.70}
     }
 
+    # Load from dynamic sporttery odds file if exists
+    sporttery_odds_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "sporttery_odds.json")
+    if os.path.exists(sporttery_odds_path):
+        try:
+            with open(sporttery_odds_path, "r", encoding="utf-8") as sf:
+                dynamic_odds = json.load(sf)
+                for k, v in dynamic_odds.items():
+                    screenshot_odds[k] = v
+            print(f"Loaded {len(dynamic_odds)} dynamic odds from sporttery_odds.json")
+        except Exception as e:
+            print(f"Error loading sporttery_odds.json: {e}")
+
     fresh_news = {
         "match_260719_104": [
             {
