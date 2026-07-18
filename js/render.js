@@ -953,12 +953,13 @@ const MatchIQRender = (() => {
     });
 
     // Generate table rows
+    // Generate table rows
     const tbodyRows = [];
     Object.keys(groups).sort((a, b) => new Date(b) - new Date(a)).forEach(date => {
       // Date separator row
       tbodyRows.push(`
         <tr class="history-date-row">
-          <td colspan="6" style="text-align:left; font-weight:700; background:rgba(255,255,255,0.02); color:var(--cyan); padding:10px 16px; border-bottom:1px solid var(--border-subtle);">
+          <td colspan="5" style="text-align:left; font-weight:700; background:rgba(255,255,255,0.02); color:var(--cyan); padding:10px 16px; border-bottom:1px solid var(--border-subtle);">
             📅 ${date}
           </td>
         </tr>
@@ -968,31 +969,52 @@ const MatchIQRender = (() => {
       groups[date].forEach(r => {
         const p = r.predictions || {};
         const recommendationVal = p.recommendation?.val || r.prediction || '--';
+        const scoreVal = p.most_likely_score?.val || '--';
+        const hfVal = p.half_full?.val || '--';
+        const goalsVal = p.over_under?.val || '--';
+
         const recCorrect = p.recommendation ? !!p.recommendation.correct : r.is_correct;
+        const scoreCorrect = p.most_likely_score ? !!p.most_likely_score.correct : false;
+        const hfCorrect = p.half_full ? !!p.half_full.correct : false;
+        const goalsCorrect = p.over_under ? !!p.over_under.correct : false;
+
+        const badgeRed = '<span style="color:#ef4444; background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.25); padding:1px 4px; border-radius:3px; font-weight:bold; font-size:10px; margin-left:4px; display:inline-block; line-height:1;">红</span>';
+        const badgeBlack = '<span style="color:#9ca3af; background:rgba(156,163,175,0.08); border:1px solid rgba(156,163,175,0.2); padding:1px 4px; border-radius:3px; font-weight:bold; font-size:10px; margin-left:4px; display:inline-block; line-height:1;">黑</span>';
+
+        const recHtml = `<div style="margin-bottom:3px;"><span style="color:var(--text-3);font-weight:500;">方向:</span> <span style="font-weight:600; color:${recCorrect ? 'var(--rose, #f43f5e)' : 'var(--text-2)'};">${recVal}</span>${recCorrect ? badgeRed : badgeBlack}</div>`;
+        const scoreHtml = `<div style="margin-bottom:3px;"><span style="color:var(--text-3);font-weight:500;">比分:</span> <span style="font-weight:600; color:${scoreCorrect ? 'var(--rose, #f43f5e)' : 'var(--text-2)'};">${scoreVal}</span>${scoreCorrect ? badgeRed : badgeBlack}</div>`;
+        const hfHtml = `<div style="margin-bottom:3px;"><span style="color:var(--text-3);font-weight:500;">半全:</span> <span style="font-weight:600; color:${hfCorrect ? 'var(--rose, #f43f5e)' : 'var(--text-2)'};">${hfVal}</span>${hfCorrect ? badgeRed : badgeBlack}</div>`;
+        const goalsHtml = `<div style="margin-bottom:3px;"><span style="color:var(--text-3);font-weight:500;">进球:</span> <span style="font-weight:600; color:${goalsCorrect ? 'var(--rose, #f43f5e)' : 'var(--text-2)'};">${goalsVal}</span>${goalsCorrect ? badgeRed : badgeBlack}</div>`;
+
+        const detailsHTML = `
+          <div style="display:flex; flex-direction:column; text-align:left; font-size:12px; line-height:1.4; padding: 4px 0;">
+            ${recHtml}
+            ${scoreHtml}
+            ${hfHtml}
+            ${goalsHtml}
+          </div>
+        `;
         
-        // Red/Black Status
+        // Red/Black Status (win means actual is correct)
         const statusBadge = r.is_correct 
-          ? '<span style="color:var(--green); background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.25); padding:2px 8px; border-radius:4px; font-weight:700; font-size:11px; white-space:nowrap;">红 (命中)</span>'
-          : '<span style="color:var(--red); background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.25); padding:2px 8px; border-radius:4px; font-weight:700; font-size:11px; white-space:nowrap;">黑 (偏差)</span>';
+          ? '<span style="color:#ef4444; background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.25); padding:4px 10px; border-radius:6px; font-weight:700; font-size:11px; white-space:nowrap; display:inline-block;">红 (命中)</span>'
+          : '<span style="color:#9ca3af; background:rgba(156,163,175,0.08); border:1px solid rgba(156,163,175,0.2); padding:4px 10px; border-radius:6px; font-weight:700; font-size:11px; white-space:nowrap; display:inline-block;">黑 (偏差)</span>';
 
         tbodyRows.push(`
           <tr style="border-bottom:1px solid var(--border-subtle);">
-            <td style="padding:10px 16px; font-weight:600; white-space:nowrap;"><span class="tag" style="border:1px solid rgba(0, 212, 255, 0.2); color:var(--cyan); background:rgba(0, 212, 255, 0.03); font-size:11px; padding:2px 8px; border-radius:4px;">${r.league || '--'}</span></td>
-            <td style="padding:10px 16px; text-align:left; white-space:nowrap;">
+            <td style="padding:12px 16px; font-weight:600; white-space:nowrap; vertical-align:middle; text-align:center;"><span class="tag" style="border:1px solid rgba(0, 212, 255, 0.2); color:var(--cyan); background:rgba(0, 212, 255, 0.03); font-size:11px; padding:2px 8px; border-radius:4px;">${r.league || '--'}</span></td>
+            <td style="padding:12px 16px; text-align:left; white-space:nowrap; vertical-align:middle;">
               <span style="font-weight:600; color:var(--text-1);">${r.home}</span> 
               <span style="color:var(--text-4)">VS</span> 
               <span style="font-weight:600; color:var(--text-1);">${r.away}</span>
             </td>
-            <td style="padding:10px 16px; text-align:left; white-space:normal;">
-              <span style="color:${recCorrect ? 'var(--green)' : 'var(--red)'}; font-weight:600;">
-                ${recommendationVal}
-              </span>
+            <td style="padding:12px 16px; text-align:left; white-space:normal; vertical-align:middle;">
+              ${detailsHTML}
             </td>
-            <td style="padding:10px 16px; white-space:nowrap;">
-              <span style="font-weight:700; color:${r.is_correct ? 'var(--green)' : 'var(--red)'};">${r.actual_result || '--'}</span>
+            <td style="padding:12px 16px; white-space:nowrap; vertical-align:middle; text-align:center;">
+              <span style="font-weight:700; color:${r.is_correct ? 'var(--green)' : 'var(--text-2)'};">${r.actual_result || '--'}</span>
             </td>
-            <td style="padding:10px 16px; font-weight:600; white-space:nowrap;">${r.confidence || '--'}%</td>
-            <td style="padding:10px 16px; white-space:nowrap;">${statusBadge}</td>
+            <td style="padding:12px 16px; white-space:nowrap; vertical-align:middle; text-align:center;">${statusBadge}</td>
           </tr>
         `);
       });
@@ -1007,7 +1029,6 @@ const MatchIQRender = (() => {
               <th style="padding:12px 16px; text-align:left;">对阵</th>
               <th style="padding:12px 16px; text-align:left;">预测内容</th>
               <th style="padding:12px 16px; text-align:center;">实际赛果</th>
-              <th style="padding:12px 16px; text-align:center;">置信度</th>
               <th style="padding:12px 16px; text-align:center;">红黑状态</th>
             </tr>
           </thead>
