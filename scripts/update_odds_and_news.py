@@ -3,6 +3,7 @@ import os
 import urllib.request
 import urllib.parse
 import re
+import sys
 from datetime import datetime, timedelta
 
 def fetch_events():
@@ -301,6 +302,14 @@ def apply_dynamic_fundamental_coupling(m):
 
 
 def main():
+    # Try running the sporttery matches fetcher first
+    try:
+        sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+        import fetch_sporttery_matches
+        fetch_sporttery_matches.main()
+    except Exception as e:
+        print(f"Warning: Could not fetch latest Sporttery odds dynamically: {e}")
+
     path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "matches.json")
     if not os.path.exists(path):
         print("Matches file not found!")
