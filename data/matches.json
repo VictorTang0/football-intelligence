@@ -8534,6 +8534,15 @@
             "away": 3.65
           },
           "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 53% / 平 23% / 客 24%），计算得出即时凯利指数为：主胜 0.89，平局 0.89，客胜 0.88。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>客胜</strong> 剧本。"
+        },
+        {
+          "timestamp": "2026-07-18T21:45:15.096663",
+          "pinnacle": {
+            "home": 1.68,
+            "draw": 3.85,
+            "away": 3.65
+          },
+          "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 53% / 平 23% / 客 24%），计算得出即时凯利指数为：主胜 0.89，平局 0.89，客胜 0.88。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>客胜</strong> 剧本。"
         }
       ],
       "match_context": "世界杯常规赛对决。法国坐镇主场迎接英格兰的挑战。",
@@ -11084,6 +11093,15 @@
             "away": 1.72
           },
           "kelly_conclusion": "即时返还率为 0.865。基于散户倾向（主 25% / 平 26% / 客 49%），计算得出即时凯利指数为：主胜 0.94，平局 0.85，客胜 0.84。<br/> 散户最热的【主胜】（凯利 0.94）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。"
+        },
+        {
+          "timestamp": "2026-07-18T21:45:15.097657",
+          "pinnacle": {
+            "home": 3.81,
+            "draw": 3.19,
+            "away": 1.69
+          },
+          "kelly_conclusion": "即时返还率为 0.856。基于散户倾向（主 25% / 平 26% / 客 49%），计算得出即时凯利指数为：主胜 0.95，平局 0.83，客胜 0.83。<br/> 散户最热的【主胜】（凯利 0.95）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。"
         }
       ],
       "match_context": "挪超常规赛对决。汉坎坐镇主场迎接特罗姆瑟的挑战。",
@@ -11093,7 +11111,7 @@
         "confidence": 36,
         "risk_level": "极高",
         "ev_score": 0.0,
-        "reasoning": "挪超联赛大开大合，大球率高，进攻端对体能消耗极大。 基本面上，汉坎在【环境气候适应性】上拥有明显优势（评分 9.0 对 8.2），但特罗姆瑟在【中场与推进效率】上（评分 7.8 对 5.1）给主队带来制约。结合战意（主 74% / 客 82%），即时欧指主胜由 3.89 降至 3.81，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【反基本面冷门 (主队不败)】。",
+        "reasoning": "挪超联赛大开大合，大球率高，进攻端对体能消耗极大。 基本面上，汉坎在【环境气候适应性】上拥有明显优势（评分 9.0 对 8.2），但特罗姆瑟在【中场与推进效率】上（评分 7.8 对 5.1）给主队带来制约。结合战意（主 74% / 客 82%），即时欧指主胜由 3.97 降至 3.89，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【反基本面冷门 (主队不败)】。",
         "confidence_trend": "up"
       },
       "team_stats": {
@@ -11188,14 +11206,14 @@
         "pinnacle": {
           "name": "pinnacle",
           "initial": {
+            "home": 3.97,
+            "draw": 3.07,
+            "away": 1.63
+          },
+          "current": {
             "home": 3.89,
             "draw": 3.13,
             "away": 1.66
-          },
-          "current": {
-            "home": 3.81,
-            "draw": 3.19,
-            "away": 1.69
           },
           "movement": "实时追踪"
         },
@@ -11251,33 +11269,61 @@
         "sbobet": {
           "name": "sbobet",
           "initial": {
-            "home": 3.96,
-            "draw": 3.06,
-            "away": 1.61
+            "home": 4.05,
+            "draw": 3.01,
+            "away": 1.58
           },
           "current": {
-            "home": 3.89,
-            "draw": 3.13,
-            "away": 1.64
+            "home": 3.97,
+            "draw": 3.07,
+            "away": 1.61
           },
           "movement": "实时追踪"
         },
         "nova88": {
           "name": "nova88",
           "initial": {
+            "home": 3.89,
+            "draw": 3.1,
+            "away": 1.66
+          },
+          "current": {
             "home": 3.81,
             "draw": 3.16,
             "away": 1.69
-          },
-          "current": {
-            "home": 3.73,
-            "draw": 3.22,
-            "away": 1.72
           },
           "movement": "实时追踪"
         },
         "crown": {
           "name": "crown",
+          "initial": {
+            "home": 4.01,
+            "draw": 3.07,
+            "away": 1.61
+          },
+          "current": {
+            "home": 3.93,
+            "draw": 3.13,
+            "away": 1.64
+          },
+          "movement": "实时追踪"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 3.85,
+            "draw": 2.98,
+            "away": 1.71
+          },
+          "current": {
+            "home": 3.77,
+            "draw": 3.04,
+            "away": 1.74
+          },
+          "movement": "实时追踪"
+        },
+        "m8bet": {
+          "name": "m8bet",
           "initial": {
             "home": 3.93,
             "draw": 3.13,
@@ -11286,44 +11332,16 @@
           "current": {
             "home": 3.85,
             "draw": 3.19,
-            "away": 1.67
+            "away": 1.68
           },
           "movement": "实时追踪"
         },
-        "hkjc": {
-          "name": "hkjc",
-          "initial": {
-            "home": 3.77,
-            "draw": 3.03,
-            "away": 1.74
-          },
-          "current": {
-            "home": 3.7,
-            "draw": 3.09,
-            "away": 1.77
-          },
-          "movement": "实时追踪"
-        },
-        "m8bet": {
-          "name": "m8bet",
-          "initial": {
-            "home": 3.85,
-            "draw": 3.19,
-            "away": 1.67
-          },
-          "current": {
-            "home": 3.77,
-            "draw": 3.25,
-            "away": 1.71
-          },
-          "movement": "实时追踪"
-        },
-        "bookmaker_intent": "当前平博主客均赔为 3.81 对 1.69，差值较小。庄家意图是利用均势赔率吸引双向对等资金，最大化抽水利润。散户在大众题材下分歧明显，庄家无明显偏向偏护。",
+        "bookmaker_intent": "当前平博主客均赔为 3.89 对 1.66，差值较小。庄家意图是利用均势赔率吸引双向对等资金，最大化抽水利润。散户在大众题材下分歧明显，庄家无明显偏向偏护。",
         "smoke_screens": [
           "平赔拉锯可能掩盖双方战术性握手言和的意图。",
           "盘口水位频繁震荡涉嫌诱导散户追热，建议保持冷门防范。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '反基本面冷门 (主队不败)' 进行了实质性控赔下调（已降水至 3.81），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。"
+        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '反基本面冷门 (主队不败)' 进行了实质性控赔下调（已降水至 3.89），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。"
       },
       "intelligence": {
         "verified_news": [
@@ -11362,99 +11380,99 @@
         "half_full": "平平 或 平负",
         "upset_probability": 0.68,
         "upset_direction": "主胜/平局",
-        "kelly_conclusion": "即时返还率为 0.856。基于散户倾向（主 25% / 平 26% / 客 49%），计算得出即时凯利指数为：主胜 0.95，平局 0.83，客胜 0.83。<br/> 散户最热的【主胜】（凯利 0.95）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+        "kelly_conclusion": "即时返还率为 0.848。基于散户倾向（主 25% / 平 26% / 客 49%），计算得出即时凯利指数为：主胜 0.97，平局 0.81，客胜 0.81。<br/> 散户最热的【主胜】（凯利 0.97）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
         "upset_trend": "down"
       },
       "h2h": {
         "last_5": [
           {
-            "date": "2025-08-19",
-            "home": "汉坎",
-            "away": "特罗姆瑟",
-            "score": "3-0",
-            "half_score": "3-0",
-            "outcome": "H"
-          },
-          {
-            "date": "2025-09-18",
+            "date": "2025-09-21",
             "home": "特罗姆瑟",
             "away": "汉坎",
-            "score": "1-2",
+            "score": "1-0",
+            "half_score": "1-0",
+            "outcome": "A"
+          },
+          {
+            "date": "2025-06-22",
+            "home": "汉坎",
+            "away": "特罗姆瑟",
+            "score": "1-3",
+            "half_score": "0-1",
+            "outcome": "A"
+          },
+          {
+            "date": "2024-11-03",
+            "home": "特罗姆瑟",
+            "away": "汉坎",
+            "score": "3-3",
+            "half_score": "2-1",
+            "outcome": "D"
+          },
+          {
+            "date": "2024-07-07",
+            "home": "汉坎",
+            "away": "特罗姆瑟",
+            "score": "0-0",
+            "half_score": "0-0",
+            "outcome": "D"
+          },
+          {
+            "date": "2023-09-17",
+            "home": "特罗姆瑟",
+            "away": "汉坎",
+            "score": "2-1",
             "half_score": "1-1",
             "outcome": "H"
-          },
-          {
-            "date": "2024-12-01",
-            "home": "汉坎",
-            "away": "特罗姆瑟",
-            "score": "2-1",
-            "half_score": "0-0",
-            "outcome": "H"
-          },
-          {
-            "date": "2024-03-26",
-            "home": "特罗姆瑟",
-            "away": "汉坎",
-            "score": "0-1",
-            "half_score": "0-1",
-            "outcome": "H"
-          },
-          {
-            "date": "2023-08-06",
-            "home": "汉坎",
-            "away": "特罗姆瑟",
-            "score": "2-2",
-            "half_score": "2-2",
-            "outcome": "D"
           }
         ],
-        "avg_goals": 2.8,
+        "avg_goals": 2.6,
         "btts_rate": 0.6
       },
       "head_to_head": {
         "last_5": [
           {
-            "date": "2025-08-19",
-            "home": "汉坎",
-            "away": "特罗姆瑟",
-            "score": "3-0",
-            "half_score": "3-0",
-            "outcome": "H"
-          },
-          {
-            "date": "2025-09-18",
+            "date": "2025-09-21",
             "home": "特罗姆瑟",
             "away": "汉坎",
-            "score": "1-2",
+            "score": "1-0",
+            "half_score": "1-0",
+            "outcome": "A"
+          },
+          {
+            "date": "2025-06-22",
+            "home": "汉坎",
+            "away": "特罗姆瑟",
+            "score": "1-3",
+            "half_score": "0-1",
+            "outcome": "A"
+          },
+          {
+            "date": "2024-11-03",
+            "home": "特罗姆瑟",
+            "away": "汉坎",
+            "score": "3-3",
+            "half_score": "2-1",
+            "outcome": "D"
+          },
+          {
+            "date": "2024-07-07",
+            "home": "汉坎",
+            "away": "特罗姆瑟",
+            "score": "0-0",
+            "half_score": "0-0",
+            "outcome": "D"
+          },
+          {
+            "date": "2023-09-17",
+            "home": "特罗姆瑟",
+            "away": "汉坎",
+            "score": "2-1",
             "half_score": "1-1",
             "outcome": "H"
-          },
-          {
-            "date": "2024-12-01",
-            "home": "汉坎",
-            "away": "特罗姆瑟",
-            "score": "2-1",
-            "half_score": "0-0",
-            "outcome": "H"
-          },
-          {
-            "date": "2024-03-26",
-            "home": "特罗姆瑟",
-            "away": "汉坎",
-            "score": "0-1",
-            "half_score": "0-1",
-            "outcome": "H"
-          },
-          {
-            "date": "2023-08-06",
-            "home": "汉坎",
-            "away": "特罗姆瑟",
-            "score": "2-2",
-            "half_score": "2-2",
-            "outcome": "D"
           }
         ],
-        "avg_goals": 2.8,
+        "avg_goals": 2.6,
         "btts_rate": 0.6
       },
       "public_vs_bookmaker": [
@@ -11533,7 +11551,7 @@
           "signal": "特罗姆瑟抢分战意更浓"
         }
       },
-      "moe_score": -0.12387593849426123,
+      "moe_score": -0.1400896785604421,
       "prediction_updated": true
     },
     {
@@ -11587,6 +11605,15 @@
             "away": 3.17
           },
           "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 49% / 平 24% / 客 27%），计算得出即时凯利指数为：主胜 0.93，平局 0.84，客胜 0.86。<br/> 散户最热的【主胜】（凯利 0.93）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。"
+        },
+        {
+          "timestamp": "2026-07-18T21:45:15.098352",
+          "pinnacle": {
+            "home": 1.93,
+            "draw": 3.45,
+            "away": 3.11
+          },
+          "kelly_conclusion": "即时返还率为 0.885。基于散户倾向（主 49% / 平 24% / 客 27%），计算得出即时凯利指数为：主胜 0.95，平局 0.83，客胜 0.84。<br/> 散户最热的【主胜】（凯利 0.95）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。"
         }
       ],
       "match_context": "芬超常规赛对决。赫尔辛基坐镇主场迎接瓦萨的挑战。",
@@ -11596,7 +11623,7 @@
         "confidence": 41,
         "risk_level": "极高",
         "ev_score": 0.0,
-        "reasoning": "芬超联赛常呈现低比分拉锯，防守落位速度是决定性因素。 基本面上，赫尔辛基在【环境气候适应性】上拥有明显优势（评分 9.2 对 8.2），但瓦萨在【战意与抢分压力】上（评分 8.4 对 7.2）给主队带来制约。结合战意（主 72% / 客 84%），即时欧指 1.93 / 3.45 / 3.11 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【反基本面冷门 (客队不败)】。",
+        "reasoning": "芬超联赛常呈现低比分拉锯，防守落位速度是决定性因素。 基本面上，赫尔辛基在【环境气候适应性】上拥有明显优势（评分 9.2 对 8.2），但瓦萨在【战意与抢分压力】上（评分 8.4 对 7.2）给主队带来制约。结合战意（主 72% / 客 84%），即时欧指 1.97 / 3.38 / 3.05 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【反基本面冷门 (客队不败)】。",
         "confidence_trend": "down"
       },
       "team_stats": {
@@ -11691,14 +11718,14 @@
         "pinnacle": {
           "name": "pinnacle",
           "initial": {
+            "home": 2.01,
+            "draw": 3.31,
+            "away": 2.99
+          },
+          "current": {
             "home": 1.97,
             "draw": 3.38,
             "away": 3.05
-          },
-          "current": {
-            "home": 1.93,
-            "draw": 3.45,
-            "away": 3.11
           },
           "movement": "实时追踪"
         },
@@ -11754,33 +11781,61 @@
         "sbobet": {
           "name": "sbobet",
           "initial": {
+            "home": 2.05,
+            "draw": 3.25,
+            "away": 2.9
+          },
+          "current": {
             "home": 2.01,
             "draw": 3.31,
             "away": 2.96
-          },
-          "current": {
-            "home": 1.97,
-            "draw": 3.38,
-            "away": 3.02
           },
           "movement": "实时追踪"
         },
         "nova88": {
           "name": "nova88",
           "initial": {
+            "home": 1.97,
+            "draw": 3.35,
+            "away": 3.05
+          },
+          "current": {
             "home": 1.93,
             "draw": 3.41,
             "away": 3.11
-          },
-          "current": {
-            "home": 1.89,
-            "draw": 3.48,
-            "away": 3.17
           },
           "movement": "实时追踪"
         },
         "crown": {
           "name": "crown",
+          "initial": {
+            "home": 2.03,
+            "draw": 3.31,
+            "away": 2.96
+          },
+          "current": {
+            "home": 1.99,
+            "draw": 3.38,
+            "away": 3.02
+          },
+          "movement": "实时追踪"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 1.95,
+            "draw": 3.21,
+            "away": 3.14
+          },
+          "current": {
+            "home": 1.91,
+            "draw": 3.28,
+            "away": 3.2
+          },
+          "movement": "实时追踪"
+        },
+        "m8bet": {
+          "name": "m8bet",
           "initial": {
             "home": 1.99,
             "draw": 3.38,
@@ -11793,40 +11848,12 @@
           },
           "movement": "实时追踪"
         },
-        "hkjc": {
-          "name": "hkjc",
-          "initial": {
-            "home": 1.91,
-            "draw": 3.28,
-            "away": 3.2
-          },
-          "current": {
-            "home": 1.87,
-            "draw": 3.35,
-            "away": 3.27
-          },
-          "movement": "实时追踪"
-        },
-        "m8bet": {
-          "name": "m8bet",
-          "initial": {
-            "home": 1.95,
-            "draw": 3.45,
-            "away": 3.08
-          },
-          "current": {
-            "home": 1.91,
-            "draw": 3.52,
-            "away": 3.14
-          },
-          "movement": "实时追踪"
-        },
-        "bookmaker_intent": "当前平博主客均赔为 1.93 对 3.11，差值较小。庄家意图是利用均势赔率吸引双向对等资金，最大化抽水利润。散户在大众题材下分歧明显，庄家无明显偏向偏护。",
+        "bookmaker_intent": "当前平博主客均赔为 1.97 对 3.05，差值较小。庄家意图是利用均势赔率吸引双向对等资金，最大化抽水利润。散户在大众题材下分歧明显，庄家无明显偏向偏护。",
         "smoke_screens": [
           "平赔拉锯可能掩盖双方战术性握手言和的意图。",
           "盘口水位频繁震荡涉嫌诱导散户追热，建议保持冷门防范。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】首选的 '反基本面冷门 (客队不败)' 赔率升水至 3.11 呈阻力。结合舆情热度（大众倾向均衡），此为典型的热门诱买陷阱，庄家其实更防范相反的「主队受让或不败」剧本打出。"
+        "bookmaker_backed_script": "【庄家看好剧本】首选的 '反基本面冷门 (客队不败)' 赔率升水至 3.05 呈阻力。结合舆情热度（大众倾向均衡），此为典型的热门诱买陷阱，庄家其实更防范相反的「主队受让或不败」剧本打出。"
       },
       "intelligence": {
         "verified_news": [
@@ -11883,100 +11910,100 @@
         "half_full": "平平 或 平胜",
         "upset_probability": 0.68,
         "upset_direction": "客胜",
-        "kelly_conclusion": "即时返还率为 0.885。基于散户倾向（主 49% / 平 24% / 客 27%），计算得出即时凯利指数为：主胜 0.95，平局 0.83，客胜 0.84。<br/> 散户最热的【主胜】（凯利 0.95）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+        "kelly_conclusion": "即时返还率为 0.884。基于散户倾向（主 49% / 平 24% / 客 27%），计算得出即时凯利指数为：主胜 0.96，平局 0.81，客胜 0.82。<br/> 散户最热的【主胜】（凯利 0.96）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
         "upset_trend": "up"
       },
       "h2h": {
         "last_5": [
           {
-            "date": "2025-06-14",
-            "home": "赫尔辛基",
-            "away": "瓦萨",
-            "score": "2-0",
-            "half_score": "2-0",
+            "date": "2026-05-22",
+            "home": "瓦萨",
+            "away": "赫尔辛基",
+            "score": "2-1",
+            "half_score": "1-0",
             "outcome": "H"
           },
           {
-            "date": "2025-05-08",
+            "date": "2025-07-05",
             "home": "瓦萨",
             "away": "赫尔辛基",
-            "score": "3-1",
-            "half_score": "1-0",
-            "outcome": "A"
-          },
-          {
-            "date": "2024-05-17",
-            "home": "赫尔辛基",
-            "away": "瓦萨",
             "score": "0-2",
             "half_score": "0-1",
             "outcome": "A"
           },
           {
-            "date": "2024-12-21",
-            "home": "瓦萨",
-            "away": "赫尔辛基",
-            "score": "2-0",
-            "half_score": "0-0",
-            "outcome": "A"
-          },
-          {
-            "date": "2023-08-26",
+            "date": "2025-04-26",
             "home": "赫尔辛基",
             "away": "瓦萨",
-            "score": "2-0",
-            "half_score": "1-0",
+            "score": "3-1",
+            "half_score": "1-1",
             "outcome": "H"
+          },
+          {
+            "date": "2024-09-20",
+            "home": "瓦萨",
+            "away": "赫尔辛基",
+            "score": "1-1",
+            "half_score": "0-0",
+            "outcome": "D"
+          },
+          {
+            "date": "2024-09-01",
+            "home": "瓦萨",
+            "away": "赫尔辛基",
+            "score": "1-3",
+            "half_score": "0-2",
+            "outcome": "A"
           }
         ],
-        "avg_goals": 2.4,
-        "btts_rate": 0.2
+        "avg_goals": 3.0,
+        "btts_rate": 0.8
       },
       "head_to_head": {
         "last_5": [
           {
-            "date": "2025-06-14",
-            "home": "赫尔辛基",
-            "away": "瓦萨",
-            "score": "2-0",
-            "half_score": "2-0",
+            "date": "2026-05-22",
+            "home": "瓦萨",
+            "away": "赫尔辛基",
+            "score": "2-1",
+            "half_score": "1-0",
             "outcome": "H"
           },
           {
-            "date": "2025-05-08",
+            "date": "2025-07-05",
             "home": "瓦萨",
             "away": "赫尔辛基",
-            "score": "3-1",
-            "half_score": "1-0",
-            "outcome": "A"
-          },
-          {
-            "date": "2024-05-17",
-            "home": "赫尔辛基",
-            "away": "瓦萨",
             "score": "0-2",
             "half_score": "0-1",
             "outcome": "A"
           },
           {
-            "date": "2024-12-21",
-            "home": "瓦萨",
-            "away": "赫尔辛基",
-            "score": "2-0",
-            "half_score": "0-0",
-            "outcome": "A"
-          },
-          {
-            "date": "2023-08-26",
+            "date": "2025-04-26",
             "home": "赫尔辛基",
             "away": "瓦萨",
-            "score": "2-0",
-            "half_score": "1-0",
+            "score": "3-1",
+            "half_score": "1-1",
             "outcome": "H"
+          },
+          {
+            "date": "2024-09-20",
+            "home": "瓦萨",
+            "away": "赫尔辛基",
+            "score": "1-1",
+            "half_score": "0-0",
+            "outcome": "D"
+          },
+          {
+            "date": "2024-09-01",
+            "home": "瓦萨",
+            "away": "赫尔辛基",
+            "score": "1-3",
+            "half_score": "0-2",
+            "outcome": "A"
           }
         ],
-        "avg_goals": 2.4,
-        "btts_rate": 0.2
+        "avg_goals": 3.0,
+        "btts_rate": 0.8
       },
       "public_vs_bookmaker": [
         {
@@ -12054,7 +12081,7 @@
           "signal": "瓦萨抢分战意更浓"
         }
       },
-      "moe_score": 0.30383347959643814,
+      "moe_score": 0.28685950448056885,
       "prediction_updated": true
     },
     {
@@ -12108,6 +12135,15 @@
             "away": 2.27
           },
           "kelly_conclusion": "即时返还率为 0.885。基于散户倾向（主 38% / 平 27% / 客 35%），计算得出即时凯利指数为：主胜 1.02，平局 0.85，客胜 0.79。<br/> 散户最热的【主胜】（凯利 1.02）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。"
+        },
+        {
+          "timestamp": "2026-07-18T21:45:15.098932",
+          "pinnacle": {
+            "home": 2.74,
+            "draw": 3.09,
+            "away": 2.22
+          },
+          "kelly_conclusion": "即时返还率为 0.878。基于散户倾向（主 38% / 平 27% / 客 35%），计算得出即时凯利指数为：主胜 1.04，平局 0.83，客胜 0.78。<br/> 散户最热的【主胜】（凯利 1.04）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。"
         }
       ],
       "match_context": "瑞超常规赛对决。索尔纳坐镇主场迎接盖斯的挑战。",
@@ -12117,7 +12153,7 @@
         "confidence": 33,
         "risk_level": "极高",
         "ev_score": 0.0,
-        "reasoning": "瑞超联赛的人工草皮主场优势极其明显，客队适应常面临考验。 基本面上，索尔纳在【球队基础硬实力】上拥有明显优势（评分 9.1 对 8.0），但盖斯在【近期状态与动能】上（评分 8.7 对 7.7）给主队带来制约。结合战意（主 74% / 客 74%），即时欧指 2.74 / 3.09 / 2.22 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败】。",
+        "reasoning": "瑞超联赛的人工草皮主场优势极其明显，客队适应常面临考验。 基本面上，索尔纳在【球队基础硬实力】上拥有明显优势（评分 9.1 对 8.0），但盖斯在【近期状态与动能】上（评分 8.7 对 7.7）给主队带来制约。结合战意（主 74% / 客 74%），即时欧指主胜由 2.85 降至 2.79，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败】。",
         "confidence_trend": "up"
       },
       "team_stats": {
@@ -12212,14 +12248,14 @@
         "pinnacle": {
           "name": "pinnacle",
           "initial": {
+            "home": 2.85,
+            "draw": 2.97,
+            "away": 2.14
+          },
+          "current": {
             "home": 2.79,
             "draw": 3.03,
             "away": 2.18
-          },
-          "current": {
-            "home": 2.74,
-            "draw": 3.09,
-            "away": 2.22
           },
           "movement": "实时追踪"
         },
@@ -12275,79 +12311,79 @@
         "sbobet": {
           "name": "sbobet",
           "initial": {
+            "home": 2.9,
+            "draw": 2.91,
+            "away": 2.07
+          },
+          "current": {
             "home": 2.85,
             "draw": 2.97,
             "away": 2.11
-          },
-          "current": {
-            "home": 2.79,
-            "draw": 3.03,
-            "away": 2.15
           },
           "movement": "实时追踪"
         },
         "nova88": {
           "name": "nova88",
           "initial": {
-            "home": 2.74,
-            "draw": 3.06,
-            "away": 2.22
+            "home": 2.79,
+            "draw": 3.0,
+            "away": 2.18
           },
           "current": {
-            "home": 2.69,
-            "draw": 3.12,
-            "away": 2.26
+            "home": 2.73,
+            "draw": 3.06,
+            "away": 2.22
           },
           "movement": "实时追踪"
         },
         "crown": {
           "name": "crown",
           "initial": {
-            "home": 2.82,
-            "draw": 3.03,
-            "away": 2.15
+            "home": 2.87,
+            "draw": 2.97,
+            "away": 2.12
           },
           "current": {
-            "home": 2.77,
-            "draw": 3.09,
-            "away": 2.2
+            "home": 2.82,
+            "draw": 3.03,
+            "away": 2.16
           },
           "movement": "实时追踪"
         },
         "hkjc": {
           "name": "hkjc",
           "initial": {
-            "home": 2.71,
-            "draw": 2.94,
-            "away": 2.28
+            "home": 2.76,
+            "draw": 2.88,
+            "away": 2.24
           },
           "current": {
-            "home": 2.66,
-            "draw": 3.0,
-            "away": 2.33
+            "home": 2.71,
+            "draw": 2.94,
+            "away": 2.29
           },
           "movement": "实时追踪"
         },
         "m8bet": {
           "name": "m8bet",
           "initial": {
-            "home": 2.77,
+            "home": 2.82,
+            "draw": 3.03,
+            "away": 2.16
+          },
+          "current": {
+            "home": 2.76,
             "draw": 3.09,
             "away": 2.2
           },
-          "current": {
-            "home": 2.71,
-            "draw": 3.15,
-            "away": 2.24
-          },
           "movement": "实时追踪"
         },
-        "bookmaker_intent": "当前平博主客均赔为 2.74 对 2.22，差值较小。庄家意图是利用均势赔率吸引双向对等资金，最大化抽水利润。散户在大众题材下分歧明显，庄家无明显偏向偏护。",
+        "bookmaker_intent": "当前平博主客均赔为 2.79 对 2.18，差值较小。庄家意图是利用均势赔率吸引双向对等资金，最大化抽水利润。散户在大众题材下分歧明显，庄家无明显偏向偏护。",
         "smoke_screens": [
           "平赔拉锯可能掩盖双方战术性握手言和的意图。",
           "盘口水位频繁震荡涉嫌诱导散户追热，建议保持冷门防范。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主不败' 进行了实质性控赔下调（已降水至 2.74），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。"
+        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主不败' 进行了实质性控赔下调（已降水至 2.79），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。"
       },
       "intelligence": {
         "verified_news": [
@@ -12399,34 +12435,26 @@
         "upset": "分出胜负",
         "aggressive": "比分 2-2",
         "conservative": "让胜 (主+1)",
-        "most_likely_score": "3-2 或 4-2 或 2-2",
+        "most_likely_score": "2-1 或 3-1 或 1-1",
         "over_under": "大 2.5",
         "half_full": "平平 或 平负",
-        "upset_probability": 0.29,
+        "upset_probability": 0.3,
         "upset_direction": "客胜",
-        "kelly_conclusion": "即时返还率为 0.878。基于散户倾向（主 38% / 平 27% / 客 35%），计算得出即时凯利指数为：主胜 1.04，平局 0.83，客胜 0.78。<br/> 散户最热的【主胜】（凯利 1.04）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+        "kelly_conclusion": "即时返还率为 0.872。基于散户倾向（主 38% / 平 27% / 客 35%），计算得出即时凯利指数为：主胜 1.06，平局 0.82，客胜 0.76。<br/> 散户最热的【主胜】（凯利 1.06）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
         "upset_trend": "down"
       },
       "h2h": {
         "last_5": [
           {
-            "date": "2025-09-23",
-            "home": "索尔纳",
-            "away": "盖斯",
-            "score": "1-2",
-            "half_score": "0-1",
-            "outcome": "A"
-          },
-          {
-            "date": "2025-03-25",
+            "date": "2026-03-14",
             "home": "盖斯",
             "away": "索尔纳",
-            "score": "1-0",
-            "half_score": "1-0",
-            "outcome": "A"
+            "score": "3-2",
+            "half_score": "1-1",
+            "outcome": "H"
           },
           {
-            "date": "2024-11-18",
+            "date": "2025-09-28",
             "home": "索尔纳",
             "away": "盖斯",
             "score": "1-1",
@@ -12434,45 +12462,45 @@
             "outcome": "D"
           },
           {
-            "date": "2024-06-23",
+            "date": "2025-03-31",
             "home": "盖斯",
             "away": "索尔纳",
-            "score": "2-3",
-            "half_score": "0-3",
-            "outcome": "H"
+            "score": "0-1",
+            "half_score": "0-0",
+            "outcome": "A"
           },
           {
-            "date": "2023-03-16",
+            "date": "2024-07-29",
             "home": "索尔纳",
             "away": "盖斯",
-            "score": "1-0",
+            "score": "0-1",
+            "half_score": "0-1",
+            "outcome": "A"
+          },
+          {
+            "date": "2024-07-22",
+            "home": "盖斯",
+            "away": "索尔纳",
+            "score": "2-0",
             "half_score": "1-0",
             "outcome": "H"
           }
         ],
-        "avg_goals": 2.4,
-        "btts_rate": 0.6
+        "avg_goals": 2.2,
+        "btts_rate": 0.4
       },
       "head_to_head": {
         "last_5": [
           {
-            "date": "2025-09-23",
-            "home": "索尔纳",
-            "away": "盖斯",
-            "score": "1-2",
-            "half_score": "0-1",
-            "outcome": "A"
-          },
-          {
-            "date": "2025-03-25",
+            "date": "2026-03-14",
             "home": "盖斯",
             "away": "索尔纳",
-            "score": "1-0",
-            "half_score": "1-0",
-            "outcome": "A"
+            "score": "3-2",
+            "half_score": "1-1",
+            "outcome": "H"
           },
           {
-            "date": "2024-11-18",
+            "date": "2025-09-28",
             "home": "索尔纳",
             "away": "盖斯",
             "score": "1-1",
@@ -12480,24 +12508,32 @@
             "outcome": "D"
           },
           {
-            "date": "2024-06-23",
+            "date": "2025-03-31",
             "home": "盖斯",
             "away": "索尔纳",
-            "score": "2-3",
-            "half_score": "0-3",
-            "outcome": "H"
+            "score": "0-1",
+            "half_score": "0-0",
+            "outcome": "A"
           },
           {
-            "date": "2023-03-16",
+            "date": "2024-07-29",
             "home": "索尔纳",
             "away": "盖斯",
-            "score": "1-0",
+            "score": "0-1",
+            "half_score": "0-1",
+            "outcome": "A"
+          },
+          {
+            "date": "2024-07-22",
+            "home": "盖斯",
+            "away": "索尔纳",
+            "score": "2-0",
             "half_score": "1-0",
             "outcome": "H"
           }
         ],
-        "avg_goals": 2.4,
-        "btts_rate": 0.6
+        "avg_goals": 2.2,
+        "btts_rate": 0.4
       },
       "public_vs_bookmaker": [
         {
@@ -12575,7 +12611,7 @@
           "signal": "均有抢分期望"
         }
       },
-      "moe_score": -0.046615583596501343,
+      "moe_score": -0.05649581745736704,
       "prediction_updated": true
     },
     {
@@ -12629,6 +12665,15 @@
             "away": 5.5
           },
           "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 61% / 平 21% / 客 18%），计算得出即时凯利指数为：主胜 0.85，平局 0.90，客胜 0.99。<br/> 散户最热的【客胜】（凯利 0.99）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>主队受让或不败</strong> 的冷门路线。"
+        },
+        {
+          "timestamp": "2026-07-18T21:45:15.099745",
+          "pinnacle": {
+            "home": 1.43,
+            "draw": 4.2,
+            "away": 5.2
+          },
+          "kelly_conclusion": "即时返还率为 0.885。基于散户倾向（主 61% / 平 21% / 客 18%），计算得出即时凯利指数为：主胜 0.87，平局 0.88，客胜 0.94。<br/> 散户最热的【客胜】（凯利 0.94）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>主队受让或不败</strong> 的冷门路线。"
         }
       ],
       "match_context": "挪超常规赛对决。利勒斯特坐镇主场迎接奥斯KFUM的挑战。",
@@ -12913,94 +12958,94 @@
       "h2h": {
         "last_5": [
           {
-            "date": "2025-05-27",
+            "date": "2026-02-07",
             "home": "利勒斯特",
             "away": "奥斯KFUM",
-            "score": "2-1",
-            "half_score": "0-0",
+            "score": "7-2",
+            "half_score": "4-1",
             "outcome": "H"
           },
           {
-            "date": "2025-10-23",
-            "home": "奥斯KFUM",
-            "away": "利勒斯特",
-            "score": "1-3",
+            "date": "2025-06-25",
+            "home": "利勒斯特",
+            "away": "奥斯KFUM",
+            "score": "2-0",
             "half_score": "1-0",
             "outcome": "H"
           },
           {
-            "date": "2024-08-22",
+            "date": "2025-02-28",
             "home": "利勒斯特",
             "away": "奥斯KFUM",
-            "score": "2-2",
-            "half_score": "1-2",
-            "outcome": "D"
-          },
-          {
-            "date": "2024-05-07",
-            "home": "奥斯KFUM",
-            "away": "利勒斯特",
-            "score": "2-0",
-            "half_score": "2-0",
+            "score": "0-5",
+            "half_score": "0-3",
             "outcome": "A"
           },
           {
-            "date": "2023-03-02",
-            "home": "利勒斯特",
-            "away": "奥斯KFUM",
+            "date": "2024-08-30",
+            "home": "奥斯KFUM",
+            "away": "利勒斯特",
             "score": "2-0",
             "half_score": "1-0",
             "outcome": "H"
+          },
+          {
+            "date": "2024-06-27",
+            "home": "利勒斯特",
+            "away": "奥斯KFUM",
+            "score": "2-1",
+            "half_score": "1-1",
+            "outcome": "H"
           }
         ],
-        "avg_goals": 3.0,
-        "btts_rate": 0.6
+        "avg_goals": 4.2,
+        "btts_rate": 0.4
       },
       "head_to_head": {
         "last_5": [
           {
-            "date": "2025-05-27",
+            "date": "2026-02-07",
             "home": "利勒斯特",
             "away": "奥斯KFUM",
-            "score": "2-1",
-            "half_score": "0-0",
+            "score": "7-2",
+            "half_score": "4-1",
             "outcome": "H"
           },
           {
-            "date": "2025-10-23",
-            "home": "奥斯KFUM",
-            "away": "利勒斯特",
-            "score": "1-3",
+            "date": "2025-06-25",
+            "home": "利勒斯特",
+            "away": "奥斯KFUM",
+            "score": "2-0",
             "half_score": "1-0",
             "outcome": "H"
           },
           {
-            "date": "2024-08-22",
+            "date": "2025-02-28",
             "home": "利勒斯特",
             "away": "奥斯KFUM",
-            "score": "2-2",
-            "half_score": "1-2",
-            "outcome": "D"
-          },
-          {
-            "date": "2024-05-07",
-            "home": "奥斯KFUM",
-            "away": "利勒斯特",
-            "score": "2-0",
-            "half_score": "2-0",
+            "score": "0-5",
+            "half_score": "0-3",
             "outcome": "A"
           },
           {
-            "date": "2023-03-02",
-            "home": "利勒斯特",
-            "away": "奥斯KFUM",
+            "date": "2024-08-30",
+            "home": "奥斯KFUM",
+            "away": "利勒斯特",
             "score": "2-0",
             "half_score": "1-0",
             "outcome": "H"
+          },
+          {
+            "date": "2024-06-27",
+            "home": "利勒斯特",
+            "away": "奥斯KFUM",
+            "score": "2-1",
+            "half_score": "1-1",
+            "outcome": "H"
           }
         ],
-        "avg_goals": 3.0,
-        "btts_rate": 0.6
+        "avg_goals": 4.2,
+        "btts_rate": 0.4
       },
       "public_vs_bookmaker": [
         {
@@ -13132,6 +13177,15 @@
             "away": 1.92
           },
           "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 31% / 平 25% / 客 44%），计算得出即时凯利指数为：主胜 0.96，平局 0.88，客胜 0.84。<br/> 散户最热的【主胜】（凯利 0.96）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。"
+        },
+        {
+          "timestamp": "2026-07-18T21:45:15.100498",
+          "pinnacle": {
+            "home": 3.2,
+            "draw": 3.55,
+            "away": 1.87
+          },
+          "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 31% / 平 25% / 客 44%），计算得出即时凯利指数为：主胜 0.99，平局 0.89，客胜 0.82。<br/> 散户最热的【主胜】（凯利 0.99）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。"
         }
       ],
       "match_context": "挪超常规赛对决。斯达坐镇主场迎接罗森博格的挑战。",
@@ -13403,11 +13457,11 @@
       "conclusions": {
         "mainstream": "平局拉锯之势",
         "upset": "分出胜负",
-        "aggressive": "比分 2-2",
+        "aggressive": "比分 1-2",
         "conservative": "负",
-        "most_likely_score": "2-3 或 2-4 或 2-2",
+        "most_likely_score": "1-2 或 1-3 或 1-1",
         "over_under": "大 2.5",
-        "half_full": "平平 或 平负",
+        "half_full": "平负 或 负负",
         "upset_probability": 0.37,
         "upset_direction": "客胜",
         "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 31% / 平 25% / 客 44%），计算得出即时凯利指数为：主胜 0.99，平局 0.89，客胜 0.82。<br/> 散户最热的【主胜】（凯利 0.99）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
@@ -13416,94 +13470,94 @@
       "h2h": {
         "last_5": [
           {
-            "date": "2025-08-03",
-            "home": "斯达",
-            "away": "罗森博格",
+            "date": "2026-02-24",
+            "home": "罗森博格",
+            "away": "斯达",
             "score": "2-1",
-            "half_score": "2-0",
+            "half_score": "1-0",
             "outcome": "H"
           },
           {
-            "date": "2025-10-07",
+            "date": "2020-11-01",
             "home": "罗森博格",
             "away": "斯达",
             "score": "1-0",
-            "half_score": "1-0",
-            "outcome": "A"
+            "half_score": "0-0",
+            "outcome": "H"
           },
           {
-            "date": "2024-08-27",
+            "date": "2020-07-16",
             "home": "斯达",
             "away": "罗森博格",
-            "score": "1-2",
-            "half_score": "1-1",
+            "score": "0-0",
+            "half_score": "0-0",
+            "outcome": "D"
+          },
+          {
+            "date": "2018-11-11",
+            "home": "斯达",
+            "away": "罗森博格",
+            "score": "0-1",
+            "half_score": "0-1",
             "outcome": "A"
           },
           {
-            "date": "2024-11-23",
+            "date": "2018-11-01",
             "home": "罗森博格",
             "away": "斯达",
-            "score": "3-0",
-            "half_score": "0-0",
-            "outcome": "A"
-          },
-          {
-            "date": "2023-05-21",
-            "home": "斯达",
-            "away": "罗森博格",
             "score": "2-1",
-            "half_score": "0-0",
+            "half_score": "0-1",
             "outcome": "H"
           }
         ],
-        "avg_goals": 2.6,
-        "btts_rate": 0.6
+        "avg_goals": 1.8,
+        "btts_rate": 0.4
       },
       "head_to_head": {
         "last_5": [
           {
-            "date": "2025-08-03",
-            "home": "斯达",
-            "away": "罗森博格",
+            "date": "2026-02-24",
+            "home": "罗森博格",
+            "away": "斯达",
             "score": "2-1",
-            "half_score": "2-0",
+            "half_score": "1-0",
             "outcome": "H"
           },
           {
-            "date": "2025-10-07",
+            "date": "2020-11-01",
             "home": "罗森博格",
             "away": "斯达",
             "score": "1-0",
-            "half_score": "1-0",
-            "outcome": "A"
+            "half_score": "0-0",
+            "outcome": "H"
           },
           {
-            "date": "2024-08-27",
+            "date": "2020-07-16",
             "home": "斯达",
             "away": "罗森博格",
-            "score": "1-2",
-            "half_score": "1-1",
+            "score": "0-0",
+            "half_score": "0-0",
+            "outcome": "D"
+          },
+          {
+            "date": "2018-11-11",
+            "home": "斯达",
+            "away": "罗森博格",
+            "score": "0-1",
+            "half_score": "0-1",
             "outcome": "A"
           },
           {
-            "date": "2024-11-23",
+            "date": "2018-11-01",
             "home": "罗森博格",
             "away": "斯达",
-            "score": "3-0",
-            "half_score": "0-0",
-            "outcome": "A"
-          },
-          {
-            "date": "2023-05-21",
-            "home": "斯达",
-            "away": "罗森博格",
             "score": "2-1",
-            "half_score": "0-0",
+            "half_score": "0-1",
             "outcome": "H"
           }
         ],
-        "avg_goals": 2.6,
-        "btts_rate": 0.6
+        "avg_goals": 1.8,
+        "btts_rate": 0.4
       },
       "public_vs_bookmaker": [
         {
@@ -13629,6 +13683,15 @@
         },
         {
           "timestamp": "2026-07-18T21:29:38.166227",
+          "pinnacle": {
+            "home": 2.85,
+            "draw": 3.65,
+            "away": 1.98
+          },
+          "kelly_conclusion": "即时返还率为 0.885。基于散户倾向（主 32% / 平 25% / 客 43%），计算得出即时凯利指数为：主胜 0.91，平局 0.91，客胜 0.85。<br/> 散户最热的【平局】（凯利 0.91）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>分出胜负</strong> 的冷门路线。"
+        },
+        {
+          "timestamp": "2026-07-18T21:45:15.101269",
           "pinnacle": {
             "home": 2.85,
             "draw": 3.65,
@@ -13906,9 +13969,9 @@
       "conclusions": {
         "mainstream": "平局拉锯之势",
         "upset": "分出胜负",
-        "aggressive": "比分 3-3",
+        "aggressive": "比分 2-2",
         "conservative": "负",
-        "most_likely_score": "2-3 或 2-4 或 2-2",
+        "most_likely_score": "1-2 或 1-3 或 1-1",
         "over_under": "大 2.5",
         "half_full": "平平 或 平胜",
         "upset_probability": 0.31,
@@ -13919,94 +13982,94 @@
       "h2h": {
         "last_5": [
           {
-            "date": "2025-11-10",
+            "date": "2026-02-25",
             "home": "克里斯蒂",
             "away": "萨普斯堡",
-            "score": "1-1",
-            "half_score": "1-1",
-            "outcome": "D"
+            "score": "0-1",
+            "half_score": "0-0",
+            "outcome": "A"
           },
           {
-            "date": "2025-10-03",
-            "home": "萨普斯堡",
-            "away": "克里斯蒂",
-            "score": "1-2",
+            "date": "2025-08-25",
+            "home": "克里斯蒂",
+            "away": "萨普斯堡",
+            "score": "1-0",
             "half_score": "0-0",
             "outcome": "H"
           },
           {
-            "date": "2024-09-24",
+            "date": "2025-07-13",
             "home": "克里斯蒂",
             "away": "萨普斯堡",
-            "score": "1-0",
-            "half_score": "1-0",
-            "outcome": "H"
+            "score": "0-0",
+            "half_score": "0-0",
+            "outcome": "D"
           },
           {
-            "date": "2024-06-04",
-            "home": "萨普斯堡",
-            "away": "克里斯蒂",
-            "score": "1-2",
-            "half_score": "0-1",
-            "outcome": "H"
-          },
-          {
-            "date": "2023-12-17",
+            "date": "2024-09-15",
             "home": "克里斯蒂",
             "away": "萨普斯堡",
             "score": "2-0",
             "half_score": "1-0",
             "outcome": "H"
+          },
+          {
+            "date": "2024-06-02",
+            "home": "萨普斯堡",
+            "away": "克里斯蒂",
+            "score": "0-0",
+            "half_score": "0-0",
+            "outcome": "D"
           }
         ],
-        "avg_goals": 2.2,
-        "btts_rate": 0.6
+        "avg_goals": 0.8,
+        "btts_rate": 0.0
       },
       "head_to_head": {
         "last_5": [
           {
-            "date": "2025-11-10",
+            "date": "2026-02-25",
             "home": "克里斯蒂",
             "away": "萨普斯堡",
-            "score": "1-1",
-            "half_score": "1-1",
-            "outcome": "D"
+            "score": "0-1",
+            "half_score": "0-0",
+            "outcome": "A"
           },
           {
-            "date": "2025-10-03",
-            "home": "萨普斯堡",
-            "away": "克里斯蒂",
-            "score": "1-2",
+            "date": "2025-08-25",
+            "home": "克里斯蒂",
+            "away": "萨普斯堡",
+            "score": "1-0",
             "half_score": "0-0",
             "outcome": "H"
           },
           {
-            "date": "2024-09-24",
+            "date": "2025-07-13",
             "home": "克里斯蒂",
             "away": "萨普斯堡",
-            "score": "1-0",
-            "half_score": "1-0",
-            "outcome": "H"
+            "score": "0-0",
+            "half_score": "0-0",
+            "outcome": "D"
           },
           {
-            "date": "2024-06-04",
-            "home": "萨普斯堡",
-            "away": "克里斯蒂",
-            "score": "1-2",
-            "half_score": "0-1",
-            "outcome": "H"
-          },
-          {
-            "date": "2023-12-17",
+            "date": "2024-09-15",
             "home": "克里斯蒂",
             "away": "萨普斯堡",
             "score": "2-0",
             "half_score": "1-0",
             "outcome": "H"
+          },
+          {
+            "date": "2024-06-02",
+            "home": "萨普斯堡",
+            "away": "克里斯蒂",
+            "score": "0-0",
+            "half_score": "0-0",
+            "outcome": "D"
           }
         ],
-        "avg_goals": 2.2,
-        "btts_rate": 0.6
+        "avg_goals": 0.8,
+        "btts_rate": 0.0
       },
       "public_vs_bookmaker": [
         {
@@ -14132,6 +14195,15 @@
         },
         {
           "timestamp": "2026-07-18T21:29:38.166908",
+          "pinnacle": {
+            "home": 2.08,
+            "draw": 3.3,
+            "away": 2.9
+          },
+          "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 43% / 平 27% / 客 30%），计算得出即时凯利指数为：主胜 0.89，平局 0.89，客胜 0.87。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>客胜</strong> 剧本。"
+        },
+        {
+          "timestamp": "2026-07-18T21:45:15.102037",
           "pinnacle": {
             "home": 2.08,
             "draw": 3.3,
@@ -14422,94 +14494,94 @@
       "h2h": {
         "last_5": [
           {
-            "date": "2025-12-02",
-            "home": "AC奥卢",
-            "away": "赫尔火花",
-            "score": "0-3",
-            "half_score": "0-3",
-            "outcome": "A"
-          },
-          {
-            "date": "2025-06-05",
+            "date": "2026-04-04",
             "home": "赫尔火花",
             "away": "AC奥卢",
-            "score": "2-1",
-            "half_score": "0-1",
-            "outcome": "A"
-          },
-          {
-            "date": "2024-12-16",
-            "home": "AC奥卢",
-            "away": "赫尔火花",
-            "score": "1-0",
-            "half_score": "1-0",
-            "outcome": "H"
-          },
-          {
-            "date": "2024-11-08",
-            "home": "赫尔火花",
-            "away": "AC奥卢",
-            "score": "0-2",
+            "score": "1-5",
             "half_score": "0-2",
+            "outcome": "A"
+          },
+          {
+            "date": "2025-08-25",
+            "home": "赫尔火花",
+            "away": "AC奥卢",
+            "score": "3-2",
+            "half_score": "1-1",
             "outcome": "H"
           },
           {
-            "date": "2023-09-06",
+            "date": "2025-05-10",
             "home": "AC奥卢",
             "away": "赫尔火花",
-            "score": "3-2",
-            "half_score": "2-0",
+            "score": "2-3",
+            "half_score": "1-2",
+            "outcome": "A"
+          },
+          {
+            "date": "2024-09-27",
+            "home": "赫尔火花",
+            "away": "AC奥卢",
+            "score": "1-0",
+            "half_score": "0-0",
+            "outcome": "H"
+          },
+          {
+            "date": "2024-08-18",
+            "home": "赫尔火花",
+            "away": "AC奥卢",
+            "score": "2-0",
+            "half_score": "1-0",
             "outcome": "H"
           }
         ],
-        "avg_goals": 2.8,
-        "btts_rate": 0.4
+        "avg_goals": 3.6,
+        "btts_rate": 0.6
       },
       "head_to_head": {
         "last_5": [
           {
-            "date": "2025-12-02",
-            "home": "AC奥卢",
-            "away": "赫尔火花",
-            "score": "0-3",
-            "half_score": "0-3",
-            "outcome": "A"
-          },
-          {
-            "date": "2025-06-05",
+            "date": "2026-04-04",
             "home": "赫尔火花",
             "away": "AC奥卢",
-            "score": "2-1",
-            "half_score": "0-1",
-            "outcome": "A"
-          },
-          {
-            "date": "2024-12-16",
-            "home": "AC奥卢",
-            "away": "赫尔火花",
-            "score": "1-0",
-            "half_score": "1-0",
-            "outcome": "H"
-          },
-          {
-            "date": "2024-11-08",
-            "home": "赫尔火花",
-            "away": "AC奥卢",
-            "score": "0-2",
+            "score": "1-5",
             "half_score": "0-2",
+            "outcome": "A"
+          },
+          {
+            "date": "2025-08-25",
+            "home": "赫尔火花",
+            "away": "AC奥卢",
+            "score": "3-2",
+            "half_score": "1-1",
             "outcome": "H"
           },
           {
-            "date": "2023-09-06",
+            "date": "2025-05-10",
             "home": "AC奥卢",
             "away": "赫尔火花",
-            "score": "3-2",
-            "half_score": "2-0",
+            "score": "2-3",
+            "half_score": "1-2",
+            "outcome": "A"
+          },
+          {
+            "date": "2024-09-27",
+            "home": "赫尔火花",
+            "away": "AC奥卢",
+            "score": "1-0",
+            "half_score": "0-0",
+            "outcome": "H"
+          },
+          {
+            "date": "2024-08-18",
+            "home": "赫尔火花",
+            "away": "AC奥卢",
+            "score": "2-0",
+            "half_score": "1-0",
             "outcome": "H"
           }
         ],
-        "avg_goals": 2.8,
-        "btts_rate": 0.4
+        "avg_goals": 3.6,
+        "btts_rate": 0.6
       },
       "public_vs_bookmaker": [
         {
@@ -14641,6 +14713,15 @@
             "away": 2.44
           },
           "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 32% / 平 26% / 客 42%），计算得出即时凯利指数为：主胜 0.76，平局 0.87，客胜 1.02。<br/> 散户最热的【客胜】（凯利 1.02）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>主队受让或不败</strong> 的冷门路线。"
+        },
+        {
+          "timestamp": "2026-07-18T21:45:15.102833",
+          "pinnacle": {
+            "home": 2.32,
+            "draw": 3.35,
+            "away": 2.5
+          },
+          "kelly_conclusion": "即时返还率为 0.885。基于散户倾向（主 32% / 平 26% / 客 42%），计算得出即时凯利指数为：主胜 0.74，平局 0.87，客胜 1.05。<br/> 散户最热的【客胜】（凯利 1.05）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>主队受让或不败</strong> 的冷门路线。"
         }
       ],
       "match_context": "芬超常规赛对决。塞伊奈坐镇主场迎接库奥皮奥的挑战。",
@@ -14912,11 +14993,11 @@
       "conclusions": {
         "mainstream": "平局拉锯之势",
         "upset": "分出胜负",
-        "aggressive": "比分 2-2",
+        "aggressive": "比分 1-3",
         "conservative": "让胜 (主+1)",
-        "most_likely_score": "1-1 或 0-0",
+        "most_likely_score": "1-2 或 1-1",
         "over_under": "大 2.5",
-        "half_full": "平平 或 平负",
+        "half_full": "平负 或 负负",
         "upset_probability": 0.22,
         "upset_direction": "客胜",
         "kelly_conclusion": "即时返还率为 0.885。基于散户倾向（主 32% / 平 26% / 客 42%），计算得出即时凯利指数为：主胜 0.74，平局 0.87，客胜 1.05。<br/> 散户最热的【客胜】（凯利 1.05）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>主队受让或不败</strong> 的冷门路线。",
@@ -14925,39 +15006,39 @@
       "h2h": {
         "last_5": [
           {
-            "date": "2025-06-06",
-            "home": "塞伊奈",
-            "away": "库奥皮奥",
-            "score": "0-1",
-            "half_score": "0-1",
-            "outcome": "A"
-          },
-          {
-            "date": "2025-08-03",
+            "date": "2026-05-08",
             "home": "库奥皮奥",
             "away": "塞伊奈",
-            "score": "2-1",
-            "half_score": "1-0",
-            "outcome": "A"
-          },
-          {
-            "date": "2024-11-02",
-            "home": "塞伊奈",
-            "away": "库奥皮奥",
             "score": "0-0",
             "half_score": "0-0",
             "outcome": "D"
           },
           {
-            "date": "2024-05-15",
-            "home": "库奥皮奥",
-            "away": "塞伊奈",
-            "score": "0-1",
-            "half_score": "0-0",
+            "date": "2026-02-07",
+            "home": "塞伊奈",
+            "away": "库奥皮奥",
+            "score": "3-0",
+            "half_score": "1-0",
             "outcome": "H"
           },
           {
-            "date": "2023-05-27",
+            "date": "2025-10-27",
+            "home": "塞伊奈",
+            "away": "库奥皮奥",
+            "score": "0-1",
+            "half_score": "0-0",
+            "outcome": "A"
+          },
+          {
+            "date": "2025-09-23",
+            "home": "库奥皮奥",
+            "away": "塞伊奈",
+            "score": "3-2",
+            "half_score": "2-1",
+            "outcome": "H"
+          },
+          {
+            "date": "2025-08-31",
             "home": "塞伊奈",
             "away": "库奥皮奥",
             "score": "1-1",
@@ -14965,45 +15046,45 @@
             "outcome": "D"
           }
         ],
-        "avg_goals": 1.4,
+        "avg_goals": 2.4,
         "btts_rate": 0.4
       },
       "head_to_head": {
         "last_5": [
           {
-            "date": "2025-06-06",
-            "home": "塞伊奈",
-            "away": "库奥皮奥",
-            "score": "0-1",
-            "half_score": "0-1",
-            "outcome": "A"
-          },
-          {
-            "date": "2025-08-03",
+            "date": "2026-05-08",
             "home": "库奥皮奥",
             "away": "塞伊奈",
-            "score": "2-1",
-            "half_score": "1-0",
-            "outcome": "A"
-          },
-          {
-            "date": "2024-11-02",
-            "home": "塞伊奈",
-            "away": "库奥皮奥",
             "score": "0-0",
             "half_score": "0-0",
             "outcome": "D"
           },
           {
-            "date": "2024-05-15",
-            "home": "库奥皮奥",
-            "away": "塞伊奈",
-            "score": "0-1",
-            "half_score": "0-0",
+            "date": "2026-02-07",
+            "home": "塞伊奈",
+            "away": "库奥皮奥",
+            "score": "3-0",
+            "half_score": "1-0",
             "outcome": "H"
           },
           {
-            "date": "2023-05-27",
+            "date": "2025-10-27",
+            "home": "塞伊奈",
+            "away": "库奥皮奥",
+            "score": "0-1",
+            "half_score": "0-0",
+            "outcome": "A"
+          },
+          {
+            "date": "2025-09-23",
+            "home": "库奥皮奥",
+            "away": "塞伊奈",
+            "score": "3-2",
+            "half_score": "2-1",
+            "outcome": "H"
+          },
+          {
+            "date": "2025-08-31",
             "home": "塞伊奈",
             "away": "库奥皮奥",
             "score": "1-1",
@@ -15011,7 +15092,7 @@
             "outcome": "D"
           }
         ],
-        "avg_goals": 1.4,
+        "avg_goals": 2.4,
         "btts_rate": 0.4
       },
       "public_vs_bookmaker": [
@@ -15138,6 +15219,15 @@
         },
         {
           "timestamp": "2026-07-18T21:29:38.168118",
+          "pinnacle": {
+            "home": 1.8,
+            "draw": 3.94,
+            "away": 3.12
+          },
+          "kelly_conclusion": "即时返还率为 0.885。基于散户倾向（主 48% / 平 23% / 客 29%），计算得出即时凯利指数为：主胜 0.86，平局 0.91，客胜 0.91。<br/> 散户最热的【平局】（凯利 0.91）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>分出胜负</strong> 的冷门路线。"
+        },
+        {
+          "timestamp": "2026-07-18T21:45:15.103664",
           "pinnacle": {
             "home": 1.8,
             "draw": 3.94,
@@ -15433,9 +15523,9 @@
       "conclusions": {
         "mainstream": "平局拉锯之势",
         "upset": "分出胜负",
-        "aggressive": "比分 2-2",
+        "aggressive": "比分 3-3",
         "conservative": "让负 (主-1)",
-        "most_likely_score": "1-2 或 1-3 或 1-1",
+        "most_likely_score": "2-3 或 2-4 或 2-2",
         "over_under": "大 2.5",
         "half_full": "平平 或 平胜",
         "upset_probability": 0.68,
@@ -15446,94 +15536,94 @@
       "h2h": {
         "last_5": [
           {
-            "date": "2025-08-22",
+            "date": "2025-11-22",
             "home": "莫尔德",
             "away": "布兰",
-            "score": "1-0",
-            "half_score": "0-0",
+            "score": "4-0",
+            "half_score": "2-0",
             "outcome": "H"
           },
           {
-            "date": "2025-11-21",
+            "date": "2025-05-29",
             "home": "布兰",
             "away": "莫尔德",
-            "score": "1-0",
-            "half_score": "0-0",
+            "score": "0-3",
+            "half_score": "0-1",
             "outcome": "A"
           },
           {
-            "date": "2024-03-09",
+            "date": "2024-11-23",
             "home": "莫尔德",
             "away": "布兰",
-            "score": "1-3",
+            "score": "2-1",
             "half_score": "1-0",
+            "outcome": "H"
+          },
+          {
+            "date": "2024-05-26",
+            "home": "布兰",
+            "away": "莫尔德",
+            "score": "1-3",
+            "half_score": "1-1",
             "outcome": "A"
           },
           {
-            "date": "2024-12-27",
+            "date": "2023-10-21",
             "home": "布兰",
             "away": "莫尔德",
-            "score": "0-0",
-            "half_score": "0-0",
-            "outcome": "D"
-          },
-          {
-            "date": "2023-05-05",
-            "home": "莫尔德",
-            "away": "布兰",
-            "score": "1-0",
-            "half_score": "0-0",
+            "score": "3-2",
+            "half_score": "2-1",
             "outcome": "H"
           }
         ],
-        "avg_goals": 1.4,
-        "btts_rate": 0.2
+        "avg_goals": 3.8,
+        "btts_rate": 0.6
       },
       "head_to_head": {
         "last_5": [
           {
-            "date": "2025-08-22",
+            "date": "2025-11-22",
             "home": "莫尔德",
             "away": "布兰",
-            "score": "1-0",
-            "half_score": "0-0",
+            "score": "4-0",
+            "half_score": "2-0",
             "outcome": "H"
           },
           {
-            "date": "2025-11-21",
+            "date": "2025-05-29",
             "home": "布兰",
             "away": "莫尔德",
-            "score": "1-0",
-            "half_score": "0-0",
+            "score": "0-3",
+            "half_score": "0-1",
             "outcome": "A"
           },
           {
-            "date": "2024-03-09",
+            "date": "2024-11-23",
             "home": "莫尔德",
             "away": "布兰",
-            "score": "1-3",
+            "score": "2-1",
             "half_score": "1-0",
+            "outcome": "H"
+          },
+          {
+            "date": "2024-05-26",
+            "home": "布兰",
+            "away": "莫尔德",
+            "score": "1-3",
+            "half_score": "1-1",
             "outcome": "A"
           },
           {
-            "date": "2024-12-27",
+            "date": "2023-10-21",
             "home": "布兰",
             "away": "莫尔德",
-            "score": "0-0",
-            "half_score": "0-0",
-            "outcome": "D"
-          },
-          {
-            "date": "2023-05-05",
-            "home": "莫尔德",
-            "away": "布兰",
-            "score": "1-0",
-            "half_score": "0-0",
+            "score": "3-2",
+            "half_score": "2-1",
             "outcome": "H"
           }
         ],
-        "avg_goals": 1.4,
-        "btts_rate": 0.2
+        "avg_goals": 3.8,
+        "btts_rate": 0.6
       },
       "public_vs_bookmaker": [
         {
@@ -15665,6 +15755,15 @@
             "away": 9.9
           },
           "kelly_conclusion": "即时返还率为 0.885。基于散户倾向（主 77% / 平 14% / 客 9%），计算得出即时凯利指数为：主胜 0.88，平局 0.92，客胜 0.89。<br/> 散户最热的【平局】（凯利 0.92）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>分出胜负</strong> 的冷门路线。"
+        },
+        {
+          "timestamp": "2026-07-18T21:45:15.104624",
+          "pinnacle": {
+            "home": 1.13,
+            "draw": 6.7,
+            "away": 10.5
+          },
+          "kelly_conclusion": "即时返还率为 0.885。基于散户倾向（主 77% / 平 14% / 客 9%），计算得出即时凯利指数为：主胜 0.87，平局 0.94，客胜 0.94。<br/> 散户最热的【客胜】（凯利 0.94）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>主队受让或不败</strong> 的冷门路线。"
         }
       ],
       "match_context": "挪超常规赛对决。维京坐镇主场迎接桑纳菲的挑战。",
@@ -15949,94 +16048,94 @@
       "h2h": {
         "last_5": [
           {
-            "date": "2025-05-26",
-            "home": "维京",
-            "away": "桑纳菲",
-            "score": "1-2",
-            "half_score": "0-0",
-            "outcome": "A"
-          },
-          {
-            "date": "2025-05-23",
+            "date": "2025-08-10",
             "home": "桑纳菲",
             "away": "维京",
-            "score": "2-2",
-            "half_score": "2-0",
-            "outcome": "D"
-          },
-          {
-            "date": "2024-06-10",
-            "home": "维京",
-            "away": "桑纳菲",
-            "score": "0-1",
+            "score": "1-2",
             "half_score": "0-1",
             "outcome": "A"
           },
           {
-            "date": "2024-05-07",
-            "home": "桑纳菲",
-            "away": "维京",
-            "score": "2-2",
-            "half_score": "0-2",
-            "outcome": "D"
-          },
-          {
-            "date": "2023-09-12",
+            "date": "2025-05-16",
             "home": "维京",
             "away": "桑纳菲",
-            "score": "1-0",
-            "half_score": "1-0",
+            "score": "3-1",
+            "half_score": "2-0",
+            "outcome": "H"
+          },
+          {
+            "date": "2024-11-02",
+            "home": "维京",
+            "away": "桑纳菲",
+            "score": "3-2",
+            "half_score": "1-1",
+            "outcome": "H"
+          },
+          {
+            "date": "2024-05-20",
+            "home": "桑纳菲",
+            "away": "维京",
+            "score": "0-3",
+            "half_score": "0-1",
+            "outcome": "A"
+          },
+          {
+            "date": "2023-09-24",
+            "home": "维京",
+            "away": "桑纳菲",
+            "score": "4-3",
+            "half_score": "1-2",
             "outcome": "H"
           }
         ],
-        "avg_goals": 2.6,
-        "btts_rate": 0.6
+        "avg_goals": 4.4,
+        "btts_rate": 0.8
       },
       "head_to_head": {
         "last_5": [
           {
-            "date": "2025-05-26",
-            "home": "维京",
-            "away": "桑纳菲",
-            "score": "1-2",
-            "half_score": "0-0",
-            "outcome": "A"
-          },
-          {
-            "date": "2025-05-23",
+            "date": "2025-08-10",
             "home": "桑纳菲",
             "away": "维京",
-            "score": "2-2",
-            "half_score": "2-0",
-            "outcome": "D"
-          },
-          {
-            "date": "2024-06-10",
-            "home": "维京",
-            "away": "桑纳菲",
-            "score": "0-1",
+            "score": "1-2",
             "half_score": "0-1",
             "outcome": "A"
           },
           {
-            "date": "2024-05-07",
-            "home": "桑纳菲",
-            "away": "维京",
-            "score": "2-2",
-            "half_score": "0-2",
-            "outcome": "D"
-          },
-          {
-            "date": "2023-09-12",
+            "date": "2025-05-16",
             "home": "维京",
             "away": "桑纳菲",
-            "score": "1-0",
-            "half_score": "1-0",
+            "score": "3-1",
+            "half_score": "2-0",
+            "outcome": "H"
+          },
+          {
+            "date": "2024-11-02",
+            "home": "维京",
+            "away": "桑纳菲",
+            "score": "3-2",
+            "half_score": "1-1",
+            "outcome": "H"
+          },
+          {
+            "date": "2024-05-20",
+            "home": "桑纳菲",
+            "away": "维京",
+            "score": "0-3",
+            "half_score": "0-1",
+            "outcome": "A"
+          },
+          {
+            "date": "2023-09-24",
+            "home": "维京",
+            "away": "桑纳菲",
+            "score": "4-3",
+            "half_score": "1-2",
             "outcome": "H"
           }
         ],
-        "avg_goals": 2.6,
-        "btts_rate": 0.6
+        "avg_goals": 4.4,
+        "btts_rate": 0.8
       },
       "public_vs_bookmaker": [
         {
@@ -16168,13 +16267,22 @@
             "away": 3.5
           },
           "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 44% / 平 31% / 客 25%），计算得出即时凯利指数为：主胜 0.89，平局 0.89，客胜 0.88。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>客胜</strong> 剧本。"
+        },
+        {
+          "timestamp": "2026-07-18T21:45:15.105685",
+          "pinnacle": {
+            "home": 2.02,
+            "draw": 2.87,
+            "away": 3.5
+          },
+          "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 44% / 平 31% / 客 25%），计算得出即时凯利指数为：主胜 0.89，平局 0.89，客胜 0.88。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>客胜</strong> 剧本。"
         }
       ],
       "match_context": "世界杯常规赛对决。西班牙坐镇主场迎接阿根廷的挑战。",
       "ultimate_conclusion": {
         "recommendation": "平局",
         "primary_bet": "平局",
-        "confidence": 53,
+        "confidence": 45,
         "risk_level": "高",
         "ev_score": 0.0,
         "reasoning": "世界杯比赛双方战术意图各有侧重。 基本面上，西班牙在【环境气候适应性】上拥有明显优势（评分 8.8 对 8.0），但阿根廷在【近期状态与动能】上（评分 8.4 对 7.2）给主队带来制约。结合战意（主 90% / 客 78%），即时欧指 2.02 / 2.87 / 3.50 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【平局】。",
@@ -16680,13 +16788,22 @@
             "away": 1.55
           },
           "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 17% / 平 26% / 客 57%），计算得出即时凯利指数为：主胜 0.88，平局 0.90，客胜 0.88。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>主胜</strong> 剧本。"
+        },
+        {
+          "timestamp": "2026-07-18T21:45:15.106927",
+          "pinnacle": {
+            "home": 5.15,
+            "draw": 3.45,
+            "away": 1.55
+          },
+          "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 17% / 平 26% / 客 57%），计算得出即时凯利指数为：主胜 0.88，平局 0.90，客胜 0.88。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>主胜</strong> 剧本。"
         }
       ],
       "match_context": "韩职常规赛对决。富川FC坐镇主场迎接首尔FC的挑战。",
       "ultimate_conclusion": {
         "recommendation": "客胜",
         "primary_bet": "客胜",
-        "confidence": 47,
+        "confidence": 39,
         "risk_level": "高",
         "ev_score": 0.0,
         "reasoning": "韩职联赛强调防守纪律性，整体攻防转化较慢。 基本面上，富川FC在【环境气候适应性】上拥有明显优势（评分 9.2 对 7.8），但首尔FC在【中场与推进效率】上（评分 9.5 对 7.7）给主队带来制约。结合战意（主 84% / 客 82%），即时欧指主胜由 5.25 降至 5.15，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
@@ -16964,94 +17081,62 @@
       "h2h": {
         "last_5": [
           {
-            "date": "2025-05-15",
-            "home": "富川FC",
-            "away": "首尔FC",
-            "score": "0-2",
-            "half_score": "0-0",
-            "outcome": "A"
-          },
-          {
-            "date": "2025-09-02",
+            "date": "2026-04-21",
             "home": "首尔FC",
             "away": "富川FC",
-            "score": "0-1",
-            "half_score": "0-0",
+            "score": "3-0",
+            "half_score": "2-0",
             "outcome": "H"
           },
           {
-            "date": "2024-09-06",
-            "home": "富川FC",
-            "away": "首尔FC",
-            "score": "2-2",
-            "half_score": "1-2",
-            "outcome": "D"
-          },
-          {
-            "date": "2024-09-08",
+            "date": "2022-04-27",
             "home": "首尔FC",
             "away": "富川FC",
-            "score": "1-1",
-            "half_score": "0-1",
-            "outcome": "D"
+            "score": "1-0",
+            "half_score": "1-0",
+            "outcome": "H"
           },
           {
-            "date": "2023-08-14",
-            "home": "富川FC",
-            "away": "首尔FC",
-            "score": "1-1",
-            "half_score": "0-1",
-            "outcome": "D"
+            "date": "2016-05-11",
+            "home": "首尔FC",
+            "away": "富川FC",
+            "score": "2-1",
+            "half_score": "1-1",
+            "outcome": "H"
           }
         ],
-        "avg_goals": 2.2,
-        "btts_rate": 0.6
+        "avg_goals": 2.3,
+        "btts_rate": 0.33
       },
       "head_to_head": {
         "last_5": [
           {
-            "date": "2025-05-15",
-            "home": "富川FC",
-            "away": "首尔FC",
-            "score": "0-2",
-            "half_score": "0-0",
-            "outcome": "A"
-          },
-          {
-            "date": "2025-09-02",
+            "date": "2026-04-21",
             "home": "首尔FC",
             "away": "富川FC",
-            "score": "0-1",
-            "half_score": "0-0",
+            "score": "3-0",
+            "half_score": "2-0",
             "outcome": "H"
           },
           {
-            "date": "2024-09-06",
-            "home": "富川FC",
-            "away": "首尔FC",
-            "score": "2-2",
-            "half_score": "1-2",
-            "outcome": "D"
-          },
-          {
-            "date": "2024-09-08",
+            "date": "2022-04-27",
             "home": "首尔FC",
             "away": "富川FC",
-            "score": "1-1",
-            "half_score": "0-1",
-            "outcome": "D"
+            "score": "1-0",
+            "half_score": "1-0",
+            "outcome": "H"
           },
           {
-            "date": "2023-08-14",
-            "home": "富川FC",
-            "away": "首尔FC",
-            "score": "1-1",
-            "half_score": "0-1",
-            "outcome": "D"
+            "date": "2016-05-11",
+            "home": "首尔FC",
+            "away": "富川FC",
+            "score": "2-1",
+            "half_score": "1-1",
+            "outcome": "H"
           }
         ],
-        "avg_goals": 2.2,
-        "btts_rate": 0.6
+        "avg_goals": 2.3,
+        "btts_rate": 0.33
       },
       "public_vs_bookmaker": [
         {
@@ -17168,6 +17253,15 @@
         },
         {
           "timestamp": "2026-07-18T21:29:38.171045",
+          "pinnacle": {
+            "home": 1.53,
+            "draw": 3.5,
+            "away": 5.3
+          },
+          "kelly_conclusion": "即时返还率为 0.887。基于散户倾向（主 58% / 平 25% / 客 17%），计算得出即时凯利指数为：主胜 0.89，平局 0.88，客胜 0.90。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>平局</strong> 剧本。"
+        },
+        {
+          "timestamp": "2026-07-18T21:45:15.107914",
           "pinnacle": {
             "home": 1.53,
             "draw": 3.5,
@@ -17445,9 +17539,9 @@
       "conclusions": {
         "mainstream": "主队主场全取三分",
         "upset": "客队防反爆冷抢分",
-        "aggressive": "比分 2-1",
+        "aggressive": "比分 3-2",
         "conservative": "胜",
-        "most_likely_score": "2-1 或 2-0 或 1-1 (防冷)",
+        "most_likely_score": "3-2 或 3-1 或 2-2 (防冷)",
         "over_under": "大 2.5",
         "half_full": "平胜 或 胜胜",
         "upset_probability": 0.15,
@@ -17458,94 +17552,94 @@
       "h2h": {
         "last_5": [
           {
-            "date": "2025-05-24",
-            "home": "安养FC",
-            "away": "光州FC",
-            "score": "1-0",
-            "half_score": "0-0",
-            "outcome": "H"
-          },
-          {
-            "date": "2025-09-22",
+            "date": "2026-04-26",
             "home": "光州FC",
             "away": "安养FC",
-            "score": "1-1",
-            "half_score": "0-1",
-            "outcome": "D"
+            "score": "2-5",
+            "half_score": "1-3",
+            "outcome": "A"
           },
           {
-            "date": "2024-12-02",
+            "date": "2022-09-14",
             "home": "安养FC",
             "away": "光州FC",
-            "score": "0-0",
-            "half_score": "0-0",
-            "outcome": "D"
-          },
-          {
-            "date": "2024-03-10",
-            "home": "光州FC",
-            "away": "安养FC",
             "score": "1-2",
+            "half_score": "0-1",
+            "outcome": "A"
+          },
+          {
+            "date": "2022-07-15",
+            "home": "光州FC",
+            "away": "安养FC",
+            "score": "0-0",
             "half_score": "0-0",
+            "outcome": "D"
+          },
+          {
+            "date": "2022-06-11",
+            "home": "光州FC",
+            "away": "安养FC",
+            "score": "4-0",
+            "half_score": "2-0",
             "outcome": "H"
           },
           {
-            "date": "2023-10-19",
+            "date": "2022-04-18",
             "home": "安养FC",
             "away": "光州FC",
-            "score": "0-0",
-            "half_score": "0-0",
+            "score": "2-2",
+            "half_score": "1-2",
             "outcome": "D"
           }
         ],
-        "avg_goals": 1.2,
-        "btts_rate": 0.4
+        "avg_goals": 3.6,
+        "btts_rate": 0.6
       },
       "head_to_head": {
         "last_5": [
           {
-            "date": "2025-05-24",
-            "home": "安养FC",
-            "away": "光州FC",
-            "score": "1-0",
-            "half_score": "0-0",
-            "outcome": "H"
-          },
-          {
-            "date": "2025-09-22",
+            "date": "2026-04-26",
             "home": "光州FC",
             "away": "安养FC",
-            "score": "1-1",
-            "half_score": "0-1",
-            "outcome": "D"
+            "score": "2-5",
+            "half_score": "1-3",
+            "outcome": "A"
           },
           {
-            "date": "2024-12-02",
+            "date": "2022-09-14",
             "home": "安养FC",
             "away": "光州FC",
-            "score": "0-0",
-            "half_score": "0-0",
-            "outcome": "D"
-          },
-          {
-            "date": "2024-03-10",
-            "home": "光州FC",
-            "away": "安养FC",
             "score": "1-2",
+            "half_score": "0-1",
+            "outcome": "A"
+          },
+          {
+            "date": "2022-07-15",
+            "home": "光州FC",
+            "away": "安养FC",
+            "score": "0-0",
             "half_score": "0-0",
+            "outcome": "D"
+          },
+          {
+            "date": "2022-06-11",
+            "home": "光州FC",
+            "away": "安养FC",
+            "score": "4-0",
+            "half_score": "2-0",
             "outcome": "H"
           },
           {
-            "date": "2023-10-19",
+            "date": "2022-04-18",
             "home": "安养FC",
             "away": "光州FC",
-            "score": "0-0",
-            "half_score": "0-0",
+            "score": "2-2",
+            "half_score": "1-2",
             "outcome": "D"
           }
         ],
-        "avg_goals": 1.2,
-        "btts_rate": 0.4
+        "avg_goals": 3.6,
+        "btts_rate": 0.6
       },
       "public_vs_bookmaker": [
         {
@@ -17677,13 +17771,22 @@
             "away": 1.77
           },
           "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 26% / 平 24% / 客 50%），计算得出即时凯利指数为：主胜 0.90，平局 0.88，客胜 0.89。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>平局</strong> 剧本。"
+        },
+        {
+          "timestamp": "2026-07-18T21:45:15.108968",
+          "pinnacle": {
+            "home": 3.45,
+            "draw": 3.65,
+            "away": 1.77
+          },
+          "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 26% / 平 24% / 客 50%），计算得出即时凯利指数为：主胜 0.90，平局 0.88，客胜 0.89。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>平局</strong> 剧本。"
         }
       ],
       "match_context": "瑞超常规赛对决。埃夫斯堡坐镇主场迎接天狼星的挑战。",
       "ultimate_conclusion": {
         "recommendation": "客胜",
         "primary_bet": "客不败",
-        "confidence": 45,
+        "confidence": 38,
         "risk_level": "高",
         "ev_score": 0.0,
         "reasoning": "瑞超联赛的人工草皮主场优势极其明显，客队适应常面临考验。 基本面上，埃夫斯堡在【球队基础硬实力】上拥有明显优势（评分 9.1 对 7.9），但天狼星在【首发阵容健康度】上（评分 9.5 对 6.2）给主队带来制约。结合战意（主 84% / 客 76%），即时欧指主胜由 3.52 降至 3.45，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
@@ -17979,94 +18082,94 @@
       "h2h": {
         "last_5": [
           {
-            "date": "2025-03-23",
+            "date": "2026-03-08",
             "home": "埃夫斯堡",
             "away": "天狼星",
-            "score": "1-1",
-            "half_score": "1-0",
-            "outcome": "D"
-          },
-          {
-            "date": "2025-05-08",
-            "home": "天狼星",
-            "away": "埃夫斯堡",
             "score": "1-2",
-            "half_score": "1-2",
-            "outcome": "H"
-          },
-          {
-            "date": "2024-11-19",
-            "home": "埃夫斯堡",
-            "away": "天狼星",
-            "score": "1-1",
-            "half_score": "0-0",
-            "outcome": "D"
-          },
-          {
-            "date": "2024-06-13",
-            "home": "天狼星",
-            "away": "埃夫斯堡",
-            "score": "1-2",
-            "half_score": "0-0",
-            "outcome": "H"
-          },
-          {
-            "date": "2023-06-08",
-            "home": "埃夫斯堡",
-            "away": "天狼星",
-            "score": "1-1",
             "half_score": "0-1",
-            "outcome": "D"
+            "outcome": "A"
+          },
+          {
+            "date": "2025-10-26",
+            "home": "天狼星",
+            "away": "埃夫斯堡",
+            "score": "4-0",
+            "half_score": "2-0",
+            "outcome": "H"
+          },
+          {
+            "date": "2025-04-23",
+            "home": "埃夫斯堡",
+            "away": "天狼星",
+            "score": "4-3",
+            "half_score": "2-1",
+            "outcome": "H"
+          },
+          {
+            "date": "2024-10-06",
+            "home": "天狼星",
+            "away": "埃夫斯堡",
+            "score": "4-1",
+            "half_score": "2-0",
+            "outcome": "H"
+          },
+          {
+            "date": "2024-04-29",
+            "home": "埃夫斯堡",
+            "away": "天狼星",
+            "score": "2-0",
+            "half_score": "1-0",
+            "outcome": "H"
           }
         ],
-        "avg_goals": 2.4,
-        "btts_rate": 1.0
+        "avg_goals": 4.2,
+        "btts_rate": 0.6
       },
       "head_to_head": {
         "last_5": [
           {
-            "date": "2025-03-23",
+            "date": "2026-03-08",
             "home": "埃夫斯堡",
             "away": "天狼星",
-            "score": "1-1",
-            "half_score": "1-0",
-            "outcome": "D"
-          },
-          {
-            "date": "2025-05-08",
-            "home": "天狼星",
-            "away": "埃夫斯堡",
             "score": "1-2",
-            "half_score": "1-2",
-            "outcome": "H"
-          },
-          {
-            "date": "2024-11-19",
-            "home": "埃夫斯堡",
-            "away": "天狼星",
-            "score": "1-1",
-            "half_score": "0-0",
-            "outcome": "D"
-          },
-          {
-            "date": "2024-06-13",
-            "home": "天狼星",
-            "away": "埃夫斯堡",
-            "score": "1-2",
-            "half_score": "0-0",
-            "outcome": "H"
-          },
-          {
-            "date": "2023-06-08",
-            "home": "埃夫斯堡",
-            "away": "天狼星",
-            "score": "1-1",
             "half_score": "0-1",
-            "outcome": "D"
+            "outcome": "A"
+          },
+          {
+            "date": "2025-10-26",
+            "home": "天狼星",
+            "away": "埃夫斯堡",
+            "score": "4-0",
+            "half_score": "2-0",
+            "outcome": "H"
+          },
+          {
+            "date": "2025-04-23",
+            "home": "埃夫斯堡",
+            "away": "天狼星",
+            "score": "4-3",
+            "half_score": "2-1",
+            "outcome": "H"
+          },
+          {
+            "date": "2024-10-06",
+            "home": "天狼星",
+            "away": "埃夫斯堡",
+            "score": "4-1",
+            "half_score": "2-0",
+            "outcome": "H"
+          },
+          {
+            "date": "2024-04-29",
+            "home": "埃夫斯堡",
+            "away": "天狼星",
+            "score": "2-0",
+            "half_score": "1-0",
+            "outcome": "H"
           }
         ],
-        "avg_goals": 2.4,
-        "btts_rate": 1.0
+        "avg_goals": 4.2,
+        "btts_rate": 0.6
       },
       "public_vs_bookmaker": [
         {
@@ -18198,13 +18301,22 @@
             "away": 1.5
           },
           "kelly_conclusion": "即时返还率为 0.885。基于散户倾向（主 19% / 平 22% / 客 59%），计算得出即时凯利指数为：主胜 0.87，平局 0.90，客胜 0.89。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>主胜</strong> 剧本。"
+        },
+        {
+          "timestamp": "2026-07-18T21:45:15.109866",
+          "pinnacle": {
+            "home": 4.56,
+            "draw": 4.1,
+            "away": 1.5
+          },
+          "kelly_conclusion": "即时返还率为 0.885。基于散户倾向（主 19% / 平 22% / 客 59%），计算得出即时凯利指数为：主胜 0.87，平局 0.90，客胜 0.89。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>主胜</strong> 剧本。"
         }
       ],
       "match_context": "瑞超常规赛对决。哈尔姆斯坐镇主场迎接赫根的挑战。",
       "ultimate_conclusion": {
         "recommendation": "客胜",
         "primary_bet": "客胜",
-        "confidence": 48,
+        "confidence": 40,
         "risk_level": "高",
         "ev_score": 0.0,
         "reasoning": "瑞超联赛的人工草皮主场优势极其明显，客队适应常面临考验。 基本面上，哈尔姆斯在【战意与抢分压力】上拥有明显优势（评分 9.0 对 7.6），但赫根在【中场与推进效率】上（评分 9.4 对 6.0）给主队带来制约。结合战意（主 90% / 客 76%），即时欧指主胜由 4.65 降至 4.56，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
@@ -18482,93 +18594,93 @@
       "h2h": {
         "last_5": [
           {
-            "date": "2025-08-21",
+            "date": "2025-07-20",
             "home": "哈尔姆斯",
             "away": "赫根",
-            "score": "1-2",
+            "score": "0-0",
             "half_score": "0-0",
-            "outcome": "A"
+            "outcome": "D"
           },
           {
-            "date": "2025-08-17",
+            "date": "2025-07-13",
             "home": "赫根",
             "away": "哈尔姆斯",
-            "score": "2-0",
-            "half_score": "0-0",
-            "outcome": "A"
-          },
-          {
-            "date": "2024-08-12",
-            "home": "哈尔姆斯",
-            "away": "赫根",
-            "score": "0-1",
-            "half_score": "0-0",
-            "outcome": "A"
-          },
-          {
-            "date": "2024-09-02",
-            "home": "赫根",
-            "away": "哈尔姆斯",
-            "score": "0-1",
-            "half_score": "0-0",
+            "score": "4-1",
+            "half_score": "2-0",
             "outcome": "H"
           },
           {
-            "date": "2023-05-12",
+            "date": "2024-10-27",
+            "home": "赫根",
+            "away": "哈尔姆斯",
+            "score": "0-1",
+            "half_score": "0-1",
+            "outcome": "A"
+          },
+          {
+            "date": "2024-05-15",
             "home": "哈尔姆斯",
             "away": "赫根",
-            "score": "2-1",
+            "score": "3-0",
             "half_score": "2-0",
+            "outcome": "H"
+          },
+          {
+            "date": "2023-09-17",
+            "home": "赫根",
+            "away": "哈尔姆斯",
+            "score": "3-2",
+            "half_score": "2-1",
             "outcome": "H"
           }
         ],
-        "avg_goals": 2.0,
+        "avg_goals": 3.2,
         "btts_rate": 0.4
       },
       "head_to_head": {
         "last_5": [
           {
-            "date": "2025-08-21",
+            "date": "2025-07-20",
             "home": "哈尔姆斯",
             "away": "赫根",
-            "score": "1-2",
+            "score": "0-0",
             "half_score": "0-0",
-            "outcome": "A"
+            "outcome": "D"
           },
           {
-            "date": "2025-08-17",
+            "date": "2025-07-13",
             "home": "赫根",
             "away": "哈尔姆斯",
-            "score": "2-0",
-            "half_score": "0-0",
-            "outcome": "A"
-          },
-          {
-            "date": "2024-08-12",
-            "home": "哈尔姆斯",
-            "away": "赫根",
-            "score": "0-1",
-            "half_score": "0-0",
-            "outcome": "A"
-          },
-          {
-            "date": "2024-09-02",
-            "home": "赫根",
-            "away": "哈尔姆斯",
-            "score": "0-1",
-            "half_score": "0-0",
+            "score": "4-1",
+            "half_score": "2-0",
             "outcome": "H"
           },
           {
-            "date": "2023-05-12",
+            "date": "2024-10-27",
+            "home": "赫根",
+            "away": "哈尔姆斯",
+            "score": "0-1",
+            "half_score": "0-1",
+            "outcome": "A"
+          },
+          {
+            "date": "2024-05-15",
             "home": "哈尔姆斯",
             "away": "赫根",
-            "score": "2-1",
+            "score": "3-0",
             "half_score": "2-0",
+            "outcome": "H"
+          },
+          {
+            "date": "2023-09-17",
+            "home": "赫根",
+            "away": "哈尔姆斯",
+            "score": "3-2",
+            "half_score": "2-1",
             "outcome": "H"
           }
         ],
-        "avg_goals": 2.0,
+        "avg_goals": 3.2,
         "btts_rate": 0.4
       },
       "public_vs_bookmaker": [
@@ -18695,6 +18807,15 @@
         },
         {
           "timestamp": "2026-07-18T21:29:38.172790",
+          "pinnacle": {
+            "home": 1.16,
+            "draw": 5.8,
+            "away": 10.5
+          },
+          "kelly_conclusion": "即时返还率为 0.885。基于散户倾向（主 76% / 平 15% / 客 9%），计算得出即时凯利指数为：主胜 0.88，平局 0.87，客胜 0.94。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>平局</strong> 剧本。"
+        },
+        {
+          "timestamp": "2026-07-18T21:45:15.110668",
           "pinnacle": {
             "home": 1.16,
             "draw": 5.8,
@@ -19003,94 +19124,94 @@
       "h2h": {
         "last_5": [
           {
-            "date": "2025-06-23",
-            "home": "哈马比",
-            "away": "代格福什",
-            "score": "1-2",
-            "half_score": "0-1",
-            "outcome": "A"
-          },
-          {
-            "date": "2025-08-18",
+            "date": "2025-11-03",
             "home": "代格福什",
             "away": "哈马比",
-            "score": "3-2",
-            "half_score": "0-2",
-            "outcome": "A"
-          },
-          {
-            "date": "2024-11-27",
-            "home": "哈马比",
-            "away": "代格福什",
-            "score": "2-2",
-            "half_score": "2-0",
+            "score": "1-1",
+            "half_score": "1-0",
             "outcome": "D"
           },
           {
-            "date": "2024-08-04",
-            "home": "代格福什",
-            "away": "哈马比",
-            "score": "1-0",
-            "half_score": "1-0",
-            "outcome": "A"
-          },
-          {
-            "date": "2023-05-10",
+            "date": "2025-05-26",
             "home": "哈马比",
             "away": "代格福什",
-            "score": "0-2",
+            "score": "1-0",
             "half_score": "0-0",
-            "outcome": "A"
+            "outcome": "H"
+          },
+          {
+            "date": "2023-05-25",
+            "home": "代格福什",
+            "away": "哈马比",
+            "score": "2-2",
+            "half_score": "1-1",
+            "outcome": "D"
+          },
+          {
+            "date": "2023-04-02",
+            "home": "哈马比",
+            "away": "代格福什",
+            "score": "3-1",
+            "half_score": "2-1",
+            "outcome": "H"
+          },
+          {
+            "date": "2022-08-22",
+            "home": "哈马比",
+            "away": "代格福什",
+            "score": "5-1",
+            "half_score": "3-1",
+            "outcome": "H"
           }
         ],
-        "avg_goals": 3.0,
-        "btts_rate": 0.6
+        "avg_goals": 3.4,
+        "btts_rate": 0.8
       },
       "head_to_head": {
         "last_5": [
           {
-            "date": "2025-06-23",
-            "home": "哈马比",
-            "away": "代格福什",
-            "score": "1-2",
-            "half_score": "0-1",
-            "outcome": "A"
-          },
-          {
-            "date": "2025-08-18",
+            "date": "2025-11-03",
             "home": "代格福什",
             "away": "哈马比",
-            "score": "3-2",
-            "half_score": "0-2",
-            "outcome": "A"
-          },
-          {
-            "date": "2024-11-27",
-            "home": "哈马比",
-            "away": "代格福什",
-            "score": "2-2",
-            "half_score": "2-0",
+            "score": "1-1",
+            "half_score": "1-0",
             "outcome": "D"
           },
           {
-            "date": "2024-08-04",
-            "home": "代格福什",
-            "away": "哈马比",
-            "score": "1-0",
-            "half_score": "1-0",
-            "outcome": "A"
-          },
-          {
-            "date": "2023-05-10",
+            "date": "2025-05-26",
             "home": "哈马比",
             "away": "代格福什",
-            "score": "0-2",
+            "score": "1-0",
             "half_score": "0-0",
-            "outcome": "A"
+            "outcome": "H"
+          },
+          {
+            "date": "2023-05-25",
+            "home": "代格福什",
+            "away": "哈马比",
+            "score": "2-2",
+            "half_score": "1-1",
+            "outcome": "D"
+          },
+          {
+            "date": "2023-04-02",
+            "home": "哈马比",
+            "away": "代格福什",
+            "score": "3-1",
+            "half_score": "2-1",
+            "outcome": "H"
+          },
+          {
+            "date": "2022-08-22",
+            "home": "哈马比",
+            "away": "代格福什",
+            "score": "5-1",
+            "half_score": "3-1",
+            "outcome": "H"
           }
         ],
-        "avg_goals": 3.0,
-        "btts_rate": 0.6
+        "avg_goals": 3.4,
+        "btts_rate": 0.8
       },
       "public_vs_bookmaker": [
         {
@@ -19222,13 +19343,22 @@
             "away": 1.46
           },
           "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 17% / 平 22% / 客 61%），计算得出即时凯利指数为：主胜 0.88，平局 0.88，客胜 0.89。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>主胜</strong> 剧本。"
+        },
+        {
+          "timestamp": "2026-07-18T21:45:15.111437",
+          "pinnacle": {
+            "home": 5.15,
+            "draw": 4.0,
+            "away": 1.46
+          },
+          "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 17% / 平 22% / 客 61%），计算得出即时凯利指数为：主胜 0.88，平局 0.88，客胜 0.89。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>主胜</strong> 剧本。"
         }
       ],
       "match_context": "芬超常规赛对决。雅罗坐镇主场迎接国际图尔的挑战。",
       "ultimate_conclusion": {
         "recommendation": "客胜",
         "primary_bet": "客胜",
-        "confidence": 52,
+        "confidence": 44,
         "risk_level": "高",
         "ev_score": 0.0,
         "reasoning": "芬超联赛常呈现低比分拉锯，防守落位速度是决定性因素。 基本面上，雅罗在【战意与抢分压力】上拥有明显优势（评分 8.4 对 6.8），但国际图尔在【球队基础硬实力】上（评分 8.0 对 5.8）给主队带来制约。结合战意（主 84% / 客 68%），即时欧指主胜由 5.25 降至 5.15，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
@@ -19506,93 +19636,93 @@
       "h2h": {
         "last_5": [
           {
-            "date": "2025-09-23",
-            "home": "雅罗",
-            "away": "国际图尔",
-            "score": "1-0",
-            "half_score": "0-0",
+            "date": "2026-05-09",
+            "home": "国际图尔",
+            "away": "雅罗",
+            "score": "2-0",
+            "half_score": "1-0",
             "outcome": "H"
           },
           {
-            "date": "2025-05-01",
+            "date": "2026-02-28",
+            "home": "国际图尔",
+            "away": "雅罗",
+            "score": "1-2",
+            "half_score": "1-1",
+            "outcome": "A"
+          },
+          {
+            "date": "2025-07-12",
+            "home": "国际图尔",
+            "away": "雅罗",
+            "score": "3-1",
+            "half_score": "2-1",
+            "outcome": "H"
+          },
+          {
+            "date": "2025-06-01",
+            "home": "雅罗",
+            "away": "国际图尔",
+            "score": "0-1",
+            "half_score": "0-0",
+            "outcome": "A"
+          },
+          {
+            "date": "2015-10-15",
             "home": "国际图尔",
             "away": "雅罗",
             "score": "0-1",
             "half_score": "0-0",
-            "outcome": "H"
-          },
-          {
-            "date": "2024-11-14",
-            "home": "雅罗",
-            "away": "国际图尔",
-            "score": "2-1",
-            "half_score": "0-1",
-            "outcome": "H"
-          },
-          {
-            "date": "2024-06-15",
-            "home": "国际图尔",
-            "away": "雅罗",
-            "score": "1-1",
-            "half_score": "0-0",
-            "outcome": "D"
-          },
-          {
-            "date": "2023-09-11",
-            "home": "雅罗",
-            "away": "国际图尔",
-            "score": "0-0",
-            "half_score": "0-0",
-            "outcome": "D"
+            "outcome": "A"
           }
         ],
-        "avg_goals": 1.4,
+        "avg_goals": 2.2,
         "btts_rate": 0.4
       },
       "head_to_head": {
         "last_5": [
           {
-            "date": "2025-09-23",
-            "home": "雅罗",
-            "away": "国际图尔",
-            "score": "1-0",
-            "half_score": "0-0",
+            "date": "2026-05-09",
+            "home": "国际图尔",
+            "away": "雅罗",
+            "score": "2-0",
+            "half_score": "1-0",
             "outcome": "H"
           },
           {
-            "date": "2025-05-01",
+            "date": "2026-02-28",
+            "home": "国际图尔",
+            "away": "雅罗",
+            "score": "1-2",
+            "half_score": "1-1",
+            "outcome": "A"
+          },
+          {
+            "date": "2025-07-12",
+            "home": "国际图尔",
+            "away": "雅罗",
+            "score": "3-1",
+            "half_score": "2-1",
+            "outcome": "H"
+          },
+          {
+            "date": "2025-06-01",
+            "home": "雅罗",
+            "away": "国际图尔",
+            "score": "0-1",
+            "half_score": "0-0",
+            "outcome": "A"
+          },
+          {
+            "date": "2015-10-15",
             "home": "国际图尔",
             "away": "雅罗",
             "score": "0-1",
             "half_score": "0-0",
-            "outcome": "H"
-          },
-          {
-            "date": "2024-11-14",
-            "home": "雅罗",
-            "away": "国际图尔",
-            "score": "2-1",
-            "half_score": "0-1",
-            "outcome": "H"
-          },
-          {
-            "date": "2024-06-15",
-            "home": "国际图尔",
-            "away": "雅罗",
-            "score": "1-1",
-            "half_score": "0-0",
-            "outcome": "D"
-          },
-          {
-            "date": "2023-09-11",
-            "home": "雅罗",
-            "away": "国际图尔",
-            "score": "0-0",
-            "half_score": "0-0",
-            "outcome": "D"
+            "outcome": "A"
           }
         ],
-        "avg_goals": 1.4,
+        "avg_goals": 2.2,
         "btts_rate": 0.4
       },
       "public_vs_bookmaker": [
@@ -19725,13 +19855,22 @@
             "away": 2.35
           },
           "kelly_conclusion": "即时返还率为 0.885。基于散户倾向（主 36% / 平 26% / 客 38%），计算得出即时凯利指数为：主胜 0.88，平局 0.88，客胜 0.89。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>主胜</strong> 剧本。"
+        },
+        {
+          "timestamp": "2026-07-18T21:45:15.112224",
+          "pinnacle": {
+            "home": 2.44,
+            "draw": 3.4,
+            "away": 2.35
+          },
+          "kelly_conclusion": "即时返还率为 0.885。基于散户倾向（主 36% / 平 26% / 客 38%），计算得出即时凯利指数为：主胜 0.88，平局 0.88，客胜 0.89。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>主胜</strong> 剧本。"
         }
       ],
       "match_context": "芬超常规赛对决。TPS图尔坐镇主场迎接坦山猫的挑战。",
       "ultimate_conclusion": {
         "recommendation": "双选不败",
         "primary_bet": "双选不败",
-        "confidence": 55,
+        "confidence": 65,
         "risk_level": "中",
         "ev_score": 0.0,
         "reasoning": "芬超联赛常呈现低比分拉锯，防守落位速度是决定性因素。 基本面上，TPS图尔在【战意与抢分压力】上拥有明显优势（评分 9.0 对 7.2），但坦山猫在【球队基础硬实力】上（评分 9.5 对 7.6）给主队带来制约。结合战意（主 90% / 客 72%），即时欧指主胜由 2.49 降至 2.44，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【双选不败】。",
@@ -20009,94 +20148,94 @@
       "h2h": {
         "last_5": [
           {
-            "date": "2025-03-08",
-            "home": "TPS图尔",
-            "away": "坦山猫",
-            "score": "0-2",
-            "half_score": "0-1",
-            "outcome": "A"
-          },
-          {
-            "date": "2025-10-03",
+            "date": "2026-06-13",
             "home": "坦山猫",
             "away": "TPS图尔",
-            "score": "2-1",
-            "half_score": "0-1",
-            "outcome": "A"
-          },
-          {
-            "date": "2024-12-02",
-            "home": "TPS图尔",
-            "away": "坦山猫",
-            "score": "2-1",
-            "half_score": "0-1",
-            "outcome": "H"
-          },
-          {
-            "date": "2024-03-20",
-            "home": "坦山猫",
-            "away": "TPS图尔",
-            "score": "0-2",
-            "half_score": "0-0",
-            "outcome": "H"
-          },
-          {
-            "date": "2023-06-24",
-            "home": "TPS图尔",
-            "away": "坦山猫",
             "score": "1-0",
             "half_score": "0-0",
             "outcome": "H"
+          },
+          {
+            "date": "2026-05-27",
+            "home": "坦山猫",
+            "away": "TPS图尔",
+            "score": "1-0",
+            "half_score": "1-0",
+            "outcome": "H"
+          },
+          {
+            "date": "2023-04-26",
+            "home": "TPS图尔",
+            "away": "坦山猫",
+            "score": "0-2",
+            "half_score": "0-1",
+            "outcome": "A"
+          },
+          {
+            "date": "2020-09-27",
+            "home": "坦山猫",
+            "away": "TPS图尔",
+            "score": "4-0",
+            "half_score": "2-0",
+            "outcome": "H"
+          },
+          {
+            "date": "2020-07-07",
+            "home": "TPS图尔",
+            "away": "坦山猫",
+            "score": "0-1",
+            "half_score": "0-1",
+            "outcome": "A"
           }
         ],
-        "avg_goals": 2.2,
-        "btts_rate": 0.4
+        "avg_goals": 1.6,
+        "btts_rate": 0.0
       },
       "head_to_head": {
         "last_5": [
           {
-            "date": "2025-03-08",
-            "home": "TPS图尔",
-            "away": "坦山猫",
-            "score": "0-2",
-            "half_score": "0-1",
-            "outcome": "A"
-          },
-          {
-            "date": "2025-10-03",
+            "date": "2026-06-13",
             "home": "坦山猫",
             "away": "TPS图尔",
-            "score": "2-1",
-            "half_score": "0-1",
-            "outcome": "A"
-          },
-          {
-            "date": "2024-12-02",
-            "home": "TPS图尔",
-            "away": "坦山猫",
-            "score": "2-1",
-            "half_score": "0-1",
-            "outcome": "H"
-          },
-          {
-            "date": "2024-03-20",
-            "home": "坦山猫",
-            "away": "TPS图尔",
-            "score": "0-2",
-            "half_score": "0-0",
-            "outcome": "H"
-          },
-          {
-            "date": "2023-06-24",
-            "home": "TPS图尔",
-            "away": "坦山猫",
             "score": "1-0",
             "half_score": "0-0",
             "outcome": "H"
+          },
+          {
+            "date": "2026-05-27",
+            "home": "坦山猫",
+            "away": "TPS图尔",
+            "score": "1-0",
+            "half_score": "1-0",
+            "outcome": "H"
+          },
+          {
+            "date": "2023-04-26",
+            "home": "TPS图尔",
+            "away": "坦山猫",
+            "score": "0-2",
+            "half_score": "0-1",
+            "outcome": "A"
+          },
+          {
+            "date": "2020-09-27",
+            "home": "坦山猫",
+            "away": "TPS图尔",
+            "score": "4-0",
+            "half_score": "2-0",
+            "outcome": "H"
+          },
+          {
+            "date": "2020-07-07",
+            "home": "TPS图尔",
+            "away": "坦山猫",
+            "score": "0-1",
+            "half_score": "0-1",
+            "outcome": "A"
           }
         ],
-        "avg_goals": 2.2,
-        "btts_rate": 0.4
+        "avg_goals": 1.6,
+        "btts_rate": 0.0
       },
       "public_vs_bookmaker": [
         {
@@ -20222,6 +20361,15 @@
         },
         {
           "timestamp": "2026-07-18T21:29:38.174422",
+          "pinnacle": {
+            "home": 5.25,
+            "draw": 4.1,
+            "away": 1.44
+          },
+          "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 17% / 平 22% / 客 61%），计算得出即时凯利指数为：主胜 0.89，平局 0.90，客胜 0.88。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>客胜</strong> 剧本。"
+        },
+        {
+          "timestamp": "2026-07-18T21:45:15.113008",
           "pinnacle": {
             "home": 5.25,
             "draw": 4.1,
@@ -20512,94 +20660,94 @@
       "h2h": {
         "last_5": [
           {
-            "date": "2025-06-18",
+            "date": "2026-05-26",
             "home": "玛丽港",
             "away": "拉赫蒂",
-            "score": "2-1",
+            "score": "0-1",
             "half_score": "0-1",
-            "outcome": "H"
-          },
-          {
-            "date": "2025-06-19",
-            "home": "拉赫蒂",
-            "away": "玛丽港",
-            "score": "3-1",
-            "half_score": "1-1",
             "outcome": "A"
           },
           {
-            "date": "2024-09-19",
-            "home": "玛丽港",
-            "away": "拉赫蒂",
+            "date": "2026-05-10",
+            "home": "拉赫蒂",
+            "away": "玛丽港",
             "score": "1-1",
             "half_score": "1-0",
             "outcome": "D"
           },
           {
-            "date": "2024-10-02",
-            "home": "拉赫蒂",
-            "away": "玛丽港",
-            "score": "0-2",
-            "half_score": "0-2",
+            "date": "2026-03-05",
+            "home": "玛丽港",
+            "away": "拉赫蒂",
+            "score": "4-0",
+            "half_score": "2-0",
             "outcome": "H"
           },
           {
-            "date": "2023-09-06",
+            "date": "2024-09-19",
+            "home": "拉赫蒂",
+            "away": "玛丽港",
+            "score": "2-1",
+            "half_score": "1-0",
+            "outcome": "H"
+          },
+          {
+            "date": "2024-08-18",
             "home": "玛丽港",
             "away": "拉赫蒂",
-            "score": "1-2",
-            "half_score": "0-1",
-            "outcome": "A"
+            "score": "0-0",
+            "half_score": "0-0",
+            "outcome": "D"
           }
         ],
-        "avg_goals": 2.8,
-        "btts_rate": 0.8
+        "avg_goals": 2.2,
+        "btts_rate": 0.4
       },
       "head_to_head": {
         "last_5": [
           {
-            "date": "2025-06-18",
+            "date": "2026-05-26",
             "home": "玛丽港",
             "away": "拉赫蒂",
-            "score": "2-1",
+            "score": "0-1",
             "half_score": "0-1",
-            "outcome": "H"
-          },
-          {
-            "date": "2025-06-19",
-            "home": "拉赫蒂",
-            "away": "玛丽港",
-            "score": "3-1",
-            "half_score": "1-1",
             "outcome": "A"
           },
           {
-            "date": "2024-09-19",
-            "home": "玛丽港",
-            "away": "拉赫蒂",
+            "date": "2026-05-10",
+            "home": "拉赫蒂",
+            "away": "玛丽港",
             "score": "1-1",
             "half_score": "1-0",
             "outcome": "D"
           },
           {
-            "date": "2024-10-02",
-            "home": "拉赫蒂",
-            "away": "玛丽港",
-            "score": "0-2",
-            "half_score": "0-2",
+            "date": "2026-03-05",
+            "home": "玛丽港",
+            "away": "拉赫蒂",
+            "score": "4-0",
+            "half_score": "2-0",
             "outcome": "H"
           },
           {
-            "date": "2023-09-06",
+            "date": "2024-09-19",
+            "home": "拉赫蒂",
+            "away": "玛丽港",
+            "score": "2-1",
+            "half_score": "1-0",
+            "outcome": "H"
+          },
+          {
+            "date": "2024-08-18",
             "home": "玛丽港",
             "away": "拉赫蒂",
-            "score": "1-2",
-            "half_score": "0-1",
-            "outcome": "A"
+            "score": "0-0",
+            "half_score": "0-0",
+            "outcome": "D"
           }
         ],
-        "avg_goals": 2.8,
-        "btts_rate": 0.8
+        "avg_goals": 2.2,
+        "btts_rate": 0.4
       },
       "public_vs_bookmaker": [
         {
@@ -20725,6 +20873,15 @@
         },
         {
           "timestamp": "2026-07-18T21:29:38.175135",
+          "pinnacle": {
+            "home": 6.6,
+            "draw": 5.25,
+            "away": 1.27
+          },
+          "kelly_conclusion": "即时返还率为 0.885。基于散户倾向（主 13% / 平 17% / 客 70%），计算得出即时凯利指数为：主胜 0.86，平局 0.89，客胜 0.89。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>主胜</strong> 剧本。"
+        },
+        {
+          "timestamp": "2026-07-18T21:45:15.113811",
           "pinnacle": {
             "home": 6.6,
             "draw": 5.25,
@@ -21002,9 +21159,9 @@
       "conclusions": {
         "mainstream": "客队反客为主抢分",
         "upset": "主队主场捍卫尊严",
-        "aggressive": "比分 2-3",
+        "aggressive": "比分 1-2",
         "conservative": "负",
-        "most_likely_score": "2-3 或 1-3 或 2-2 (防冷)",
+        "most_likely_score": "1-2 或 0-2 或 1-1 (防冷)",
         "over_under": "大 2.5",
         "half_full": "平负 或 负负",
         "upset_probability": 0.45,
@@ -21015,94 +21172,62 @@
       "h2h": {
         "last_5": [
           {
-            "date": "2025-06-10",
-            "home": "厄格里特",
-            "away": "佐加顿斯",
-            "score": "2-0",
-            "half_score": "2-0",
-            "outcome": "H"
-          },
-          {
-            "date": "2025-11-20",
+            "date": "2013-05-01",
             "home": "佐加顿斯",
             "away": "厄格里特",
             "score": "1-0",
-            "half_score": "1-0",
-            "outcome": "A"
-          },
-          {
-            "date": "2024-12-22",
-            "home": "厄格里特",
-            "away": "佐加顿斯",
-            "score": "3-3",
-            "half_score": "1-3",
-            "outcome": "D"
-          },
-          {
-            "date": "2024-05-24",
-            "home": "佐加顿斯",
-            "away": "厄格里特",
-            "score": "1-2",
             "half_score": "0-0",
             "outcome": "H"
           },
           {
-            "date": "2023-03-13",
+            "date": "2009-10-24",
+            "home": "佐加顿斯",
+            "away": "厄格里特",
+            "score": "3-1",
+            "half_score": "2-0",
+            "outcome": "H"
+          },
+          {
+            "date": "2009-05-31",
             "home": "厄格里特",
             "away": "佐加顿斯",
-            "score": "1-0",
-            "half_score": "1-0",
-            "outcome": "H"
+            "score": "0-0",
+            "half_score": "0-0",
+            "outcome": "D"
           }
         ],
-        "avg_goals": 2.6,
-        "btts_rate": 0.4
+        "avg_goals": 1.66,
+        "btts_rate": 0.33
       },
       "head_to_head": {
         "last_5": [
           {
-            "date": "2025-06-10",
-            "home": "厄格里特",
-            "away": "佐加顿斯",
-            "score": "2-0",
-            "half_score": "2-0",
-            "outcome": "H"
-          },
-          {
-            "date": "2025-11-20",
+            "date": "2013-05-01",
             "home": "佐加顿斯",
             "away": "厄格里特",
             "score": "1-0",
-            "half_score": "1-0",
-            "outcome": "A"
-          },
-          {
-            "date": "2024-12-22",
-            "home": "厄格里特",
-            "away": "佐加顿斯",
-            "score": "3-3",
-            "half_score": "1-3",
-            "outcome": "D"
-          },
-          {
-            "date": "2024-05-24",
-            "home": "佐加顿斯",
-            "away": "厄格里特",
-            "score": "1-2",
             "half_score": "0-0",
             "outcome": "H"
           },
           {
-            "date": "2023-03-13",
+            "date": "2009-10-24",
+            "home": "佐加顿斯",
+            "away": "厄格里特",
+            "score": "3-1",
+            "half_score": "2-0",
+            "outcome": "H"
+          },
+          {
+            "date": "2009-05-31",
             "home": "厄格里特",
             "away": "佐加顿斯",
-            "score": "1-0",
-            "half_score": "1-0",
-            "outcome": "H"
+            "score": "0-0",
+            "half_score": "0-0",
+            "outcome": "D"
           }
         ],
-        "avg_goals": 2.6,
-        "btts_rate": 0.4
+        "avg_goals": 1.66,
+        "btts_rate": 0.33
       },
       "public_vs_bookmaker": [
         {
@@ -21228,6 +21353,15 @@
         },
         {
           "timestamp": "2026-07-18T21:29:38.175905",
+          "pinnacle": {
+            "home": 2.3,
+            "draw": 3.45,
+            "away": 2.47
+          },
+          "kelly_conclusion": "即时返还率为 0.885。基于散户倾向（主 38% / 平 26% / 客 36%），计算得出即时凯利指数为：主胜 0.87，平局 0.90，客胜 0.89。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>主胜</strong> 剧本。"
+        },
+        {
+          "timestamp": "2026-07-18T21:45:15.114583",
           "pinnacle": {
             "home": 2.3,
             "draw": 3.45,
@@ -21536,94 +21670,94 @@
       "h2h": {
         "last_5": [
           {
-            "date": "2025-11-01",
+            "date": "2024-08-24",
             "home": "卡尔马",
             "away": "马尔默",
-            "score": "0-2",
-            "half_score": "0-1",
-            "outcome": "A"
-          },
-          {
-            "date": "2025-03-15",
-            "home": "马尔默",
-            "away": "卡尔马",
-            "score": "1-0",
-            "half_score": "1-0",
-            "outcome": "A"
-          },
-          {
-            "date": "2024-10-22",
-            "home": "卡尔马",
-            "away": "马尔默",
-            "score": "1-1",
+            "score": "2-2",
             "half_score": "1-1",
             "outcome": "D"
           },
           {
-            "date": "2024-03-16",
+            "date": "2024-05-24",
             "home": "马尔默",
             "away": "卡尔马",
-            "score": "1-2",
+            "score": "5-0",
+            "half_score": "3-0",
+            "outcome": "H"
+          },
+          {
+            "date": "2023-10-08",
+            "home": "卡尔马",
+            "away": "马尔默",
+            "score": "1-0",
             "half_score": "0-0",
             "outcome": "H"
           },
           {
-            "date": "2023-12-16",
-            "home": "卡尔马",
-            "away": "马尔默",
-            "score": "0-2",
-            "half_score": "0-2",
-            "outcome": "A"
+            "date": "2023-04-01",
+            "home": "马尔默",
+            "away": "卡尔马",
+            "score": "1-0",
+            "half_score": "1-0",
+            "outcome": "H"
+          },
+          {
+            "date": "2022-10-23",
+            "home": "马尔默",
+            "away": "卡尔马",
+            "score": "0-0",
+            "half_score": "0-0",
+            "outcome": "D"
           }
         ],
-        "avg_goals": 2.0,
-        "btts_rate": 0.4
+        "avg_goals": 2.2,
+        "btts_rate": 0.2
       },
       "head_to_head": {
         "last_5": [
           {
-            "date": "2025-11-01",
+            "date": "2024-08-24",
             "home": "卡尔马",
             "away": "马尔默",
-            "score": "0-2",
-            "half_score": "0-1",
-            "outcome": "A"
-          },
-          {
-            "date": "2025-03-15",
-            "home": "马尔默",
-            "away": "卡尔马",
-            "score": "1-0",
-            "half_score": "1-0",
-            "outcome": "A"
-          },
-          {
-            "date": "2024-10-22",
-            "home": "卡尔马",
-            "away": "马尔默",
-            "score": "1-1",
+            "score": "2-2",
             "half_score": "1-1",
             "outcome": "D"
           },
           {
-            "date": "2024-03-16",
+            "date": "2024-05-24",
             "home": "马尔默",
             "away": "卡尔马",
-            "score": "1-2",
+            "score": "5-0",
+            "half_score": "3-0",
+            "outcome": "H"
+          },
+          {
+            "date": "2023-10-08",
+            "home": "卡尔马",
+            "away": "马尔默",
+            "score": "1-0",
             "half_score": "0-0",
             "outcome": "H"
           },
           {
-            "date": "2023-12-16",
-            "home": "卡尔马",
-            "away": "马尔默",
-            "score": "0-2",
-            "half_score": "0-2",
-            "outcome": "A"
+            "date": "2023-04-01",
+            "home": "马尔默",
+            "away": "卡尔马",
+            "score": "1-0",
+            "half_score": "1-0",
+            "outcome": "H"
+          },
+          {
+            "date": "2022-10-23",
+            "home": "马尔默",
+            "away": "卡尔马",
+            "score": "0-0",
+            "half_score": "0-0",
+            "outcome": "D"
           }
         ],
-        "avg_goals": 2.0,
-        "btts_rate": 0.4
+        "avg_goals": 2.2,
+        "btts_rate": 0.2
       },
       "public_vs_bookmaker": [
         {
