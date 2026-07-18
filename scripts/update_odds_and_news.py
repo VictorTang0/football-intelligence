@@ -789,28 +789,54 @@ def apply_dynamic_conclusions(m):
             conservative = f"让负 ({h_annot})"
         
     # Half-Time / Full-Time (Strictly choosing from the 9 specified combinations)
-    half_full = "平平"
+    conf = m["ultimate_conclusion"].get("confidence", 65)
+    
+    # Core HT/FT determined by goals
+    core_hf = "平平"
+    alt_hf = None
+    
     if g_home > g_away:
         if ("逆转专家" in h_tags or "剧本反转" in h_tags) and h_hash % 3 == 0:
-            half_full = "负胜"
+            core_hf = "负胜"
+            alt_hf = "平胜"
         elif moe_score > 0.35 and h_hash % 2 == 0:
-            half_full = "胜胜"
+            core_hf = "胜胜"
+            alt_hf = "平胜"
         else:
-            half_full = "平胜"
+            core_hf = "平胜"
+            alt_hf = "胜胜"
+            
     elif g_away > g_home:
         if ("逆转专家" in a_tags or "剧本反转" in a_tags) and h_hash % 3 == 0:
-            half_full = "胜负"
+            core_hf = "胜负"
+            alt_hf = "平负"
         elif moe_score < -0.35 and h_hash % 2 == 0:
-            half_full = "负负"
+            core_hf = "负负"
+            alt_hf = "平负"
         else:
-            half_full = "平负"
+            core_hf = "平负"
+            alt_hf = "负负"
+            
     else:
         if "虎头蛇尾" in h_tags and h_hash % 2 == 0:
-            half_full = "胜平"
+            core_hf = "胜平"
+            alt_hf = "平平"
         elif "虎头蛇尾" in a_tags and h_hash % 2 == 0:
-            half_full = "负平"
+            core_hf = "负平"
+            alt_hf = "平平"
         else:
-            half_full = "平平"
+            core_hf = "平平"
+            alt_hf = "平胜" if eg_home > eg_away else "平负" if eg_away > eg_home else "胜平"
+
+    if conf >= 90 and alt_hf:
+        # Extremely high confidence -> recommend exactly 1
+        half_full = core_hf
+    else:
+        # Recommend 2 options
+        if alt_hf and alt_hf != core_hf:
+            half_full = f"{core_hf} 或 {alt_hf}"
+        else:
+            half_full = core_hf
         
     if "conclusions" not in m:
         m["conclusions"] = {}
