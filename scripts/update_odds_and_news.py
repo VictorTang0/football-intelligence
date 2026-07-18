@@ -513,35 +513,91 @@ def apply_dynamic_conclusions(m):
     ph, pd, pa = pinnacle_odds["home"], pinnacle_odds["draw"], pinnacle_odds["away"]
     rec = m["ultimate_conclusion"].get("recommendation", "")
     
-    ou_line = "大 2.5" if (ph < 1.6 or pa < 1.8) else "小 2.5"
+    # 1. Expected goals simulation based on team stats and odds
+    h_stats = m["team_stats"]["home"].get("season_stats", {})
+    a_stats = m["team_stats"]["away"].get("season_stats", {})
     
+    h_scored = h_stats.get("goals_scored", 18)
+    h_conceded = h_stats.get("goals_conceded", 15)
+    a_scored = a_stats.get("goals_scored", 18)
+    a_conceded = a_stats.get("goals_conceded", 15)
+    
+    eg_home = (h_scored + a_conceded) / 20.0
+    eg_away = (a_scored + h_conceded) / 20.0
+    
+    moe_score = m.get("moe_score", 0.0)
+    
+    if moe_score > 0:
+        eg_home += moe_score * 0.4
+        eg_away -= moe_score * 0.2
+    else:
+        eg_home += moe_score * 0.2
+        eg_away -= moe_score * 0.4
+        
+    eg_home = max(0.2, eg_home)
+    eg_away = max(0.2, eg_away)
+    
+    ou_line = "大 2.5" if (eg_home + eg_away >= 2.3) else "小 2.5"
+    
+    # Generate scores
+    g_home = int(round(eg_home))
+    g_away = int(round(eg_away))
+    
+    # Adjust scores based on recommendation
+    if "主胜" in rec and g_home <= g_away:
+        g_home = g_away + 1
+    elif "客胜" in rec and g_away <= g_home:
+        g_away = g_home + 1
+    elif "平局" in rec:
+        g_home = g_away = max(1, int(round((eg_home + eg_away) / 2.0))) if eg_home + eg_away >= 1.5 else 0
+        
+    # Generate two most likely scores
+    if g_home > g_away:
+        score1 = f"{g_home}-{g_away}"
+        score2 = f"{g_home-1}-{g_away}" if g_home - 1 > g_away else f"{g_home}-{g_away+1}"
+    elif g_away > g_home:
+        score1 = f"{g_home}-{g_away}"
+        score2 = f"{g_home}-{g_away-1}" if g_away - 1 > g_home else f"{g_home+1}-{g_away}"
+    else:
+        score1 = f"{g_home}-{g_away}"
+        score2 = "0-0" if g_home > 0 else "1-1"
+        
+    most_likely_score = f"{score1} 或 {score2}"
+    
+    # Aggressive score
+    h_hash = sum(ord(c) for c in m["home"])
+    if g_home > g_away:
+        aggressive = f"比分 {g_home+1}-{g_away}" if h_hash % 2 == 0 else f"比分 {g_home}-{g_away}"
+    elif g_away > g_home:
+        aggressive = f"比分 {g_home}-{g_away+1}" if h_hash % 2 == 0 else f"比分 {g_home}-{g_away}"
+    else:
+        aggressive = f"比分 {g_home+1}-{g_away+1}" if h_hash % 2 == 0 else "比分 2-2"
+        
+    # Conservative option
+    if "主胜" in rec or "主不败" in rec:
+        conservative = "主队让平" if ph < 1.65 else "主队受让0.5"
+    elif "客胜" in rec or "客不败" in rec:
+        conservative = "客队让平" if pa < 1.65 else "客队受让0.5"
+    else:
+        conservative = "平局受让" if pd < 3.2 else "防守平局"
+        
+    # Half-Time / Full-Time
+    if g_home > g_away + 1:
+        half_full = "胜/胜"
+    elif g_home > g_away:
+        half_full = "平/胜" if h_hash % 2 == 0 else "胜/胜"
+    elif g_away > g_home + 1:
+        half_full = "负/负"
+    elif g_away > g_home:
+        half_full = "平/负" if h_hash % 2 == 0 else "负/负"
+    else:
+        half_full = "平/平" if h_hash % 2 == 0 else "半场平局"
+        
     if "conclusions" not in m:
         m["conclusions"] = {}
         
-    if "主胜" in rec:
-        mainstream = "主队主场全取三分"
-        upset = "客队防反爆冷抢分"
-        most_likely_score = "2-0 或 2-1" if ou_line == "大 2.5" else "1-0 或 2-0"
-        aggressive = "比分 3-1" if ou_line == "大 2.5" else "比分 2-0"
-        conservative = "主队让平" if ph < 1.7 else "主队平手"
-        half_full = "胜/胜" if ph < 1.6 else "平/胜"
-    elif "客胜" in rec:
-        mainstream = "客队反客为主抢分"
-        upset = "主队主场捍卫尊严"
-        most_likely_score = "1-2 或 0-2" if ou_line == "大 2.5" else "0-1 或 1-1"
-        aggressive = "比分 1-3" if ou_line == "大 2.5" else "比分 0-2"
-        conservative = "客队受让" if pa > 1.7 else "客队平手"
-        half_full = "负/负" if pa < 1.6 else "平/负"
-    else:
-        mainstream = "平局拉锯之势"
-        upset = "分出胜负"
-        most_likely_score = "1-1 或 0-0"
-        aggressive = "比分 2-2" if ou_line == "大 2.5" else "比分 1-1"
-        conservative = "防守平局"
-        half_full = "平/平"
-        
-    m["conclusions"]["mainstream"] = mainstream
-    m["conclusions"]["upset"] = upset
+    m["conclusions"]["mainstream"] = "主队主场全取三分" if "主胜" in rec else "客队反客为主抢分" if "客胜" in rec else "平局拉锯之势"
+    m["conclusions"]["upset"] = "客队防反爆冷抢分" if "主胜" in rec else "主队主场捍卫尊严" if "客胜" in rec else "分出胜负"
     m["conclusions"]["aggressive"] = aggressive
     m["conclusions"]["conservative"] = conservative
     m["conclusions"]["most_likely_score"] = most_likely_score
@@ -1234,6 +1290,7 @@ def main():
                     score = sum(dim_scores.get(d, 0) for d in dims)
                 expert_votes[exp_id] = score * exp_data.get("weight", 0.3)
             moe_score = sum(expert_votes.values())
+            m["moe_score"] = moe_score
             
         new_rec = old_rec
         if real_intel:
@@ -1345,13 +1402,17 @@ def main():
             m["ultimate_conclusion"]["primary_bet"] = "双选不败"
             
         # 2. Update Confidence
+        moe_abs = abs(moe_score)
+        conf = 55 + int(moe_abs * 35)
+        conf = max(48, min(85, conf))
+        
         if m["ultimate_conclusion"].get("risk_level") == "极高":
-            m["ultimate_conclusion"]["confidence"] = 45
+            conf = int(conf * 0.75)
         elif m["ultimate_conclusion"].get("risk_level") == "高":
-            m["ultimate_conclusion"]["confidence"] = 55
-        else:
-            m["ultimate_conclusion"]["confidence"] = 68
+            conf = int(conf * 0.88)
             
+        m["ultimate_conclusion"]["confidence"] = conf
+        
         # 3. Update Reasoning
         m["ultimate_conclusion"]["reasoning"] = generate_dynamic_reasoning(m)
         
