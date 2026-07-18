@@ -8,7 +8,7 @@
 
 ### 🧱 赛事标准化录入要求（防呆机制）：
 - **禁止手动裸写骨架**：在 Command A 识别出新赛事后，**严禁**手动拼装不完整或缺少 `team_stats/season_stats` 等庞大树状字段的 JSON 骨架直接写入 `matches.json`。
-- **强制初始化流程**：必须先将识别的对阵简档输出至 `data/new_matches_input.json`，在终端运行 `python3 scripts/initialize_match.py data/new_matches_input.json` 完成全字段自动补充，之后再运行 `update_odds_and_news.py` 导入新闻与实盘波动。这能百分百避免前端球队图表与各项数据分析发生空白。
+- **全自动联运流程**：已将所有初始化与数据抓取操作合并为单主脚本。运行 `python3 scripts/analyze_today_matches.py` 会自动依次执行：抓取最新竞彩在售对阵 -> 擦除旧 pending 缓存 -> 骨架多维初始化 -> 运行盘口更新及新闻舆情研判。这一键工作流彻底规避了手工合并错漏或操作顺序颠倒导致的空白错误。
 
 ### 🔍 情报检索与更新标准：
 - **已验证新闻 (`intelligence.verified_news`)**：
