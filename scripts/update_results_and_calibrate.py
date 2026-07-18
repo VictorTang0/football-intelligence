@@ -142,6 +142,17 @@ for m in matches_db["matches"]:
         kickoff_str = m.get("kickoff", "")
         try:
             from datetime import datetime, timezone, timedelta
+            
+            # Date consistency check: Verify match ID date matches kickoff date
+            mid_parts = mid.split("_")
+            if len(mid_parts) >= 2 and len(mid_parts[1]) == 6:
+                expected_yymmdd = mid_parts[1]
+                kickoff_dt = datetime.fromisoformat(kickoff_str)
+                kickoff_yymmdd = kickoff_dt.strftime("%y%m%d")
+                if expected_yymmdd != kickoff_yymmdd:
+                    print(f"❌ Date mismatch error! Match ID {mid} date prefix ({expected_yymmdd}) does not match kickoff date ({kickoff_yymmdd}). Skipping to prevent incorrect result assignment.")
+                    continue
+            
             kickoff_dt = datetime.fromisoformat(kickoff_str)
             now = datetime.now(kickoff_dt.tzinfo)
             
