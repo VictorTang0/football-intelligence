@@ -1453,8 +1453,22 @@ const MatchIQRender = (() => {
       const twoGoals = getTwoGoals(score);
       const halfFullClean = halfFull.split('或')[0].trim().replace(/（延长赛）/g, '');
 
-      const confColorClass = recColor(conf);
-      const riskColor = risk.includes('低') ? 'var(--green)' : risk.includes('高') ? 'var(--red)' : 'var(--amber)';
+      // Combine confidence and risk level with beautiful colors
+      let combinedColor = '#ef4444'; // Red (High risk)
+      let combinedBg = 'rgba(239, 68, 68, 0.1)';
+      let combinedBorder = 'rgba(239, 68, 68, 0.25)';
+      
+      if (conf >= 75) {
+        combinedColor = '#10b981'; // Green (Low/Trimmed risk)
+        combinedBg = 'rgba(16, 185, 129, 0.1)';
+        combinedBorder = 'rgba(16, 185, 129, 0.25)';
+      } else if (conf >= 55) {
+        combinedColor = '#f59e0b'; // Amber (Medium risk)
+        combinedBg = 'rgba(245, 158, 11, 0.1)';
+        combinedBorder = 'rgba(245, 158, 11, 0.25)';
+      }
+      
+      const combinedBadge = `<span style="padding:4px 8px; border-radius:6px; font-weight:bold; font-size:12px; background:${combinedBg}; color:${combinedColor}; border:1px solid ${combinedBorder}; display:inline-block; white-space:nowrap;">${conf}% (${risk})</span>`;
 
       const multiRecHTML = `
         <div class="multi-rec-box">
@@ -1472,8 +1486,7 @@ const MatchIQRender = (() => {
           <td>${kickoff}</td>
           <td>${matchup}</td>
           <td style="font-weight:700; color:var(--text-1);">${rec}</td>
-          <td><span class="confidence-badge ${confColorClass}" style="padding:2px 6px; border-radius:4px; font-weight:bold; font-size:12px;">${conf}%</span></td>
-          <td style="color:${riskColor}; font-weight:600;">${risk}</td>
+          <td>${combinedBadge}</td>
           <td class="font-mono" style="color:var(--green); font-weight:bold;">${score}</td>
           <td style="padding: 4px 8px; white-space: normal;">${multiRecHTML}</td>
         </tr>
@@ -1490,8 +1503,7 @@ const MatchIQRender = (() => {
               <th style="padding:12px 16px;">开赛</th>
               <th style="padding:12px 16px;">对阵</th>
               <th style="padding:12px 16px;">预测结论</th>
-              <th style="padding:12px 16px;">置信度</th>
-              <th style="padding:12px 16px;">风险</th>
+              <th style="padding:12px 16px;">置信度 (风险)</th>
               <th style="padding:12px 16px;">最可能比分</th>
               <th style="padding:12px 16px;">多维推荐结论</th>
             </tr>

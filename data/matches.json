@@ -7486,7 +7486,7 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.636985",
+          "timestamp": "2026-07-18T17:13:58.710574",
           "pinnacle": {
             "home": 1.7,
             "draw": 3.8,
@@ -7499,10 +7499,10 @@
       "ultimate_conclusion": {
         "recommendation": "主胜",
         "primary_bet": "主不败",
-        "confidence": 63,
+        "confidence": 61,
         "risk_level": "中",
         "ev_score": 0.0,
-        "reasoning": "世界杯比赛双方战术意图各有侧重。 基本面上，法国在【环境气候适应性】上拥有明显优势（评分 8.8 对 8.2），但英格兰在【首发阵容健康度】上（评分 9.8 对 6.5）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 1.70 / 3.80 / 3.60 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主胜】。",
+        "reasoning": "世界杯比赛双方战术意图各有侧重。 基本面上，法国在【近期状态与动能】上拥有明显优势（评分 7.6 对 6.5），但英格兰在【首发阵容健康度】上（评分 9.8 对 6.5）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 1.70 / 3.80 / 3.60 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主胜】。",
         "confidence_trend": "up"
       },
       "team_stats": {
@@ -7517,23 +7517,23 @@
           ],
           "form_note": "近期整体状态稳健，主场防御力强悍",
           "season_stats": {
-            "goals_scored": 26,
-            "goals_conceded": 12,
-            "xg": 28.2,
+            "goals_scored": 28,
+            "goals_conceded": 14,
+            "xg": 25.1,
             "xga": 12.0,
-            "shots_per_game": 14.6,
-            "shots_on_target": 5.1,
+            "shots_per_game": 16.1,
+            "shots_on_target": 6.0,
             "conversion_rate": 0.1,
-            "possession": 61.7,
-            "pass_accuracy": 85.2,
-            "pressing_intensity": 69.1,
+            "possession": 59.8,
+            "pass_accuracy": 82.5,
+            "pressing_intensity": 73.7,
             "set_piece_goals": 6,
-            "counter_attack_speed": 71.8,
-            "clean_sheets": 8,
+            "counter_attack_speed": 71.1,
+            "clean_sheets": 4,
             "btts_rate": 0.4,
             "over25_rate": 0.5,
-            "low_block_resilience": 7.4,
-            "superstar_impact": 7.3
+            "low_block_resilience": 6.6,
+            "superstar_impact": 8.5
           },
           "motivation": 0.72,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -7560,23 +7560,23 @@
           ],
           "form_note": "赛程密集导致体能略显疲软，但斗志高昂",
           "season_stats": {
-            "goals_scored": 27,
-            "goals_conceded": 11,
-            "xg": 24.4,
-            "xga": 12.1,
-            "shots_per_game": 14.4,
-            "shots_on_target": 5.7,
+            "goals_scored": 26,
+            "goals_conceded": 14,
+            "xg": 26.5,
+            "xga": 12.6,
+            "shots_per_game": 14.9,
+            "shots_on_target": 4.9,
             "conversion_rate": 0.1,
-            "possession": 65.1,
-            "pass_accuracy": 94.8,
-            "pressing_intensity": 76.9,
-            "set_piece_goals": 5,
-            "counter_attack_speed": 68.2,
-            "clean_sheets": 5,
+            "possession": 63.8,
+            "pass_accuracy": 79.8,
+            "pressing_intensity": 69.1,
+            "set_piece_goals": 6,
+            "counter_attack_speed": 78.7,
+            "clean_sheets": 6,
             "btts_rate": 0.4,
             "over25_rate": 0.5,
-            "low_block_resilience": 6.2,
-            "superstar_impact": 8.6
+            "low_block_resilience": 7.2,
+            "superstar_impact": 8.0
           },
           "motivation": 0.74,
           "motivation_note": "客队客场防御为主，常规防守战意",
@@ -7782,11 +7782,11 @@
       "conclusions": {
         "mainstream": "主队主场全取三分",
         "upset": "客队防反爆冷抢分",
-        "aggressive": "比分 4-2",
+        "aggressive": "比分 3-1",
         "conservative": "胜",
-        "most_likely_score": "3-2 或 3-3",
+        "most_likely_score": "2-1 或 2-2",
         "over_under": "大 2.5",
-        "half_full": "平胜",
+        "half_full": "胜胜",
         "upset_probability": 0.15,
         "upset_direction": "客胜",
         "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 52% / 平 23% / 客 25%），计算得出即时凯利指数为：主胜 0.88，平局 0.87，客胜 0.90。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>平局</strong> 剧本。",
@@ -7856,7 +7856,7 @@
         },
         "M05_近期状态与动能": {
           "home_score": 7.6,
-          "away_score": 7.1,
+          "away_score": 6.5,
           "weight": 0.15,
           "signal": "法国状态正佳"
         },
@@ -7879,7 +7879,7 @@
           "signal": "法国抢分战意更浓"
         }
       },
-      "moe_score": -0.24122849999999996,
+      "moe_score": 0.36700352614379117,
       "prediction_updated": true
     },
     {
@@ -7899,7 +7899,7 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.638259",
+          "timestamp": "2026-07-18T17:13:58.713734",
           "pinnacle": {
             "home": 2.53,
             "draw": 3.15,
@@ -7912,7 +7912,7 @@
       "ultimate_conclusion": {
         "recommendation": "客胜",
         "primary_bet": "客不败",
-        "confidence": 61,
+        "confidence": 51,
         "risk_level": "中",
         "ev_score": 0.0,
         "reasoning": "韩职联赛强调防守纪律性，整体攻防转化较慢。 基本面上，大田市民在【环境气候适应性】上拥有明显优势（评分 9.0 对 7.8），但蔚山现代在【球队基础硬实力】上（评分 9.1 对 5.4）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 2.58 降至 2.53，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
@@ -7930,23 +7930,23 @@
           ],
           "form_note": "多场不胜急需抢分，战意较为饱满",
           "season_stats": {
-            "goals_scored": 10,
-            "goals_conceded": 23,
-            "xg": 9.8,
-            "xga": 21.4,
-            "shots_per_game": 9.0,
+            "goals_scored": 9,
+            "goals_conceded": 26,
+            "xg": 11.2,
+            "xga": 20.5,
+            "shots_per_game": 8.8,
             "shots_on_target": 2.7,
             "conversion_rate": 0.1,
-            "possession": 41.6,
-            "pass_accuracy": 81.1,
-            "pressing_intensity": 54.9,
+            "possession": 37.9,
+            "pass_accuracy": 68.2,
+            "pressing_intensity": 54.7,
             "set_piece_goals": 4,
-            "counter_attack_speed": 66.8,
-            "clean_sheets": 4,
-            "btts_rate": 0.3,
+            "counter_attack_speed": 58.2,
+            "clean_sheets": 0,
+            "btts_rate": 0.4,
             "over25_rate": 0.4,
-            "low_block_resilience": 8.3,
-            "superstar_impact": 4.9
+            "low_block_resilience": 8.5,
+            "superstar_impact": 5.6
           },
           "motivation": 0.8,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -7975,21 +7975,21 @@
           "season_stats": {
             "goals_scored": 28,
             "goals_conceded": 11,
-            "xg": 27.4,
-            "xga": 11.6,
-            "shots_per_game": 15.3,
-            "shots_on_target": 6.0,
+            "xg": 27.5,
+            "xga": 12.4,
+            "shots_per_game": 13.5,
+            "shots_on_target": 5.1,
             "conversion_rate": 0.1,
-            "possession": 60.9,
-            "pass_accuracy": 76.0,
-            "pressing_intensity": 77.0,
-            "set_piece_goals": 3,
-            "counter_attack_speed": 79.4,
+            "possession": 63.9,
+            "pass_accuracy": 92.5,
+            "pressing_intensity": 70.0,
+            "set_piece_goals": 5,
+            "counter_attack_speed": 72.2,
             "clean_sheets": 4,
             "btts_rate": 0.4,
             "over25_rate": 0.5,
-            "low_block_resilience": 7.6,
-            "superstar_impact": 8.7
+            "low_block_resilience": 6.6,
+            "superstar_impact": 8.1
           },
           "motivation": 0.68,
           "motivation_note": "客队客场防御为主，常规防守战意",
@@ -8292,7 +8292,7 @@
           "signal": "大田市民抢分战意更浓"
         }
       },
-      "moe_score": -0.19909,
+      "moe_score": -0.15334559947299065,
       "prediction_updated": true
     },
     {
@@ -8312,7 +8312,7 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.638797",
+          "timestamp": "2026-07-18T17:13:58.715371",
           "pinnacle": {
             "home": 1.51,
             "draw": 3.68,
@@ -8325,7 +8325,7 @@
       "ultimate_conclusion": {
         "recommendation": "客胜",
         "primary_bet": "客不败",
-        "confidence": 61,
+        "confidence": 91,
         "risk_level": "中",
         "ev_score": 0.0,
         "reasoning": "韩职联赛强调防守纪律性，整体攻防转化较慢。 基本面上，江原FC在【中场与推进效率】上拥有明显优势（评分 8.9 对 7.4），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 1.51 / 3.68 / 5.12 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
@@ -8343,23 +8343,23 @@
           ],
           "form_note": "近期锋线低迷，打法偏向保守防御",
           "season_stats": {
-            "goals_scored": 28,
-            "goals_conceded": 12,
-            "xg": 25.4,
-            "xga": 10.2,
-            "shots_per_game": 14.2,
-            "shots_on_target": 5.9,
+            "goals_scored": 26,
+            "goals_conceded": 10,
+            "xg": 26.0,
+            "xga": 11.2,
+            "shots_per_game": 16.2,
+            "shots_on_target": 5.8,
             "conversion_rate": 0.1,
-            "possession": 61.1,
-            "pass_accuracy": 94.9,
-            "pressing_intensity": 79.2,
-            "set_piece_goals": 5,
-            "counter_attack_speed": 68.1,
-            "clean_sheets": 8,
+            "possession": 53.0,
+            "pass_accuracy": 92.9,
+            "pressing_intensity": 78.3,
+            "set_piece_goals": 6,
+            "counter_attack_speed": 76.7,
+            "clean_sheets": 7,
             "btts_rate": 0.5,
             "over25_rate": 0.5,
-            "low_block_resilience": 7.4,
-            "superstar_impact": 7.6
+            "low_block_resilience": 7.0,
+            "superstar_impact": 7.8
           },
           "motivation": 0.86,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -8388,21 +8388,21 @@
           "season_stats": {
             "goals_scored": 19,
             "goals_conceded": 18,
-            "xg": 18.5,
-            "xga": 15.9,
-            "shots_per_game": 12.0,
-            "shots_on_target": 4.0,
+            "xg": 19.2,
+            "xga": 18.2,
+            "shots_per_game": 10.4,
+            "shots_on_target": 4.1,
             "conversion_rate": 0.1,
-            "possession": 46.1,
-            "pass_accuracy": 83.3,
-            "pressing_intensity": 57.2,
-            "set_piece_goals": 1,
-            "counter_attack_speed": 77.1,
-            "clean_sheets": 5,
-            "btts_rate": 0.5,
-            "over25_rate": 0.5,
-            "low_block_resilience": 6.5,
-            "superstar_impact": 6.3
+            "possession": 51.8,
+            "pass_accuracy": 79.2,
+            "pressing_intensity": 68.0,
+            "set_piece_goals": 5,
+            "counter_attack_speed": 73.3,
+            "clean_sheets": 3,
+            "btts_rate": 0.4,
+            "over25_rate": 0.4,
+            "low_block_resilience": 6.7,
+            "superstar_impact": 6.8
           },
           "motivation": 0.68,
           "motivation_note": "客队客场防御为主，常规防守战意",
@@ -8705,7 +8705,7 @@
           "signal": "江原FC抢分战意更浓"
         }
       },
-      "moe_score": 0.1811945000000001,
+      "moe_score": 1.0322971490066233,
       "prediction_updated": true
     },
     {
@@ -8725,7 +8725,7 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.639361",
+          "timestamp": "2026-07-18T17:13:58.716488",
           "pinnacle": {
             "home": 3.2,
             "draw": 3.04,
@@ -8738,7 +8738,7 @@
       "ultimate_conclusion": {
         "recommendation": "平局",
         "primary_bet": "平局",
-        "confidence": 59,
+        "confidence": 48,
         "risk_level": "中",
         "ev_score": 0.0,
         "reasoning": "韩职联赛强调防守纪律性，整体攻防转化较慢。 基本面上，济州SK在【首发阵容健康度】上拥有明显优势（评分 7.1 对 5.9），但浦项制铁在【中场与推进效率】上（评分 9.3 对 7.9）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 3.26 降至 3.20，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【平局】。",
@@ -8756,23 +8756,23 @@
           ],
           "form_note": "近期整体状态稳健，主场防御力强悍",
           "season_stats": {
-            "goals_scored": 17,
-            "goals_conceded": 15,
+            "goals_scored": 19,
+            "goals_conceded": 19,
             "xg": 17.8,
-            "xga": 17.5,
-            "shots_per_game": 11.1,
+            "xga": 15.4,
+            "shots_per_game": 10.5,
             "shots_on_target": 3.8,
             "conversion_rate": 0.1,
-            "possession": 46.3,
-            "pass_accuracy": 71.1,
-            "pressing_intensity": 61.6,
-            "set_piece_goals": 4,
-            "counter_attack_speed": 72.9,
-            "clean_sheets": 6,
+            "possession": 51.8,
+            "pass_accuracy": 74.1,
+            "pressing_intensity": 59.4,
+            "set_piece_goals": 5,
+            "counter_attack_speed": 74.7,
+            "clean_sheets": 3,
             "btts_rate": 0.5,
-            "over25_rate": 0.4,
-            "low_block_resilience": 7.9,
-            "superstar_impact": 6.6
+            "over25_rate": 0.5,
+            "low_block_resilience": 7.1,
+            "superstar_impact": 6.1
           },
           "motivation": 0.72,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -8799,23 +8799,23 @@
           ],
           "form_note": "防守端较为松懈，但进攻线转换极快",
           "season_stats": {
-            "goals_scored": 29,
-            "goals_conceded": 14,
-            "xg": 24.8,
-            "xga": 11.2,
-            "shots_per_game": 13.3,
-            "shots_on_target": 4.9,
+            "goals_scored": 28,
+            "goals_conceded": 10,
+            "xg": 28.2,
+            "xga": 12.3,
+            "shots_per_game": 15.3,
+            "shots_on_target": 5.9,
             "conversion_rate": 0.1,
-            "possession": 57.1,
-            "pass_accuracy": 92.3,
-            "pressing_intensity": 85.0,
+            "possession": 63.3,
+            "pass_accuracy": 91.5,
+            "pressing_intensity": 85.9,
             "set_piece_goals": 5,
-            "counter_attack_speed": 75.7,
-            "clean_sheets": 8,
-            "btts_rate": 0.5,
-            "over25_rate": 0.5,
-            "low_block_resilience": 7.3,
-            "superstar_impact": 7.8
+            "counter_attack_speed": 66.4,
+            "clean_sheets": 7,
+            "btts_rate": 0.4,
+            "over25_rate": 0.4,
+            "low_block_resilience": 7.5,
+            "superstar_impact": 7.3
           },
           "motivation": 0.8,
           "motivation_note": "客队客场防御为主，常规防守战意",
@@ -9118,7 +9118,7 @@
           "signal": "济州SK抢分战意更浓"
         }
       },
-      "moe_score": 0.11668929999999983,
+      "moe_score": -0.08379850487804932,
       "prediction_updated": true
     },
     {
@@ -9138,7 +9138,7 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.680929",
+          "timestamp": "2026-07-18T17:13:58.736007",
           "pinnacle": {
             "home": 3.45,
             "draw": 3.06,
@@ -9149,13 +9149,13 @@
       ],
       "match_context": "韩职常规赛对决。仁川联坐镇主场迎接全北现代的挑战。",
       "ultimate_conclusion": {
-        "recommendation": "平局",
-        "primary_bet": "平局",
-        "confidence": 57,
+        "recommendation": "客不败",
+        "primary_bet": "双选不败",
+        "confidence": 60,
         "risk_level": "中",
         "ev_score": 0.0,
-        "reasoning": "韩职联赛强调防守纪律性，整体攻防转化较慢。 基本面上，仁川联在【环境气候适应性】上拥有明显优势（评分 9.2 对 8.2），但全北现代在【球队基础硬实力】上（评分 9.4 对 7.5）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 3.52 降至 3.45，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【平局】。",
-        "confidence_trend": "down"
+        "reasoning": "韩职联赛强调防守纪律性，整体攻防转化较慢。 基本面上，仁川联在【环境气候适应性】上拥有明显优势（评分 9.2 对 8.2），但全北现代在【球队基础硬实力】上（评分 9.4 对 7.5）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 3.52 降至 3.45，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
+        "confidence_trend": "stable"
       },
       "team_stats": {
         "home": {
@@ -9169,23 +9169,23 @@
           ],
           "form_note": "近期锋线低迷，打法偏向保守防御",
           "season_stats": {
-            "goals_scored": 20,
-            "goals_conceded": 15,
-            "xg": 18.7,
-            "xga": 18.8,
-            "shots_per_game": 11.5,
-            "shots_on_target": 3.7,
+            "goals_scored": 18,
+            "goals_conceded": 17,
+            "xg": 15.8,
+            "xga": 18.1,
+            "shots_per_game": 9.9,
+            "shots_on_target": 3.5,
             "conversion_rate": 0.1,
-            "possession": 55.3,
-            "pass_accuracy": 73.8,
-            "pressing_intensity": 55.9,
+            "possession": 53.1,
+            "pass_accuracy": 76.5,
+            "pressing_intensity": 58.6,
             "set_piece_goals": 2,
-            "counter_attack_speed": 70.3,
-            "clean_sheets": 5,
-            "btts_rate": 0.4,
+            "counter_attack_speed": 75.8,
+            "clean_sheets": 3,
+            "btts_rate": 0.5,
             "over25_rate": 0.5,
-            "low_block_resilience": 7.7,
-            "superstar_impact": 7.2
+            "low_block_resilience": 6.5,
+            "superstar_impact": 6.9
           },
           "motivation": 0.76,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -9212,23 +9212,23 @@
           ],
           "form_note": "近期锋线低迷，打法偏向保守防御",
           "season_stats": {
-            "goals_scored": 27,
-            "goals_conceded": 12,
-            "xg": 27.8,
-            "xga": 10.8,
-            "shots_per_game": 15.0,
-            "shots_on_target": 5.3,
+            "goals_scored": 26,
+            "goals_conceded": 10,
+            "xg": 28.9,
+            "xga": 12.8,
+            "shots_per_game": 16.1,
+            "shots_on_target": 4.8,
             "conversion_rate": 0.1,
-            "possession": 61.6,
-            "pass_accuracy": 82.7,
-            "pressing_intensity": 83.2,
+            "possession": 64.8,
+            "pass_accuracy": 82.8,
+            "pressing_intensity": 72.4,
             "set_piece_goals": 4,
-            "counter_attack_speed": 70.1,
-            "clean_sheets": 8,
+            "counter_attack_speed": 79.9,
+            "clean_sheets": 4,
             "btts_rate": 0.4,
             "over25_rate": 0.5,
-            "low_block_resilience": 7.6,
-            "superstar_impact": 7.1
+            "low_block_resilience": 6.9,
+            "superstar_impact": 8.5
           },
           "motivation": 0.72,
           "motivation_note": "客队客场防御为主，常规防守战意",
@@ -9384,7 +9384,7 @@
           "平赔拉锯可能掩盖双方战术性握手言和的意图。",
           "盘口水位频繁震荡涉嫌诱导散户追热，建议保持冷门防范。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】首选的 '平局' 赔率升水至 3.06 呈阻力。结合舆情热度（大众倾向均衡），此为典型的热门诱买陷阱，庄家其实更防范相反的「分出胜负」剧本打出。"
+        "bookmaker_backed_script": "【庄家看好剧本】赔率水位小幅微震，盘面资金分布均匀，未见异常资金倾斜。预计比赛将按模型原定的首选 '客不败' 剧本打出。"
       },
       "intelligence": {
         "verified_news": [
@@ -9434,15 +9434,15 @@
       "conclusions": {
         "mainstream": "平局拉锯之势",
         "upset": "分出胜负",
-        "aggressive": "比分 3-3",
-        "conservative": "平",
-        "most_likely_score": "2-2 或 0-0",
+        "aggressive": "比分 1-3",
+        "conservative": "负",
+        "most_likely_score": "1-2 或 2-2",
         "over_under": "大 2.5",
-        "half_full": "平平",
+        "half_full": "平负",
         "upset_probability": 0.41,
         "upset_direction": "客胜",
         "kelly_conclusion": "即时返还率为 0.885。基于散户倾向（主 26% / 平 29% / 客 45%），计算得出即时凯利指数为：主胜 0.90，平局 0.89，客胜 0.88。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>客胜</strong> 剧本。",
-        "upset_trend": "up"
+        "upset_trend": "stable"
       },
       "h2h": {
         "last_5": [
@@ -9531,7 +9531,7 @@
           "signal": "仁川联抢分战意更浓"
         }
       },
-      "moe_score": -0.07341000000000006,
+      "moe_score": -0.3421547045707918,
       "prediction_updated": true
     },
     {
@@ -9551,11 +9551,11 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.682038",
+          "timestamp": "2026-07-18T17:13:58.736842",
           "pinnacle": {
-            "home": 3.5,
-            "draw": 3.36,
-            "away": 1.83
+            "home": 3.6,
+            "draw": 3.4,
+            "away": 1.8
           },
           "kelly_conclusion": "待运行 update_odds_and_news.py 进行实盘凯利指数计算与赔付风险研判。"
         }
@@ -9564,10 +9564,10 @@
       "ultimate_conclusion": {
         "recommendation": "客胜",
         "primary_bet": "客不败",
-        "confidence": 62,
+        "confidence": 70,
         "risk_level": "中",
         "ev_score": 0.0,
-        "reasoning": "挪超联赛大开大合，大球率高，进攻端对体能消耗极大。 基本面上，汉坎在【环境气候适应性】上拥有明显优势（评分 9.0 对 8.2），但特罗姆瑟在【中场与推进效率】上（评分 7.8 对 5.1）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 3.57 降至 3.50，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
+        "reasoning": "挪超联赛大开大合，大球率高，进攻端对体能消耗极大。 基本面上，汉坎在【环境气候适应性】上拥有明显优势（评分 9.0 对 8.2），但特罗姆瑟在【中场与推进效率】上（评分 7.8 对 5.1）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 3.67 降至 3.60，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
         "confidence_trend": "stable"
       },
       "team_stats": {
@@ -9583,22 +9583,22 @@
           "form_note": "防守端较为松懈，但进攻线转换极快",
           "season_stats": {
             "goals_scored": 19,
-            "goals_conceded": 15,
-            "xg": 16.8,
-            "xga": 16.0,
-            "shots_per_game": 10.0,
-            "shots_on_target": 3.8,
+            "goals_conceded": 16,
+            "xg": 17.1,
+            "xga": 16.6,
+            "shots_per_game": 11.9,
+            "shots_on_target": 3.5,
             "conversion_rate": 0.1,
-            "possession": 47.4,
-            "pass_accuracy": 77.7,
-            "pressing_intensity": 60.9,
-            "set_piece_goals": 4,
-            "counter_attack_speed": 70.1,
-            "clean_sheets": 2,
+            "possession": 53.3,
+            "pass_accuracy": 83.7,
+            "pressing_intensity": 61.8,
+            "set_piece_goals": 2,
+            "counter_attack_speed": 76.1,
+            "clean_sheets": 6,
             "btts_rate": 0.5,
             "over25_rate": 0.4,
-            "low_block_resilience": 7.2,
-            "superstar_impact": 7.2
+            "low_block_resilience": 7.3,
+            "superstar_impact": 5.7
           },
           "motivation": 0.74,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -9626,22 +9626,22 @@
           "form_note": "近期锋线低迷，打法偏向保守防御",
           "season_stats": {
             "goals_scored": 18,
-            "goals_conceded": 17,
-            "xg": 18.8,
-            "xga": 15.3,
-            "shots_per_game": 11.8,
+            "goals_conceded": 16,
+            "xg": 17.7,
+            "xga": 15.8,
+            "shots_per_game": 12.3,
             "shots_on_target": 4.0,
             "conversion_rate": 0.1,
-            "possession": 53.7,
-            "pass_accuracy": 84.8,
-            "pressing_intensity": 61.0,
-            "set_piece_goals": 4,
-            "counter_attack_speed": 70.8,
-            "clean_sheets": 5,
+            "possession": 53.5,
+            "pass_accuracy": 73.6,
+            "pressing_intensity": 67.8,
+            "set_piece_goals": 5,
+            "counter_attack_speed": 73.4,
+            "clean_sheets": 2,
             "btts_rate": 0.5,
-            "over25_rate": 0.5,
-            "low_block_resilience": 6.7,
-            "superstar_impact": 7.0
+            "over25_rate": 0.4,
+            "low_block_resilience": 8.0,
+            "superstar_impact": 6.0
           },
           "motivation": 0.82,
           "motivation_note": "客队客场防御为主，常规防守战意",
@@ -9662,14 +9662,14 @@
         "pinnacle": {
           "name": "pinnacle",
           "initial": {
-            "home": 3.57,
-            "draw": 3.29,
-            "away": 1.79
+            "home": 3.67,
+            "draw": 3.33,
+            "away": 1.76
           },
           "current": {
-            "home": 3.5,
-            "draw": 3.36,
-            "away": 1.83
+            "home": 3.6,
+            "draw": 3.4,
+            "away": 1.8
           },
           "movement": "实时追踪"
         },
@@ -9725,74 +9725,74 @@
         "sbobet": {
           "name": "sbobet",
           "initial": {
-            "home": 3.64,
-            "draw": 3.23,
-            "away": 1.74
+            "home": 3.75,
+            "draw": 3.27,
+            "away": 1.71
           },
           "current": {
-            "home": 3.57,
-            "draw": 3.29,
-            "away": 1.78
+            "home": 3.67,
+            "draw": 3.33,
+            "away": 1.75
           },
           "movement": "实时追踪"
         },
         "nova88": {
           "name": "nova88",
           "initial": {
-            "home": 3.5,
-            "draw": 3.33,
-            "away": 1.83
+            "home": 3.6,
+            "draw": 3.37,
+            "away": 1.8
           },
           "current": {
-            "home": 3.43,
-            "draw": 3.39,
-            "away": 1.87
+            "home": 3.53,
+            "draw": 3.43,
+            "away": 1.84
           },
           "movement": "实时追踪"
         },
         "crown": {
           "name": "crown",
           "initial": {
-            "home": 3.61,
-            "draw": 3.29,
-            "away": 1.78
+            "home": 3.71,
+            "draw": 3.33,
+            "away": 1.75
           },
           "current": {
-            "home": 3.54,
-            "draw": 3.36,
-            "away": 1.81
+            "home": 3.64,
+            "draw": 3.4,
+            "away": 1.78
           },
           "movement": "实时追踪"
         },
         "hkjc": {
           "name": "hkjc",
           "initial": {
-            "home": 3.46,
-            "draw": 3.19,
-            "away": 1.88
+            "home": 3.56,
+            "draw": 3.23,
+            "away": 1.85
           },
           "current": {
-            "home": 3.4,
-            "draw": 3.26,
-            "away": 1.92
+            "home": 3.49,
+            "draw": 3.3,
+            "away": 1.89
           },
           "movement": "实时追踪"
         },
         "m8bet": {
           "name": "m8bet",
           "initial": {
-            "home": 3.53,
-            "draw": 3.36,
-            "away": 1.81
+            "home": 3.64,
+            "draw": 3.4,
+            "away": 1.78
           },
           "current": {
-            "home": 3.46,
-            "draw": 3.43,
-            "away": 1.85
+            "home": 3.56,
+            "draw": 3.47,
+            "away": 1.82
           },
           "movement": "实时追踪"
         },
-        "bookmaker_intent": "当前平博主客均赔为 3.5 对 1.83，差值较小。庄家意图是利用均势赔率吸引双向对等资金，最大化抽水利润。散户在大众题材下分歧明显，庄家无明显偏向偏护。",
+        "bookmaker_intent": "当前平博主客均赔为 3.6 对 1.8，差值较小。庄家意图是利用均势赔率吸引双向对等资金，最大化抽水利润。散户在大众题材下分歧明显，庄家无明显偏向偏护。",
         "smoke_screens": [
           "平赔拉锯可能掩盖双方战术性握手言和的意图。",
           "盘口水位频繁震荡涉嫌诱导散户追热，建议保持冷门防范。"
@@ -9829,14 +9829,14 @@
       "conclusions": {
         "mainstream": "客队反客为主抢分",
         "upset": "主队主场捍卫尊严",
-        "aggressive": "比分 2-3",
+        "aggressive": "比分 1-2",
         "conservative": "负",
-        "most_likely_score": "2-3 或 3-3",
+        "most_likely_score": "1-2 或 2-2",
         "over_under": "大 2.5",
         "half_full": "平负",
-        "upset_probability": 0.42,
+        "upset_probability": 0.43,
         "upset_direction": "客胜",
-        "kelly_conclusion": "即时返还率为 0.885。基于散户倾向（主 25% / 平 26% / 客 49%），计算得出即时凯利指数为：主胜 0.88，平局 0.87，客胜 0.90。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>平局</strong> 剧本。",
+        "kelly_conclusion": "即时返还率为 0.887。基于散户倾向（主 25% / 平 26% / 客 49%），计算得出即时凯利指数为：主胜 0.90，平局 0.88，客胜 0.88。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>客胜</strong> 剧本。",
         "upset_trend": "stable"
       },
       "h2h": {
@@ -9926,7 +9926,7 @@
           "signal": "汉坎抢分战意更浓"
         }
       },
-      "moe_score": -0.202128,
+      "moe_score": -0.5585724444444445,
       "prediction_updated": true
     },
     {
@@ -9946,7 +9946,7 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.682626",
+          "timestamp": "2026-07-18T17:13:58.737356",
           "pinnacle": {
             "home": 1.81,
             "draw": 3.66,
@@ -9959,7 +9959,7 @@
       "ultimate_conclusion": {
         "recommendation": "反基本面冷门 (客队不败)",
         "primary_bet": "客不败",
-        "confidence": 58,
+        "confidence": 71,
         "risk_level": "中",
         "ev_score": 0.0,
         "reasoning": "芬超联赛常呈现低比分拉锯，防守落位速度是决定性因素。 基本面上，赫尔辛基在【环境气候适应性】上拥有明显优势（评分 9.2 对 8.2），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 1.81 / 3.66 / 3.30 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【反基本面冷门 (客队不败)】。",
@@ -9977,23 +9977,23 @@
           ],
           "form_note": "近期整体状态稳健，主场防御力强悍",
           "season_stats": {
-            "goals_scored": 16,
-            "goals_conceded": 16,
-            "xg": 17.0,
-            "xga": 15.8,
-            "shots_per_game": 12.1,
-            "shots_on_target": 3.4,
+            "goals_scored": 18,
+            "goals_conceded": 18,
+            "xg": 18.9,
+            "xga": 15.0,
+            "shots_per_game": 11.7,
+            "shots_on_target": 3.9,
             "conversion_rate": 0.1,
-            "possession": 43.9,
-            "pass_accuracy": 80.2,
-            "pressing_intensity": 68.5,
-            "set_piece_goals": 3,
-            "counter_attack_speed": 61.9,
-            "clean_sheets": 6,
+            "possession": 48.8,
+            "pass_accuracy": 83.0,
+            "pressing_intensity": 58.7,
+            "set_piece_goals": 4,
+            "counter_attack_speed": 65.0,
+            "clean_sheets": 4,
             "btts_rate": 0.5,
-            "over25_rate": 0.5,
-            "low_block_resilience": 7.2,
-            "superstar_impact": 6.4
+            "over25_rate": 0.4,
+            "low_block_resilience": 6.9,
+            "superstar_impact": 7.1
           },
           "motivation": 0.72,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -10020,23 +10020,23 @@
           ],
           "form_note": "赛程密集导致体能略显疲软，但斗志高昂",
           "season_stats": {
-            "goals_scored": 20,
+            "goals_scored": 17,
             "goals_conceded": 19,
-            "xg": 17.4,
-            "xga": 18.3,
-            "shots_per_game": 10.4,
-            "shots_on_target": 3.8,
+            "xg": 15.9,
+            "xga": 15.2,
+            "shots_per_game": 10.9,
+            "shots_on_target": 3.7,
             "conversion_rate": 0.1,
-            "possession": 55.2,
-            "pass_accuracy": 84.3,
-            "pressing_intensity": 68.6,
-            "set_piece_goals": 4,
-            "counter_attack_speed": 74.0,
-            "clean_sheets": 4,
+            "possession": 52.8,
+            "pass_accuracy": 87.4,
+            "pressing_intensity": 59.8,
+            "set_piece_goals": 1,
+            "counter_attack_speed": 66.0,
+            "clean_sheets": 2,
             "btts_rate": 0.5,
             "over25_rate": 0.4,
-            "low_block_resilience": 6.4,
-            "superstar_impact": 6.4
+            "low_block_resilience": 6.6,
+            "superstar_impact": 7.3
           },
           "motivation": 0.84,
           "motivation_note": "客队客场防御为主，常规防守战意",
@@ -10246,7 +10246,7 @@
         "conservative": "让负 (主-1)",
         "most_likely_score": "2-1 或 2-2",
         "over_under": "大 2.5",
-        "half_full": "平胜",
+        "half_full": "胜胜",
         "upset_probability": 0.68,
         "upset_direction": "客胜",
         "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 49% / 平 24% / 客 27%），计算得出即时凯利指数为：主胜 0.89，平局 0.88，客胜 0.89。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>平局</strong> 剧本。",
@@ -10339,7 +10339,7 @@
           "signal": "赫尔辛基抢分战意更浓"
         }
       },
-      "moe_score": 0.10718280000000005,
+      "moe_score": 0.5943122157040014,
       "prediction_updated": true
     },
     {
@@ -10359,7 +10359,7 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.683141",
+          "timestamp": "2026-07-18T17:13:58.737831",
           "pinnacle": {
             "home": 2.33,
             "draw": 3.25,
@@ -10372,7 +10372,7 @@
       "ultimate_conclusion": {
         "recommendation": "主不败",
         "primary_bet": "双选不败",
-        "confidence": 59,
+        "confidence": 57,
         "risk_level": "中",
         "ev_score": 0.0,
         "reasoning": "瑞超联赛的人工草皮主场优势极其明显，客队适应常面临考验。 基本面上，索尔纳在【球队基础硬实力】上拥有明显优势（评分 9.1 对 8.0），但盖斯在【首发阵容健康度】上（评分 5.0 对 4.3）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 2.33 / 3.25 / 2.55 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败】。",
@@ -10390,23 +10390,23 @@
           ],
           "form_note": "防守端较为松懈，但进攻线转换极快",
           "season_stats": {
-            "goals_scored": 19,
-            "goals_conceded": 17,
-            "xg": 19.5,
-            "xga": 17.1,
-            "shots_per_game": 11.3,
-            "shots_on_target": 4.2,
+            "goals_scored": 18,
+            "goals_conceded": 15,
+            "xg": 18.2,
+            "xga": 16.3,
+            "shots_per_game": 10.5,
+            "shots_on_target": 3.7,
             "conversion_rate": 0.1,
-            "possession": 48.7,
-            "pass_accuracy": 83.9,
-            "pressing_intensity": 65.2,
-            "set_piece_goals": 2,
-            "counter_attack_speed": 62.1,
-            "clean_sheets": 2,
+            "possession": 51.2,
+            "pass_accuracy": 87.2,
+            "pressing_intensity": 59.6,
+            "set_piece_goals": 4,
+            "counter_attack_speed": 75.6,
+            "clean_sheets": 4,
             "btts_rate": 0.6,
             "over25_rate": 0.4,
-            "low_block_resilience": 7.9,
-            "superstar_impact": 6.6
+            "low_block_resilience": 7.0,
+            "superstar_impact": 6.3
           },
           "motivation": 0.74,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -10433,23 +10433,23 @@
           ],
           "form_note": "赛程密集导致体能略显疲软，但斗志高昂",
           "season_stats": {
-            "goals_scored": 19,
-            "goals_conceded": 16,
-            "xg": 18.9,
-            "xga": 16.8,
-            "shots_per_game": 12.5,
-            "shots_on_target": 4.0,
+            "goals_scored": 18,
+            "goals_conceded": 17,
+            "xg": 17.0,
+            "xga": 17.8,
+            "shots_per_game": 10.7,
+            "shots_on_target": 3.6,
             "conversion_rate": 0.1,
-            "possession": 50.8,
-            "pass_accuracy": 73.4,
-            "pressing_intensity": 64.0,
+            "possession": 52.5,
+            "pass_accuracy": 83.1,
+            "pressing_intensity": 63.2,
             "set_piece_goals": 2,
-            "counter_attack_speed": 65.1,
+            "counter_attack_speed": 72.8,
             "clean_sheets": 2,
             "btts_rate": 0.5,
             "over25_rate": 0.5,
-            "low_block_resilience": 7.6,
-            "superstar_impact": 6.1
+            "low_block_resilience": 7.1,
+            "superstar_impact": 6.7
           },
           "motivation": 0.74,
           "motivation_note": "客队客场防御为主，常规防守战意",
@@ -10752,7 +10752,7 @@
           "signal": "索尔纳抢分战意更浓"
         }
       },
-      "moe_score": 0.13124240000000004,
+      "moe_score": 0.27048669857779994,
       "prediction_updated": true
     },
     {
@@ -10772,7 +10772,7 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.683674",
+          "timestamp": "2026-07-18T17:13:58.738307",
           "pinnacle": {
             "home": 1.45,
             "draw": 4.15,
@@ -10785,7 +10785,7 @@
       "ultimate_conclusion": {
         "recommendation": "主不败",
         "primary_bet": "双选不败",
-        "confidence": 56,
+        "confidence": 87,
         "risk_level": "中",
         "ev_score": 0.0,
         "reasoning": "挪超联赛大开大合，大球率高，进攻端对体能消耗极大。 基本面上，利勒斯特在【环境气候适应性】上拥有明显优势（评分 9.2 对 8.2），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 1.45 / 4.15 / 5.05 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败】。",
@@ -10803,23 +10803,23 @@
           ],
           "form_note": "防守端较为松懈，但进攻线转换极快",
           "season_stats": {
-            "goals_scored": 20,
+            "goals_scored": 18,
             "goals_conceded": 15,
-            "xg": 16.4,
-            "xga": 16.2,
-            "shots_per_game": 11.2,
-            "shots_on_target": 3.4,
+            "xg": 17.6,
+            "xga": 14.8,
+            "shots_per_game": 10.5,
+            "shots_on_target": 3.7,
             "conversion_rate": 0.1,
             "possession": 43.7,
-            "pass_accuracy": 77.3,
-            "pressing_intensity": 55.3,
+            "pass_accuracy": 85.7,
+            "pressing_intensity": 65.9,
             "set_piece_goals": 1,
-            "counter_attack_speed": 75.8,
-            "clean_sheets": 4,
+            "counter_attack_speed": 77.5,
+            "clean_sheets": 3,
             "btts_rate": 0.5,
-            "over25_rate": 0.5,
-            "low_block_resilience": 7.1,
-            "superstar_impact": 6.6
+            "over25_rate": 0.4,
+            "low_block_resilience": 7.5,
+            "superstar_impact": 6.4
           },
           "motivation": 0.74,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -10848,21 +10848,21 @@
           "season_stats": {
             "goals_scored": 19,
             "goals_conceded": 19,
-            "xg": 16.3,
-            "xga": 17.0,
-            "shots_per_game": 9.9,
-            "shots_on_target": 3.5,
+            "xg": 16.1,
+            "xga": 18.2,
+            "shots_per_game": 12.1,
+            "shots_on_target": 4.1,
             "conversion_rate": 0.1,
-            "possession": 46.5,
-            "pass_accuracy": 70.7,
-            "pressing_intensity": 66.1,
-            "set_piece_goals": 2,
-            "counter_attack_speed": 68.2,
-            "clean_sheets": 6,
+            "possession": 50.8,
+            "pass_accuracy": 79.2,
+            "pressing_intensity": 58.7,
+            "set_piece_goals": 3,
+            "counter_attack_speed": 75.3,
+            "clean_sheets": 4,
             "btts_rate": 0.5,
-            "over25_rate": 0.4,
-            "low_block_resilience": 6.7,
-            "superstar_impact": 6.0
+            "over25_rate": 0.5,
+            "low_block_resilience": 6.6,
+            "superstar_impact": 6.8
           },
           "motivation": 0.74,
           "motivation_note": "客队客场防御为主，常规防守战意",
@@ -11165,7 +11165,7 @@
           "signal": "利勒斯特抢分战意更浓"
         }
       },
-      "moe_score": 0.057088500000000084,
+      "moe_score": 0.947705092693752,
       "prediction_updated": true
     },
     {
@@ -11185,7 +11185,7 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.684165",
+          "timestamp": "2026-07-18T17:13:58.738773",
           "pinnacle": {
             "home": 2.88,
             "draw": 3.48,
@@ -11216,23 +11216,23 @@
           ],
           "form_note": "多场不胜急需抢分，战意较为饱满",
           "season_stats": {
-            "goals_scored": 18,
-            "goals_conceded": 16,
-            "xg": 19.4,
-            "xga": 18.4,
-            "shots_per_game": 10.0,
-            "shots_on_target": 4.1,
+            "goals_scored": 16,
+            "goals_conceded": 18,
+            "xg": 15.6,
+            "xga": 16.0,
+            "shots_per_game": 11.6,
+            "shots_on_target": 3.9,
             "conversion_rate": 0.1,
-            "possession": 54.5,
-            "pass_accuracy": 76.2,
-            "pressing_intensity": 68.3,
-            "set_piece_goals": 4,
-            "counter_attack_speed": 77.8,
-            "clean_sheets": 6,
-            "btts_rate": 0.4,
-            "over25_rate": 0.5,
-            "low_block_resilience": 7.4,
-            "superstar_impact": 6.9
+            "possession": 48.3,
+            "pass_accuracy": 82.1,
+            "pressing_intensity": 63.8,
+            "set_piece_goals": 1,
+            "counter_attack_speed": 65.3,
+            "clean_sheets": 5,
+            "btts_rate": 0.5,
+            "over25_rate": 0.4,
+            "low_block_resilience": 7.0,
+            "superstar_impact": 6.5
           },
           "motivation": 0.9,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -11259,23 +11259,23 @@
           ],
           "form_note": "赛程密集导致体能略显疲软，但斗志高昂",
           "season_stats": {
-            "goals_scored": 19,
-            "goals_conceded": 18,
-            "xg": 15.4,
-            "xga": 18.6,
-            "shots_per_game": 10.7,
-            "shots_on_target": 3.7,
+            "goals_scored": 18,
+            "goals_conceded": 17,
+            "xg": 18.6,
+            "xga": 15.0,
+            "shots_per_game": 10.2,
+            "shots_on_target": 4.2,
             "conversion_rate": 0.1,
-            "possession": 49.7,
-            "pass_accuracy": 71.9,
-            "pressing_intensity": 59.3,
-            "set_piece_goals": 1,
-            "counter_attack_speed": 67.9,
+            "possession": 44.1,
+            "pass_accuracy": 87.5,
+            "pressing_intensity": 64.1,
+            "set_piece_goals": 3,
+            "counter_attack_speed": 74.2,
             "clean_sheets": 3,
             "btts_rate": 0.5,
-            "over25_rate": 0.4,
-            "low_block_resilience": 7.6,
-            "superstar_impact": 7.1
+            "over25_rate": 0.5,
+            "low_block_resilience": 6.8,
+            "superstar_impact": 7.0
           },
           "motivation": 0.74,
           "motivation_note": "客队客场防御为主，常规防守战意",
@@ -11463,11 +11463,11 @@
       "conclusions": {
         "mainstream": "平局拉锯之势",
         "upset": "分出胜负",
-        "aggressive": "比分 2-2",
+        "aggressive": "比分 1-2",
         "conservative": "负",
-        "most_likely_score": "2-2 或 0-0",
+        "most_likely_score": "1-2 或 2-2",
         "over_under": "大 2.5",
-        "half_full": "平平",
+        "half_full": "平负",
         "upset_probability": 0.31,
         "upset_direction": "客胜",
         "kelly_conclusion": "即时返还率为 0.885。基于散户倾向（主 31% / 平 25% / 客 44%），计算得出即时凯利指数为：主胜 0.89，平局 0.87，客胜 0.89。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>平局</strong> 剧本。",
@@ -11560,7 +11560,7 @@
           "signal": "斯达抢分战意更浓"
         }
       },
-      "moe_score": -0.2534675,
+      "moe_score": -0.4099911523652365,
       "prediction_updated": true
     },
     {
@@ -11580,23 +11580,23 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.684634",
+          "timestamp": "2026-07-18T17:13:58.739252",
           "pinnacle": {
-            "home": 2.73,
-            "draw": 3.55,
-            "away": 2.08
+            "home": 2.8,
+            "draw": 3.6,
+            "away": 2.03
           },
           "kelly_conclusion": "待运行 update_odds_and_news.py 进行实盘凯利指数计算与赔付风险研判。"
         }
       ],
       "match_context": "挪超常规赛对决。克里斯蒂坐镇主场迎接萨普斯堡的挑战。",
       "ultimate_conclusion": {
-        "recommendation": "双选不败",
+        "recommendation": "客不败",
         "primary_bet": "双选不败",
-        "confidence": 57,
+        "confidence": 54,
         "risk_level": "中",
         "ev_score": 0.0,
-        "reasoning": "挪超联赛大开大合，大球率高，进攻端对体能消耗极大。 基本面上，克里斯蒂在【环境气候适应性】上拥有明显优势（评分 9.2 对 8.0），但萨普斯堡在【球队基础硬实力】上（评分 8.1 对 5.7）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 2.73 / 3.55 / 2.08 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【双选不败】。",
+        "reasoning": "挪超联赛大开大合，大球率高，进攻端对体能消耗极大。 基本面上，克里斯蒂在【环境气候适应性】上拥有明显优势（评分 9.2 对 8.0），但萨普斯堡在【球队基础硬实力】上（评分 8.1 对 5.7）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 2.86 降至 2.80，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "stable"
       },
       "team_stats": {
@@ -11611,23 +11611,23 @@
           ],
           "form_note": "赛程密集导致体能略显疲软，但斗志高昂",
           "season_stats": {
-            "goals_scored": 19,
+            "goals_scored": 20,
             "goals_conceded": 16,
-            "xg": 17.9,
-            "xga": 17.7,
-            "shots_per_game": 10.9,
+            "xg": 18.3,
+            "xga": 15.6,
+            "shots_per_game": 11.4,
             "shots_on_target": 3.6,
             "conversion_rate": 0.1,
-            "possession": 52.0,
-            "pass_accuracy": 74.8,
-            "pressing_intensity": 59.0,
-            "set_piece_goals": 5,
-            "counter_attack_speed": 75.3,
+            "possession": 48.2,
+            "pass_accuracy": 77.6,
+            "pressing_intensity": 56.8,
+            "set_piece_goals": 4,
+            "counter_attack_speed": 74.1,
             "clean_sheets": 4,
             "btts_rate": 0.5,
-            "over25_rate": 0.5,
-            "low_block_resilience": 7.4,
-            "superstar_impact": 6.9
+            "over25_rate": 0.4,
+            "low_block_resilience": 7.0,
+            "superstar_impact": 6.3
           },
           "motivation": 0.88,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -11654,23 +11654,23 @@
           ],
           "form_note": "防守端较为松懈，但进攻线转换极快",
           "season_stats": {
-            "goals_scored": 17,
-            "goals_conceded": 16,
-            "xg": 19.1,
-            "xga": 16.3,
-            "shots_per_game": 10.6,
-            "shots_on_target": 3.7,
+            "goals_scored": 20,
+            "goals_conceded": 15,
+            "xg": 19.4,
+            "xga": 17.5,
+            "shots_per_game": 11.0,
+            "shots_on_target": 3.5,
             "conversion_rate": 0.1,
-            "possession": 50.7,
-            "pass_accuracy": 78.3,
-            "pressing_intensity": 62.8,
-            "set_piece_goals": 3,
-            "counter_attack_speed": 73.2,
-            "clean_sheets": 2,
-            "btts_rate": 0.4,
+            "possession": 48.0,
+            "pass_accuracy": 85.9,
+            "pressing_intensity": 55.0,
+            "set_piece_goals": 2,
+            "counter_attack_speed": 70.3,
+            "clean_sheets": 5,
+            "btts_rate": 0.5,
             "over25_rate": 0.5,
-            "low_block_resilience": 7.4,
-            "superstar_impact": 6.4
+            "low_block_resilience": 6.7,
+            "superstar_impact": 6.6
           },
           "motivation": 0.8,
           "motivation_note": "客队客场防御为主，常规防守战意",
@@ -11691,14 +11691,14 @@
         "pinnacle": {
           "name": "pinnacle",
           "initial": {
-            "home": 2.78,
-            "draw": 3.48,
-            "away": 2.04
+            "home": 2.86,
+            "draw": 3.53,
+            "away": 1.99
           },
           "current": {
-            "home": 2.73,
-            "draw": 3.55,
-            "away": 2.08
+            "home": 2.8,
+            "draw": 3.6,
+            "away": 2.03
           },
           "movement": "实时追踪"
         },
@@ -11754,79 +11754,79 @@
         "sbobet": {
           "name": "sbobet",
           "initial": {
-            "home": 2.84,
-            "draw": 3.41,
-            "away": 1.98
+            "home": 2.91,
+            "draw": 3.46,
+            "away": 1.93
           },
           "current": {
-            "home": 2.78,
-            "draw": 3.48,
-            "away": 2.02
+            "home": 2.86,
+            "draw": 3.53,
+            "away": 1.97
           },
           "movement": "实时追踪"
         },
         "nova88": {
           "name": "nova88",
           "initial": {
-            "home": 2.73,
-            "draw": 3.51,
-            "away": 2.08
+            "home": 2.8,
+            "draw": 3.56,
+            "away": 2.03
           },
           "current": {
-            "home": 2.68,
-            "draw": 3.59,
-            "away": 2.12
+            "home": 2.74,
+            "draw": 3.64,
+            "away": 2.07
           },
           "movement": "实时追踪"
         },
         "crown": {
           "name": "crown",
           "initial": {
-            "home": 2.81,
-            "draw": 3.48,
-            "away": 2.02
+            "home": 2.88,
+            "draw": 3.53,
+            "away": 1.97
           },
           "current": {
-            "home": 2.76,
-            "draw": 3.55,
-            "away": 2.06
+            "home": 2.83,
+            "draw": 3.6,
+            "away": 2.01
           },
           "movement": "实时追踪"
         },
         "hkjc": {
           "name": "hkjc",
           "initial": {
-            "home": 2.7,
-            "draw": 3.37,
-            "away": 2.14
+            "home": 2.77,
+            "draw": 3.42,
+            "away": 2.09
           },
           "current": {
-            "home": 2.65,
-            "draw": 3.44,
-            "away": 2.18
+            "home": 2.72,
+            "draw": 3.49,
+            "away": 2.13
           },
           "movement": "实时追踪"
         },
         "m8bet": {
           "name": "m8bet",
           "initial": {
-            "home": 2.76,
-            "draw": 3.55,
-            "away": 2.06
+            "home": 2.83,
+            "draw": 3.6,
+            "away": 2.01
           },
           "current": {
-            "home": 2.7,
-            "draw": 3.62,
-            "away": 2.1
+            "home": 2.77,
+            "draw": 3.67,
+            "away": 2.05
           },
           "movement": "实时追踪"
         },
-        "bookmaker_intent": "当前平博主客均赔为 2.73 对 2.08，差值较小。庄家意图是利用均势赔率吸引双向对等资金，最大化抽水利润。散户在大众题材下分歧明显，庄家无明显偏向偏护。",
+        "bookmaker_intent": "当前平博主客均赔为 2.8 对 2.03，差值较小。庄家意图是利用均势赔率吸引双向对等资金，最大化抽水利润。散户在大众题材下分歧明显，庄家无明显偏向偏护。",
         "smoke_screens": [
           "平赔拉锯可能掩盖双方战术性握手言和的意图。",
           "盘口水位频繁震荡涉嫌诱导散户追热，建议保持冷门防范。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】水位双向对等拉锯，资金对流平稳，庄家旨在通过高频抽水实现盈利均衡，未露出明显资金偏护倾向。"
+        "bookmaker_backed_script": "【庄家看好剧本】赔率水位小幅微震，盘面资金分布均匀，未见异常资金倾斜。预计比赛将按模型原定的首选 '客不败' 剧本打出。"
       },
       "intelligence": {
         "verified_news": [
@@ -11858,14 +11858,14 @@
       "conclusions": {
         "mainstream": "平局拉锯之势",
         "upset": "分出胜负",
-        "aggressive": "比分 3-1",
-        "conservative": "让胜 (主+1)",
-        "most_likely_score": "2-1 或 2-2",
+        "aggressive": "比分 1-3",
+        "conservative": "负",
+        "most_likely_score": "1-2 或 2-2",
         "over_under": "大 2.5",
-        "half_full": "平胜",
-        "upset_probability": 0.29,
+        "half_full": "平负",
+        "upset_probability": 0.3,
         "upset_direction": "客胜",
-        "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 32% / 平 25% / 客 43%），计算得出即时凯利指数为：主胜 0.87，平局 0.89，客胜 0.89。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>主胜</strong> 剧本。",
+        "kelly_conclusion": "即时返还率为 0.887。基于散户倾向（主 32% / 平 25% / 客 43%），计算得出即时凯利指数为：主胜 0.90，平局 0.90，客胜 0.87。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>客胜</strong> 剧本。",
         "upset_trend": "stable"
       },
       "h2h": {
@@ -11955,7 +11955,7 @@
           "signal": "克里斯蒂抢分战意更浓"
         }
       },
-      "moe_score": -0.07574849999999993,
+      "moe_score": -0.2124972684729065,
       "prediction_updated": true
     },
     {
@@ -11975,7 +11975,7 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.685156",
+          "timestamp": "2026-07-18T17:13:58.739718",
           "pinnacle": {
             "home": 2.08,
             "draw": 3.3,
@@ -11986,13 +11986,13 @@
       ],
       "match_context": "芬超常规赛对决。AC奥卢坐镇主场迎接赫尔火花的挑战。",
       "ultimate_conclusion": {
-        "recommendation": "双选不败",
+        "recommendation": "主不败",
         "primary_bet": "双选不败",
-        "confidence": 58,
+        "confidence": 63,
         "risk_level": "中",
         "ev_score": 0.0,
-        "reasoning": "芬超联赛常呈现低比分拉锯，防守落位速度是决定性因素。 基本面上，AC奥卢在【环境气候适应性】上拥有明显优势（评分 9.2 对 8.0），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 2.08 / 3.30 / 2.90 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【双选不败】。",
-        "confidence_trend": "stable"
+        "reasoning": "芬超联赛常呈现低比分拉锯，防守落位速度是决定性因素。 基本面上，AC奥卢在【环境气候适应性】上拥有明显优势（评分 9.2 对 8.0），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 2.08 / 3.30 / 2.90 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败】。",
+        "confidence_trend": "up"
       },
       "team_stats": {
         "home": {
@@ -12006,23 +12006,23 @@
           ],
           "form_note": "赛程密集导致体能略显疲软，但斗志高昂",
           "season_stats": {
-            "goals_scored": 16,
+            "goals_scored": 18,
             "goals_conceded": 17,
-            "xg": 19.3,
-            "xga": 16.3,
-            "shots_per_game": 10.6,
-            "shots_on_target": 3.7,
+            "xg": 17.1,
+            "xga": 16.7,
+            "shots_per_game": 10.7,
+            "shots_on_target": 3.5,
             "conversion_rate": 0.1,
-            "possession": 44.6,
-            "pass_accuracy": 88.3,
-            "pressing_intensity": 58.0,
+            "possession": 45.0,
+            "pass_accuracy": 74.5,
+            "pressing_intensity": 64.1,
             "set_piece_goals": 4,
-            "counter_attack_speed": 68.7,
-            "clean_sheets": 6,
-            "btts_rate": 0.5,
+            "counter_attack_speed": 66.5,
+            "clean_sheets": 4,
+            "btts_rate": 0.6,
             "over25_rate": 0.4,
-            "low_block_resilience": 7.7,
-            "superstar_impact": 6.1
+            "low_block_resilience": 6.4,
+            "superstar_impact": 6.2
           },
           "motivation": 0.78,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -12050,22 +12050,22 @@
           "form_note": "防守端较为松懈，但进攻线转换极快",
           "season_stats": {
             "goals_scored": 16,
-            "goals_conceded": 15,
-            "xg": 17.6,
-            "xga": 16.9,
-            "shots_per_game": 12.0,
-            "shots_on_target": 4.1,
+            "goals_conceded": 18,
+            "xg": 16.3,
+            "xga": 18.8,
+            "shots_per_game": 11.4,
+            "shots_on_target": 3.9,
             "conversion_rate": 0.1,
-            "possession": 44.1,
-            "pass_accuracy": 81.4,
-            "pressing_intensity": 60.2,
+            "possession": 54.2,
+            "pass_accuracy": 83.0,
+            "pressing_intensity": 66.3,
             "set_piece_goals": 5,
-            "counter_attack_speed": 75.2,
-            "clean_sheets": 2,
+            "counter_attack_speed": 68.0,
+            "clean_sheets": 4,
             "btts_rate": 0.5,
             "over25_rate": 0.4,
-            "low_block_resilience": 7.4,
-            "superstar_impact": 7.1
+            "low_block_resilience": 7.0,
+            "superstar_impact": 6.4
           },
           "motivation": 0.7,
           "motivation_note": "客队客场防御为主，常规防守战意",
@@ -12221,7 +12221,7 @@
           "平赔拉锯可能掩盖双方战术性握手言和的意图。",
           "盘口水位频繁震荡涉嫌诱导散户追热，建议保持冷门防范。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】水位双向对等拉锯，资金对流平稳，庄家旨在通过高频抽水实现盈利均衡，未露出明显资金偏护倾向。"
+        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主不败' 进行了实质性控赔下调（已降水至 2.08），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。"
       },
       "intelligence": {
         "verified_news": [
@@ -12253,15 +12253,15 @@
       "conclusions": {
         "mainstream": "平局拉锯之势",
         "upset": "分出胜负",
-        "aggressive": "比分 2-2",
-        "conservative": "让负 (主-1)",
-        "most_likely_score": "1-1 或 0-0",
+        "aggressive": "比分 2-1",
+        "conservative": "胜",
+        "most_likely_score": "2-1 或 2-2",
         "over_under": "大 2.5",
-        "half_full": "平平",
+        "half_full": "平胜",
         "upset_probability": 0.18,
         "upset_direction": "客胜",
         "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 43% / 平 27% / 客 30%），计算得出即时凯利指数为：主胜 0.89，平局 0.89，客胜 0.87。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>客胜</strong> 剧本。",
-        "upset_trend": "stable"
+        "upset_trend": "down"
       },
       "h2h": {
         "last_5": [
@@ -12350,7 +12350,7 @@
           "signal": "AC奥卢抢分战意更浓"
         }
       },
-      "moe_score": 0.110247,
+      "moe_score": 0.4077536312997347,
       "prediction_updated": true
     },
     {
@@ -12370,7 +12370,7 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.685702",
+          "timestamp": "2026-07-18T17:13:58.740267",
           "pinnacle": {
             "home": 2.78,
             "draw": 3.35,
@@ -12383,7 +12383,7 @@
       "ultimate_conclusion": {
         "recommendation": "双选不败",
         "primary_bet": "双选不败",
-        "confidence": 56,
+        "confidence": 47,
         "risk_level": "中",
         "ev_score": 0.0,
         "reasoning": "芬超联赛常呈现低比分拉锯，防守落位速度是决定性因素。 基本面上，塞伊奈在【赛程密集与体能】上拥有明显优势（评分 8.5 对 7.6），但库奥皮奥在【战术克制与匹配】上（评分 7.9 对 7.1）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 2.84 降至 2.78，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【双选不败】。",
@@ -12403,21 +12403,21 @@
           "season_stats": {
             "goals_scored": 20,
             "goals_conceded": 17,
-            "xg": 18.2,
-            "xga": 18.8,
-            "shots_per_game": 10.9,
-            "shots_on_target": 3.7,
+            "xg": 16.4,
+            "xga": 18.6,
+            "shots_per_game": 11.7,
+            "shots_on_target": 3.6,
             "conversion_rate": 0.1,
-            "possession": 49.3,
-            "pass_accuracy": 84.1,
-            "pressing_intensity": 57.9,
-            "set_piece_goals": 1,
-            "counter_attack_speed": 70.4,
-            "clean_sheets": 2,
+            "possession": 49.4,
+            "pass_accuracy": 76.0,
+            "pressing_intensity": 58.7,
+            "set_piece_goals": 4,
+            "counter_attack_speed": 65.9,
+            "clean_sheets": 5,
             "btts_rate": 0.5,
-            "over25_rate": 0.4,
-            "low_block_resilience": 7.1,
-            "superstar_impact": 7.3
+            "over25_rate": 0.5,
+            "low_block_resilience": 6.7,
+            "superstar_impact": 6.9
           },
           "motivation": 0.76,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -12445,22 +12445,22 @@
           "form_note": "赛程密集导致体能略显疲软，但斗志高昂",
           "season_stats": {
             "goals_scored": 16,
-            "goals_conceded": 19,
-            "xg": 18.9,
-            "xga": 15.0,
-            "shots_per_game": 12.0,
-            "shots_on_target": 4.0,
+            "goals_conceded": 16,
+            "xg": 19.1,
+            "xga": 15.2,
+            "shots_per_game": 12.4,
+            "shots_on_target": 3.6,
             "conversion_rate": 0.1,
-            "possession": 52.3,
-            "pass_accuracy": 83.9,
-            "pressing_intensity": 61.4,
-            "set_piece_goals": 1,
-            "counter_attack_speed": 70.2,
-            "clean_sheets": 6,
+            "possession": 43.6,
+            "pass_accuracy": 89.1,
+            "pressing_intensity": 67.3,
+            "set_piece_goals": 3,
+            "counter_attack_speed": 70.4,
+            "clean_sheets": 3,
             "btts_rate": 0.5,
-            "over25_rate": 0.4,
-            "low_block_resilience": 8.1,
-            "superstar_impact": 6.9
+            "over25_rate": 0.5,
+            "low_block_resilience": 7.8,
+            "superstar_impact": 6.4
           },
           "motivation": 0.74,
           "motivation_note": "客队客场防御为主，常规防守战意",
@@ -12745,7 +12745,7 @@
           "signal": "塞伊奈抢分战意更浓"
         }
       },
-      "moe_score": 0.040583499999999904,
+      "moe_score": -0.05859391278675161,
       "prediction_updated": true
     },
     {
@@ -12765,11 +12765,11 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.686114",
+          "timestamp": "2026-07-18T17:13:58.740741",
           "pinnacle": {
-            "home": 1.85,
-            "draw": 3.88,
-            "away": 3.02
+            "home": 1.83,
+            "draw": 3.9,
+            "away": 3.06
           },
           "kelly_conclusion": "待运行 update_odds_and_news.py 进行实盘凯利指数计算与赔付风险研判。"
         }
@@ -12778,10 +12778,10 @@
       "ultimate_conclusion": {
         "recommendation": "主胜",
         "primary_bet": "主不败",
-        "confidence": 55,
+        "confidence": 45,
         "risk_level": "高",
         "ev_score": 0.0,
-        "reasoning": "挪超联赛大开大合，大球率高，进攻端对体能消耗极大。 基本面上，莫尔德在【环境气候适应性】上拥有明显优势（评分 9.2 对 8.2），但布兰在【首发阵容健康度】上（评分 9.5 对 5.3）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 1.85 / 3.88 / 3.02 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主胜】。",
+        "reasoning": "挪超联赛大开大合，大球率高，进攻端对体能消耗极大。 基本面上，莫尔德在【环境气候适应性】上拥有明显优势（评分 9.2 对 8.2），但布兰在【首发阵容健康度】上（评分 9.5 对 5.3）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 1.83 / 3.90 / 3.06 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主胜】。",
         "confidence_trend": "up"
       },
       "team_stats": {
@@ -12796,23 +12796,23 @@
           ],
           "form_note": "近期锋线低迷，打法偏向保守防御",
           "season_stats": {
-            "goals_scored": 19,
-            "goals_conceded": 16,
-            "xg": 15.5,
-            "xga": 18.1,
-            "shots_per_game": 10.2,
-            "shots_on_target": 3.8,
+            "goals_scored": 16,
+            "goals_conceded": 15,
+            "xg": 17.1,
+            "xga": 18.2,
+            "shots_per_game": 11.0,
+            "shots_on_target": 3.5,
             "conversion_rate": 0.1,
-            "possession": 52.3,
-            "pass_accuracy": 76.1,
-            "pressing_intensity": 63.3,
-            "set_piece_goals": 1,
-            "counter_attack_speed": 66.1,
+            "possession": 45.4,
+            "pass_accuracy": 84.9,
+            "pressing_intensity": 55.1,
+            "set_piece_goals": 2,
+            "counter_attack_speed": 69.4,
             "clean_sheets": 6,
             "btts_rate": 0.5,
             "over25_rate": 0.4,
-            "low_block_resilience": 7.6,
-            "superstar_impact": 6.8
+            "low_block_resilience": 8.0,
+            "superstar_impact": 6.7
           },
           "motivation": 0.76,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -12839,23 +12839,23 @@
           ],
           "form_note": "近期整体状态稳健，主场防御力强悍",
           "season_stats": {
-            "goals_scored": 19,
+            "goals_scored": 17,
             "goals_conceded": 19,
-            "xg": 19.2,
-            "xga": 15.8,
-            "shots_per_game": 10.0,
-            "shots_on_target": 4.2,
+            "xg": 16.0,
+            "xga": 16.5,
+            "shots_per_game": 11.3,
+            "shots_on_target": 3.4,
             "conversion_rate": 0.1,
-            "possession": 45.7,
-            "pass_accuracy": 81.9,
-            "pressing_intensity": 55.3,
-            "set_piece_goals": 1,
-            "counter_attack_speed": 62.8,
-            "clean_sheets": 2,
-            "btts_rate": 0.6,
+            "possession": 45.3,
+            "pass_accuracy": 86.5,
+            "pressing_intensity": 58.3,
+            "set_piece_goals": 3,
+            "counter_attack_speed": 67.3,
+            "clean_sheets": 4,
+            "btts_rate": 0.5,
             "over25_rate": 0.4,
-            "low_block_resilience": 7.6,
-            "superstar_impact": 6.9
+            "low_block_resilience": 6.5,
+            "superstar_impact": 7.3
           },
           "motivation": 0.78,
           "motivation_note": "客队客场防御为主，常规防守战意",
@@ -12876,27 +12876,27 @@
         "pinnacle": {
           "name": "pinnacle",
           "initial": {
-            "home": 1.89,
-            "draw": 3.8,
-            "away": 2.96
+            "home": 1.87,
+            "draw": 3.82,
+            "away": 3.0
           },
           "current": {
-            "home": 1.85,
-            "draw": 3.88,
-            "away": 3.02
+            "home": 1.83,
+            "draw": 3.9,
+            "away": 3.06
           },
           "movement": "实时追踪"
         },
         "asian_handicap": {
           "initial": {
-            "handicap": "主队-0.25",
-            "home_odds": 1.92,
-            "away_odds": 1.98
+            "handicap": "主队-0.75",
+            "home_odds": 1.88,
+            "away_odds": 2.02
           },
           "current": {
-            "handicap": "主队-0.25",
-            "home_odds": 1.92,
-            "away_odds": 1.98
+            "handicap": "主队-0.75",
+            "home_odds": 1.88,
+            "away_odds": 2.02
           },
           "movement_signal": "盘口初开，水位平衡。"
         },
@@ -12939,79 +12939,79 @@
         "sbobet": {
           "name": "sbobet",
           "initial": {
-            "home": 1.92,
-            "draw": 3.73,
-            "away": 2.87
+            "home": 1.9,
+            "draw": 3.75,
+            "away": 2.91
           },
           "current": {
-            "home": 1.89,
-            "draw": 3.8,
-            "away": 2.93
+            "home": 1.87,
+            "draw": 3.82,
+            "away": 2.97
           },
           "movement": "实时追踪"
         },
         "nova88": {
           "name": "nova88",
           "initial": {
-            "home": 1.85,
-            "draw": 3.84,
-            "away": 3.02
+            "home": 1.83,
+            "draw": 3.86,
+            "away": 3.06
           },
           "current": {
-            "home": 1.81,
-            "draw": 3.92,
-            "away": 3.08
+            "home": 1.79,
+            "draw": 3.94,
+            "away": 3.12
           },
           "movement": "实时追踪"
         },
         "crown": {
           "name": "crown",
           "initial": {
-            "home": 1.91,
-            "draw": 3.8,
-            "away": 2.93
+            "home": 1.89,
+            "draw": 3.82,
+            "away": 2.97
           },
           "current": {
-            "home": 1.87,
-            "draw": 3.88,
-            "away": 2.99
+            "home": 1.85,
+            "draw": 3.9,
+            "away": 3.03
           },
           "movement": "实时追踪"
         },
         "hkjc": {
           "name": "hkjc",
           "initial": {
-            "home": 1.83,
-            "draw": 3.69,
-            "away": 3.11
+            "home": 1.81,
+            "draw": 3.71,
+            "away": 3.15
           },
           "current": {
-            "home": 1.79,
-            "draw": 3.76,
-            "away": 3.17
+            "home": 1.78,
+            "draw": 3.78,
+            "away": 3.21
           },
           "movement": "实时追踪"
         },
         "m8bet": {
           "name": "m8bet",
           "initial": {
-            "home": 1.87,
-            "draw": 3.88,
-            "away": 2.99
+            "home": 1.85,
+            "draw": 3.9,
+            "away": 3.03
           },
           "current": {
-            "home": 1.83,
-            "draw": 3.96,
-            "away": 3.05
+            "home": 1.81,
+            "draw": 3.98,
+            "away": 3.09
           },
           "movement": "实时追踪"
         },
-        "bookmaker_intent": "当前平博主客均赔为 1.85 对 3.02，差值较小。庄家意图是利用均势赔率吸引双向对等资金，最大化抽水利润。散户在大众题材下分歧明显，庄家无明显偏向偏护。",
+        "bookmaker_intent": "当前平博主客均赔为 1.83 对 3.06，差值较小。庄家意图是利用均势赔率吸引双向对等资金，最大化抽水利润。散户在大众题材下分歧明显，庄家无明显偏向偏护。",
         "smoke_screens": [
           "平赔拉锯可能掩盖双方战术性握手言和的意图。",
           "盘口水位频繁震荡涉嫌诱导散户追热，建议保持冷门防范。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主胜' 进行了实质性控赔下调（已降水至 1.85），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。"
+        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主胜' 进行了实质性控赔下调（已降水至 1.83），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。"
       },
       "intelligence": {
         "verified_news": [
@@ -13061,14 +13061,14 @@
       "conclusions": {
         "mainstream": "主队主场全取三分",
         "upset": "客队防反爆冷抢分",
-        "aggressive": "比分 4-2",
+        "aggressive": "比分 3-1",
         "conservative": "胜",
-        "most_likely_score": "3-2 或 3-3",
+        "most_likely_score": "2-1 或 2-2",
         "over_under": "大 2.5",
         "half_full": "平胜",
         "upset_probability": 0.15,
         "upset_direction": "客胜",
-        "kelly_conclusion": "即时返还率为 0.885。基于散户倾向（主 48% / 平 23% / 客 29%），计算得出即时凯利指数为：主胜 0.89，平局 0.89，客胜 0.88。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>客胜</strong> 剧本。",
+        "kelly_conclusion": "即时返还率为 0.885。基于散户倾向（主 48% / 平 23% / 客 29%），计算得出即时凯利指数为：主胜 0.88，平局 0.90，客胜 0.89。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>主胜</strong> 剧本。",
         "upset_trend": "down"
       },
       "h2h": {
@@ -13158,7 +13158,7 @@
           "signal": "莫尔德抢分战意更浓"
         }
       },
-      "moe_score": -0.25012809999999996,
+      "moe_score": 0.18131302289724638,
       "prediction_updated": true
     },
     {
@@ -13178,7 +13178,7 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.686641",
+          "timestamp": "2026-07-18T17:13:58.741297",
           "pinnacle": {
             "home": 1.15,
             "draw": 6.4,
@@ -13191,7 +13191,7 @@
       "ultimate_conclusion": {
         "recommendation": "主胜",
         "primary_bet": "主胜",
-        "confidence": 60,
+        "confidence": 80,
         "risk_level": "高",
         "ev_score": 0.0,
         "reasoning": "挪超联赛大开大合，大球率高，进攻端对体能消耗极大。 基本面上，维京在【球队基础硬实力】上拥有明显优势（评分 8.9 对 5.2），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 1.15 / 6.40 / 9.65 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主胜】。",
@@ -13209,23 +13209,23 @@
           ],
           "form_note": "近期整体状态稳健，主场防御力强悍",
           "season_stats": {
-            "goals_scored": 16,
-            "goals_conceded": 15,
-            "xg": 16.5,
-            "xga": 15.2,
-            "shots_per_game": 12.0,
-            "shots_on_target": 3.4,
+            "goals_scored": 20,
+            "goals_conceded": 19,
+            "xg": 17.8,
+            "xga": 18.6,
+            "shots_per_game": 11.8,
+            "shots_on_target": 4.1,
             "conversion_rate": 0.1,
-            "possession": 48.0,
-            "pass_accuracy": 72.4,
-            "pressing_intensity": 60.2,
-            "set_piece_goals": 4,
-            "counter_attack_speed": 68.5,
-            "clean_sheets": 6,
+            "possession": 51.9,
+            "pass_accuracy": 71.1,
+            "pressing_intensity": 60.3,
+            "set_piece_goals": 5,
+            "counter_attack_speed": 64.5,
+            "clean_sheets": 5,
             "btts_rate": 0.5,
-            "over25_rate": 0.5,
-            "low_block_resilience": 6.4,
-            "superstar_impact": 6.6
+            "over25_rate": 0.4,
+            "low_block_resilience": 7.0,
+            "superstar_impact": 6.9
           },
           "motivation": 0.72,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -13252,23 +13252,23 @@
           ],
           "form_note": "赛程密集导致体能略显疲软，但斗志高昂",
           "season_stats": {
-            "goals_scored": 17,
-            "goals_conceded": 18,
-            "xg": 19.3,
-            "xga": 15.7,
-            "shots_per_game": 11.6,
-            "shots_on_target": 4.0,
+            "goals_scored": 16,
+            "goals_conceded": 15,
+            "xg": 16.9,
+            "xga": 17.9,
+            "shots_per_game": 10.7,
+            "shots_on_target": 3.4,
             "conversion_rate": 0.1,
-            "possession": 45.3,
-            "pass_accuracy": 70.9,
-            "pressing_intensity": 64.4,
-            "set_piece_goals": 2,
-            "counter_attack_speed": 75.8,
+            "possession": 46.6,
+            "pass_accuracy": 78.6,
+            "pressing_intensity": 55.7,
+            "set_piece_goals": 4,
+            "counter_attack_speed": 75.5,
             "clean_sheets": 4,
             "btts_rate": 0.5,
-            "over25_rate": 0.5,
-            "low_block_resilience": 7.4,
-            "superstar_impact": 7.2
+            "over25_rate": 0.4,
+            "low_block_resilience": 6.7,
+            "superstar_impact": 7.0
           },
           "motivation": 0.84,
           "motivation_note": "客队客场防御为主，常规防守战意",
@@ -13571,7 +13571,7 @@
           "signal": "维京抢分战意更浓"
         }
       },
-      "moe_score": 0.41998550000000007,
+      "moe_score": 1.8134867390177967,
       "prediction_updated": true
     },
     {
@@ -13591,7 +13591,7 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.687116",
+          "timestamp": "2026-07-18T17:13:58.742089",
           "pinnacle": {
             "home": 2.02,
             "draw": 2.87,
@@ -13604,10 +13604,10 @@
       "ultimate_conclusion": {
         "recommendation": "平局",
         "primary_bet": "平局",
-        "confidence": 59,
+        "confidence": 66,
         "risk_level": "中",
         "ev_score": 0.0,
-        "reasoning": "世界杯比赛双方战术意图各有侧重。 基本面上，西班牙在【近期状态与动能】上拥有明显优势（评分 8.0 对 6.8），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 2.02 / 2.87 / 3.50 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【平局】。",
+        "reasoning": "世界杯比赛双方战术意图各有侧重。 基本面上，西班牙在【近期状态与动能】上拥有明显优势（评分 8.0 对 6.8），但阿根廷在【战意与抢分压力】上（评分 9.5 对 8.0）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 2.02 / 2.87 / 3.50 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【平局】。",
         "confidence_trend": "down"
       },
       "team_stats": {
@@ -13622,23 +13622,23 @@
           ],
           "form_note": "多场不胜急需抢分，战意较为饱满",
           "season_stats": {
-            "goals_scored": 29,
+            "goals_scored": 27,
             "goals_conceded": 12,
-            "xg": 24.4,
-            "xga": 11.7,
-            "shots_per_game": 15.1,
-            "shots_on_target": 5.5,
+            "xg": 23.6,
+            "xga": 11.5,
+            "shots_per_game": 15.7,
+            "shots_on_target": 5.4,
             "conversion_rate": 0.1,
-            "possession": 52.4,
-            "pass_accuracy": 79.8,
-            "pressing_intensity": 86.0,
-            "set_piece_goals": 6,
-            "counter_attack_speed": 67.4,
-            "clean_sheets": 5,
+            "possession": 55.8,
+            "pass_accuracy": 91.9,
+            "pressing_intensity": 73.9,
+            "set_piece_goals": 7,
+            "counter_attack_speed": 68.5,
+            "clean_sheets": 4,
             "btts_rate": 0.4,
-            "over25_rate": 0.4,
-            "low_block_resilience": 6.1,
-            "superstar_impact": 7.7
+            "over25_rate": 0.6,
+            "low_block_resilience": 6.9,
+            "superstar_impact": 7.9
           },
           "motivation": 0.9,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -13665,23 +13665,23 @@
           ],
           "form_note": "近期整体状态稳健，主场防御力强悍",
           "season_stats": {
-            "goals_scored": 28,
-            "goals_conceded": 12,
-            "xg": 29.3,
-            "xga": 12.2,
-            "shots_per_game": 15.2,
-            "shots_on_target": 5.1,
+            "goals_scored": 27,
+            "goals_conceded": 13,
+            "xg": 25.9,
+            "xga": 11.0,
+            "shots_per_game": 14.3,
+            "shots_on_target": 6.0,
             "conversion_rate": 0.1,
-            "possession": 64.8,
-            "pass_accuracy": 86.4,
-            "pressing_intensity": 80.4,
-            "set_piece_goals": 7,
-            "counter_attack_speed": 83.1,
-            "clean_sheets": 8,
+            "possession": 63.7,
+            "pass_accuracy": 91.3,
+            "pressing_intensity": 87.1,
+            "set_piece_goals": 4,
+            "counter_attack_speed": 70.6,
+            "clean_sheets": 4,
             "btts_rate": 0.4,
-            "over25_rate": 0.4,
-            "low_block_resilience": 7.2,
-            "superstar_impact": 8.8
+            "over25_rate": 0.5,
+            "low_block_resilience": 6.3,
+            "superstar_impact": 7.3
           },
           "motivation": 0.78,
           "motivation_note": "客队客场防御为主，常规防守战意",
@@ -13949,9 +13949,9 @@
         },
         "M03_战术克制与匹配": {
           "home_score": 7.9,
-          "away_score": 7.9,
+          "away_score": 8.5,
           "weight": 0.15,
-          "signal": "互有防范"
+          "signal": "阿根廷克制"
         },
         "M04_中场与推进效率": {
           "home_score": 9.7,
@@ -13979,12 +13979,12 @@
         },
         "M08_战意与抢分压力": {
           "home_score": 8.0,
-          "away_score": 7.5,
+          "away_score": 9.5,
           "weight": 0.13,
-          "signal": "西班牙抢分战意更浓"
+          "signal": "阿根廷抢分战意更浓"
         }
       },
-      "moe_score": 0.13358099999999998,
+      "moe_score": 0.4674173507779349,
       "prediction_updated": true
     },
     {
@@ -14004,7 +14004,7 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.687521",
+          "timestamp": "2026-07-18T17:13:58.742766",
           "pinnacle": {
             "home": 5.15,
             "draw": 3.45,
@@ -14015,12 +14015,12 @@
       ],
       "match_context": "韩职常规赛对决。富川FC坐镇主场迎接首尔FC的挑战。",
       "ultimate_conclusion": {
-        "recommendation": "双选不败",
-        "primary_bet": "双选不败",
-        "confidence": 57,
+        "recommendation": "客胜",
+        "primary_bet": "客胜",
+        "confidence": 75,
         "risk_level": "中",
         "ev_score": 0.0,
-        "reasoning": "韩职联赛强调防守纪律性，整体攻防转化较慢。 基本面上，富川FC在【环境气候适应性】上拥有明显优势（评分 9.2 对 7.8），但首尔FC在【中场与推进效率】上（评分 9.5 对 7.7）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 5.25 降至 5.15，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【双选不败】。",
+        "reasoning": "韩职联赛强调防守纪律性，整体攻防转化较慢。 基本面上，富川FC在【环境气候适应性】上拥有明显优势（评分 9.2 对 7.8），但首尔FC在【中场与推进效率】上（评分 9.5 对 7.7）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 5.25 降至 5.15，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
         "confidence_trend": "stable"
       },
       "team_stats": {
@@ -14035,23 +14035,23 @@
           ],
           "form_note": "防守端较为松懈，但进攻线转换极快",
           "season_stats": {
-            "goals_scored": 18,
+            "goals_scored": 16,
             "goals_conceded": 15,
-            "xg": 17.0,
-            "xga": 16.5,
-            "shots_per_game": 10.9,
-            "shots_on_target": 3.7,
+            "xg": 15.9,
+            "xga": 15.3,
+            "shots_per_game": 10.7,
+            "shots_on_target": 3.9,
             "conversion_rate": 0.1,
-            "possession": 53.0,
-            "pass_accuracy": 71.3,
-            "pressing_intensity": 55.4,
-            "set_piece_goals": 2,
-            "counter_attack_speed": 72.2,
-            "clean_sheets": 6,
+            "possession": 53.6,
+            "pass_accuracy": 85.1,
+            "pressing_intensity": 65.8,
+            "set_piece_goals": 3,
+            "counter_attack_speed": 78.1,
+            "clean_sheets": 3,
             "btts_rate": 0.5,
             "over25_rate": 0.5,
-            "low_block_resilience": 7.0,
-            "superstar_impact": 6.8
+            "low_block_resilience": 7.1,
+            "superstar_impact": 6.0
           },
           "motivation": 0.84,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -14080,21 +14080,21 @@
           "season_stats": {
             "goals_scored": 18,
             "goals_conceded": 16,
-            "xg": 17.0,
-            "xga": 16.7,
-            "shots_per_game": 10.7,
+            "xg": 18.9,
+            "xga": 15.2,
+            "shots_per_game": 10.1,
             "shots_on_target": 3.4,
             "conversion_rate": 0.1,
-            "possession": 51.2,
-            "pass_accuracy": 87.9,
-            "pressing_intensity": 66.5,
-            "set_piece_goals": 4,
-            "counter_attack_speed": 69.3,
-            "clean_sheets": 3,
-            "btts_rate": 0.5,
-            "over25_rate": 0.4,
-            "low_block_resilience": 7.8,
-            "superstar_impact": 6.5
+            "possession": 48.0,
+            "pass_accuracy": 77.5,
+            "pressing_intensity": 62.8,
+            "set_piece_goals": 5,
+            "counter_attack_speed": 73.9,
+            "clean_sheets": 5,
+            "btts_rate": 0.6,
+            "over25_rate": 0.5,
+            "low_block_resilience": 6.7,
+            "superstar_impact": 6.4
           },
           "motivation": 0.82,
           "motivation_note": "客队客场防御为主，常规防守战意",
@@ -14250,7 +14250,7 @@
           "平赔拉锯可能掩盖双方战术性握手言和的意图。",
           "盘口水位频繁震荡涉嫌诱导散户追热，建议保持冷门防范。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】水位双向对等拉锯，资金对流平稳，庄家旨在通过高频抽水实现盈利均衡，未露出明显资金偏护倾向。"
+        "bookmaker_backed_script": "【庄家看好剧本】赔率水位小幅微震，盘面资金分布均匀，未见异常资金倾斜。预计比赛将按模型原定的首选 '客胜' 剧本打出。"
       },
       "intelligence": {
         "verified_news": [
@@ -14280,13 +14280,13 @@
         "venue_notes": "草地情况极佳"
       },
       "conclusions": {
-        "mainstream": "平局拉锯之势",
-        "upset": "分出胜负",
-        "aggressive": "比分 2-2",
-        "conservative": "让胜 (主+1)",
-        "most_likely_score": "1-1 或 0-0",
+        "mainstream": "客队反客为主抢分",
+        "upset": "主队主场捍卫尊严",
+        "aggressive": "比分 1-3",
+        "conservative": "负",
+        "most_likely_score": "1-2 或 2-2",
         "over_under": "大 2.5",
-        "half_full": "平平",
+        "half_full": "负负",
         "upset_probability": 0.45,
         "upset_direction": "客胜",
         "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 17% / 平 26% / 客 57%），计算得出即时凯利指数为：主胜 0.88，平局 0.90，客胜 0.88。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>主胜</strong> 剧本。",
@@ -14379,7 +14379,7 @@
           "signal": "富川FC抢分战意更浓"
         }
       },
-      "moe_score": -0.06236100000000004,
+      "moe_score": -0.6799394528656438,
       "prediction_updated": true
     },
     {
@@ -14399,7 +14399,7 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.688036",
+          "timestamp": "2026-07-18T17:13:58.743263",
           "pinnacle": {
             "home": 1.53,
             "draw": 3.5,
@@ -14410,13 +14410,13 @@
       ],
       "match_context": "韩职常规赛对决。安养FC坐镇主场迎接光州FC的挑战。",
       "ultimate_conclusion": {
-        "recommendation": "双选不败",
-        "primary_bet": "双选不败",
-        "confidence": 57,
+        "recommendation": "主胜",
+        "primary_bet": "主胜",
+        "confidence": 87,
         "risk_level": "中",
         "ev_score": 0.0,
-        "reasoning": "韩职联赛强调防守纪律性，整体攻防转化较慢。 基本面上，安养FC在【环境气候适应性】上拥有明显优势（评分 9.2 对 7.8），但光州FC在【战术克制与匹配】上（评分 7.7 对 7.1）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 1.53 / 3.50 / 5.30 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【双选不败】。",
-        "confidence_trend": "stable"
+        "reasoning": "韩职联赛强调防守纪律性，整体攻防转化较慢。 基本面上，安养FC在【环境气候适应性】上拥有明显优势（评分 9.2 对 7.8），但光州FC在【战术克制与匹配】上（评分 7.7 对 7.1）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 1.53 / 3.50 / 5.30 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主胜】。",
+        "confidence_trend": "up"
       },
       "team_stats": {
         "home": {
@@ -14430,23 +14430,23 @@
           ],
           "form_note": "多场不胜急需抢分，战意较为饱满",
           "season_stats": {
-            "goals_scored": 16,
-            "goals_conceded": 16,
-            "xg": 18.7,
-            "xga": 18.4,
-            "shots_per_game": 11.8,
-            "shots_on_target": 3.9,
+            "goals_scored": 17,
+            "goals_conceded": 15,
+            "xg": 18.2,
+            "xga": 18.3,
+            "shots_per_game": 10.3,
+            "shots_on_target": 4.1,
             "conversion_rate": 0.1,
-            "possession": 51.4,
-            "pass_accuracy": 78.0,
-            "pressing_intensity": 60.9,
-            "set_piece_goals": 3,
-            "counter_attack_speed": 66.8,
-            "clean_sheets": 2,
-            "btts_rate": 0.5,
-            "over25_rate": 0.5,
-            "low_block_resilience": 7.5,
-            "superstar_impact": 6.6
+            "possession": 48.5,
+            "pass_accuracy": 81.0,
+            "pressing_intensity": 57.6,
+            "set_piece_goals": 5,
+            "counter_attack_speed": 70.5,
+            "clean_sheets": 6,
+            "btts_rate": 0.4,
+            "over25_rate": 0.4,
+            "low_block_resilience": 7.2,
+            "superstar_impact": 7.2
           },
           "motivation": 0.9,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -14474,22 +14474,22 @@
           "form_note": "防守端较为松懈，但进攻线转换极快",
           "season_stats": {
             "goals_scored": 19,
-            "goals_conceded": 19,
-            "xg": 16.2,
-            "xga": 16.6,
-            "shots_per_game": 10.5,
-            "shots_on_target": 4.0,
+            "goals_conceded": 16,
+            "xg": 18.6,
+            "xga": 16.4,
+            "shots_per_game": 12.1,
+            "shots_on_target": 4.2,
             "conversion_rate": 0.1,
-            "possession": 44.5,
-            "pass_accuracy": 80.4,
-            "pressing_intensity": 66.7,
-            "set_piece_goals": 1,
-            "counter_attack_speed": 68.2,
+            "possession": 51.4,
+            "pass_accuracy": 79.9,
+            "pressing_intensity": 67.3,
+            "set_piece_goals": 5,
+            "counter_attack_speed": 70.2,
             "clean_sheets": 3,
-            "btts_rate": 0.5,
-            "over25_rate": 0.5,
-            "low_block_resilience": 7.5,
-            "superstar_impact": 5.8
+            "btts_rate": 0.4,
+            "over25_rate": 0.4,
+            "low_block_resilience": 6.7,
+            "superstar_impact": 6.7
           },
           "motivation": 0.8,
           "motivation_note": "客队客场防御为主，常规防守战意",
@@ -14645,7 +14645,7 @@
           "深盘低水可能涉嫌诱大球，需警惕主队1-0或2-0小胜收盘的交叉盘口。",
           "利用主队近期连胜势头，故意做热让球赢半盘口。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】水位双向对等拉锯，资金对流平稳，庄家旨在通过高频抽水实现盈利均衡，未露出明显资金偏护倾向。"
+        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主胜' 进行了实质性控赔下调（已降水至 1.53），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。"
       },
       "intelligence": {
         "verified_news": [
@@ -14675,17 +14675,17 @@
         "venue_notes": "草地情况极佳"
       },
       "conclusions": {
-        "mainstream": "平局拉锯之势",
-        "upset": "分出胜负",
+        "mainstream": "主队主场全取三分",
+        "upset": "客队防反爆冷抢分",
         "aggressive": "比分 2-1",
-        "conservative": "让负 (主-1)",
+        "conservative": "胜",
         "most_likely_score": "2-1 或 2-2",
         "over_under": "大 2.5",
         "half_full": "平胜",
         "upset_probability": 0.15,
         "upset_direction": "客胜",
         "kelly_conclusion": "即时返还率为 0.887。基于散户倾向（主 58% / 平 25% / 客 17%），计算得出即时凯利指数为：主胜 0.89，平局 0.88，客胜 0.90。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>平局</strong> 剧本。",
-        "upset_trend": "stable"
+        "upset_trend": "down"
       },
       "h2h": {
         "last_5": [
@@ -14774,7 +14774,7 @@
           "signal": "安养FC抢分战意更浓"
         }
       },
-      "moe_score": 0.08017599999999991,
+      "moe_score": 0.9360408415340975,
       "prediction_updated": true
     },
     {
@@ -14794,7 +14794,7 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.688572",
+          "timestamp": "2026-07-18T17:13:58.743792",
           "pinnacle": {
             "home": 3.45,
             "draw": 3.65,
@@ -14807,7 +14807,7 @@
       "ultimate_conclusion": {
         "recommendation": "客胜",
         "primary_bet": "客不败",
-        "confidence": 61,
+        "confidence": 69,
         "risk_level": "中",
         "ev_score": 0.0,
         "reasoning": "瑞超联赛的人工草皮主场优势极其明显，客队适应常面临考验。 基本面上，埃夫斯堡在【球队基础硬实力】上拥有明显优势（评分 9.1 对 7.9），但天狼星在【首发阵容健康度】上（评分 9.5 对 6.2）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 3.52 降至 3.45，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
@@ -14825,23 +14825,23 @@
           ],
           "form_note": "防守端较为松懈，但进攻线转换极快",
           "season_stats": {
-            "goals_scored": 19,
-            "goals_conceded": 18,
-            "xg": 16.7,
-            "xga": 15.2,
-            "shots_per_game": 11.4,
-            "shots_on_target": 3.7,
+            "goals_scored": 17,
+            "goals_conceded": 16,
+            "xg": 17.1,
+            "xga": 18.1,
+            "shots_per_game": 12.1,
+            "shots_on_target": 4.1,
             "conversion_rate": 0.1,
-            "possession": 45.5,
-            "pass_accuracy": 70.8,
-            "pressing_intensity": 69.4,
-            "set_piece_goals": 1,
-            "counter_attack_speed": 61.9,
-            "clean_sheets": 3,
+            "possession": 53.6,
+            "pass_accuracy": 80.5,
+            "pressing_intensity": 64.5,
+            "set_piece_goals": 4,
+            "counter_attack_speed": 76.6,
+            "clean_sheets": 5,
             "btts_rate": 0.5,
             "over25_rate": 0.4,
-            "low_block_resilience": 6.5,
-            "superstar_impact": 6.4
+            "low_block_resilience": 6.8,
+            "superstar_impact": 6.0
           },
           "motivation": 0.84,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -14868,23 +14868,23 @@
           ],
           "form_note": "多场不胜急需抢分，战意较为饱满",
           "season_stats": {
-            "goals_scored": 17,
-            "goals_conceded": 15,
-            "xg": 17.0,
-            "xga": 15.7,
-            "shots_per_game": 10.9,
-            "shots_on_target": 4.0,
+            "goals_scored": 20,
+            "goals_conceded": 17,
+            "xg": 18.5,
+            "xga": 17.3,
+            "shots_per_game": 9.9,
+            "shots_on_target": 3.4,
             "conversion_rate": 0.1,
-            "possession": 47.1,
-            "pass_accuracy": 73.7,
-            "pressing_intensity": 65.1,
-            "set_piece_goals": 3,
-            "counter_attack_speed": 63.5,
-            "clean_sheets": 4,
+            "possession": 48.2,
+            "pass_accuracy": 86.3,
+            "pressing_intensity": 67.9,
+            "set_piece_goals": 2,
+            "counter_attack_speed": 75.4,
+            "clean_sheets": 2,
             "btts_rate": 0.5,
-            "over25_rate": 0.5,
-            "low_block_resilience": 7.7,
-            "superstar_impact": 6.8
+            "over25_rate": 0.4,
+            "low_block_resilience": 7.9,
+            "superstar_impact": 6.3
           },
           "motivation": 0.76,
           "motivation_note": "客队客场防御为主，常规防守战意",
@@ -15094,7 +15094,7 @@
         "conservative": "负",
         "most_likely_score": "1-2 或 2-2",
         "over_under": "大 2.5",
-        "half_full": "平负",
+        "half_full": "负负",
         "upset_probability": 0.41,
         "upset_direction": "客胜",
         "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 26% / 平 24% / 客 50%），计算得出即时凯利指数为：主胜 0.90，平局 0.88，客胜 0.89。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>平局</strong> 剧本。",
@@ -15187,7 +15187,7 @@
           "signal": "埃夫斯堡抢分战意更浓"
         }
       },
-      "moe_score": -0.1838959,
+      "moe_score": -0.5360825863178581,
       "prediction_updated": true
     },
     {
@@ -15207,7 +15207,7 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.689177",
+          "timestamp": "2026-07-18T17:13:58.744961",
           "pinnacle": {
             "home": 4.56,
             "draw": 4.1,
@@ -15220,7 +15220,7 @@
       "ultimate_conclusion": {
         "recommendation": "客胜",
         "primary_bet": "客胜",
-        "confidence": 61,
+        "confidence": 80,
         "risk_level": "中",
         "ev_score": 0.0,
         "reasoning": "瑞超联赛的人工草皮主场优势极其明显，客队适应常面临考验。 基本面上，哈尔姆斯在【环境气候适应性】上拥有明显优势（评分 9.2 对 8.0），但赫根在【中场与推进效率】上（评分 9.4 对 6.0）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 4.65 降至 4.56，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
@@ -15238,23 +15238,23 @@
           ],
           "form_note": "多场不胜急需抢分，战意较为饱满",
           "season_stats": {
-            "goals_scored": 17,
-            "goals_conceded": 15,
-            "xg": 19.5,
-            "xga": 16.4,
-            "shots_per_game": 12.0,
-            "shots_on_target": 3.9,
+            "goals_scored": 19,
+            "goals_conceded": 18,
+            "xg": 18.6,
+            "xga": 14.9,
+            "shots_per_game": 10.6,
+            "shots_on_target": 4.1,
             "conversion_rate": 0.1,
-            "possession": 53.3,
-            "pass_accuracy": 81.2,
-            "pressing_intensity": 61.7,
+            "possession": 54.4,
+            "pass_accuracy": 72.0,
+            "pressing_intensity": 64.5,
             "set_piece_goals": 1,
-            "counter_attack_speed": 68.1,
-            "clean_sheets": 4,
+            "counter_attack_speed": 72.9,
+            "clean_sheets": 5,
             "btts_rate": 0.5,
             "over25_rate": 0.4,
-            "low_block_resilience": 6.8,
-            "superstar_impact": 6.9
+            "low_block_resilience": 6.7,
+            "superstar_impact": 6.4
           },
           "motivation": 0.9,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -15283,21 +15283,21 @@
           "season_stats": {
             "goals_scored": 20,
             "goals_conceded": 16,
-            "xg": 17.8,
-            "xga": 18.0,
-            "shots_per_game": 10.3,
-            "shots_on_target": 3.3,
+            "xg": 19.6,
+            "xga": 15.8,
+            "shots_per_game": 10.7,
+            "shots_on_target": 3.8,
             "conversion_rate": 0.1,
-            "possession": 51.6,
+            "possession": 53.0,
             "pass_accuracy": 83.9,
-            "pressing_intensity": 64.2,
-            "set_piece_goals": 4,
-            "counter_attack_speed": 72.1,
-            "clean_sheets": 3,
-            "btts_rate": 0.5,
-            "over25_rate": 0.4,
+            "pressing_intensity": 59.5,
+            "set_piece_goals": 3,
+            "counter_attack_speed": 70.5,
+            "clean_sheets": 5,
+            "btts_rate": 0.6,
+            "over25_rate": 0.5,
             "low_block_resilience": 7.2,
-            "superstar_impact": 6.8
+            "superstar_impact": 6.3
           },
           "motivation": 0.76,
           "motivation_note": "客队客场防御为主，常规防守战意",
@@ -15582,7 +15582,7 @@
           "signal": "哈尔姆斯抢分战意更浓"
         }
       },
-      "moe_score": -0.1764025,
+      "moe_score": -0.7961919736842099,
       "prediction_updated": true
     },
     {
@@ -15602,7 +15602,7 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.689653",
+          "timestamp": "2026-07-18T17:13:58.745893",
           "pinnacle": {
             "home": 1.16,
             "draw": 5.8,
@@ -15615,7 +15615,7 @@
       "ultimate_conclusion": {
         "recommendation": "主胜",
         "primary_bet": "主胜",
-        "confidence": 67,
+        "confidence": 95,
         "risk_level": "中",
         "ev_score": 0.0,
         "reasoning": "瑞超联赛的人工草皮主场优势极其明显，客队适应常面临考验。 基本面上，哈马比在【球队基础硬实力】上拥有明显优势（评分 9.2 对 5.6），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 1.16 / 5.80 / 10.50 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主胜】。",
@@ -15633,23 +15633,23 @@
           ],
           "form_note": "近期整体状态稳健，主场防御力强悍",
           "season_stats": {
-            "goals_scored": 18,
+            "goals_scored": 19,
             "goals_conceded": 19,
-            "xg": 18.8,
-            "xga": 17.1,
-            "shots_per_game": 12.3,
-            "shots_on_target": 4.2,
+            "xg": 17.3,
+            "xga": 18.2,
+            "shots_per_game": 12.4,
+            "shots_on_target": 3.8,
             "conversion_rate": 0.1,
-            "possession": 44.6,
-            "pass_accuracy": 81.7,
-            "pressing_intensity": 63.1,
+            "possession": 46.6,
+            "pass_accuracy": 73.7,
+            "pressing_intensity": 55.8,
             "set_piece_goals": 1,
-            "counter_attack_speed": 71.3,
-            "clean_sheets": 6,
+            "counter_attack_speed": 77.0,
+            "clean_sheets": 3,
             "btts_rate": 0.5,
-            "over25_rate": 0.4,
-            "low_block_resilience": 6.5,
-            "superstar_impact": 7.3
+            "over25_rate": 0.5,
+            "low_block_resilience": 6.4,
+            "superstar_impact": 6.0
           },
           "motivation": 0.72,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -15677,22 +15677,22 @@
           "form_note": "赛程密集导致体能略显疲软，但斗志高昂",
           "season_stats": {
             "goals_scored": 17,
-            "goals_conceded": 17,
-            "xg": 19.6,
-            "xga": 18.6,
-            "shots_per_game": 10.8,
-            "shots_on_target": 3.7,
+            "goals_conceded": 16,
+            "xg": 17.4,
+            "xga": 18.0,
+            "shots_per_game": 12.3,
+            "shots_on_target": 3.4,
             "conversion_rate": 0.1,
-            "possession": 49.3,
-            "pass_accuracy": 76.5,
-            "pressing_intensity": 56.6,
-            "set_piece_goals": 1,
-            "counter_attack_speed": 72.0,
-            "clean_sheets": 4,
+            "possession": 46.2,
+            "pass_accuracy": 82.8,
+            "pressing_intensity": 69.1,
+            "set_piece_goals": 4,
+            "counter_attack_speed": 68.2,
+            "clean_sheets": 5,
             "btts_rate": 0.5,
-            "over25_rate": 0.5,
-            "low_block_resilience": 7.0,
-            "superstar_impact": 6.7
+            "over25_rate": 0.4,
+            "low_block_resilience": 7.6,
+            "superstar_impact": 5.8
           },
           "motivation": 0.84,
           "motivation_note": "客队客场防御为主，常规防守战意",
@@ -15977,7 +15977,7 @@
           "signal": "哈马比抢分战意更浓"
         }
       },
-      "moe_score": 0.36406449999999996,
+      "moe_score": 1.7749938924466346,
       "prediction_updated": true
     },
     {
@@ -15997,7 +15997,7 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.690100",
+          "timestamp": "2026-07-18T17:13:58.747091",
           "pinnacle": {
             "home": 5.15,
             "draw": 4.0,
@@ -16008,12 +16008,12 @@
       ],
       "match_context": "芬超常规赛对决。雅罗坐镇主场迎接国际图尔的挑战。",
       "ultimate_conclusion": {
-        "recommendation": "双选不败",
-        "primary_bet": "双选不败",
-        "confidence": 58,
+        "recommendation": "客胜",
+        "primary_bet": "客胜",
+        "confidence": 79,
         "risk_level": "中",
         "ev_score": 0.0,
-        "reasoning": "芬超联赛常呈现低比分拉锯，防守落位速度是决定性因素。 基本面上，雅罗在【近期状态与动能】上拥有明显优势（评分 7.7 对 6.8），但国际图尔在【球队基础硬实力】上（评分 8.0 对 5.8）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 5.25 降至 5.15，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【双选不败】。",
+        "reasoning": "芬超联赛常呈现低比分拉锯，防守落位速度是决定性因素。 基本面上，雅罗在【近期状态与动能】上拥有明显优势（评分 7.7 对 6.8），但国际图尔在【球队基础硬实力】上（评分 8.0 对 5.8）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 5.25 降至 5.15，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
         "confidence_trend": "stable"
       },
       "team_stats": {
@@ -16028,23 +16028,23 @@
           ],
           "form_note": "防守端较为松懈，但进攻线转换极快",
           "season_stats": {
-            "goals_scored": 19,
-            "goals_conceded": 18,
+            "goals_scored": 16,
+            "goals_conceded": 17,
             "xg": 15.7,
-            "xga": 16.2,
-            "shots_per_game": 10.7,
-            "shots_on_target": 4.2,
+            "xga": 14.9,
+            "shots_per_game": 12.2,
+            "shots_on_target": 3.8,
             "conversion_rate": 0.1,
-            "possession": 52.2,
-            "pass_accuracy": 75.3,
-            "pressing_intensity": 59.7,
-            "set_piece_goals": 5,
-            "counter_attack_speed": 63.7,
-            "clean_sheets": 3,
+            "possession": 45.8,
+            "pass_accuracy": 75.8,
+            "pressing_intensity": 64.6,
+            "set_piece_goals": 3,
+            "counter_attack_speed": 63.1,
+            "clean_sheets": 6,
             "btts_rate": 0.5,
-            "over25_rate": 0.4,
-            "low_block_resilience": 7.5,
-            "superstar_impact": 7.3
+            "over25_rate": 0.5,
+            "low_block_resilience": 8.0,
+            "superstar_impact": 6.6
           },
           "motivation": 0.84,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -16071,23 +16071,23 @@
           ],
           "form_note": "近期整体状态稳健，主场防御力强悍",
           "season_stats": {
-            "goals_scored": 17,
+            "goals_scored": 20,
             "goals_conceded": 18,
-            "xg": 16.2,
-            "xga": 18.6,
-            "shots_per_game": 12.5,
-            "shots_on_target": 4.1,
+            "xg": 17.3,
+            "xga": 14.8,
+            "shots_per_game": 9.9,
+            "shots_on_target": 3.7,
             "conversion_rate": 0.1,
-            "possession": 50.1,
-            "pass_accuracy": 72.7,
-            "pressing_intensity": 66.4,
-            "set_piece_goals": 4,
-            "counter_attack_speed": 76.5,
-            "clean_sheets": 3,
+            "possession": 51.3,
+            "pass_accuracy": 74.7,
+            "pressing_intensity": 59.3,
+            "set_piece_goals": 1,
+            "counter_attack_speed": 72.1,
+            "clean_sheets": 4,
             "btts_rate": 0.5,
-            "over25_rate": 0.5,
-            "low_block_resilience": 7.2,
-            "superstar_impact": 7.1
+            "over25_rate": 0.4,
+            "low_block_resilience": 8.0,
+            "superstar_impact": 6.0
           },
           "motivation": 0.68,
           "motivation_note": "客队客场防御为主，常规防守战意",
@@ -16243,7 +16243,7 @@
           "平赔拉锯可能掩盖双方战术性握手言和的意图。",
           "盘口水位频繁震荡涉嫌诱导散户追热，建议保持冷门防范。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】水位双向对等拉锯，资金对流平稳，庄家旨在通过高频抽水实现盈利均衡，未露出明显资金偏护倾向。"
+        "bookmaker_backed_script": "【庄家看好剧本】赔率水位小幅微震，盘面资金分布均匀，未见异常资金倾斜。预计比赛将按模型原定的首选 '客胜' 剧本打出。"
       },
       "intelligence": {
         "verified_news": [
@@ -16273,13 +16273,13 @@
         "venue_notes": "草地情况极佳"
       },
       "conclusions": {
-        "mainstream": "平局拉锯之势",
-        "upset": "分出胜负",
-        "aggressive": "比分 3-1",
-        "conservative": "让胜 (主+1)",
-        "most_likely_score": "2-1 或 2-2",
+        "mainstream": "客队反客为主抢分",
+        "upset": "主队主场捍卫尊严",
+        "aggressive": "比分 1-3",
+        "conservative": "负",
+        "most_likely_score": "1-2 或 2-2",
         "over_under": "大 2.5",
-        "half_full": "平胜",
+        "half_full": "负负",
         "upset_probability": 0.45,
         "upset_direction": "客胜",
         "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 17% / 平 22% / 客 61%），计算得出即时凯利指数为：主胜 0.88，平局 0.88，客胜 0.89。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>主胜</strong> 剧本。",
@@ -16372,7 +16372,7 @@
           "signal": "雅罗抢分战意更浓"
         }
       },
-      "moe_score": -0.09040599999999994,
+      "moe_score": -0.7716167993084189,
       "prediction_updated": true
     },
     {
@@ -16392,7 +16392,7 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.690503",
+          "timestamp": "2026-07-18T17:13:58.748324",
           "pinnacle": {
             "home": 2.44,
             "draw": 3.4,
@@ -16405,7 +16405,7 @@
       "ultimate_conclusion": {
         "recommendation": "双选不败",
         "primary_bet": "双选不败",
-        "confidence": 58,
+        "confidence": 46,
         "risk_level": "中",
         "ev_score": 0.0,
         "reasoning": "芬超联赛常呈现低比分拉锯，防守落位速度是决定性因素。 基本面上，TPS图尔在【环境气候适应性】上拥有明显优势（评分 8.8 对 7.8），但坦山猫在【球队基础硬实力】上（评分 9.5 对 7.6）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 2.49 降至 2.44，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【双选不败】。",
@@ -16423,23 +16423,23 @@
           ],
           "form_note": "多场不胜急需抢分，战意较为饱满",
           "season_stats": {
-            "goals_scored": 18,
-            "goals_conceded": 18,
-            "xg": 16.5,
-            "xga": 17.3,
-            "shots_per_game": 12.5,
-            "shots_on_target": 3.5,
+            "goals_scored": 16,
+            "goals_conceded": 15,
+            "xg": 17.4,
+            "xga": 17.0,
+            "shots_per_game": 10.3,
+            "shots_on_target": 3.4,
             "conversion_rate": 0.1,
-            "possession": 50.0,
-            "pass_accuracy": 87.9,
-            "pressing_intensity": 66.1,
-            "set_piece_goals": 1,
-            "counter_attack_speed": 68.9,
-            "clean_sheets": 3,
+            "possession": 49.4,
+            "pass_accuracy": 81.8,
+            "pressing_intensity": 54.6,
+            "set_piece_goals": 2,
+            "counter_attack_speed": 78.3,
+            "clean_sheets": 2,
             "btts_rate": 0.5,
             "over25_rate": 0.5,
-            "low_block_resilience": 8.0,
-            "superstar_impact": 6.1
+            "low_block_resilience": 6.5,
+            "superstar_impact": 5.9
           },
           "motivation": 0.9,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -16467,22 +16467,22 @@
           "form_note": "近期锋线低迷，打法偏向保守防御",
           "season_stats": {
             "goals_scored": 17,
-            "goals_conceded": 15,
-            "xg": 18.3,
-            "xga": 16.9,
-            "shots_per_game": 12.2,
-            "shots_on_target": 3.5,
+            "goals_conceded": 17,
+            "xg": 17.9,
+            "xga": 14.9,
+            "shots_per_game": 10.6,
+            "shots_on_target": 3.7,
             "conversion_rate": 0.1,
-            "possession": 48.0,
-            "pass_accuracy": 78.7,
-            "pressing_intensity": 65.8,
-            "set_piece_goals": 3,
-            "counter_attack_speed": 74.7,
+            "possession": 43.8,
+            "pass_accuracy": 83.1,
+            "pressing_intensity": 67.7,
+            "set_piece_goals": 1,
+            "counter_attack_speed": 68.8,
             "clean_sheets": 2,
             "btts_rate": 0.5,
-            "over25_rate": 0.5,
-            "low_block_resilience": 8.0,
-            "superstar_impact": 6.6
+            "over25_rate": 0.4,
+            "low_block_resilience": 7.7,
+            "superstar_impact": 7.3
           },
           "motivation": 0.72,
           "motivation_note": "客队客场防御为主，常规防守战意",
@@ -16767,7 +16767,7 @@
           "signal": "TPS图尔抢分战意更浓"
         }
       },
-      "moe_score": -0.08674650000000009,
+      "moe_score": -0.0318598589117541,
       "prediction_updated": true
     },
     {
@@ -16787,7 +16787,7 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.690940",
+          "timestamp": "2026-07-18T17:13:58.748929",
           "pinnacle": {
             "home": 5.25,
             "draw": 4.1,
@@ -16798,12 +16798,12 @@
       ],
       "match_context": "芬超常规赛对决。玛丽港坐镇主场迎接拉赫蒂的挑战。",
       "ultimate_conclusion": {
-        "recommendation": "双选不败",
-        "primary_bet": "双选不败",
-        "confidence": 56,
+        "recommendation": "客胜",
+        "primary_bet": "客胜",
+        "confidence": 73,
         "risk_level": "中",
         "ev_score": 0.0,
-        "reasoning": "芬超联赛常呈现低比分拉锯，防守落位速度是决定性因素。 基本面上，玛丽港在【环境气候适应性】上拥有明显优势（评分 9.2 对 8.2），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指主胜由 5.36 降至 5.25，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【双选不败】。",
+        "reasoning": "芬超联赛常呈现低比分拉锯，防守落位速度是决定性因素。 基本面上，玛丽港在【环境气候适应性】上拥有明显优势（评分 9.2 对 8.2），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指主胜由 5.36 降至 5.25，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
         "confidence_trend": "stable"
       },
       "team_stats": {
@@ -16818,23 +16818,23 @@
           ],
           "form_note": "防守端较为松懈，但进攻线转换极快",
           "season_stats": {
-            "goals_scored": 19,
-            "goals_conceded": 16,
-            "xg": 17.2,
-            "xga": 16.2,
-            "shots_per_game": 11.0,
-            "shots_on_target": 3.4,
+            "goals_scored": 17,
+            "goals_conceded": 18,
+            "xg": 19.2,
+            "xga": 17.8,
+            "shots_per_game": 10.7,
+            "shots_on_target": 3.6,
             "conversion_rate": 0.1,
-            "possession": 47.4,
-            "pass_accuracy": 83.8,
-            "pressing_intensity": 69.3,
+            "possession": 48.7,
+            "pass_accuracy": 73.5,
+            "pressing_intensity": 55.5,
             "set_piece_goals": 5,
-            "counter_attack_speed": 69.9,
-            "clean_sheets": 2,
-            "btts_rate": 0.6,
+            "counter_attack_speed": 64.8,
+            "clean_sheets": 3,
+            "btts_rate": 0.5,
             "over25_rate": 0.4,
-            "low_block_resilience": 6.5,
-            "superstar_impact": 6.7
+            "low_block_resilience": 7.1,
+            "superstar_impact": 5.9
           },
           "motivation": 0.74,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -16862,22 +16862,22 @@
           "form_note": "多场不胜急需抢分，战意较为饱满",
           "season_stats": {
             "goals_scored": 17,
-            "goals_conceded": 17,
-            "xg": 17.6,
-            "xga": 18.3,
-            "shots_per_game": 12.2,
+            "goals_conceded": 18,
+            "xg": 16.9,
+            "xga": 16.5,
+            "shots_per_game": 11.6,
             "shots_on_target": 3.6,
             "conversion_rate": 0.1,
-            "possession": 52.7,
-            "pass_accuracy": 84.4,
-            "pressing_intensity": 59.1,
-            "set_piece_goals": 1,
-            "counter_attack_speed": 70.4,
-            "clean_sheets": 5,
-            "btts_rate": 0.6,
+            "possession": 54.5,
+            "pass_accuracy": 77.6,
+            "pressing_intensity": 68.5,
+            "set_piece_goals": 3,
+            "counter_attack_speed": 67.9,
+            "clean_sheets": 2,
+            "btts_rate": 0.5,
             "over25_rate": 0.4,
-            "low_block_resilience": 6.6,
-            "superstar_impact": 6.3
+            "low_block_resilience": 6.9,
+            "superstar_impact": 6.8
           },
           "motivation": 0.76,
           "motivation_note": "客队客场防御为主，常规防守战意",
@@ -17033,7 +17033,7 @@
           "平赔拉锯可能掩盖双方战术性握手言和的意图。",
           "盘口水位频繁震荡涉嫌诱导散户追热，建议保持冷门防范。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】水位双向对等拉锯，资金对流平稳，庄家旨在通过高频抽水实现盈利均衡，未露出明显资金偏护倾向。"
+        "bookmaker_backed_script": "【庄家看好剧本】赔率水位小幅微震，盘面资金分布均匀，未见异常资金倾斜。预计比赛将按模型原定的首选 '客胜' 剧本打出。"
       },
       "intelligence": {
         "verified_news": [
@@ -17063,13 +17063,13 @@
         "venue_notes": "草地情况极佳"
       },
       "conclusions": {
-        "mainstream": "平局拉锯之势",
-        "upset": "分出胜负",
-        "aggressive": "比分 2-1",
-        "conservative": "让胜 (主+1)",
-        "most_likely_score": "2-1 或 2-2",
+        "mainstream": "客队反客为主抢分",
+        "upset": "主队主场捍卫尊严",
+        "aggressive": "比分 1-2",
+        "conservative": "负",
+        "most_likely_score": "1-2 或 2-2",
         "over_under": "大 2.5",
-        "half_full": "平胜",
+        "half_full": "平负",
         "upset_probability": 0.45,
         "upset_direction": "客胜",
         "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 17% / 平 22% / 客 61%），计算得出即时凯利指数为：主胜 0.89，平局 0.90，客胜 0.88。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>客胜</strong> 剧本。",
@@ -17162,7 +17162,7 @@
           "signal": "玛丽港抢分战意更浓"
         }
       },
-      "moe_score": 0.05193950000000003,
+      "moe_score": -0.642409706349206,
       "prediction_updated": true
     },
     {
@@ -17182,7 +17182,7 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.691415",
+          "timestamp": "2026-07-18T17:13:58.749498",
           "pinnacle": {
             "home": 6.6,
             "draw": 5.25,
@@ -17195,7 +17195,7 @@
       "ultimate_conclusion": {
         "recommendation": "客胜",
         "primary_bet": "客胜",
-        "confidence": 60,
+        "confidence": 91,
         "risk_level": "中",
         "ev_score": 0.0,
         "reasoning": "瑞超联赛的人工草皮主场优势极其明显，客队适应常面临考验。 基本面上，厄格里特在【近期状态与动能】上拥有明显优势（评分 7.9 对 6.9），但佐加顿斯在【球队基础硬实力】上（评分 8.9 对 5.7）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 6.73 降至 6.60，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
@@ -17213,23 +17213,23 @@
           ],
           "form_note": "赛程密集导致体能略显疲软，但斗志高昂",
           "season_stats": {
-            "goals_scored": 16,
-            "goals_conceded": 17,
-            "xg": 15.6,
-            "xga": 15.8,
-            "shots_per_game": 12.3,
-            "shots_on_target": 3.4,
+            "goals_scored": 18,
+            "goals_conceded": 15,
+            "xg": 16.7,
+            "xga": 16.1,
+            "shots_per_game": 12.2,
+            "shots_on_target": 3.6,
             "conversion_rate": 0.1,
-            "possession": 51.4,
-            "pass_accuracy": 80.0,
-            "pressing_intensity": 63.9,
-            "set_piece_goals": 5,
-            "counter_attack_speed": 62.3,
+            "possession": 48.8,
+            "pass_accuracy": 78.3,
+            "pressing_intensity": 57.1,
+            "set_piece_goals": 1,
+            "counter_attack_speed": 65.2,
             "clean_sheets": 4,
             "btts_rate": 0.5,
             "over25_rate": 0.5,
-            "low_block_resilience": 6.5,
-            "superstar_impact": 7.2
+            "low_block_resilience": 6.7,
+            "superstar_impact": 7.1
           },
           "motivation": 0.78,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -17256,22 +17256,22 @@
           ],
           "form_note": "防守端较为松懈，但进攻线转换极快",
           "season_stats": {
-            "goals_scored": 16,
-            "goals_conceded": 16,
-            "xg": 16.2,
-            "xga": 18.6,
-            "shots_per_game": 10.0,
-            "shots_on_target": 3.5,
+            "goals_scored": 17,
+            "goals_conceded": 15,
+            "xg": 19.5,
+            "xga": 18.3,
+            "shots_per_game": 10.8,
+            "shots_on_target": 4.0,
             "conversion_rate": 0.1,
-            "possession": 52.5,
-            "pass_accuracy": 82.9,
-            "pressing_intensity": 67.6,
-            "set_piece_goals": 4,
-            "counter_attack_speed": 65.9,
-            "clean_sheets": 4,
+            "possession": 45.0,
+            "pass_accuracy": 85.7,
+            "pressing_intensity": 61.8,
+            "set_piece_goals": 1,
+            "counter_attack_speed": 64.5,
+            "clean_sheets": 2,
             "btts_rate": 0.5,
             "over25_rate": 0.5,
-            "low_block_resilience": 7.2,
+            "low_block_resilience": 6.4,
             "superstar_impact": 5.8
           },
           "motivation": 0.8,
@@ -17557,7 +17557,7 @@
           "signal": "厄格里特抢分战意更浓"
         }
       },
-      "moe_score": -0.14558750000000004,
+      "moe_score": -1.0350057772607963,
       "prediction_updated": true
     },
     {
@@ -17577,7 +17577,7 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-18T17:07:39.691969",
+          "timestamp": "2026-07-18T17:13:58.750091",
           "pinnacle": {
             "home": 2.3,
             "draw": 3.45,
@@ -17590,7 +17590,7 @@
       "ultimate_conclusion": {
         "recommendation": "客胜",
         "primary_bet": "客不败",
-        "confidence": 57,
+        "confidence": 53,
         "risk_level": "中",
         "ev_score": 0.0,
         "reasoning": "瑞超联赛的人工草皮主场优势极其明显，客队适应常面临考验。 基本面上，卡尔马在【首发阵容健康度】上拥有明显优势（评分 9.2 对 6.2），但马尔默在【球队基础硬实力】上（评分 8.9 对 5.3）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 2.35 降至 2.30，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
@@ -17608,23 +17608,23 @@
           ],
           "form_note": "多场不胜急需抢分，战意较为饱满",
           "season_stats": {
-            "goals_scored": 19,
-            "goals_conceded": 19,
-            "xg": 18.8,
-            "xga": 18.8,
+            "goals_scored": 20,
+            "goals_conceded": 16,
+            "xg": 18.7,
+            "xga": 17.8,
             "shots_per_game": 10.3,
-            "shots_on_target": 3.6,
+            "shots_on_target": 3.7,
             "conversion_rate": 0.1,
-            "possession": 46.7,
-            "pass_accuracy": 81.8,
-            "pressing_intensity": 67.3,
-            "set_piece_goals": 2,
-            "counter_attack_speed": 68.0,
-            "clean_sheets": 3,
-            "btts_rate": 0.5,
-            "over25_rate": 0.5,
-            "low_block_resilience": 7.5,
-            "superstar_impact": 6.3
+            "possession": 48.6,
+            "pass_accuracy": 88.0,
+            "pressing_intensity": 64.1,
+            "set_piece_goals": 4,
+            "counter_attack_speed": 69.7,
+            "clean_sheets": 4,
+            "btts_rate": 0.6,
+            "over25_rate": 0.4,
+            "low_block_resilience": 6.6,
+            "superstar_impact": 7.2
           },
           "motivation": 0.9,
           "motivation_note": "主队常规战意，抢分期望高",
@@ -17651,23 +17651,23 @@
           ],
           "form_note": "赛程密集导致体能略显疲软，但斗志高昂",
           "season_stats": {
-            "goals_scored": 20,
-            "goals_conceded": 17,
-            "xg": 15.5,
-            "xga": 15.9,
-            "shots_per_game": 11.6,
-            "shots_on_target": 4.0,
+            "goals_scored": 18,
+            "goals_conceded": 18,
+            "xg": 15.8,
+            "xga": 17.7,
+            "shots_per_game": 12.3,
+            "shots_on_target": 3.7,
             "conversion_rate": 0.1,
-            "possession": 50.0,
-            "pass_accuracy": 84.4,
-            "pressing_intensity": 63.1,
-            "set_piece_goals": 2,
-            "counter_attack_speed": 74.3,
-            "clean_sheets": 4,
-            "btts_rate": 0.4,
-            "over25_rate": 0.4,
-            "low_block_resilience": 7.9,
-            "superstar_impact": 6.7
+            "possession": 47.8,
+            "pass_accuracy": 80.5,
+            "pressing_intensity": 59.9,
+            "set_piece_goals": 4,
+            "counter_attack_speed": 65.9,
+            "clean_sheets": 5,
+            "btts_rate": 0.5,
+            "over25_rate": 0.5,
+            "low_block_resilience": 6.9,
+            "superstar_impact": 6.9
           },
           "motivation": 0.84,
           "motivation_note": "客队客场防御为主，常规防守战意",
@@ -17970,7 +17970,7 @@
           "signal": "卡尔马抢分战意更浓"
         }
       },
-      "moe_score": 0.06725789999999986,
+      "moe_score": 0.19513679456081712,
       "prediction_updated": true
     }
   ]

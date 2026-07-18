@@ -331,6 +331,17 @@ def apply_dynamic_factor_scores(m):
     home = m["home"]
     away = m["away"]
     
+    # Load team tags database
+    team_tags_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "team_tags.json")
+    try:
+        with open(team_tags_path, "r", encoding="utf-8") as tf:
+            team_tags_db = json.load(tf)
+    except Exception:
+        team_tags_db = {}
+        
+    h_tags = list(team_tags_db.get(home, {}).get("tags", {}).keys())
+    a_tags = list(team_tags_db.get(away, {}).get("tags", {}).keys())
+
     # 1. Base Strength (M01)
     home_tier = known_teams.get(home, "medium")
     away_tier = known_teams.get(away, "medium")
@@ -339,6 +350,18 @@ def apply_dynamic_factor_scores(m):
     h_base = tier_ratings[home_tier]
     a_base = tier_ratings[away_tier]
     
+    # Adjust M01 based on tags
+    for tag in h_tags:
+        if tag in ["灌球高手", "顺风狂飙", "主场狂魔"]:
+            h_base += 0.5
+        if tag in ["无心恋战", "欺软怕硬"]:
+            h_base -= 0.4
+    for tag in a_tags:
+        if tag in ["灌球高手", "顺风狂飙"]:
+            a_base += 0.5
+        if tag in ["无心恋战", "欺软怕硬"]:
+            a_base -= 0.4
+            
     # Add a small deterministic hash variation to avoid identical scores
     h_hash = sum(ord(c) for c in home)
     a_hash = sum(ord(c) for c in away)
@@ -365,7 +388,13 @@ def apply_dynamic_factor_scores(m):
     # 3. Tactical Matchup (M03)
     m03_home = round(7.5 + ((h_hash + a_hash) % 5) * 0.2 - 0.4, 1)
     m03_away = round(7.5 + ((h_hash - a_hash) % 5) * 0.2 - 0.4, 1)
-    
+    for tag in h_tags:
+        if tag in ["铜墙铁壁", "防守专家", "平局大师", "闪退大客车"]:
+            m03_home += 0.6
+    for tag in a_tags:
+        if tag in ["铜墙铁壁", "防守专家", "平局大师", "闪退大客车"]:
+            m03_away += 0.6
+            
     # 4. Midfield & Transition (M04)
     m04_home = round(m01_home - 0.2 + (h_hash % 5) * 0.1, 1)
     m04_away = round(m01_away - 0.2 + (a_hash % 5) * 0.1, 1)
@@ -375,8 +404,22 @@ def apply_dynamic_factor_scores(m):
     away_form = m["team_stats"]["away"].get("form", ["W", "D", "L", "W", "D"])
     h_w_count = sum(1 for f in home_form if f == "W")
     a_w_count = sum(1 for f in away_form if f == "W")
-    m05_home = round(6.0 + h_w_count * 0.8 + (h_hash % 5) * 0.1, 1)
-    m05_away = round(6.0 + a_w_count * 0.8 + (a_hash % 5) * 0.1, 1)
+    
+    h_form_score = 6.0 + h_w_count * 0.8 + (h_hash % 5) * 0.1
+    a_form_score = 6.0 + a_w_count * 0.8 + (a_hash % 5) * 0.1
+    for tag in h_tags:
+        if tag in ["顺风狂飙", "抢分狂魔"]:
+            h_form_score += 0.6
+        if tag in ["虎头蛇尾", "无心恋战"]:
+            h_form_score -= 0.6
+    for tag in a_tags:
+        if tag in ["顺风狂飙", "抢分狂魔"]:
+            a_form_score += 0.6
+        if tag in ["虎头蛇尾", "无心恋战"]:
+            a_form_score -= 0.6
+            
+    m05_home = round(max(3.0, min(10.0, h_form_score)), 1)
+    m05_away = round(max(3.0, min(10.0, a_form_score)), 1)
     
     # 6. Schedule & Fatigue (M06)
     m06_home = round(8.5 - (h_hash % 4) * 0.3, 1)
@@ -389,8 +432,21 @@ def apply_dynamic_factor_scores(m):
     # 8. Motivation & Pressure (M08)
     m_h = m["team_stats"]["home"].get("motivation", 0.8)
     m_a = m["team_stats"]["away"].get("motivation", 0.7)
-    m08_home = round(m_h * 10.0, 1)
-    m08_away = round(m_a * 10.0, 1)
+    h_mot = m_h * 10.0
+    a_mot = m_a * 10.0
+    for tag in h_tags:
+        if tag in ["抢分狂魔", "续命狂人", "杯赛狂人"]:
+            h_mot += 1.0
+        if tag in ["无心恋战", "只雷不雨"]:
+            h_mot -= 1.5
+    for tag in a_tags:
+        if tag in ["抢分狂魔", "续命狂人", "杯赛狂人"]:
+            a_mot += 1.0
+        if tag in ["无心恋战", "只雷不雨"]:
+            a_mot -= 1.5
+            
+    m08_home = round(max(2.0, min(10.0, h_mot)), 1)
+    m08_away = round(max(2.0, min(10.0, a_mot)), 1)
     
     m["factor_scores"] = {
         "M01_球队基础硬实力": {
@@ -1394,6 +1450,15 @@ def main():
                 dims = exp_data.get("dimensions", [])
                 if dims:
                     score = sum(dim_scores.get(d, 0) for d in dims)
+                elif exp_id == "odds_capital":
+                    # Calculate odds score dynamically
+                    odds_prob_diff = (1.0 / ph) - (1.0 / pa)
+                    # Use initial odds to get movement
+                    init_odds = m.get("odds_analysis", {}).get("pinnacle", {}).get("initial", {})
+                    ih = init_odds.get("home", ph)
+                    ia = init_odds.get("away", pa)
+                    odds_move_diff = (ih - ph) - (ia - pa)
+                    score = odds_prob_diff * 4.0 + odds_move_diff * 2.0
                 expert_votes[exp_id] = score * exp_data.get("weight", 0.3)
             moe_score = sum(expert_votes.values())
             m["moe_score"] = moe_score
@@ -1509,14 +1574,14 @@ def main():
             
         # 2. Update Confidence
         moe_abs = abs(moe_score)
-        conf = 55 + int(moe_abs * 35)
-        # Apply lower bound of 30% and upper bound of 95%
+        # Symmetrical scaling with larger variance
+        conf = 45 + int(moe_abs * 45)
         conf = max(30, min(95, conf))
         
         if m["ultimate_conclusion"].get("risk_level") == "极高":
-            conf = int(conf * 0.75)
+            conf = int(conf * 0.72)
         elif m["ultimate_conclusion"].get("risk_level") == "高":
-            conf = int(conf * 0.88)
+            conf = int(conf * 0.85)
             
         conf = max(30, min(95, conf))
         m["ultimate_conclusion"]["confidence"] = conf
