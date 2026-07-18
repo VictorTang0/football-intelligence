@@ -123,11 +123,28 @@ def calibrate():
                 largest_fid = max(factor_weights, key=factor_weights.get)
                 factor_weights[largest_fid] = round(factor_weights[largest_fid] + diff, 4)
                 
+    # Load evolution DB to calculate version dynamically
+    if os.path.exists(model_evolution_path):
+        with open(model_evolution_path, "r", encoding="utf-8") as f:
+            evo_db = json.load(f)
+    else:
+        evo_db = {"snapshots": [], "evolution_count": 0}
+
+    snapshots = evo_db.get("snapshots", [])
+    new_idx = len(snapshots)
+    if new_idx < 3:
+        next_ver = "v1.0"
+    else:
+        i = new_idx - 3
+        major = 2 + (i // 10)
+        minor = i % 10
+        next_ver = f"v{major}.{minor}"
+
     # 3. Update weights in weights_db
     for f in factors:
         f["weight"] = factor_weights[f["id"]]
         
-    weights_db["version"] = "v2.00"
+    weights_db["version"] = next_ver
     weights_db["last_evolved"] = datetime.now().isoformat()
     weights_db["total_matches_validated"] = len(finished_matches)
     
@@ -143,13 +160,6 @@ def calibrate():
     with open(weights_path, "w", encoding="utf-8") as f:
         json.dump(weights_db, f, ensure_ascii=False, indent=2)
         
-    # 4. Append to model_evolution.json
-    if os.path.exists(model_evolution_path):
-        with open(model_evolution_path, "r", encoding="utf-8") as f:
-            evo_db = json.load(f)
-    else:
-        evo_db = {"snapshots": [], "evolution_count": 0}
-        
     # Find accuracy rate
     accuracy = 0.6
     history_path = os.path.join(base_dir, "data", "history.json")
@@ -159,7 +169,7 @@ def calibrate():
             accuracy = hist.get("accuracy_rate", 0.6)
             
     snapshot = {
-        "version": "v2.00",
+        "version": next_ver,
         "date": datetime.now().strftime("%Y-%m-%d"),
         "trigger": f"模型2.0大校准：基于 {len(finished_matches)} 场历史完赛数据批量演化",
         "accuracy_before": accuracy,
@@ -178,6 +188,7 @@ def calibrate():
     
     evo_db["snapshots"].append(snapshot)
     evo_db["evolution_count"] = len(evo_db["snapshots"])
+    evo_db["current_version"] = next_ver
     
     with open(model_evolution_path, "w", encoding="utf-8") as f:
         json.dump(evo_db, f, ensure_ascii=False, indent=2)

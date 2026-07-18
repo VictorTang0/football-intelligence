@@ -131,9 +131,34 @@ const MatchIQCharts = (() => {
       { id: 'M07', name: '主场环境',  color: DEFAULTS.color.red },
     ];
 
+    const mapping = {
+      M01: ["01", "02", "03", "04", "05", "12", "13", "14"],
+      M02: ["24", "25"],
+      M03: ["08", "10", "11", "23"],
+      M04: ["09", "29"],
+      M05: ["15", "16", "17", "18", "19", "20", "21"],
+      M06: ["36", "37", "38", "39"],
+      M07: ["35", "40", "41"],
+      M08: ["06", "22", "26", "27", "28", "30", "31", "32", "33", "34"]
+    };
+
     const datasets = trackedFactors.map(f => ({
       label: f.name,
-      data: snapshots.map(s => +(s.weights_snapshot[f.id] * 100).toFixed(2)),
+      data: snapshots.map(s => {
+        const weights = s.weights_snapshot || {};
+        if (weights[f.id] !== undefined) {
+          return +(weights[f.id] * 100).toFixed(2);
+        }
+        // Fallback mapping for old 41 factors format
+        const oldKeys = mapping[f.id] || [];
+        let sum = 0;
+        oldKeys.forEach(k => {
+          if (weights[k] !== undefined) {
+            sum += weights[k];
+          }
+        });
+        return +(sum * 100).toFixed(2);
+      }),
       borderColor: f.color,
       backgroundColor: 'transparent',
       borderWidth: 2,
@@ -198,11 +223,11 @@ const MatchIQCharts = (() => {
     const ctx = canvas.getContext('2d');
     if (canvas._chart) canvas._chart.destroy();
 
-    const records = (historyData.records || []).filter(r => r.result !== null);
+    const records = (historyData.records || []).filter(r => r.actual_result !== null && r.actual_result !== undefined);
     const labels = records.map((r, i) => `#${i + 1}`);
     const accuracyData = records.map((_, i) => {
       const slice = records.slice(0, i + 1);
-      const correct = slice.filter(r => r.correct).length;
+      const correct = slice.filter(r => r.is_correct).length;
       return +((correct / slice.length) * 100).toFixed(1);
     });
 
