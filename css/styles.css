@@ -1729,4 +1729,17 @@ section { padding: clamp(32px, 5vw, 64px) 0; }
   font-family: var(--font-mono);
 }
 
+/* ─── HISTORICAL RECORD TABLE STYLES ─── */
+.history-table td {
+  text-align: center;
+  vertical-align: middle;
+  transition: background-color 0.15s ease;
+}
+.history-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.035) !important;
+}
+.history-table tbody tr.history-date-row:hover {
+  background: transparent !important;
+}
+
 

@@ -942,68 +942,81 @@ const MatchIQRender = (() => {
     // 只保留最近十场，按时间倒序排列
     const recordsToShow = [...records].slice(-10).reverse();
 
-    // 辅助函数：根据预测正确性打勾
-    const renderPredRow = (label, item, customStyle = '') => {
-      if (!item) return '';
-      const val = typeof item === 'object' ? (item.val || '--') : item;
-      const isCorrect = typeof item === 'object' ? !!item.correct : false;
-      const checkmark = isCorrect ? ' <span style="color:var(--green);font-weight:bold;margin-left:4px">✅</span>' : '';
-      
-      return `
-        <div class="hc-pred-row">
-          <span class="hc-label">${label}</span>
-          <span class="hc-val" ${customStyle ? `style="${customStyle}"` : ''}>${val}${checkmark}</span>
-        </div>
-      `;
-    };
+    // Group records by date
+    const groups = {};
+    recordsToShow.forEach(r => {
+      const dateStr = r.date || '其他日期';
+      if (!groups[dateStr]) {
+        groups[dateStr] = [];
+      }
+      groups[dateStr].push(r);
+    });
 
-    return recordsToShow.map(r => {
-      const p = r.predictions || {};
-      const hasPreds = !!r.predictions;
+    // Generate table rows
+    const tbodyRows = [];
+    Object.keys(groups).sort((a, b) => new Date(b) - new Date(a)).forEach(date => {
+      // Date separator row
+      tbodyRows.push(`
+        <tr class="history-date-row">
+          <td colspan="6" style="text-align:left; font-weight:700; background:rgba(255,255,255,0.02); color:var(--cyan); padding:10px 16px; border-bottom:1px solid var(--border-subtle);">
+            📅 ${date}
+          </td>
+        </tr>
+      `);
 
-      const predDetailsHTML = hasPreds ? `
-        ${renderPredRow('终极结论', p.recommendation, 'color:var(--cyan);font-weight:600')}
-        ${renderPredRow('首选方案', p.primary_bet)}
-        ${renderPredRow('大众剧本', p.mainstream, 'font-size:11px;text-align:right;max-width:65%;word-break:break-all')}
-        ${renderPredRow('激进结论', p.aggressive, 'color:var(--rose);font-size:11px;text-align:right;max-width:65%;word-break:break-all')}
-        ${renderPredRow('防守路线', p.conservative, 'font-size:11px;text-align:right;max-width:65%;word-break:break-all')}
-        ${renderPredRow('冷门方向', p.upset, 'color:var(--amber);font-size:11px;text-align:right;max-width:65%;word-break:break-all')}
-        ${renderPredRow('半全场预测', p.half_full, 'font-size:11px;text-align:right;max-width:65%;word-break:break-all')}
-        ${renderPredRow('大小球', p.over_under)}
-        ${renderPredRow('预期比分', p.most_likely_score, 'font-weight:600;color:var(--green)')}
-      ` : `
-        <div class="hc-pred-row">
-          <span class="hc-label">模型预测</span>
-          <span class="hc-val">${r.prediction || '--'}</span>
-        </div>
-      `;
+      // Match rows under this date
+      groups[date].forEach(r => {
+        const p = r.predictions || {};
+        const recommendationVal = p.recommendation?.val || r.prediction || '--';
+        const recCorrect = p.recommendation ? !!p.recommendation.correct : r.is_correct;
+        
+        // Red/Black Status
+        const statusBadge = r.is_correct 
+          ? '<span style="color:var(--green); background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.25); padding:2px 8px; border-radius:4px; font-weight:700; font-size:11px; white-space:nowrap;">红 (命中)</span>'
+          : '<span style="color:var(--red); background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.25); padding:2px 8px; border-radius:4px; font-weight:700; font-size:11px; white-space:nowrap;">黑 (偏差)</span>';
 
-      return `
-      <div class="history-card ${r.is_correct ? 'correct' : 'incorrect'} animate-in">
-        <div class="hc-header">
-          <span class="hc-league">${r.league || '--'}</span>
-          <span class="hc-date">${r.date || '--'}</span>
-        </div>
-        <div class="hc-teams">${r.home || '主队'} vs ${r.away || '客队'}</div>
-        <button class="collapsible-trigger" data-expand-text="查看预测详情 ▾" data-collapse-text="收起预测详情 ▴">查看预测详情 ▾</button>
-        <div class="collapsible-body">
-          ${predDetailsHTML}
-        </div>
-        <div class="hc-pred-row" style="border-top:1px solid rgba(255,255,255,0.08);margin-top:8px;padding-top:8px;">
-          <span class="hc-label">实际赛果</span>
-          <span class="hc-val ${r.is_correct ? 'highlight-correct' : 'highlight-incorrect'}" style="font-weight:600">${r.actual_result || '--'}</span>
-        </div>
-        <div class="hc-pred-row">
-          <span class="hc-label">预测状态</span>
-          <span class="hc-status-badge ${r.is_correct ? 'correct' : 'incorrect'}">${r.is_correct ? '预测正确' : '预测偏差'}</span>
-        </div>
-        <div class="hc-pred-row">
-          <span class="hc-label">信心指数</span>
-          <span class="hc-val">${r.confidence || '--'}%</span>
-        </div>
+        tbodyRows.push(`
+          <tr style="border-bottom:1px solid var(--border-subtle);">
+            <td style="padding:10px 16px; font-weight:600; white-space:nowrap;"><span class="tag" style="border:1px solid rgba(0, 212, 255, 0.2); color:var(--cyan); background:rgba(0, 212, 255, 0.03); font-size:11px; padding:2px 8px; border-radius:4px;">${r.league || '--'}</span></td>
+            <td style="padding:10px 16px; text-align:left; white-space:nowrap;">
+              <span style="font-weight:600; color:var(--text-1);">${r.home}</span> 
+              <span style="color:var(--text-4)">VS</span> 
+              <span style="font-weight:600; color:var(--text-1);">${r.away}</span>
+            </td>
+            <td style="padding:10px 16px; text-align:left; white-space:normal;">
+              <span style="color:${recCorrect ? 'var(--green)' : 'var(--red)'}; font-weight:600;">
+                ${recommendationVal}
+              </span>
+            </td>
+            <td style="padding:10px 16px; white-space:nowrap;">
+              <span style="font-weight:700; color:${r.is_correct ? 'var(--green)' : 'var(--red)'};">${r.actual_result || '--'}</span>
+            </td>
+            <td style="padding:10px 16px; font-weight:600; white-space:nowrap;">${r.confidence || '--'}%</td>
+            <td style="padding:10px 16px; white-space:nowrap;">${statusBadge}</td>
+          </tr>
+        `);
+      });
+    });
+
+    return `
+      <div style="grid-column: 1 / -1; width: 100%; overflow-x: auto; background:rgba(13,21,39,0.3); border:1px solid var(--border-subtle); border-radius:12px; box-shadow:0 8px 32px rgba(0,0,0,0.2); backdrop-filter:blur(8px);">
+        <table class="history-table" style="width:100%; border-collapse:collapse; text-align:left; font-size:12.5px; color:var(--text-2);">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border-subtle); background:rgba(255,255,255,0.02); font-size:11px; text-transform:uppercase; color:var(--text-3); font-weight:700;">
+              <th style="padding:12px 16px; text-align:center;">联赛</th>
+              <th style="padding:12px 16px; text-align:left;">对阵</th>
+              <th style="padding:12px 16px; text-align:left;">预测内容</th>
+              <th style="padding:12px 16px; text-align:center;">实际赛果</th>
+              <th style="padding:12px 16px; text-align:center;">置信度</th>
+              <th style="padding:12px 16px; text-align:center;">红黑状态</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${tbodyRows.join('')}
+          </tbody>
+        </table>
       </div>
-      `;
-    }).join('');
+    `;
   }
 
   // ─── EV PARLAYS RENDERER ───
