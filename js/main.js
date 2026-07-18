@@ -93,11 +93,20 @@ const MatchIQ = (() => {
       const versionBadge = document.getElementById('version-badge');
       const matchCountEl = document.getElementById('header-match-count');
       const accEl = document.getElementById('header-accuracy');
+      const historyCountEl = document.getElementById('header-history-count');
+      const evoCountEl = document.getElementById('header-evo-count');
+
       if (versionBadge) versionBadge.textContent = weights?.version || 'v1.0';
       if (matchCountEl) matchCountEl.textContent = upcomingMatches.length;
       if (accEl) {
         const acc = history?.accuracy_rate;
         accEl.textContent = acc !== null && acc !== undefined ? (acc * 100).toFixed(1) + '%' : '--';
+      }
+      if (historyCountEl) {
+        historyCountEl.textContent = history?.total_predictions || 0;
+      }
+      if (evoCountEl) {
+        evoCountEl.textContent = evolution?.evolution_count || 0;
       }
     } catch (e) {
       console.error('[MatchIQ] Error rendering header badges:', e);
