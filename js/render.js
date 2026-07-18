@@ -982,7 +982,33 @@ const MatchIQRender = (() => {
         const badgeBlack = '<span style="color:#9ca3af; background:rgba(156,163,175,0.08); border:1px solid rgba(156,163,175,0.2); padding:1px 4px; border-radius:3px; font-weight:bold; font-size:10px; margin-left:4px; display:inline-block; line-height:1;">黑</span>';
 
         const recHtml = `<div style="white-space:nowrap;"><span style="color:var(--text-3);font-weight:500;">方向:</span> <span style="font-weight:600; color:${recCorrect ? 'var(--rose, #f43f5e)' : 'var(--text-2)'};">${recommendationVal}</span>${recCorrect ? badgeRed : badgeBlack}</div>`;
-        const scoreHtml = `<div style="white-space:nowrap;"><span style="color:var(--text-3);font-weight:500;">比分:</span> <span style="font-weight:600; color:${scoreCorrect ? 'var(--rose, #f43f5e)' : 'var(--text-2)'};">${scoreVal}</span>${scoreCorrect ? badgeRed : badgeBlack}</div>`;
+        
+        // Render score HTML with itemized highlighting
+        let scoreValHtml = "";
+        if (scoreVal === '--') {
+          scoreValHtml = '--';
+        } else {
+          let actualScoreStr = "";
+          if (r.actual_result) {
+            const match = r.actual_result.replace(/\s*:\s*/g, '-').match(/\d+-\d+/);
+            if (match) {
+              actualScoreStr = match[0];
+            }
+          }
+          const parts = scoreVal.split(/\s*或\s*/);
+          const renderedParts = parts.map(part => {
+            const cleanPart = part.replace(/\s+/g, '').split('(')[0];
+            const isThisPartCorrect = actualScoreStr && (cleanPart === actualScoreStr);
+            if (isThisPartCorrect) {
+              return `<span style="color:var(--rose, #f43f5e); font-weight:700;">${part}</span>`;
+            } else {
+              return `<span style="color:var(--text-2); font-weight:500;">${part}</span>`;
+            }
+          });
+          scoreValHtml = renderedParts.join(' <span style="color:var(--text-4)">或</span> ');
+        }
+        const scoreHtml = `<div style="white-space:nowrap;"><span style="color:var(--text-3);font-weight:500;">比分:</span> ${scoreValHtml}${scoreCorrect ? badgeRed : badgeBlack}</div>`;
+        
         const hfHtml = `<div style="white-space:nowrap;"><span style="color:var(--text-3);font-weight:500;">半全:</span> <span style="font-weight:600; color:${hfCorrect ? 'var(--rose, #f43f5e)' : 'var(--text-2)'};">${hfVal}</span>${hfCorrect ? badgeRed : badgeBlack}</div>`;
         const goalsHtml = `<div style="white-space:nowrap;"><span style="color:var(--text-3);font-weight:500;">进球:</span> <span style="font-weight:600; color:${goalsCorrect ? 'var(--rose, #f43f5e)' : 'var(--text-2)'};">${goalsVal}</span>${goalsCorrect ? badgeRed : badgeBlack}</div>`;
 
