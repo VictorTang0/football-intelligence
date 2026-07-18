@@ -1,7 +1,7 @@
 {
-  "total_predictions": 21,
-  "correct_predictions": 14,
-  "accuracy_rate": 0.6667,
+  "total_predictions": 20,
+  "correct_predictions": 13,
+  "accuracy_rate": 0.65,
   "records": [
     {
       "match_id": "match_260715_102",
@@ -959,54 +959,6 @@
         },
         "most_likely_score": {
           "val": "1-2",
-          "correct": false
-        }
-      }
-    },
-    {
-      "match_id": "match_260719_103",
-      "league": "世界杯",
-      "home": "法国",
-      "away": "英格兰",
-      "date": "2026-07-18",
-      "actual_result": "法国 1-1 英格兰",
-      "is_correct": true,
-      "confidence": 59,
-      "predictions": {
-        "recommendation": {
-          "val": "主胜",
-          "correct": true
-        },
-        "primary_bet": {
-          "val": "主胜",
-          "correct": false
-        },
-        "mainstream": {
-          "val": "主队主场全取三分",
-          "correct": false
-        },
-        "aggressive": {
-          "val": "比分 4-2",
-          "correct": false
-        },
-        "upset": {
-          "val": "客队防反爆冷抢分",
-          "correct": true
-        },
-        "conservative": {
-          "val": "胜",
-          "correct": false
-        },
-        "half_full": {
-          "val": "平胜 或 胜胜",
-          "correct": false
-        },
-        "over_under": {
-          "val": "大 2.5",
-          "correct": false
-        },
-        "most_likely_score": {
-          "val": "3-2 或 3-1 或 2-2 (防冷)",
           "correct": false
         }
       }

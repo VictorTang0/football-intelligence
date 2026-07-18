@@ -1,13 +1,13 @@
 {
   "version": "v2.00",
-  "last_evolved": "2026-07-18T20:47:35.597594",
-  "total_matches_validated": 21,
+  "last_evolved": "2026-07-18T20:51:14.622553",
+  "total_matches_validated": 20,
   "overall_accuracy": 0.6,
   "factors": [
     {
       "id": "M01",
       "name": "球队基础硬实力",
-      "weight": 0.1814,
+      "weight": 0.1499,
       "initial": 0.25,
       "category": "基础战力",
       "delta": 0.0,
@@ -16,7 +16,7 @@
     {
       "id": "M02",
       "name": "首发阵容健康度",
-      "weight": 0.0399,
+      "weight": 0.0611,
       "initial": 0.15,
       "category": "基础战力",
       "delta": 0.0,
@@ -25,7 +25,7 @@
     {
       "id": "M03",
       "name": "战术克制与匹配",
-      "weight": 0.1834,
+      "weight": 0.1503,
       "initial": 0.15,
       "category": "战术相克",
       "delta": 0.0,
@@ -34,7 +34,7 @@
     {
       "id": "M04",
       "name": "中场与推进效率",
-      "weight": 0.1857,
+      "weight": 0.15,
       "initial": 0.1,
       "category": "战术相克",
       "delta": 0.0,
@@ -43,7 +43,7 @@
     {
       "id": "M05",
       "name": "近期状态与动能",
-      "weight": 0.1881,
+      "weight": 0.15,
       "initial": 0.15,
       "category": "动态动能",
       "delta": 0.0,
@@ -52,7 +52,7 @@
     {
       "id": "M06",
       "name": "赛程密集与体能",
-      "weight": 0.0851,
+      "weight": 0.1303,
       "initial": 0.05,
       "category": "动态动能",
       "delta": 0.0,
@@ -61,7 +61,7 @@
     {
       "id": "M07",
       "name": "环境气候适应性",
-      "weight": 0.0511,
+      "weight": 0.078,
       "initial": 0.05,
       "category": "环境心理",
       "delta": 0.0,
@@ -70,7 +70,7 @@
     {
       "id": "M08",
       "name": "战意与抢分压力",
-      "weight": 0.0852,
+      "weight": 0.1304,
       "initial": 0.1,
       "category": "环境心理",
       "delta": 0.0,
@@ -145,9 +145,9 @@
     }
   },
   "category_summary": {
-    "基础战力": 0.2049,
-    "战术相克": 0.3176,
-    "动态动能": 0.3176,
-    "环境心理": 0.1599
+    "基础战力": 0.211,
+    "战术相克": 0.3003,
+    "动态动能": 0.2803,
+    "环境心理": 0.2084
   }
 }

@@ -138,6 +138,24 @@ today_str = datetime.now().strftime("%Y-%m-%d")
 for m in matches_db["matches"]:
     mid = m["id"]
     if mid in results_info and m["status"] == "pending":
+        # Kickoff safety check: Only update if the match is actually finished
+        kickoff_str = m.get("kickoff", "")
+        try:
+            from datetime import datetime, timezone, timedelta
+            kickoff_dt = datetime.fromisoformat(kickoff_str)
+            now = datetime.now(kickoff_dt.tzinfo)
+            
+            time_diff = now - kickoff_dt
+            if time_diff < timedelta(minutes=150):
+                if time_diff < timedelta(minutes=0):
+                    print(f"⚠️ Skipping match {m['home']} vs {m['away']} ({mid}): Match has NOT started yet (Kickoff: {kickoff_str})")
+                else:
+                    print(f"⚠️ Skipping match {m['home']} vs {m['away']} ({mid}): Match is currently IN PROGRESS (Kickoff: {kickoff_str})")
+                continue
+        except Exception as e:
+            print(f"⚠️ Time parsing error for {mid}: {e}")
+            continue
+            
         info = results_info[mid]
         # Update match status and results
         m["status"] = "finished"
