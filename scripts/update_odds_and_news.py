@@ -649,28 +649,62 @@ def apply_dynamic_conclusions(m):
     
     ou_line = "大 2.5" if (eg_home + eg_away >= 2.3) else "小 2.5"
     
-    # Generate scores
+    # 2. Adjust and generate scores strictly based on recommendation
     g_home = int(round(eg_home))
     g_away = int(round(eg_away))
     
-    # Adjust scores based on recommendation
-    if "主胜" in rec and g_home <= g_away:
-        g_home = g_away + 1
-    elif "客胜" in rec and g_away <= g_home:
-        g_away = g_home + 1
-    elif "平局" in rec:
-        g_home = g_away = max(1, int(round((eg_home + eg_away) / 2.0))) if eg_home + eg_away >= 1.5 else 0
+    score1 = f"{g_home}-{g_away}"
+    score2 = f"{g_home}-{g_away}"
+    
+    if rec == "主胜":
+        if g_home <= g_away:
+            g_home = g_away + 1
+        score1 = f"{g_home}-{g_away}"
+        if g_away >= 1:
+            score2 = f"{g_home}-{g_away-1}"
+        else:
+            score2 = f"{g_home+1}-{g_away}"
+            
+    elif rec == "客胜":
+        if g_away <= g_home:
+            g_away = g_home + 1
+        score1 = f"{g_home}-{g_away}"
+        if g_home >= 1:
+            score2 = f"{g_home-1}-{g_away}"
+        else:
+            score2 = f"{g_home}-{g_away+1}"
+            
+    elif rec == "平局":
+        g_draw = max(1, int(round((eg_home + eg_away) / 2.0))) if eg_home + eg_away >= 1.5 else 0
+        score1 = f"{g_draw}-{g_draw}"
+        score2 = "0-0" if g_draw > 0 else "1-1"
         
-    # Generate two most likely scores
-    if g_home > g_away:
+    elif "主不败" in rec or "主队不败" in rec:
+        if g_home < g_away:
+            g_home = g_away
         score1 = f"{g_home}-{g_away}"
-        score2 = f"{g_home-1}-{g_away}" if g_home - 1 > g_away else f"{g_home}-{g_away+1}"
-    elif g_away > g_home:
+        if g_home > g_away:
+            score2 = f"{g_away}-{g_away}"
+        else:
+            score2 = f"{g_home+1}-{g_away}"
+            
+    elif "客不败" in rec or "客队不败" in rec:
+        if g_away < g_home:
+            g_away = g_home
         score1 = f"{g_home}-{g_away}"
-        score2 = f"{g_home}-{g_away-1}" if g_away - 1 > g_home else f"{g_home+1}-{g_away}"
+        if g_away > g_home:
+            score2 = f"{g_home}-{g_home}"
+        else:
+            score2 = f"{g_home}-{g_away+1}"
+            
     else:
         score1 = f"{g_home}-{g_away}"
-        score2 = "0-0" if g_home > 0 else "1-1"
+        if g_home > g_away:
+            score2 = f"{g_away}-{g_away}"
+        elif g_away > g_home:
+            score2 = f"{g_home}-{g_home}"
+        else:
+            score2 = "0-0" if g_home > 0 else "1-1"
         
     most_likely_score = f"{score1} 或 {score2}"
     
@@ -713,12 +747,12 @@ def apply_dynamic_conclusions(m):
             conservative = "负"
         else:
             conservative = f"让负 ({h_annot})"
-    elif "主不败" in rec:
+    elif "主不败" in rec or "主队不败" in rec:
         if h_sign == "+":
             conservative = f"让胜 ({h_annot})"
         else:
             conservative = "胜"
-    elif "客不败" in rec:
+    elif "客不败" in rec or "客队不败" in rec:
         if h_sign == "-":
             conservative = f"让负 ({h_annot})"
         else:
@@ -1578,13 +1612,25 @@ def main():
         conf = 45 + int(moe_abs * 45)
         conf = max(30, min(95, conf))
         
-        if m["ultimate_conclusion"].get("risk_level") == "极高":
+        # Keep track of old risk level to apply penalties
+        old_risk = m["ultimate_conclusion"].get("risk_level", "中")
+        if old_risk == "极高":
             conf = int(conf * 0.72)
-        elif m["ultimate_conclusion"].get("risk_level") == "高":
+        elif old_risk == "高":
             conf = int(conf * 0.85)
             
         conf = max(30, min(95, conf))
         m["ultimate_conclusion"]["confidence"] = conf
+        
+        # Link risk directly to confidence (while preserving "极高" from trap vetoes)
+        if old_risk == "极高" or (conf < 45 and "反基本面冷门" in rec):
+            m["ultimate_conclusion"]["risk_level"] = "极高"
+        elif conf >= 75:
+            m["ultimate_conclusion"]["risk_level"] = "低"
+        elif conf >= 55:
+            m["ultimate_conclusion"]["risk_level"] = "中"
+        else:
+            m["ultimate_conclusion"]["risk_level"] = "高"
         
         # 3. Update Reasoning
         m["ultimate_conclusion"]["reasoning"] = generate_dynamic_reasoning(m)
