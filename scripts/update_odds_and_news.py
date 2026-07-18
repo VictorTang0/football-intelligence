@@ -649,62 +649,87 @@ def apply_dynamic_conclusions(m):
     
     ou_line = "大 2.5" if (eg_home + eg_away >= 2.3) else "小 2.5"
     
-    # 2. Adjust and generate scores strictly based on recommendation
+    # 2. Adjust and generate scores strictly based on recommendation with flexible counts (1, 2, or 3)
     g_home = int(round(eg_home))
     g_away = int(round(eg_away))
+    conf = m["ultimate_conclusion"].get("confidence", 65)
     
-    score1 = f"{g_home}-{g_away}"
-    score2 = f"{g_home}-{g_away}"
-    
+    score_win1 = ""
+    score_win2 = ""
+    score_draw = ""
+    most_likely_score = ""
+
     if rec == "主胜":
         if g_home <= g_away:
             g_home = g_away + 1
-        score1 = f"{g_home}-{g_away}"
-        score2 = f"{g_away}-{g_away} (防冷)"
+        score_win1 = f"{g_home}-{g_away}"
+        score_win2 = f"{g_home}-{g_away-1}" if g_away >= 1 else f"{g_home+1}-{g_away}"
+        score_draw = f"{g_away}-{g_away} (防冷)" if g_away >= 1 else "1-1 (防冷)"
+        
+        if conf >= 94:
+            most_likely_score = score_win1
+        elif conf >= 85:
+            most_likely_score = f"{score_win1} 或 {score_win2}"
+        else:
+            most_likely_score = f"{score_win1} 或 {score_win2} 或 {score_draw}"
             
     elif rec == "客胜":
         if g_away <= g_home:
             g_away = g_home + 1
-        score1 = f"{g_home}-{g_away}"
-        score2 = f"{g_home}-{g_home} (防冷)"
+        score_win1 = f"{g_home}-{g_away}"
+        score_win2 = f"{g_home-1}-{g_away}" if g_home >= 1 else f"{g_home}-{g_away+1}"
+        score_draw = f"{g_home}-{g_home} (防冷)" if g_home >= 1 else "1-1 (防冷)"
+        
+        if conf >= 94:
+            most_likely_score = score_win1
+        elif conf >= 85:
+            most_likely_score = f"{score_win1} 或 {score_win2}"
+        else:
+            most_likely_score = f"{score_win1} 或 {score_win2} 或 {score_draw}"
             
     elif rec == "平局":
         g_draw = max(1, int(round((eg_home + eg_away) / 2.0))) if eg_home + eg_away >= 1.5 else 0
-        score1 = f"{g_draw}-{g_draw}"
+        score_draw1 = f"{g_draw}-{g_draw}"
+        score_draw2 = "0-0" if g_draw > 0 else "1-1"
         h_hash = sum(ord(c) for c in home_name)
-        if h_hash % 2 == 0:
-            score2 = f"{g_draw+1}-{g_draw} (防冷)"
-        else:
-            score2 = f"{g_draw}-{g_draw+1} (防冷)"
+        score_win = f"{g_draw+1}-{g_draw} (防冷)" if h_hash % 2 == 0 else f"{g_draw}-{g_draw+1} (防冷)"
+        most_likely_score = f"{score_draw1} 或 {score_draw2} 或 {score_win}"
         
     elif "主不败" in rec or "主队不败" in rec:
         if g_home < g_away:
             g_home = g_away
-        score1 = f"{g_home}-{g_away}"
-        if g_home > g_away:
-            score2 = f"{g_away}-{g_away}"
+        score_win = f"{g_home}-{g_away}" if g_home > g_away else f"{g_home+1}-{g_away}"
+        score_draw = f"{g_away}-{g_away}"
+        score_win_alt = f"{g_home+1}-{g_away}" if g_home > g_away else f"{g_home+2}-{g_away}"
+        
+        if conf >= 85:
+            most_likely_score = f"{score_win} 或 {score_draw}"
         else:
-            score2 = f"{g_home+1}-{g_away}"
+            most_likely_score = f"{score_win} 或 {score_win_alt} 或 {score_draw}"
             
     elif "客不败" in rec or "客队不败" in rec:
         if g_away < g_home:
             g_away = g_home
-        score1 = f"{g_home}-{g_away}"
-        if g_away > g_home:
-            score2 = f"{g_home}-{g_home}"
+        score_win = f"{g_home}-{g_away}" if g_away > g_home else f"{g_home}-{g_away+1}"
+        score_draw = f"{g_home}-{g_home}"
+        score_win_alt = f"{g_home}-{g_away+1}" if g_away > g_home else f"{g_home}-{g_away+2}"
+        
+        if conf >= 85:
+            most_likely_score = f"{score_win} 或 {score_draw}"
         else:
-            score2 = f"{g_home}-{g_away+1}"
+            most_likely_score = f"{score_win} 或 {score_win_alt} 或 {score_draw}"
             
     else:
-        score1 = f"{g_home}-{g_away}"
+        score_win = f"{g_home}-{g_away}"
         if g_home > g_away:
-            score2 = f"{g_away}-{g_away}"
+            score_draw = f"{g_away}-{g_away}"
+            most_likely_score = f"{score_win} 或 {score_draw}"
         elif g_away > g_home:
-            score2 = f"{g_home}-{g_home}"
+            score_draw = f"{g_home}-{g_home}"
+            most_likely_score = f"{score_win} 或 {score_draw}"
         else:
-            score2 = "0-0" if g_home > 0 else "1-1"
-        
-    most_likely_score = f"{score1} 或 {score2}"
+            score_draw = "0-0" if g_home > 0 else "1-1"
+            most_likely_score = f"{score_win} 或 {score_draw}" 
     
     # Aggressive score
     h_hash = sum(ord(c) for c in home_name)

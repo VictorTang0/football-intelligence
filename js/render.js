@@ -1402,7 +1402,7 @@ const MatchIQRender = (() => {
       const matches = scoreStr.match(/\d+-\d+/g);
       if (matches) {
         if (matches.length >= 2) {
-          return matches.slice(0, 2).join(', ');
+          return matches.join(', ');
         } else if (matches.length === 1) {
           const score = matches[0];
           if (score === "1-1") return "1-1, 0-0";
