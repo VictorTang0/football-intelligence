@@ -660,24 +660,22 @@ def apply_dynamic_conclusions(m):
         if g_home <= g_away:
             g_home = g_away + 1
         score1 = f"{g_home}-{g_away}"
-        if g_away >= 1:
-            score2 = f"{g_home}-{g_away-1}"
-        else:
-            score2 = f"{g_home+1}-{g_away}"
+        score2 = f"{g_away}-{g_away} (防冷)"
             
     elif rec == "客胜":
         if g_away <= g_home:
             g_away = g_home + 1
         score1 = f"{g_home}-{g_away}"
-        if g_home >= 1:
-            score2 = f"{g_home-1}-{g_away}"
-        else:
-            score2 = f"{g_home}-{g_away+1}"
+        score2 = f"{g_home}-{g_home} (防冷)"
             
     elif rec == "平局":
         g_draw = max(1, int(round((eg_home + eg_away) / 2.0))) if eg_home + eg_away >= 1.5 else 0
         score1 = f"{g_draw}-{g_draw}"
-        score2 = "0-0" if g_draw > 0 else "1-1"
+        h_hash = sum(ord(c) for c in home_name)
+        if h_hash % 2 == 0:
+            score2 = f"{g_draw+1}-{g_draw} (防冷)"
+        else:
+            score2 = f"{g_draw}-{g_draw+1} (防冷)"
         
     elif "主不败" in rec or "主队不败" in rec:
         if g_home < g_away:
@@ -1381,7 +1379,7 @@ def main():
                     "盘口水位频繁震荡涉嫌诱导散户追热，建议保持冷门防范。"
                 ]
 
-                real_intel = real_match_intelligence.get(mid)
+        real_intel = real_match_intelligence.get(mid)
 
         # 2. Update Verified News
         if real_intel:
