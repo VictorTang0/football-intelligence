@@ -3931,7 +3931,7 @@
         "humidity": 75,
         "wind_kmh": 8
       },
-      "status": "pending",
+      "status": "finished",
       "match_context": "2026年世界杯三四名决赛。法国0-2输给西班牙无缘决赛，此战为德尚谢幕战。英格兰2-1遭阿根廷反超遗憾折戟。姆巴佩与梅西均以8球并列射手榜首，对金靴动力极强。",
       "ultimate_conclusion": {
         "recommendation": "反基本面冷门 (客队不败)",
@@ -3940,8 +3940,8 @@
         "risk_level": "极高",
         "ev_score": -0.11,
         "reasoning": "集成了平博、利记、新宝、皇冠、沙巴和香港马会 6 家主流博彩公司即时盘口。当前平博去水后市场合理胜率为: 主胜 50.3%, 平局 23.6%, 客胜 26.1%。客队低位大巴指标为 8.2，主队巨星爆点指标为 9.9。通过对比散户支持率与合理隐含胜率，得出散户对本场偏好存在轻微偏差，赔付风险模型自动输出态度为：中性。结合交锋历史及6家公司让球规格波动，得出冷门综合概率为 36%。",
-        "actual_result": null,
-        "status": null,
+        "actual_result": "法国 1-1 英格兰",
+        "status": "✅ 预测命中",
         "confidence_trend": "down"
       },
       "team_stats": {
@@ -3952,7 +3952,8 @@
             "W",
             "W",
             "W",
-            "W"
+            "W",
+            "D"
           ],
           "form_note": "半决赛0-2遗憾败给西班牙，此役战意不可忽视",
           "season_stats": {
@@ -3993,7 +3994,8 @@
             "W",
             "W",
             "W",
-            "W"
+            "W",
+            "D"
           ],
           "form_note": "半决赛拼到力竭1-2输给阿根廷，主力体能存在隐患",
           "season_stats": {
@@ -6143,7 +6145,7 @@
         "humidity": 65,
         "wind_kmh": 14
       },
-      "status": "pending",
+      "status": "finished",
       "match_context": "巴甲常规赛补赛。巴伊亚主场强势，攻防体系极佳。沙佩科恩斯升入甲级后状态不稳定且面临客场远征。",
       "ultimate_conclusion": {
         "recommendation": "主胜 (大胜格局)",
@@ -6152,7 +6154,9 @@
         "risk_level": "低",
         "ev_score": 0.21,
         "reasoning": "巴伊亚阵容齐整，双主力攻击手回归；客队沙佩科防线中后卫因红牌禁赛。系统自动加重伤停惩罚，支持主队巴伊亚主场完胜打穿。",
-        "confidence_trend": "up"
+        "confidence_trend": "up",
+        "actual_result": "巴伊亚 0-0 沙佩科",
+        "status": "❌ 预测偏差"
       },
       "team_stats": {
         "home": {
@@ -6162,7 +6166,8 @@
             "W",
             "L",
             "W",
-            "W"
+            "W",
+            "D"
           ],
           "form_note": "主场斩获四连胜，场均攻入2.2球",
           "season_stats": {
@@ -6203,7 +6208,8 @@
             "D",
             "W",
             "L",
-            "L"
+            "L",
+            "D"
           ],
           "form_note": "客场远征疲劳，近5场负率达60%",
           "season_stats": {
@@ -6584,7 +6590,7 @@
         "humidity": 55,
         "wind_kmh": 10
       },
-      "status": "pending",
+      "status": "finished",
       "match_context": "巴甲联赛常规赛。弗鲁米嫩塞擅长马拉卡纳魔鬼主场，布拉干RB则处于伤停潮中。",
       "ultimate_conclusion": {
         "recommendation": "主胜 (高赔诱人)",
@@ -6593,7 +6599,9 @@
         "risk_level": "高",
         "ev_score": 0.15,
         "reasoning": "布拉干RB两名首发后卫因伤病确认缺阵，且主力前锋红牌停赛，攻防实力显著打折。弗鲁米嫩塞主场求胜心切，伤停权重的提升表明弗鲁米嫩塞更易胜出。",
-        "confidence_trend": "up"
+        "confidence_trend": "up",
+        "actual_result": "弗鲁米嫩 0-0 布拉干RB",
+        "status": "❌ 预测偏差"
       },
       "team_stats": {
         "home": {
@@ -6603,7 +6611,8 @@
             "L",
             "D",
             "W",
-            "L"
+            "L",
+            "D"
           ],
           "form_note": "主场气势恢复，攻防转换明显加快",
           "season_stats": {
@@ -6644,7 +6653,8 @@
             "L",
             "W",
             "D",
-            "L"
+            "L",
+            "D"
           ],
           "form_note": "客场遭遇严重减员，攻防两端陷入低谷",
           "season_stats": {
@@ -7026,7 +7036,7 @@
         "humidity": 50,
         "wind_kmh": 12
       },
-      "status": "pending",
+      "status": "finished",
       "match_context": "巴甲联赛常规赛。米拉索尔作为升班马主场气势恢宏，而格雷米奥遭遇大面积主力伤病且面临保级压力。",
       "ultimate_conclusion": {
         "recommendation": "主胜 (状态压制)",
@@ -7035,7 +7045,9 @@
         "risk_level": "中低",
         "ev_score": 0.16,
         "reasoning": "格雷米奥的锋线支柱与主力中后卫双双拉伤高挂免战牌。调高伤停权重占比后，主队米拉索尔的对位攻防压制优势极其突出，建议果断单挑主胜。",
-        "confidence_trend": "up"
+        "confidence_trend": "up",
+        "actual_result": "米拉索尔 0-0 格雷米奥",
+        "status": "❌ 预测偏差"
       },
       "team_stats": {
         "home": {
@@ -7045,7 +7057,8 @@
             "W",
             "D",
             "L",
-            "W"
+            "W",
+            "D"
           ],
           "form_note": "主场强势，场均逼抢强度极高",
           "season_stats": {
@@ -7086,7 +7099,8 @@
             "L",
             "D",
             "W",
-            "L"
+            "L",
+            "D"
           ],
           "form_note": "保级压力剧增，大面积主力休战战力打折",
           "season_stats": {
@@ -7468,7 +7482,7 @@
         "humidity": 65,
         "wind_kmh": 8
       },
-      "status": "pending",
+      "status": "finished",
       "match_context": "美职联常规赛。纳什维尔主场极其彪悍，亚特兰大联防线残缺且客场防守一直是大软肋。",
       "ultimate_conclusion": {
         "recommendation": "主胜 (高胜率方向)",
@@ -7477,7 +7491,9 @@
         "risk_level": "低",
         "ev_score": 0.22,
         "reasoning": "纳什维尔主力前锋状态神勇，亚特兰大联主力中后卫停赛，另一名大闸韧带拉伤缺席。伤停权重的提高让主队大胜的可能性显著增强。",
-        "confidence_trend": "stable"
+        "confidence_trend": "stable",
+        "actual_result": "纳什维尔 1-0 亚特联",
+        "status": "✅ 预测命中"
       },
       "team_stats": {
         "home": {
@@ -7486,6 +7502,7 @@
             "W",
             "W",
             "D",
+            "W",
             "W",
             "W"
           ],
@@ -7528,6 +7545,7 @@
             "D",
             "L",
             "W",
+            "L",
             "L"
           ],
           "form_note": "客场防守形同虚设，防线核心受红卡停赛影响",
@@ -7911,7 +7929,7 @@
         "humidity": 70,
         "wind_kmh": 10
       },
-      "status": "pending",
+      "status": "finished",
       "match_context": "洛杉矶德比大战（El Tráfico）。两队恩怨极深，每次遭遇皆大打对攻。洛杉矶FC首发整齐且客场极具侵略性。",
       "ultimate_conclusion": {
         "recommendation": "客胜/防平 (德比博弈)",
@@ -7920,7 +7938,9 @@
         "risk_level": "中高",
         "ev_score": 0.08,
         "reasoning": "洛城银河主力门将及防守大闸因伤无法上场，防守减损严重。洛杉矶FC主力尽出战意强，在调整后的高伤停评估模型下，客队明显更具赢面。",
-        "confidence_trend": "stable"
+        "confidence_trend": "stable",
+        "actual_result": "洛城银河 0-3 洛杉矶FC",
+        "status": "✅ 预测命中"
       },
       "team_stats": {
         "home": {
@@ -7930,7 +7950,8 @@
             "W",
             "L",
             "D",
-            "W"
+            "W",
+            "L"
           ],
           "form_note": "主力门将缺阵成为防线最大隐患",
           "season_stats": {
@@ -7973,7 +7994,8 @@
             "W",
             "D",
             "W",
-            "L"
+            "L",
+            "W"
           ],
           "form_note": "客场反击效率高，主力阵容齐整度极高",
           "season_stats": {
