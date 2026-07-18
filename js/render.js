@@ -1460,12 +1460,23 @@ const MatchIQRender = (() => {
       const matchNo = formatMatchNo(m.id);
       const league = m.league || '--';
       const kickoff = formatTime(m.kickoff);
-      const matchup = `<span style="font-weight:600;color:var(--text-1);">${m.home}</span> <span style="color:var(--text-4)">VS</span> <span style="font-weight:600;color:var(--text-1);">${m.away}</span>`;
       
       const uc = m.ultimate_conclusion || {};
       const rec = uc.recommendation || '分析中';
       const conf = uc.confidence || 0;
       const risk = uc.risk_level || '中';
+
+      // Determine dynamic tag next to matchup based on confidence and risk
+      let tagHtml = "";
+      if (conf >= 85) {
+        tagHtml = ` <span style="font-size:10px; font-weight:bold; color:#10b981; background:rgba(16, 185, 129, 0.08); border:1px solid rgba(16, 185, 129, 0.25); padding:2px 5px; border-radius:4px; margin-left:6px; white-space:nowrap; vertical-align:middle; display:inline-block; line-height:1;">稳胆</span>`;
+      } else if (conf >= 70) {
+        tagHtml = ` <span style="font-size:10px; font-weight:bold; color:#818cf8; background:rgba(129, 140, 248, 0.08); border:1px solid rgba(129, 140, 248, 0.25); padding:2px 5px; border-radius:4px; margin-left:6px; white-space:nowrap; vertical-align:middle; display:inline-block; line-height:1;">可串关</span>`;
+      } else if (conf <= 50 || risk === "高" || risk === "极高") {
+        tagHtml = ` <span style="font-size:10px; font-weight:bold; color:#ef4444; background:rgba(239, 68, 68, 0.08); border:1px solid rgba(239, 68, 68, 0.25); padding:2px 5px; border-radius:4px; margin-left:6px; white-space:nowrap; vertical-align:middle; display:inline-block; line-height:1;">建议观望</span>`;
+      }
+
+      const matchup = `<span style="font-weight:600;color:var(--text-1);">${m.home}</span> <span style="color:var(--text-4)">VS</span> <span style="font-weight:600;color:var(--text-1);">${m.away}</span>${tagHtml}`;
       const score = m.conclusions?.most_likely_score || '--';
       const halfFull = m.conclusions?.half_full || '--';
 
