@@ -342,26 +342,35 @@ const MatchIQ = (() => {
             const recommendation = uc.recommendation || "";
             const oddsObj = m.odds_analysis?.pinnacle?.current || {};
             
-            let odds = 1.80; // default
-            let prob = 0.50; // default
+            const ph = oddsObj["home"] || 2.0;
+            const pd = oddsObj["draw"] || 3.0;
+            const pa = oddsObj["away"] || 3.0;
             
-            // Match recommendation to odds key
+            let odds = 1.80;
             let outcomeKey = "home";
-            if (recommendation.includes("平局") || recommendation.includes("平")) {
+            
+            // Determine bet type & calculate odds
+            if (recommendation.includes("主不败") || recommendation.includes("主队不败") || recommendation.includes("双选不败")) {
+              odds = 1 / ((1 / ph) + (1 / pd));
+            } else if (recommendation.includes("客不败") || recommendation.includes("客队不败") || recommendation.includes("反基本面冷门 (客队不败)")) {
+              odds = 1 / ((1 / pa) + (1 / pd));
+            } else if (recommendation.includes("反基本面冷门 (主队不败)")) {
+              odds = 1 / ((1 / ph) + (1 / pd));
+            } else if (recommendation.includes("平局") || recommendation.includes("平")) {
               outcomeKey = "draw";
+              odds = oddsObj[outcomeKey] || 1.80;
             } else if (recommendation.includes("客胜") || recommendation.includes("客")) {
               outcomeKey = "away";
+              odds = oddsObj[outcomeKey] || 1.80;
+            } else {
+              odds = oddsObj["home"] || 1.80;
             }
             
-            odds = oddsObj[outcomeKey] || 1.80;
+            // Round odds to 2 decimal places
+            odds = Math.round(odds * 100) / 100;
             
-            // Find True Est from public_vs_bookmaker if available
-            const pvb = m.public_vs_bookmaker || [];
-            const matchOutcomeName = outcomeKey === "home" ? "主胜" : outcomeKey === "draw" ? "平局" : "客胜";
-            const row = pvb.find(r => r.outcome === matchOutcomeName);
-            if (row && row.true_est) {
-              prob = parseFloat(row.true_est.replace('%', '')) / 100;
-            }
+            // True estimated probability is direct from model confidence
+            const prob = (uc.confidence || 65) / 100;
             
             // Fractional Kelly multiplier (using quarter-kelly 0.25 to prevent over-betting)
             const b = odds - 1;
@@ -375,10 +384,10 @@ const MatchIQ = (() => {
             const recommendStake = Math.round(bankroll * quarterKelly);
             
             if (quarterKelly > 0) {
-              sizerEl.innerHTML = `🧮 <strong>量化资金管理</strong>: 季凯比率 <span style="color:var(--cyan);font-weight:700">${(quarterKelly*100).toFixed(2)}%</span> · 推荐投注额 <span style="color:var(--cyan);font-weight:700">${recommendStake} 元</span>`;
+              sizerEl.innerHTML = `🧮 <strong>量化资金管理</strong>: 季凯比率 <span style="color:var(--cyan);font-weight:700">${(quarterKelly*100).toFixed(2)}%</span> · 推荐投注额 <span style="color:var(--cyan);font-weight:700">${recommendStake} 元</span> <span style="font-size:11px;color:var(--text-3);">[赔率:${odds.toFixed(2)}]</span>`;
               sizerEl.style.display = 'block';
             } else {
-              sizerEl.innerHTML = `🧮 <strong>量化资金管理</strong>: 期望值为负 (EV < 0) · <span style="color:var(--red);font-weight:700">建议观望 (No Bet)</span>`;
+              sizerEl.innerHTML = `🧮 <strong>量化资金管理</strong>: 期望值为负 (EV < 0) · <span style="color:var(--red);font-weight:700">建议观望 (No Bet)</span> <span style="font-size:11px;color:var(--text-4);">[赔率:${odds.toFixed(2)}]</span>`;
               sizerEl.style.display = 'block';
             }
           }
