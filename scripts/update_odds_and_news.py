@@ -513,20 +513,74 @@ def apply_dynamic_conclusions(m):
     ph, pd, pa = pinnacle_odds["home"], pinnacle_odds["draw"], pinnacle_odds["away"]
     rec = m["ultimate_conclusion"].get("recommendation", "")
     
-    # 1. Expected goals simulation based on team stats and odds
-    h_stats = m["team_stats"]["home"].get("season_stats", {})
-    a_stats = m["team_stats"]["away"].get("season_stats", {})
+    # Load team tags database
+    team_tags_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "team_tags.json")
+    try:
+        with open(team_tags_path, "r", encoding="utf-8") as tf:
+            team_tags_db = json.load(tf)
+    except Exception:
+        team_tags_db = {}
+        
+    home_name = m.get("home", "")
+    away_name = m.get("away", "")
+    h_tags = list(team_tags_db.get(home_name, {}).get("tags", {}).keys())
+    a_tags = list(team_tags_db.get(away_name, {}).get("tags", {}).keys())
+
+    # 1. Expected goals simulation based on team stats, form, H2H, and tags
+    h_stats = m.get("team_stats", {}).get("home", {}).get("season_stats", {})
+    a_stats = m.get("team_stats", {}).get("away", {}).get("season_stats", {})
     
     h_scored = h_stats.get("goals_scored", 18)
     h_conceded = h_stats.get("goals_conceded", 15)
     a_scored = a_stats.get("goals_scored", 18)
     a_conceded = a_stats.get("goals_conceded", 15)
     
+    # Base goals expectancy
     eg_home = (h_scored + a_conceded) / 20.0
     eg_away = (a_scored + h_conceded) / 20.0
     
-    moe_score = m.get("moe_score", 0.0)
+    # Form impact (Wins increase confidence/attack, losses decrease them)
+    h_form = m.get("team_stats", {}).get("home", {}).get("form", [])
+    a_form = m.get("team_stats", {}).get("away", {}).get("form", [])
+    h_wins = sum(1 for x in h_form if x == "W")
+    a_wins = sum(1 for x in a_form if x == "W")
+    h_losses = sum(1 for x in h_form if x == "L")
+    a_losses = sum(1 for x in a_form if x == "L")
+    eg_home += (h_wins - h_losses) * 0.05
+    eg_away += (a_wins - a_losses) * 0.05
     
+    # Tag impact
+    for tag in h_tags:
+        if tag in ["灌球高手", "大球大师", "大球狂魔", "抢分狂魔", "主场狂魔"]:
+            eg_home += 0.25
+        if tag in ["铜墙铁壁", "防守专家", "铁血低位", "平局大师", "闪退大客车"]:
+            eg_away -= 0.15
+        if tag in ["只雷不雨", "锋线无力", "无心恋战", "虎头蛇尾"]:
+            eg_home -= 0.20
+            
+    for tag in a_tags:
+        if tag in ["灌球高手", "大球大师", "大球狂魔", "抢分狂魔"]:
+            eg_away += 0.25
+        if tag in ["铜墙铁壁", "防守专家", "铁血低位", "平局大师", "闪退大客车"]:
+            eg_home -= 0.15
+        if tag in ["只雷不雨", "锋线无力", "无心恋战", "虎头蛇尾"]:
+            eg_away -= 0.20
+
+    # H2H impact
+    h2h_data = m.get("head_to_head", m.get("h2h", {}))
+    h2h_avg = None
+    if isinstance(h2h_data, dict):
+        h2h_avg = h2h_data.get("avg_goals")
+        
+    if h2h_avg is not None and isinstance(h2h_avg, (int, float)):
+        eg_total = eg_home + eg_away
+        blended_total = 0.6 * eg_total + 0.4 * h2h_avg
+        ratio = blended_total / eg_total if eg_total > 0 else 1.0
+        eg_home *= ratio
+        eg_away *= ratio
+
+    # MoE adjust
+    moe_score = m.get("moe_score", 0.0)
     if moe_score > 0:
         eg_home += moe_score * 0.4
         eg_away -= moe_score * 0.2
@@ -565,7 +619,7 @@ def apply_dynamic_conclusions(m):
     most_likely_score = f"{score1} 或 {score2}"
     
     # Aggressive score
-    h_hash = sum(ord(c) for c in m["home"])
+    h_hash = sum(ord(c) for c in home_name)
     if g_home > g_away:
         aggressive = f"比分 {g_home+1}-{g_away}" if h_hash % 2 == 0 else f"比分 {g_home}-{g_away}"
     elif g_away > g_home:
@@ -573,25 +627,77 @@ def apply_dynamic_conclusions(m):
     else:
         aggressive = f"比分 {g_home+1}-{g_away+1}" if h_hash % 2 == 0 else "比分 2-2"
         
-    # Conservative option
-    if "主胜" in rec or "主不败" in rec:
-        conservative = "主队让平" if ph < 1.65 else "主队受让0.5"
-    elif "客胜" in rec or "客不败" in rec:
-        conservative = "客队让平" if pa < 1.65 else "客队受让0.5"
-    else:
-        conservative = "平局受让" if pd < 3.2 else "防守平局"
+    # Resolve handicap sign and value
+    handicap_str = m.get("odds_analysis", {}).get("lottery_handicap", {}).get("handicap", "")
+    h_val = 1
+    h_sign = "-" if ph < pa else "+"
+    
+    if "主让" in handicap_str:
+        match_digits = re.findall(r'\d+', handicap_str)
+        if match_digits:
+            h_val = int(match_digits[0])
+        h_sign = "-"
+    elif "主受让" in handicap_str:
+        match_digits = re.findall(r'\d+', handicap_str)
+        if match_digits:
+            h_val = int(match_digits[0])
+        h_sign = "+"
         
-    # Half-Time / Full-Time
-    if g_home > g_away + 1:
-        half_full = "胜/胜"
-    elif g_home > g_away:
-        half_full = "平/胜" if h_hash % 2 == 0 else "胜/胜"
-    elif g_away > g_home + 1:
-        half_full = "负/负"
-    elif g_away > g_home:
-        half_full = "平/负" if h_hash % 2 == 0 else "负/负"
+    h_annot = f"主{h_sign}{h_val}"
+
+    # Conservative option must be one of: "胜", "平", "负", "让胜", "让平", "让负"
+    conservative = "胜"
+    if "主胜" in rec:
+        if h_sign == "-":
+            conservative = "胜"
+        else:
+            conservative = f"让胜 ({h_annot})"
+    elif "客胜" in rec:
+        if h_sign == "+":
+            conservative = "负"
+        else:
+            conservative = f"让负 ({h_annot})"
+    elif "主不败" in rec:
+        if h_sign == "+":
+            conservative = f"让胜 ({h_annot})"
+        else:
+            conservative = "胜"
+    elif "客不败" in rec:
+        if h_sign == "-":
+            conservative = f"让负 ({h_annot})"
+        else:
+            conservative = "负"
+    elif "平局" in rec:
+        conservative = "平"
     else:
-        half_full = "平/平" if h_hash % 2 == 0 else "半场平局"
+        if h_sign == "+":
+            conservative = f"让胜 ({h_annot})"
+        else:
+            conservative = f"让负 ({h_annot})"
+        
+    # Half-Time / Full-Time (Strictly choosing from the 9 specified combinations)
+    half_full = "平平"
+    if g_home > g_away:
+        if ("逆转专家" in h_tags or "剧本反转" in h_tags) and h_hash % 3 == 0:
+            half_full = "负胜"
+        elif moe_score > 0.35 and h_hash % 2 == 0:
+            half_full = "胜胜"
+        else:
+            half_full = "平胜"
+    elif g_away > g_home:
+        if ("逆转专家" in a_tags or "剧本反转" in a_tags) and h_hash % 3 == 0:
+            half_full = "胜负"
+        elif moe_score < -0.35 and h_hash % 2 == 0:
+            half_full = "负负"
+        else:
+            half_full = "平负"
+    else:
+        if "虎头蛇尾" in h_tags and h_hash % 2 == 0:
+            half_full = "胜平"
+        elif "虎头蛇尾" in a_tags and h_hash % 2 == 0:
+            half_full = "负平"
+        else:
+            half_full = "平平"
         
     if "conclusions" not in m:
         m["conclusions"] = {}
@@ -1404,13 +1510,15 @@ def main():
         # 2. Update Confidence
         moe_abs = abs(moe_score)
         conf = 55 + int(moe_abs * 35)
-        conf = max(48, min(85, conf))
+        # Apply lower bound of 30% and upper bound of 95%
+        conf = max(30, min(95, conf))
         
         if m["ultimate_conclusion"].get("risk_level") == "极高":
             conf = int(conf * 0.75)
         elif m["ultimate_conclusion"].get("risk_level") == "高":
             conf = int(conf * 0.88)
             
+        conf = max(30, min(95, conf))
         m["ultimate_conclusion"]["confidence"] = conf
         
         # 3. Update Reasoning
