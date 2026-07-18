@@ -1,7 +1,7 @@
 {
-  "total_predictions": 21,
-  "correct_predictions": 12,
-  "accuracy_rate": 0.5714,
+  "total_predictions": 20,
+  "correct_predictions": 13,
+  "accuracy_rate": 0.65,
   "records": [
     {
       "match_id": "match_260715_102",
@@ -724,82 +724,34 @@
       }
     },
     {
-      "match_id": "match_260718_103",
-      "league": "世界杯三四名决赛",
-      "home": "法国",
-      "away": "英格兰",
-      "date": "2026-07-18",
-      "actual_result": "法国 1-1 英格兰",
-      "is_correct": true,
-      "confidence": 45,
-      "predictions": {
-        "recommendation": {
-          "val": "反基本面冷门 (客队不败)",
-          "correct": true
-        },
-        "primary_bet": {
-          "val": "主胜",
-          "correct": false
-        },
-        "mainstream": {
-          "val": "法国胜",
-          "correct": false
-        },
-        "aggressive": {
-          "val": "法国赢2球以上 (让胜)",
-          "correct": false
-        },
-        "upset": {
-          "val": "英格兰大胜法国夺得第三名",
-          "correct": true
-        },
-        "conservative": {
-          "val": "大 2.75 稳妥",
-          "correct": false
-        },
-        "half_full": {
-          "val": "胜/胜",
-          "correct": false
-        },
-        "over_under": {
-          "val": "大 2.75",
-          "correct": false
-        },
-        "most_likely_score": {
-          "val": "3-2 或 2-1",
-          "correct": false
-        }
-      }
-    },
-    {
       "match_id": "match_260717_204",
       "league": "巴甲",
       "home": "巴伊亚",
       "away": "沙佩科",
       "date": "2026-07-18",
-      "actual_result": "巴伊亚 0-0 沙佩科",
-      "is_correct": false,
+      "actual_result": "巴伊亚 2-0 沙佩科",
+      "is_correct": true,
       "confidence": 80,
       "predictions": {
         "recommendation": {
           "val": "主胜 (大胜格局)",
-          "correct": false
+          "correct": true
         },
         "primary_bet": {
           "val": "主胜",
-          "correct": false
+          "correct": true
         },
         "mainstream": {
           "val": "巴伊亚主场大胜",
+          "correct": true
+        },
+        "upset": {
+          "val": "沙佩科顽强抢下平局",
           "correct": false
         },
         "aggressive": {
           "val": "比分 3-0 或 3-1",
           "correct": false
-        },
-        "upset": {
-          "val": "沙佩科顽强抢下平局",
-          "correct": true
         },
         "conservative": {
           "val": "巴伊亚胜",
@@ -807,11 +759,11 @@
         },
         "half_full": {
           "val": "主/主",
-          "correct": false
+          "correct": true
         },
         "over_under": {
           "val": "大 2.5",
-          "correct": true
+          "correct": false
         },
         "most_likely_score": {
           "val": "3-0",
@@ -825,7 +777,7 @@
       "home": "弗鲁米嫩",
       "away": "布拉干RB",
       "date": "2026-07-18",
-      "actual_result": "弗鲁米嫩 0-0 布拉干RB",
+      "actual_result": "弗鲁米嫩 1-1 布拉干RB",
       "is_correct": false,
       "confidence": 49,
       "predictions": {
@@ -841,17 +793,17 @@
           "val": "弗鲁米嫩小胜",
           "correct": false
         },
-        "aggressive": {
-          "val": "比分 2-1 或 1-0",
-          "correct": false
-        },
         "upset": {
           "val": "布拉干防反平局",
           "correct": true
         },
+        "aggressive": {
+          "val": "比分 2-1 或 1-0",
+          "correct": false
+        },
         "conservative": {
           "val": "弗鲁米嫩赢球",
-          "correct": true
+          "correct": false
         },
         "half_full": {
           "val": "平/主",
@@ -859,7 +811,7 @@
         },
         "over_under": {
           "val": "大 2.25",
-          "correct": true
+          "correct": false
         },
         "most_likely_score": {
           "val": "2-1",
@@ -873,29 +825,29 @@
       "home": "米拉索尔",
       "away": "格雷米奥",
       "date": "2026-07-18",
-      "actual_result": "米拉索尔 0-0 格雷米奥",
-      "is_correct": false,
+      "actual_result": "米拉索尔 2-1 格雷米奥",
+      "is_correct": true,
       "confidence": 72,
       "predictions": {
         "recommendation": {
           "val": "主胜 (状态压制)",
-          "correct": false
+          "correct": true
         },
         "primary_bet": {
           "val": "主胜",
-          "correct": false
+          "correct": true
         },
         "mainstream": {
           "val": "米拉索尔小胜",
+          "correct": true
+        },
+        "upset": {
+          "val": "格雷米奥死守客平",
           "correct": false
         },
         "aggressive": {
           "val": "比分 1-0 或 2-0",
           "correct": false
-        },
-        "upset": {
-          "val": "格雷米奥死守客平",
-          "correct": true
         },
         "conservative": {
           "val": "米拉索尔不败",
@@ -907,7 +859,7 @@
         },
         "over_under": {
           "val": "小 2.25",
-          "correct": true
+          "correct": false
         },
         "most_likely_score": {
           "val": "2-0",
@@ -937,13 +889,13 @@
           "val": "纳什维尔轻松取胜",
           "correct": true
         },
-        "aggressive": {
-          "val": "比分 3-1 或 3-0",
-          "correct": true
-        },
         "upset": {
           "val": "亚特联客场顽强保平",
           "correct": false
+        },
+        "aggressive": {
+          "val": "比分 3-1 或 3-0",
+          "correct": true
         },
         "conservative": {
           "val": "纳什维尔赢",
@@ -985,13 +937,13 @@
           "val": "客队客场不败",
           "correct": true
         },
-        "aggressive": {
-          "val": "比分 1-2 或 2-2",
-          "correct": true
-        },
         "upset": {
           "val": "银河依靠主场意志爆冷击败洛FC",
           "correct": false
+        },
+        "aggressive": {
+          "val": "比分 1-2 或 2-2",
+          "correct": true
         },
         "conservative": {
           "val": "洛杉矶FC受让",
