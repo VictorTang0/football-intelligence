@@ -25,12 +25,12 @@
           "val": "英格兰直赢（散户主流，但赔付风险极高）",
           "correct": false
         },
-        "aggressive": {
-          "val": "阿根廷1-2逆转或点球大战胜出",
-          "correct": true
-        },
         "upset": {
           "val": "阿根廷逆转直赢（赔率2.90+，EV+0.15最高）",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "阿根廷1-2逆转或点球大战胜出",
           "correct": true
         },
         "conservative": {
@@ -73,12 +73,12 @@
           "val": "克拉克斯晋级（保守防守，争取本场不败）",
           "correct": true
         },
-        "aggressive": {
-          "val": "比森1-0胜，但仍需再进1球（加时赛）",
-          "correct": false
-        },
         "upset": {
           "val": "比森主场逆转2-0赢球翻盘晋级",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比森1-0胜，但仍需再进1球（加时赛）",
           "correct": false
         },
         "conservative": {
@@ -121,12 +121,12 @@
           "val": "Kairat晋级（防守反击，不求大胜）",
           "correct": true
         },
-        "aggressive": {
-          "val": "苏德斯卡1-0胜，Kairat凭首回合优势晋级（加时赛需再分胜负）",
-          "correct": false
-        },
         "upset": {
           "val": "苏德斯卡主场2-0逆转晋级",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "苏德斯卡1-0胜，Kairat凭首回合优势晋级（加时赛需再分胜负）",
           "correct": false
         },
         "conservative": {
@@ -169,12 +169,12 @@
           "val": "瓦勒伦加主胜",
           "correct": true
         },
-        "aggressive": {
-          "val": "瓦勒伦加刚好赢1球 (让平)",
-          "correct": false
-        },
         "upset": {
           "val": "奥勒松死守逼平",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "瓦勒伦加刚好赢1球 (让平)",
           "correct": false
         },
         "conservative": {
@@ -217,12 +217,12 @@
           "val": "索陆军客胜",
           "correct": true
         },
-        "aggressive": {
-          "val": "索陆军客场赢2球以上 (让负)",
-          "correct": true
-        },
         "upset": {
           "val": "德里城主场逼平对手",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "索陆军客场赢2球以上 (让负)",
           "correct": true
         },
         "conservative": {
@@ -265,13 +265,13 @@
           "val": "费伦茨主胜",
           "correct": true
         },
-        "aggressive": {
-          "val": "费伦茨赢2球以上 (让胜)",
-          "correct": true
-        },
         "upset": {
           "val": "无明显冷门可能",
           "correct": false
+        },
+        "aggressive": {
+          "val": "费伦茨赢2球以上 (让胜)",
+          "correct": true
         },
         "conservative": {
           "val": "费伦茨赢球",
@@ -313,12 +313,12 @@
           "val": "斯海杜克客胜",
           "correct": false
         },
-        "aggressive": {
-          "val": "客胜平局双选",
-          "correct": false
-        },
         "upset": {
           "val": "日利纳主场战平斯海杜克",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "客胜平局双选",
           "correct": false
         },
         "conservative": {
@@ -361,13 +361,13 @@
           "val": "博塔弗戈胜",
           "correct": true
         },
-        "aggressive": {
-          "val": "博塔弗戈刚好赢1球 (让平)",
-          "correct": true
-        },
         "upset": {
           "val": "桑托斯反击得手带走1分",
           "correct": false
+        },
+        "aggressive": {
+          "val": "博塔弗戈刚好赢1球 (让平)",
+          "correct": true
         },
         "conservative": {
           "val": "主队不败",
@@ -409,12 +409,12 @@
           "val": "双方闷平或主队小胜",
           "correct": false
         },
-        "aggressive": {
-          "val": "直接博平局 (Draw)",
-          "correct": false
-        },
         "upset": {
           "val": "达伽马客场偷袭致胜",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "直接博平局 (Draw)",
           "correct": false
         },
         "conservative": {
@@ -457,12 +457,12 @@
           "val": "蒙特利尔主胜",
           "correct": false
         },
-        "aggressive": {
-          "val": "蒙特利尔赢2球以上 (让胜)",
-          "correct": false
-        },
         "upset": {
           "val": "多伦多强力外援爆发带走三分",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "蒙特利尔赢2球以上 (让胜)",
           "correct": false
         },
         "conservative": {
@@ -505,12 +505,12 @@
           "val": "圣路易城主胜",
           "correct": true
         },
-        "aggressive": {
-          "val": "主队大胜赢盘 (让胜)",
-          "correct": false
-        },
         "upset": {
           "val": "堪萨斯城绝地反击爆冷带走一分",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "主队大胜赢盘 (让胜)",
           "correct": false
         },
         "conservative": {
@@ -553,12 +553,12 @@
           "val": "西雅图主胜",
           "correct": false
         },
-        "aggressive": {
-          "val": "西雅图刚好赢1球 (让平)",
-          "correct": false
-        },
         "upset": {
           "val": "波特兰偷袭平局",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "西雅图刚好赢1球 (让平)",
           "correct": false
         },
         "conservative": {
@@ -601,12 +601,12 @@
           "val": "哥德堡主场不败",
           "correct": true
         },
-        "aggressive": {
-          "val": "比分 1-1 或 1-2",
-          "correct": false
-        },
         "upset": {
           "val": "布鲁马波客场偷袭全取三分",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 1-1 或 1-2",
           "correct": false
         },
         "conservative": {
@@ -649,13 +649,13 @@
           "val": "米亚尔比稳拿三分",
           "correct": false
         },
-        "aggressive": {
-          "val": "比分 2-0 或 3-0",
-          "correct": false
-        },
         "upset": {
           "val": "防守反击逼平主队",
           "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-0 或 3-0",
+          "correct": false
         },
         "conservative": {
           "val": "米亚尔比赢球",
@@ -697,13 +697,13 @@
           "val": "博德闪耀完胜",
           "correct": false
         },
-        "aggressive": {
-          "val": "比分 1-0 或 2-1",
-          "correct": true
-        },
         "upset": {
           "val": "腓特烈顽强死守逼平",
           "correct": false
+        },
+        "aggressive": {
+          "val": "比分 1-0 或 2-1",
+          "correct": true
         },
         "conservative": {
           "val": "腓特烈受让",
@@ -1156,62 +1156,14 @@
       }
     },
     {
-      "match_id": "match_260719_103",
-      "date": "2026-07-19",
-      "league": "世界杯",
-      "home": "法国",
-      "away": "英格兰",
-      "predicted_result": "主胜",
-      "actual_result": "法国 4-6 英格兰",
-      "is_correct": false,
-      "predictions": {
-        "recommendation": {
-          "val": "主胜",
-          "correct": false
-        },
-        "primary_bet": {
-          "val": "主胜",
-          "correct": false
-        },
-        "mainstream": {
-          "val": "主队主场全取三分",
-          "correct": false
-        },
-        "aggressive": {
-          "val": "比分 4-2",
-          "correct": false
-        },
-        "upset": {
-          "val": "客队防反爆冷抢分",
-          "correct": true
-        },
-        "conservative": {
-          "val": "胜",
-          "correct": false
-        },
-        "half_full": {
-          "val": "胜胜 或 平胜",
-          "correct": false
-        },
-        "over_under": {
-          "val": "大 2.5",
-          "correct": true
-        },
-        "most_likely_score": {
-          "val": "3-2 或 3-1 或 2-2 (防冷)",
-          "correct": false
-        }
-      }
-    },
-    {
       "match_id": "match_260718_205",
-      "date": "2026-07-18",
       "league": "挪超",
       "home": "汉坎",
       "away": "特罗姆瑟",
-      "predicted_result": "反基本面冷门 (主队不败)",
+      "date": "2026-07-18",
       "actual_result": "汉坎 1-4 特罗姆瑟",
       "is_correct": false,
+      "confidence": 37,
       "predictions": {
         "recommendation": {
           "val": "反基本面冷门 (主队不败)",
@@ -1225,12 +1177,12 @@
           "val": "平局拉锯之势",
           "correct": false
         },
-        "aggressive": {
-          "val": "比分 2-2",
-          "correct": false
-        },
         "upset": {
           "val": "分出胜负",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 2-2",
           "correct": false
         },
         "conservative": {
@@ -1253,13 +1205,13 @@
     },
     {
       "match_id": "match_260718_206",
-      "date": "2026-07-18",
       "league": "芬超",
       "home": "赫尔辛基",
       "away": "瓦萨",
-      "predicted_result": "反基本面冷门 (客队不败)",
+      "date": "2026-07-18",
       "actual_result": "赫尔辛基 2-1 瓦萨",
       "is_correct": false,
+      "confidence": 41,
       "predictions": {
         "recommendation": {
           "val": "反基本面冷门 (客队不败)",
@@ -1273,12 +1225,12 @@
           "val": "平局拉锯之势",
           "correct": false
         },
-        "aggressive": {
-          "val": "比分 3-3",
-          "correct": false
-        },
         "upset": {
           "val": "分出胜负",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 3-3",
           "correct": false
         },
         "conservative": {
@@ -1301,13 +1253,13 @@
     },
     {
       "match_id": "match_260718_207",
-      "date": "2026-07-18",
       "league": "瑞超",
       "home": "索尔纳",
       "away": "盖斯",
-      "predicted_result": "主不败",
+      "date": "2026-07-18",
       "actual_result": "索尔纳 2-0 盖斯",
       "is_correct": true,
+      "confidence": 34,
       "predictions": {
         "recommendation": {
           "val": "主不败",
@@ -1321,12 +1273,12 @@
           "val": "平局拉锯之势",
           "correct": false
         },
-        "aggressive": {
-          "val": "比分 2-2",
-          "correct": false
-        },
         "upset": {
           "val": "分出胜负",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 2-2",
           "correct": false
         },
         "conservative": {
@@ -1349,13 +1301,13 @@
     },
     {
       "match_id": "match_260718_208",
-      "date": "2026-07-18",
       "league": "挪超",
       "home": "利勒斯特",
       "away": "奥斯KFUM",
-      "predicted_result": "反基本面冷门 (客队不败)",
+      "date": "2026-07-18",
       "actual_result": "利勒斯特 1-1 奥斯KFUM",
       "is_correct": true,
+      "confidence": 53,
       "predictions": {
         "recommendation": {
           "val": "反基本面冷门 (客队不败)",
@@ -1369,12 +1321,12 @@
           "val": "平局拉锯之势",
           "correct": true
         },
-        "aggressive": {
-          "val": "比分 2-2",
-          "correct": false
-        },
         "upset": {
           "val": "分出胜负",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 2-2",
           "correct": false
         },
         "conservative": {
@@ -1397,13 +1349,13 @@
     },
     {
       "match_id": "match_260718_209",
-      "date": "2026-07-18",
       "league": "挪超",
       "home": "斯达",
       "away": "罗森博格",
-      "predicted_result": "客不败",
+      "date": "2026-07-18",
       "actual_result": "斯达 0-3 罗森博格",
       "is_correct": true,
+      "confidence": 38,
       "predictions": {
         "recommendation": {
           "val": "客不败",
@@ -1417,12 +1369,12 @@
           "val": "平局拉锯之势",
           "correct": false
         },
-        "aggressive": {
-          "val": "比分 1-2",
-          "correct": false
-        },
         "upset": {
           "val": "分出胜负",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 1-2",
           "correct": false
         },
         "conservative": {
@@ -1445,13 +1397,13 @@
     },
     {
       "match_id": "match_260718_210",
-      "date": "2026-07-18",
       "league": "挪超",
       "home": "克里斯蒂",
       "away": "萨普斯堡",
-      "predicted_result": "客不败",
+      "date": "2026-07-18",
       "actual_result": "克里斯蒂 0-0 萨普斯堡",
       "is_correct": true,
+      "confidence": 43,
       "predictions": {
         "recommendation": {
           "val": "客不败",
@@ -1465,12 +1417,12 @@
           "val": "平局拉锯之势",
           "correct": true
         },
-        "aggressive": {
-          "val": "比分 2-2",
-          "correct": false
-        },
         "upset": {
           "val": "分出胜负",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 2-2",
           "correct": false
         },
         "conservative": {
@@ -1493,13 +1445,13 @@
     },
     {
       "match_id": "match_260718_211",
-      "date": "2026-07-18",
       "league": "芬超",
       "home": "AC奥卢",
       "away": "赫尔火花",
-      "predicted_result": "主不败",
+      "date": "2026-07-18",
       "actual_result": "AC奥卢 0-2 赫尔火花",
       "is_correct": false,
+      "confidence": 48,
       "predictions": {
         "recommendation": {
           "val": "主不败",
@@ -1513,12 +1465,12 @@
           "val": "平局拉锯之势",
           "correct": false
         },
-        "aggressive": {
-          "val": "比分 2-2",
-          "correct": false
-        },
         "upset": {
           "val": "分出胜负",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 2-2",
           "correct": false
         },
         "conservative": {
@@ -1541,13 +1493,13 @@
     },
     {
       "match_id": "match_260718_212",
-      "date": "2026-07-18",
       "league": "芬超",
       "home": "塞伊奈",
       "away": "库奥皮奥",
-      "predicted_result": "双选不败",
+      "date": "2026-07-18",
       "actual_result": "塞伊奈 0-2 库奥皮奥",
       "is_correct": false,
+      "confidence": 34,
       "predictions": {
         "recommendation": {
           "val": "双选不败",
@@ -1561,12 +1513,12 @@
           "val": "平局拉锯之势",
           "correct": false
         },
-        "aggressive": {
-          "val": "比分 1-3",
-          "correct": false
-        },
         "upset": {
           "val": "分出胜负",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 1-3",
           "correct": false
         },
         "conservative": {
@@ -1588,14 +1540,158 @@
       }
     },
     {
-      "match_id": "match_260719_213",
+      "match_id": "match_260719_103",
+      "league": "世界杯",
+      "home": "法国",
+      "away": "英格兰",
       "date": "2026-07-19",
+      "actual_result": "法国 4-6 英格兰",
+      "is_correct": false,
+      "confidence": 70,
+      "predictions": {
+        "recommendation": {
+          "val": "主胜",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "主胜",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "主队主场全取三分",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队防反爆冷抢分",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 4-2",
+          "correct": false
+        },
+        "conservative": {
+          "val": "胜",
+          "correct": false
+        },
+        "half_full": {
+          "val": "胜胜 或 平胜",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "3-2 或 3-1 或 2-2 (防冷)",
+          "correct": false
+        }
+      }
+    },
+    {
+      "match_id": "match_260719_201",
+      "league": "韩职",
+      "home": "富川FC",
+      "away": "首尔FC",
+      "date": "2026-07-19",
+      "actual_result": "富川FC 1-3 首尔FC",
+      "is_correct": true,
+      "confidence": 39,
+      "predictions": {
+        "recommendation": {
+          "val": "客胜",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "客胜",
+          "correct": true
+        },
+        "mainstream": {
+          "val": "客队反客为主抢分",
+          "correct": false
+        },
+        "upset": {
+          "val": "主队主场捍卫尊严",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 1-3",
+          "correct": true
+        },
+        "conservative": {
+          "val": "负",
+          "correct": true
+        },
+        "half_full": {
+          "val": "平负 或 负负",
+          "correct": true
+        },
+        "over_under": {
+          "val": "大 2.5",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "1-2 或 0-2 或 1-1 (防冷)",
+          "correct": false
+        }
+      }
+    },
+    {
+      "match_id": "match_260719_202",
+      "league": "韩职",
+      "home": "安养FC",
+      "away": "光州FC",
+      "date": "2026-07-19",
+      "actual_result": "安养FC 1-1 光州FC",
+      "is_correct": false,
+      "confidence": 76,
+      "predictions": {
+        "recommendation": {
+          "val": "主胜",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "主胜",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "主队主场全取三分",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队防反爆冷抢分",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 3-2",
+          "correct": false
+        },
+        "conservative": {
+          "val": "胜",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平胜 或 胜胜",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "3-2 或 3-1 或 2-2 (防冷)",
+          "correct": false
+        }
+      }
+    },
+    {
+      "match_id": "match_260719_213",
       "league": "挪超",
       "home": "莫尔德",
       "away": "布兰",
-      "predicted_result": "反基本面冷门 (客队不败)",
+      "date": "2026-07-19",
       "actual_result": "莫尔德 1-2 布兰",
       "is_correct": true,
+      "confidence": 56,
       "predictions": {
         "recommendation": {
           "val": "反基本面冷门 (客队不败)",
@@ -1609,12 +1705,12 @@
           "val": "平局拉锯之势",
           "correct": false
         },
-        "aggressive": {
-          "val": "比分 3-3",
-          "correct": false
-        },
         "upset": {
           "val": "分出胜负",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 3-3",
           "correct": false
         },
         "conservative": {
@@ -1637,13 +1733,13 @@
     },
     {
       "match_id": "match_260719_214",
-      "date": "2026-07-19",
       "league": "挪超",
       "home": "维京",
       "away": "桑纳菲",
-      "predicted_result": "反基本面冷门 (客队不败)",
+      "date": "2026-07-19",
       "actual_result": "维京 2-1 桑纳菲",
       "is_correct": false,
+      "confidence": 58,
       "predictions": {
         "recommendation": {
           "val": "反基本面冷门 (客队不败)",
@@ -1657,12 +1753,12 @@
           "val": "平局拉锯之势",
           "correct": false
         },
-        "aggressive": {
-          "val": "比分 3-3",
-          "correct": false
-        },
         "upset": {
           "val": "分出胜负",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 3-3",
           "correct": false
         },
         "conservative": {
@@ -1679,102 +1775,6 @@
         },
         "most_likely_score": {
           "val": "2-3 或 2-4 或 2-2",
-          "correct": false
-        }
-      }
-    },
-    {
-      "match_id": "match_260719_201",
-      "date": "2026-07-19",
-      "league": "韩职",
-      "home": "富川FC",
-      "away": "首尔FC",
-      "predicted_result": "客胜",
-      "actual_result": "富川FC 1-3 首尔FC",
-      "is_correct": true,
-      "predictions": {
-        "recommendation": {
-          "val": "客胜",
-          "correct": true
-        },
-        "primary_bet": {
-          "val": "客胜",
-          "correct": true
-        },
-        "mainstream": {
-          "val": "客队反客为主抢分",
-          "correct": false
-        },
-        "aggressive": {
-          "val": "比分 1-3",
-          "correct": true
-        },
-        "upset": {
-          "val": "主队主场捍卫尊严",
-          "correct": false
-        },
-        "conservative": {
-          "val": "负",
-          "correct": true
-        },
-        "half_full": {
-          "val": "平负 或 负负",
-          "correct": true
-        },
-        "over_under": {
-          "val": "大 2.5",
-          "correct": true
-        },
-        "most_likely_score": {
-          "val": "1-2 或 0-2 或 1-1 (防冷)",
-          "correct": false
-        }
-      }
-    },
-    {
-      "match_id": "match_260719_202",
-      "date": "2026-07-19",
-      "league": "韩职",
-      "home": "安养FC",
-      "away": "光州FC",
-      "predicted_result": "主胜",
-      "actual_result": "安养FC 1-1 光州FC",
-      "is_correct": false,
-      "predictions": {
-        "recommendation": {
-          "val": "主胜",
-          "correct": false
-        },
-        "primary_bet": {
-          "val": "主胜",
-          "correct": false
-        },
-        "mainstream": {
-          "val": "主队主场全取三分",
-          "correct": false
-        },
-        "aggressive": {
-          "val": "比分 3-2",
-          "correct": false
-        },
-        "upset": {
-          "val": "客队防反爆冷抢分",
-          "correct": false
-        },
-        "conservative": {
-          "val": "胜",
-          "correct": false
-        },
-        "half_full": {
-          "val": "平胜 或 胜胜",
-          "correct": false
-        },
-        "over_under": {
-          "val": "大 2.5",
-          "correct": false
-        },
-        "most_likely_score": {
-          "val": "3-2 或 3-1 或 2-2 (防冷)",
           "correct": false
         }
       }

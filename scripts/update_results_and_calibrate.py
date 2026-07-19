@@ -1,8 +1,13 @@
 import json
 import os
+import sys
 from datetime import datetime
 
+# Add the current scripts directory to the python path to import local helper modules safely
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 base_dir = r"D:\GitHub File\football-intelligence"
+
 matches_path = os.path.join(base_dir, "data", "matches.json")
 history_path = os.path.join(base_dir, "data", "history.json")
 
@@ -227,16 +232,19 @@ with open(matches_path, "w", encoding="utf-8") as f:
 print(f"Updated {updated_count} matches in matches.json to finished.")
 
 # 2. Update history.json
-for r in new_records:
-    # Avoid duplicates
-    if not any(x["match_id"] == r["match_id"] for x in history_db["records"]):
-        history_db["records"].append(r)
+try:
+    from sync_history import sync
+    sync()
+except Exception as e:
+    print(f"⚠️ Error running sync_history: {e}")
+    # Fallback to manual save if sync fails
+    for r in new_records:
+        if not any(x["match_id"] == r["match_id"] for x in history_db["records"]):
+            history_db["records"].append(r)
+    history_db["total_predictions"] = len(history_db["records"])
+    history_db["correct_predictions"] = sum(1 for x in history_db["records"] if x["is_correct"])
+    history_db["accuracy_rate"] = round(history_db["correct_predictions"] / history_db["total_predictions"], 4)
+    with open(history_path, "w", encoding="utf-8") as f:
+        json.dump(history_db, f, ensure_ascii=False, indent=2)
+    print(f"Fallback: Updated history.json. Total predictions: {history_db['total_predictions']}, Accuracy: {history_db['accuracy_rate']}")
 
-history_db["total_predictions"] = len(history_db["records"])
-history_db["correct_predictions"] = sum(1 for x in history_db["records"] if x["is_correct"])
-history_db["accuracy_rate"] = round(history_db["correct_predictions"] / history_db["total_predictions"], 4)
-
-with open(history_path, "w", encoding="utf-8") as f:
-    json.dump(history_db, f, ensure_ascii=False, indent=2)
-
-print(f"Updated history.json. Total predictions: {history_db['total_predictions']}, Accuracy: {history_db['accuracy_rate']}")
