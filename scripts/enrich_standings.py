@@ -59,6 +59,17 @@ def main():
             "zone": "晋级无望区"
         },
         "坦山猫": {
+            "rank": 9,
+            "played": 16,
+            "won": 4,
+            "drawn": 4,
+            "lost": 8,
+            "points": 16,
+            "goals_for": 15,
+            "goals_against": 24,
+            "zone": "晋级风险区"
+        },
+        "国际图尔": {
             "rank": 2,
             "played": 16,
             "won": 9,
