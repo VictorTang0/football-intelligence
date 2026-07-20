@@ -24,6 +24,32 @@ const MatchIQRender = (() => {
     return id.replace('match_', 'No.');
   }
 
+  function renderUnderlinedScore(scoreStr, actualScoreStr = "") {
+    if (!scoreStr || scoreStr === '--') return '--';
+    const parts = scoreStr.split(/\s*或\s*/);
+    const renderedParts = parts.map((part, index) => {
+      const cleanPart = part.replace(/\s+/g, '').split('(')[0];
+      const isThisPartCorrect = actualScoreStr && (cleanPart === actualScoreStr);
+      // 下划线标记系统最有信心的第一比分
+      const underlineStyle = index === 0 ? 'text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px;' : '';
+      if (isThisPartCorrect) {
+        return `<span style="color:var(--rose, #f43f5e); font-weight:700; ${underlineStyle}">${part}</span>`;
+      } else {
+        return `<span style="color:var(--text-2); font-weight:500; ${underlineStyle}">${part}</span>`;
+      }
+    });
+    return renderedParts.join(' <span style="color:var(--text-4)">或</span> ');
+  }
+
+  function renderUnderlinedTwoScores(twoScoresStr) {
+    if (!twoScoresStr || twoScoresStr === '--') return '--';
+    const parts = twoScoresStr.split(/,\s*/);
+    if (parts.length > 0) {
+      parts[0] = `<span style="text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px;">${parts[0]}</span>`;
+    }
+    return parts.join(', ');
+  }
+
   const tagEmojis = {
     "明星演员": "🎭",
     "剧本反转": "🔄",
@@ -261,7 +287,7 @@ const MatchIQRender = (() => {
             <div class="m-lbl">风险</div>
           </div>
           <div class="uc-metric">
-            <div class="m-val text-green">${match.conclusions?.most_likely_score || '--'}</div>
+            <div class="m-val text-green">${renderUnderlinedScore(match.conclusions?.most_likely_score)}</div>
             <div class="m-lbl">最可能比分</div>
           </div>
         </div>
@@ -794,7 +820,7 @@ const MatchIQRender = (() => {
       <div class="conclusion-summary">
         <div class="cs-item">
           <div class="cs-label">最可能比分</div>
-          <div class="cs-value">${c.most_likely_score || '--'}</div>
+          <div class="cs-value">${renderUnderlinedScore(c.most_likely_score)}</div>
         </div>
         <div class="cs-item">
           <div class="cs-label">大小球</div>
@@ -1168,31 +1194,15 @@ const MatchIQRender = (() => {
 
           const recHtml = `<div style="white-space:nowrap;"><span style="color:var(--text-3);font-weight:500;">方向:</span> <span style="font-weight:600; color:${recCorrect ? 'var(--rose, #f43f5e)' : 'var(--text-2)'};">${recommendationVal}</span>${recCorrect ? badgeRed : badgeBlack}</div>`;
           
-          // Render score HTML with itemized highlighting
-          let scoreValHtml = "";
-          if (scoreVal === '--') {
-            scoreValHtml = '--';
-          } else {
-            let actualScoreStr = "";
-            if (r.actual_result) {
-              const match = r.actual_result.replace(/\s*:\s*/g, '-').match(/\d+-\d+/);
-              if (match) {
-                actualScoreStr = match[0];
-              }
+          // Render score HTML with itemized highlighting and primary underline
+          let actualScoreStr = "";
+          if (r.actual_result) {
+            const match = r.actual_result.replace(/\s*:\s*/g, '-').match(/\d+-\d+/);
+            if (match) {
+              actualScoreStr = match[0];
             }
-            const parts = scoreVal.split(/\s*或\s*/);
-            const renderedParts = parts.map(part => {
-              const cleanPart = part.replace(/\s+/g, '').split('(')[0];
-              const isThisPartCorrect = actualScoreStr && (cleanPart === actualScoreStr);
-              if (isThisPartCorrect) {
-                return `<span style="color:var(--rose, #f43f5e); font-weight:700;">${part}</span>`;
-              } else {
-                return `<span style="color:var(--text-2); font-weight:500;">${part}</span>`;
-              }
-            });
-            scoreValHtml = renderedParts.join(' <span style="color:var(--text-4)">或</span> ');
           }
-          const scoreHtml = `<div style="white-space:nowrap;"><span style="color:var(--text-3);font-weight:500;">比分:</span> ${scoreValHtml}${scoreCorrect ? badgeRed : badgeBlack}</div>`;
+          const scoreHtml = `<div style="white-space:nowrap;"><span style="color:var(--text-3);font-weight:500;">比分:</span> ${renderUnderlinedScore(scoreVal, actualScoreStr)}${scoreCorrect ? badgeRed : badgeBlack}</div>`;
           let hfValHtml = "";
           if (hfVal === '--') {
             hfValHtml = '--';
@@ -1807,7 +1817,7 @@ const MatchIQRender = (() => {
       const multiRecHTML = `
         <div class="multi-rec-box">
           <div class="mr-item"><span class="mr-label">方向</span><span class="mr-val highlight">${primaryBet}</span></div>
-          <div class="mr-item"><span class="mr-label">比分</span><span class="mr-val font-mono">${twoScores}</span></div>
+          <div class="mr-item"><span class="mr-label">比分</span><span class="mr-val font-mono">${renderUnderlinedTwoScores(twoScores)}</span></div>
           <div class="mr-item"><span class="mr-label">进球</span><span class="mr-val font-mono">${twoGoals}</span></div>
           <div class="mr-item"><span class="mr-label">半全</span><span class="mr-val" style="color:#818cf8;">${halfFullClean}</span></div>
         </div>
@@ -1821,7 +1831,7 @@ const MatchIQRender = (() => {
           <td>${matchup}</td>
           <td style="font-weight:700; color:var(--text-1);">${rec}</td>
           <td>${combinedBadge}</td>
-          <td class="font-mono" style="color:var(--green); font-weight:bold;">${score}</td>
+          <td class="font-mono" style="color:var(--green); font-weight:bold;">${renderUnderlinedScore(score)}</td>
           <td style="padding: 4px 8px; white-space: normal;">${multiRecHTML}</td>
         </tr>
       `;
