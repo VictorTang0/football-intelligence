@@ -1095,6 +1095,15 @@ def main():
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
+    # 自动更新所有未开赛赛事的球场天气情况
+    try:
+        sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+        import weather_service
+        print("Updating stadium weather information dynamically...")
+        weather_service.update_all_pending_weather(data)
+    except Exception as e:
+        print(f"Warning: Failed to update stadium weather: {e}")
+
     evs = fetch_events()
     print(f"Loaded {len(evs)} live events from InferSports.")
 

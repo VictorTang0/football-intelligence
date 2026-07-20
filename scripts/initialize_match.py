@@ -372,16 +372,24 @@ def main():
             json.dump(database, f, ensure_ascii=False, indent=2)
         print(f"\n🎉 Successfully initialized and saved {added_count} matches to matches.json!")
         
-        # 自动触发排名积分补全系统，将其无缝集成到工作流 A 中
+        # 自动触发排名积分补全系统与天气获取系统，将其无缝集成到工作流 A 中
         try:
             import subprocess
             scripts_dir = os.path.dirname(os.path.abspath(__file__))
+            
+            # 1. 补全积分排名
             enrich_path = os.path.join(scripts_dir, "enrich_standings.py")
             if os.path.exists(enrich_path):
                 print("Running standing enrichment workflow...")
                 subprocess.run(["python3", enrich_path], check=True)
+                
+            # 2. 补全天气信息
+            weather_path = os.path.join(scripts_dir, "weather_service.py")
+            if os.path.exists(weather_path):
+                print("Running weather update workflow...")
+                subprocess.run(["python3", weather_path], check=True)
         except Exception as e:
-            print(f"Warning: Failed to run standing enrichment: {e}")
+            print(f"Warning: Failed to run standings/weather enrichment: {e}")
     else:
         print("\nNo new matches were added.")
 
