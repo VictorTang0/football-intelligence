@@ -299,9 +299,19 @@ const MatchIQRender = (() => {
           <div style="display:flex; flex-direction:column; gap:6px;">
             ${matchesLimit.map(m => {
               const outcome = m.outcome || 'D';
-              // 胜方高亮 (W/L/D 映射胜平负, 或是 outcome='H'高亮主, outcome='A'高亮客)
-              const homeStyle = outcome === 'H' ? 'color:var(--accent-orange, #ff9800); font-weight:700;' : 'color:var(--text-1);';
-              const awayStyle = outcome === 'A' ? 'color:var(--accent-orange, #ff9800); font-weight:700;' : 'color:var(--text-1);';
+              // 胜平负显示不同色：胜=#ff5252 (Red), 负=#40a9ff (Blue), 平=#4caf50 (Green)
+              let homeStyle = '';
+              let awayStyle = '';
+              if (outcome === 'H') {
+                homeStyle = 'color:#ff5252; font-weight:700;'; // 主胜
+                awayStyle = 'color:#40a9ff; font-weight:500;'; // 客负
+              } else if (outcome === 'A') {
+                homeStyle = 'color:#40a9ff; font-weight:500;'; // 主负
+                awayStyle = 'color:#ff5252; font-weight:700;'; // 客胜
+              } else {
+                homeStyle = 'color:#4caf50; font-weight:500;'; // 平局
+                awayStyle = 'color:#4caf50; font-weight:500;'; // 平局
+              }
               const dateStr = m.date ? `<span style="color:var(--text-3); font-size:11px; font-family:monospace; margin-right:4px;">[${m.date}]</span>` : '';
               return `
                 <div style="display:flex; align-items:center; justify-content:space-between; padding:6px 10px; background:rgba(255,255,255,0.01); border-radius:4px; border:1px solid rgba(255,255,255,0.03); font-size:12px;">
