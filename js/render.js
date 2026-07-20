@@ -350,23 +350,40 @@ const MatchIQRender = (() => {
         <div style="display:flex; flex-direction:column; gap:5px;">
           ${matches.slice(0, 5).map(m => {
             const outcome = m.outcome || 'D';
-            let badgeBg = '#4caf50'; // 平 (Green)
-            let outcomeText = '平';
+            
+            // 依据该队（teamName）在这场比赛里是主是客，判定两队名称的着色
+            let homeStyle = '';
+            let awayStyle = '';
+            const isHomeTeamTarget = (m.home === teamName);
             if (outcome === 'W') {
-              badgeBg = '#ff5252'; // 胜 (Red)
-              outcomeText = '胜';
+              if (isHomeTeamTarget) {
+                homeStyle = 'color:#ff5252; font-weight:700;'; // 主队（目标队）胜
+                awayStyle = 'color:#40a9ff; font-weight:500;'; // 客队负
+              } else {
+                homeStyle = 'color:#40a9ff; font-weight:500;'; // 主队负
+                awayStyle = 'color:#ff5252; font-weight:700;'; // 客队（目标队）胜
+              }
             } else if (outcome === 'L') {
-              badgeBg = '#40a9ff'; // 负 (Blue)
-              outcomeText = '负';
+              if (isHomeTeamTarget) {
+                homeStyle = 'color:#40a9ff; font-weight:500;'; // 主队（目标队）负
+                awayStyle = 'color:#ff5252; font-weight:700;'; // 客队胜
+              } else {
+                homeStyle = 'color:#ff5252; font-weight:700;'; // 主队胜
+                awayStyle = 'color:#40a9ff; font-weight:500;'; // 客队（目标队）负
+              }
+            } else {
+              homeStyle = 'color:#4caf50; font-weight:500;'; // 平局
+              awayStyle = 'color:#4caf50; font-weight:500;'; // 平局
             }
             
             const dateStr = m.date ? `<span style="color:var(--text-3); font-size:10px; font-family:monospace; margin-right:4px;">[${m.date.substring(5)}]</span>` : '';
             return `
               <div style="display:flex; align-items:center; justify-content:space-between; padding:5px 8px; background:rgba(255,255,255,0.01); border-radius:4px; border:1px solid rgba(255,255,255,0.02); font-size:11px;">
                 <div style="display:flex; align-items:center; gap:5px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
-                  <span style="display:inline-block; width:16px; height:16px; line-height:16px; border-radius:3px; font-size:9.5px; font-weight:800; color:#fff; background-color:${badgeBg}; text-align:center; flex-shrink:0;">${outcomeText}</span>
                   ${dateStr}
-                  <span style="color:var(--text-2); font-weight:500;">${m.home} vs ${m.away}</span>
+                  <span style="${homeStyle}">${m.home}</span>
+                  <span style="color:var(--text-4); font-size:9px;">vs</span>
+                  <span style="${awayStyle}">${m.away}</span>
                 </div>
                 <div style="font-family:monospace; font-weight:600; color:var(--text-1); flex-shrink:0; margin-left:6px;">
                   <span>${m.score}</span>
