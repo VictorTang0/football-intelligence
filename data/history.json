@@ -193,6 +193,13 @@
           "val": "1-0 或 2-1",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "客胜",
+        "diff": 0.08000000000000007,
+        "recommendation": "主不败",
+        "is_correct": true
       }
     },
     {
@@ -241,6 +248,13 @@
           "val": "1-2 或 0-2",
           "correct": true
         }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.08000000000000007,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": false
       }
     },
     {
@@ -289,6 +303,13 @@
           "val": "2-0 或 3-0",
           "correct": true
         }
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "客胜",
+        "diff": 0.10999999999999943,
+        "recommendation": "主不败",
+        "is_correct": true
       }
     },
     {
@@ -337,6 +358,13 @@
           "val": "1-1 或 1-2",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "平局",
+        "diff": 0.07000000000000028,
+        "recommendation": "分出胜负",
+        "is_correct": true
       }
     },
     {
@@ -385,6 +413,13 @@
           "val": "1-0 或 2-1",
           "correct": true
         }
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "平局",
+        "diff": 0.07000000000000028,
+        "recommendation": "分出胜负",
+        "is_correct": true
       }
     },
     {
@@ -433,6 +468,13 @@
           "val": "0-0 或 1-1",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "平局",
+        "diff": 0.06000000000000005,
+        "recommendation": "分出胜负",
+        "is_correct": true
       }
     },
     {
@@ -481,6 +523,13 @@
           "val": "2-1 或 3-1",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "平局",
+        "diff": 0.06999999999999984,
+        "recommendation": "分出胜负",
+        "is_correct": false
       }
     },
     {
@@ -529,6 +578,13 @@
           "val": "3-1 或 3-0",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "客胜",
+        "diff": 0.11999999999999922,
+        "recommendation": "主不败",
+        "is_correct": true
       }
     },
     {
@@ -577,6 +633,13 @@
           "val": "2-1 或 2-0",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "客胜",
+        "diff": 0.11000000000000032,
+        "recommendation": "主不败",
+        "is_correct": false
       }
     },
     {
@@ -625,6 +688,13 @@
           "val": "1-1",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.040000000000000036,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": true
       }
     },
     {
@@ -673,6 +743,13 @@
           "val": "2-0",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.029999999999999805,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": false
       }
     },
     {
@@ -721,6 +798,13 @@
           "val": "2-1",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.029999999999999805,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": true
       }
     },
     {
@@ -769,6 +853,13 @@
           "val": "3-0",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.030000000000000027,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": true
       }
     },
     {
@@ -817,6 +908,13 @@
           "val": "2-1",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.030000000000000027,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": false
       }
     },
     {
@@ -865,6 +963,13 @@
           "val": "2-0",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.040000000000000036,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": true
       }
     },
     {
@@ -913,6 +1018,13 @@
           "val": "3-1",
           "correct": true
         }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.029999999999999805,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": true
       }
     },
     {
@@ -961,6 +1073,13 @@
           "val": "1-2",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.06000000000000005,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": false
       }
     },
     {
@@ -1009,6 +1128,13 @@
           "val": "3-2 或 4-2 或 2-2",
           "correct": true
         }
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "客胜",
+        "diff": 0.06000000000000005,
+        "recommendation": "主不败",
+        "is_correct": true
       }
     },
     {
@@ -1057,6 +1183,13 @@
           "val": "2-3 或 2-4 或 2-2",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.030000000000000027,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": true
       }
     },
     {
@@ -1105,6 +1238,13 @@
           "val": "2-2 或 0-0 或 3-2 (防冷)",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "客胜",
+        "diff": 0.04999999999999982,
+        "recommendation": "主不败",
+        "is_correct": true
       }
     },
     {
@@ -1153,6 +1293,13 @@
           "val": "1-2 或 1-3 或 1-1",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "平局",
+        "diff": 0.06000000000000005,
+        "recommendation": "分出胜负",
+        "is_correct": true
       }
     },
     {
@@ -1201,6 +1348,13 @@
           "val": "3-2 或 4-2 或 2-2",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.07999999999999963,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": false
       }
     },
     {
@@ -1249,6 +1403,13 @@
           "val": "2-3 或 2-4 或 2-2",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.040000000000000036,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": true
       }
     },
     {
@@ -1297,6 +1458,13 @@
           "val": "2-1 或 3-1 或 1-1",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.06000000000000005,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": true
       }
     },
     {
@@ -1345,6 +1513,13 @@
           "val": "2-3 或 2-4 或 2-2",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "客胜",
+        "diff": 0.09999999999999964,
+        "recommendation": "主不败",
+        "is_correct": true
       }
     },
     {
@@ -1393,6 +1568,13 @@
           "val": "1-2 或 1-3 或 1-1",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.07000000000000028,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": false
       }
     },
     {
@@ -1441,6 +1623,13 @@
           "val": "1-2 或 1-3 或 1-1",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.06000000000000005,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": false
       }
     },
     {
@@ -1489,6 +1678,13 @@
           "val": "3-2 或 4-2 或 2-2",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.040000000000000036,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": false
       }
     },
     {
@@ -1537,6 +1733,13 @@
           "val": "1-2 或 1-1",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "客胜",
+        "diff": 0.050000000000000266,
+        "recommendation": "主不败",
+        "is_correct": false
       }
     },
     {
@@ -1585,6 +1788,13 @@
           "val": "3-2 或 3-1 或 2-2 (防冷)",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.030000000000000027,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": false
       }
     },
     {
@@ -1633,6 +1843,13 @@
           "val": "1-2 或 0-2 或 1-1 (防冷)",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "平局",
+        "diff": 0.07000000000000028,
+        "recommendation": "分出胜负",
+        "is_correct": true
       }
     },
     {
@@ -1681,6 +1898,233 @@
           "val": "3-2 或 3-1 或 2-2 (防冷)",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "客胜",
+        "diff": 0.10999999999999943,
+        "recommendation": "主不败",
+        "is_correct": true
+      }
+    },
+    {
+      "match_id": "match_260719_203",
+      "league": "瑞超",
+      "home": "埃夫斯堡",
+      "away": "天狼星",
+      "date": "2026-07-19",
+      "actual_result": "埃夫斯堡 1-3 天狼星",
+      "is_correct": true,
+      "confidence": 79,
+      "predictions": {
+        "recommendation": {
+          "val": "客胜",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "客胜",
+          "correct": true
+        },
+        "mainstream": {
+          "val": "客队反客为主抢分",
+          "correct": true
+        },
+        "upset": {
+          "val": "主队主场捍卫尊严",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-4",
+          "correct": false
+        },
+        "conservative": {
+          "val": "负",
+          "correct": true
+        },
+        "half_full": {
+          "val": "负负 或 平负",
+          "correct": true
+        },
+        "over_under": {
+          "val": "大 2.5",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "2-3 或 1-3 或 2-2 (防冷)",
+          "correct": true
+        }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.06999999999999984,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": false
+      }
+    },
+    {
+      "match_id": "match_260719_204",
+      "league": "瑞超",
+      "home": "哈尔姆斯",
+      "away": "赫根",
+      "date": "2026-07-19",
+      "actual_result": "哈尔姆斯 0-2 赫根",
+      "is_correct": true,
+      "confidence": 95,
+      "predictions": {
+        "recommendation": {
+          "val": "客胜",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "客胜",
+          "correct": true
+        },
+        "mainstream": {
+          "val": "客队反客为主抢分",
+          "correct": true
+        },
+        "upset": {
+          "val": "主队主场捍卫尊严",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 1-2",
+          "correct": false
+        },
+        "conservative": {
+          "val": "负",
+          "correct": true
+        },
+        "half_full": {
+          "val": "平负",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "1-2",
+          "correct": false
+        }
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "平局",
+        "diff": 0.08999999999999986,
+        "recommendation": "分出胜负",
+        "is_correct": true
+      }
+    },
+    {
+      "match_id": "match_260719_205",
+      "league": "瑞超",
+      "home": "哈马比",
+      "away": "代格福什",
+      "date": "2026-07-19",
+      "actual_result": "哈马比 4-0 代格福什",
+      "is_correct": true,
+      "confidence": 95,
+      "predictions": {
+        "recommendation": {
+          "val": "主胜",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "主胜",
+          "correct": true
+        },
+        "mainstream": {
+          "val": "主队主场全取三分",
+          "correct": true
+        },
+        "upset": {
+          "val": "客队防反爆冷抢分",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 3-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "胜",
+          "correct": true
+        },
+        "half_full": {
+          "val": "胜胜",
+          "correct": true
+        },
+        "over_under": {
+          "val": "大 2.5",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "2-1",
+          "correct": false
+        }
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "平局",
+        "diff": 0.11999999999999922,
+        "recommendation": "分出胜负",
+        "is_correct": true
+      }
+    },
+    {
+      "match_id": "match_260719_206",
+      "league": "芬超",
+      "home": "雅罗",
+      "away": "国际图尔",
+      "date": "2026-07-19",
+      "actual_result": "雅罗 0-0 国际图尔",
+      "is_correct": false,
+      "confidence": 79,
+      "predictions": {
+        "recommendation": {
+          "val": "客胜",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "客胜",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "客队反客为主抢分",
+          "correct": false
+        },
+        "upset": {
+          "val": "主队主场捍卫尊严",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 1-3",
+          "correct": false
+        },
+        "conservative": {
+          "val": "负",
+          "correct": false
+        },
+        "half_full": {
+          "val": "负负 或 平负",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "1-2 或 0-2 或 1-1 (防冷)",
+          "correct": true
+        }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.08999999999999986,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": false
       }
     },
     {
@@ -1729,6 +2173,13 @@
           "val": "2-3 或 2-4 或 2-2",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "客胜",
+        "diff": 0.06000000000000005,
+        "recommendation": "主不败",
+        "is_correct": false
       }
     },
     {
@@ -1777,6 +2228,13 @@
           "val": "2-3 或 2-4 或 2-2",
           "correct": false
         }
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "客胜",
+        "diff": 0.21000000000000085,
+        "recommendation": "主不败",
+        "is_correct": true
       }
     },
     {
@@ -1801,12 +2259,12 @@
           "val": "平局拉锯之势",
           "correct": false
         },
-        "aggressive": {
-          "val": "比分 2-2",
-          "correct": false
-        },
         "upset": {
           "val": "分出胜负",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 2-2",
           "correct": false
         },
         "conservative": {
@@ -1825,198 +2283,13 @@
           "val": "2-2 或 0-0 或 2-3 (防冷)",
           "correct": true
         }
-      }
-    },
-    {
-      "match_id": "match_260719_203",
-      "league": "瑞超",
-      "home": "埃夫斯堡",
-      "away": "天狼星",
-      "date": "2026-07-20",
-      "actual_result": "埃夫斯堡 1-3 天狼星",
-      "is_correct": true,
-      "confidence": 79,
-      "predictions": {
-        "recommendation": {
-          "val": "客胜",
-          "correct": true
-        },
-        "primary_bet": {
-          "val": "客胜",
-          "correct": true
-        },
-        "mainstream": {
-          "val": "客队反客为主抢分",
-          "correct": true
-        },
-        "aggressive": {
-          "val": "比分 2-4",
-          "correct": false
-        },
-        "upset": {
-          "val": "主队主场捍卫尊严",
-          "correct": true
-        },
-        "conservative": {
-          "val": "负",
-          "correct": true
-        },
-        "half_full": {
-          "val": "负负 或 平负",
-          "correct": true
-        },
-        "over_under": {
-          "val": "大 2.5",
-          "correct": true
-        },
-        "most_likely_score": {
-          "val": "2-3 或 1-3 或 2-2 (防冷)",
-          "correct": true
-        }
-      }
-    },
-    {
-      "match_id": "match_260719_204",
-      "league": "瑞超",
-      "home": "哈尔姆斯",
-      "away": "赫根",
-      "date": "2026-07-20",
-      "actual_result": "哈尔姆斯 0-2 赫根",
-      "is_correct": true,
-      "confidence": 95,
-      "predictions": {
-        "recommendation": {
-          "val": "客胜",
-          "correct": true
-        },
-        "primary_bet": {
-          "val": "客胜",
-          "correct": true
-        },
-        "mainstream": {
-          "val": "客队反客为主抢分",
-          "correct": true
-        },
-        "aggressive": {
-          "val": "比分 1-2",
-          "correct": false
-        },
-        "upset": {
-          "val": "主队主场捍卫尊严",
-          "correct": false
-        },
-        "conservative": {
-          "val": "负",
-          "correct": true
-        },
-        "half_full": {
-          "val": "平负",
-          "correct": false
-        },
-        "over_under": {
-          "val": "大 2.5",
-          "correct": false
-        },
-        "most_likely_score": {
-          "val": "1-2",
-          "correct": false
-        }
-      }
-    },
-    {
-      "match_id": "match_260719_205",
-      "league": "瑞超",
-      "home": "哈马比",
-      "away": "代格福什",
-      "date": "2026-07-20",
-      "actual_result": "哈马比 4-0 代格福什",
-      "is_correct": true,
-      "confidence": 95,
-      "predictions": {
-        "recommendation": {
-          "val": "主胜",
-          "correct": true
-        },
-        "primary_bet": {
-          "val": "主胜",
-          "correct": true
-        },
-        "mainstream": {
-          "val": "主队主场全取三分",
-          "correct": true
-        },
-        "aggressive": {
-          "val": "比分 3-1",
-          "correct": false
-        },
-        "upset": {
-          "val": "客队防反爆冷抢分",
-          "correct": false
-        },
-        "conservative": {
-          "val": "胜",
-          "correct": true
-        },
-        "half_full": {
-          "val": "胜胜",
-          "correct": true
-        },
-        "over_under": {
-          "val": "大 2.5",
-          "correct": true
-        },
-        "most_likely_score": {
-          "val": "2-1",
-          "correct": false
-        }
-      }
-    },
-    {
-      "match_id": "match_260719_206",
-      "league": "芬超",
-      "home": "雅罗",
-      "away": "国际图尔",
-      "date": "2026-07-20",
-      "actual_result": "雅罗 0-0 国际图尔",
-      "is_correct": false,
-      "confidence": 79,
-      "predictions": {
-        "recommendation": {
-          "val": "客胜",
-          "correct": false
-        },
-        "primary_bet": {
-          "val": "客胜",
-          "correct": false
-        },
-        "mainstream": {
-          "val": "客队反客为主抢分",
-          "correct": false
-        },
-        "aggressive": {
-          "val": "比分 1-3",
-          "correct": false
-        },
-        "upset": {
-          "val": "主队主场捍卫尊严",
-          "correct": false
-        },
-        "conservative": {
-          "val": "负",
-          "correct": false
-        },
-        "half_full": {
-          "val": "负负 或 平负",
-          "correct": false
-        },
-        "over_under": {
-          "val": "大 2.5",
-          "correct": false
-        },
-        "most_likely_score": {
-          "val": "1-2 或 0-2 或 1-1 (防冷)",
-          "correct": true
-        }
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "平局",
+        "diff": 0.06000000000000005,
+        "recommendation": "分出胜负",
+        "is_correct": false
       }
     }
   ],
@@ -2808,5 +3081,10 @@
         }
       ]
     }
-  ]
+  ],
+  "radar_stats": {
+    "total_alerts": 39,
+    "correct_alerts": 23,
+    "accuracy_rate": 0.5897
+  }
 }

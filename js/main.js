@@ -238,6 +238,16 @@ const MatchIQ = (() => {
       console.error('[MatchIQ] Error rendering parlay history:', e);
     }
 
+    // ── Risk Radar History Section ──
+    try {
+      const radarHistoryContainer = document.getElementById('risk-radar-history-container');
+      if (radarHistoryContainer) {
+        radarHistoryContainer.innerHTML = MatchIQRender.renderRadarHistory(history);
+      }
+    } catch (e) {
+      console.error('[MatchIQ] Error rendering radar history:', e);
+    }
+
     // Init all charts after DOM is updated (only for upcoming/active matches)
     requestAnimationFrame(() => {
       try {
@@ -265,6 +275,14 @@ const MatchIQ = (() => {
     const bankrollInput = document.getElementById('kelly-bankroll-input');
     
     if (!ticker) return;
+
+    // Display cumulative radar accuracy
+    const accBadge = document.getElementById('risk-radar-accuracy-badge');
+    if (accBadge && state.history?.radar_stats) {
+      const stats = state.history.radar_stats;
+      const rate = (stats.accuracy_rate * 100).toFixed(1);
+      accBadge.innerHTML = `(预警累计准确率: ${rate}% / 已发 ${stats.total_alerts} 场)`;
+    }
     
     // 1. Process Risk Radar Alerts
     const alerts = [];

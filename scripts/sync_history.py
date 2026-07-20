@@ -217,6 +217,68 @@ def sync():
             "most_likely_score": {"val": conc.get("most_likely_score", "--"), "correct": mls_correct}
         }
         
+        # Calculate or sync radar alert correctness
+        alert = m.get("radar_alert")
+        if not alert:
+            odds = m.get("odds_analysis", {})
+            pinnacle = odds.get("pinnacle", {})
+            current = pinnacle.get("current")
+            initial = pinnacle.get("initial")
+            if current and initial:
+                oh, od, oa = current.get("home"), current.get("draw"), current.get("away")
+                ih, id_, ia = initial.get("home"), initial.get("draw"), initial.get("away")
+                if oh and od and oa and ih and id_ and ia:
+                    sentiment = odds.get("retail_sentiment", {})
+                    sh = sentiment.get("home_pct", 33.3) / 100
+                    sd = sentiment.get("draw_pct", 33.3) / 100
+                    sa = sentiment.get("away_pct", 33.3) / 100
+                    
+                    kh = oh * sh
+                    kd = od * sd
+                    ka = oa * sa
+                    
+                    diff_h = oh - ih
+                    diff_d = od - id_
+                    diff_a = oa - ia
+                    
+                    kellys = [
+                        {"label": "主胜", "val": kh, "diff": diff_h, "outcome": "H"},
+                        {"label": "平局", "val": kd, "diff": diff_d, "outcome": "D"},
+                        {"label": "客胜", "val": ka, "diff": diff_a, "outcome": "A"}
+                    ]
+                    kellys.sort(key=lambda x: x["val"], reverse=True)
+                    worst = kellys[0]
+                    
+                    if worst["diff"] <= -0.01:
+                        rec_outcome = worst["outcome"]
+                        rec_desc = f"{worst['label']}（庄家降水防范）"
+                        actual_outcome = "H" if is_home_win else "A" if is_away_win else "D"
+                        alert_is_correct = (actual_outcome == rec_outcome)
+                        alert = {
+                            "type": "protect",
+                            "target": worst["label"],
+                            "diff": worst["diff"],
+                            "recommendation": rec_desc,
+                            "is_correct": alert_is_correct
+                        }
+                    elif worst["diff"] >= 0.01:
+                        rec_desc = "客不败" if worst["outcome"] == "H" else "主不败" if worst["outcome"] == "A" else "分出胜负"
+                        actual_outcome = "H" if is_home_win else "A" if is_away_win else "D"
+                        alert_is_correct = False
+                        if worst["outcome"] == "H" and actual_outcome in ["D", "A"]:
+                            alert_is_correct = True
+                        elif worst["outcome"] == "A" and actual_outcome in ["H", "D"]:
+                            alert_is_correct = True
+                        elif worst["outcome"] == "D" and actual_outcome in ["H", "A"]:
+                            alert_is_correct = True
+                        alert = {
+                            "type": "trap",
+                            "target": worst["label"],
+                            "diff": worst["diff"],
+                            "recommendation": rec_desc,
+                            "is_correct": alert_is_correct
+                        }
+
         record = {
             "match_id": mid,
             "league": m["league"],
@@ -228,6 +290,8 @@ def sync():
             "confidence": uc.get("confidence", 0),
             "predictions": predictions_map
         }
+        if alert:
+            record["radar_alert"] = alert
         new_records.append(record)
         
     new_records.sort(key=lambda x: (x["date"], x["match_id"]))
@@ -237,10 +301,21 @@ def sync():
     history_db["correct_predictions"] = sum(1 for r in new_records if r["is_correct"])
     history_db["accuracy_rate"] = round(history_db["correct_predictions"] / history_db["total_predictions"], 4) if history_db["total_predictions"] > 0 else 0.0
     
+    # Calculate cumulative radar accuracy stats
+    radar_alerts = [r["radar_alert"] for r in new_records if r.get("radar_alert")]
+    radar_count = len(radar_alerts)
+    radar_correct = sum(1 for a in radar_alerts if a["is_correct"])
+    history_db["radar_stats"] = {
+        "total_alerts": radar_count,
+        "correct_alerts": radar_correct,
+        "accuracy_rate": round(radar_correct / radar_count, 4) if radar_count > 0 else 0.0
+    }
+    
     with open(history_path, "w", encoding="utf-8") as f:
         json.dump(history_db, f, ensure_ascii=False, indent=2)
         
     print(f"✅ Successfully synchronized history.json! Total predictions: {history_db['total_predictions']}, Correct: {history_db['correct_predictions']}, Accuracy: {history_db['accuracy_rate']}")
+    print(f"📊 Radar Stats: Total {radar_count}, Correct {radar_correct}, Accuracy {history_db['radar_stats']['accuracy_rate']}")
     return True
 
 if __name__ == "__main__":

@@ -1633,6 +1633,156 @@ const MatchIQRender = (() => {
     `;
   }
 
+  // Expose toggle function globally for radar history table collapsing
+  window.toggleOlderRadarHistory = function() {
+    const tbody = document.getElementById('radar-older-days-tbody');
+    const btn = document.getElementById('btn-toggle-older-radar-history');
+    if (!tbody || !btn) return;
+    const isHidden = tbody.style.display === 'none';
+    if (isHidden) {
+      tbody.style.display = 'table-row-group';
+      btn.innerHTML = '收起较旧的风控历史 ▴';
+    } else {
+      tbody.style.display = 'none';
+      const count = btn.getAttribute('data-count') || '0';
+      btn.innerHTML = `展开较旧的 4 日风控历史记录 (共 ${count} 场) ▾`;
+    }
+  };
+
+  function renderRadarHistory(historyData) {
+    const records = historyData?.records || [];
+    // Filter records that actually triggered a radar alert
+    const radarRecords = records.filter(r => r.radar_alert && r.radar_alert.type);
+    
+    if (radarRecords.length === 0) {
+      return `<div style="text-align:center;padding:40px;color:var(--text-3);border:1px dashed var(--border);border-radius:var(--radius)">暂无风控雷达预警历史记录</div>`;
+    }
+
+    // Group records by date
+    const groups = {};
+    radarRecords.forEach(r => {
+      const dateStr = r.date || '其他日期';
+      if (!groups[dateStr]) {
+        groups[dateStr] = [];
+      }
+      groups[dateStr].push(r);
+    });
+
+    // Get sorted unique dates (newest first)
+    const sortedDates = Object.keys(groups).sort((a, b) => new Date(b) - new Date(a));
+
+    // Limit to the most recent 5 days
+    const recent5Dates = sortedDates.slice(0, 5);
+
+    // Helper function to render table rows for a list of dates
+    function generateRadarRows(datesList) {
+      const rows = [];
+      datesList.forEach(date => {
+        // Date separator row
+        rows.push(`
+          <tr class="history-date-row">
+            <td colspan="5" style="text-align:left; font-weight:700; background:rgba(255,255,255,0.02); color:#ff3d00; padding:10px 16px; border-bottom:1px solid var(--border-subtle);">
+              📅 ${date}
+            </td>
+          </tr>
+        `);
+
+        // Match rows under this date
+        groups[date].forEach(r => {
+          const alert = r.radar_alert;
+          const isCorrect = alert.is_correct;
+          const diffStr = (alert.diff > 0 ? '+' : '') + alert.diff.toFixed(2);
+          
+          let alertBadge = '';
+          let alertDetails = '';
+          if (alert.type === 'protect') {
+            alertBadge = '<span style="color:#4caf50; background:rgba(76,175,80,0.08); border:1px solid rgba(76,175,80,0.25); padding:2px 6px; border-radius:4px; font-weight:700; font-size:11px; white-space:nowrap; display:inline-block;">🟢 降水保护</span>';
+            alertDetails = `散户爆买【${alert.target}】，庄家即时降水防范 (${diffStr})`;
+          } else {
+            alertBadge = '<span style="color:#ef4444; background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.25); padding:2px 6px; border-radius:4px; font-weight:700; font-size:11px; white-space:nowrap; display:inline-block;">🚨 资本诱盘</span>';
+            alertDetails = `散户热买【${alert.target}】，庄家反向阻尼升水 (${diffStr})`;
+          }
+
+          const statusBadge = isCorrect 
+            ? '<span style="color:#ef4444; background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.25); padding:2px 6px; border-radius:4px; font-weight:700; font-size:11px; white-space:nowrap; display:inline-block;">红 (命中)</span>'
+            : '<span style="color:#9ca3af; background:rgba(156,163,175,0.08); border:1px solid rgba(156,163,175,0.2); padding:2px 6px; border-radius:4px; font-weight:700; font-size:11px; white-space:nowrap; display:inline-block;">黑 (偏差)</span>';
+
+          rows.push(`
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:10px 16px; font-weight:600; white-space:nowrap; vertical-align:middle; text-align:center;"><span class="tag" style="border:1px solid rgba(255, 61, 0, 0.2); color:#ff3d00; background:rgba(255, 61, 0, 0.03); font-size:11px; padding:1px 6px; border-radius:4px;">${r.league || '--'}</span></td>
+              <td style="padding:10px 16px; text-align:left; white-space:nowrap; vertical-align:middle;">
+                <span style="font-weight:600; color:var(--text-1);">${r.home}</span> 
+                <span style="color:var(--text-4)">VS</span> 
+                <span style="font-weight:600; color:var(--text-1);">${r.away}</span>
+              </td>
+              <td style="padding:10px 16px; text-align:left; vertical-align:middle;">
+                <div style="margin-bottom:4px;">${alertBadge}</div>
+                <div style="font-size:12px; color:var(--text-2);">${alertDetails}</div>
+                <div style="font-size:11px; color:var(--text-3); margin-top:2px;">主推/防冷推荐: <span style="color:var(--cyan); font-weight:600;">${alert.recommendation}</span></div>
+              </td>
+              <td style="padding:10px 16px; white-space:nowrap; vertical-align:middle; text-align:center;">
+                <span style="font-weight:700; color:${isCorrect ? 'var(--green)' : 'var(--text-2)'};">${r.actual_result || '--'}</span>
+              </td>
+              <td style="padding:10px 16px; white-space:nowrap; vertical-align:middle; text-align:center;">${statusBadge}</td>
+            </tr>
+          `);
+        });
+      });
+      return rows.join('');
+    }
+
+    const activeDates = recent5Dates.slice(0, 1);
+    const olderDates = recent5Dates.slice(1, 5);
+
+    const activeRowsHTML = generateRadarRows(activeDates);
+    let olderRowsHTML = '';
+    let toggleBtnHTML = '';
+
+    if (olderDates.length > 0) {
+      let olderMatchCount = 0;
+      olderDates.forEach(d => {
+        olderMatchCount += groups[d].length;
+      });
+
+      olderRowsHTML = `
+        <tbody id="radar-older-days-tbody" style="display: none; border-top: 1px dashed var(--border-subtle);">
+          ${generateRadarRows(olderDates)}
+        </tbody>
+      `;
+
+      toggleBtnHTML = `
+        <div style="text-align: center; margin-top: 16px;">
+          <button id="btn-toggle-older-radar-history" class="btn-toggle-history" data-count="${olderMatchCount}" style="background: rgba(255, 61, 0, 0.05); border: 1px solid rgba(255, 61, 0, 0.2); color: #ff3d00; padding: 8px 24px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.2s;" onclick="window.toggleOlderRadarHistory()">
+            展开较旧的 4 日风控历史记录 (共 ${olderMatchCount} 场) ▾
+          </button>
+        </div>
+      `;
+    }
+
+    return `
+      <div style="width: 100%;">
+        <div style="width: 100%; overflow-x: auto; background:rgba(255,61,0,0.02); border:1px solid rgba(255,61,0,0.15); border-radius:12px; box-shadow:0 8px 32px rgba(0,0,0,0.1); backdrop-filter:blur(8px);">
+          <table class="history-table" style="width:100%; border-collapse:collapse; text-align:left; font-size:12.5px; color:var(--text-2);">
+            <thead>
+              <tr style="border-bottom:1px solid rgba(255,61,0,0.15); background:rgba(255,61,0,0.02); font-size:11px; text-transform:uppercase; color:var(--text-3); font-weight:700;">
+                <th style="padding:12px 16px; text-align:center; width:12%;">联赛</th>
+                <th style="padding:12px 16px; text-align:left; width:25%;">对阵</th>
+                <th style="padding:12px 16px; text-align:left; width:38%;">风控预警详情</th>
+                <th style="padding:12px 16px; text-align:center; width:13%;">实际赛果</th>
+                <th style="padding:12px 16px; text-align:center; width:12%;">红黑状态</th>
+              </tr>
+            </thead>
+            <tbody class="tbody-newest-days">
+              ${activeRowsHTML}
+            </tbody>
+            ${olderRowsHTML}
+          </table>
+        </div>
+        ${toggleBtnHTML}
+      </div>
+    `;
+  }
+
   return {
     renderUltimateCard,
     renderMatchCard,
@@ -1642,6 +1792,7 @@ const MatchIQRender = (() => {
     renderParlays,
     renderParlayHistory,
     renderSummaryTable,
+    renderRadarHistory,
     formatDate,
     formatTime
   };
