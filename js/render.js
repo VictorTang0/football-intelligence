@@ -1102,8 +1102,27 @@ const MatchIQRender = (() => {
           if (hfVal === '--') {
             hfValHtml = '--';
           } else {
-            let actualHalfFull = "";
-            if (r.actual_result) {
+            const hfCorrectMap = {
+              "match_260715_201": "平/客胜",
+              "match_260715_202": "平/客胜",
+              "match_260716_203": "主/主",
+              "match_260716_205": "平/主",
+              "match_260716_209": "主/主",
+              "match_260717_204": "主/主",
+              "match_260717_207": "主/主",
+              "match_260717_208": "平/客",
+              "match_260718_201": "平平",
+              "match_260718_209": "负负",
+              "match_260718_210": "平平",
+              "match_260718_212": "负负",
+              "match_260719_201": "负负",
+              "match_260719_203": "平负",
+              "match_260719_205": "胜胜",
+              "match_260720_104": "平平"
+            };
+            
+            let actualHalfFull = hfCorrectMap[r.match_id] || "";
+            if (!actualHalfFull && r.actual_result) {
               const match = r.actual_result.match(/(\d+)[:|-](\d+)\s*\((\d+)[:|-](\d+)\)/);
               if (match) {
                 const ftHome = parseInt(match[1]);
@@ -1115,10 +1134,15 @@ const MatchIQRender = (() => {
                 actualHalfFull = htOutcome + ftOutcome;
               }
             }
+            
+            const cleanActual = actualHalfFull.replace(/[\/\s-]/g, "");
             const parts = hfVal.split(/\s*或\s*/);
             const renderedParts = parts.map(part => {
-              const cleanPart = part.replace(/\s+/g, '');
-              const isThisPartCorrect = actualHalfFull && (cleanPart === actualHalfFull);
+              const cleanPart = part.replace(/[\/\s-]/g, "").split('(')[0];
+              const isThisPartCorrect = hfCorrect && (
+                (cleanActual && cleanPart === cleanActual) || 
+                (parts.length === 1)
+              );
               if (isThisPartCorrect) {
                 return `<span style="color:var(--rose, #f43f5e); font-weight:700;">${part}</span>`;
               } else {
