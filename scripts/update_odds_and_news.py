@@ -932,8 +932,34 @@ def apply_dynamic_team_stats(m):
     m["team_stats"]["home"]["form"] = forms[h_hash % len(forms)]
     m["team_stats"]["away"]["form"] = forms[a_hash % len(forms)]
     
-    m["team_stats"]["home"]["motivation"] = round(0.72 + (h_hash % 10) / 50.0, 2)
-    m["team_stats"]["away"]["motivation"] = round(0.68 + (a_hash % 10) / 50.0, 2)
+    # 根据主客队所在联赛名次区间计算动态战意数值，否则回退至哈希算法
+    h_std = m["team_stats"]["home"].get("standing", {})
+    if h_std and "zone" in h_std:
+        zone = h_std["zone"]
+        if zone == "安全晋级区":
+            m["team_stats"]["home"]["motivation"] = 0.72
+        elif zone == "晋级希望区":
+            m["team_stats"]["home"]["motivation"] = 0.85
+        elif zone == "晋级风险区":
+            m["team_stats"]["home"]["motivation"] = 0.95
+        elif zone == "晋级无望区":
+            m["team_stats"]["home"]["motivation"] = 0.45
+    else:
+        m["team_stats"]["home"]["motivation"] = round(0.72 + (h_hash % 10) / 50.0, 2)
+        
+    a_std = m["team_stats"]["away"].get("standing", {})
+    if a_std and "zone" in a_std:
+        zone = a_std["zone"]
+        if zone == "安全晋级区":
+            m["team_stats"]["away"]["motivation"] = 0.70
+        elif zone == "晋级希望区":
+            m["team_stats"]["away"]["motivation"] = 0.82
+        elif zone == "晋级风险区":
+            m["team_stats"]["away"]["motivation"] = 0.92
+        elif zone == "晋级无望区":
+            m["team_stats"]["away"]["motivation"] = 0.40
+    else:
+        m["team_stats"]["away"]["motivation"] = round(0.68 + (a_hash % 10) / 50.0, 2)
     
     form_notes = [
         "近期整体状态稳健，主场防御力强悍",

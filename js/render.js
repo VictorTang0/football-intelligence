@@ -169,6 +169,26 @@ const MatchIQRender = (() => {
     return `<span class="motivation-badge" style="border:1px solid ${border}; color:${color}; background:${bg}; font-size:10px; padding:1px 4px; border-radius:4px; margin-left:6px; font-weight:700; display:inline-block; vertical-align:middle;" title="战意说明: ${note}">🔥 战意:${val}%</span>`;
   }
 
+  function formatStandingBadge(team) {
+    const std = team?.standing;
+    if (!std || typeof std.rank === 'undefined') return '';
+    
+    let zoneColor = '#64748b'; // default gray
+    if (std.zone === '安全晋级区') zoneColor = '#10b981'; // emerald
+    else if (std.zone === '晋级希望区') zoneColor = '#00d4ff'; // cyber-cyan
+    else if (std.zone === '晋级风险区') zoneColor = '#f59e0b'; // amber
+    else if (std.zone === '晋级无望区') zoneColor = '#ef4444'; // red
+    
+    return `
+      <span class="standing-rank-badge" style="display:inline-flex; align-items:center; gap:2px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:4px; padding:1px 5px; font-size:10.5px; font-family:var(--font-mono); font-weight:700; color:var(--text-2); vertical-align:middle; margin:0 4px;">
+        <span style="color:var(--text-3); font-weight:normal;">#</span>${std.rank}
+      </span>
+      <span class="standing-zone-badge" style="display:inline-block; background:rgba(255,255,255,0.01); border:1px solid ${zoneColor}40; border-radius:4px; padding:1px 4px; font-size:10px; color:${zoneColor}; font-weight:700; vertical-align:middle; text-shadow:0 0 3px ${zoneColor}20;">
+        ${std.zone}
+      </span>
+    `;
+  }
+
   // ─── ULTIMATE CONCLUSION CARD ───
   function renderUltimateCard(match, teamTags, leagueProfiles) {
     const uc = match.ultimate_conclusion || {};
@@ -396,8 +416,40 @@ const MatchIQRender = (() => {
       `;
     };
 
+    const renderTeamStanding = (teamName, std) => {
+      if (!std || typeof std.rank === 'undefined') {
+        return `<div style="font-size:11px; color:var(--text-4); font-style:italic; padding:6px 0; text-align:center;">暂无联赛积分数据</div>`;
+      }
+      return `
+        <div style="display:grid; grid-template-columns:repeat(5, 1fr); gap:4px; text-align:center; font-family:var(--font-mono); font-size:11px; color:var(--text-2); padding:4px 0;">
+          <div>
+            <div style="font-size:9px; color:var(--text-3); text-transform:uppercase; margin-bottom:2px;">排名</div>
+            <div style="font-weight:700; color:#00d4ff;">#${std.rank}</div>
+          </div>
+          <div>
+            <div style="font-size:9px; color:var(--text-3); text-transform:uppercase; margin-bottom:2px;">场次</div>
+            <div style="font-weight:600;">${std.played}</div>
+          </div>
+          <div>
+            <div style="font-size:9px; color:var(--text-3); text-transform:uppercase; margin-bottom:2px;">胜/平/负</div>
+            <div style="font-weight:600; color:var(--text-1);">${std.won}/${std.drawn}/${std.lost}</div>
+          </div>
+          <div>
+            <div style="font-size:9px; color:var(--text-3); text-transform:uppercase; margin-bottom:2px;">得/失</div>
+            <div style="font-weight:600; font-size:10px;">${std.goals_for}/${std.goals_against}</div>
+          </div>
+          <div>
+            <div style="font-size:9px; color:var(--text-3); text-transform:uppercase; margin-bottom:2px;">积分</div>
+            <div style="font-weight:700; color:var(--accent-orange, #ff9800);">${std.points}</div>
+          </div>
+        </div>
+      `;
+    };
+
     const homeRecentHtml = renderTeamRecent(match.team_stats?.home?.name, homeRecent);
     const awayRecentHtml = renderTeamRecent(match.team_stats?.away?.name, awayRecent);
+    const homeStandingHtml = renderTeamStanding(match.team_stats?.home?.name, match.team_stats?.home?.standing);
+    const awayStandingHtml = renderTeamStanding(match.team_stats?.away?.name, match.team_stats?.away?.standing);
 
     return `
     <div class="mc-pane ${paneId === 'stats' ? 'active' : ''}" id="pane-${match.id}-stats">
@@ -424,16 +476,32 @@ const MatchIQRender = (() => {
           <!-- 第二部分：各自近期战绩 (双列并排) -->
           <div style="margin-top:12px; display:grid; grid-template-columns:1fr 1fr; gap:12px;">
             <div style="padding:10px; background:rgba(255,255,255,0.012); border:1px solid var(--border-subtle); border-radius:8px;">
-              <div style="font-size:11px; color:var(--text-3); font-weight:700; margin-bottom:8px; text-align:left; border-left:3px solid #ff5252; padding-left:6px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+              <div style="font-size:11px; color:var(--text-3); font-weight:700; margin-bottom:8px; text-align:left; border-left:3px solid #00d4ff; padding-left:6px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
                 ${match.team_stats?.home?.name || '主队'} 近期战绩
               </div>
               ${homeRecentHtml}
             </div>
             <div style="padding:10px; background:rgba(255,255,255,0.012); border:1px solid var(--border-subtle); border-radius:8px;">
-              <div style="font-size:11px; color:var(--text-3); font-weight:700; margin-bottom:8px; text-align:left; border-left:3px solid #40a9ff; padding-left:6px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+              <div style="font-size:11px; color:var(--text-3); font-weight:700; margin-bottom:8px; text-align:left; border-left:3px solid #ff3d00; padding-left:6px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
                 ${match.team_stats?.away?.name || '客队'} 近期战绩
               </div>
               ${awayRecentHtml}
+            </div>
+          </div>
+          
+          <!-- 第三部分：联赛积分排名 (双列并排) -->
+          <div style="margin-top:12px; display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+            <div style="padding:10px; background:rgba(255,255,255,0.012); border:1px solid var(--border-subtle); border-radius:8px;">
+              <div style="font-size:11px; color:var(--text-3); font-weight:700; margin-bottom:6px; text-align:left; border-left:3px solid #00d4ff; padding-left:6px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                ${match.team_stats?.home?.name || '主队'} 联赛排名
+              </div>
+              ${homeStandingHtml}
+            </div>
+            <div style="padding:10px; background:rgba(255,255,255,0.012); border:1px solid var(--border-subtle); border-radius:8px;">
+              <div style="font-size:11px; color:var(--text-3); font-weight:700; margin-bottom:6px; text-align:left; border-left:3px solid #ff3d00; padding-left:6px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                ${match.team_stats?.away?.name || '客队'} 联赛排名
+              </div>
+              ${awayStandingHtml}
             </div>
           </div>
         </div>
@@ -902,7 +970,7 @@ const MatchIQRender = (() => {
       <div class="mc-header">
         <div class="mc-team">
           <div class="mc-team-league"><span class="match-no-badge">${formatMatchNo(match.id)}</span>${match.league || ''}${leagueTag}${warningBadge}${updatedBadge}</div>
-          <div class="mc-team-name">${match.home || '主队'} ${formatMotivationBadge(home)}</div>
+          <div class="mc-team-name">${match.home || '主队'}${formatStandingBadge(home)} ${formatMotivationBadge(home)}</div>
           ${homeTagsHTML}
           <div class="mc-team-xg" style="margin-top:4px;">xG ${home.season_stats?.xg?.toFixed(1) || '--'} · 射门 ${home.season_stats?.shots_per_game || '--'}/场</div>
         </div>
@@ -915,7 +983,7 @@ const MatchIQRender = (() => {
         </div>
         <div class="mc-team away">
           <div class="mc-team-league">&nbsp;</div>
-          <div class="mc-team-name">${formatMotivationBadge(away)} ${match.away || '客队'}</div>
+          <div class="mc-team-name">${formatMotivationBadge(away)} ${formatStandingBadge(away)}${match.away || '客队'}</div>
           ${awayTagsHTML}
           <div class="mc-team-xg" style="margin-top:4px;">xG ${away.season_stats?.xg?.toFixed(1) || '--'} · 射门 ${away.season_stats?.shots_per_game || '--'}/场</div>
         </div>
