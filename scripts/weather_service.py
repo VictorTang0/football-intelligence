@@ -225,25 +225,38 @@ def fetch_live_weather(city, date_str):
         # Bypasses all connection/SSL/timeout errors silently to fallback to high-fidelity simulation
         return get_simulated_weather(city, date_str)
 
-def get_weather_impact_and_notes(condition):
+def get_weather_impact_and_notes(condition, home_team):
+    # 针对北欧联赛各队主场的草皮材质进行精准字典定义
+    PITCH_TYPES = {
+        "马尔默": "天然草皮",
+        "卡尔马": "天然草皮",
+        "佐加顿斯": "人工草皮",
+        "厄格里特": "人工草皮",
+        "坦山猫": "人工草皮",
+        "TPS图尔": "人工草皮",
+        "玛丽港": "人工草皮",
+        "拉赫蒂": "人工草皮"
+    }
+    pitch_type = PITCH_TYPES.get(home_team, "天然草皮")
+    
     if "雷" in condition:
         impact = "雷阵雨天气，会严重影响球员视线与地面传控配合，增加失误概率"
-        notes = "草皮可能积水或泛泥，滑倒与传球阻力变大"
+        notes = f"{pitch_type}积水湿滑，可能泛泥或导致皮球滞涩，滑倒与传球阻力变大"
     elif "大雨" in condition or "暴雨" in condition:
         impact = "大雨湿滑，防守落位和变向难度极大，战术上利好起球长传与突施冷箭远射"
-        notes = "草地排水负荷高，积水将阻碍球速与滑铲距离"
+        notes = f"{pitch_type}排水面临负荷挑战，局部积水将阻碍球速与滑铲距离"
     elif "雨" in condition or "毛毛雨" in condition:
         impact = "雨天路滑，皮球掠过草皮的运行速度显著加快，利好边路推进与远射"
-        notes = "草地湿滑，球员起跳和变向需防范打滑"
+        notes = f"{pitch_type}受雨水浸润较为湿滑，球员起跳和变向需防范打滑"
     elif "雪" in condition or "冰" in condition:
         impact = "降雪寒冷，球员手脚僵硬，极大影响技术动作的盘带精度"
-        notes = "草皮结冰或有少量浮雪，抓地力及鞋钉抓地性下降"
+        notes = f"{pitch_type}结冰或有少量浮雪，鞋钉抓地性及地表摩擦力显著下降"
     elif "雾" in condition:
         impact = "大雾笼罩能见度低下，阻碍长传精准度与高空球落点研判"
-        notes = "草皮表面附着大量露水，湿度接近饱和"
+        notes = f"{pitch_type}表面附着大量露水，湿度接近饱和，球体运行略有偏沉"
     else:
         impact = "天气良好无雨水干扰，两队可完全施展预定的战术配合"
-        notes = "草地状况极佳，平整度与弹性处于完美状态"
+        notes = f"{pitch_type}状况极佳，草皮平整度与弹性处于完美状态"
         
     return impact, notes
 
@@ -255,6 +268,7 @@ def update_all_pending_weather(database):
     updated = 0
     for m in database.get("matches", []):
         if m.get("status") == "pending":
+            home_team = m.get("home", "")
             city = m.get("city", m.get("home", "Turku"))
             kickoff = m.get("kickoff", "2026-07-20")
             
@@ -262,9 +276,9 @@ def update_all_pending_weather(database):
             weather = fetch_live_weather(city, kickoff)
             m["weather"] = weather
             
-            # Update intelligence fields dynamically to match weather condition
+            # Update intelligence fields dynamically to match weather condition and pitch type
             cond = weather.get("condition", "多云")
-            impact, notes = get_weather_impact_and_notes(cond)
+            impact, notes = get_weather_impact_and_notes(cond, home_team)
             
             if "intelligence" not in m:
                 m["intelligence"] = {}

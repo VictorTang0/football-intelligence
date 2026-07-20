@@ -409,6 +409,15 @@ def apply_dynamic_factor_scores(m):
     m04_home = round(m01_home - 0.2 + (h_hash % 5) * 0.1, 1)
     m04_away = round(m01_away - 0.2 + (a_hash % 5) * 0.1, 1)
     
+    # 恶劣天气对战术配合与中场推进效率的削减 (0.8 倍系数修饰)
+    w_cond = m.get("weather", {}).get("condition", "多云")
+    is_extreme_weather = any(cond in w_cond for cond in ["大雨", "暴雨", "雷阵雨", "雪"])
+    if is_extreme_weather:
+        m03_home = round(m03_home * 0.8, 1)
+        m03_away = round(m03_away * 0.8, 1)
+        m04_home = round(m04_home * 0.8, 1)
+        m04_away = round(m04_away * 0.8, 1)
+    
     # 5. Recent Form & Momentum (M05)
     home_form = m["team_stats"]["home"].get("form", ["W", "D", "L", "W", "D"])
     away_form = m["team_stats"]["away"].get("form", ["W", "D", "L", "W", "D"])
@@ -436,8 +445,32 @@ def apply_dynamic_factor_scores(m):
     m06_away = round(8.5 - (a_hash % 4) * 0.3, 1)
     
     # 7. Environment & Weather (M07)
-    m07_home = round(8.8 + (h_hash % 3) * 0.2, 1)
-    m07_away = round(7.8 + (a_hash % 3) * 0.2, 1)
+    venue_notes = m.get("intelligence", {}).get("venue_notes", "")
+    
+    h_env = 8.5
+    a_env = 7.5
+    
+    # 人工草皮适应性逻辑
+    is_home_artificial = "人工草皮" in venue_notes
+    is_away_accustomed_to_artificial = True
+    
+    away_name = m["team_stats"]["away"]["name"]
+    # 远离人工草皮并以天然草皮为主场的队伍（如马尔默、卡尔马）
+    if away_name in ["马尔默", "卡尔马"]:
+        is_away_accustomed_to_artificial = False
+        
+    if is_home_artificial:
+        h_env += 0.4  # 主队熟悉人工草皮，环境适应力加分
+        if not is_away_accustomed_to_artificial:
+            a_env -= 0.8  # 客队不习惯人工草皮，环境适应力扣分
+            
+    # 天气对适应力的影响
+    if "雨" in w_cond or "雪" in w_cond:
+        h_env -= 0.3  # 雨雪降温略微影响主队
+        a_env -= 0.6  # 客队作客环境更为恶劣，扣分加重
+        
+    m07_home = round(max(3.0, min(10.0, h_env)), 1)
+    m07_away = round(max(3.0, min(10.0, a_env)), 1)
     
     # 8. Motivation & Pressure (M08)
     m_h = m["team_stats"]["home"].get("motivation", 0.8)
