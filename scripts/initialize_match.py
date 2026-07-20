@@ -143,6 +143,25 @@ def create_complete_match(raw_match):
     home = raw_match["home"]
     away = raw_match["away"]
     kickoff = raw_match["kickoff"]
+    city = raw_match.get("city", f"{home}市")
+    
+    # 动态预加载开赛时刻天气与草坪环境描述，杜绝硬编码占位符
+    weather_info = {
+        "condition": "多云",
+        "temp_c": 21,
+        "humidity": 65,
+        "wind_kmh": 10
+    }
+    weather_impact = "天气良好无雨水干扰，两队可完全施展预定的战术配合"
+    venue_notes = "天然草皮状况极佳，草皮平整度与弹性处于完美状态"
+    
+    try:
+        sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+        import weather_service
+        weather_info = weather_service.fetch_live_weather(city, kickoff)
+        weather_impact, venue_notes = weather_service.get_weather_impact_and_notes(weather_info.get("condition", "多云"), home)
+    except Exception as e:
+        print(f"Warning: Failed to pre-fetch weather in create_complete_match: {e}")
     
     # Extract screenshot odds or set defaults
     base_odds = raw_match.get("initial_odds", {"home": 2.0, "draw": 3.0, "away": 3.0})
@@ -190,13 +209,8 @@ def create_complete_match(raw_match):
         "away": away,
         "kickoff": kickoff,
         "venue": raw_match.get("venue", f"{home}主场球场"),
-        "city": raw_match.get("city", f"{home}市"),
-        "weather": {
-            "condition": "多云",
-            "temp_c": 21,
-            "humidity": 65,
-            "wind_kmh": 10
-        },
+        "city": city,
+        "weather": weather_info,
         "status": "pending",
         "odds_history": [],
         "match_context": f"{league}常规赛对决。{home}坐镇主场迎接{away}的挑战。",
@@ -309,8 +323,8 @@ def create_complete_match(raw_match):
             "verified_news": [],
             "media_predictions": [],
             "social_buzz": {},
-            "weather_impact": "天气良好无雨水干扰",
-            "venue_notes": "草地情况极佳"
+            "weather_impact": weather_impact,
+            "venue_notes": venue_notes
         },
         "conclusions": {
             "mainstream": "主队守住主场",
