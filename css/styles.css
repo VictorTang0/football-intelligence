@@ -735,9 +735,8 @@ section { padding: clamp(32px, 5vw, 64px) 0; }
 
 /* ─── HISTORICAL RECORD CARD ─── */
 .history-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 350px), 1fr));
-  gap: var(--gap);
+  display: block;
+  width: 100%;
   margin-top: 24px;
 }
 .history-card {
