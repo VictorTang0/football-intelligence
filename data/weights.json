@@ -1,7 +1,7 @@
 {
-  "version": "v2.8",
-  "last_evolved": "2026-07-19T21:24:11.280571",
-  "total_matches_validated": 37,
+  "version": "v2.9",
+  "last_evolved": "2026-07-20T10:36:09.315780",
+  "total_matches_validated": 42,
   "overall_accuracy": 0.6,
   "factors": [
     {
@@ -120,7 +120,7 @@
   "experts": {
     "fundamental": {
       "name": "基本面专家",
-      "weight": 0.3918,
+      "weight": 0.4662,
       "dimensions": [
         "M01",
         "M02",
@@ -130,7 +130,7 @@
     },
     "narrative": {
       "name": "情报与战意专家",
-      "weight": 0.3951,
+      "weight": 0.3615,
       "dimensions": [
         "M03",
         "M04",
@@ -140,7 +140,7 @@
     },
     "odds_capital": {
       "name": "资金与赔率专家",
-      "weight": 0.2132,
+      "weight": 0.1723,
       "dimensions": []
     }
   },

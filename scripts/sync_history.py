@@ -2,7 +2,7 @@ import json
 import os
 import re
 
-base_dir = r"D:\GitHub File\football-intelligence"
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 matches_path = os.path.join(base_dir, "data", "matches.json")
 history_path = os.path.join(base_dir, "data", "history.json")
 

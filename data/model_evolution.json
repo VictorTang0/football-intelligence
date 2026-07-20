@@ -1,6 +1,6 @@
 {
-  "current_version": "v2.8",
-  "evolution_count": 12,
+  "current_version": "v2.9",
+  "evolution_count": 13,
   "snapshots": [
     {
       "version": "v1.0",
@@ -462,6 +462,32 @@
       "accuracy_before": 0.5405,
       "accuracy_after": 0.5405,
       "matches_validated": 37,
+      "weights_snapshot": {
+        "M01": 0.1993,
+        "M02": 0.1992,
+        "M03": 0.1992,
+        "M04": 0.1992,
+        "M05": 0.0013,
+        "M06": 0.1992,
+        "M07": 0.0013,
+        "M08": 0.0013
+      },
+      "significant_changes": [
+        {
+          "factor": "全局决策因子",
+          "change": "自动大校准",
+          "direction": "up",
+          "reason": "通过 20 轮贝叶斯梯度迭代训练，消除局部过拟合风险"
+        }
+      ]
+    },
+    {
+      "version": "v2.9",
+      "date": "2026-07-20",
+      "trigger": "模型2.0大校准：基于 42 场历史完赛数据批量演化",
+      "accuracy_before": 0.5714,
+      "accuracy_after": 0.5714,
+      "matches_validated": 42,
       "weights_snapshot": {
         "M01": 0.1993,
         "M02": 0.1992,
