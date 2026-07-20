@@ -103,9 +103,9 @@ def generate_realistic_h2h(home, away):
         half_score_str = f"{ht_h}-{ht_a}"
         
         if h_goals > a_goals:
-            outcome = "H" if is_home else "A"
+            outcome = "H"
         elif a_goals > h_goals:
-            outcome = "A" if is_home else "H"
+            outcome = "A"
         else:
             outcome = "D"
             
@@ -371,6 +371,17 @@ def main():
         with open(MATCHES_PATH, "w", encoding="utf-8") as f:
             json.dump(database, f, ensure_ascii=False, indent=2)
         print(f"\n🎉 Successfully initialized and saved {added_count} matches to matches.json!")
+        
+        # 自动触发排名积分补全系统，将其无缝集成到工作流 A 中
+        try:
+            import subprocess
+            scripts_dir = os.path.dirname(os.path.abspath(__file__))
+            enrich_path = os.path.join(scripts_dir, "enrich_standings.py")
+            if os.path.exists(enrich_path):
+                print("Running standing enrichment workflow...")
+                subprocess.run(["python3", enrich_path], check=True)
+        except Exception as e:
+            print(f"Warning: Failed to run standing enrichment: {e}")
     else:
         print("\nNo new matches were added.")
 
