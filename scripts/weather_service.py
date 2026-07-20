@@ -225,9 +225,32 @@ def fetch_live_weather(city, date_str):
         # Bypasses all connection/SSL/timeout errors silently to fallback to high-fidelity simulation
         return get_simulated_weather(city, date_str)
 
+def get_weather_impact_and_notes(condition):
+    if "雷" in condition:
+        impact = "雷阵雨天气，会严重影响球员视线与地面传控配合，增加失误概率"
+        notes = "草皮可能积水或泛泥，滑倒与传球阻力变大"
+    elif "大雨" in condition or "暴雨" in condition:
+        impact = "大雨湿滑，防守落位和变向难度极大，战术上利好起球长传与突施冷箭远射"
+        notes = "草地排水负荷高，积水将阻碍球速与滑铲距离"
+    elif "雨" in condition or "毛毛雨" in condition:
+        impact = "雨天路滑，皮球掠过草皮的运行速度显著加快，利好边路推进与远射"
+        notes = "草地湿滑，球员起跳和变向需防范打滑"
+    elif "雪" in condition or "冰" in condition:
+        impact = "降雪寒冷，球员手脚僵硬，极大影响技术动作的盘带精度"
+        notes = "草皮结冰或有少量浮雪，抓地力及鞋钉抓地性下降"
+    elif "雾" in condition:
+        impact = "大雾笼罩能见度低下，阻碍长传精准度与高空球落点研判"
+        notes = "草皮表面附着大量露水，湿度接近饱和"
+    else:
+        impact = "天气良好无雨水干扰，两队可完全施展预定的战术配合"
+        notes = "草地状况极佳，平整度与弹性处于完美状态"
+        
+    return impact, notes
+
 def update_all_pending_weather(database):
     """
-    Iterates through pending matches in the database and updates their weather blocks.
+    Iterates through pending matches in the database and updates their weather blocks,
+    while synchronizing weather impact and venue notes to prevent UI discrepancy.
     """
     updated = 0
     for m in database.get("matches", []):
@@ -238,8 +261,19 @@ def update_all_pending_weather(database):
             # Fetch hourly weather forecast at kickoff
             weather = fetch_live_weather(city, kickoff)
             m["weather"] = weather
+            
+            # Update intelligence fields dynamically to match weather condition
+            cond = weather.get("condition", "多云")
+            impact, notes = get_weather_impact_and_notes(cond)
+            
+            if "intelligence" not in m:
+                m["intelligence"] = {}
+            m["intelligence"]["weather_impact"] = impact
+            m["intelligence"]["venue_notes"] = notes
+            
             updated += 1
             print(f"  Weather updated for {m['home']} vs {m['away']} (KO: {kickoff}): {weather['condition']}, {weather['temp_c']}°C, Hum {weather['humidity']}%, Wind {weather['wind_kmh']}km/h")
+            print(f"    -> Impact: {impact} | Notes: {notes}")
             
     return updated
 
