@@ -333,18 +333,50 @@ const MatchIQ = (() => {
       const matchNo = m.id.replace('match_', 'No.');
       const matchDesc = `${m.home} vs ${m.away}`;
       
+      const diffStr = (worst.diff > 0 ? '+' : '') + worst.diff.toFixed(2);
       if (worst.diff <= protect_t) {
-        alerts.push(`<div style="margin-bottom:6px; color:#4caf50; font-size:12.5px;">🟢 <strong>${matchNo} ${matchDesc}</strong>: 散户爆买【${worst.label}】 庄家即时降水保护 (${worst.diff > 0 ? '+' : ''}${worst.diff.toFixed(2)})，主推方向可信度高！</div>`);
+        alerts.push(`
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 10px; text-align:center; font-weight:700; color:var(--text-3); font-size:14px;">${matchNo}</td>
+            <td style="padding:12px 10px; font-weight:600; color:var(--text-1); font-size:15px;">${m.home} <span style="color:var(--text-4); font-size:12px;">VS</span> ${m.away}</td>
+            <td style="padding:12px 10px; font-size:14.5px; font-weight:700; color:#4caf50; white-space:nowrap;">🟢 降水保护</td>
+            <td style="padding:12px 10px; font-size:14.5px; color:var(--text-2);">散户爆买【${worst.label}】，庄家即时降水防范 (${diffStr})</td>
+            <td style="padding:12px 10px; text-align:center; font-size:14.5px; font-weight:700; color:#4caf50; white-space:nowrap;">主推方向可信 (${worst.label})</td>
+          </tr>
+        `);
       } else if (worst.diff >= trap_t) {
-        const opp = worst.label === "主胜" ? "客队不败" : worst.label === "客胜" ? "主队不败" : "胜负手";
-        alerts.push(`<div style="margin-bottom:6px; color:#ff5252; font-size:12.5px;">🚨 <strong>${matchNo} ${matchDesc}</strong>: 散户热买【${worst.label}】 但庄家反向阻尼升水 (${worst.diff > 0 ? '+' : ''}${worst.diff.toFixed(2)})，触发<strong>【资本诱盘陷阱】</strong>警报，推荐走【${opp}】冷门！</div>`);
+        const opp = worst.label === "主胜" ? "客队不败" : worst.label === "客胜" ? "主队不败" : "分出胜负";
+        alerts.push(`
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 10px; text-align:center; font-weight:700; color:var(--text-3); font-size:14px;">${matchNo}</td>
+            <td style="padding:12px 10px; font-weight:600; color:var(--text-1); font-size:15px;">${m.home} <span style="color:var(--text-4); font-size:12px;">VS</span> ${m.away}</td>
+            <td style="padding:12px 10px; font-size:14.5px; font-weight:700; color:#ff5252; white-space:nowrap;">🚨 资本诱盘</td>
+            <td style="padding:12px 10px; font-size:14.5px; color:var(--text-2);">散户热买【${worst.label}】，庄家反向阻尼升水 (${diffStr})</td>
+            <td style="padding:12px 10px; text-align:center; font-size:14.5px; font-weight:700; color:#ff5252; white-space:nowrap;">防冷推荐: ${opp}</td>
+          </tr>
+        `);
       }
     });
     
     if (alerts.length > 0) {
-      ticker.innerHTML = alerts.join('');
+      ticker.innerHTML = `
+        <table style="width:100%; border-collapse:collapse; text-align:left; font-size:14.5px; margin-top:8px;">
+          <thead>
+            <tr style="border-bottom:1px solid rgba(255,61,0,0.15); color:var(--text-3); font-size:12.5px; font-weight:700; text-transform:uppercase;">
+              <th style="padding:8px; text-align:center; width:10%;">场次</th>
+              <th style="padding:8px; text-align:left; width:25%;">赛事对阵</th>
+              <th style="padding:8px; text-align:left; width:15%;">风控预警</th>
+              <th style="padding:8px; text-align:left; width:35%;">变盘与诱盘分析</th>
+              <th style="padding:8px; text-align:center; width:15%;">避险决策推荐</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${alerts.join('')}
+          </tbody>
+        </table>
+      `;
     } else {
-      ticker.innerHTML = `<span style="color:var(--text-4); font-style:italic; font-size:12.5px;">雷达检测中... 暂未发现触发变盘阀值异常的赛事</span>`;
+      ticker.innerHTML = `<span style="color:var(--text-4); font-style:italic; font-size:14.5px; display:block; padding:12px 0;">雷达检测中... 暂未发现触发变盘阀值异常的赛事</span>`;
     }
     
     // 2. Kelly Bet Sizer Calculations

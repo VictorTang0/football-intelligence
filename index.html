@@ -111,6 +111,20 @@
     ═════════════════════════════════════════════ -->
     <section id="ultimate-section" aria-labelledby="ultimate-heading">
       <div class="container">
+        
+        <!-- 💰 Compact Kelly Sizer Bar (Placed directly above today's matches) ── -->
+        <div class="bankroll-kelly-panel" style="margin-top: 12px; margin-bottom: 24px; padding: 12px 18px; background: rgba(0, 212, 255, 0.04); border: 1px solid rgba(0, 212, 255, 0.15); border-radius: 8px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+          <div style="font-size: 13px; color: var(--cyan); font-weight: 700; display: flex; align-items: center; gap: 6px;">
+            💰 凯利公式资金分配器 (Kelly Bet Calculator)
+          </div>
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <span style="font-size: 12.5px; color: var(--text-3);">当前可用本金:</span>
+            <input type="number" id="kelly-bankroll-input" value="100" placeholder="可用本金" style="width: 100px; padding: 5px 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; color: var(--text-1); font-family: var(--font-mono); font-size: 12.5px; outline: none;" />
+            <span style="font-size: 12.5px; color: var(--text-3);">元</span>
+            <button id="kelly-calc-btn" style="padding: 5px 14px; background: var(--cyan); color: #000; border: none; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.2s;" title="计算推荐投注额">计算资金量化</button>
+          </div>
+        </div>
+
         <div class="section-header">
           <div>
             <div class="section-eyebrow">终极推荐</div>
@@ -122,28 +136,14 @@
           <!-- Populated by JS -->
         </div>
 
-        <!-- ── Risk Radar & Bankroll Calculator Banner (Moved here) ── -->
-        <div class="risk-bankroll-banner" style="margin-top:24px; margin-bottom:12px; display:grid; grid-template-columns: 2fr 1.2fr; gap:16px;">
-          <!-- Risk Radar Panel -->
-          <div class="risk-radar-panel" style="padding:16px; background:rgba(255, 61, 0, 0.05); border:1px solid rgba(255, 61, 0, 0.2); border-radius:12px; box-shadow:0 0 15px rgba(255, 61, 0, 0.05); overflow:hidden;">
-            <div style="font-size:12px; color:#ff3d00; font-weight:700; margin-bottom:8px; text-transform:uppercase; letter-spacing:1px; display:flex; align-items:center; gap:6px;">
-              <span style="display:inline-block; width:8px; height:8px; background:#ff3d00; border-radius:50%; box-shadow:0 0 8px #ff3d00;" class="glow-pulse"></span>
-              🚨 异常赔付风控雷达 <span id="risk-radar-accuracy-badge" style="font-size:11px; color:#ff3d00; opacity:0.85; margin-left:4px;"></span>
-            </div>
-            <div id="risk-radar-ticker" style="font-size:13px; color:var(--text-1); line-height:1.6; height:45px; overflow-y:auto;">
-              <span style="color:var(--text-4); font-style:italic;">雷达检测中... 暂未发现触发变盘阀值异常的赛事</span>
-            </div>
+        <!-- ── Risk Radar Panel (Full Width, Table Format) ── -->
+        <div class="risk-radar-panel" style="margin-top: 24px; padding: 18px; background: rgba(255, 61, 0, 0.04); border: 1px solid rgba(255, 61, 0, 0.15); border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);">
+          <div style="font-size: 13px; color: #ff3d00; font-weight: 700; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 6px;">
+            <span style="display: inline-block; width: 8px; height: 8px; background: #ff3d00; border-radius: 50%; box-shadow: 0 0 8px #ff3d00;" class="glow-pulse"></span>
+            🚨 异常赔付风控雷达 <span id="risk-radar-accuracy-badge" style="font-size: 12px; color: #ff3d00; opacity: 0.85; margin-left: 6px; font-weight: 600;"></span>
           </div>
-          <!-- Bankroll & Kelly Calculator Panel -->
-          <div class="bankroll-kelly-panel" style="padding:16px; background:rgba(0, 212, 255, 0.05); border:1px solid rgba(0, 212, 255, 0.2); border-radius:12px; box-shadow:0 0 15px rgba(0, 212, 255, 0.05);">
-            <div style="font-size:12px; color:var(--cyan); font-weight:700; margin-bottom:8px; text-transform:uppercase; letter-spacing:1px;">
-              💰 凯利公式资金分配器 (Kelly Calculator)
-            </div>
-            <div style="display:flex; gap:8px; align-items:center;">
-              <input type="number" id="kelly-bankroll-input" value="100" placeholder="可用本金" style="width:100px; padding:6px 10px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.15); border-radius:6px; color:var(--text-1); font-family:var(--font-mono); font-size:13px; outline:none;" />
-              <span style="font-size:12px; color:var(--text-3);">元</span>
-              <button id="kelly-calc-btn" style="padding:6px 12px; background:var(--cyan); color:#000; border:none; border-radius:6px; font-size:12px; font-weight:700; cursor:pointer;" title="计算推荐投注额">计算资金量化</button>
-            </div>
+          <div id="risk-radar-ticker" style="width: 100%; overflow-x: auto;">
+            <span style="color: var(--text-4); font-style: italic; font-size: 14px;">雷达检测中... 暂未发现触发变盘阀值异常的赛事</span>
           </div>
         </div>
       </div>
