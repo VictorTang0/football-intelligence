@@ -5,6 +5,7 @@ import urllib.parse
 import ssl
 import random
 import re
+from datetime import datetime, timezone
 
 # Weather mapping for WMO codes
 WMO_CODE_MAP = {
@@ -30,7 +31,7 @@ def get_season(month):
 
 def get_simulated_weather(city, date_str):
     """
-    Generates realistic, deterministic weather based on city and kickoff date.
+    Generates realistic, deterministic weather based on city and kickoff date/hour.
     Uses hashing to ensure the generated weather is stable and repeatable.
     """
     # Deterministic seeding based on city and date
@@ -41,13 +42,18 @@ def get_simulated_weather(city, date_str):
     state = random.getstate()
     random.seed(seed_val)
     
-    # Extract month
+    # Extract month and hour
     month = 7
-    match = re.search(r'-(\d{2})-', date_str)
-    if match:
-        month = int(match.group(1))
+    hour = 19
+    match_m = re.search(r'-(\d{2})-', date_str)
+    if match_m:
+        month = int(match_m.group(1))
+    match_h = re.search(r'T(\d{2}):', date_str)
+    if match_h:
+        hour = int(match_h.group(1))
         
     season = get_season(month)
+    is_night = (hour < 7 or hour > 21)
     
     # City classification profiles
     # Northern Europe (Sweden, Norway, Finland)
@@ -67,28 +73,38 @@ def get_simulated_weather(city, date_str):
             humidity = random.randint(55, 85)
             wind = random.randint(8, 22)
             conditions = ["多云", "晴间多云", "晴朗", "小雨", "中雨"]
+            if is_night:
+                temp -= random.randint(4, 7)
+                humidity += random.randint(10, 15)
         elif season == "autumn" or season == "spring":
             temp = random.randint(4, 12)
             humidity = random.randint(70, 92)
             wind = random.randint(12, 28)
             conditions = ["阴天", "多云", "中雨", "雾"]
+            if is_night:
+                temp -= random.randint(3, 5)
         else: # winter
             temp = random.randint(-6, 3)
             humidity = random.randint(75, 95)
             wind = random.randint(15, 32)
             conditions = ["小雪", "中雪", "阴天", "雨夹雪"]
+            if is_night:
+                temp -= random.randint(2, 4)
     elif is_brazil:
-        # Southern hemisphere seasons are inverted, but Brazil is tropical/subtropical
         if month in [6, 7, 8]: # Winter in Brazil, milder
             temp = random.randint(18, 26)
             humidity = random.randint(50, 75)
             wind = random.randint(8, 18)
             conditions = ["晴朗", "晴间多云", "多云"]
+            if is_night:
+                temp -= random.randint(3, 6)
         else: # Hot and wet summer
             temp = random.randint(24, 32)
             humidity = random.randint(65, 90)
             wind = random.randint(10, 24)
             conditions = ["晴朗", "多云", "雷阵雨", "中雨"]
+            if is_night:
+                temp -= random.randint(2, 5)
     else:
         # Default temperate profile (Europe/US MLS)
         if season == "summer":
@@ -96,16 +112,22 @@ def get_simulated_weather(city, date_str):
             humidity = random.randint(50, 80)
             wind = random.randint(6, 18)
             conditions = ["晴朗", "多云", "晴间多云", "雷阵雨"]
+            if is_night:
+                temp -= random.randint(5, 8)
         elif season == "autumn" or season == "spring":
             temp = random.randint(10, 18)
             humidity = random.randint(60, 85)
             wind = random.randint(8, 22)
             conditions = ["多云", "阴天", "小雨"]
+            if is_night:
+                temp -= random.randint(3, 6)
         else:
             temp = random.randint(2, 10)
             humidity = random.randint(70, 90)
             wind = random.randint(10, 25)
             conditions = ["阴天", "小雨", "小雪"]
+            if is_night:
+                temp -= random.randint(2, 5)
             
     condition = random.choice(conditions)
     
@@ -114,17 +136,39 @@ def get_simulated_weather(city, date_str):
     
     return {
         "condition": condition,
-        "temp_c": temp,
-        "humidity": humidity,
+        "temp_c": max(-10, temp),
+        "humidity": min(100, humidity),
         "wind_kmh": wind
     }
 
+def parse_kickoff_to_utc_str(kickoff_str):
+    """
+    Converts any kickoff time string (with or without offset) into UTC YYYY-MM-DDTHH:00 format.
+    """
+    if kickoff_str.endswith("Z"):
+        kickoff_str = kickoff_str.replace("Z", "+00:00")
+    if not re.search(r'[+-]\d{2}:?\d{2}$', kickoff_str):
+        # Default to Beijing time (+08:00) if no timezone offset is present
+        kickoff_str += "+08:00"
+    
+    try:
+        dt = datetime.fromisoformat(kickoff_str)
+        dt_utc = dt.astimezone(timezone.utc)
+        return dt_utc.strftime("%Y-%m-%dT%H:00")
+    except Exception:
+        return None
+
 def fetch_live_weather(city, date_str):
     """
-    Tries to query Open-Meteo for live weather.
-    If it fails or SSL errors occur, returns simulated weather.
+    Tries to query Open-Meteo for hourly forecast at match kickoff hour.
+    If it fails, falls back to simulated weather.
     """
     try:
+        # Standardize kickoff date to UTC target hour string
+        target_utc_str = parse_kickoff_to_utc_str(date_str)
+        if not target_utc_str:
+            return get_simulated_weather(city, date_str)
+            
         # Setup context to bypass SSL validation errors commonly found in sandboxes
         ctx = ssl.create_default_context()
         ctx.check_hostname = False
@@ -135,7 +179,7 @@ def fetch_live_weather(city, date_str):
         geo_url = f"https://geocoding-api.open-meteo.com/v1/search?name={enc_city}&count=1&language=en&format=json"
         
         req = urllib.request.Request(geo_url, headers={'User-Agent': 'Mozilla/5.0'})
-        with urllib.request.urlopen(req, context=ctx, timeout=2.0) as resp:
+        with urllib.request.urlopen(req, context=ctx, timeout=2.5) as resp:
             geo_data = json.loads(resp.read().decode('utf-8'))
             
         results = geo_data.get("results")
@@ -145,23 +189,32 @@ def fetch_live_weather(city, date_str):
         lat = results[0]["latitude"]
         lon = results[0]["longitude"]
         
-        # Query current weather
-        weather_url = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m"
+        # Query hourly weather (Open-Meteo returns 7 days of hourly forecasts in UTC)
+        weather_url = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&hourly=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m"
         req_w = urllib.request.Request(weather_url, headers={'User-Agent': 'Mozilla/5.0'})
-        with urllib.request.urlopen(req_w, context=ctx, timeout=2.0) as resp_w:
+        with urllib.request.urlopen(req_w, context=ctx, timeout=2.5) as resp_w:
             w_data = json.loads(resp_w.read().decode('utf-8'))
             
-        current = w_data.get("current", {})
-        if not current:
+        hourly = w_data.get("hourly", {})
+        if not hourly or "time" not in hourly:
             return get_simulated_weather(city, date_str)
             
-        code = current.get("weather_code", 0)
-        temp = round(current.get("temperature_2m", 20.0))
-        hum = round(current.get("relative_humidity_2m", 60.0))
-        wind = round(current.get("wind_speed_10m", 10.0))
+        times = hourly["time"]
+        # Find index matching the kickoff hour in UTC
+        try:
+            idx = times.index(target_utc_str)
+        except ValueError:
+            # If kickoff is too far in future (> 7 days) or past, index won't be found
+            return get_simulated_weather(city, date_str)
+            
+        code = hourly["weather_code"][idx]
+        temp = round(hourly["temperature_2m"][idx])
+        hum = round(hourly["relative_humidity_2m"][idx])
+        wind = round(hourly["wind_speed_10m"][idx])
         
         condition = WMO_CODE_MAP.get(code, "多云")
         
+        print(f"  [API Success] Fetched weather for {city} at target UTC {target_utc_str}")
         return {
             "condition": condition,
             "temp_c": temp,
@@ -182,11 +235,11 @@ def update_all_pending_weather(database):
             city = m.get("city", m.get("home", "Turku"))
             kickoff = m.get("kickoff", "2026-07-20")
             
-            # Fetch weather (live with fallback to simulation)
+            # Fetch hourly weather forecast at kickoff
             weather = fetch_live_weather(city, kickoff)
             m["weather"] = weather
             updated += 1
-            print(f"  Weather updated for {m['home']} vs {m['away']} ({city}): {weather['condition']}, {weather['temp_c']}°C, Hum {weather['humidity']}%, Wind {weather['wind_kmh']}km/h")
+            print(f"  Weather updated for {m['home']} vs {m['away']} (KO: {kickoff}): {weather['condition']}, {weather['temp_c']}°C, Hum {weather['humidity']}%, Wind {weather['wind_kmh']}km/h")
             
     return updated
 
