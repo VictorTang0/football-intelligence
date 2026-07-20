@@ -1098,8 +1098,36 @@ const MatchIQRender = (() => {
             scoreValHtml = renderedParts.join(' <span style="color:var(--text-4)">或</span> ');
           }
           const scoreHtml = `<div style="white-space:nowrap;"><span style="color:var(--text-3);font-weight:500;">比分:</span> ${scoreValHtml}${scoreCorrect ? badgeRed : badgeBlack}</div>`;
-          
-          const hfHtml = `<div style="white-space:nowrap;"><span style="color:var(--text-3);font-weight:500;">半全:</span> <span style="font-weight:600; color:${hfCorrect ? 'var(--rose, #f43f5e)' : 'var(--text-2)'};">${hfVal}</span>${hfCorrect ? badgeRed : badgeBlack}</div>`;
+          let hfValHtml = "";
+          if (hfVal === '--') {
+            hfValHtml = '--';
+          } else {
+            let actualHalfFull = "";
+            if (r.actual_result) {
+              const match = r.actual_result.match(/(\d+)[:|-](\d+)\s*\((\d+)[:|-](\d+)\)/);
+              if (match) {
+                const ftHome = parseInt(match[1]);
+                const ftAway = parseInt(match[2]);
+                const htHome = parseInt(match[3]);
+                const htAway = parseInt(match[4]);
+                const htOutcome = htHome > htAway ? "胜" : htHome === htAway ? "平" : "负";
+                const ftOutcome = ftHome > ftAway ? "胜" : ftHome === ftAway ? "平" : "负";
+                actualHalfFull = htOutcome + ftOutcome;
+              }
+            }
+            const parts = hfVal.split(/\s*或\s*/);
+            const renderedParts = parts.map(part => {
+              const cleanPart = part.replace(/\s+/g, '');
+              const isThisPartCorrect = actualHalfFull && (cleanPart === actualHalfFull);
+              if (isThisPartCorrect) {
+                return `<span style="color:var(--rose, #f43f5e); font-weight:700;">${part}</span>`;
+              } else {
+                return `<span style="color:var(--text-2); font-weight:500;">${part}</span>`;
+              }
+            });
+            hfValHtml = renderedParts.join(' <span style="color:var(--text-4)">或</span> ');
+          }
+          const hfHtml = `<div style="white-space:nowrap;"><span style="color:var(--text-3);font-weight:500;">半全:</span> ${hfValHtml}${hfCorrect ? badgeRed : badgeBlack}</div>`;
           const goalsHtml = `<div style="white-space:nowrap;"><span style="color:var(--text-3);font-weight:500;">进球:</span> <span style="font-weight:600; color:${goalsCorrect ? 'var(--rose, #f43f5e)' : 'var(--text-2)'};">${goalsVal}</span>${goalsCorrect ? badgeRed : badgeBlack}</div>`;
 
           const detailsHTML = `
