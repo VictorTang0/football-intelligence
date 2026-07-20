@@ -448,6 +448,51 @@ def apply_dynamic_factor_scores(m):
     m08_home = round(max(2.0, min(10.0, h_mot)), 1)
     m08_away = round(max(2.0, min(10.0, a_mot)), 1)
     
+    # 9. Historical H2H & Psychological Dominance (M09)
+    h2h_matches = m.get("h2h", {}).get("last_5", [])
+    if not h2h_matches:
+        h2h_matches = m.get("head_to_head", {}).get("last_5", [])
+        
+    m09_home = 5.0
+    m09_away = 5.0
+    if h2h_matches:
+        home_points = 0
+        away_points = 0
+        valid_matches = 0
+        for game in h2h_matches:
+            g_home = game.get("home", "")
+            g_away = game.get("away", "")
+            g_outcome = game.get("outcome", "D")
+            
+            # Check if the past home is current home
+            past_home_is_curr_home = (g_home == home) or (home in g_home)
+            past_home_is_curr_away = (g_home == away) or (away in g_home)
+            past_away_is_curr_home = (g_away == home) or (home in g_away)
+            past_away_is_curr_away = (g_away == away) or (away in g_away)
+            
+            if (past_home_is_curr_home and past_away_is_curr_away) or (past_home_is_curr_away and past_away_is_curr_home):
+                valid_matches += 1
+                if g_outcome == "H":
+                    if past_home_is_curr_home:
+                        home_points += 3
+                    else:
+                        away_points += 3
+                elif g_outcome == "A":
+                    if past_away_is_curr_home:
+                        home_points += 3
+                    else:
+                        away_points += 3
+                else:
+                    home_points += 1
+                    away_points += 1
+                    
+        if valid_matches > 0:
+            max_pts = 3.0 * valid_matches
+            diff_pts = home_points - away_points
+            scale = 3.0 * (diff_pts / max_pts)
+            m09_home = round(5.0 + scale, 1)
+            m09_away = round(5.0 - scale, 1)
+
     m["factor_scores"] = {
         "M01_球队基础硬实力": {
             "home_score": m01_home,
@@ -496,6 +541,12 @@ def apply_dynamic_factor_scores(m):
             "away_score": m08_away,
             "weight": 0.13,
             "signal": f"{home if m08_home > m08_away else away}抢分战意更浓" if m08_home != m08_away else "均有抢分期望"
+        },
+        "M09_历史交锋与心理克制": {
+            "home_score": m09_home,
+            "away_score": m09_away,
+            "weight": 0.08,
+            "signal": f"{home if m09_home > m09_away else away}交锋占优" if m09_home != m09_away else "交锋势均力敌"
         }
     }
 
