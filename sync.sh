@@ -23,6 +23,7 @@ git add scripts/*.py 2>/dev/null
 git add UPDATE_GUIDE.md 2>/dev/null
 git add sync.sh 2>/dev/null
 git add sourcing_protocol.md 2>/dev/null
+git add assets/* 2>/dev/null
 
 # Create commit message with current timestamp
 TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
