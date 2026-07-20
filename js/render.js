@@ -933,18 +933,32 @@ const MatchIQRender = (() => {
   }
 
   // ─── HISTORY RECORDS SECTION ───
+  // Expose toggle function globally for history table collapsing
+  window.toggleOlderHistory = function() {
+    const tbody = document.getElementById('history-older-days-tbody');
+    const btn = document.getElementById('btn-toggle-older-history');
+    if (!tbody || !btn) return;
+    const isHidden = tbody.style.display === 'none';
+    if (isHidden) {
+      tbody.style.display = 'table-row-group';
+      btn.innerHTML = '收起较旧的历史记录 ▴';
+    } else {
+      tbody.style.display = 'none';
+      const count = btn.getAttribute('data-count') || '0';
+      btn.innerHTML = `展开较旧的 3 日历史记录 (共 ${count} 场) ▾`;
+    }
+  };
+
+  // ─── HISTORY RECORDS SECTION ───
   function renderHistoryRecords(historyData) {
     const records = historyData?.records || [];
     if (records.length === 0) {
       return `<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-3);border:1px dashed var(--border);border-radius:var(--radius)">暂无已完赛预测历史</div>`;
     }
 
-    // 只保留最近十场，按时间倒序排列
-    const recordsToShow = [...records].slice(-10).reverse();
-
     // Group records by date
     const groups = {};
-    recordsToShow.forEach(r => {
+    records.forEach(r => {
       const dateStr = r.date || '其他日期';
       if (!groups[dateStr]) {
         groups[dateStr] = [];
@@ -952,116 +966,156 @@ const MatchIQRender = (() => {
       groups[dateStr].push(r);
     });
 
-    // Generate table rows
-    // Generate table rows
-    const tbodyRows = [];
-    Object.keys(groups).sort((a, b) => new Date(b) - new Date(a)).forEach(date => {
-      // Date separator row
-      tbodyRows.push(`
-        <tr class="history-date-row">
-          <td colspan="5" style="text-align:left; font-weight:700; background:rgba(255,255,255,0.02); color:var(--cyan); padding:10px 16px; border-bottom:1px solid var(--border-subtle);">
-            📅 ${date}
-          </td>
-        </tr>
-      `);
+    // Get sorted unique dates (newest first)
+    const sortedDates = Object.keys(groups).sort((a, b) => new Date(b) - new Date(a));
 
-      // Match rows under this date
-      groups[date].forEach(r => {
-        const p = r.predictions || {};
-        const recommendationVal = p.recommendation?.val || r.prediction || '--';
-        const scoreVal = p.most_likely_score?.val || '--';
-        const hfVal = p.half_full?.val || '--';
-        const goalsVal = p.over_under?.val || '--';
+    // Limit to the most recent 5 days
+    const recent5Dates = sortedDates.slice(0, 5);
 
-        const recCorrect = p.recommendation ? !!p.recommendation.correct : r.is_correct;
-        const scoreCorrect = p.most_likely_score ? !!p.most_likely_score.correct : false;
-        const hfCorrect = p.half_full ? !!p.half_full.correct : false;
-        const goalsCorrect = p.over_under ? !!p.over_under.correct : false;
-
-        const badgeRed = '<span style="color:#ef4444; background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.25); padding:1px 4px; border-radius:3px; font-weight:bold; font-size:10px; margin-left:4px; display:inline-block; line-height:1;">红</span>';
-        const badgeBlack = '<span style="color:#9ca3af; background:rgba(156,163,175,0.08); border:1px solid rgba(156,163,175,0.2); padding:1px 4px; border-radius:3px; font-weight:bold; font-size:10px; margin-left:4px; display:inline-block; line-height:1;">黑</span>';
-
-        const recHtml = `<div style="white-space:nowrap;"><span style="color:var(--text-3);font-weight:500;">方向:</span> <span style="font-weight:600; color:${recCorrect ? 'var(--rose, #f43f5e)' : 'var(--text-2)'};">${recommendationVal}</span>${recCorrect ? badgeRed : badgeBlack}</div>`;
-        
-        // Render score HTML with itemized highlighting
-        let scoreValHtml = "";
-        if (scoreVal === '--') {
-          scoreValHtml = '--';
-        } else {
-          let actualScoreStr = "";
-          if (r.actual_result) {
-            const match = r.actual_result.replace(/\s*:\s*/g, '-').match(/\d+-\d+/);
-            if (match) {
-              actualScoreStr = match[0];
-            }
-          }
-          const parts = scoreVal.split(/\s*或\s*/);
-          const renderedParts = parts.map(part => {
-            const cleanPart = part.replace(/\s+/g, '').split('(')[0];
-            const isThisPartCorrect = actualScoreStr && (cleanPart === actualScoreStr);
-            if (isThisPartCorrect) {
-              return `<span style="color:var(--rose, #f43f5e); font-weight:700;">${part}</span>`;
-            } else {
-              return `<span style="color:var(--text-2); font-weight:500;">${part}</span>`;
-            }
-          });
-          scoreValHtml = renderedParts.join(' <span style="color:var(--text-4)">或</span> ');
-        }
-        const scoreHtml = `<div style="white-space:nowrap;"><span style="color:var(--text-3);font-weight:500;">比分:</span> ${scoreValHtml}${scoreCorrect ? badgeRed : badgeBlack}</div>`;
-        
-        const hfHtml = `<div style="white-space:nowrap;"><span style="color:var(--text-3);font-weight:500;">半全:</span> <span style="font-weight:600; color:${hfCorrect ? 'var(--rose, #f43f5e)' : 'var(--text-2)'};">${hfVal}</span>${hfCorrect ? badgeRed : badgeBlack}</div>`;
-        const goalsHtml = `<div style="white-space:nowrap;"><span style="color:var(--text-3);font-weight:500;">进球:</span> <span style="font-weight:600; color:${goalsCorrect ? 'var(--rose, #f43f5e)' : 'var(--text-2)'};">${goalsVal}</span>${goalsCorrect ? badgeRed : badgeBlack}</div>`;
-
-        const detailsHTML = `
-          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:2px 12px; text-align:left; font-size:12px; line-height:1.2; padding:0; width:100%; min-width:220px;">
-            ${recHtml}
-            ${scoreHtml}
-            ${hfHtml}
-            ${goalsHtml}
-          </div>
-        `;
-        
-        // Red/Black Status (win means actual is correct)
-        const statusBadge = r.is_correct 
-          ? '<span style="color:#ef4444; background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.25); padding:2px 6px; border-radius:4px; font-weight:700; font-size:11px; white-space:nowrap; display:inline-block;">红 (命中)</span>'
-          : '<span style="color:#9ca3af; background:rgba(156,163,175,0.08); border:1px solid rgba(156,163,175,0.2); padding:2px 6px; border-radius:4px; font-weight:700; font-size:11px; white-space:nowrap; display:inline-block;">黑 (偏差)</span>';
-
-        tbodyRows.push(`
-          <tr style="border-bottom:1px solid var(--border-subtle);">
-            <td style="padding:4px 8px; font-weight:600; white-space:nowrap; vertical-align:middle; text-align:center;"><span class="tag" style="border:1px solid rgba(0, 212, 255, 0.2); color:var(--cyan); background:rgba(0, 212, 255, 0.03); font-size:11px; padding:1px 6px; border-radius:4px;">${r.league || '--'}</span></td>
-            <td style="padding:4px 8px; text-align:left; white-space:nowrap; vertical-align:middle;">
-              <span style="font-weight:600; color:var(--text-1);">${r.home}</span> 
-              <span style="color:var(--text-4)">VS</span> 
-              <span style="font-weight:600; color:var(--text-1);">${r.away}</span>
+    // Helper function to render table rows for a list of dates
+    function generateRowsForDates(datesList) {
+      const rows = [];
+      datesList.forEach(date => {
+        // Date separator row
+        rows.push(`
+          <tr class="history-date-row">
+            <td colspan="5" style="text-align:left; font-weight:700; background:rgba(255,255,255,0.02); color:var(--cyan); padding:10px 16px; border-bottom:1px solid var(--border-subtle);">
+              📅 ${date}
             </td>
-            <td style="padding:4px 8px; text-align:left; white-space:normal; vertical-align:middle;">
-              ${detailsHTML}
-            </td>
-            <td style="padding:4px 8px; white-space:nowrap; vertical-align:middle; text-align:center;">
-              <span style="font-weight:700; color:${r.is_correct ? 'var(--green)' : 'var(--text-2)'};">${r.actual_result || '--'}</span>
-            </td>
-            <td style="padding:4px 8px; white-space:nowrap; vertical-align:middle; text-align:center;">${statusBadge}</td>
           </tr>
         `);
+
+        // Match rows under this date
+        groups[date].forEach(r => {
+          const p = r.predictions || {};
+          const recommendationVal = p.recommendation?.val || r.prediction || '--';
+          const scoreVal = p.most_likely_score?.val || '--';
+          const hfVal = p.half_full?.val || '--';
+          const goalsVal = p.over_under?.val || '--';
+
+          const recCorrect = p.recommendation ? !!p.recommendation.correct : r.is_correct;
+          const scoreCorrect = p.most_likely_score ? !!p.most_likely_score.correct : false;
+          const hfCorrect = p.half_full ? !!p.half_full.correct : false;
+          const goalsCorrect = p.over_under ? !!p.over_under.correct : false;
+
+          const badgeRed = '<span style="color:#ef4444; background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.25); padding:1px 4px; border-radius:3px; font-weight:bold; font-size:10px; margin-left:4px; display:inline-block; line-height:1;">红</span>';
+          const badgeBlack = '<span style="color:#9ca3af; background:rgba(156,163,175,0.08); border:1px solid rgba(156,163,175,0.2); padding:1px 4px; border-radius:3px; font-weight:bold; font-size:10px; margin-left:4px; display:inline-block; line-height:1;">黑</span>';
+
+          const recHtml = `<div style="white-space:nowrap;"><span style="color:var(--text-3);font-weight:500;">方向:</span> <span style="font-weight:600; color:${recCorrect ? 'var(--rose, #f43f5e)' : 'var(--text-2)'};">${recommendationVal}</span>${recCorrect ? badgeRed : badgeBlack}</div>`;
+          
+          // Render score HTML with itemized highlighting
+          let scoreValHtml = "";
+          if (scoreVal === '--') {
+            scoreValHtml = '--';
+          } else {
+            let actualScoreStr = "";
+            if (r.actual_result) {
+              const match = r.actual_result.replace(/\s*:\s*/g, '-').match(/\d+-\d+/);
+              if (match) {
+                actualScoreStr = match[0];
+              }
+            }
+            const parts = scoreVal.split(/\s*或\s*/);
+            const renderedParts = parts.map(part => {
+              const cleanPart = part.replace(/\s+/g, '').split('(')[0];
+              const isThisPartCorrect = actualScoreStr && (cleanPart === actualScoreStr);
+              if (isThisPartCorrect) {
+                return `<span style="color:var(--rose, #f43f5e); font-weight:700;">${part}</span>`;
+              } else {
+                return `<span style="color:var(--text-2); font-weight:500;">${part}</span>`;
+              }
+            });
+            scoreValHtml = renderedParts.join(' <span style="color:var(--text-4)">或</span> ');
+          }
+          const scoreHtml = `<div style="white-space:nowrap;"><span style="color:var(--text-3);font-weight:500;">比分:</span> ${scoreValHtml}${scoreCorrect ? badgeRed : badgeBlack}</div>`;
+          
+          const hfHtml = `<div style="white-space:nowrap;"><span style="color:var(--text-3);font-weight:500;">半全:</span> <span style="font-weight:600; color:${hfCorrect ? 'var(--rose, #f43f5e)' : 'var(--text-2)'};">${hfVal}</span>${hfCorrect ? badgeRed : badgeBlack}</div>`;
+          const goalsHtml = `<div style="white-space:nowrap;"><span style="color:var(--text-3);font-weight:500;">进球:</span> <span style="font-weight:600; color:${goalsCorrect ? 'var(--rose, #f43f5e)' : 'var(--text-2)'};">${goalsVal}</span>${goalsCorrect ? badgeRed : badgeBlack}</div>`;
+
+          const detailsHTML = `
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:2px 12px; text-align:left; font-size:12px; line-height:1.2; padding:0; width:100%; min-width:220px;">
+              ${recHtml}
+              ${scoreHtml}
+              ${hfHtml}
+              ${goalsHtml}
+            </div>
+          `;
+          
+          // Red/Black Status (win means actual is correct)
+          const statusBadge = r.is_correct 
+            ? '<span style="color:#ef4444; background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.25); padding:2px 6px; border-radius:4px; font-weight:700; font-size:11px; white-space:nowrap; display:inline-block;">红 (命中)</span>'
+            : '<span style="color:#9ca3af; background:rgba(156,163,175,0.08); border:1px solid rgba(156,163,175,0.2); padding:2px 6px; border-radius:4px; font-weight:700; font-size:11px; white-space:nowrap; display:inline-block;">黑 (偏差)</span>';
+
+          rows.push(`
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:4px 8px; font-weight:600; white-space:nowrap; vertical-align:middle; text-align:center;"><span class="tag" style="border:1px solid rgba(0, 212, 255, 0.2); color:var(--cyan); background:rgba(0, 212, 255, 0.03); font-size:11px; padding:1px 6px; border-radius:4px;">${r.league || '--'}</span></td>
+              <td style="padding:4px 8px; text-align:left; white-space:nowrap; vertical-align:middle;">
+                <span style="font-weight:600; color:var(--text-1);">${r.home}</span> 
+                <span style="color:var(--text-4)">VS</span> 
+                <span style="font-weight:600; color:var(--text-1);">${r.away}</span>
+              </td>
+              <td style="padding:4px 8px; text-align:left; white-space:normal; vertical-align:middle;">
+                ${detailsHTML}
+              </td>
+              <td style="padding:4px 8px; white-space:nowrap; vertical-align:middle; text-align:center;">
+                <span style="font-weight:700; color:${r.is_correct ? 'var(--green)' : 'var(--text-2)'};">${r.actual_result || '--'}</span>
+              </td>
+              <td style="padding:4px 8px; white-space:nowrap; vertical-align:middle; text-align:center;">${statusBadge}</td>
+            </tr>
+          `);
+        });
       });
-    });
+      return rows.join('');
+    }
+
+    const activeDates = recent5Dates.slice(0, 2);
+    const olderDates = recent5Dates.slice(2, 5);
+
+    const activeRowsHTML = generateRowsForDates(activeDates);
+    let olderRowsHTML = '';
+    let toggleBtnHTML = '';
+
+    if (olderDates.length > 0) {
+      let olderMatchCount = 0;
+      olderDates.forEach(d => {
+        olderMatchCount += groups[d].length;
+      });
+
+      olderRowsHTML = `
+        <tbody id="history-older-days-tbody" style="display: none; border-top: 1px dashed var(--border-subtle);">
+          ${generateRowsForDates(olderDates)}
+        </tbody>
+      `;
+
+      toggleBtnHTML = `
+        <div style="text-align: center; margin-top: 16px;">
+          <button id="btn-toggle-older-history" class="btn-toggle-history" data-count="${olderMatchCount}" style="background: rgba(0, 212, 255, 0.05); border: 1px solid rgba(0, 212, 255, 0.2); color: var(--cyan); padding: 8px 24px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.2s;" onclick="window.toggleOlderHistory()">
+            展开较旧的 3 日历史记录 (共 ${olderMatchCount} 场) ▾
+          </button>
+        </div>
+      `;
+    }
 
     return `
-      <div style="grid-column: 1 / -1; width: 100%; overflow-x: auto; background:rgba(13,21,39,0.3); border:1px solid var(--border-subtle); border-radius:12px; box-shadow:0 8px 32px rgba(0,0,0,0.2); backdrop-filter:blur(8px);">
-        <table class="history-table" style="width:100%; border-collapse:collapse; text-align:left; font-size:12.5px; color:var(--text-2);">
-          <thead>
-            <tr style="border-bottom:1px solid var(--border-subtle); background:rgba(255,255,255,0.02); font-size:11px; text-transform:uppercase; color:var(--text-3); font-weight:700;">
-              <th style="padding:12px 16px; text-align:center;">联赛</th>
-              <th style="padding:12px 16px; text-align:left;">对阵</th>
-              <th style="padding:12px 16px; text-align:left;">预测内容</th>
-              <th style="padding:12px 16px; text-align:center;">实际赛果</th>
-              <th style="padding:12px 16px; text-align:center;">红黑状态</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${tbodyRows.join('')}
-          </tbody>
-        </table>
+      <div style="grid-column: 1 / -1; width: 100%;">
+        <div style="width: 100%; overflow-x: auto; background:rgba(13,21,39,0.3); border:1px solid var(--border-subtle); border-radius:12px; box-shadow:0 8px 32px rgba(0,0,0,0.2); backdrop-filter:blur(8px);">
+          <table class="history-table" style="width:100%; border-collapse:collapse; text-align:left; font-size:12.5px; color:var(--text-2);">
+            <thead>
+              <tr style="border-bottom:1px solid var(--border-subtle); background:rgba(255,255,255,0.02); font-size:11px; text-transform:uppercase; color:var(--text-3); font-weight:700;">
+                <th style="padding:12px 16px; text-align:center;">联赛</th>
+                <th style="padding:12px 16px; text-align:left;">对阵</th>
+                <th style="padding:12px 16px; text-align:left;">预测内容</th>
+                <th style="padding:12px 16px; text-align:center;">实际赛果</th>
+                <th style="padding:12px 16px; text-align:center;">红黑状态</th>
+              </tr>
+            </thead>
+            <tbody class="tbody-newest-days">
+              ${activeRowsHTML}
+            </tbody>
+            ${olderRowsHTML}
+          </table>
+        </div>
+        ${toggleBtnHTML}
       </div>
     `;
   }
