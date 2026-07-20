@@ -10,7 +10,7 @@ const MatchIQCharts = (() => {
     color: {
       cyan:    '#00d4ff',
       indigo:  '#6366f1',
-      purple:  '#8b5cf6',
+      purple:  '#ff3d00',
       green:   '#10b981',
       amber:   '#f59e0b',
       red:     '#ef4444',
@@ -59,7 +59,7 @@ const MatchIQCharts = (() => {
             label: awayName,
             data: awayData,
             borderColor: DEFAULTS.color.purple,
-            backgroundColor: 'rgba(139,92,246,0.12)',
+            backgroundColor: 'rgba(255,61,0,0.12)',
             borderWidth: 2,
             pointBackgroundColor: DEFAULTS.color.purple,
             pointRadius: 3,
@@ -366,8 +366,8 @@ const MatchIQCharts = (() => {
           { label: '主即', data: homeCurrent, backgroundColor: 'rgba(0,212,255,0.7)', borderColor: DEFAULTS.color.cyan, borderWidth: 1, borderRadius: 3 },
           { label: '平初', data: drawInitial, backgroundColor: 'rgba(245,158,11,0.3)', borderColor: DEFAULTS.color.amber, borderWidth: 1, borderRadius: 3 },
           { label: '平即', data: drawCurrent, backgroundColor: 'rgba(245,158,11,0.7)', borderColor: DEFAULTS.color.amber, borderWidth: 1, borderRadius: 3 },
-          { label: '客初', data: awayInitial, backgroundColor: 'rgba(139,92,246,0.3)', borderColor: DEFAULTS.color.purple, borderWidth: 1, borderRadius: 3 },
-          { label: '客即', data: awayCurrent, backgroundColor: 'rgba(139,92,246,0.7)', borderColor: DEFAULTS.color.purple, borderWidth: 1, borderRadius: 3 },
+          { label: '客初', data: awayInitial, backgroundColor: 'rgba(255,61,0,0.3)', borderColor: DEFAULTS.color.purple, borderWidth: 1, borderRadius: 3 },
+          { label: '客即', data: awayCurrent, backgroundColor: 'rgba(255,61,0,0.7)', borderColor: DEFAULTS.color.purple, borderWidth: 1, borderRadius: 3 },
         ]
       },
       options: {
