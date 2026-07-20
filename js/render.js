@@ -200,7 +200,7 @@ const MatchIQRender = (() => {
         profile = leagueProfiles[matchedKey];
       }
     }
-    const leagueTag = profile ? `<span class="league-profile-badge" style="border:1px solid rgba(0, 188, 212, 0.4); color:#00bcd4; background:rgba(0, 188, 212, 0.08); font-size:10px; padding:1px 4px; border-radius:4px; margin-left:6px; font-weight:700; cursor:help;" title="联赛特征: ${profile.characteristics}">📊 ${profile.name} 特征</span>` : '';
+    const leagueTag = profile ? `<span class="league-profile-badge" data-tooltip="<strong>${profile.name} 联赛特征：</strong><br>${profile.characteristics}" style="border:1px solid rgba(0, 188, 212, 0.4); color:#00bcd4; background:rgba(0, 188, 212, 0.08); font-size:10px; padding:1px 4px; border-radius:4px; margin-left:6px; font-weight:700; cursor:help;">📊 ${profile.name} 特征</span>` : '';
 
     return `
     <div class="ultimate-card ${rClass} animate-in" id="uc-${match.id}">
@@ -798,7 +798,7 @@ const MatchIQRender = (() => {
         profile = leagueProfiles[matchedKey];
       }
     }
-    const leagueTag = profile ? `<span class="league-profile-badge" style="border:1px solid rgba(0, 188, 212, 0.4); color:#00bcd4; background:rgba(0, 188, 212, 0.08); font-size:10px; padding:1px 4px; border-radius:4px; margin-left:6px; font-weight:700; cursor:help;" title="联赛特征: ${profile.characteristics}">📊 ${profile.name} 特征</span>` : '';
+    const leagueTag = profile ? `<span class="league-profile-badge" data-tooltip="<strong>${profile.name} 联赛特征：</strong><br>${profile.characteristics}" style="border:1px solid rgba(0, 188, 212, 0.4); color:#00bcd4; background:rgba(0, 188, 212, 0.08); font-size:10px; padding:1px 4px; border-radius:4px; margin-left:6px; font-weight:700; cursor:help;">📊 ${profile.name} 特征</span>` : '';
 
     return `
     <div class="match-card animate-in" id="card-${match.id}">

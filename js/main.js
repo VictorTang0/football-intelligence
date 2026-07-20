@@ -417,7 +417,7 @@ const MatchIQ = (() => {
     runKellyCalculations();
   }
 
-  function getAdjustedWeights(match, weightsData, teamTags, tagsConfig) {
+  function getAdjustedWeights(match, weightsData, teamTags, tagsConfig, leagueProfiles) {
     if (!weightsData) return null;
     const factors = (weightsData.factors || []).map(f => ({ ...f }));
     const tagConfigMap = {};
@@ -460,6 +460,23 @@ const MatchIQ = (() => {
       });
     });
 
+    // Apply league profile modifiers (M01-M08)
+    const leagueName = match.league || '';
+    if (leagueProfiles && leagueName) {
+      const matchedKey = Object.keys(leagueProfiles).find(k => leagueName.includes(k) || k.includes(leagueName));
+      if (matchedKey) {
+        const profile = leagueProfiles[matchedKey];
+        if (profile.modifiers) {
+          Object.entries(profile.modifiers).forEach(([fid, multiplier]) => {
+            const factor = factors.find(f => f.id === fid);
+            if (factor) {
+              factor.weight *= multiplier;
+            }
+          });
+        }
+      }
+    }
+
     const totalWeight = factors.reduce((sum, f) => sum + f.weight, 0);
     if (totalWeight > 0) {
       factors.forEach(f => {
@@ -485,7 +502,7 @@ const MatchIQ = (() => {
 
 
       // Factor chart (first match only or all)
-      const adjW = getAdjustedWeights(match, weights, state.teamTags, state.tagsConfig);
+      const adjW = getAdjustedWeights(match, weights, state.teamTags, state.tagsConfig, state.leagueProfiles);
       MatchIQCharts.initFactorChart(`factor-chart-${match.id}`, {}, adjW);
     });
 
@@ -570,7 +587,7 @@ const MatchIQ = (() => {
               // No odds chart needed
 
             } else if (tabName === 'factors') {
-              const adjW = getAdjustedWeights(match, state.weights, state.teamTags, state.tagsConfig);
+              const adjW = getAdjustedWeights(match, state.weights, state.teamTags, state.tagsConfig, state.leagueProfiles);
               MatchIQCharts.initFactorChart(`factor-chart-${matchId}`, {}, adjW);
             }
           }, 50);

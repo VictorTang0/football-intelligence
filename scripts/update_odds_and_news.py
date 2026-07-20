@@ -913,6 +913,16 @@ def main():
         experts = {}
         print(f"Warning: could not load weights.json: {e}")
 
+    # Load league profiles from league_profiles.json
+    league_profiles_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "league_profiles.json")
+    try:
+        with open(league_profiles_path, "r", encoding="utf-8") as lpf:
+            league_profiles = json.load(lpf)
+        print(f"Loaded league profiles from league_profiles.json (leagues: {len(league_profiles)})")
+    except Exception as e:
+        league_profiles = {}
+        print(f"Warning: could not load league_profiles.json: {e}")
+
     # Try running the sporttery matches fetcher first
     try:
         sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -1525,7 +1535,15 @@ def main():
                     a_mult *= 0.6
                     
                 diff = home_score * h_mult - away_score * a_mult
-                dim_scores[fid] = diff * factor_weights.get(fid, 0.15)
+                weight_val = factor_weights.get(fid, 0.15)
+                league_name = m.get("league", "")
+                if league_profiles and league_name:
+                    matched_key = next((k for k in league_profiles if league_name in k or k in league_name), None)
+                    if matched_key:
+                        profile = league_profiles[matched_key]
+                        if "modifiers" in profile and fid in profile["modifiers"]:
+                            weight_val *= profile["modifiers"][fid]
+                dim_scores[fid] = diff * weight_val
                 
             expert_votes = {}
             for exp_id, exp_data in experts.items():
