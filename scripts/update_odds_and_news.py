@@ -251,6 +251,10 @@ def apply_dynamic_fundamental_coupling(m):
     - If Kelly/Bookmaker detects a Trap (升水阻尼/诱买), heavily penalize confidence and override recommendation.
     - If extreme injuries or red cards are detected in news, simulate the multiplier veto.
     """
+    mid = m.get("id")
+    if "real_match_intelligence" in globals() and mid in real_match_intelligence and "recommendation" in real_match_intelligence[mid]:
+        return
+        
     kc = m.get("conclusions", {}).get("kelly_conclusion", "")
     
     # 1. Odds-Fundamental Coupling (Direction 4)
