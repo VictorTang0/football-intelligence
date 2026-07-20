@@ -301,6 +301,12 @@ def sync():
     history_db["correct_predictions"] = sum(1 for r in new_records if r["is_correct"])
     history_db["accuracy_rate"] = round(history_db["correct_predictions"] / history_db["total_predictions"], 4) if history_db["total_predictions"] > 0 else 0.0
     
+    # 计算比分与半全场预测准确率
+    score_correct = sum(1 for r in new_records if r.get("predictions", {}).get("most_likely_score", {}).get("correct"))
+    hf_correct = sum(1 for r in new_records if r.get("predictions", {}).get("half_full", {}).get("correct"))
+    history_db["score_accuracy_rate"] = round(score_correct / history_db["total_predictions"], 4) if history_db["total_predictions"] > 0 else 0.0
+    history_db["half_full_accuracy_rate"] = round(hf_correct / history_db["total_predictions"], 4) if history_db["total_predictions"] > 0 else 0.0
+    
     # Calculate cumulative radar accuracy stats
     radar_alerts = [r["radar_alert"] for r in new_records if r.get("radar_alert")]
     radar_count = len(radar_alerts)
@@ -315,6 +321,7 @@ def sync():
         json.dump(history_db, f, ensure_ascii=False, indent=2)
         
     print(f"✅ Successfully synchronized history.json! Total predictions: {history_db['total_predictions']}, Correct: {history_db['correct_predictions']}, Accuracy: {history_db['accuracy_rate']}")
+    print(f"📊 Score Accuracy: {history_db['score_accuracy_rate']}, Half/Full Accuracy: {history_db['half_full_accuracy_rate']}")
     print(f"📊 Radar Stats: Total {radar_count}, Correct {radar_correct}, Accuracy {history_db['radar_stats']['accuracy_rate']}")
     return True
 

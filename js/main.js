@@ -93,6 +93,8 @@ const MatchIQ = (() => {
       const versionBadge = document.getElementById('version-badge');
       const matchCountEl = document.getElementById('header-match-count');
       const accEl = document.getElementById('header-accuracy');
+      const scoreAccEl = document.getElementById('header-score-accuracy');
+      const hfAccEl = document.getElementById('header-hf-accuracy');
       const historyCountEl = document.getElementById('header-history-count');
       const evoCountEl = document.getElementById('header-evo-count');
 
@@ -101,6 +103,14 @@ const MatchIQ = (() => {
       if (accEl) {
         const acc = history?.accuracy_rate;
         accEl.textContent = acc !== null && acc !== undefined ? (acc * 100).toFixed(1) + '%' : '--';
+      }
+      if (scoreAccEl) {
+        const acc = history?.score_accuracy_rate;
+        scoreAccEl.textContent = acc !== null && acc !== undefined ? (acc * 100).toFixed(1) + '%' : '--';
+      }
+      if (hfAccEl) {
+        const acc = history?.half_full_accuracy_rate;
+        hfAccEl.textContent = acc !== null && acc !== undefined ? (acc * 100).toFixed(1) + '%' : '--';
       }
       if (historyCountEl) {
         historyCountEl.textContent = history?.total_predictions || 0;
