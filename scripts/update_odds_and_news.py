@@ -256,20 +256,26 @@ def apply_dynamic_fundamental_coupling(m):
     # 1. Odds-Fundamental Coupling (Direction 4)
     if "阻尼升水" in kc or "诱买散户" in kc:
         old_conf = m["ultimate_conclusion"].get("confidence", 65)
-        # Slashes confidence to show uncertainty and high risk
         m["ultimate_conclusion"]["confidence"] = min(old_conf, 45)
         m["ultimate_conclusion"]["risk_level"] = "极高"
         m["conclusions"]["upset_probability"] = 0.85
         
-        # Override the recommendation to the opposite side
-        if "主胜" in m["ultimate_conclusion"].get("recommendation", ""):
-            m["ultimate_conclusion"]["recommendation"] = "反基本面冷门 (客队不败)"
-            m["conclusions"]["upset_direction"] = "客胜/平局"
-        elif "客胜" in m["ultimate_conclusion"].get("recommendation", ""):
-            m["ultimate_conclusion"]["recommendation"] = "反基本面冷门 (主队不败)"
-            m["conclusions"]["upset_direction"] = "主胜/平局"
-        
-        m["prediction_updated"] = True
+        rec = m["ultimate_conclusion"].get("recommendation", "")
+        if "【主胜】" in kc:
+            if "主胜" in rec or "主不败" in rec:
+                m["ultimate_conclusion"]["recommendation"] = "反基本面冷门 (客队不败)"
+                m["conclusions"]["upset_direction"] = "客胜/平局"
+                m["prediction_updated"] = True
+        elif "【客胜】" in kc:
+            if "客胜" in rec or "客不败" in rec:
+                m["ultimate_conclusion"]["recommendation"] = "反基本面冷门 (主队不败)"
+                m["conclusions"]["upset_direction"] = "主胜/平局"
+                m["prediction_updated"] = True
+        elif "【平局】" in kc:
+            if "平局" in rec or "双选不败" in rec:
+                m["ultimate_conclusion"]["recommendation"] = "分出胜负"
+                m["conclusions"]["upset_direction"] = "双边胜负"
+                m["prediction_updated"] = True
         
     # 2. Dynamic Multiplier Veto with Team Resilience (Direction 2)
     news_items = m.get("intelligence", {}).get("verified_news", [])
