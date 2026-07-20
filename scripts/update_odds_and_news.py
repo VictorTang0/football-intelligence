@@ -471,20 +471,22 @@ def apply_dynamic_factor_scores(m):
             past_away_is_curr_away = (g_away == away) or (away in g_away)
             
             if (past_home_is_curr_home and past_away_is_curr_away) or (past_home_is_curr_away and past_away_is_curr_home):
-                valid_matches += 1
+                is_same_venue = past_home_is_curr_home and past_away_is_curr_away
+                game_weight = 1.5 if is_same_venue else 1.0
+                valid_matches += game_weight
                 if g_outcome == "H":
                     if past_home_is_curr_home:
-                        home_points += 3
+                        home_points += 3.0 * game_weight
                     else:
-                        away_points += 3
+                        away_points += 3.0 * game_weight
                 elif g_outcome == "A":
                     if past_away_is_curr_home:
-                        home_points += 3
+                        home_points += 3.0 * game_weight
                     else:
-                        away_points += 3
+                        away_points += 3.0 * game_weight
                 else:
-                    home_points += 1
-                    away_points += 1
+                    home_points += 1.0 * game_weight
+                    away_points += 1.0 * game_weight
                     
         if valid_matches > 0:
             max_pts = 3.0 * valid_matches
