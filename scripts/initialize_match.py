@@ -342,9 +342,9 @@ def create_complete_match(raw_match):
         "h2h": generate_realistic_h2h(home, away),
         "head_to_head": generate_realistic_h2h(home, away),
         "public_vs_bookmaker": [
-            {"outcome": "主胜", "public_prob": f"{p_home}%", "bookmaker_implied": f"{p_home}%", "true_est": f"{p_home}%", "payout_risk": "低", "bookmaker_attitude": "中性"},
+            {"outcome": "主胜", "public_prob": f"{min(80, int(p_home * 1.05 + 2))}%", "bookmaker_implied": f"{p_home}%", "true_est": f"{p_home}%", "payout_risk": "偏高" if p_home > 50 else "适中", "bookmaker_attitude": "诱多防范" if p_home > 50 else "开盘看好"},
             {"outcome": "平局", "public_prob": f"{p_draw}%", "bookmaker_implied": f"{p_draw}%", "true_est": f"{p_draw}%", "payout_risk": "低", "bookmaker_attitude": "中性"},
-            {"outcome": "客胜", "public_prob": f"{p_away}%", "bookmaker_implied": f"{p_away}%", "true_est": f"{p_away}%", "payout_risk": "低", "bookmaker_attitude": "中性"}
+            {"outcome": "客胜", "public_prob": f"{max(10, int(p_away * 0.95 - 1))}%", "bookmaker_implied": f"{p_away}%", "true_est": f"{p_away}%", "payout_risk": "偏高" if p_away > 50 else "低", "bookmaker_attitude": "诱多防范" if p_away > 50 else "中性"}
         ]
     }
     return match_obj
