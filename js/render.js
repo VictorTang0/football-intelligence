@@ -586,7 +586,8 @@ const MatchIQRender = (() => {
     const jc = odds.lottery_handicap || {};
     const ou = odds.over_under || {};
 
-    const smokes = (odds.smoke_screens || []).map(s =>
+    const smokeList = odds.smoke_screens || match.odds?.smoke_screens || [];
+    const smokes = smokeList.map(s =>
       `<li>${s}</li>`
     ).join('');
 

@@ -1700,24 +1700,55 @@ def main():
                 "主胜让半球超低水，吸引防冷资金流向客队。"
             ]
         else:
-            if ph < 1.70:
+            c = m.get("conclusions", {})
+            # Dynamic Bookmaker Intent & Smoke Screen Deduction Engine
+            if c.get("had_hhad_divergence"):
                 m["odds_analysis"]["bookmaker_intent"] = (
-                    f"主队主胜欧赔低至 {ph}，让步规格明显。庄家核心意图在于利用深盘压低赔付，主队大胜概率极高，"
+                    f"平博及竞彩不让球指数出现大幅下调（主胜 {ph:.2f} / 平局 {pd:.2f}），但让球盘口未同向联动。"
+                    f"庄家核心意图在于利用‘强队必胜’题材吸纳散户筹码，实际在通过赔率背离全力防范让平/让负。"
+                )
+            elif ph < 1.70:
+                m["odds_analysis"]["bookmaker_intent"] = (
+                    f"主队主胜欧赔低至 {ph:.2f}，让步规格明显。庄家核心意图在于利用深盘压低赔付，主队胜算极高，"
                     f"散户押注大多集中于主队胜出，庄家通过低水位进行合理防范。"
                 )
-                m["odds_analysis"]["smoke_screens"] = [
-                    "深盘低水可能涉嫌诱大球，需警惕主队1-0或2-0小胜收盘的交叉盘口。",
-                    "利用主队近期连胜势头，故意做热让球赢半盘口。"
-                ]
+            elif pa < 1.70:
+                m["odds_analysis"]["bookmaker_intent"] = (
+                    f"客队客胜欧赔低至 {pa:.2f}，客让深盘形成有力支持。庄家意图通过低水防范客胜赔付风险，"
+                    f"主队主场防守压力巨大。"
+                )
             else:
                 m["odds_analysis"]["bookmaker_intent"] = (
-                    f"当前平博主客均赔为 {ph} 对 {pa}，差值较小。庄家意图是利用均势赔率吸引双向对等资金，"
-                    f"最大化抽水利润。散户在大众题材下分歧明显，庄家无明显偏向偏护。"
+                    f"当前主客均赔为 {ph:.2f} 对 {pa:.2f}，平赔降至 {pd:.2f}。庄家意图在于利用均势盘口双向分流资金，"
+                    f"借助市场分歧最大化对冲抽水利润。"
                 )
-                m["odds_analysis"]["smoke_screens"] = [
-                    "平赔拉锯可能掩盖双方战术性握手言和的意图。",
-                    "盘口水位频繁震荡涉嫌诱导散户追热，建议保持冷门防范。"
-                ]
+
+            # Dynamic Smoke Screens Generator
+            smokes = []
+            if c.get("had_hhad_divergence"):
+                smokes.append(f"【竞彩欧让背离烟雾弹】不让球胜/平赔低拉下调，但让球盘口未同向保护，庄家利用‘主胜安全感’诱导筹码独占，实际防范让平/让负高赔付。")
+            if ph < 1.70:
+                smokes.append(f"【深盘大胜烟雾弹】{m.get('home','主队')} 主让深盘吸引散户追捧大胜，需警惕庄家故意低水阻盘实则 1-0/2-0 赢半/小胜收场。")
+            elif pa < 1.70:
+                smokes.append(f"【客让优势烟雾弹】{m.get('away','客队')} 客场让步深盘做热客胜，需警惕 {m.get('home','主队')} 利用主场防守拉锯战逼平爆冷。")
+            elif abs(ph - pa) < 0.3:
+                smokes.append(f"【平局均势烟雾弹】平赔低压至 {pd:.2f} 呈现均势拉锯假象，极易掩盖其中一方胜意强烈的真实走势。")
+                
+            w = m.get("weather", {})
+            cond = w.get("condition", "")
+            if "雨" in cond or "雪" in cond:
+                smokes.append(f"【气候阻尼烟雾弹】场地包含 {cond} 降水题材，媒体大肆渲染低比分防守战，实际需防范失误增多导致的走爆大球。")
+                
+            hot_scores = c.get("sporttery_hot_scores", [])
+            if hot_scores:
+                smokes.append(f"【资金流热度烟雾弹】竞彩比分筹码密集涌入 {', '.join(hot_scores[:2])}，庄家借市场跟风热度升水诱导反向投注。")
+                
+            if len(smokes) < 2:
+                smokes.append(f"【交锋往绩烟雾弹】利用 {m.get('home','主队')} 与 {m.get('away','客队')} 历史交锋热度营造单边情绪，意在掩盖近期战术体系调整后的真实实力差距。")
+            if len(smokes) < 2:
+                smokes.append(f"【水位微震烟雾弹】盘口水位在临场前频繁微震，涉嫌制造控盘假象分流散户筹码。")
+
+            m["odds_analysis"]["smoke_screens"] = smokes[:3]
 
         real_intel = real_match_intelligence.get(mid)
 
