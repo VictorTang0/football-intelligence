@@ -1880,29 +1880,42 @@ const MatchIQRender = (() => {
     const getTwoScores = (scoreStr) => {
       if (!scoreStr || scoreStr === '--') return '2-1, 1-1';
       
-      let tagText = "";
-      const tagMatch = scoreStr.match(/\(.*?\)/);
-      if (tagMatch) {
-        tagText = " " + tagMatch[0];
+      const rawParts = scoreStr.split(/(?:,\s*|\s*或\s*)/);
+      const formattedParts = [];
+      
+      for (const p of rawParts) {
+        let text = p.trim();
+        if (!text) continue;
+        let tag = "";
+        const mTag = text.match(/^(.*?)\s*(\(.*?\))$/);
+        if (mTag) {
+          text = mTag[1].trim();
+          tag = " " + mTag[2].trim();
+        }
+        const cleanScore = text.replace(':', '-');
+        formattedParts.push(cleanScore + tag);
       }
 
-      const matches = scoreStr.match(/\d+[:\-]\d+/g);
-      if (matches) {
-        const normalized = matches.map(s => s.replace(':', '-'));
-        if (normalized.length >= 2) {
-          // Sync ALL scores if >= 2 (allows 2, 3 or more scores to fully sync with Most Likely Score)
-          return normalized.join(', ') + tagText;
-        } else if (normalized.length === 1) {
-          const score = normalized[0];
-          let secondScore = "1-1";
-          if (score === "1-1") secondScore = "0-0";
-          else if (score === "2-1") secondScore = "1-1";
-          else if (score === "2-0") secondScore = "1-0";
-          else if (score === "0-1") secondScore = "0-0";
-          else if (score === "1-2") secondScore = "1-1";
-          return `${score}, ${secondScore}${tagText}`;
+      if (formattedParts.length >= 2) {
+        return formattedParts.join(', ');
+      } else if (formattedParts.length === 1) {
+        const scorePart = formattedParts[0];
+        let tag = "";
+        let score = scorePart;
+        const mTag = scorePart.match(/^(.*?)\s*(\(.*?\))$/);
+        if (mTag) {
+          score = mTag[1].trim();
+          tag = " " + mTag[2].trim();
         }
+        let secondScore = "1-1";
+        if (score === "1-1") secondScore = "0-0";
+        else if (score === "2-1") secondScore = "1-1";
+        else if (score === "2-0") secondScore = "1-0";
+        else if (score === "0-1") secondScore = "0-0";
+        else if (score === "1-2") secondScore = "1-1";
+        return `${score}${tag}, ${secondScore}`;
       }
+      
       return scoreStr || '2-1, 1-1';
     };
 
