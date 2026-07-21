@@ -921,36 +921,57 @@ def apply_dynamic_conclusions(m):
     a_scored = a_stats.get("goals_scored", 18)
     a_conceded = a_stats.get("goals_conceded", 15)
     
-    # Base goals expectancy
-    eg_home = (h_scored + a_conceded) / 20.0
-    eg_away = (a_scored + h_conceded) / 20.0
+    # Base goals expectancy calculated from official standings & team stats
+    hs = m.get("home_standing", {})
+    aws = m.get("away_standing", {})
     
-    # Form impact (Wins increase confidence/attack, losses decrease them)
+    h_played = hs.get("played", 18)
+    a_played = aws.get("played", 18)
+    h_gf = hs.get("goals_for", h_stats.get("goals_scored", 20))
+    h_ga = hs.get("goals_against", h_stats.get("goals_conceded", 20))
+    a_gf = aws.get("goals_for", a_stats.get("goals_scored", 20))
+    a_ga = aws.get("goals_against", a_stats.get("goals_conceded", 20))
+    
+    avg_h_score = h_gf / h_played if h_played > 0 else 1.1
+    avg_h_concede = h_ga / h_played if h_played > 0 else 1.1
+    avg_a_score = a_gf / a_played if a_played > 0 else 1.1
+    avg_a_concede = a_ga / a_played if a_played > 0 else 1.1
+    
+    eg_home = (avg_h_score + avg_a_concede) / 2.0
+    eg_away = (avg_a_score + avg_h_concede) / 2.0
+    
+    # Form impact
     h_form = m.get("team_stats", {}).get("home", {}).get("form", [])
     a_form = m.get("team_stats", {}).get("away", {}).get("form", [])
     h_wins = sum(1 for x in h_form if x == "W")
     a_wins = sum(1 for x in a_form if x == "W")
     h_losses = sum(1 for x in h_form if x == "L")
     a_losses = sum(1 for x in a_form if x == "L")
-    eg_home += (h_wins - h_losses) * 0.05
-    eg_away += (a_wins - a_losses) * 0.05
+    eg_home += (h_wins - h_losses) * 0.04
+    eg_away += (a_wins - a_losses) * 0.04
     
     # Tag impact
     for tag in h_tags:
         if tag in ["灌球高手", "大球大师", "大球狂魔", "抢分狂魔", "主场狂魔"]:
-            eg_home += 0.25
+            eg_home += 0.20
         if tag in ["铜墙铁壁", "防守专家", "铁血低位", "平局大师", "闪退大客车"]:
             eg_away -= 0.15
         if tag in ["只雷不雨", "锋线无力", "无心恋战", "虎头蛇尾"]:
-            eg_home -= 0.20
+            eg_home -= 0.15
             
     for tag in a_tags:
         if tag in ["灌球高手", "大球大师", "大球狂魔", "抢分狂魔"]:
-            eg_away += 0.25
+            eg_away += 0.20
         if tag in ["铜墙铁壁", "防守专家", "铁血低位", "平局大师", "闪退大客车"]:
             eg_home -= 0.15
         if tag in ["只雷不雨", "锋线无力", "无心恋战", "虎头蛇尾"]:
-            eg_away -= 0.20
+            eg_away -= 0.15
+
+    # Weather impact (Rain / Thunderstorm reduces expected goals)
+    w_cond = m.get("weather", {}).get("condition", "")
+    if "雨" in w_cond or "雪" in w_cond:
+        eg_home *= 0.85
+        eg_away *= 0.85
 
     # H2H impact
     h2h_data = m.get("head_to_head", m.get("h2h", {}))
@@ -968,16 +989,16 @@ def apply_dynamic_conclusions(m):
     # MoE adjust
     moe_score = m.get("moe_score", 0.0)
     if moe_score > 0:
-        eg_home += moe_score * 0.4
-        eg_away -= moe_score * 0.2
+        eg_home += moe_score * 0.3
+        eg_away -= moe_score * 0.15
     else:
-        eg_home += moe_score * 0.2
-        eg_away -= moe_score * 0.4
+        eg_home += moe_score * 0.15
+        eg_away -= moe_score * 0.3
         
     eg_home = max(0.2, eg_home)
     eg_away = max(0.2, eg_away)
     
-    ou_line = "大 2.5" if (eg_home + eg_away >= 2.3) else "小 2.5"
+    ou_line = "大 2.5" if (eg_home + eg_away >= 2.58) else "小 2.5"
     
     # 2. Adjust and generate scores strictly based on recommendation with flexible counts (1, 2, or 3)
     g_home = int(round(eg_home))
