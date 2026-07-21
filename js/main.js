@@ -328,69 +328,65 @@ const MatchIQ = (() => {
     const protect_t = state.config?.odds_protect_threshold || -0.01;
     
     upcomingMatches.forEach(m => {
-      const odds = m.odds_analysis || {};
-      const pinnacle = odds.pinnacle || {};
-      const current = pinnacle.current;
-      const initial = pinnacle.initial;
+      const pvb = m.public_vs_bookmaker || [];
+      if (!pvb.length) return;
       
-      if (!current || !initial) return;
-      
-      const oh = current.home, od = current.draw, oa = current.away;
-      const ih = initial.home, id_ = initial.draw, ia = initial.away;
-      
-      if (!oh || !od || !oa || !ih || !id_ || !ia) return;
-      
-      const sentiment = odds.retail_sentiment || {};
-      let sh = 0.33, sd = 0.33, sa = 0.33;
-      if (sentiment.home_pct !== undefined) {
-        sh = sentiment.home_pct / 100;
-        sd = sentiment.draw_pct / 100;
-        sa = sentiment.away_pct / 100;
-      } else if (sentiment.home_support !== undefined) {
-        sh = sentiment.home_support;
-        sd = sentiment.draw_support;
-        sa = sentiment.away_support;
-      }
-      
-      const kelly_h = oh * sh;
-      const kelly_d = od * sd;
-      const kelly_a = oa * sa;
-      
-      const diff_h = oh - ih;
-      const diff_d = od - id_;
-      const diff_a = oa - ia;
-      
-      const kellys = [
-        { label: "主胜", val: kelly_h, diff: diff_h },
-        { label: "平局", val: kelly_d, diff: diff_d },
-        { label: "客胜", val: kelly_a, diff: diff_a }
-      ];
-      kellys.sort((a, b) => b.val - a.val); // Sort descending to find worst risk (highest kelly)
-      
-      const worst = kellys[0];
       const matchNo = m.id.replace('match_', 'No.');
-      const matchDesc = `${m.home} vs ${m.away}`;
+      const matchDesc = `${m.home} VS ${m.away}`;
       
-      const diffStr = (worst.diff > 0 ? '+' : '') + worst.diff.toFixed(2);
-      if (worst.diff <= protect_t) {
+      // Find highest risk row or active attitude
+      let targetRow = pvb.find(r => r.payout_risk === '极高') || 
+                        pvb.find(r => r.payout_risk === '偏高') || 
+                        pvb.find(r => r.payout_risk === '适中') || 
+                        pvb[0];
+                        
+      const outcome = targetRow.outcome || '主胜';
+      const risk = targetRow.payout_risk || '低';
+      const attitude = targetRow.bookmaker_attitude || '中性';
+      const pubProb = targetRow.public_prob || '--';
+      const trueEst = targetRow.true_est || '--';
+      const bmImplied = targetRow.bookmaker_implied || '--';
+      
+      const opp = outcome === "主胜" ? "客队不败" : outcome === "客胜" ? "主队不败" : "双选胜负";
+
+      if (risk === '极高') {
         alerts.push(`
           <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
             <td style="padding:12px 10px; text-align:center; font-weight:700; color:var(--text-3); font-size:14px;">${matchNo}</td>
             <td style="padding:12px 10px; font-weight:600; color:var(--text-1); font-size:15px;">${m.home} <span style="color:var(--text-4); font-size:12px;">VS</span> ${m.away}</td>
-            <td style="padding:12px 10px; font-size:14.5px; font-weight:700; color:#4caf50; white-space:nowrap;">🟢 降水保护</td>
-            <td style="padding:12px 10px; font-size:14.5px; color:var(--text-2);">散户爆买【${worst.label}】，庄家即时降水防范 (${diffStr})</td>
-            <td style="padding:12px 10px; text-align:center; font-size:14.5px; font-weight:700; color:#4caf50; white-space:nowrap;">主推方向可信 (${worst.label})</td>
+            <td style="padding:12px 10px; font-size:14.5px; font-weight:700; color:#ff5252; white-space:nowrap;">🚨 资本诱盘 (${attitude})</td>
+            <td style="padding:12px 10px; font-size:14.5px; color:var(--text-2);">散户过度热买【${outcome}】(${pubProb})，官方赔率升水阻尼防范</td>
+            <td style="padding:12px 10px; text-align:center; font-size:14.5px; font-weight:700; color:#ff5252; white-space:nowrap;">防冷推荐: ${opp}</td>
           </tr>
         `);
-      } else if (worst.diff >= trap_t) {
-        const opp = worst.label === "主胜" ? "客队不败" : worst.label === "客胜" ? "主队不败" : "分出胜负";
+      } else if (risk === '偏高') {
         alerts.push(`
           <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
             <td style="padding:12px 10px; text-align:center; font-weight:700; color:var(--text-3); font-size:14px;">${matchNo}</td>
             <td style="padding:12px 10px; font-weight:600; color:var(--text-1); font-size:15px;">${m.home} <span style="color:var(--text-4); font-size:12px;">VS</span> ${m.away}</td>
-            <td style="padding:12px 10px; font-size:14.5px; font-weight:700; color:#ff5252; white-space:nowrap;">🚨 资本诱盘</td>
-            <td style="padding:12px 10px; font-size:14.5px; color:var(--text-2);">散户热买【${worst.label}】，庄家反向阻尼升水 (${diffStr})</td>
-            <td style="padding:12px 10px; text-align:center; font-size:14.5px; font-weight:700; color:#ff5252; white-space:nowrap;">防冷推荐: ${opp}</td>
+            <td style="padding:12px 10px; font-size:14.5px; font-weight:700; color:#4caf50; white-space:nowrap;">🟢 降水保护 (${attitude})</td>
+            <td style="padding:12px 10px; font-size:14.5px; color:var(--text-2);">真实估值【${outcome}】(${trueEst})高于官赔，官方降水控赔支持</td>
+            <td style="padding:12px 10px; text-align:center; font-size:14.5px; font-weight:700; color:#4caf50; white-space:nowrap;">首选支持: ${outcome}</td>
+          </tr>
+        `);
+      } else if (risk === '适中') {
+        alerts.push(`
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 10px; text-align:center; font-weight:700; color:var(--text-3); font-size:14px;">${matchNo}</td>
+            <td style="padding:12px 10px; font-weight:600; color:var(--text-1); font-size:15px;">${m.home} <span style="color:var(--text-4); font-size:12px;">VS</span> ${m.away}</td>
+            <td style="padding:12px 10px; font-size:14.5px; font-weight:700; color:#2196f3; white-space:nowrap;">🔵 机构支持 (${attitude})</td>
+            <td style="padding:12px 10px; font-size:14.5px; color:var(--text-2);">真实概率估值【${outcome}】(${trueEst})具备优势，开盘表现稳健</td>
+            <td style="padding:12px 10px; text-align:center; font-size:14.5px; font-weight:700; color:#2196f3; white-space:nowrap;">建议支持: ${outcome}</td>
+          </tr>
+        `);
+      } else {
+        alerts.push(`
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 10px; text-align:center; font-weight:700; color:var(--text-3); font-size:14px;">${matchNo}</td>
+            <td style="padding:12px 10px; font-weight:600; color:var(--text-1); font-size:15px;">${m.home} <span style="color:var(--text-4); font-size:12px;">VS</span> ${m.away}</td>
+            <td style="padding:12px 10px; font-size:14.5px; font-weight:700; color:var(--text-3); white-space:nowrap;">⚪ 盘面平衡 (${attitude})</td>
+            <td style="padding:12px 10px; font-size:14.5px; color:var(--text-2);">筹码与官赔分布均衡(${bmImplied})，无显现资本异常倾斜</td>
+            <td style="padding:12px 10px; text-align:center; font-size:14.5px; font-weight:700; color:var(--text-2); white-space:nowrap;">常规关注</td>
           </tr>
         `);
       }
