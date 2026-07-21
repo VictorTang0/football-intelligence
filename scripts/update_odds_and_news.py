@@ -1186,12 +1186,7 @@ def main():
             except Exception as e:
                 print(f"Error running sync_evolution: {e}")
 
-            # Integrate league standings automatic enrichment into Workflow A
-            try:
-                import enrich_standings
-                enrich_standings.main()
-            except Exception as e:
-                print(f"Error running enrich_standings: {e}")
+            # Standings are preserved from match initialization (Workflow B) and not re-fetched during odds updates
 
             # Integrate match intelligence & news automatic enrichment into Workflow A
             try:

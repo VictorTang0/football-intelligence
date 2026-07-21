@@ -264,8 +264,8 @@ const MatchIQRender = (() => {
     return `<span class="motivation-badge" style="border:1px solid ${border}; color:${color}; background:${bg}; font-size:10px; padding:1px 4px; border-radius:4px; margin-left:6px; font-weight:700; display:inline-block; vertical-align:middle;" title="战意说明: ${note}">🔥 战意:${val}%</span>`;
   }
 
-  function formatStandingBadge(team) {
-    const std = team?.standing;
+  function formatStandingBadge(team, match, isHome = true) {
+    const std = team?.standing || (isHome ? match?.home_standing : match?.away_standing);
     if (!std || typeof std.rank === 'undefined') return '';
     
     let zoneColor = '#64748b'; // default gray
@@ -543,8 +543,8 @@ const MatchIQRender = (() => {
 
     const homeRecentHtml = renderTeamRecent(match.team_stats?.home?.name, homeRecent);
     const awayRecentHtml = renderTeamRecent(match.team_stats?.away?.name, awayRecent);
-    const homeStandingHtml = renderTeamStanding(match.team_stats?.home?.name, match.team_stats?.home?.standing);
-    const awayStandingHtml = renderTeamStanding(match.team_stats?.away?.name, match.team_stats?.away?.standing);
+    const homeStandingHtml = renderTeamStanding(match.home || match.team_stats?.home?.name, match.home_standing || match.team_stats?.home?.standing);
+    const awayStandingHtml = renderTeamStanding(match.away || match.team_stats?.away?.name, match.away_standing || match.team_stats?.away?.standing);
 
     return `
     <div class="mc-pane ${paneId === 'stats' ? 'active' : ''}" id="pane-${match.id}-stats">
@@ -1144,7 +1144,7 @@ const MatchIQRender = (() => {
       <div class="mc-header">
         <div class="mc-team">
           <div class="mc-team-league"><span class="match-no-badge">${formatMatchNo(match.id)}</span>${match.league || ''}${leagueTag}${warningBadge}${updatedBadge}</div>
-          <div class="mc-team-name">${match.home || '主队'}${formatStandingBadge(home)} ${formatMotivationBadge(home)}</div>
+          <div class="mc-team-name">${match.home || '主队'}${formatStandingBadge(home, match, true)} ${formatMotivationBadge(home)}</div>
           ${homeTagsHTML}
           <div class="mc-team-xg" style="margin-top:4px;">xG ${home.season_stats?.xg?.toFixed(1) || '--'} · 射门 ${home.season_stats?.shots_per_game || '--'}/场</div>
         </div>
@@ -1157,7 +1157,7 @@ const MatchIQRender = (() => {
         </div>
         <div class="mc-team away">
           <div class="mc-team-league">&nbsp;</div>
-          <div class="mc-team-name">${formatMotivationBadge(away)} ${formatStandingBadge(away)}${match.away || '客队'}</div>
+          <div class="mc-team-name">${formatMotivationBadge(away)} ${formatStandingBadge(away, match, false)}${match.away || '客队'}</div>
           ${awayTagsHTML}
           <div class="mc-team-xg" style="margin-top:4px;">xG ${away.season_stats?.xg?.toFixed(1) || '--'} · 射门 ${away.season_stats?.shots_per_game || '--'}/场</div>
         </div>
