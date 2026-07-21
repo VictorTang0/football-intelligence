@@ -98,7 +98,7 @@ const MatchIQ = (() => {
       const historyCountEl = document.getElementById('header-history-count');
       const evoCountEl = document.getElementById('header-evo-count');
 
-      const latestVersion = modelEvolution?.snapshots?.slice(-1)[0]?.version || weights?.version || 'v3.5';
+      const latestVersion = evolution?.snapshots?.slice(-1)[0]?.version || weights?.version || 'v3.5';
       if (versionBadge) versionBadge.textContent = latestVersion;
       if (matchCountEl) matchCountEl.textContent = upcomingMatches.length;
       if (accEl) {
