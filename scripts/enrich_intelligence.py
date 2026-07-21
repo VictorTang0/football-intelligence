@@ -155,6 +155,26 @@ def generate_match_intelligence(m):
         ]
     }
 
+    # Compare against old intelligence to assign is_new
+    old_intel = m.get("intelligence", {})
+    old_news_titles = {n.get("title") for n in old_intel.get("verified_news", []) if isinstance(n, dict)}
+    old_media_sigs = {f"{p.get('media')}_{p.get('prediction')}" for p in old_intel.get("media_predictions", []) if isinstance(p, dict)}
+    old_social_sigs = {f"{s.get('platform')}_{s.get('comment')}" for s in old_intel.get("social_buzz", []) if isinstance(s, dict)}
+
+    # Tag is_new for verified_news
+    for n in news:
+        n["is_new"] = (n.get("title") not in old_news_titles)
+
+    # Tag is_new for media_predictions
+    for p in media:
+        sig = f"{p.get('media')}_{p.get('prediction')}"
+        p["is_new"] = (sig not in old_media_sigs)
+
+    # Tag is_new for social_buzz
+    for s in social:
+        sig = f"{s.get('platform')}_{s.get('comment')}"
+        s["is_new"] = (sig not in old_social_sigs)
+
     if "intelligence" not in m:
         m["intelligence"] = {}
 

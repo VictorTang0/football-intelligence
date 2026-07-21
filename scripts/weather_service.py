@@ -273,7 +273,14 @@ def update_all_pending_weather(database):
             kickoff = m.get("kickoff", "2026-07-20")
             
             # Fetch hourly weather forecast at kickoff
+            old_w = m.get("weather", {})
+            old_sig = f"{old_w.get('condition')}_{old_w.get('temp_c')}_{old_w.get('humidity')}"
+            
             weather = fetch_live_weather(city, kickoff)
+            new_sig = f"{weather.get('condition')}_{weather.get('temp_c')}_{weather.get('humidity')}"
+            
+            is_w_new = (new_sig != old_sig) and bool(old_sig)
+            weather["is_new"] = is_w_new
             m["weather"] = weather
             
             # Update intelligence fields dynamically to match weather condition and pitch type
@@ -284,6 +291,7 @@ def update_all_pending_weather(database):
                 m["intelligence"] = {}
             m["intelligence"]["weather_impact"] = impact
             m["intelligence"]["venue_notes"] = notes
+            m["intelligence"]["weather_is_new"] = is_w_new
             
             updated += 1
             print(f"  Weather updated for {m['home']} vs {m['away']} (KO: {kickoff}): {weather['condition']}, {weather['temp_c']}°C, Hum {weather['humidity']}%, Wind {weather['wind_kmh']}km/h")

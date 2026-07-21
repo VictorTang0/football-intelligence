@@ -783,10 +783,12 @@ const MatchIQRender = (() => {
     const news = intel.verified_news || [];
     const mediaPreds = intel.media_predictions || [];
 
+    const newTagHtml = '<span class="new-tag" style="background:#ef4444; color:#fff; font-size:10px; font-weight:800; padding:1px 5px; border-radius:3px; margin-left:6px; vertical-align:middle; box-shadow:0 0 6px rgba(239,68,68,0.5);">NEW</span>';
+
     const newsHtml = news.map(n => `
       <div class="news-item">
         <div class="news-header">
-          <div class="news-title">${n.title}</div>
+          <div class="news-title">${n.title}${n.is_new ? newTagHtml : ''}</div>
           <span class="news-impact ${newsImpactClass(n.impact)}">${n.impact || '--'}</span>
         </div>
         <div class="news-meta">
@@ -800,10 +802,13 @@ const MatchIQRender = (() => {
 
     const predHtml = mediaPreds.map(p => `
       <div class="media-pred-item">
-        <div class="mp-source">${p.source || p.media_name || '媒体/数据源'}</div>
+        <div class="mp-source">${p.source || p.media_name || '媒体/数据源'}${p.is_new ? newTagHtml : ''}</div>
         <div class="mp-prediction ${mpPredClass(p.prediction)}">${p.prediction}</div>
         <div class="mp-score">${p.score || p.predicted_score || '--'}</div>
       </div>`).join('') || '<div style="color:var(--text-4);font-size:13px;text-align:center;padding:20px">暂无媒体预测</div>';
+
+    const isSocialNew = Array.isArray(intel.social_buzz) ? intel.social_buzz.some(s => s.is_new) : (intel.social_buzz && intel.social_buzz.is_new);
+    const isWeatherNew = match.weather?.is_new || intel.weather_is_new;
 
     return `
     <div class="mc-pane" id="pane-${match.id}-intel">
@@ -818,11 +823,11 @@ const MatchIQRender = (() => {
             <div class="media-pred-list">${predHtml}</div>
           </div>
           <div style="margin-top:20px;padding:14px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.2);border-radius:var(--radius);">
-            <div style="font-size:12px;color:var(--indigo);font-weight:600;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px">社媒热议</div>
+            <div style="font-size:12px;color:var(--indigo);font-weight:600;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px">社媒热议${isSocialNew ? newTagHtml : ''}</div>
             ${intel.social_buzz ? `
               <div style="font-size:13px;color:var(--text-2);line-height:1.6">
-                <div style="margin-bottom:8px">情绪：${intel.social_buzz.sentiment || '--'}</div>
-                <div style="margin-bottom:8px">${intel.social_buzz.notable_discussion || '--'}</div>
+                <div style="margin-bottom:8px">情绪：${intel.social_buzz.sentiment || (Array.isArray(intel.social_buzz) ? intel.social_buzz[0]?.sentiment : '--')}</div>
+                <div style="margin-bottom:8px">${intel.social_buzz.notable_discussion || (Array.isArray(intel.social_buzz) ? intel.social_buzz[0]?.comment : '--')}</div>
                 <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px">
                   ${(intel.social_buzz.trending_keywords || []).map(kw =>
                     `<span class="tag">#${kw}</span>`
@@ -832,7 +837,7 @@ const MatchIQRender = (() => {
           </div>
           ${intel.weather_impact ? `
             <div style="margin-top:12px;padding:12px 14px;background:rgba(255,255,255,0.02);border:1px solid var(--border-subtle);border-radius:var(--radius);font-size:12px;color:var(--text-3)">
-              🌡 ${intel.weather_impact}
+              🌡 ${intel.weather_impact}${isWeatherNew ? newTagHtml : ''}
             </div>` : ''}
           ${intel.venue_notes ? `
             <div style="margin-top:8px;padding:12px 14px;background:rgba(255,255,255,0.02);border:1px solid var(--border-subtle);border-radius:var(--radius);font-size:12px;color:var(--text-3)">
