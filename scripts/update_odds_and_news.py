@@ -1998,8 +1998,12 @@ def main():
         
         # ─── APPLY DYNAMIC FUNDAMENTAL COUPLING & VETO ───
         apply_dynamic_fundamental_coupling(m)
-        # ─── COMPUTE M10 SPORTTERY FACTORS ───
+        # ─── COMPUTE M10 SPORTTERY FACTORS & RE-EVALUATE PREFERENCE ───
+        prev_snapshot = m.get("conclusions", {}).get("m10_snapshot_count", 0)
         compute_m10_factors(m, bonus_db)
+        curr_snapshot = m.get("conclusions", {}).get("m10_snapshot_count", 0)
+        if curr_snapshot > prev_snapshot or curr_snapshot >= 2:
+            print(f"  ⚡ [M10 Real-time Re-eval] Detected new Sporttery odds update for {m.get('home')} vs {m.get('away')} (Snapshots: {curr_snapshot}). Re-running M10 preference deduction & attachment rules...")
 
         
         # ─── POST-PROCESS ULTIMATE CONCLUSION FIELDS ───
