@@ -429,6 +429,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 9,
+            "played": 15,
+            "won": 5,
+            "drawn": 2,
+            "lost": 8,
+            "points": 17,
+            "goals_for": 22,
+            "goals_against": 22,
+            "zone": "晋级风险区"
+          },
+          "away": {
+            "rank": 9,
+            "played": 15,
+            "won": 5,
+            "drawn": 2,
+            "lost": 8,
+            "points": 17,
+            "goals_for": 22,
+            "goals_against": 22,
+            "zone": "晋级风险区"
+          }
         }
       },
       "factor_scores": {
@@ -581,6 +605,28 @@
         ],
         "avg_goals": 2.2,
         "btts_rate": 0.2
+      },
+      "home_standing": {
+        "rank": 9,
+        "played": 15,
+        "won": 5,
+        "drawn": 2,
+        "lost": 8,
+        "points": 17,
+        "goals_for": 22,
+        "goals_against": 22,
+        "zone": "晋级风险区"
+      },
+      "away_standing": {
+        "rank": 9,
+        "played": 15,
+        "won": 5,
+        "drawn": 2,
+        "lost": 8,
+        "points": 17,
+        "goals_for": 22,
+        "goals_against": 22,
+        "zone": "晋级风险区"
       }
     },
     {
@@ -948,6 +994,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 4,
+            "played": 15,
+            "won": 5,
+            "drawn": 5,
+            "lost": 5,
+            "points": 20,
+            "goals_for": 19,
+            "goals_against": 19,
+            "zone": "晋级希望区"
+          },
+          "away": {
+            "rank": 9,
+            "played": 15,
+            "won": 5,
+            "drawn": 2,
+            "lost": 8,
+            "points": 17,
+            "goals_for": 18,
+            "goals_against": 22,
+            "zone": "晋级风险区"
+          }
         }
       },
       "factor_scores": {
@@ -1052,6 +1122,28 @@
         ],
         "avg_goals": 1.2,
         "btts_rate": 0.2
+      },
+      "home_standing": {
+        "rank": 4,
+        "played": 15,
+        "won": 5,
+        "drawn": 5,
+        "lost": 5,
+        "points": 20,
+        "goals_for": 19,
+        "goals_against": 19,
+        "zone": "晋级希望区"
+      },
+      "away_standing": {
+        "rank": 9,
+        "played": 15,
+        "won": 5,
+        "drawn": 2,
+        "lost": 8,
+        "points": 17,
+        "goals_for": 18,
+        "goals_against": 22,
+        "zone": "晋级风险区"
       }
     },
     {
@@ -1450,6 +1542,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 2,
+            "played": 15,
+            "won": 7,
+            "drawn": 3,
+            "lost": 5,
+            "points": 24,
+            "goals_for": 22,
+            "goals_against": 17,
+            "zone": "安全晋级区"
+          },
+          "away": {
+            "rank": 1,
+            "played": 15,
+            "won": 10,
+            "drawn": 4,
+            "lost": 1,
+            "points": 34,
+            "goals_for": 30,
+            "goals_against": 10,
+            "zone": "安全晋级区"
+          }
         }
       },
       "factor_scores": {
@@ -1560,6 +1676,28 @@
         ],
         "avg_goals": 2.0,
         "btts_rate": 0.4
+      },
+      "home_standing": {
+        "rank": 2,
+        "played": 15,
+        "won": 7,
+        "drawn": 3,
+        "lost": 5,
+        "points": 24,
+        "goals_for": 22,
+        "goals_against": 17,
+        "zone": "安全晋级区"
+      },
+      "away_standing": {
+        "rank": 1,
+        "played": 15,
+        "won": 10,
+        "drawn": 4,
+        "lost": 1,
+        "points": 34,
+        "goals_for": 30,
+        "goals_against": 10,
+        "zone": "安全晋级区"
       }
     },
     {
@@ -1966,6 +2104,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 6,
+            "played": 15,
+            "won": 6,
+            "drawn": 3,
+            "lost": 6,
+            "points": 21,
+            "goals_for": 20,
+            "goals_against": 19,
+            "zone": "晋级希望区"
+          },
+          "away": {
+            "rank": 12,
+            "played": 15,
+            "won": 3,
+            "drawn": 5,
+            "lost": 7,
+            "points": 14,
+            "goals_for": 18,
+            "goals_against": 23,
+            "zone": "晋级无望区"
+          }
         }
       },
       "conclusions": {
@@ -2105,6 +2267,28 @@
         "diff": 0.08000000000000007,
         "recommendation": "主不败",
         "is_correct": true
+      },
+      "home_standing": {
+        "rank": 6,
+        "played": 15,
+        "won": 6,
+        "drawn": 3,
+        "lost": 6,
+        "points": 21,
+        "goals_for": 20,
+        "goals_against": 19,
+        "zone": "晋级希望区"
+      },
+      "away_standing": {
+        "rank": 12,
+        "played": 15,
+        "won": 3,
+        "drawn": 5,
+        "lost": 7,
+        "points": 14,
+        "goals_for": 18,
+        "goals_against": 23,
+        "zone": "晋级无望区"
       }
     },
     {
@@ -2469,6 +2653,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 8,
+            "played": 15,
+            "won": 4,
+            "drawn": 5,
+            "lost": 6,
+            "points": 17,
+            "goals_for": 16,
+            "goals_against": 21,
+            "zone": "晋级风险区"
+          },
+          "away": {
+            "rank": 7,
+            "played": 15,
+            "won": 4,
+            "drawn": 4,
+            "lost": 7,
+            "points": 16,
+            "goals_for": 19,
+            "goals_against": 22,
+            "zone": "晋级希望区"
+          }
         }
       },
       "conclusions": {
@@ -2608,6 +2816,28 @@
         "diff": -0.08000000000000007,
         "recommendation": "主胜（庄家降水防范）",
         "is_correct": false
+      },
+      "home_standing": {
+        "rank": 8,
+        "played": 15,
+        "won": 4,
+        "drawn": 5,
+        "lost": 6,
+        "points": 17,
+        "goals_for": 16,
+        "goals_against": 21,
+        "zone": "晋级风险区"
+      },
+      "away_standing": {
+        "rank": 7,
+        "played": 15,
+        "won": 4,
+        "drawn": 4,
+        "lost": 7,
+        "points": 16,
+        "goals_for": 19,
+        "goals_against": 22,
+        "zone": "晋级希望区"
       }
     },
     {
@@ -2972,6 +3202,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 1,
+            "played": 15,
+            "won": 12,
+            "drawn": 2,
+            "lost": 1,
+            "points": 38,
+            "goals_for": 35,
+            "goals_against": 11,
+            "zone": "安全晋级区"
+          },
+          "away": {
+            "rank": 6,
+            "played": 15,
+            "won": 6,
+            "drawn": 3,
+            "lost": 6,
+            "points": 21,
+            "goals_for": 23,
+            "goals_against": 19,
+            "zone": "晋级希望区"
+          }
         }
       },
       "conclusions": {
@@ -3111,6 +3365,28 @@
         "diff": 0.10999999999999943,
         "recommendation": "主不败",
         "is_correct": true
+      },
+      "home_standing": {
+        "rank": 1,
+        "played": 15,
+        "won": 12,
+        "drawn": 2,
+        "lost": 1,
+        "points": 38,
+        "goals_for": 35,
+        "goals_against": 11,
+        "zone": "安全晋级区"
+      },
+      "away_standing": {
+        "rank": 6,
+        "played": 15,
+        "won": 6,
+        "drawn": 3,
+        "lost": 6,
+        "points": 21,
+        "goals_for": 23,
+        "goals_against": 19,
+        "zone": "晋级希望区"
       }
     },
     {
@@ -3474,6 +3750,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 10,
+            "played": 15,
+            "won": 2,
+            "drawn": 3,
+            "lost": 10,
+            "points": 9,
+            "goals_for": 12,
+            "goals_against": 27,
+            "zone": "晋级风险区"
+          },
+          "away": {
+            "rank": 5,
+            "played": 15,
+            "won": 6,
+            "drawn": 2,
+            "lost": 7,
+            "points": 20,
+            "goals_for": 20,
+            "goals_against": 20,
+            "zone": "晋级希望区"
+          }
         }
       },
       "conclusions": {
@@ -3613,6 +3913,28 @@
         "diff": 0.07000000000000028,
         "recommendation": "分出胜负",
         "is_correct": true
+      },
+      "home_standing": {
+        "rank": 10,
+        "played": 15,
+        "won": 2,
+        "drawn": 3,
+        "lost": 10,
+        "points": 9,
+        "goals_for": 12,
+        "goals_against": 27,
+        "zone": "晋级风险区"
+      },
+      "away_standing": {
+        "rank": 5,
+        "played": 15,
+        "won": 6,
+        "drawn": 2,
+        "lost": 7,
+        "points": 20,
+        "goals_for": 20,
+        "goals_against": 20,
+        "zone": "晋级希望区"
       }
     },
     {
@@ -3995,6 +4317,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 2,
+            "played": 16,
+            "won": 10,
+            "drawn": 4,
+            "lost": 2,
+            "points": 34,
+            "goals_for": 29,
+            "goals_against": 13,
+            "zone": "安全晋级区"
+          },
+          "away": {
+            "rank": 11,
+            "played": 15,
+            "won": 3,
+            "drawn": 4,
+            "lost": 8,
+            "points": 13,
+            "goals_for": 15,
+            "goals_against": 24,
+            "zone": "晋级风险区"
+          }
         }
       },
       "conclusions": {
@@ -4134,6 +4480,28 @@
         "diff": 0.07000000000000028,
         "recommendation": "分出胜负",
         "is_correct": true
+      },
+      "home_standing": {
+        "rank": 2,
+        "played": 16,
+        "won": 10,
+        "drawn": 4,
+        "lost": 2,
+        "points": 34,
+        "goals_for": 29,
+        "goals_against": 13,
+        "zone": "安全晋级区"
+      },
+      "away_standing": {
+        "rank": 11,
+        "played": 15,
+        "won": 3,
+        "drawn": 4,
+        "lost": 8,
+        "points": 13,
+        "goals_for": 15,
+        "goals_against": 24,
+        "zone": "晋级风险区"
       }
     },
     {
@@ -4516,6 +4884,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 13,
+            "played": 16,
+            "won": 4,
+            "drawn": 4,
+            "lost": 8,
+            "points": 16,
+            "goals_for": 16,
+            "goals_against": 24,
+            "zone": "晋级风险区"
+          },
+          "away": {
+            "rank": 2,
+            "played": 15,
+            "won": 7,
+            "drawn": 3,
+            "lost": 5,
+            "points": 24,
+            "goals_for": 22,
+            "goals_against": 17,
+            "zone": "安全晋级区"
+          }
         }
       },
       "conclusions": {
@@ -4655,6 +5047,28 @@
         "diff": 0.06000000000000005,
         "recommendation": "分出胜负",
         "is_correct": true
+      },
+      "home_standing": {
+        "rank": 13,
+        "played": 16,
+        "won": 4,
+        "drawn": 4,
+        "lost": 8,
+        "points": 16,
+        "goals_for": 16,
+        "goals_against": 24,
+        "zone": "晋级风险区"
+      },
+      "away_standing": {
+        "rank": 2,
+        "played": 15,
+        "won": 7,
+        "drawn": 3,
+        "lost": 5,
+        "points": 24,
+        "goals_for": 22,
+        "goals_against": 17,
+        "zone": "安全晋级区"
       }
     },
     {
@@ -5018,6 +5432,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 3,
+            "played": 15,
+            "won": 8,
+            "drawn": 4,
+            "lost": 3,
+            "points": 28,
+            "goals_for": 24,
+            "goals_against": 14,
+            "zone": "安全晋级区"
+          },
+          "away": {
+            "rank": 4,
+            "played": 15,
+            "won": 5,
+            "drawn": 5,
+            "lost": 5,
+            "points": 20,
+            "goals_for": 22,
+            "goals_against": 19,
+            "zone": "晋级希望区"
+          }
         }
       },
       "conclusions": {
@@ -5157,6 +5595,28 @@
         "diff": 0.06999999999999984,
         "recommendation": "分出胜负",
         "is_correct": false
+      },
+      "home_standing": {
+        "rank": 3,
+        "played": 15,
+        "won": 8,
+        "drawn": 4,
+        "lost": 3,
+        "points": 28,
+        "goals_for": 24,
+        "goals_against": 14,
+        "zone": "安全晋级区"
+      },
+      "away_standing": {
+        "rank": 4,
+        "played": 15,
+        "won": 5,
+        "drawn": 5,
+        "lost": 5,
+        "points": 20,
+        "goals_for": 22,
+        "goals_against": 19,
+        "zone": "晋级希望区"
       }
     },
     {
@@ -5523,6 +5983,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 2,
+            "played": 15,
+            "won": 7,
+            "drawn": 3,
+            "lost": 5,
+            "points": 24,
+            "goals_for": 25,
+            "goals_against": 17,
+            "zone": "安全晋级区"
+          },
+          "away": {
+            "rank": 3,
+            "played": 15,
+            "won": 8,
+            "drawn": 4,
+            "lost": 3,
+            "points": 28,
+            "goals_for": 27,
+            "goals_against": 14,
+            "zone": "安全晋级区"
+          }
         }
       },
       "conclusions": {
@@ -5662,6 +6146,28 @@
         "diff": 0.11999999999999922,
         "recommendation": "主不败",
         "is_correct": true
+      },
+      "home_standing": {
+        "rank": 2,
+        "played": 15,
+        "won": 7,
+        "drawn": 3,
+        "lost": 5,
+        "points": 24,
+        "goals_for": 25,
+        "goals_against": 17,
+        "zone": "安全晋级区"
+      },
+      "away_standing": {
+        "rank": 3,
+        "played": 15,
+        "won": 8,
+        "drawn": 4,
+        "lost": 3,
+        "points": 28,
+        "goals_for": 27,
+        "goals_against": 14,
+        "zone": "安全晋级区"
       }
     },
     {
@@ -6033,6 +6539,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 10,
+            "played": 15,
+            "won": 2,
+            "drawn": 3,
+            "lost": 10,
+            "points": 9,
+            "goals_for": 13,
+            "goals_against": 27,
+            "zone": "晋级风险区"
+          },
+          "away": {
+            "rank": 2,
+            "played": 15,
+            "won": 7,
+            "drawn": 3,
+            "lost": 5,
+            "points": 24,
+            "goals_for": 24,
+            "goals_against": 17,
+            "zone": "安全晋级区"
+          }
         }
       },
       "conclusions": {
@@ -6172,6 +6702,28 @@
         "diff": 0.11000000000000032,
         "recommendation": "主不败",
         "is_correct": false
+      },
+      "home_standing": {
+        "rank": 10,
+        "played": 15,
+        "won": 2,
+        "drawn": 3,
+        "lost": 10,
+        "points": 9,
+        "goals_for": 13,
+        "goals_against": 27,
+        "zone": "晋级风险区"
+      },
+      "away_standing": {
+        "rank": 2,
+        "played": 15,
+        "won": 7,
+        "drawn": 3,
+        "lost": 5,
+        "points": 24,
+        "goals_for": 24,
+        "goals_against": 17,
+        "zone": "安全晋级区"
       }
     },
     {
@@ -6563,6 +7115,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 4,
+            "played": 15,
+            "won": 5,
+            "drawn": 5,
+            "lost": 5,
+            "points": 20,
+            "goals_for": 22,
+            "goals_against": 19,
+            "zone": "晋级希望区"
+          },
+          "away": {
+            "rank": 12,
+            "played": 15,
+            "won": 3,
+            "drawn": 5,
+            "lost": 7,
+            "points": 14,
+            "goals_for": 16,
+            "goals_against": 23,
+            "zone": "晋级无望区"
+          }
         }
       },
       "conclusions": {
@@ -6703,6 +7279,28 @@
         "diff": -0.040000000000000036,
         "recommendation": "主胜（庄家降水防范）",
         "is_correct": true
+      },
+      "home_standing": {
+        "rank": 4,
+        "played": 15,
+        "won": 5,
+        "drawn": 5,
+        "lost": 5,
+        "points": 20,
+        "goals_for": 22,
+        "goals_against": 19,
+        "zone": "晋级希望区"
+      },
+      "away_standing": {
+        "rank": 12,
+        "played": 15,
+        "won": 3,
+        "drawn": 5,
+        "lost": 7,
+        "points": 14,
+        "goals_for": 16,
+        "goals_against": 23,
+        "zone": "晋级无望区"
       }
     },
     {
@@ -7092,6 +7690,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 3,
+            "played": 15,
+            "won": 8,
+            "drawn": 4,
+            "lost": 3,
+            "points": 28,
+            "goals_for": 28,
+            "goals_against": 14,
+            "zone": "安全晋级区"
+          },
+          "away": {
+            "rank": 5,
+            "played": 15,
+            "won": 6,
+            "drawn": 2,
+            "lost": 7,
+            "points": 20,
+            "goals_for": 21,
+            "goals_against": 20,
+            "zone": "晋级希望区"
+          }
         }
       },
       "conclusions": {
@@ -7232,6 +7854,28 @@
         "diff": -0.029999999999999805,
         "recommendation": "主胜（庄家降水防范）",
         "is_correct": false
+      },
+      "home_standing": {
+        "rank": 3,
+        "played": 15,
+        "won": 8,
+        "drawn": 4,
+        "lost": 3,
+        "points": 28,
+        "goals_for": 28,
+        "goals_against": 14,
+        "zone": "安全晋级区"
+      },
+      "away_standing": {
+        "rank": 5,
+        "played": 15,
+        "won": 6,
+        "drawn": 2,
+        "lost": 7,
+        "points": 20,
+        "goals_for": 21,
+        "goals_against": 20,
+        "zone": "晋级希望区"
       }
     },
     {
@@ -7640,6 +8284,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 1,
+            "played": 15,
+            "won": 11,
+            "drawn": 3,
+            "lost": 1,
+            "points": 36,
+            "goals_for": 34,
+            "goals_against": 12,
+            "zone": "安全晋级区"
+          },
+          "away": {
+            "rank": 7,
+            "played": 15,
+            "won": 4,
+            "drawn": 4,
+            "lost": 7,
+            "points": 16,
+            "goals_for": 20,
+            "goals_against": 22,
+            "zone": "晋级希望区"
+          }
         }
       },
       "conclusions": {
@@ -7780,6 +8448,28 @@
         "diff": -0.029999999999999805,
         "recommendation": "主胜（庄家降水防范）",
         "is_correct": true
+      },
+      "home_standing": {
+        "rank": 1,
+        "played": 15,
+        "won": 11,
+        "drawn": 3,
+        "lost": 1,
+        "points": 36,
+        "goals_for": 34,
+        "goals_against": 12,
+        "zone": "安全晋级区"
+      },
+      "away_standing": {
+        "rank": 7,
+        "played": 15,
+        "won": 4,
+        "drawn": 4,
+        "lost": 7,
+        "points": 16,
+        "goals_for": 20,
+        "goals_against": 22,
+        "zone": "晋级希望区"
       }
     },
     {
@@ -8169,6 +8859,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 4,
+            "played": 16,
+            "won": 9,
+            "drawn": 4,
+            "lost": 3,
+            "points": 31,
+            "goals_for": 27,
+            "goals_against": 17,
+            "zone": "晋级希望区"
+          },
+          "away": {
+            "rank": 16,
+            "played": 16,
+            "won": 3,
+            "drawn": 3,
+            "lost": 10,
+            "points": 12,
+            "goals_for": 13,
+            "goals_against": 30,
+            "zone": "晋级无望区"
+          }
         }
       },
       "conclusions": {
@@ -8320,6 +9034,28 @@
         "diff": -0.030000000000000027,
         "recommendation": "主胜（庄家降水防范）",
         "is_correct": true
+      },
+      "home_standing": {
+        "rank": 4,
+        "played": 16,
+        "won": 9,
+        "drawn": 4,
+        "lost": 3,
+        "points": 31,
+        "goals_for": 27,
+        "goals_against": 17,
+        "zone": "晋级希望区"
+      },
+      "away_standing": {
+        "rank": 16,
+        "played": 16,
+        "won": 3,
+        "drawn": 3,
+        "lost": 10,
+        "points": 12,
+        "goals_for": 13,
+        "goals_against": 30,
+        "zone": "晋级无望区"
       }
     },
     {
@@ -8710,6 +9446,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 7,
+            "played": 16,
+            "won": 7,
+            "drawn": 5,
+            "lost": 4,
+            "points": 26,
+            "goals_for": 22,
+            "goals_against": 16,
+            "zone": "晋级希望区"
+          },
+          "away": {
+            "rank": 8,
+            "played": 16,
+            "won": 7,
+            "drawn": 4,
+            "lost": 5,
+            "points": 25,
+            "goals_for": 21,
+            "goals_against": 19,
+            "zone": "晋级希望区"
+          }
         }
       },
       "conclusions": {
@@ -8861,6 +9621,28 @@
         "diff": -0.030000000000000027,
         "recommendation": "主胜（庄家降水防范）",
         "is_correct": false
+      },
+      "home_standing": {
+        "rank": 7,
+        "played": 16,
+        "won": 7,
+        "drawn": 5,
+        "lost": 4,
+        "points": 26,
+        "goals_for": 22,
+        "goals_against": 16,
+        "zone": "晋级希望区"
+      },
+      "away_standing": {
+        "rank": 8,
+        "played": 16,
+        "won": 7,
+        "drawn": 4,
+        "lost": 5,
+        "points": 25,
+        "goals_for": 21,
+        "goals_against": 19,
+        "zone": "晋级希望区"
       }
     },
     {
@@ -9251,6 +10033,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 11,
+            "played": 16,
+            "won": 5,
+            "drawn": 4,
+            "lost": 7,
+            "points": 19,
+            "goals_for": 17,
+            "goals_against": 22,
+            "zone": "晋级风险区"
+          },
+          "away": {
+            "rank": 14,
+            "played": 16,
+            "won": 4,
+            "drawn": 3,
+            "lost": 9,
+            "points": 15,
+            "goals_for": 16,
+            "goals_against": 27,
+            "zone": "晋级无望区"
+          }
         }
       },
       "conclusions": {
@@ -9402,6 +10208,28 @@
         "diff": -0.040000000000000036,
         "recommendation": "主胜（庄家降水防范）",
         "is_correct": true
+      },
+      "home_standing": {
+        "rank": 11,
+        "played": 16,
+        "won": 5,
+        "drawn": 4,
+        "lost": 7,
+        "points": 19,
+        "goals_for": 17,
+        "goals_against": 22,
+        "zone": "晋级风险区"
+      },
+      "away_standing": {
+        "rank": 14,
+        "played": 16,
+        "won": 4,
+        "drawn": 3,
+        "lost": 9,
+        "points": 15,
+        "goals_for": 16,
+        "goals_against": 27,
+        "zone": "晋级无望区"
       }
     },
     {
@@ -9793,6 +10621,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 4,
+            "played": 15,
+            "won": 5,
+            "drawn": 5,
+            "lost": 5,
+            "points": 20,
+            "goals_for": 20,
+            "goals_against": 19,
+            "zone": "晋级希望区"
+          },
+          "away": {
+            "rank": 11,
+            "played": 15,
+            "won": 3,
+            "drawn": 4,
+            "lost": 8,
+            "points": 13,
+            "goals_for": 18,
+            "goals_against": 24,
+            "zone": "晋级风险区"
+          }
         }
       },
       "conclusions": {
@@ -9944,6 +10796,28 @@
         "diff": -0.029999999999999805,
         "recommendation": "主胜（庄家降水防范）",
         "is_correct": true
+      },
+      "home_standing": {
+        "rank": 4,
+        "played": 15,
+        "won": 5,
+        "drawn": 5,
+        "lost": 5,
+        "points": 20,
+        "goals_for": 20,
+        "goals_against": 19,
+        "zone": "晋级希望区"
+      },
+      "away_standing": {
+        "rank": 11,
+        "played": 15,
+        "won": 3,
+        "drawn": 4,
+        "lost": 8,
+        "points": 13,
+        "goals_for": 18,
+        "goals_against": 24,
+        "zone": "晋级风险区"
       }
     },
     {
@@ -10333,6 +11207,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 3,
+            "played": 15,
+            "won": 8,
+            "drawn": 4,
+            "lost": 3,
+            "points": 28,
+            "goals_for": 25,
+            "goals_against": 14,
+            "zone": "安全晋级区"
+          },
+          "away": {
+            "rank": 2,
+            "played": 19,
+            "won": 11,
+            "drawn": 4,
+            "lost": 4,
+            "points": 37,
+            "goals_for": 38,
+            "goals_against": 21,
+            "zone": "安全晋级区"
+          }
         }
       },
       "conclusions": {
@@ -10484,6 +11382,28 @@
         "diff": -0.06000000000000005,
         "recommendation": "主胜（庄家降水防范）",
         "is_correct": false
+      },
+      "home_standing": {
+        "rank": 3,
+        "played": 15,
+        "won": 8,
+        "drawn": 4,
+        "lost": 3,
+        "points": 28,
+        "goals_for": 25,
+        "goals_against": 14,
+        "zone": "安全晋级区"
+      },
+      "away_standing": {
+        "rank": 2,
+        "played": 19,
+        "won": 11,
+        "drawn": 4,
+        "lost": 4,
+        "points": 37,
+        "goals_for": 38,
+        "goals_against": 21,
+        "zone": "安全晋级区"
       }
     },
     {
@@ -10895,6 +11815,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 9,
+            "played": 15,
+            "won": 5,
+            "drawn": 2,
+            "lost": 8,
+            "points": 17,
+            "goals_for": 21,
+            "goals_against": 22,
+            "zone": "晋级风险区"
+          },
+          "away": {
+            "rank": 9,
+            "played": 15,
+            "won": 5,
+            "drawn": 2,
+            "lost": 8,
+            "points": 17,
+            "goals_for": 22,
+            "goals_against": 22,
+            "zone": "晋级风险区"
+          }
         }
       },
       "conclusions": {
@@ -11086,6 +12030,28 @@
         "diff": -0.030000000000000027,
         "recommendation": "主胜（庄家降水防范）",
         "is_correct": false
+      },
+      "home_standing": {
+        "rank": 9,
+        "played": 15,
+        "won": 5,
+        "drawn": 2,
+        "lost": 8,
+        "points": 17,
+        "goals_for": 21,
+        "goals_against": 22,
+        "zone": "晋级风险区"
+      },
+      "away_standing": {
+        "rank": 9,
+        "played": 15,
+        "won": 5,
+        "drawn": 2,
+        "lost": 8,
+        "points": 17,
+        "goals_for": 22,
+        "goals_against": 22,
+        "zone": "晋级风险区"
       }
     },
     {
@@ -11497,6 +12463,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 8,
+            "played": 18,
+            "won": 6,
+            "drawn": 6,
+            "lost": 6,
+            "points": 24,
+            "goals_for": 21,
+            "goals_against": 21,
+            "zone": "晋级希望区"
+          },
+          "away": {
+            "rank": 4,
+            "played": 18,
+            "won": 9,
+            "drawn": 4,
+            "lost": 5,
+            "points": 31,
+            "goals_for": 27,
+            "goals_against": 21,
+            "zone": "晋级希望区"
+          }
         }
       },
       "conclusions": {
@@ -11688,6 +12678,28 @@
         "diff": 0.06000000000000005,
         "recommendation": "主不败",
         "is_correct": true
+      },
+      "home_standing": {
+        "rank": 8,
+        "played": 18,
+        "won": 6,
+        "drawn": 6,
+        "lost": 6,
+        "points": 24,
+        "goals_for": 21,
+        "goals_against": 21,
+        "zone": "晋级希望区"
+      },
+      "away_standing": {
+        "rank": 4,
+        "played": 18,
+        "won": 9,
+        "drawn": 4,
+        "lost": 5,
+        "points": 31,
+        "goals_for": 27,
+        "goals_against": 21,
+        "zone": "晋级希望区"
       }
     },
     {
@@ -12099,6 +13111,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 1,
+            "played": 18,
+            "won": 11,
+            "drawn": 3,
+            "lost": 4,
+            "points": 36,
+            "goals_for": 28,
+            "goals_against": 14,
+            "zone": "安全晋级区"
+          },
+          "away": {
+            "rank": 3,
+            "played": 18,
+            "won": 9,
+            "drawn": 5,
+            "lost": 4,
+            "points": 32,
+            "goals_for": 24,
+            "goals_against": 18,
+            "zone": "安全晋级区"
+          }
         }
       },
       "conclusions": {
@@ -12290,6 +13326,28 @@
         "diff": -0.030000000000000027,
         "recommendation": "主胜（庄家降水防范）",
         "is_correct": true
+      },
+      "home_standing": {
+        "rank": 1,
+        "played": 18,
+        "won": 11,
+        "drawn": 3,
+        "lost": 4,
+        "points": 36,
+        "goals_for": 28,
+        "goals_against": 14,
+        "zone": "安全晋级区"
+      },
+      "away_standing": {
+        "rank": 3,
+        "played": 18,
+        "won": 9,
+        "drawn": 5,
+        "lost": 4,
+        "points": 32,
+        "goals_for": 24,
+        "goals_against": 18,
+        "zone": "安全晋级区"
       }
     },
     {
@@ -12701,6 +13759,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 10,
+            "played": 18,
+            "won": 5,
+            "drawn": 4,
+            "lost": 9,
+            "points": 19,
+            "goals_for": 17,
+            "goals_against": 25,
+            "zone": "晋级风险区"
+          },
+          "away": {
+            "rank": 2,
+            "played": 18,
+            "won": 10,
+            "drawn": 4,
+            "lost": 4,
+            "points": 34,
+            "goals_for": 26,
+            "goals_against": 16,
+            "zone": "安全晋级区"
+          }
         }
       },
       "conclusions": {
@@ -12892,6 +13974,28 @@
         "diff": 0.04999999999999982,
         "recommendation": "主不败",
         "is_correct": true
+      },
+      "home_standing": {
+        "rank": 10,
+        "played": 18,
+        "won": 5,
+        "drawn": 4,
+        "lost": 9,
+        "points": 19,
+        "goals_for": 17,
+        "goals_against": 25,
+        "zone": "晋级风险区"
+      },
+      "away_standing": {
+        "rank": 2,
+        "played": 18,
+        "won": 10,
+        "drawn": 4,
+        "lost": 4,
+        "points": 34,
+        "goals_for": 26,
+        "goals_against": 16,
+        "zone": "安全晋级区"
       }
     },
     {
@@ -13303,6 +14407,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 9,
+            "played": 18,
+            "won": 5,
+            "drawn": 6,
+            "lost": 7,
+            "points": 21,
+            "goals_for": 20,
+            "goals_against": 24,
+            "zone": "晋级风险区"
+          },
+          "away": {
+            "rank": 5,
+            "played": 18,
+            "won": 8,
+            "drawn": 5,
+            "lost": 5,
+            "points": 29,
+            "goals_for": 29,
+            "goals_against": 20,
+            "zone": "晋级希望区"
+          }
         }
       },
       "conclusions": {
@@ -13494,6 +14622,28 @@
         "diff": 0.06000000000000005,
         "recommendation": "分出胜负",
         "is_correct": true
+      },
+      "home_standing": {
+        "rank": 9,
+        "played": 18,
+        "won": 5,
+        "drawn": 6,
+        "lost": 7,
+        "points": 21,
+        "goals_for": 20,
+        "goals_against": 24,
+        "zone": "晋级风险区"
+      },
+      "away_standing": {
+        "rank": 5,
+        "played": 18,
+        "won": 8,
+        "drawn": 5,
+        "lost": 5,
+        "points": 29,
+        "goals_for": 29,
+        "goals_against": 20,
+        "zone": "晋级希望区"
       }
     },
     {
@@ -13905,6 +15055,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 13,
+            "played": 15,
+            "won": 3,
+            "drawn": 4,
+            "lost": 8,
+            "points": 13,
+            "goals_for": 14,
+            "goals_against": 26,
+            "zone": "晋级风险区"
+          },
+          "away": {
+            "rank": 3,
+            "played": 15,
+            "won": 8,
+            "drawn": 4,
+            "lost": 3,
+            "points": 28,
+            "goals_for": 28,
+            "goals_against": 14,
+            "zone": "安全晋级区"
+          }
         }
       },
       "conclusions": {
@@ -14096,6 +15270,28 @@
         "diff": -0.07999999999999963,
         "recommendation": "主胜（庄家降水防范）",
         "is_correct": false
+      },
+      "home_standing": {
+        "rank": 13,
+        "played": 15,
+        "won": 3,
+        "drawn": 4,
+        "lost": 8,
+        "points": 13,
+        "goals_for": 14,
+        "goals_against": 26,
+        "zone": "晋级风险区"
+      },
+      "away_standing": {
+        "rank": 3,
+        "played": 15,
+        "won": 8,
+        "drawn": 4,
+        "lost": 3,
+        "points": 28,
+        "goals_for": 28,
+        "goals_against": 14,
+        "zone": "安全晋级区"
       }
     },
     {
@@ -14507,6 +15703,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 2,
+            "played": 15,
+            "won": 7,
+            "drawn": 3,
+            "lost": 5,
+            "points": 24,
+            "goals_for": 24,
+            "goals_against": 17,
+            "zone": "安全晋级区"
+          },
+          "away": {
+            "rank": 7,
+            "played": 15,
+            "won": 4,
+            "drawn": 4,
+            "lost": 7,
+            "points": 16,
+            "goals_for": 17,
+            "goals_against": 22,
+            "zone": "晋级希望区"
+          }
         }
       },
       "conclusions": {
@@ -14698,6 +15918,28 @@
         "diff": -0.040000000000000036,
         "recommendation": "主胜（庄家降水防范）",
         "is_correct": true
+      },
+      "home_standing": {
+        "rank": 2,
+        "played": 15,
+        "won": 7,
+        "drawn": 3,
+        "lost": 5,
+        "points": 24,
+        "goals_for": 24,
+        "goals_against": 17,
+        "zone": "安全晋级区"
+      },
+      "away_standing": {
+        "rank": 7,
+        "played": 15,
+        "won": 4,
+        "drawn": 4,
+        "lost": 7,
+        "points": 16,
+        "goals_for": 17,
+        "goals_against": 22,
+        "zone": "晋级希望区"
       }
     },
     {
@@ -15109,6 +16351,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 6,
+            "played": 15,
+            "won": 6,
+            "drawn": 3,
+            "lost": 6,
+            "points": 21,
+            "goals_for": 20,
+            "goals_against": 19,
+            "zone": "晋级希望区"
+          },
+          "away": {
+            "rank": 11,
+            "played": 15,
+            "won": 3,
+            "drawn": 4,
+            "lost": 8,
+            "points": 13,
+            "goals_for": 14,
+            "goals_against": 24,
+            "zone": "晋级风险区"
+          }
         }
       },
       "conclusions": {
@@ -15300,6 +16566,28 @@
         "diff": -0.06000000000000005,
         "recommendation": "主胜（庄家降水防范）",
         "is_correct": true
+      },
+      "home_standing": {
+        "rank": 6,
+        "played": 15,
+        "won": 6,
+        "drawn": 3,
+        "lost": 6,
+        "points": 21,
+        "goals_for": 20,
+        "goals_against": 19,
+        "zone": "晋级希望区"
+      },
+      "away_standing": {
+        "rank": 11,
+        "played": 15,
+        "won": 3,
+        "drawn": 4,
+        "lost": 8,
+        "points": 13,
+        "goals_for": 14,
+        "goals_against": 24,
+        "zone": "晋级风险区"
       }
     },
     {
@@ -15711,6 +16999,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 7,
+            "played": 15,
+            "won": 6,
+            "drawn": 3,
+            "lost": 6,
+            "points": 21,
+            "goals_for": 21,
+            "goals_against": 22,
+            "zone": "晋级希望区"
+          },
+          "away": {
+            "rank": 7,
+            "played": 15,
+            "won": 4,
+            "drawn": 4,
+            "lost": 7,
+            "points": 16,
+            "goals_for": 20,
+            "goals_against": 22,
+            "zone": "晋级希望区"
+          }
         }
       },
       "conclusions": {
@@ -15902,6 +17214,28 @@
         "diff": 0.09999999999999964,
         "recommendation": "主不败",
         "is_correct": true
+      },
+      "home_standing": {
+        "rank": 7,
+        "played": 15,
+        "won": 6,
+        "drawn": 3,
+        "lost": 6,
+        "points": 21,
+        "goals_for": 21,
+        "goals_against": 22,
+        "zone": "晋级希望区"
+      },
+      "away_standing": {
+        "rank": 7,
+        "played": 15,
+        "won": 4,
+        "drawn": 4,
+        "lost": 7,
+        "points": 16,
+        "goals_for": 20,
+        "goals_against": 22,
+        "zone": "晋级希望区"
       }
     },
     {
@@ -16313,6 +17647,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 9,
+            "played": 15,
+            "won": 5,
+            "drawn": 2,
+            "lost": 8,
+            "points": 17,
+            "goals_for": 18,
+            "goals_against": 22,
+            "zone": "晋级风险区"
+          },
+          "away": {
+            "rank": 10,
+            "played": 15,
+            "won": 2,
+            "drawn": 3,
+            "lost": 10,
+            "points": 9,
+            "goals_for": 15,
+            "goals_against": 27,
+            "zone": "晋级风险区"
+          }
         }
       },
       "conclusions": {
@@ -16504,6 +17862,28 @@
         "diff": -0.07000000000000028,
         "recommendation": "主胜（庄家降水防范）",
         "is_correct": false
+      },
+      "home_standing": {
+        "rank": 9,
+        "played": 15,
+        "won": 5,
+        "drawn": 2,
+        "lost": 8,
+        "points": 17,
+        "goals_for": 18,
+        "goals_against": 22,
+        "zone": "晋级风险区"
+      },
+      "away_standing": {
+        "rank": 10,
+        "played": 15,
+        "won": 2,
+        "drawn": 3,
+        "lost": 10,
+        "points": 9,
+        "goals_for": 15,
+        "goals_against": 27,
+        "zone": "晋级风险区"
       }
     },
     {
@@ -16915,6 +18295,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 3,
+            "played": 15,
+            "won": 8,
+            "drawn": 4,
+            "lost": 3,
+            "points": 28,
+            "goals_for": 24,
+            "goals_against": 14,
+            "zone": "安全晋级区"
+          },
+          "away": {
+            "rank": 10,
+            "played": 15,
+            "won": 2,
+            "drawn": 3,
+            "lost": 10,
+            "points": 9,
+            "goals_for": 14,
+            "goals_against": 27,
+            "zone": "晋级风险区"
+          }
         }
       },
       "conclusions": {
@@ -17106,6 +18510,28 @@
         "diff": -0.06000000000000005,
         "recommendation": "主胜（庄家降水防范）",
         "is_correct": false
+      },
+      "home_standing": {
+        "rank": 3,
+        "played": 15,
+        "won": 8,
+        "drawn": 4,
+        "lost": 3,
+        "points": 28,
+        "goals_for": 24,
+        "goals_against": 14,
+        "zone": "安全晋级区"
+      },
+      "away_standing": {
+        "rank": 10,
+        "played": 15,
+        "won": 2,
+        "drawn": 3,
+        "lost": 10,
+        "points": 9,
+        "goals_for": 14,
+        "goals_against": 27,
+        "zone": "晋级风险区"
       }
     },
     {
@@ -17517,6 +18943,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 3,
+            "played": 15,
+            "won": 8,
+            "drawn": 4,
+            "lost": 3,
+            "points": 28,
+            "goals_for": 28,
+            "goals_against": 14,
+            "zone": "安全晋级区"
+          },
+          "away": {
+            "rank": 7,
+            "played": 15,
+            "won": 4,
+            "drawn": 4,
+            "lost": 7,
+            "points": 16,
+            "goals_for": 20,
+            "goals_against": 22,
+            "zone": "晋级希望区"
+          }
         }
       },
       "conclusions": {
@@ -17708,6 +19158,28 @@
         "diff": -0.040000000000000036,
         "recommendation": "主胜（庄家降水防范）",
         "is_correct": false
+      },
+      "home_standing": {
+        "rank": 3,
+        "played": 15,
+        "won": 8,
+        "drawn": 4,
+        "lost": 3,
+        "points": 28,
+        "goals_for": 28,
+        "goals_against": 14,
+        "zone": "安全晋级区"
+      },
+      "away_standing": {
+        "rank": 7,
+        "played": 15,
+        "won": 4,
+        "drawn": 4,
+        "lost": 7,
+        "points": 16,
+        "goals_for": 20,
+        "goals_against": 22,
+        "zone": "晋级希望区"
       }
     },
     {
@@ -18119,6 +19591,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 5,
+            "played": 15,
+            "won": 6,
+            "drawn": 2,
+            "lost": 7,
+            "points": 20,
+            "goals_for": 23,
+            "goals_against": 20,
+            "zone": "晋级希望区"
+          },
+          "away": {
+            "rank": 1,
+            "played": 15,
+            "won": 10,
+            "drawn": 3,
+            "lost": 2,
+            "points": 33,
+            "goals_for": 28,
+            "goals_against": 12,
+            "zone": "安全晋级区"
+          }
         }
       },
       "conclusions": {
@@ -18310,6 +19806,28 @@
         "diff": 0.050000000000000266,
         "recommendation": "主不败",
         "is_correct": false
+      },
+      "home_standing": {
+        "rank": 5,
+        "played": 15,
+        "won": 6,
+        "drawn": 2,
+        "lost": 7,
+        "points": 20,
+        "goals_for": 23,
+        "goals_against": 20,
+        "zone": "晋级希望区"
+      },
+      "away_standing": {
+        "rank": 1,
+        "played": 15,
+        "won": 10,
+        "drawn": 3,
+        "lost": 2,
+        "points": 33,
+        "goals_for": 28,
+        "goals_against": 12,
+        "zone": "安全晋级区"
       }
     },
     {
@@ -18721,6 +20239,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 5,
+            "played": 15,
+            "won": 6,
+            "drawn": 2,
+            "lost": 7,
+            "points": 20,
+            "goals_for": 21,
+            "goals_against": 20,
+            "zone": "晋级希望区"
+          },
+          "away": {
+            "rank": 7,
+            "played": 15,
+            "won": 4,
+            "drawn": 4,
+            "lost": 7,
+            "points": 16,
+            "goals_for": 17,
+            "goals_against": 22,
+            "zone": "晋级希望区"
+          }
         }
       },
       "conclusions": {
@@ -18912,6 +20454,28 @@
         "diff": 0.06000000000000005,
         "recommendation": "主不败",
         "is_correct": false
+      },
+      "home_standing": {
+        "rank": 5,
+        "played": 15,
+        "won": 6,
+        "drawn": 2,
+        "lost": 7,
+        "points": 20,
+        "goals_for": 21,
+        "goals_against": 20,
+        "zone": "晋级希望区"
+      },
+      "away_standing": {
+        "rank": 7,
+        "played": 15,
+        "won": 4,
+        "drawn": 4,
+        "lost": 7,
+        "points": 16,
+        "goals_for": 17,
+        "goals_against": 22,
+        "zone": "晋级希望区"
       }
     },
     {
@@ -19323,6 +20887,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 3,
+            "played": 15,
+            "won": 9,
+            "drawn": 3,
+            "lost": 3,
+            "points": 30,
+            "goals_for": 28,
+            "goals_against": 17,
+            "zone": "安全晋级区"
+          },
+          "away": {
+            "rank": 1,
+            "played": 15,
+            "won": 7,
+            "drawn": 2,
+            "lost": 6,
+            "points": 23,
+            "goals_for": 22,
+            "goals_against": 18,
+            "zone": "安全晋级区"
+          }
         }
       },
       "conclusions": {
@@ -19514,6 +21102,28 @@
         "diff": 0.21000000000000085,
         "recommendation": "主不败",
         "is_correct": true
+      },
+      "home_standing": {
+        "rank": 3,
+        "played": 15,
+        "won": 9,
+        "drawn": 3,
+        "lost": 3,
+        "points": 30,
+        "goals_for": 28,
+        "goals_against": 17,
+        "zone": "安全晋级区"
+      },
+      "away_standing": {
+        "rank": 1,
+        "played": 15,
+        "won": 7,
+        "drawn": 2,
+        "lost": 6,
+        "points": 23,
+        "goals_for": 22,
+        "goals_against": 18,
+        "zone": "安全晋级区"
       }
     },
     {
@@ -19925,6 +21535,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 4,
+            "played": 16,
+            "won": 8,
+            "drawn": 4,
+            "lost": 4,
+            "points": 28,
+            "goals_for": 24,
+            "goals_against": 18,
+            "zone": "晋级希望区"
+          },
+          "away": {
+            "rank": 6,
+            "played": 18,
+            "won": 7,
+            "drawn": 6,
+            "lost": 5,
+            "points": 27,
+            "goals_for": 25,
+            "goals_against": 22,
+            "zone": "晋级希望区"
+          }
         }
       },
       "conclusions": {
@@ -20084,6 +21718,28 @@
         "diff": 0.07000000000000028,
         "recommendation": "分出胜负",
         "is_correct": true
+      },
+      "home_standing": {
+        "rank": 4,
+        "played": 16,
+        "won": 8,
+        "drawn": 4,
+        "lost": 4,
+        "points": 28,
+        "goals_for": 24,
+        "goals_against": 18,
+        "zone": "晋级希望区"
+      },
+      "away_standing": {
+        "rank": 6,
+        "played": 18,
+        "won": 7,
+        "drawn": 6,
+        "lost": 5,
+        "points": 27,
+        "goals_for": 25,
+        "goals_against": 22,
+        "zone": "晋级希望区"
       }
     },
     {
@@ -20495,6 +22151,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 2,
+            "played": 16,
+            "won": 10,
+            "drawn": 3,
+            "lost": 3,
+            "points": 33,
+            "goals_for": 29,
+            "goals_against": 15,
+            "zone": "安全晋级区"
+          },
+          "away": {
+            "rank": 7,
+            "played": 18,
+            "won": 7,
+            "drawn": 4,
+            "lost": 7,
+            "points": 25,
+            "goals_for": 22,
+            "goals_against": 23,
+            "zone": "晋级希望区"
+          }
         }
       },
       "conclusions": {
@@ -20686,6 +22366,28 @@
         "diff": 0.10999999999999943,
         "recommendation": "主不败",
         "is_correct": true
+      },
+      "home_standing": {
+        "rank": 2,
+        "played": 16,
+        "won": 10,
+        "drawn": 3,
+        "lost": 3,
+        "points": 33,
+        "goals_for": 29,
+        "goals_against": 15,
+        "zone": "安全晋级区"
+      },
+      "away_standing": {
+        "rank": 7,
+        "played": 18,
+        "won": 7,
+        "drawn": 4,
+        "lost": 7,
+        "points": 25,
+        "goals_for": 22,
+        "goals_against": 23,
+        "zone": "晋级希望区"
       }
     },
     {
@@ -21097,6 +22799,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 3,
+            "played": 15,
+            "won": 8,
+            "drawn": 4,
+            "lost": 3,
+            "points": 28,
+            "goals_for": 26,
+            "goals_against": 14,
+            "zone": "安全晋级区"
+          },
+          "away": {
+            "rank": 9,
+            "played": 15,
+            "won": 5,
+            "drawn": 2,
+            "lost": 8,
+            "points": 17,
+            "goals_for": 22,
+            "goals_against": 22,
+            "zone": "晋级风险区"
+          }
         }
       },
       "conclusions": {
@@ -21288,6 +23014,28 @@
         "diff": 0.06000000000000005,
         "recommendation": "分出胜负",
         "is_correct": false
+      },
+      "home_standing": {
+        "rank": 3,
+        "played": 15,
+        "won": 8,
+        "drawn": 4,
+        "lost": 3,
+        "points": 28,
+        "goals_for": 26,
+        "goals_against": 14,
+        "zone": "安全晋级区"
+      },
+      "away_standing": {
+        "rank": 9,
+        "played": 15,
+        "won": 5,
+        "drawn": 2,
+        "lost": 8,
+        "points": 17,
+        "goals_for": 22,
+        "goals_against": 22,
+        "zone": "晋级风险区"
       }
     },
     {
@@ -21699,6 +23447,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 11,
+            "played": 15,
+            "won": 3,
+            "drawn": 4,
+            "lost": 8,
+            "points": 13,
+            "goals_for": 17,
+            "goals_against": 24,
+            "zone": "晋级风险区"
+          },
+          "away": {
+            "rank": 4,
+            "played": 15,
+            "won": 5,
+            "drawn": 5,
+            "lost": 5,
+            "points": 20,
+            "goals_for": 19,
+            "goals_against": 19,
+            "zone": "晋级希望区"
+          }
         }
       },
       "conclusions": {
@@ -21890,6 +23662,28 @@
         "diff": -0.06999999999999984,
         "recommendation": "主胜（庄家降水防范）",
         "is_correct": false
+      },
+      "home_standing": {
+        "rank": 11,
+        "played": 15,
+        "won": 3,
+        "drawn": 4,
+        "lost": 8,
+        "points": 13,
+        "goals_for": 17,
+        "goals_against": 24,
+        "zone": "晋级风险区"
+      },
+      "away_standing": {
+        "rank": 4,
+        "played": 15,
+        "won": 5,
+        "drawn": 5,
+        "lost": 5,
+        "points": 20,
+        "goals_for": 19,
+        "goals_against": 19,
+        "zone": "晋级希望区"
       }
     },
     {
@@ -22301,6 +24095,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 9,
+            "played": 15,
+            "won": 5,
+            "drawn": 2,
+            "lost": 8,
+            "points": 17,
+            "goals_for": 22,
+            "goals_against": 22,
+            "zone": "晋级风险区"
+          },
+          "away": {
+            "rank": 9,
+            "played": 15,
+            "won": 5,
+            "drawn": 2,
+            "lost": 8,
+            "points": 17,
+            "goals_for": 19,
+            "goals_against": 22,
+            "zone": "晋级风险区"
+          }
         }
       },
       "conclusions": {
@@ -22492,6 +24310,28 @@
         "diff": 0.08999999999999986,
         "recommendation": "分出胜负",
         "is_correct": true
+      },
+      "home_standing": {
+        "rank": 9,
+        "played": 15,
+        "won": 5,
+        "drawn": 2,
+        "lost": 8,
+        "points": 17,
+        "goals_for": 22,
+        "goals_against": 22,
+        "zone": "晋级风险区"
+      },
+      "away_standing": {
+        "rank": 9,
+        "played": 15,
+        "won": 5,
+        "drawn": 2,
+        "lost": 8,
+        "points": 17,
+        "goals_for": 19,
+        "goals_against": 22,
+        "zone": "晋级风险区"
       }
     },
     {
@@ -22903,6 +24743,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 3,
+            "played": 15,
+            "won": 9,
+            "drawn": 3,
+            "lost": 3,
+            "points": 30,
+            "goals_for": 27,
+            "goals_against": 15,
+            "zone": "安全晋级区"
+          },
+          "away": {
+            "rank": 3,
+            "played": 15,
+            "won": 8,
+            "drawn": 4,
+            "lost": 3,
+            "points": 28,
+            "goals_for": 27,
+            "goals_against": 14,
+            "zone": "安全晋级区"
+          }
         }
       },
       "conclusions": {
@@ -23094,6 +24958,28 @@
         "diff": 0.11999999999999922,
         "recommendation": "分出胜负",
         "is_correct": true
+      },
+      "home_standing": {
+        "rank": 3,
+        "played": 15,
+        "won": 9,
+        "drawn": 3,
+        "lost": 3,
+        "points": 30,
+        "goals_for": 27,
+        "goals_against": 15,
+        "zone": "安全晋级区"
+      },
+      "away_standing": {
+        "rank": 3,
+        "played": 15,
+        "won": 8,
+        "drawn": 4,
+        "lost": 3,
+        "points": 28,
+        "goals_for": 27,
+        "goals_against": 14,
+        "zone": "安全晋级区"
       }
     },
     {
@@ -23505,6 +25391,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 12,
+            "played": 15,
+            "won": 3,
+            "drawn": 5,
+            "lost": 7,
+            "points": 14,
+            "goals_for": 16,
+            "goals_against": 23,
+            "zone": "晋级无望区"
+          },
+          "away": {
+            "rank": 7,
+            "played": 15,
+            "won": 4,
+            "drawn": 4,
+            "lost": 7,
+            "points": 16,
+            "goals_for": 18,
+            "goals_against": 22,
+            "zone": "晋级希望区"
+          }
         }
       },
       "conclusions": {
@@ -23696,6 +25606,28 @@
         "diff": -0.08999999999999986,
         "recommendation": "主胜（庄家降水防范）",
         "is_correct": false
+      },
+      "home_standing": {
+        "rank": 12,
+        "played": 15,
+        "won": 3,
+        "drawn": 5,
+        "lost": 7,
+        "points": 14,
+        "goals_for": 16,
+        "goals_against": 23,
+        "zone": "晋级无望区"
+      },
+      "away_standing": {
+        "rank": 7,
+        "played": 15,
+        "won": 4,
+        "drawn": 4,
+        "lost": 7,
+        "points": 16,
+        "goals_for": 18,
+        "goals_against": 22,
+        "zone": "晋级希望区"
       }
     },
     {
@@ -24089,6 +26021,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 4,
+            "played": 15,
+            "won": 5,
+            "drawn": 5,
+            "lost": 5,
+            "points": 20,
+            "goals_for": 22,
+            "goals_against": 19,
+            "zone": "晋级希望区"
+          },
+          "away": {
+            "rank": 2,
+            "played": 15,
+            "won": 7,
+            "drawn": 3,
+            "lost": 5,
+            "points": 24,
+            "goals_for": 26,
+            "goals_against": 17,
+            "zone": "安全晋级区"
+          }
         }
       },
       "conclusions": {
@@ -24286,6 +26242,28 @@
         "diff": 0.050000000000000266,
         "recommendation": "主不败",
         "is_correct": true
+      },
+      "home_standing": {
+        "rank": 4,
+        "played": 15,
+        "won": 5,
+        "drawn": 5,
+        "lost": 5,
+        "points": 20,
+        "goals_for": 22,
+        "goals_against": 19,
+        "zone": "晋级希望区"
+      },
+      "away_standing": {
+        "rank": 2,
+        "played": 15,
+        "won": 7,
+        "drawn": 3,
+        "lost": 5,
+        "points": 24,
+        "goals_for": 26,
+        "goals_against": 17,
+        "zone": "安全晋级区"
       }
     },
     {
@@ -24679,6 +26657,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 8,
+            "played": 15,
+            "won": 4,
+            "drawn": 5,
+            "lost": 6,
+            "points": 17,
+            "goals_for": 20,
+            "goals_against": 21,
+            "zone": "晋级风险区"
+          },
+          "away": {
+            "rank": 2,
+            "played": 15,
+            "won": 7,
+            "drawn": 3,
+            "lost": 5,
+            "points": 24,
+            "goals_for": 23,
+            "goals_against": 17,
+            "zone": "安全晋级区"
+          }
         }
       },
       "conclusions": {
@@ -24876,6 +26878,28 @@
         "diff": -0.11000000000000032,
         "recommendation": "主胜（庄家降水防范）",
         "is_correct": false
+      },
+      "home_standing": {
+        "rank": 8,
+        "played": 15,
+        "won": 4,
+        "drawn": 5,
+        "lost": 6,
+        "points": 17,
+        "goals_for": 20,
+        "goals_against": 21,
+        "zone": "晋级风险区"
+      },
+      "away_standing": {
+        "rank": 2,
+        "played": 15,
+        "won": 7,
+        "drawn": 3,
+        "lost": 5,
+        "points": 24,
+        "goals_for": 23,
+        "goals_against": 17,
+        "zone": "安全晋级区"
       }
     },
     {
@@ -25269,6 +27293,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 8,
+            "played": 15,
+            "won": 4,
+            "drawn": 5,
+            "lost": 6,
+            "points": 17,
+            "goals_for": 20,
+            "goals_against": 21,
+            "zone": "晋级风险区"
+          },
+          "away": {
+            "rank": 1,
+            "played": 15,
+            "won": 7,
+            "drawn": 2,
+            "lost": 6,
+            "points": 23,
+            "goals_for": 25,
+            "goals_against": 18,
+            "zone": "安全晋级区"
+          }
         }
       },
       "conclusions": {
@@ -25466,6 +27514,28 @@
         "diff": 0.11000000000000032,
         "recommendation": "分出胜负",
         "is_correct": false
+      },
+      "home_standing": {
+        "rank": 8,
+        "played": 15,
+        "won": 4,
+        "drawn": 5,
+        "lost": 6,
+        "points": 17,
+        "goals_for": 20,
+        "goals_against": 21,
+        "zone": "晋级风险区"
+      },
+      "away_standing": {
+        "rank": 1,
+        "played": 15,
+        "won": 7,
+        "drawn": 2,
+        "lost": 6,
+        "points": 23,
+        "goals_for": 25,
+        "goals_against": 18,
+        "zone": "安全晋级区"
       }
     },
     {
@@ -25859,6 +27929,30 @@
         "injuries": {
           "home": [],
           "away": []
+        },
+        "standings": {
+          "home": {
+            "rank": 8,
+            "played": 15,
+            "won": 4,
+            "drawn": 5,
+            "lost": 6,
+            "points": 17,
+            "goals_for": 16,
+            "goals_against": 21,
+            "zone": "晋级风险区"
+          },
+          "away": {
+            "rank": 2,
+            "played": 15,
+            "won": 7,
+            "drawn": 3,
+            "lost": 5,
+            "points": 24,
+            "goals_for": 25,
+            "goals_against": 17,
+            "zone": "安全晋级区"
+          }
         }
       },
       "conclusions": {
@@ -26056,6 +28150,28 @@
         "diff": 0.07000000000000028,
         "recommendation": "分出胜负",
         "is_correct": false
+      },
+      "home_standing": {
+        "rank": 8,
+        "played": 15,
+        "won": 4,
+        "drawn": 5,
+        "lost": 6,
+        "points": 17,
+        "goals_for": 16,
+        "goals_against": 21,
+        "zone": "晋级风险区"
+      },
+      "away_standing": {
+        "rank": 2,
+        "played": 15,
+        "won": 7,
+        "drawn": 3,
+        "lost": 5,
+        "points": 24,
+        "goals_for": 25,
+        "goals_against": 17,
+        "zone": "安全晋级区"
       }
     },
     {
@@ -26587,6 +28703,33 @@
               "lose": 4.35
             }
           }
+        },
+        {
+          "timestamp": "2026-07-21T13:52:38.225908",
+          "pinnacle": {
+            "home": 4.2,
+            "draw": 3.05,
+            "away": 1.78
+          },
+          "kelly_conclusion": "即时返还率为 0.887。基于散户倾向（主 23% / 平 29% / 客 48%），计算得出即时凯利指数为：主胜 0.97，平局 0.88，客胜 0.85。<br/> 散户最热的【主胜】（凯利 0.97）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+          "asian_handicap": {
+            "handicap": "主队+0.25",
+            "home_odds": 2.02,
+            "away_odds": 1.88
+          },
+          "lottery_handicap": {
+            "handicap": "主受让1球",
+            "initial": {
+              "win": 1.62,
+              "draw": 3.75,
+              "lose": 4.35
+            },
+            "current": {
+              "win": 1.62,
+              "draw": 3.75,
+              "lose": 4.35
+            }
+          }
         }
       ],
       "match_context": "韩职常规赛对决。济州SK坐镇主场迎接江原FC的挑战。",
@@ -26949,7 +29092,7 @@
             "source": "气象与场地战报",
             "impact": "利好防守",
             "verified": true,
-            "date": "2026-07-21 13:49",
+            "date": "2026-07-21 13:52",
             "url": "https://weather.sports.com/"
           },
           {
@@ -26996,6 +29139,30 @@
               "status": "出战成疑"
             }
           ]
+        },
+        "standings": {
+          "home": {
+            "rank": 10,
+            "played": 18,
+            "won": 5,
+            "drawn": 4,
+            "lost": 9,
+            "points": 19,
+            "goals_for": 17,
+            "goals_against": 25,
+            "zone": "晋级风险区"
+          },
+          "away": {
+            "rank": 1,
+            "played": 18,
+            "won": 11,
+            "drawn": 3,
+            "lost": 4,
+            "points": 36,
+            "goals_for": 28,
+            "goals_against": 14,
+            "zone": "安全晋级区"
+          }
         }
       },
       "conclusions": {
@@ -27194,7 +29361,29 @@
         }
       },
       "moe_score": -0.1404048361440664,
-      "prediction_updated": true
+      "prediction_updated": true,
+      "home_standing": {
+        "rank": 10,
+        "played": 18,
+        "won": 5,
+        "drawn": 4,
+        "lost": 9,
+        "points": 19,
+        "goals_for": 17,
+        "goals_against": 25,
+        "zone": "晋级风险区"
+      },
+      "away_standing": {
+        "rank": 1,
+        "played": 18,
+        "won": 11,
+        "drawn": 3,
+        "lost": 4,
+        "points": 36,
+        "goals_for": 28,
+        "goals_against": 14,
+        "zone": "安全晋级区"
+      }
     },
     {
       "id": "match_260722_204",
@@ -27725,6 +29914,33 @@
               "lose": 1.85
             }
           }
+        },
+        {
+          "timestamp": "2026-07-21T13:52:38.230393",
+          "pinnacle": {
+            "home": 2.01,
+            "draw": 3.15,
+            "away": 3.18
+          },
+          "kelly_conclusion": "即时返还率为 0.885。基于散户倾向（主 44% / 平 28% / 客 28%），计算得出即时凯利指数为：主胜 0.88，平局 0.88，客胜 0.89。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>平局</strong> 剧本。",
+          "asian_handicap": {
+            "handicap": "主队-0.25",
+            "home_odds": 1.92,
+            "away_odds": 1.98
+          },
+          "lottery_handicap": {
+            "handicap": "主让1球",
+            "initial": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            },
+            "current": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            }
+          }
         }
       ],
       "match_context": "巴甲常规赛对决。米竞技坐镇主场迎接巴伊亚的挑战。",
@@ -28087,7 +30303,7 @@
             "source": "球场维保组",
             "impact": "利好大球",
             "verified": true,
-            "date": "2026-07-21 13:49",
+            "date": "2026-07-21 13:52",
             "url": "https://stadium.sports.com/"
           },
           {
@@ -28134,6 +30350,30 @@
               "status": "出战成疑"
             }
           ]
+        },
+        "standings": {
+          "home": {
+            "rank": 5,
+            "played": 16,
+            "won": 8,
+            "drawn": 4,
+            "lost": 4,
+            "points": 28,
+            "goals_for": 24,
+            "goals_against": 17,
+            "zone": "晋级希望区"
+          },
+          "away": {
+            "rank": 4,
+            "played": 16,
+            "won": 9,
+            "drawn": 4,
+            "lost": 3,
+            "points": 31,
+            "goals_for": 27,
+            "goals_against": 17,
+            "zone": "晋级希望区"
+          }
         }
       },
       "conclusions": {
@@ -28329,7 +30569,29 @@
         }
       },
       "moe_score": -0.006490197809743761,
-      "prediction_updated": true
+      "prediction_updated": true,
+      "home_standing": {
+        "rank": 5,
+        "played": 16,
+        "won": 8,
+        "drawn": 4,
+        "lost": 4,
+        "points": 28,
+        "goals_for": 24,
+        "goals_against": 17,
+        "zone": "晋级希望区"
+      },
+      "away_standing": {
+        "rank": 4,
+        "played": 16,
+        "won": 9,
+        "drawn": 4,
+        "lost": 3,
+        "points": 31,
+        "goals_for": 27,
+        "goals_against": 17,
+        "zone": "晋级希望区"
+      }
     },
     {
       "id": "match_260722_205",
@@ -28860,6 +31122,33 @@
               "lose": 3.1
             }
           }
+        },
+        {
+          "timestamp": "2026-07-21T13:52:38.231022",
+          "pinnacle": {
+            "home": 1.43,
+            "draw": 4.1,
+            "away": 5.4
+          },
+          "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 62% / 平 22% / 客 16%），计算得出即时凯利指数为：主胜 0.89，平局 0.90，客胜 0.86。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>客胜</strong> 剧本。",
+          "asian_handicap": {
+            "handicap": "主队-1.25",
+            "home_odds": 1.95,
+            "away_odds": 1.95
+          },
+          "lottery_handicap": {
+            "handicap": "主让1球",
+            "initial": {
+              "win": 1.95,
+              "draw": 3.5,
+              "lose": 3.1
+            },
+            "current": {
+              "win": 1.95,
+              "draw": 3.5,
+              "lose": 3.1
+            }
+          }
         }
       ],
       "match_context": "欧冠常规赛对决。萨巴赫坐镇主场迎接库奥皮奥的挑战。",
@@ -29222,7 +31511,7 @@
             "source": "球场维保组",
             "impact": "利好大球",
             "verified": true,
-            "date": "2026-07-21 13:49",
+            "date": "2026-07-21 13:52",
             "url": "https://stadium.sports.com/"
           },
           {
@@ -29269,6 +31558,30 @@
               "status": "出战成疑"
             }
           ]
+        },
+        "standings": {
+          "home": {
+            "rank": 3,
+            "played": 14,
+            "won": 8,
+            "drawn": 4,
+            "lost": 2,
+            "points": 28,
+            "goals_for": 24,
+            "goals_against": 13,
+            "zone": "安全晋级区"
+          },
+          "away": {
+            "rank": 1,
+            "played": 15,
+            "won": 10,
+            "drawn": 3,
+            "lost": 2,
+            "points": 33,
+            "goals_for": 28,
+            "goals_against": 12,
+            "zone": "安全晋级区"
+          }
         }
       },
       "conclusions": {
@@ -29464,7 +31777,29 @@
         }
       },
       "moe_score": -0.10792562890510221,
-      "prediction_updated": true
+      "prediction_updated": true,
+      "home_standing": {
+        "rank": 3,
+        "played": 14,
+        "won": 8,
+        "drawn": 4,
+        "lost": 2,
+        "points": 28,
+        "goals_for": 24,
+        "goals_against": 13,
+        "zone": "安全晋级区"
+      },
+      "away_standing": {
+        "rank": 1,
+        "played": 15,
+        "won": 10,
+        "drawn": 3,
+        "lost": 2,
+        "points": 33,
+        "goals_for": 28,
+        "goals_against": 12,
+        "zone": "安全晋级区"
+      }
     },
     {
       "id": "match_260722_206",
@@ -29995,6 +32330,33 @@
               "lose": 1.85
             }
           }
+        },
+        {
+          "timestamp": "2026-07-21T13:52:38.231640",
+          "pinnacle": {
+            "home": 1.86,
+            "draw": 3.2,
+            "away": 3.6
+          },
+          "kelly_conclusion": "即时返还率为 0.887。基于散户倾向（主 48% / 平 28% / 客 24%），计算得出即时凯利指数为：主胜 0.89，平局 0.90，客胜 0.86。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>客胜</strong> 剧本。",
+          "asian_handicap": {
+            "handicap": "主队-0.25",
+            "home_odds": 1.92,
+            "away_odds": 1.98
+          },
+          "lottery_handicap": {
+            "handicap": "主让1球",
+            "initial": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            },
+            "current": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            }
+          }
         }
       ],
       "match_context": "欧冠常规赛对决。奥胡斯坐镇主场迎接波兹南的挑战。",
@@ -30357,7 +32719,7 @@
             "source": "球场维保组",
             "impact": "利好大球",
             "verified": true,
-            "date": "2026-07-21 13:49",
+            "date": "2026-07-21 13:52",
             "url": "https://stadium.sports.com/"
           },
           {
@@ -30404,6 +32766,30 @@
               "status": "出战成疑"
             }
           ]
+        },
+        "standings": {
+          "home": {
+            "rank": 4,
+            "played": 14,
+            "won": 7,
+            "drawn": 4,
+            "lost": 3,
+            "points": 25,
+            "goals_for": 22,
+            "goals_against": 15,
+            "zone": "晋级希望区"
+          },
+          "away": {
+            "rank": 2,
+            "played": 14,
+            "won": 9,
+            "drawn": 3,
+            "lost": 2,
+            "points": 30,
+            "goals_for": 27,
+            "goals_against": 11,
+            "zone": "安全晋级区"
+          }
         }
       },
       "conclusions": {
@@ -30599,7 +32985,29 @@
         }
       },
       "moe_score": 0.3443732711100359,
-      "prediction_updated": true
+      "prediction_updated": true,
+      "home_standing": {
+        "rank": 4,
+        "played": 14,
+        "won": 7,
+        "drawn": 4,
+        "lost": 3,
+        "points": 25,
+        "goals_for": 22,
+        "goals_against": 15,
+        "zone": "晋级希望区"
+      },
+      "away_standing": {
+        "rank": 2,
+        "played": 14,
+        "won": 9,
+        "drawn": 3,
+        "lost": 2,
+        "points": 30,
+        "goals_for": 27,
+        "goals_against": 11,
+        "zone": "安全晋级区"
+      }
     },
     {
       "id": "match_260722_207",
@@ -31130,6 +33538,33 @@
               "lose": 1.85
             }
           }
+        },
+        {
+          "timestamp": "2026-07-21T13:52:38.232376",
+          "pinnacle": {
+            "home": 1.78,
+            "draw": 3.5,
+            "away": 3.55
+          },
+          "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 46% / 平 27% / 客 27%），计算得出即时凯利指数为：主胜 0.82，平局 0.94，客胜 0.96。<br/> 散户最热的【客胜】（凯利 0.96）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>主队受让或不败</strong> 的冷门路线。",
+          "asian_handicap": {
+            "handicap": "主队-0.25",
+            "home_odds": 1.92,
+            "away_odds": 1.98
+          },
+          "lottery_handicap": {
+            "handicap": "主让1球",
+            "initial": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            },
+            "current": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            }
+          }
         }
       ],
       "match_context": "欧冠常规赛对决。格风暴坐镇主场迎接哈茨的挑战。",
@@ -31492,7 +33927,7 @@
             "source": "球场维保组",
             "impact": "利好大球",
             "verified": true,
-            "date": "2026-07-21 13:49",
+            "date": "2026-07-21 13:52",
             "url": "https://stadium.sports.com/"
           },
           {
@@ -31539,6 +33974,30 @@
               "status": "出战成疑"
             }
           ]
+        },
+        "standings": {
+          "home": {
+            "rank": 1,
+            "played": 14,
+            "won": 11,
+            "drawn": 2,
+            "lost": 1,
+            "points": 35,
+            "goals_for": 31,
+            "goals_against": 9,
+            "zone": "安全晋级区"
+          },
+          "away": {
+            "rank": 3,
+            "played": 14,
+            "won": 8,
+            "drawn": 3,
+            "lost": 3,
+            "points": 27,
+            "goals_for": 23,
+            "goals_against": 14,
+            "zone": "安全晋级区"
+          }
         }
       },
       "conclusions": {
@@ -31742,7 +34201,29 @@
         }
       },
       "moe_score": 0.796759812662953,
-      "prediction_updated": true
+      "prediction_updated": true,
+      "home_standing": {
+        "rank": 1,
+        "played": 14,
+        "won": 11,
+        "drawn": 2,
+        "lost": 1,
+        "points": 35,
+        "goals_for": 31,
+        "goals_against": 9,
+        "zone": "安全晋级区"
+      },
+      "away_standing": {
+        "rank": 3,
+        "played": 14,
+        "won": 8,
+        "drawn": 3,
+        "lost": 3,
+        "points": 27,
+        "goals_for": 23,
+        "goals_against": 14,
+        "zone": "安全晋级区"
+      }
     },
     {
       "id": "match_260722_201",
@@ -32273,6 +34754,33 @@
               "lose": 1.85
             }
           }
+        },
+        {
+          "timestamp": "2026-07-21T13:52:38.233068",
+          "pinnacle": {
+            "home": 1.7,
+            "draw": 3.15,
+            "away": 4.46
+          },
+          "kelly_conclusion": "即时返还率为 0.885。基于散户倾向（主 52% / 平 28% / 客 20%），计算得出即时凯利指数为：主胜 0.88，平局 0.88，客胜 0.89。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>平局</strong> 剧本。",
+          "asian_handicap": {
+            "handicap": "主队-0.75",
+            "home_odds": 1.88,
+            "away_odds": 2.02
+          },
+          "lottery_handicap": {
+            "handicap": "主让1球",
+            "initial": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            },
+            "current": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            }
+          }
         }
       ],
       "match_context": "韩职常规赛对决。首尔FC坐镇主场迎接浦项制铁的挑战。",
@@ -32635,7 +35143,7 @@
             "source": "球场维保组",
             "impact": "利好大球",
             "verified": true,
-            "date": "2026-07-21 13:49",
+            "date": "2026-07-21 13:52",
             "url": "https://stadium.sports.com/"
           },
           {
@@ -32682,6 +35190,30 @@
               "status": "出战成疑"
             }
           ]
+        },
+        "standings": {
+          "home": {
+            "rank": 6,
+            "played": 18,
+            "won": 7,
+            "drawn": 6,
+            "lost": 5,
+            "points": 27,
+            "goals_for": 25,
+            "goals_against": 22,
+            "zone": "晋级希望区"
+          },
+          "away": {
+            "rank": 2,
+            "played": 18,
+            "won": 10,
+            "drawn": 4,
+            "lost": 4,
+            "points": 34,
+            "goals_for": 26,
+            "goals_against": 16,
+            "zone": "安全晋级区"
+          }
         }
       },
       "conclusions": {
@@ -32877,7 +35409,29 @@
         }
       },
       "moe_score": -0.0017778969518836285,
-      "prediction_updated": true
+      "prediction_updated": true,
+      "home_standing": {
+        "rank": 6,
+        "played": 18,
+        "won": 7,
+        "drawn": 6,
+        "lost": 5,
+        "points": 27,
+        "goals_for": 25,
+        "goals_against": 22,
+        "zone": "晋级希望区"
+      },
+      "away_standing": {
+        "rank": 2,
+        "played": 18,
+        "won": 10,
+        "drawn": 4,
+        "lost": 4,
+        "points": 34,
+        "goals_for": 26,
+        "goals_against": 16,
+        "zone": "安全晋级区"
+      }
     },
     {
       "id": "match_260722_202",
@@ -33408,6 +35962,33 @@
               "lose": 4.35
             }
           }
+        },
+        {
+          "timestamp": "2026-07-21T13:52:38.233895",
+          "pinnacle": {
+            "home": 2.86,
+            "draw": 2.9,
+            "away": 2.3
+          },
+          "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 31% / 平 31% / 客 38%），计算得出即时凯利指数为：主胜 0.89，平局 0.90，客胜 0.87。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>客胜</strong> 剧本。",
+          "asian_handicap": {
+            "handicap": "主队+0.25",
+            "home_odds": 2.02,
+            "away_odds": 1.88
+          },
+          "lottery_handicap": {
+            "handicap": "主受让1球",
+            "initial": {
+              "win": 1.62,
+              "draw": 3.75,
+              "lose": 4.35
+            },
+            "current": {
+              "win": 1.62,
+              "draw": 3.75,
+              "lose": 4.35
+            }
+          }
         }
       ],
       "match_context": "韩职常规赛对决。富川FC坐镇主场迎接安养FC的挑战。",
@@ -33770,7 +36351,7 @@
             "source": "球场维保组",
             "impact": "利好大球",
             "verified": true,
-            "date": "2026-07-21 13:49",
+            "date": "2026-07-21 13:52",
             "url": "https://stadium.sports.com/"
           },
           {
@@ -33817,6 +36398,30 @@
               "status": "出战成疑"
             }
           ]
+        },
+        "standings": {
+          "home": {
+            "rank": 4,
+            "played": 16,
+            "won": 8,
+            "drawn": 4,
+            "lost": 4,
+            "points": 28,
+            "goals_for": 24,
+            "goals_against": 18,
+            "zone": "晋级希望区"
+          },
+          "away": {
+            "rank": 2,
+            "played": 16,
+            "won": 10,
+            "drawn": 3,
+            "lost": 3,
+            "points": 33,
+            "goals_for": 29,
+            "goals_against": 15,
+            "zone": "安全晋级区"
+          }
         }
       },
       "conclusions": {
@@ -34012,7 +36617,29 @@
         }
       },
       "moe_score": -0.005019045794612442,
-      "prediction_updated": true
+      "prediction_updated": true,
+      "home_standing": {
+        "rank": 4,
+        "played": 16,
+        "won": 8,
+        "drawn": 4,
+        "lost": 4,
+        "points": 28,
+        "goals_for": 24,
+        "goals_against": 18,
+        "zone": "晋级希望区"
+      },
+      "away_standing": {
+        "rank": 2,
+        "played": 16,
+        "won": 10,
+        "drawn": 3,
+        "lost": 3,
+        "points": 33,
+        "goals_for": 29,
+        "goals_against": 15,
+        "zone": "安全晋级区"
+      }
     },
     {
       "id": "match_260722_203",
@@ -34543,6 +37170,33 @@
               "lose": 4.35
             }
           }
+        },
+        {
+          "timestamp": "2026-07-21T13:52:38.234694",
+          "pinnacle": {
+            "home": 3.75,
+            "draw": 3.26,
+            "away": 1.8
+          },
+          "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 24% / 平 27% / 客 49%），计算得出即时凯利指数为：主胜 0.90，平局 0.88，客胜 0.88。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>平局</strong> 剧本。",
+          "asian_handicap": {
+            "handicap": "主队+0.25",
+            "home_odds": 2.02,
+            "away_odds": 1.88
+          },
+          "lottery_handicap": {
+            "handicap": "主受让1球",
+            "initial": {
+              "win": 1.62,
+              "draw": 3.75,
+              "lose": 4.35
+            },
+            "current": {
+              "win": 1.62,
+              "draw": 3.75,
+              "lose": 4.35
+            }
+          }
         }
       ],
       "match_context": "韩职常规赛对决。光州FC坐镇主场迎接金泉尚武的挑战。",
@@ -34905,7 +37559,7 @@
             "source": "球场维保组",
             "impact": "利好大球",
             "verified": true,
-            "date": "2026-07-21 13:49",
+            "date": "2026-07-21 13:52",
             "url": "https://stadium.sports.com/"
           },
           {
@@ -34952,6 +37606,30 @@
               "status": "出战成疑"
             }
           ]
+        },
+        "standings": {
+          "home": {
+            "rank": 7,
+            "played": 18,
+            "won": 7,
+            "drawn": 4,
+            "lost": 7,
+            "points": 25,
+            "goals_for": 22,
+            "goals_against": 23,
+            "zone": "晋级希望区"
+          },
+          "away": {
+            "rank": 3,
+            "played": 18,
+            "won": 9,
+            "drawn": 5,
+            "lost": 4,
+            "points": 32,
+            "goals_for": 24,
+            "goals_against": 18,
+            "zone": "安全晋级区"
+          }
         }
       },
       "conclusions": {
@@ -35147,7 +37825,29 @@
         }
       },
       "moe_score": -0.14627045557777765,
-      "prediction_updated": true
+      "prediction_updated": true,
+      "home_standing": {
+        "rank": 7,
+        "played": 18,
+        "won": 7,
+        "drawn": 4,
+        "lost": 7,
+        "points": 25,
+        "goals_for": 22,
+        "goals_against": 23,
+        "zone": "晋级希望区"
+      },
+      "away_standing": {
+        "rank": 3,
+        "played": 18,
+        "won": 9,
+        "drawn": 5,
+        "lost": 4,
+        "points": 32,
+        "goals_for": 24,
+        "goals_against": 18,
+        "zone": "安全晋级区"
+      }
     },
     {
       "id": "match_260723_210",
@@ -35678,6 +38378,33 @@
               "lose": 1.85
             }
           }
+        },
+        {
+          "timestamp": "2026-07-21T13:52:38.235434",
+          "pinnacle": {
+            "home": 1.56,
+            "draw": 3.6,
+            "away": 4.75
+          },
+          "kelly_conclusion": "即时返还率为 0.885。基于散户倾向（主 57% / 平 25% / 客 18%），计算得出即时凯利指数为：主胜 0.89，平局 0.90，客胜 0.85。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>客胜</strong> 剧本。",
+          "asian_handicap": {
+            "handicap": "主队-0.75",
+            "home_odds": 1.88,
+            "away_odds": 2.02
+          },
+          "lottery_handicap": {
+            "handicap": "主让1球",
+            "initial": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            },
+            "current": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            }
+          }
         }
       ],
       "match_context": "欧冠常规赛对决。奥莫尼亚坐镇主场迎接阿拉木图的挑战。",
@@ -36040,7 +38767,7 @@
             "source": "球场维保组",
             "impact": "利好大球",
             "verified": true,
-            "date": "2026-07-21 13:49",
+            "date": "2026-07-21 13:52",
             "url": "https://stadium.sports.com/"
           },
           {
@@ -36087,6 +38814,30 @@
               "status": "出战成疑"
             }
           ]
+        },
+        "standings": {
+          "home": {
+            "rank": 2,
+            "played": 14,
+            "won": 9,
+            "drawn": 2,
+            "lost": 3,
+            "points": 29,
+            "goals_for": 26,
+            "goals_against": 12,
+            "zone": "安全晋级区"
+          },
+          "away": {
+            "rank": 1,
+            "played": 15,
+            "won": 10,
+            "drawn": 4,
+            "lost": 1,
+            "points": 34,
+            "goals_for": 30,
+            "goals_against": 10,
+            "zone": "安全晋级区"
+          }
         }
       },
       "conclusions": {
@@ -36282,7 +39033,29 @@
         }
       },
       "moe_score": 0.2977266196820514,
-      "prediction_updated": true
+      "prediction_updated": true,
+      "home_standing": {
+        "rank": 2,
+        "played": 14,
+        "won": 9,
+        "drawn": 2,
+        "lost": 3,
+        "points": 29,
+        "goals_for": 26,
+        "goals_against": 12,
+        "zone": "安全晋级区"
+      },
+      "away_standing": {
+        "rank": 1,
+        "played": 15,
+        "won": 10,
+        "drawn": 4,
+        "lost": 1,
+        "points": 34,
+        "goals_for": 30,
+        "goals_against": 10,
+        "zone": "安全晋级区"
+      }
     }
   ]
 }
