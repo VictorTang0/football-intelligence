@@ -1156,6 +1156,13 @@ def main():
                 sync_evolution.sync_evolution_data()
             except Exception as e:
                 print(f"Error running sync_evolution: {e}")
+
+            # Integrate league standings automatic enrichment into Workflow A
+            try:
+                import enrich_standings
+                enrich_standings.main()
+            except Exception as e:
+                print(f"Error running enrich_standings: {e}")
         except Exception as e:
             print(f"Warning: Could not fetch latest Sporttery odds dynamically: {e}")
     else:
