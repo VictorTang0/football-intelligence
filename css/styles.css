@@ -1623,6 +1623,10 @@ section { padding: clamp(32px, 5vw, 64px) 0; }
 #summary-section {
   padding-bottom: 24px;
 }
+#summary-section .container {
+  max-width: 1600px;
+  width: 96%;
+}
 .summary-table {
   width: 100%;
   border-collapse: collapse;

@@ -1937,6 +1937,54 @@ const MatchIQRender = (() => {
       return '2, 3球';
     };
 
+    const getLeagueBadgeHtml = (league) => {
+      if (!league || league === '--') {
+        return `<span class="league-abbr-badge" style="border:1px solid rgba(148, 163, 184, 0.3); color:#94a3b8; background:rgba(148, 163, 184, 0.08); font-size:11px; font-weight:700; padding:2px 7px; border-radius:5px; display:inline-block;">--</span>`;
+      }
+      let abbr = league;
+      let color = '#00d4ff';
+      let bg = 'rgba(0, 212, 255, 0.12)';
+      let border = 'rgba(0, 212, 255, 0.4)';
+
+      if (league.includes('韩国职业') || league.includes('韩K联') || league.includes('韩国K联')) {
+        abbr = '韩K联'; color = '#00f2fe'; bg = 'rgba(0, 242, 254, 0.14)'; border = 'rgba(0, 242, 254, 0.4)';
+      } else if (league.includes('韩国挑战') || league.includes('韩K2') || league.includes('韩国K2')) {
+        abbr = '韩K2'; color = '#38bdf8'; bg = 'rgba(56, 189, 248, 0.14)'; border = 'rgba(56, 189, 248, 0.4)';
+      } else if (league.includes('巴西甲') || league.includes('巴甲')) {
+        abbr = '巴甲'; color = '#10b981'; bg = 'rgba(16, 185, 129, 0.14)'; border = 'rgba(16, 185, 129, 0.4)';
+      } else if (league.includes('芬兰超') || league.includes('芬超')) {
+        abbr = '芬超'; color = '#c084fc'; bg = 'rgba(192, 132, 252, 0.14)'; border = 'rgba(192, 132, 252, 0.4)';
+      } else if (league.includes('丹麦超') || league.includes('丹超')) {
+        abbr = '丹超'; color = '#f43f5e'; bg = 'rgba(244, 63, 94, 0.14)'; border = 'rgba(244, 63, 94, 0.4)';
+      } else if (league.includes('奥地利') || league.includes('奥超') || league.includes('奥甲')) {
+        abbr = '奥超'; color = '#f59e0b'; bg = 'rgba(245, 158, 11, 0.14)'; border = 'rgba(245, 158, 11, 0.4)';
+      } else if (league.includes('阿塞拜疆') || league.includes('阿塞超')) {
+        abbr = '阿塞超'; color = '#2dd4bf'; bg = 'rgba(45, 212, 191, 0.14)'; border = 'rgba(45, 212, 191, 0.4)';
+      } else if (league.includes('欧冠') || league.includes('欧洲冠军')) {
+        abbr = '欧冠'; color = '#ffd700'; bg = 'rgba(255, 215, 0, 0.16)'; border = 'rgba(255, 215, 0, 0.45)';
+      } else if (league.includes('欧联')) {
+        abbr = '欧联'; color = '#3b82f6'; bg = 'rgba(59, 130, 246, 0.14)'; border = 'rgba(59, 130, 246, 0.4)';
+      } else if (league.includes('英超')) {
+        abbr = '英超'; color = '#ec4899'; bg = 'rgba(236, 72, 153, 0.14)'; border = 'rgba(236, 72, 153, 0.4)';
+      } else if (league.includes('西甲')) {
+        abbr = '西甲'; color = '#ef4444'; bg = 'rgba(239, 68, 68, 0.14)'; border = 'rgba(239, 68, 68, 0.4)';
+      } else if (league.includes('德甲')) {
+        abbr = '德甲'; color = '#eab308'; bg = 'rgba(234, 179, 8, 0.14)'; border = 'rgba(234, 179, 8, 0.4)';
+      } else if (league.includes('意甲')) {
+        abbr = '意甲'; color = '#06b6d4'; bg = 'rgba(6, 182, 212, 0.14)'; border = 'rgba(6, 182, 212, 0.4)';
+      } else if (league.includes('法甲')) {
+        abbr = '法甲'; color = '#8b5cf6'; bg = 'rgba(139, 92, 246, 0.14)'; border = 'rgba(139, 92, 246, 0.4)';
+      } else if (league.includes('日职') || league.includes('日本')) {
+        abbr = '日职'; color = '#f97316'; bg = 'rgba(249, 115, 22, 0.14)'; border = 'rgba(249, 115, 22, 0.4)';
+      } else if (league.includes('美职') || league.includes('美国')) {
+        abbr = '美职'; color = '#6366f1'; bg = 'rgba(99, 102, 241, 0.14)'; border = 'rgba(99, 102, 241, 0.4)';
+      } else {
+        abbr = league.replace(/足球|超级|联赛|甲级|乙级|杯/g, '').trim() || league.slice(0, 3);
+      }
+
+      return `<span class="league-abbr-badge" title="${league}" style="border:${border}; color:${color}; background:${bg}; font-size:11px; font-weight:800; padding:2px 8px; border-radius:5px; display:inline-block; letter-spacing:0.5px; box-shadow:0 0 6px ${bg};">${abbr}</span>`;
+    };
+
     const rows = upcomingMatches.map(m => {
       const matchNo = formatMatchNo(m.id);
       const league = m.league || '--';
@@ -2000,7 +2048,7 @@ const MatchIQRender = (() => {
       return `
         <tr>
           <td class="font-mono" style="color:var(--text-3); font-weight:700;">${matchNo}</td>
-          <td><span class="tag" style="border:1px solid rgba(0, 212, 255, 0.2); color:var(--cyan); background:rgba(0, 212, 255, 0.03);">${league}</span></td>
+          <td>${getLeagueBadgeHtml(league)}</td>
           <td>${kickoff}</td>
           <td>${matchup}</td>
           <td style="font-weight:700; color:var(--text-1);">${rec}</td>
