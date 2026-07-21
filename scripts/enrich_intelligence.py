@@ -3,7 +3,32 @@ import os
 import hashlib
 from datetime import datetime, timedelta
 
+def is_match_finished(m):
+    if m.get("is_finished") or m.get("status") in ["FINISHED", "COMPLETED", "完赛"]:
+        return True
+    if m.get("ultimate_conclusion", {}).get("actual_result"):
+        return True
+    kickoff_str = m.get("kickoff", "")
+    if kickoff_str:
+        try:
+            match_dt = datetime.strptime(kickoff_str, "%Y-%m-%d %H:%M")
+            if match_dt < datetime.now():
+                return True
+        except Exception:
+            pass
+    return False
+
 def generate_match_intelligence(m):
+    # Only apply to UNFINISHED prediction matches to avoid data redundancy
+    if is_match_finished(m):
+        # Clean redundant dynamic intelligence for finished matches
+        if "intelligence" in m:
+            m["intelligence"]["verified_news"] = []
+            m["intelligence"]["social_buzz"] = []
+            m["intelligence"]["media_predictions"] = []
+            m["intelligence"]["injuries"] = {"home": [], "away": []}
+        return m
+
     home = m.get("home", "主队")
     away = m.get("away", "客队")
     league = m.get("league", "联赛")
@@ -151,14 +176,19 @@ def main():
         matches_db = json.load(f)
 
     updated_count = 0
+    skipped_finished = 0
     for m in matches_db.get("matches", []):
-        generate_match_intelligence(m)
-        updated_count += 1
+        if is_match_finished(m):
+            generate_match_intelligence(m)
+            skipped_finished += 1
+        else:
+            generate_match_intelligence(m)
+            updated_count += 1
 
     with open(matches_path, "w", encoding="utf-8") as f:
         json.dump(matches_db, f, ensure_ascii=False, indent=2)
 
-    print(f"🎉 Successfully updated dynamic news & intelligence for {updated_count} matches in matches.json!")
+    print(f"🎉 Successfully enriched intelligence for {updated_count} upcoming prediction matches (Cleaned/Skipped {skipped_finished} finished matches).")
 
 if __name__ == "__main__":
     main()
