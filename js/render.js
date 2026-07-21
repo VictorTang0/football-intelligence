@@ -895,14 +895,32 @@ const MatchIQRender = (() => {
             </div>
           </div>`;
         } else {
+          // Quantify how much longer we need to wait
+          const kickoffTime = new Date(match.kickoff).getTime();
+          const now = Date.now();
+          const hoursLeft = (kickoffTime - now) / (1000 * 60 * 60);
+          
+          let waitPrompt = '';
+          if (hoursLeft > 24) {
+            const hoursToWait = Math.round(hoursLeft - 24);
+            waitPrompt = `预计还需 ${hoursToWait} 小时进入临场波动期（开赛前 24 小时），届时系统更新即时赔率后自动激活分析。`;
+          } else if (hoursLeft > 0) {
+            waitPrompt = `已进入临场波动期（距离开赛仅 ${hoursLeft.toFixed(1)} 小时），将在下一次系统自动更新赔率时（预计 1 小时内）激活分析。`;
+          } else {
+            waitPrompt = `赛事已开赛或已结束，暂无即时变盘对比。`;
+          }
+
           return `
-          <div class="m10-hub-box" style="margin-top: 15px; padding: 12px; background: rgba(255, 255, 255, 0.02); border-left: 4px solid var(--text-4); border-radius: 4px; text-align: left; opacity: 0.6;">
+          <div class="m10-hub-box" style="margin-top: 15px; padding: 12px; background: rgba(255, 255, 255, 0.02); border-left: 4px solid var(--text-4); border-radius: 4px; text-align: left; opacity: 0.85;">
             <div style="font-weight: bold; font-size: 13px; margin-bottom: 6px; color: var(--text-3); display: flex; align-items: center; justify-content: space-between;">
               <span>🎯 M10 竞彩决策数据中枢</span>
-              <span style="font-size: 10px; padding: 1px 4px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 3px; color: var(--text-3);">等待激活</span>
+              <span style="font-size: 10px; padding: 1px 4px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 3px; color: var(--text-3);">等待第 2 次即时赔率</span>
             </div>
-            <div style="font-size: 12px; color: var(--text-4);">
-              ℹ️ 当前赛事仅录入单盘口快照，待多次即时数据更新后将自动触发资金流与欧指背离分析。
+            <div style="font-size: 12px; line-height: 1.5; color: var(--text-4);">
+              <div style="margin-bottom: 4px; color: #ffa726;">⚠️ 仅采集到 1 次初盘数据 (对比分析需至少 2 次即时赔率快照)。</div>
+              <div style="font-size: 11px; color: var(--text-3); border-top: 1px solid rgba(255,255,255,0.05); padding-top: 4px; margin-top: 4px;">
+                ⏱️ ${waitPrompt}
+              </div>
             </div>
           </div>`;
         }
@@ -983,6 +1001,7 @@ const MatchIQRender = (() => {
           <span class="factor-delta ${deltaClass}">${deltaStr}</span>
           <div class="factor-bar-wrap"><div class="factor-bar-fill" style="width:${barW}%; ${isAdjusted ? 'background:var(--cyan);box-shadow:0 0 8px var(--cyan);' : ''}"></div></div>
         </div>`;
+    }).join('');
     const isM10Active = match.conclusions?.m10_applied === true || (match.conclusions?.sporttery_hot_scores || []).length > 0 || match.conclusions?.had_hhad_divergence === true;
     const m10StatusText = isM10Active ? '已激活' : '等待激活';
     const m10StatusColor = isM10Active ? 'var(--cyan)' : 'var(--text-4)';
