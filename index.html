@@ -319,8 +319,49 @@
   <!-- ── FOOTER ── -->
   <footer class="site-footer" role="contentinfo">
     <div class="container">
-      <div class="footer-inner">
-        <div style="font-family:var(--font-display);font-weight:700;color:var(--text-3)">MATCH IQ</div>
+      <div class="footer-inner" style="display:flex; flex-direction:column; gap:16px; align-items:center; text-align:center;">
+        
+        <!-- Workflow Footer Guide Box -->
+        <div class="workflow-footer-guide" style="width:100%; max-width:960px; background:rgba(15, 23, 42, 0.6); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:16px 20px; backdrop-filter:blur(8px); margin-bottom:8px;">
+          <div style="font-family:var(--font-display); font-size:14px; font-weight:700; color:var(--text-1); margin-bottom:12px; display:flex; align-items:center; justify-content:center; gap:8px;">
+            <span>⚡ 系统工作流使用指南与快捷命令</span>
+          </div>
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:12px; text-align:left;">
+            
+            <!-- Workflow A Card -->
+            <div style="background:rgba(0, 212, 255, 0.04); border:1px solid rgba(0, 212, 255, 0.2); border-radius:8px; padding:12px 14px;">
+              <div style="font-weight:700; color:var(--cyan); font-size:13px; margin-bottom:4px; display:flex; align-items:center; gap:6px;">
+                <span style="background:var(--cyan); color:#000; border-radius:4px; padding:1px 6px; font-size:11px; font-weight:800;">工作流 A</span>
+                <span>盘口更新、水温监控与官房对账</span>
+              </div>
+              <div style="font-size:12px; color:var(--text-2); line-height:1.5; margin-bottom:8px;">
+                <b>适用时机：</b>每日定期数据同步、临场实时盘口/水温抓取、已完赛赛事官方对账结算、天气与动态情报更新。
+              </div>
+              <div style="font-family:var(--font-mono); font-size:11.5px; background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); border-radius:6px; padding:6px 10px; color:#38bdf8; display:flex; align-items:center; justify-content:space-between;">
+                <code>python3 scripts/update_odds_and_news.py</code>
+                <span style="font-size:10px; color:var(--text-4);">[实时/每日]</span>
+              </div>
+            </div>
+
+            <!-- Workflow B Card -->
+            <div style="background:rgba(129, 140, 248, 0.04); border:1px solid rgba(129, 140, 248, 0.2); border-radius:8px; padding:12px 14px;">
+              <div style="font-weight:700; color:#818cf8; font-size:13px; margin-bottom:4px; display:flex; align-items:center; gap:6px;">
+                <span style="background:#818cf8; color:#000; border-radius:4px; padding:1px 6px; font-size:11px; font-weight:800;">工作流 B</span>
+                <span>全新赛事建档与初始化</span>
+              </div>
+              <div style="font-size:12px; color:var(--text-2); line-height:1.5; margin-bottom:8px;">
+                <b>适用时机：</b>需要向系统引入全新的预测赛事、手动或批处理初始化新比赛结构与初始胜率矩阵时使用。
+              </div>
+              <div style="font-family:var(--font-mono); font-size:11.5px; background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); border-radius:6px; padding:6px 10px; color:#a78bfa; display:flex; align-items:center; justify-content:space-between;">
+                <code>python3 scripts/initialize_match.py</code>
+                <span style="font-size:10px; color:var(--text-4);">[新赛建档]</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div style="font-family:var(--font-display);font-weight:700;color:var(--text-3)">MATCH IQ INTELLIGENCE SYSTEM</div>
         <div class="footer-warning">
           ⚠ 本系统仅供数据研究与分析学习用途，所有分析结论不构成任何投注建议。赌博有风险，请理性参与。
         </div>
