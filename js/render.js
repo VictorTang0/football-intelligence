@@ -31,12 +31,19 @@ const MatchIQRender = (() => {
       if (!scoreStr || scoreStr === '--') return '--';
     }
     if (typeof scoreStr !== 'string') scoreStr = String(scoreStr);
+    
+    const cleanActual = actualScoreStr ? actualScoreStr.replace(/\s+/g, '').split('(')[0].replace(':', '-') : '';
     const parts = scoreStr.split(/\s*或\s*/);
+
     const renderedParts = parts.map((part, index) => {
-      const cleanPart = part.replace(/\s+/g, '').split('(')[0];
-      const isThisPartCorrect = actualScoreStr && (cleanPart === actualScoreStr);
-      // 下划线标记系统最有信心的第一比分
-      const underlineStyle = index === 0 ? 'text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px;' : '';
+      const cleanPart = part.replace(/\s+/g, '').split('(')[0].replace(':', '-');
+      const isThisPartCorrect = Boolean(cleanActual && (cleanPart === cleanActual));
+      
+      // If actual score is present: ONLY the matching score gets the underline.
+      // If actual score is not present (unfinished match): ONLY index === 0 (primary score) gets the underline.
+      const shouldUnderline = cleanActual ? isThisPartCorrect : (index === 0);
+      const underlineStyle = shouldUnderline ? 'text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px;' : '';
+
       if (isThisPartCorrect) {
         return `<span style="color:var(--rose, #f43f5e); font-weight:700; ${underlineStyle}">${part}</span>`;
       } else {
@@ -46,18 +53,30 @@ const MatchIQRender = (() => {
     return renderedParts.join(' <span style="color:var(--text-4)">或</span> ');
   }
 
-  function renderUnderlinedTwoScores(twoScoresStr) {
+  function renderUnderlinedTwoScores(twoScoresStr, actualScoreStr = "") {
     if (!twoScoresStr || twoScoresStr === '--') return '--';
     if (typeof twoScoresStr === 'object') {
       twoScoresStr = twoScoresStr.val || twoScoresStr.value || '--';
       if (!twoScoresStr || twoScoresStr === '--') return '--';
     }
     if (typeof twoScoresStr !== 'string') twoScoresStr = String(twoScoresStr);
+    
+    const cleanActual = actualScoreStr ? actualScoreStr.replace(/\s+/g, '').split('(')[0].replace(':', '-') : '';
     const parts = twoScoresStr.split(/,\s*/);
-    if (parts.length > 0) {
-      parts[0] = `<span style="text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px;">${parts[0]}</span>`;
-    }
-    return parts.join(', ');
+
+    return parts.map((part, index) => {
+      const cleanPart = part.replace(/\s+/g, '').split('(')[0].replace(':', '-');
+      const isThisPartCorrect = Boolean(cleanActual && (cleanPart === cleanActual));
+      
+      const shouldUnderline = cleanActual ? isThisPartCorrect : (index === 0);
+      const underlineStyle = shouldUnderline ? 'text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px;' : '';
+
+      if (isThisPartCorrect) {
+        return `<span style="color:var(--rose, #f43f5e); font-weight:700; ${underlineStyle}">${part}</span>`;
+      } else {
+        return `<span style="${underlineStyle}">${part}</span>`;
+      }
+    }).join(', ');
   }
 
   const tagEmojis = {
