@@ -253,26 +253,81 @@
     ═════════════════════════════════════════════ -->
     <section id="reference-section" aria-labelledby="reference-heading">
       <div class="container">
-        <!-- Command Reference Card -->
-        <div style="max-width:700px;margin:0 auto;padding:24px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);backdrop-filter:blur(16px)">
-          <div style="font-size:13px;font-weight:700;color:var(--cyan);margin-bottom:16px;text-transform:uppercase;letter-spacing:1px" id="reference-heading">⌨️ 快捷命令参考</div>
-          <div style="display:flex;flex-direction:column;gap:10px;">
-            <div style="padding:10px 14px;background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.2);border-radius:var(--radius-sm);display:flex;align-items:center;gap:12px;">
-              <code style="font-family:var(--font-mono);font-size:13px;color:var(--cyan);background:rgba(0,212,255,0.1);padding:3px 8px;border-radius:4px">分析今日赛事</code>
-              <span style="font-size:12px;color:var(--text-3)">+ 赛程图片 → 自动进化权重并触发分析（最常用）</span>
+        <!-- Unified Command Reference Card -->
+        <div style="max-width:860px;margin:0 auto;padding:24px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);backdrop-filter:blur(16px)">
+          <div style="font-size:14px;font-weight:700;color:var(--cyan);margin-bottom:6px;text-transform:uppercase;letter-spacing:1px" id="reference-heading">💬 系统常用对话指令与快捷命令</div>
+          <div style="font-size:12px;color:var(--text-3);margin-bottom:18px;">支持向 AI 助手直接发送自然语言口令，或在命令行运行底层工作流脚本：</div>
+          
+          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(360px, 1fr));gap:12px;">
+            
+            <!-- Command 1: Odds & Sync -->
+            <div style="padding:12px 14px;background:rgba(0,212,255,0.04);border:1px solid rgba(0,212,255,0.2);border-radius:var(--radius-sm);display:flex;flex-direction:column;gap:6px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <span style="font-weight:700;color:var(--cyan);font-size:13px;">1. 盘口数据更新 / 刷新水温</span>
+                <span style="font-size:10.5px;background:rgba(0,212,255,0.15);color:var(--cyan);padding:2px 6px;border-radius:4px;font-weight:600;">工作流 A (日常高频)</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-2);">
+                <b>对话口令：</b><code>更新盘口数据</code> 或 <code>刷新实时水温</code>
+              </div>
+              <div style="font-size:11.5px;color:var(--text-3);">
+                <b>功能说明：</b>抓取竞彩官方最新赔率水温、比对变盘趋势、更新天气环境与赛事情报。
+              </div>
+              <div style="font-family:var(--font-mono);font-size:11px;color:#38bdf8;background:rgba(0,0,0,0.3);padding:4px 8px;border-radius:4px;margin-top:2px;">
+                python3 scripts/update_odds_and_news.py
+              </div>
             </div>
-            <div style="padding:10px 14px;background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.2);border-radius:var(--radius-sm);display:flex;align-items:center;gap:12px;">
-              <code style="font-family:var(--font-mono);font-size:13px;color:var(--indigo);background:rgba(99,102,241,0.1);padding:3px 8px;border-radius:4px">更新今日盘口</code>
-              <span style="font-size:12px;color:var(--text-3)">→ 重新抓取最新赔率，更新烟雾弹分析</span>
+
+            <!-- Command 2: Settle & Evolve -->
+            <div style="padding:12px 14px;background:rgba(16,185,129,0.04);border:1px solid rgba(16,185,129,0.2);border-radius:var(--radius-sm);display:flex;flex-direction:column;gap:6px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <span style="font-weight:700;color:var(--green);font-size:13px;">2. 更新赛果并进化模型</span>
+                <span style="font-size:10.5px;background:rgba(16,185,129,0.15);color:var(--green);padding:2px 6px;border-radius:4px;font-weight:600;">工作流 A (对账结算)</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-2);">
+                <b>对话口令：</b><code>更新赛果</code> 或 <code>自动对账并进化</code>
+              </div>
+              <div style="font-size:11.5px;color:var(--text-3);">
+                <b>功能说明：</b>自动抓取中国竞彩官方已完赛比分、结算命中率并更新 v3.5 模型进化图表。
+              </div>
+              <div style="font-family:var(--font-mono);font-size:11px;color:#34d399;background:rgba(0,0,0,0.3);padding:4px 8px;border-radius:4px;margin-top:2px;">
+                python3 scripts/update_odds_and_news.py
+              </div>
             </div>
-            <div style="padding:10px 14px;background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.2);border-radius:var(--radius-sm);display:flex;align-items:center;gap:12px;">
-              <code style="font-family:var(--font-mono);font-size:13px;color:var(--green);background:rgba(16,185,129,0.1);padding:3px 8px;border-radius:4px">更新赛果并进化模型</code>
-              <span style="font-size:12px;color:var(--text-3)">→ 抓取赛果 + 自动优化权重并存入历史记录</span>
+
+            <!-- Command 3: Init New Match -->
+            <div style="padding:12px 14px;background:rgba(129,140,248,0.04);border:1px solid rgba(129,140,248,0.2);border-radius:var(--radius-sm);display:flex;flex-direction:column;gap:6px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <span style="font-weight:700;color:#818cf8;font-size:13px;">3. 预测今日赛事 / 新赛建档</span>
+                <span style="font-size:10.5px;background:rgba(129,140,248,0.15);color:#818cf8;padding:2px 6px;border-radius:4px;font-weight:600;">工作流 B (初始化)</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-2);">
+                <b>对话口令：</b><code>预测今日赛事</code> 或 <code>加几场新比赛</code>
+              </div>
+              <div style="font-size:11.5px;color:var(--text-3);">
+                <b>功能说明：</b>需要向系统引入全新的预测赛事、建档并生成初始胜率概率矩阵。
+              </div>
+              <div style="font-family:var(--font-mono);font-size:11px;color:#a78bfa;background:rgba(0,0,0,0.3);padding:4px 8px;border-radius:4px;margin-top:2px;">
+                python3 scripts/initialize_match.py
+              </div>
             </div>
-            <div style="padding:10px 14px;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.2);border-radius:var(--radius-sm);display:flex;align-items:center;gap:12px;">
-              <code style="font-family:var(--font-mono);font-size:13px;color:var(--amber);background:rgba(245,158,11,0.1);padding:3px 8px;border-radius:4px">查询 [队名] 近期状态</code>
-              <span style="font-size:12px;color:var(--text-3)">→ 单独查询特定球队情报</span>
+
+            <!-- Command 4: One-key All -->
+            <div style="padding:12px 14px;background:rgba(245,158,11,0.04);border:1px solid rgba(245,158,11,0.2);border-radius:var(--radius-sm);display:flex;flex-direction:column;gap:6px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <span style="font-weight:700;color:var(--amber);font-size:13px;">4. 一键全量流水线同步</span>
+                <span style="font-size:10.5px;background:rgba(245,158,11,0.15);color:var(--amber);padding:2px 6px;border-radius:4px;font-weight:600;">工作流 A (全量自动化)</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-2);">
+                <b>对话口令：</b><code>运行工作流 A</code> 或 <code>全量更新系统</code>
+              </div>
+              <div style="font-size:11.5px;color:var(--text-3);">
+                <b>功能说明：</b>一键自动串联赔率抓取、水温对比、天气更新、情报补全与进化结算。
+              </div>
+              <div style="font-family:var(--font-mono);font-size:11px;color:#fbbf24;background:rgba(0,0,0,0.3);padding:4px 8px;border-radius:4px;margin-top:2px;">
+                python3 scripts/update_odds_and_news.py
+              </div>
             </div>
+
           </div>
         </div>
       </div>
