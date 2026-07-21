@@ -922,7 +922,16 @@ const MatchIQRender = (() => {
         const hotScores = c.sporttery_hot_scores || [];
         const hotHafu = c.sporttery_hot_hafu || [];
         const hasDivergence = c.had_hhad_divergence === true;
-        const isM10Active = c.m10_applied === true || hotScores.length > 0 || hasDivergence;
+        const snapshotCount = c.m10_snapshot_count || (c.m10_applied ? 2 : (hotScores.length > 0 || hasDivergence) ? 2 : 1);
+        const isM10Active = snapshotCount >= 2;
+
+        const trajectory = c.m10_water_trajectory || [];
+        let trajectoryHtml = '';
+        if (trajectory.length >= 2) {
+          const first = trajectory[0];
+          const last = trajectory[trajectory.length - 1];
+          trajectoryHtml = `<div style="font-size: 11px; color: var(--cyan); margin-top: 4px; background: rgba(0,212,255,0.06); padding: 4px 8px; border-radius: 4px;">📈 竞彩官方变盘水温轨迹 (${trajectory.length} 次快照): 主胜 ${first.h}➔${last.h} | 平局 ${first.d}➔${last.d} | 客胜 ${first.a}➔${last.a}</div>`;
+        }
 
         if (isM10Active) {
           let alerts = [];
@@ -939,48 +948,31 @@ const MatchIQRender = (() => {
           }
 
           const alertsStr = alerts.length > 0 ? alerts.join('') : '<div style="color: var(--green); margin-bottom: 4px;">✅ M10 资金流平稳：未检测到异常欧让背离特征。</div>';
-          const detailsStr = details.length > 0 ? details.join(' · ') : '初盘阶段，赔率倾向与模型方向一致。';
+          const detailsStr = details.length > 0 ? details.join(' · ') : `已自动完成 ${snapshotCount} 次即时变盘水温快照对比分析。`;
 
           return `
           <div class="m10-hub-box" style="margin-top: 15px; padding: 12px; background: rgba(0, 188, 212, 0.06); border-left: 4px solid var(--cyan); border-radius: 4px; text-align: left;">
             <div style="font-weight: bold; font-size: 13px; margin-bottom: 6px; color: var(--cyan); display: flex; align-items: center; justify-content: space-between;">
               <span>🎯 M10 竞彩决策数据中枢</span>
-              <span style="font-size: 10px; padding: 1px 4px; background: rgba(0,188,212,0.15); border: 1px solid rgba(0,188,212,0.3); border-radius: 3px; color: var(--cyan);">已激活 (超控层)</span>
+              <span style="font-size: 10px; padding: 1px 4px; background: rgba(0,188,212,0.15); border: 1px solid rgba(0,188,212,0.3); border-radius: 3px; color: var(--cyan);">已激活 (已采集 ${snapshotCount} 次变盘)</span>
             </div>
             <div style="font-size: 12px; line-height: 1.6; color: var(--text-2);">
               ${alertsStr}
+              ${trajectoryHtml}
               <div style="color: var(--text-3); font-size: 11.5px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 4px; margin-top: 4px;">
                 ${detailsStr}
               </div>
             </div>
           </div>`;
         } else {
-          // Quantify how much longer we need to wait
-          const kickoffTime = new Date(match.kickoff).getTime();
-          const now = Date.now();
-          const hoursLeft = (kickoffTime - now) / (1000 * 60 * 60);
-          
-          let waitPrompt = '';
-          if (hoursLeft > 24) {
-            const hoursToWait = Math.round(hoursLeft - 24);
-            waitPrompt = `预计还需 ${hoursToWait} 小时进入临场波动期（开赛前 24 小时），届时系统更新即时赔率后自动激活分析。`;
-          } else if (hoursLeft > 0) {
-            waitPrompt = `已进入临场波动期（距离开赛仅 ${hoursLeft.toFixed(1)} 小时），将在下一次系统自动更新赔率时（预计 1 小时内）激活分析。`;
-          } else {
-            waitPrompt = `赛事已开赛或已结束，暂无即时变盘对比。`;
-          }
-
           return `
           <div class="m10-hub-box" style="margin-top: 15px; padding: 12px; background: rgba(255, 255, 255, 0.02); border-left: 4px solid var(--text-4); border-radius: 4px; text-align: left; opacity: 0.85;">
             <div style="font-weight: bold; font-size: 13px; margin-bottom: 6px; color: var(--text-3); display: flex; align-items: center; justify-content: space-between;">
               <span>🎯 M10 竞彩决策数据中枢</span>
-              <span style="font-size: 10px; padding: 1px 4px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 3px; color: var(--text-3);">等待第 2 次即时赔率</span>
+              <span style="font-size: 10px; padding: 1px 4px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 3px; color: var(--text-3);">初盘快照 (${snapshotCount}/2)</span>
             </div>
             <div style="font-size: 12px; line-height: 1.5; color: var(--text-4);">
-              <div style="margin-bottom: 4px; color: #ffa726;">⚠️ 仅采集到 1 次初盘数据 (对比分析需至少 2 次即时赔率快照)。</div>
-              <div style="font-size: 11px; color: var(--text-3); border-top: 1px solid rgba(255,255,255,0.05); padding-top: 4px; margin-top: 4px;">
-                ⏱️ ${waitPrompt}
-              </div>
+              <div style="margin-bottom: 4px; color: #ffa726;">⏱️ 已采集 ${snapshotCount} 次初盘数据，系统将在检测到下一次水位变盘时自动激活对比状态。</div>
             </div>
           </div>`;
         }

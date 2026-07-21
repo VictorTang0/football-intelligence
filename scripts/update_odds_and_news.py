@@ -3,16 +3,32 @@ import json
 
 def compute_m10_factors(m, bonus_db):
     mid = m.get("id")
-    if mid not in bonus_db:
-        return
-        
-    b_data = bonus_db[mid]
+    sp_id = m.get("sportteryMatchId")
+    b_data = bonus_db.get(mid) or bonus_db.get(sp_id) or {}
     oh = b_data.get("oddsHistory", {})
     had_list = oh.get("hadList", [])
     hhad_list = oh.get("hhadList", [])
     crs_list = oh.get("crsList", [])
     hafu_list = oh.get("hafuList", [])
     
+    snapshot_count = max(len(had_list), len(hhad_list), len(crs_list), len(hafu_list))
+    if "conclusions" not in m:
+        m["conclusions"] = {}
+        
+    m["conclusions"]["m10_snapshot_count"] = snapshot_count
+    m["conclusions"]["m10_applied"] = (snapshot_count >= 2)
+    
+    # Store water trajectory for UI display
+    trajectory = []
+    for entry in had_list:
+        t = entry.get("updateTime") or entry.get("updateDate") or ""
+        h = entry.get("h", "")
+        d = entry.get("d", "")
+        a = entry.get("a", "")
+        if h and d and a:
+            trajectory.append({"time": t, "h": h, "d": d, "a": a})
+    m["conclusions"]["m10_water_trajectory"] = trajectory
+
     # 2.1 HAD vs HHAD Divergence Check
     # (不让球主胜降水，但让球主胜升水/不变 -> 92.31%概率主队最多赢1球)
     m["conclusions"]["had_hhad_divergence"] = False
