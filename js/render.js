@@ -76,7 +76,7 @@ const MatchIQRender = (() => {
     
     twoScoresStr = twoScoresStr.replace(/竞彩概率偏移首选/g, '竞彩首选');
     const cleanActual = actualScoreStr ? actualScoreStr.replace(/\s+/g, '').split('(')[0].replace(':', '-') : '';
-    const parts = twoScoresStr.split(/,\s*/);
+    const parts = twoScoresStr.split(/(?:,\s*|\s*或\s*)/);
 
     return parts.map((part, index) => {
       let scoreText = part.trim();
@@ -1861,12 +1861,14 @@ const MatchIQRender = (() => {
     };
 
     const getTwoScores = (scoreStr) => {
-      const matches = scoreStr.match(/\d+-\d+/g);
+      if (!scoreStr || scoreStr === '--') return '2-1, 1-1';
+      const matches = scoreStr.match(/\d+[:\-]\d+/g);
       if (matches) {
-        if (matches.length >= 2) {
-          return matches.join(', ');
-        } else if (matches.length === 1) {
-          const score = matches[0];
+        const normalized = matches.map(s => s.replace(':', '-'));
+        if (normalized.length >= 2) {
+          return normalized.slice(0, 2).join(', ');
+        } else if (normalized.length === 1) {
+          const score = normalized[0];
           if (score === "1-1") return "1-1, 0-0";
           if (score === "2-1") return "2-1, 1-1";
           if (score === "2-0") return "2-0, 1-0";
@@ -1879,19 +1881,20 @@ const MatchIQRender = (() => {
     };
 
     const getTwoGoals = (scoreStr) => {
-      const matches = scoreStr.match(/\d+-\d+/g);
+      if (!scoreStr || scoreStr === '--') return '2, 3球';
+      const matches = scoreStr.match(/\d+[:\-]\d+/g);
       if (matches) {
         const goals = matches.map(s => {
-          const parts = s.split('-');
+          const parts = s.split(/[:\-]/);
           return parseInt(parts[0]) + parseInt(parts[1]);
         });
-        const unique = [...new Set(goals)].sort();
+        const unique = [...new Set(goals)].sort((a, b) => a - b);
         if (unique.length >= 2) {
           return unique.slice(0, 2).map(g => g + '球').join(', ');
         } else if (unique.length === 1) {
           const g = unique[0];
           const secondG = g > 0 ? g - 1 : g + 1;
-          return [g, secondG].sort().map(val => val + '球').join(', ');
+          return [g, secondG].sort((a, b) => a - b).map(val => val + '球').join(', ');
         }
       }
       return '2, 3球';
