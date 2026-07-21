@@ -90,6 +90,7 @@ def process_matches(api_data):
             # We construct a record for new_matches_input.json
             new_matches_input.append({
                 "id": mid,
+                "sportteryMatchId": m.get("matchId"),
                 "league": league,
                 "home": home,
                 "away": away,
@@ -104,6 +105,7 @@ def process_matches(api_data):
             
             # Record odds for sporttery_odds.json
             sporttery_odds[mid] = {
+                "sportteryMatchId": m.get("matchId"),
                 "home": h_odds,
                 "draw": d_odds,
                 "away": a_odds

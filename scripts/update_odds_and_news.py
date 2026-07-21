@@ -1,4 +1,115 @@
 import json
+
+
+def compute_m10_factors(m, bonus_db):
+    mid = m.get("id")
+    if mid not in bonus_db:
+        return
+        
+    b_data = bonus_db[mid]
+    oh = b_data.get("oddsHistory", {})
+    had_list = oh.get("hadList", [])
+    hhad_list = oh.get("hhadList", [])
+    crs_list = oh.get("crsList", [])
+    hafu_list = oh.get("hafuList", [])
+    
+    # 2.1 HAD vs HHAD Divergence Check
+    # (不让球主胜降水，但让球主胜升水/不变 -> 92.31%概率主队最多赢1球)
+    m["conclusions"]["had_hhad_divergence"] = False
+    if len(had_list) >= 2 and len(hhad_list) >= 2:
+        init_had, curr_had = had_list[0], had_list[-1]
+        init_hhad, curr_hhad = hhad_list[0], hhad_list[-1]
+        try:
+            h_init = float(init_had.get("h", 0))
+            h_curr = float(curr_had.get("h", 0))
+            hh_init = float(init_hhad.get("h", 0))
+            hh_curr = float(curr_hhad.get("h", 0))
+            if h_init > 0 and h_curr > 0 and hh_init > 0 and hh_curr > 0:
+                had_h_drop = h_init - h_curr
+                hhad_h_drop = hh_init - hh_curr
+                if had_h_drop >= 0.02 and hhad_h_drop <= 0:
+                    m["conclusions"]["had_hhad_divergence"] = True
+                    m["conclusions"]["kelly_conclusion"] += " | ⚡ 竞彩背离警报：主胜下调但让主未下调，强烈防范让平/让负！"
+        except Exception:
+            pass
+            
+    # 2.2 CRS Probability Shift (比分概率偏移 Top 3)
+    m["conclusions"]["sporttery_hot_scores"] = []
+    if len(crs_list) >= 2:
+        init_crs, curr_crs = crs_list[0], crs_list[-1]
+        shifts = []
+        for k in init_crs.keys():
+            if k in ["updateDate", "updateTime", "goalLine"] or k.endswith("f"):
+                continue
+            try:
+                i_val, c_val = float(init_crs[k]), float(curr_crs[k])
+                # Optimize: filter out initial odds > 15.0 to focus on realistic probability shifts
+                if i_val > 15.0:
+                    continue
+                if i_val > 0 and c_val > 0:
+                    prob_shift = (1.0 / c_val) - (1.0 / i_val)
+                    disp = k.replace("s", "").replace("f", "")
+                    if disp.startswith("-1"):
+                        disp = "主其他" if "h" in disp else "平其他" if "d" in disp else "客其他"
+                    else:
+                        disp = f"{int(disp[:2])}" + ":" + f"{int(disp[2:])}"
+                    shifts.append((disp, prob_shift))
+            except:
+                pass
+        shifts.sort(key=lambda x: x[1], reverse=True)
+        # Keep top 3
+        m["conclusions"]["sporttery_hot_scores"] = [x[0] for x in shifts[:3] if x[1] > 0]
+        
+    # 2.3 HAFU Probability Shift (半全场概率偏移 Top 3)
+    m["conclusions"]["sporttery_hot_hafu"] = []
+    hafu_zh = {"hh": "胜胜", "hd": "胜平", "ha": "胜负", "dh": "平胜", "dd": "平平", "da": "平负", "ah": "负胜", "ad": "负平", "aa": "负负"}
+    if len(hafu_list) >= 2:
+        init_hafu, curr_hafu = hafu_list[0], hafu_list[-1]
+        shifts = []
+        for k in init_hafu.keys():
+            if k in ["updateDate", "updateTime", "goalLine"] or k.endswith("f"):
+                continue
+            try:
+                i_val, c_val = float(init_hafu[k]), float(curr_hafu[k])
+                if i_val > 0 and c_val > 0:
+                    prob_shift = (1.0 / c_val) - (1.0 / i_val)
+                    disp = hafu_zh.get(k, k)
+                    shifts.append((disp, prob_shift))
+            except:
+                pass
+        shifts.sort(key=lambda x: x[1], reverse=True)
+        m["conclusions"]["sporttery_hot_hafu"] = [x[0] for x in shifts[:3] if x[1] > 0]
+
+def check_odds_subsidize(hist):
+    if len(hist) < 2: return False
+    i = hist[0].get("pinnacle", {})
+    c = hist[-1].get("pinnacle", {})
+    if not i or not c: return False
+    if c.get("home", 0) > i.get("home", 0) and c.get("draw", 0) > i.get("draw", 0):
+        if i.get("away", 0) - c.get("away", 0) <= 0.1:
+            return True
+    return False
+
+def check_2100(hist):
+    if not hist: return None, None
+    ls = hist[-1]
+    ts = ls.get("timestamp", "")
+    if not ts: return None, None
+    try:
+        from datetime import datetime
+        dt = datetime.fromisoformat(ts)
+        if dt.hour >= 21:
+            ah = ls.get("lottery_handicap", {}) or ls.get("asian_handicap", {})
+            hs = ah.get("handicap", "")
+            ho = ah.get("home_odds", 0)
+            ao = ah.get("away_odds", 0)
+            if "+1" in hs or "+0.5/1" in hs or "+1/1.5" in hs:
+                if 4.5 < ao < 5.5: return "客胜", f"21点后加1负赔率临近5({ao})"
+            if "-1" in hs or "-0.5/1" in hs or "-1/1.5" in hs:
+                if ho > 5.0:
+                    return ("主胜", f"21点后减1胜赔率临近5({ho})") if ho < 5.5 else ("平局", f"21点后减1胜赔率超5({ho})")
+    except: pass
+    return None, None
 import os
 import urllib.request
 import urllib.parse
@@ -477,19 +588,37 @@ def apply_dynamic_factor_scores(m):
     m_a = m["team_stats"]["away"].get("motivation", 0.7)
     h_mot = m_h * 10.0
     a_mot = m_a * 10.0
+    
+    is_home_safe = m_h < 0.6 or any(t in h_tags for t in ["无心恋战", "安全区", "无欲无求"])
+    is_away_safe = m_a < 0.6 or any(t in a_tags for t in ["无心恋战", "安全区", "无欲无求"])
+    
     for tag in h_tags:
         if tag in ["抢分狂魔", "续命狂人", "杯赛狂人"]:
             h_mot += 1.0
-        if tag in ["无心恋战", "只雷不雨"]:
+        if tag in ["无心恋战", "只雷不雨", "安全区", "无欲无求"]:
             h_mot -= 1.5
     for tag in a_tags:
         if tag in ["抢分狂魔", "续命狂人", "杯赛狂人"]:
             a_mot += 1.0
-        if tag in ["无心恋战", "只雷不雨"]:
+        if tag in ["无心恋战", "只雷不雨", "安全区", "无欲无求"]:
             a_mot -= 1.5
             
     m08_home = round(max(2.0, min(10.0, h_mot)), 1)
     m08_away = round(max(2.0, min(10.0, a_mot)), 1)
+    
+    # 【Safe Zone Draw Weighting 晋级安全区平局牵引逻辑】
+    draw_multiplier = 1.0
+    if is_home_safe or is_away_safe:
+        hm = m.get("h2h", {}).get("last_5", [])
+        if not hm: hm = m.get("head_to_head", {}).get("last_5", [])
+        h2h_d = sum(1 for gm in hm if gm.get("outcome", "") == "D")
+        rm_h = m.get("team_stats", {}).get("home", {}).get("recent_matches", [])
+        sea_d = sum(1 for gm in rm_h if gm.get("outcome", "") == "D")
+        draw_multiplier += (h2h_d * 0.15) + (sea_d * 0.05)
+        m08_home *= 0.8
+        m08_away *= 0.8
+    if "conclusions" not in m: m["conclusions"] = {}
+    m["conclusions"]["draw_multiplier"] = draw_multiplier
     
     # 9. Historical H2H & Psychological Dominance (M09)
     h2h_matches = m.get("h2h", {}).get("last_5", [])
@@ -750,199 +879,85 @@ def apply_dynamic_conclusions(m):
     g_away = int(round(eg_away))
     conf = m["ultimate_conclusion"].get("confidence", 65)
     
-    score_win1 = ""
-    score_win2 = ""
-    score_draw = ""
+
+
+    # 【主观能动性比分推演 Holistic Score Inference & M10 Integration】
+    is_over = (eg_home + eg_away) >= 2.75
     most_likely_score = ""
-
-    if rec == "主胜":
-        if g_home <= g_away:
-            g_home = g_away + 1
-        score_win1 = f"{g_home}-{g_away}"
-        score_win2 = f"{g_home}-{g_away-1}" if g_away >= 1 else f"{g_home+1}-{g_away}"
-        score_draw = f"{g_away}-{g_away} (防冷)" if g_away >= 1 else "1-1 (防冷)"
-        
-        if conf >= 94:
-            most_likely_score = score_win1
-        elif conf >= 85:
-            most_likely_score = f"{score_win1} 或 {score_win2}"
-        else:
-            most_likely_score = f"{score_win1} 或 {score_win2} 或 {score_draw}"
-            
-    elif rec == "客胜":
-        if g_away <= g_home:
-            g_away = g_home + 1
-        score_win1 = f"{g_home}-{g_away}"
-        score_win2 = f"{g_home-1}-{g_away}" if g_home >= 1 else f"{g_home}-{g_away+1}"
-        score_draw = f"{g_home}-{g_home} (防冷)" if g_home >= 1 else "1-1 (防冷)"
-        
-        if conf >= 94:
-            most_likely_score = score_win1
-        elif conf >= 85:
-            most_likely_score = f"{score_win1} 或 {score_win2}"
-        else:
-            most_likely_score = f"{score_win1} 或 {score_win2} 或 {score_draw}"
-            
-    elif rec == "平局":
-        g_draw = max(1, int(round((eg_home + eg_away) / 2.0))) if eg_home + eg_away >= 1.5 else 0
-        score_draw1 = f"{g_draw}-{g_draw}"
-        score_draw2 = "0-0" if g_draw > 0 else "1-1"
-        h_hash = sum(ord(c) for c in home_name)
-        score_win = f"{g_draw+1}-{g_draw} (防冷)" if h_hash % 2 == 0 else f"{g_draw}-{g_draw+1} (防冷)"
-        most_likely_score = f"{score_draw1} 或 {score_draw2} 或 {score_win}"
-        
-    elif "主不败" in rec or "主队不败" in rec:
-        if g_home < g_away:
-            g_home = g_away
-        score_win = f"{g_home}-{g_away}" if g_home > g_away else f"{g_home+1}-{g_away}"
-        score_draw = f"{g_away}-{g_away}"
-        score_win_alt = f"{g_home+1}-{g_away}" if g_home > g_away else f"{g_home+2}-{g_away}"
-        
-        if conf >= 85:
-            most_likely_score = f"{score_win} 或 {score_draw}"
-        else:
-            most_likely_score = f"{score_win} 或 {score_win_alt} 或 {score_draw}"
-            
-    elif "客不败" in rec or "客队不败" in rec:
-        if g_away < g_home:
-            g_away = g_home
-        score_win = f"{g_home}-{g_away}" if g_away > g_home else f"{g_home}-{g_away+1}"
-        score_draw = f"{g_home}-{g_home}"
-        score_win_alt = f"{g_home}-{g_away+1}" if g_away > g_home else f"{g_home}-{g_away+2}"
-        
-        if conf >= 85:
-            most_likely_score = f"{score_win} 或 {score_draw}"
-        else:
-            most_likely_score = f"{score_win} 或 {score_win_alt} 或 {score_draw}"
-            
-    else:
-        score_win = f"{g_home}-{g_away}"
-        if g_home > g_away:
-            score_draw = f"{g_away}-{g_away}"
-            most_likely_score = f"{score_win} 或 {score_draw}"
-        elif g_away > g_home:
-            score_draw = f"{g_home}-{g_home}"
-            most_likely_score = f"{score_win} 或 {score_draw}"
-        else:
-            score_draw = "0-0" if g_home > 0 else "1-1"
-            most_likely_score = f"{score_win} 或 {score_draw}" 
     
-    # Aggressive score
-    h_hash = sum(ord(c) for c in home_name)
-    if g_home > g_away:
-        aggressive = f"比分 {g_home+1}-{g_away}" if h_hash % 2 == 0 else f"比分 {g_home}-{g_away}"
-    elif g_away > g_home:
-        aggressive = f"比分 {g_home}-{g_away+1}" if h_hash % 2 == 0 else f"比分 {g_home}-{g_away}"
-    else:
-        aggressive = f"比分 {g_home+1}-{g_away+1}" if h_hash % 2 == 0 else "比分 2-2"
-        
-    # Resolve handicap sign and value
-    handicap_str = m.get("odds_analysis", {}).get("lottery_handicap", {}).get("handicap", "")
-    h_val = 1
-    h_sign = "-" if ph < pa else "+"
+    draw_mult = m["conclusions"].get("draw_multiplier", 1.0)
+    is_upset = m["conclusions"].get("is_subsidized_upset", False)
+    hot_scores = m.get("conclusions", {}).get("sporttery_hot_scores", [])
     
-    if "主让" in handicap_str:
-        match_digits = re.findall(r'\d+', handicap_str)
-        if match_digits:
-            h_val = int(match_digits[0])
-        h_sign = "-"
-    elif "主受让" in handicap_str:
-        match_digits = re.findall(r'\d+', handicap_str)
-        if match_digits:
-            h_val = int(match_digits[0])
-        h_sign = "+"
-        
-    h_annot = f"主{h_sign}{h_val}"
+    # Prioritize M10 hot scores if they align with the recommendation direction
+    m10_score_override = None
+    if hot_scores:
+        # Check if any hot score aligns with recommendation
+        aligned = []
+        for s_item in hot_scores:
+            if s_item in ["主其他", "客其他", "平其他"]: continue
+            try:
+                h_s, a_s = map(int, s_item.split(":"))
+                if "主胜" in rec and h_s > a_s: aligned.append(s_item)
+                elif "客胜" in rec and a_s > h_s: aligned.append(s_item)
+                elif "平局" in rec and h_s == a_s: aligned.append(s_item)
+                elif "双选不败" in rec:
+                    if ph < pa and h_s >= a_s: aligned.append(s_item)
+                    elif pa < ph and a_s >= h_s: aligned.append(s_item)
+                elif "让平" in rec or "让负" in rec:
+                    # Let-draw means home wins by exactly 1
+                    if "让平" in rec and h_s - a_s == 1: aligned.append(s_item)
+                    if "让负" in rec and h_s <= a_s: aligned.append(s_item)
+            except: pass
+        if aligned:
+            m10_score_override = " 或 ".join(aligned) + " (竞彩概率偏移首选)"
 
-    # Conservative option must be one of: "胜", "平", "负", "让胜", "让平", "让负"
-    conservative = "胜"
-    if "主胜" in rec:
-        if h_sign == "-":
-            conservative = "胜"
+    if m10_score_override:
+        most_likely_score = m10_score_override
+    elif "平局" in rec and draw_mult > 1.5:
+        most_likely_score = "2-2 (默契球)" if is_over else "0-0 (防守控场)"
+    elif is_upset:
+        if "客胜" in rec or "不败" in rec:
+            most_likely_score = "1-3 或 1-2 (防线崩溃)" if is_over else "0-1"
         else:
-            conservative = f"让胜 ({h_annot})"
+            most_likely_score = "3-1 或 2-1 (防线崩溃)" if is_over else "1-0"
+    elif "主胜" in rec:
+        most_likely_score = "3-0 或 3-1" if is_over else "1-0 或 2-0"
     elif "客胜" in rec:
-        if h_sign == "+":
-            conservative = "负"
+        most_likely_score = "0-3 或 1-3" if is_over else "0-1 或 0-2"
+    elif "不败" in rec:
+        if ph < pa:
+            most_likely_score = "2-1 或 1-1" if is_over else "1-0 或 0-0"
         else:
-            conservative = f"让负 ({h_annot})"
-    elif "主不败" in rec or "主队不败" in rec:
-        if h_sign == "+":
-            conservative = f"让胜 ({h_annot})"
-        else:
-            conservative = "胜"
-    elif "客不败" in rec or "客队不败" in rec:
-        if h_sign == "-":
-            conservative = f"让负 ({h_annot})"
-        else:
-            conservative = "负"
-    elif "平局" in rec:
-        conservative = "平"
+            most_likely_score = "1-2 或 1-1" if is_over else "0-1 或 0-0"
     else:
-        if h_sign == "+":
-            conservative = f"让胜 ({h_annot})"
-        else:
-            conservative = f"让负 ({h_annot})"
+        most_likely_score = "2-2 或 1-1" if is_over else "1-1 或 0-0"
         
-    # Half-Time / Full-Time (Strictly choosing from the 9 specified combinations)
-    conf = m["ultimate_conclusion"].get("confidence", 65)
-    
-    # Core HT/FT determined by goals
-    core_hf = "平平"
-    alt_hf = None
-    
-    if g_home > g_away:
-        if ("逆转专家" in h_tags or "剧本反转" in h_tags) and h_hash % 3 == 0:
-            core_hf = "负胜"
-            alt_hf = "平胜"
-        elif moe_score > 0.35 and h_hash % 2 == 0:
-            core_hf = "胜胜"
-            alt_hf = "平胜"
-        else:
-            core_hf = "平胜"
-            alt_hf = "胜胜"
-            
-    elif g_away > g_home:
-        if ("逆转专家" in a_tags or "剧本反转" in a_tags) and h_hash % 3 == 0:
-            core_hf = "胜负"
-            alt_hf = "平负"
-        elif moe_score < -0.35 and h_hash % 2 == 0:
-            core_hf = "负负"
-            alt_hf = "平负"
-        else:
-            core_hf = "平负"
-            alt_hf = "负负"
-            
-    else:
-        if "虎头蛇尾" in h_tags and h_hash % 2 == 0:
-            core_hf = "胜平"
-            alt_hf = "平平"
-        elif "虎头蛇尾" in a_tags and h_hash % 2 == 0:
-            core_hf = "负平"
-            alt_hf = "平平"
-        else:
-            core_hf = "平平"
-            alt_hf = "平胜" if eg_home > eg_away else "平负" if eg_away > eg_home else "胜平"
-
-    if conf >= 90 and alt_hf:
-        # Extremely high confidence -> recommend exactly 1
-        half_full = core_hf
-    else:
-        # Recommend 2 options
-        if alt_hf and alt_hf != core_hf:
-            half_full = f"{core_hf} 或 {alt_hf}"
-        else:
-            half_full = core_hf
-        
-    if "conclusions" not in m:
-        m["conclusions"] = {}
-        
-    m["conclusions"]["mainstream"] = "主队主场全取三分" if "主胜" in rec else "客队反客为主抢分" if "客胜" in rec else "平局拉锯之势"
-    m["conclusions"]["upset"] = "客队防反爆冷抢分" if "主胜" in rec else "主队主场捍卫尊严" if "客胜" in rec else "分出胜负"
-    m["conclusions"]["aggressive"] = aggressive
-    m["conclusions"]["conservative"] = conservative
     m["conclusions"]["most_likely_score"] = most_likely_score
     m["conclusions"]["over_under"] = ou_line
+    
+    # ─── HALF-FULL TIME (半全场) M10 COUPLING ───
+    hot_hafu = m.get("conclusions", {}).get("sporttery_hot_hafu", [])
+    # Default half_full logic
+    half_full = "平平"
+    if g_home > g_away:
+        half_full = "平胜 或 胜胜"
+    elif g_away > g_home:
+        half_full = "平负 或 负负"
+    else:
+        half_full = "平平"
+        
+    if hot_hafu:
+        # Check if the top 1 or top 2 hot hafu overlaps with recommendation direction
+        aligned_hafu = []
+        for h_item in hot_hafu:
+            if "主胜" in rec and h_item in ["胜胜", "平胜", "负胜"]: aligned_hafu.append(h_item)
+            elif "客胜" in rec and h_item in ["负负", "平负", "胜负"]: aligned_hafu.append(h_item)
+            elif "平局" in rec and h_item in ["平平", "胜平", "负平"]: aligned_hafu.append(h_item)
+            elif "不败" in rec: aligned_hafu.append(h_item)
+        if aligned_hafu:
+            half_full = " 或 ".join(aligned_hafu[:2]) + " (竞彩概率偏移首选)"
+            
     m["conclusions"]["half_full"] = half_full
     
     if "反基本面冷门" in rec:
@@ -1089,8 +1104,9 @@ if os.path.exists(feed_path):
 
 
 def main():
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     # Load MoE weights from weights.json
-    weights_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "weights.json")
+    weights_path = os.path.join(base_dir, "data", "weights.json")
     try:
         with open(weights_path, "r", encoding="utf-8") as wf:
             weights_db = json.load(wf)
@@ -1113,12 +1129,23 @@ def main():
         print(f"Warning: could not load league_profiles.json: {e}")
 
     # Try running the sporttery matches fetcher first
-    try:
-        sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-        import fetch_sporttery_matches
-        fetch_sporttery_matches.main()
-    except Exception as e:
-        print(f"Warning: Could not fetch latest Sporttery odds dynamically: {e}")
+    import sys
+    if "--no-fetch" not in sys.argv:
+        try:
+            sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+            import fetch_sporttery_matches
+            fetch_sporttery_matches.main()
+            
+            # Integrate M10 detailed bonus history scraper
+            try:
+                import fetch_bonus
+                fetch_bonus.main()
+            except Exception as e:
+                print(f"Error running fetch_bonus: {e}")
+        except Exception as e:
+            print(f"Warning: Could not fetch latest Sporttery odds dynamically: {e}")
+    else:
+        print("Skipping network odds fetch due to --no-fetch flag.")
 
     path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "matches.json")
     if not os.path.exists(path):
@@ -1567,10 +1594,38 @@ def main():
         cleaned_matches.append(m)
     data["matches"] = cleaned_matches
 
+
+
+    # ─── LOAD SPORTTERY BONUS HISTORY (M10) ───
+    bonus_db = {}
+    bonus_path = os.path.join(base_dir, "data", "sporttery_bonus.json")
+    if os.path.exists(bonus_path):
+        try:
+            with open(bonus_path, "r", encoding="utf-8") as f:
+                bonus_db = json.load(f)
+            print(f"Loaded {len(bonus_db)} match detailed bonus histories from sporttery_bonus.json")
+        except Exception as e:
+            print("Warning: Failed to load sporttery_bonus.json:", e)
+
+    # Pre-calculate cross match draw odds
+    handicap_draw_map = {}
+    for tmp in data["matches"]:
+        if tmp["status"] not in ["pending", "postponed"]: continue
+        h = tmp.get("odds_history", [])
+        if not h: continue
+        ls = h[-1]
+        ah = ls.get("lottery_handicap", {}) or ls.get("asian_handicap", {})
+        hs = ah.get("handicap", "")
+        if "+1" in hs or "-1" in hs or "+0.5/1" in hs or "-0.5/1" in hs:
+            d_o = ls.get("pinnacle", {}).get("draw", 0)
+            if d_o > 0: handicap_draw_map[tmp["id"]] = d_o
+
     for m in data["matches"]:
         mid = m["id"]
         if m["status"] in ["finished", "postponed"] or mid not in screenshot_odds:
             continue
+        m["handicap_draw_map"] = handicap_draw_map # inject into m for usage
+
             
         print(f"\nProcessing {m['home']} vs {m['away']}...")
         base = screenshot_odds[mid]
@@ -1586,11 +1641,16 @@ def main():
         # Push current snapshot BEFORE updating
         if "odds_analysis" in m and "pinnacle" in m["odds_analysis"] and "current" in m["odds_analysis"]["pinnacle"]:
             now_str = datetime.now().isoformat()
-            m["odds_history"].append({
+            hist_entry = {
                 "timestamp": now_str,
                 "pinnacle": m["odds_analysis"]["pinnacle"]["current"],
                 "kelly_conclusion": m.get("conclusions", {}).get("kelly_conclusion", "")
-            })
+            }
+            if "asian_handicap" in m["odds_analysis"] and "current" in m["odds_analysis"]["asian_handicap"]:
+                hist_entry["asian_handicap"] = m["odds_analysis"]["asian_handicap"]["current"]
+            if "lottery_handicap" in m["odds_analysis"]:
+                hist_entry["lottery_handicap"] = m["odds_analysis"]["lottery_handicap"]
+            m["odds_history"].append(hist_entry)
             # Keep history trimmed to last 20 entries to save space
             m["odds_history"] = m["odds_history"][-20:]
             
@@ -1857,10 +1917,31 @@ def main():
         
         # ─── APPLY DYNAMIC FUNDAMENTAL COUPLING & VETO ───
         apply_dynamic_fundamental_coupling(m)
+        # ─── COMPUTE M10 SPORTTERY FACTORS ───
+        compute_m10_factors(m, bonus_db)
+
         
         # ─── POST-PROCESS ULTIMATE CONCLUSION FIELDS ───
         rec = m["ultimate_conclusion"].get("recommendation", "")
         
+
+        # Apply 2100 override if any
+        if m["conclusions"].get("rec21"):
+            rec = m["conclusions"]["rec21"]
+            m["ultimate_conclusion"]["recommendation"] = rec
+            m["conclusions"]["kelly_conclusion"] += " | " + m["conclusions"].get("rea21", "")
+            
+        # Apply M10 HAD vs HHAD divergence override
+        # (主胜降水而让主未降，倾向客队受让或让平)
+        if m["conclusions"].get("had_hhad_divergence"):
+            # If our recommendation was Home win, downgrade to narrow win / opponent +1 win
+            if "主胜" in rec:
+                rec = "双选让平或让负"
+                m["ultimate_conclusion"]["recommendation"] = rec
+                m["ultimate_conclusion"]["primary_bet"] = "让平/让负"
+                m["ultimate_conclusion"]["confidence"] = int(m["ultimate_conclusion"]["confidence"] * 0.85)
+
+            
         # 1. Update Primary Bet
         if "主胜" in rec or "主队" in rec:
             m["ultimate_conclusion"]["primary_bet"] = "主胜" if ph < 1.7 else "主不败"
@@ -1906,10 +1987,30 @@ def main():
         # 5. Update Dynamic Team Stats
         apply_dynamic_team_stats(m)
 
+    # Trim odds_history for finished matches to optimize web bundle payload size
+    for m in data.get("matches", []):
+        if m.get("status") == "finished" and "odds_history" in m:
+            oh = m["odds_history"]
+            if len(oh) > 2:
+                m["odds_history"] = [oh[0], oh[-1]]
+
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
     print("\n🎉 Odds and news update workflow completed successfully!")
+
+    # Automatically trigger sync.sh to push updated data to GitHub
+    import subprocess
+    sync_script = os.path.join(base_dir, "sync.sh")
+    if os.path.exists(sync_script):
+        print("\n🚀 Auto-syncing data changes to GitHub...")
+        try:
+            res = subprocess.run(["bash", sync_script], capture_output=True, text=True)
+            print(res.stdout)
+            if res.returncode != 0:
+                print("Warning: sync.sh returned error:", res.stderr)
+        except Exception as e:
+            print("Error running sync.sh:", e)
 
 if __name__ == "__main__":
     main()

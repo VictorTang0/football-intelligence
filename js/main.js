@@ -472,6 +472,14 @@ const MatchIQ = (() => {
     
     // Bind click event for sizer button
     if (calcBtn) calcBtn.onclick = runKellyCalculations;
+    if (bankrollInput && !bankrollInput.dataset.bound) {
+      bankrollInput.dataset.bound = 'true';
+      let timer = null;
+      bankrollInput.addEventListener('input', () => {
+        clearTimeout(timer);
+        timer = setTimeout(runKellyCalculations, 150);
+      });
+    }
     
     // Auto run once
     runKellyCalculations();

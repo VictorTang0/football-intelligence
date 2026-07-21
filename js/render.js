@@ -26,6 +26,11 @@ const MatchIQRender = (() => {
 
   function renderUnderlinedScore(scoreStr, actualScoreStr = "") {
     if (!scoreStr || scoreStr === '--') return '--';
+    if (typeof scoreStr === 'object') {
+      scoreStr = scoreStr.val || scoreStr.value || scoreStr.score || '--';
+      if (!scoreStr || scoreStr === '--') return '--';
+    }
+    if (typeof scoreStr !== 'string') scoreStr = String(scoreStr);
     const parts = scoreStr.split(/\s*或\s*/);
     const renderedParts = parts.map((part, index) => {
       const cleanPart = part.replace(/\s+/g, '').split('(')[0];
@@ -43,6 +48,11 @@ const MatchIQRender = (() => {
 
   function renderUnderlinedTwoScores(twoScoresStr) {
     if (!twoScoresStr || twoScoresStr === '--') return '--';
+    if (typeof twoScoresStr === 'object') {
+      twoScoresStr = twoScoresStr.val || twoScoresStr.value || '--';
+      if (!twoScoresStr || twoScoresStr === '--') return '--';
+    }
+    if (typeof twoScoresStr !== 'string') twoScoresStr = String(twoScoresStr);
     const parts = twoScoresStr.split(/,\s*/);
     if (parts.length > 0) {
       parts[0] = `<span style="text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px;">${parts[0]}</span>`;

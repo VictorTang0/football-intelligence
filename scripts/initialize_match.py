@@ -204,6 +204,7 @@ def create_complete_match(raw_match):
     
     match_obj = {
         "id": mid,
+        "sportteryMatchId": raw_match.get("sportteryMatchId"),
         "league": league,
         "home": home,
         "away": away,

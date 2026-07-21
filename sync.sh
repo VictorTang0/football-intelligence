@@ -20,7 +20,7 @@ git add index.html 2>/dev/null
 git add css/* 2>/dev/null
 git add js/* 2>/dev/null
 git add scripts/*.py 2>/dev/null
-git add UPDATE_GUIDE.md 2>/dev/null
+git add *.md 2>/dev/null
 git add sync.sh 2>/dev/null
 git add sourcing_protocol.md 2>/dev/null
 git add assets/* 2>/dev/null
