@@ -102,6 +102,23 @@ const MatchIQRender = (() => {
     }).join(', ');
   }
 
+  function renderTaggedText(textStr) {
+    if (!textStr || textStr === '--') return '--';
+    textStr = String(textStr).replace(/竞彩概率偏移首选/g, '竞彩首选');
+    const parts = textStr.split(/\s*或\s*/);
+    return parts.map(part => {
+      let mainText = part.trim();
+      let tagText = "";
+      const tagMatch = part.match(/^(.*?)\s*(\(.*?\))$/);
+      if (tagMatch) {
+        mainText = tagMatch[1].trim();
+        tagText = tagMatch[2].trim();
+      }
+      const tagSpan = tagText ? `<span style="font-size:10.5px; color:var(--cyan); font-weight:normal; margin-left:3px; display:inline-block;">${tagText}</span>` : '';
+      return mainText + tagSpan;
+    }).join(' <span style="color:var(--text-4)">或</span> ');
+  }
+
   const tagEmojis = {
     "明星演员": "🎭",
     "剧本反转": "🔄",
@@ -1966,7 +1983,7 @@ const MatchIQRender = (() => {
           <div class="mr-item"><span class="mr-label">方向</span><span class="mr-val highlight">${primaryBet}</span></div>
           <div class="mr-item"><span class="mr-label">比分</span><span class="mr-val font-mono">${renderUnderlinedTwoScores(twoScores)}</span></div>
           <div class="mr-item"><span class="mr-label">进球</span><span class="mr-val font-mono">${twoGoals}</span></div>
-          <div class="mr-item"><span class="mr-label">半全</span><span class="mr-val" style="color:#818cf8;">${halfFullClean}</span></div>
+          <div class="mr-item"><span class="mr-label">半全</span><span class="mr-val" style="color:#818cf8;">${renderTaggedText(halfFullClean)}</span></div>
         </div>
       `;
 
