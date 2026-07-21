@@ -69,10 +69,37 @@ const MatchIQ = (() => {
     ];
   }
 
+  const weekdayMap = {"周一": 1, "周二": 2, "周三": 3, "周四": 4, "周五": 5, "周六": 6, "周日": 7};
+  function getSportterySortKey(m) {
+    const numStr = m.match_no || m.matchNumStr || m.id || '';
+    let dayNum = 99;
+    let matchCode = 999;
+    for (const [wk, idx] of Object.entries(weekdayMap)) {
+      if (numStr.includes(wk)) {
+        dayNum = idx;
+        const codePart = numStr.replace(wk, '').replace(/[^0-9]/g, '').trim();
+        if (codePart) matchCode = parseInt(codePart, 10);
+        break;
+      }
+    }
+    return [dayNum, matchCode, m.kickoff || '', m.id || ''];
+  }
+
+  function sortMatchesBySporttery(matchList) {
+    return [...matchList].sort((a, b) => {
+      const keyA = getSportterySortKey(a);
+      const keyB = getSportterySortKey(b);
+      if (keyA[0] !== keyB[0]) return keyA[0] - keyB[0];
+      if (keyA[1] !== keyB[1]) return keyA[1] - keyB[1];
+      return keyA[2].localeCompare(keyB[2]);
+    });
+  }
+
   // ─── RENDER APP ───
   function renderApp() {
     const matches = state.matches?.matches || [];
-    const upcomingMatches = matches.filter(m => m.status !== 'finished');
+    const rawUpcoming = matches.filter(m => !m.is_finished && m.status !== 'finished' && !m.ultimate_conclusion?.actual_result);
+    const upcomingMatches = sortMatchesBySporttery(rawUpcoming);
     const weights = state.weights;
     const history = state.history;
     const evolution = state.evolution;
@@ -604,12 +631,13 @@ const MatchIQ = (() => {
         
         // Trigger partial render for parlay container
         const matches = state.matches?.matches || [];
-        const upcomingMatches = matches.filter(m => m.status !== 'finished');
+        const rawUpcoming = matches.filter(m => !m.is_finished && m.status !== 'finished' && !m.ultimate_conclusion?.actual_result);
+        const upcomingMatches = sortMatchesBySporttery(rawUpcoming);
         const parlayContainer = document.getElementById('parlay-container');
         if (parlayContainer) {
           let filteredUpcoming = upcomingMatches;
           if (state.parlayFilter === 'sameday' && upcomingMatches.length > 0) {
-            const sorted = [...upcomingMatches].sort((a, b) => new Date(a.kickoff) - new Date(b.kickoff));
+            const sorted = sortMatchesBySporttery(upcomingMatches);
             const earliestDate = new Date(sorted[0].kickoff).toLocaleDateString('zh-CN', {
               year: 'numeric', month: '2-digit', day: '2-digit'
             }).replace(/\//g, '-');
