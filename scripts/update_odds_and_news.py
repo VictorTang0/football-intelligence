@@ -1142,6 +1142,13 @@ def main():
                 fetch_bonus.main()
             except Exception as e:
                 print(f"Error running fetch_bonus: {e}")
+
+            # Integrate automated official result fetcher to eliminate manual entry errors forever
+            try:
+                import auto_fetch_official_results
+                auto_fetch_official_results.main()
+            except Exception as e:
+                print(f"Error running auto_fetch_official_results: {e}")
         except Exception as e:
             print(f"Warning: Could not fetch latest Sporttery odds dynamically: {e}")
     else:
