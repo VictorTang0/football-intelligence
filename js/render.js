@@ -856,6 +856,57 @@ const MatchIQRender = (() => {
         <div style="font-size: 12.5px; line-height: 1.6; color: #d0d0d0;">${c.kelly_conclusion}</div>
       </div>
       ` : ''}
+
+      <!-- M10 Hub Rendering -->
+      ${(() => {
+        const hotScores = c.sporttery_hot_scores || [];
+        const hotHafu = c.sporttery_hot_hafu || [];
+        const hasDivergence = c.had_hhad_divergence === true;
+        const isM10Active = c.m10_applied === true || hotScores.length > 0 || hasDivergence;
+
+        if (isM10Active) {
+          let alerts = [];
+          if (hasDivergence) {
+            alerts.push(`<div style="color: #ff5252; font-weight: bold; margin-bottom: 4px; display:flex; align-items:center; gap:4px;">🚨 M10 欧让剪刀差背离预警：不让球客/平指数大幅下调，让球未同向调整，防范让平/让负！</div>`);
+          }
+          
+          let details = [];
+          if (hotScores.length > 0) {
+            details.push(`比分概率偏移 Top 3：<strong style="color: var(--cyan); text-shadow: 0 0 4px rgba(0,212,255,0.4);">${hotScores.join(', ')}</strong>`);
+          }
+          if (hotHafu.length > 0) {
+            details.push(`半全场概率偏移 Top 3：<strong style="color: var(--cyan); text-shadow: 0 0 4px rgba(0,212,255,0.4);">${hotHafu.join(', ')}</strong>`);
+          }
+
+          const alertsStr = alerts.length > 0 ? alerts.join('') : '<div style="color: var(--green); margin-bottom: 4px;">✅ M10 资金流平稳：未检测到异常欧让背离特征。</div>';
+          const detailsStr = details.length > 0 ? details.join(' · ') : '初盘阶段，赔率倾向与模型方向一致。';
+
+          return `
+          <div class="m10-hub-box" style="margin-top: 15px; padding: 12px; background: rgba(0, 188, 212, 0.06); border-left: 4px solid var(--cyan); border-radius: 4px; text-align: left;">
+            <div style="font-weight: bold; font-size: 13px; margin-bottom: 6px; color: var(--cyan); display: flex; align-items: center; justify-content: space-between;">
+              <span>🎯 M10 竞彩决策数据中枢</span>
+              <span style="font-size: 10px; padding: 1px 4px; background: rgba(0,188,212,0.15); border: 1px solid rgba(0,188,212,0.3); border-radius: 3px; color: var(--cyan);">已激活 (超控层)</span>
+            </div>
+            <div style="font-size: 12px; line-height: 1.6; color: var(--text-2);">
+              ${alertsStr}
+              <div style="color: var(--text-3); font-size: 11.5px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 4px; margin-top: 4px;">
+                ${detailsStr}
+              </div>
+            </div>
+          </div>`;
+        } else {
+          return `
+          <div class="m10-hub-box" style="margin-top: 15px; padding: 12px; background: rgba(255, 255, 255, 0.02); border-left: 4px solid var(--text-4); border-radius: 4px; text-align: left; opacity: 0.6;">
+            <div style="font-weight: bold; font-size: 13px; margin-bottom: 6px; color: var(--text-3); display: flex; align-items: center; justify-content: space-between;">
+              <span>🎯 M10 竞彩决策数据中枢</span>
+              <span style="font-size: 10px; padding: 1px 4px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 3px; color: var(--text-3);">等待激活</span>
+            </div>
+            <div style="font-size: 12px; color: var(--text-4);">
+              ℹ️ 当前赛事仅录入单盘口快照，待多次即时数据更新后将自动触发资金流与欧指背离分析。
+            </div>
+          </div>`;
+        }
+      })()}
     </div>`;
   }
 
@@ -932,7 +983,18 @@ const MatchIQRender = (() => {
           <span class="factor-delta ${deltaClass}">${deltaStr}</span>
           <div class="factor-bar-wrap"><div class="factor-bar-fill" style="width:${barW}%; ${isAdjusted ? 'background:var(--cyan);box-shadow:0 0 8px var(--cyan);' : ''}"></div></div>
         </div>`;
-    }).join('');
+    const isM10Active = match.conclusions?.m10_applied === true || (match.conclusions?.sporttery_hot_scores || []).length > 0 || match.conclusions?.had_hhad_divergence === true;
+    const m10StatusText = isM10Active ? '已激活' : '等待激活';
+    const m10StatusColor = isM10Active ? 'var(--cyan)' : 'var(--text-4)';
+    const m10Row = `
+      <div class="factor-row" style="border-top: 1px dashed rgba(0, 188, 212, 0.25); padding-top: 8px; margin-top: 8px;">
+        <span class="factor-id" style="color: var(--cyan); font-weight: bold;">M10</span>
+        <span class="factor-name" style="color: var(--cyan); font-weight: bold;" title="竞彩资金流与赔率背离因子">竞彩资金与赔率背离因子</span>
+        <span class="factor-weight" style="color: ${m10StatusColor}; font-weight: bold;">${m10StatusText}</span>
+        <span class="factor-delta neutral">--</span>
+        <div class="factor-bar-wrap"><div class="factor-bar-fill" style="width: 100%; background: linear-gradient(90deg, rgba(0,188,212,0.05) 0%, ${isM10Active ? 'var(--cyan)' : 'rgba(255,255,255,0.1)'} 100%);"></div></div>
+      </div>
+    `;
 
     return `
     <div class="mc-pane" id="pane-${match.id}-factors">
@@ -946,7 +1008,7 @@ const MatchIQRender = (() => {
           <canvas id="factor-chart-${match.id}"></canvas>
         </div>
       </div>
-      <div class="factors-grid">${rows}</div>
+      <div class="factors-grid">${rows}${m10Row}</div>
     </div>`;
   }
 
