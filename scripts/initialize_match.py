@@ -370,13 +370,24 @@ def auto_discover_sporttery_matches():
                 for item in match_info_list:
                     sub_list = item.get("subMatchList", [])
                     for m in sub_list:
+                        sell_status = str(m.get("sellStatus", ""))
+                        pool_list = m.get("poolList", [])
+                        
+                        # Strict filter: ONLY include currently ON-SALE matches (sellStatus == "1" and pools > 1)
+                        if sell_status != "1" or len(pool_list) <= 1:
+                            continue
+                            
                         sid = str(m.get("matchId"))
                         home = m.get("homeTeamAllName") or m.get("homeTeamAbbName")
                         away = m.get("awayTeamAllName") or m.get("awayTeamAbbName")
                         league = m.get("leagueAllName") or m.get("leagueAbbName")
-                        kickoff = m.get("matchTime")
+                        
+                        bdate = m.get("businessDate", "")
+                        mtime = m.get("matchTime", "")
+                        kickoff = f"{bdate} {mtime}" if bdate and mtime else mtime
+                        
                         match_num = m.get("matchNumStr", "")
-                        match_date = m.get("businessDate", "").replace("-", "")[2:]
+                        match_date = bdate.replace("-", "")[2:] if bdate else ""
                         local_id = f"match_{match_date}_{match_num}" if match_date and match_num else f"match_sporttery_{sid}"
                         discovered.append({
                             "id": local_id,

@@ -28,13 +28,22 @@ def fetch_on_sale_matches():
                 for item in match_info_list:
                     sub_list = item.get("subMatchList", [])
                     for m in sub_list:
+                        sell_status = str(m.get("sellStatus", ""))
+                        pool_list = m.get("poolList", [])
+                        if sell_status != "1" or len(pool_list) <= 1:
+                            continue
+                            
+                        bdate = m.get("businessDate", "")
+                        mtime = m.get("matchTime", "")
+                        kickoff = f"{bdate} {mtime}" if bdate and mtime else mtime
+                        
                         on_sale_matches.append({
                             "matchId": str(m.get("matchId")),
                             "home": m.get("homeTeamAllName") or m.get("homeTeamAbbName"),
                             "away": m.get("awayTeamAllName") or m.get("awayTeamAbbName"),
                             "matchNumStr": m.get("matchNumStr"),
                             "league": m.get("leagueAllName") or m.get("leagueAbbName"),
-                            "kickoff": m.get("matchTime")
+                            "kickoff": kickoff
                         })
     except Exception as e:
         print(f"Error fetching on-sale matches from https://www.sporttery.cn/jc/zqszsc/: {e}")
