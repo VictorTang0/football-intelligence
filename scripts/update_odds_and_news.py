@@ -907,25 +907,12 @@ def apply_dynamic_conclusions(m):
     
     # Prioritize M10 hot scores if they align with the recommendation direction
     m10_score_override = None
-    aligned = []
-    if hot_scores:
-        # Check if any hot score aligns with recommendation
-        for s_item in hot_scores:
-            if s_item in ["主其他", "客其他", "平其他"]: continue
-            try:
-                h_s, a_s = map(int, s_item.split(":"))
-                if "主胜" in rec and h_s > a_s: aligned.append(s_item)
-                elif "客胜" in rec and a_s > h_s: aligned.append(s_item)
-                elif "平局" in rec and h_s == a_s: aligned.append(s_item)
-                elif "双选不败" in rec:
-                    if ph < pa and h_s >= a_s: aligned.append(s_item)
-                    elif pa < ph and a_s >= h_s: aligned.append(s_item)
-                elif "让平" in rec or "让负" in rec:
-                    # Let-draw means home wins by exactly 1
-                    if "让平" in rec and h_s - a_s == 1: aligned.append(s_item)
-                    if "让负" in rec and h_s <= a_s: aligned.append(s_item)
-            except: pass
-    # Determine base AI model scores (Primary prediction score is ALWAYS at index 0 for underline)
+    # Determine M10 activity and confidence
+    is_m10_active = m.get("conclusions", {}).get("m10_applied") or (m.get("conclusions", {}).get("m10_snapshot_count", 0) >= 2)
+    hot_scores = m.get("conclusions", {}).get("sporttery_hot_scores", []) if is_m10_active else []
+    hot_hafu = m.get("conclusions", {}).get("sporttery_hot_hafu", []) if is_m10_active else []
+
+    # 1. Base AI model scores
     base_scores = []
     if "平局" in rec and draw_mult > 1.5:
         base_scores = ["2-2 (默契球)", "1-1"] if is_over else ["0-0 (防守控场)", "1-1"]
@@ -946,21 +933,27 @@ def apply_dynamic_conclusions(m):
     else:
         base_scores = ["2-2", "1-1"] if is_over else ["1-1", "0-0"]
 
-    # Attach (竞彩首选) to the specific M10 preferred score (can be index 0 or any other score)
-    m10_pref = aligned[0] if aligned else None
-    if m10_pref:
-        m10_clean = m10_pref.replace(":", "-")
+    # 2. M10 Score Preference Deduction
+    m10_score_pref = None
+    if hot_scores:
+        for s in hot_scores:
+            if s not in ["主其他", "客其他", "平其他"]:
+                m10_score_pref = s.replace(":", "-")
+                break
+
+    if is_m10_active and m10_score_pref:
         found = False
         final_parts = []
         for s in base_scores:
             s_clean = s.split("(")[0].strip().replace(":", "-")
-            if s_clean == m10_clean:
+            if s_clean == m10_score_pref:
                 final_parts.append(f"{s} (竞彩首选)")
                 found = True
             else:
                 final_parts.append(s)
         if not found:
-            final_parts.append(f"{m10_pref} (竞彩首选)")
+            # Append newly deduced M10 score without count restriction
+            final_parts.append(f"{m10_score_pref} (竞彩首选)")
         most_likely_score = " 或 ".join(final_parts)
     else:
         most_likely_score = " 或 ".join(base_scores)
@@ -968,28 +961,31 @@ def apply_dynamic_conclusions(m):
     m["conclusions"]["most_likely_score"] = most_likely_score
     m["conclusions"]["over_under"] = ou_line
     
-    # ─── HALF-FULL TIME (半全场) M10 COUPLING ───
-    hot_hafu = m.get("conclusions", {}).get("sporttery_hot_hafu", [])
-    # Default half_full logic
-    half_full = "平平"
+    # 3. Half-Full Time M10 Preference Deduction
+    base_hafu_list = []
     if g_home > g_away:
-        half_full = "平胜 或 胜胜"
+        base_hafu_list = ["平胜", "胜胜"]
     elif g_away > g_home:
-        half_full = "平负 或 负负"
+        base_hafu_list = ["平负", "负负"]
     else:
-        half_full = "平平"
+        base_hafu_list = ["平平"]
         
-    if hot_hafu:
-        # Check if the top 1 or top 2 hot hafu overlaps with recommendation direction
-        aligned_hafu = []
-        for h_item in hot_hafu:
-            if "主胜" in rec and h_item in ["胜胜", "平胜", "负胜"]: aligned_hafu.append(h_item)
-            elif "客胜" in rec and h_item in ["负负", "平负", "胜负"]: aligned_hafu.append(h_item)
-            elif "平局" in rec and h_item in ["平平", "胜平", "负平"]: aligned_hafu.append(h_item)
-            elif "不败" in rec: aligned_hafu.append(h_item)
-        if aligned_hafu:
-            aligned_hafu[0] = f"{aligned_hafu[0]} (竞彩首选)"
-            half_full = " 或 ".join(aligned_hafu[:2])
+    m10_hafu_pref = hot_hafu[0] if (is_m10_active and hot_hafu) else None
+    if is_m10_active and m10_hafu_pref:
+        found = False
+        final_hafu_parts = []
+        for h in base_hafu_list:
+            if h == m10_hafu_pref:
+                final_hafu_parts.append(f"{h} (竞彩首选)")
+                found = True
+            else:
+                final_hafu_parts.append(h)
+        if not found:
+            # Append newly deduced M10 half-full option without count restriction
+            final_hafu_parts.append(f"{m10_hafu_pref} (竞彩首选)")
+        half_full = " 或 ".join(final_hafu_parts)
+    else:
+        half_full = " 或 ".join(base_hafu_list)
             
     m["conclusions"]["half_full"] = half_full
     
