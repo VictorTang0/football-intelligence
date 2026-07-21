@@ -1048,8 +1048,8 @@ const MatchIQRender = (() => {
     const acc = historyData?.accuracy_rate;
     const accStr = acc !== null && acc !== undefined ? (acc * 100).toFixed(1) + '%' : '--';
     const validated = historyData?.total_predictions || 0;
-    const version = weightsData?.version || 'v1.0';
-    const evoCount = evolutionData?.evolution_count || 0;
+    const version = evolutionData?.snapshots?.slice(-1)[0]?.version || weightsData?.version || 'v3.5';
+    const evoCount = evolutionData?.snapshots?.length || evolutionData?.evolution_count || 0;
 
     return `
     <div class="model-status-bar">

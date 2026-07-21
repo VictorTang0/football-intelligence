@@ -1149,6 +1149,13 @@ def main():
                 auto_fetch_official_results.main()
             except Exception as e:
                 print(f"Error running auto_fetch_official_results: {e}")
+
+            # Integrate version and evolution statistics auto-sync
+            try:
+                import sync_evolution
+                sync_evolution.sync_evolution_data()
+            except Exception as e:
+                print(f"Error running sync_evolution: {e}")
         except Exception as e:
             print(f"Warning: Could not fetch latest Sporttery odds dynamically: {e}")
     else:
