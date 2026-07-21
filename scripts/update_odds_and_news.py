@@ -1163,6 +1163,13 @@ def main():
                 enrich_standings.main()
             except Exception as e:
                 print(f"Error running enrich_standings: {e}")
+
+            # Integrate match intelligence & news automatic enrichment into Workflow A
+            try:
+                import enrich_intelligence
+                enrich_intelligence.main()
+            except Exception as e:
+                print(f"Error running enrich_intelligence: {e}")
         except Exception as e:
             print(f"Warning: Could not fetch latest Sporttery odds dynamically: {e}")
     else:
@@ -1777,17 +1784,10 @@ def main():
             m["intelligence"]["verified_news"] = updated_items
             print(f"  Verified news updated: {len(updated_items)} items loaded.")
         else:
-            m["intelligence"]["verified_news"] = [
-                {
-                    "title": "暂无该场赛事的伤停或临场新闻情报",
-                    "source": "系统前瞻",
-                    "impact": "中性",
-                    "verified": False,
-                    "date": datetime.now().strftime("%Y-%m-%d"),
-                    "url": ""
-                }
-            ]
-            print(f"  No verified news available for {m['home']}.")
+            if not m.get("intelligence", {}).get("verified_news"):
+                import enrich_intelligence
+                enrich_intelligence.generate_match_intelligence(m)
+                print(f"  Verified news dynamically enriched for {m['home']}.")
 
         # 3. Update Social Buzz
         if real_intel:

@@ -403,8 +403,14 @@ def main():
             if os.path.exists(weather_path):
                 print("Running weather update workflow...")
                 subprocess.run(["python3", weather_path], check=True)
+
+            # 3. 补全赛事情报与新闻
+            intel_path = os.path.join(scripts_dir, "enrich_intelligence.py")
+            if os.path.exists(intel_path):
+                print("Running intelligence & news enrichment workflow...")
+                subprocess.run(["python3", intel_path], check=True)
         except Exception as e:
-            print(f"Warning: Failed to run standings/weather enrichment: {e}")
+            print(f"Warning: Failed to run standings/weather/intelligence enrichment: {e}")
     else:
         print("\nNo new matches were added.")
 
