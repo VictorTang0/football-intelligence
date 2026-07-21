@@ -1,6 +1,6 @@
 {
-  "current_version": "v3.0",
-  "evolution_count": 14,
+  "current_version": "v3.1",
+  "evolution_count": 15,
   "snapshots": [
     {
       "version": "v1.0",
@@ -531,6 +531,39 @@
           "change": "自动大校准",
           "direction": "up",
           "reason": "通过 20 轮贝叶斯梯度迭代训练，消除局部过拟合风险"
+        }
+      ]
+    },
+    {
+      "version": "v3.1",
+      "date": "2026-07-21",
+      "trigger": "核销 2026-07-20/21 赛果：TPS图尔vs坦山猫 0-1，玛丽港vs拉赫蒂 0-2，厄格里特vs佐加顿斯 0-0，卡尔马vs马尔默 2-2",
+      "accuracy_before": 0.5714,
+      "accuracy_after": 0.5652,
+      "matches_validated": 46,
+      "weights_snapshot": {
+        "M01": 0.1662,
+        "M02": 0.1661,
+        "M03": 0.1661,
+        "M04": 0.1661,
+        "M05": 0.0011,
+        "M06": 0.1661,
+        "M07": 0.0011,
+        "M08": 0.0011,
+        "M09": 0.1661
+      },
+      "significant_changes": [
+        {
+          "factor": "M08 战意与抢分压力",
+          "change": "引入联赛实时积分榜区域联动算法 (安全/希望/风险/无望区)",
+          "direction": "up",
+          "reason": "成功助推坦山猫（保级风险区）客场 1-0 爆冷打出"
+        },
+        {
+          "factor": "M07 环境与气候适应",
+          "change": "绑定开赛时刻每小时气象与主场草地材质 (人工草/天然草)",
+          "direction": "up",
+          "reason": "对高纬度夜间低频冷雨及草皮摩擦系数完成物理建模"
         }
       ]
     }
