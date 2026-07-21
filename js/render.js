@@ -32,25 +32,38 @@ const MatchIQRender = (() => {
     }
     if (typeof scoreStr !== 'string') scoreStr = String(scoreStr);
     
+    // Normalize "竞彩概率偏移首选" -> "竞彩首选"
+    scoreStr = scoreStr.replace(/竞彩概率偏移首选/g, '竞彩首选');
+
     const cleanActual = actualScoreStr ? actualScoreStr.replace(/\s+/g, '').split('(')[0].replace(':', '-') : '';
     const parts = scoreStr.split(/\s*或\s*/);
 
     const renderedParts = parts.map((part, index) => {
-      const cleanPart = part.replace(/\s+/g, '').split('(')[0].replace(':', '-');
-      const isThisPartCorrect = Boolean(cleanActual && (cleanPart === cleanActual));
-      
-      // If actual score is present: ONLY the matching score gets the underline.
-      // If actual score is not present (unfinished match): ONLY index === 0 (primary score) gets the underline.
-      const shouldUnderline = cleanActual ? isThisPartCorrect : (index === 0);
-      const underlineStyle = shouldUnderline ? 'text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px;' : '';
-
-      if (isThisPartCorrect) {
-        return `<span style="color:var(--rose, #f43f5e); font-weight:700; ${underlineStyle}">${part}</span>`;
-      } else {
-        return `<span style="color:var(--text-2); font-weight:500; ${underlineStyle}">${part}</span>`;
+      let scoreText = part.trim();
+      let tagText = "";
+      const tagMatch = part.match(/^(.*?)\s*(\(.*?\))$/);
+      if (tagMatch) {
+        scoreText = tagMatch[1].trim();
+        tagText = tagMatch[2].trim();
       }
+
+      const cleanScore = scoreText.replace(/\s+/g, '').replace(':', '-');
+      const isThisPartCorrect = Boolean(cleanActual && (cleanScore === cleanActual));
+      
+      // Rule 1: Underline is strictly fixed to index === 0 (primary prediction score), synced with predictions.
+      const shouldUnderline = (index === 0);
+      const underlineStyle = shouldUnderline ? 'text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px;' : 'text-decoration: none;';
+
+      // Rule 2: If this score hits actual score, highlight red bold.
+      const colorStyle = isThisPartCorrect ? 'color:var(--rose, #f43f5e); font-weight:700;' : 'color:var(--text-2); font-weight:500;';
+
+      const scoreSpan = `<span style="${colorStyle} ${underlineStyle}">${scoreText}</span>`;
+      const tagSpan = tagText ? `<span style="font-size:10.5px; color:var(--cyan); font-weight:normal; text-decoration:none !important; margin-left:3px; display:inline-block;">${tagText}</span>` : '';
+
+      return scoreSpan + tagSpan;
     });
-    return renderedParts.join(' <span style="color:var(--text-4)">或</span> ');
+
+    return renderedParts.join(' <span style="color:var(--text-4); text-decoration:none;">或</span> ');
   }
 
   function renderUnderlinedTwoScores(twoScoresStr, actualScoreStr = "") {
@@ -61,21 +74,31 @@ const MatchIQRender = (() => {
     }
     if (typeof twoScoresStr !== 'string') twoScoresStr = String(twoScoresStr);
     
+    twoScoresStr = twoScoresStr.replace(/竞彩概率偏移首选/g, '竞彩首选');
     const cleanActual = actualScoreStr ? actualScoreStr.replace(/\s+/g, '').split('(')[0].replace(':', '-') : '';
     const parts = twoScoresStr.split(/,\s*/);
 
     return parts.map((part, index) => {
-      const cleanPart = part.replace(/\s+/g, '').split('(')[0].replace(':', '-');
-      const isThisPartCorrect = Boolean(cleanActual && (cleanPart === cleanActual));
-      
-      const shouldUnderline = cleanActual ? isThisPartCorrect : (index === 0);
-      const underlineStyle = shouldUnderline ? 'text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px;' : '';
-
-      if (isThisPartCorrect) {
-        return `<span style="color:var(--rose, #f43f5e); font-weight:700; ${underlineStyle}">${part}</span>`;
-      } else {
-        return `<span style="${underlineStyle}">${part}</span>`;
+      let scoreText = part.trim();
+      let tagText = "";
+      const tagMatch = part.match(/^(.*?)\s*(\(.*?\))$/);
+      if (tagMatch) {
+        scoreText = tagMatch[1].trim();
+        tagText = tagMatch[2].trim();
       }
+
+      const cleanScore = scoreText.replace(/\s+/g, '').replace(':', '-');
+      const isThisPartCorrect = Boolean(cleanActual && (cleanScore === cleanActual));
+
+      const shouldUnderline = (index === 0);
+      const underlineStyle = shouldUnderline ? 'text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px;' : 'text-decoration: none;';
+
+      const colorStyle = isThisPartCorrect ? 'color:var(--rose, #f43f5e); font-weight:700;' : 'color:var(--text-2); font-weight:500;';
+
+      const scoreSpan = `<span style="${colorStyle} ${underlineStyle}">${scoreText}</span>`;
+      const tagSpan = tagText ? `<span style="font-size:10.5px; color:var(--cyan); font-weight:normal; text-decoration:none !important; margin-left:3px; display:inline-block;">${tagText}</span>` : '';
+
+      return scoreSpan + tagSpan;
     }).join(', ');
   }
 

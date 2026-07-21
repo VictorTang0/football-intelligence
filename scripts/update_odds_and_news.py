@@ -910,7 +910,7 @@ def apply_dynamic_conclusions(m):
                     if "让负" in rec and h_s <= a_s: aligned.append(s_item)
             except: pass
         if aligned:
-            m10_score_override = " 或 ".join(aligned) + " (竞彩概率偏移首选)"
+            m10_score_override = " 或 ".join(aligned) + " (竞彩首选)"
 
     if m10_score_override:
         most_likely_score = m10_score_override
@@ -956,7 +956,7 @@ def apply_dynamic_conclusions(m):
             elif "平局" in rec and h_item in ["平平", "胜平", "负平"]: aligned_hafu.append(h_item)
             elif "不败" in rec: aligned_hafu.append(h_item)
         if aligned_hafu:
-            half_full = " 或 ".join(aligned_hafu[:2]) + " (竞彩概率偏移首选)"
+            half_full = " 或 ".join(aligned_hafu[:2]) + " (竞彩首选)"
             
     m["conclusions"]["half_full"] = half_full
     
