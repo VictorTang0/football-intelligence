@@ -50,5 +50,12 @@ def sync_evolution_data():
             
         print(f"🔄 [Sync Evolution] Synchronized version {latest_version} & stats ({total_validated} matches, {history_acc*100:.2f}% acc).")
 
+    # Automatically evolve team tags based on updated match results
+    try:
+        import evolve_team_tags
+        evolve_team_tags.evolve_team_tags()
+    except Exception as e:
+        print(f"Error running evolve_team_tags: {e}")
+
 if __name__ == "__main__":
     sync_evolution_data()
