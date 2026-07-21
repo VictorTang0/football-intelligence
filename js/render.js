@@ -1862,19 +1862,28 @@ const MatchIQRender = (() => {
 
     const getTwoScores = (scoreStr) => {
       if (!scoreStr || scoreStr === '--') return '2-1, 1-1';
+      
+      let tagText = "";
+      const tagMatch = scoreStr.match(/\(.*?\)/);
+      if (tagMatch) {
+        tagText = " " + tagMatch[0];
+      }
+
       const matches = scoreStr.match(/\d+[:\-]\d+/g);
       if (matches) {
         const normalized = matches.map(s => s.replace(':', '-'));
         if (normalized.length >= 2) {
-          return normalized.slice(0, 2).join(', ');
+          // Sync ALL scores if >= 2 (allows 2, 3 or more scores to fully sync with Most Likely Score)
+          return normalized.join(', ') + tagText;
         } else if (normalized.length === 1) {
           const score = normalized[0];
-          if (score === "1-1") return "1-1, 0-0";
-          if (score === "2-1") return "2-1, 1-1";
-          if (score === "2-0") return "2-0, 1-0";
-          if (score === "0-1") return "0-1, 0-0";
-          if (score === "1-2") return "1-2, 1-1";
-          return score + ", 1-1";
+          let secondScore = "1-1";
+          if (score === "1-1") secondScore = "0-0";
+          else if (score === "2-1") secondScore = "1-1";
+          else if (score === "2-0") secondScore = "1-0";
+          else if (score === "0-1") secondScore = "0-0";
+          else if (score === "1-2") secondScore = "1-1";
+          return `${score}, ${secondScore}${tagText}`;
         }
       }
       return scoreStr || '2-1, 1-1';
@@ -1890,7 +1899,8 @@ const MatchIQRender = (() => {
         });
         const unique = [...new Set(goals)].sort((a, b) => a - b);
         if (unique.length >= 2) {
-          return unique.slice(0, 2).map(g => g + '球').join(', ');
+          // Allow showing 2 or 3 goal numbers depending on circumstances
+          return unique.slice(0, 3).map(g => g + '球').join(', ');
         } else if (unique.length === 1) {
           const g = unique[0];
           const secondG = g > 0 ? g - 1 : g + 1;
@@ -1932,7 +1942,7 @@ const MatchIQRender = (() => {
       const primaryBet = getPrimaryBet(m);
       const twoScores = getTwoScores(score);
       const twoGoals = getTwoGoals(score);
-      const halfFullClean = halfFull.split('或')[0].trim().replace(/（延长赛）/g, '');
+      const halfFullClean = halfFull;
 
       // Combine confidence and risk level with beautiful colors
       let combinedColor = '#ef4444'; // Red (High risk)
