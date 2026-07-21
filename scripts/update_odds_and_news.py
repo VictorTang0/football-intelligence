@@ -891,9 +891,9 @@ def apply_dynamic_conclusions(m):
     
     # Prioritize M10 hot scores if they align with the recommendation direction
     m10_score_override = None
+    aligned = []
     if hot_scores:
         # Check if any hot score aligns with recommendation
-        aligned = []
         for s_item in hot_scores:
             if s_item in ["主其他", "客其他", "平其他"]: continue
             try:
@@ -909,31 +909,46 @@ def apply_dynamic_conclusions(m):
                     if "让平" in rec and h_s - a_s == 1: aligned.append(s_item)
                     if "让负" in rec and h_s <= a_s: aligned.append(s_item)
             except: pass
-        if aligned:
-            aligned[0] = f"{aligned[0]} (竞彩首选)"
-            m10_score_override = " 或 ".join(aligned)
-
-    if m10_score_override:
-        most_likely_score = m10_score_override
-    elif "平局" in rec and draw_mult > 1.5:
-        most_likely_score = "2-2 (默契球)" if is_over else "0-0 (防守控场)"
+    # Determine base AI model scores (Primary prediction score is ALWAYS at index 0 for underline)
+    base_scores = []
+    if "平局" in rec and draw_mult > 1.5:
+        base_scores = ["2-2 (默契球)", "1-1"] if is_over else ["0-0 (防守控场)", "1-1"]
     elif is_upset:
         if "客胜" in rec or "不败" in rec:
-            most_likely_score = "1-3 或 1-2 (防线崩溃)" if is_over else "0-1"
+            base_scores = ["1-3", "1-2"] if is_over else ["0-1", "1-1"]
         else:
-            most_likely_score = "3-1 或 2-1 (防线崩溃)" if is_over else "1-0"
+            base_scores = ["3-1", "2-1"] if is_over else ["1-0", "1-1"]
     elif "主胜" in rec:
-        most_likely_score = "3-0 或 3-1" if is_over else "1-0 或 2-0"
+        base_scores = ["3-0", "3-1"] if is_over else ["1-0", "2-0"]
     elif "客胜" in rec:
-        most_likely_score = "0-3 或 1-3" if is_over else "0-1 或 0-2"
+        base_scores = ["0-3", "1-3"] if is_over else ["0-1", "0-2"]
     elif "不败" in rec:
         if ph < pa:
-            most_likely_score = "2-1 或 1-1" if is_over else "1-0 或 0-0"
+            base_scores = ["2-1", "1-1"] if is_over else ["1-0", "0-0"]
         else:
-            most_likely_score = "1-2 或 1-1" if is_over else "0-1 或 0-0"
+            base_scores = ["1-2", "1-1"] if is_over else ["0-1", "0-0"]
     else:
-        most_likely_score = "2-2 或 1-1" if is_over else "1-1 或 0-0"
-        
+        base_scores = ["2-2", "1-1"] if is_over else ["1-1", "0-0"]
+
+    # Attach (竞彩首选) to the specific M10 preferred score (can be index 0 or any other score)
+    m10_pref = aligned[0] if aligned else None
+    if m10_pref:
+        m10_clean = m10_pref.replace(":", "-")
+        found = False
+        final_parts = []
+        for s in base_scores:
+            s_clean = s.split("(")[0].strip().replace(":", "-")
+            if s_clean == m10_clean:
+                final_parts.append(f"{s} (竞彩首选)")
+                found = True
+            else:
+                final_parts.append(s)
+        if not found:
+            final_parts.append(f"{m10_pref} (竞彩首选)")
+        most_likely_score = " 或 ".join(final_parts)
+    else:
+        most_likely_score = " 或 ".join(base_scores)
+
     m["conclusions"]["most_likely_score"] = most_likely_score
     m["conclusions"]["over_under"] = ou_line
     
