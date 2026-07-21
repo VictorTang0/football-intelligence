@@ -33,9 +33,9 @@ def fetch_on_sale_matches():
                         if sell_status != "1" or len(pool_list) <= 1:
                             continue
                             
-                        bdate = m.get("businessDate", "")
+                        mdate = m.get("matchDate") or m.get("businessDate", "")
                         mtime = m.get("matchTime", "")
-                        kickoff = f"{bdate} {mtime}" if bdate and mtime else mtime
+                        kickoff = f"{mdate} {mtime}" if mdate and mtime else mtime
                         
                         on_sale_matches.append({
                             "matchId": str(m.get("matchId")),

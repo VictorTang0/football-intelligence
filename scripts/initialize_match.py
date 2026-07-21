@@ -382,9 +382,10 @@ def auto_discover_sporttery_matches():
                         away = m.get("awayTeamAllName") or m.get("awayTeamAbbName")
                         league = m.get("leagueAllName") or m.get("leagueAbbName")
                         
+                        mdate = m.get("matchDate") or m.get("businessDate", "")
                         bdate = m.get("businessDate", "")
                         mtime = m.get("matchTime", "")
-                        kickoff = f"{bdate} {mtime}" if bdate and mtime else mtime
+                        kickoff = f"{mdate} {mtime}" if mdate and mtime else mtime
                         
                         match_num = m.get("matchNumStr", "")
                         match_date = bdate.replace("-", "")[2:] if bdate else ""
