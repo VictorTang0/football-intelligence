@@ -349,18 +349,60 @@ def create_complete_match(raw_match):
     }
     return match_obj
 
+def auto_discover_sporttery_matches():
+    import urllib.request
+    import ssl
+    ctx = ssl._create_unverified_context()
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Referer": "https://www.sporttery.cn/jc/zqszsc/",
+        "Origin": "https://www.sporttery.cn",
+        "Accept": "application/json, text/javascript, */*; q=0.01"
+    }
+    url = "https://webapi.sporttery.cn/gateway/uniform/football/getMatchListV1.qry?clientCode=3001"
+    req = urllib.request.Request(url, headers=headers)
+    discovered = []
+    try:
+        with urllib.request.urlopen(req, timeout=10, context=ctx) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+            if data.get("success"):
+                match_info_list = data.get("value", {}).get("matchInfoList", [])
+                for item in match_info_list:
+                    sub_list = item.get("subMatchList", [])
+                    for m in sub_list:
+                        sid = str(m.get("matchId"))
+                        home = m.get("homeTeamAllName") or m.get("homeTeamAbbName")
+                        away = m.get("awayTeamAllName") or m.get("awayTeamAbbName")
+                        league = m.get("leagueAllName") or m.get("leagueAbbName")
+                        kickoff = m.get("matchTime")
+                        match_num = m.get("matchNumStr", "")
+                        match_date = m.get("businessDate", "").replace("-", "")[2:]
+                        local_id = f"match_{match_date}_{match_num}" if match_date and match_num else f"match_sporttery_{sid}"
+                        discovered.append({
+                            "id": local_id,
+                            "sportteryMatchId": sid,
+                            "home": home,
+                            "away": away,
+                            "league": league,
+                            "kickoff": kickoff,
+                            "venue": f"{home}主场球场"
+                        })
+    except Exception as e:
+        print(f"Error auto discovering matches from Sporttery: {e}")
+    return discovered
+
 def main():
-    if len(sys.argv) < 2:
-        print("Usage: python3 scripts/initialize_match.py <input_json_path>")
-        sys.exit(1)
-        
-    input_path = sys.argv[1]
-    if not os.path.exists(input_path):
-        print(f"Input file not found: {input_path}")
-        sys.exit(1)
-        
-    with open(input_path, "r", encoding="utf-8") as f:
-        new_raw_matches = json.load(f)
+    if len(sys.argv) >= 2:
+        input_path = sys.argv[1]
+        if not os.path.exists(input_path):
+            print(f"Input file not found: {input_path}")
+            sys.exit(1)
+        with open(input_path, "r", encoding="utf-8") as f:
+            new_raw_matches = json.load(f)
+    else:
+        print("🔄 Auto-discovering on-sale matches from Sporttery (https://www.sporttery.cn/jc/zqszsc/)...")
+        new_raw_matches = auto_discover_sporttery_matches()
+        print(f"Found {len(new_raw_matches)} on-sale matches on Sporttery portal.")
         
     if not os.path.exists(MATCHES_PATH):
         print("matches.json not found!")
