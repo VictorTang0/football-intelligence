@@ -8,6 +8,13 @@ def sync_evolution_data():
     evo_path = os.path.join(base_dir, "data", "model_evolution.json")
     history_path = os.path.join(base_dir, "data", "history.json")
     
+    # Call history sync first to move finished matches from matches.json to history.json
+    try:
+        import sync_history
+        sync_history.sync()
+    except Exception as e:
+        print(f"Error running sync_history: {e}")
+
     if not os.path.exists(evo_path) or not os.path.exists(weights_path):
         return
         
