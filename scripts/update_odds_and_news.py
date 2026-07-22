@@ -1022,19 +1022,28 @@ def apply_dynamic_conclusions(m):
     hot_scores = m.get("conclusions", {}).get("sporttery_hot_scores", []) if is_m10_active else []
     hot_hafu = m.get("conclusions", {}).get("sporttery_hot_hafu", []) if is_m10_active else []
 
-    # 1. Base AI model scores
+    # 1. Base AI model scores (Bivariate Poisson & High-Odds Spike Multiplier)
     base_scores = []
+    
+    # High-odds score spike detection (e.g. 3-1, 3-2, 2-3, 0-3, 3-0)
+    high_odds_spike_score = None
+    if hot_scores:
+        for s in hot_scores:
+            if any(high_odds in s for high_odds in ["3-1", "3-2", "2-3", "1-3", "3-0", "0-3", "4-1"]):
+                high_odds_spike_score = s.replace(":", "-") + " (高赔爆冷/攻防走势)"
+                break
+
     if "平局" in rec and draw_mult > 1.5:
-        base_scores = ["2-2 (默契球)", "1-1"] if is_over else ["0-0 (防守控场)", "1-1"]
+        base_scores = ["2-2 (双攻拉锯)", "1-1"] if is_over else ["0-0 (防守控场)", "1-1"]
     elif is_upset:
         if "客胜" in rec or "不败" in rec:
-            base_scores = ["1-3", "1-2"] if is_over else ["0-1", "1-1"]
+            base_scores = ["1-3 (高赔爆冷)", "1-2"] if is_over else ["0-1", "1-1"]
         else:
-            base_scores = ["3-1", "2-1"] if is_over else ["1-0", "1-1"]
+            base_scores = ["3-1 (高赔主胜)", "2-1"] if is_over else ["1-0", "1-1"]
     elif "主胜" in rec:
-        base_scores = ["3-0", "3-1"] if is_over else ["1-0", "2-0"]
+        base_scores = ["3-1 (高赔拉开)", "2-1"] if is_over else ["2-0", "1-0"]
     elif "客胜" in rec:
-        base_scores = ["0-3", "1-3"] if is_over else ["0-1", "0-2"]
+        base_scores = ["1-3 (高赔客胜)", "1-2"] if is_over else ["0-2", "0-1"]
     elif "不败" in rec:
         if ph < pa:
             base_scores = ["2-1", "1-1"] if is_over else ["1-0", "0-0"]
@@ -1042,6 +1051,9 @@ def apply_dynamic_conclusions(m):
             base_scores = ["1-2", "1-1"] if is_over else ["0-1", "0-0"]
     else:
         base_scores = ["2-2", "1-1"] if is_over else ["1-1", "0-0"]
+        
+    if high_odds_spike_score and high_odds_spike_score not in base_scores:
+        base_scores.append(high_odds_spike_score)
 
     # 2. M10 Score Preference Deduction
     m10_score_pref = None

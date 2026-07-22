@@ -112,22 +112,40 @@ def predict_match_at_odds_state(match_item, odds_snapshot_idx):
     elif "主不败" in rec and ft_outcome in ["H", "D"]: rec_correct = True
     elif "客不败" in rec and ft_outcome in ["A", "D"]: rec_correct = True
     
-    # 3. Predict Correct Score (比分 - M10 Poisson + CRS Inverse Odds Density Calibration)
+    # 3. Predict Correct Score (M10 Bivariate Poisson + High-Odds Score Spike Multiplier)
     eg_home = max(0.4, p_h_eff * 2.1 + p_d_bm * 0.7)
     eg_away = max(0.4, p_a_eff * 2.1 + p_d_bm * 0.7)
     
+    # Bivariate Poisson Correlation Parameter rho = 0.15
+    rho = 0.15
     score_probs = {}
     for hg in range(5):
         for ag in range(5):
-            prob = (math.pow(eg_home, hg) * math.exp(-eg_home) / math.factorial(hg)) * \
-                   (math.pow(eg_away, ag) * math.exp(-eg_away) / math.factorial(ag))
-            score_probs[f"{hg}-{ag}"] = prob
+            base_p = (math.pow(eg_home, hg) * math.exp(-eg_home) / math.factorial(hg)) * \
+                     (math.pow(eg_away, ag) * math.exp(-eg_away) / math.factorial(ag))
+            
+            # Apply Bivariate Poisson Correction tau
+            tau = 1.0
+            if hg == 0 and ag == 0:
+                tau = 1.0 - eg_home * eg_away * rho
+            elif hg == 1 and ag == 0:
+                tau = 1.0 + eg_away * rho
+            elif hg == 0 and ag == 1:
+                tau = 1.0 + eg_home * rho
+            elif hg == 1 and ag == 1:
+                tau = 1.0 - rho
+                
+            score_probs[f"{hg}-{ag}"] = base_p * max(0.2, tau)
 
-    # Fuse with CRS inverse odds density if available
+    # High-Odds Score Spike Multiplier & CRS Market Fusion
     if crs_list:
+        init_crs = crs_list[0] if len(crs_list) > 0 else {}
         latest_crs = crs_list[min(odds_snapshot_idx, len(crs_list)-1)]
+        
         total_crs_inv = 0
         crs_inv_map = {}
+        high_odds_spikes = {}
+        
         for s_key, odds_val in latest_crs.items():
             try:
                 oval = float(odds_val)
@@ -136,6 +154,13 @@ def predict_match_at_odds_state(match_item, odds_snapshot_idx):
                     inv_v = 1.0 / oval
                     crs_inv_map[clean_k] = inv_v
                     total_crs_inv += inv_v
+                    
+                    # Detect High-Odds Price Drop (High odds score spike)
+                    init_val = float(init_crs.get(s_key, oval)) if init_crs.get(s_key) else oval
+                    if oval >= 9.0 and init_val > oval:
+                        drop_pct = (init_val - oval) / init_val
+                        if drop_pct >= 0.10:
+                            high_odds_spikes[clean_k] = 1.0 + drop_pct * 3.5
             except Exception:
                 pass
                 
@@ -143,11 +168,22 @@ def predict_match_at_odds_state(match_item, odds_snapshot_idx):
             for skey, crs_inv in crs_inv_map.items():
                 if skey in score_probs:
                     crs_p = crs_inv / total_crs_inv
-                    score_probs[skey] = 0.5 * score_probs[skey] + 0.5 * crs_p
+                    spike_mult = high_odds_spikes.get(skey, 1.0)
+                    score_probs[skey] = (0.4 * score_probs[skey] + 0.6 * crs_p) * spike_mult
 
     top_scores = sorted(score_probs.items(), key=lambda x: x[1], reverse=True)[:3]
     actual_score = match_item.get("fullTimeScore", "").replace(":", "-")
     score_correct = any(s[0] == actual_score for s in top_scores)
+    
+    # High-Odds Score Specific Hit (Targeting score odds >= 10.0 like 3-1, 3-2, 2-3, 0-3, 3-0)
+    high_odds_hit = False
+    if score_correct:
+        try:
+            h_g, a_g = map(int, actual_score.split("-"))
+            if (h_g + a_g >= 3 and abs(h_g - a_g) >= 2) or (h_g >= 2 and a_g >= 2):
+                high_odds_hit = True
+        except Exception:
+            pass
     
     # 4. Predict Half-Full
     ht_outcome = match_item.get("ht_outcome", "H")
