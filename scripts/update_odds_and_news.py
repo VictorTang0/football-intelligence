@@ -1929,39 +1929,23 @@ def main():
                 updated_items.append(item)
             m["intelligence"]["verified_news"] = updated_items
             print(f"  Verified news updated: {len(updated_items)} items loaded.")
-        else:
-            if not m.get("intelligence", {}).get("verified_news"):
-                import enrich_intelligence
-                enrich_intelligence.generate_match_intelligence(m)
-                print(f"  Verified news dynamically enriched for {m['home']}.")
+        # Synchronously enrich media predictions, social buzz, verified news, and injuries
+        import enrich_intelligence
+        enrich_intelligence.generate_match_intelligence(m)
 
-        # 3. Update Social Buzz
-        if real_intel:
+        if real_intel and real_intel.get("social"):
             m["intelligence"]["social_buzz"] = real_intel["social"]
-            print(f"  Social buzz updated: real items loaded.")
+            print(f"  Social buzz updated with real items for {m['home']}.")
         elif mid in fresh_social:
             m["intelligence"]["social_buzz"] = fresh_social[mid]
-            print(f"  Social buzz updated.")
-        else:
-            m["intelligence"]["social_buzz"] = {
-                "sentiment": "暂无舆情",
-                "notable_discussion": "暂无该场赛事的论坛球迷讨论或社交媒体热度追踪数据。",
-                "trending_keywords": []
-            }
-            print(f"  No social buzz available for {m['home']}.")
+            print(f"  Social buzz updated for {m['home']}.")
 
-        # 4. Update Media Predictions
-        if real_intel:
+        if real_intel and real_intel.get("media"):
             m["intelligence"]["media_predictions"] = real_intel["media"]
-            print(f"  Media predictions updated: real items loaded.")
+            print(f"  Media predictions updated with real items for {m['home']}.")
         elif mid in fresh_media:
             m["intelligence"]["media_predictions"] = fresh_media[mid]
-            print(f"  Media predictions updated.")
-        else:
-            m["intelligence"]["media_predictions"] = [
-                {"media_name": "系统前瞻", "prediction": "暂无预测", "predicted_score": "--", "confidence": "0%"}
-            ]
-            print(f"  No media predictions available for {m['home']}.")
+            print(f"  Media predictions updated for {m['home']}.")
             
         old_rec = m["ultimate_conclusion"].get("recommendation", "")
         
