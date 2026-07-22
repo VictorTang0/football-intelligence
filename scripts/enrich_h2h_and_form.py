@@ -77,29 +77,27 @@ def enrich_h2h_and_form():
         away = m.get("away", "")
         sp_id = str(m.get("sportteryMatchId") or m.get("id", "").split("_")[-1])
 
-        # 直接从开售爬虫中匹配官方元数据
-        onsale_info = live_onsale.get(sp_id) or {}
-        head_info = fetch_live_match_head(sp_id) if sp_id else {}
-
         # 更新官方核验标签与交锋备注
-        if "h2h" not in m or not m["h2h"].get("last_5"):
-            m["h2h"] = {
-                "last_5": m.get("h2h", {}).get("last_5", []),
-                "avg_goals": m.get("h2h", {}).get("avg_goals"),
-                "btts_rate": m.get("h2h", {}).get("btts_rate"),
-                "note": f"[竞彩官网 zqszsc 即时爬取] 官方赛事 ID #{sp_id} 已核验（{home} vs {away}）"
-            }
-            m["head_to_head"] = m["h2h"]
+        h2h_matches = m.get("h2h", {}).get("last_5", [])
+        if h2h_matches:
+            h_wins = sum(1 for item in h2h_matches if item.get("outcome") in ["H", "W"])
+            a_wins = sum(1 for item in h2h_matches if item.get("outcome") in ["A", "L"])
+            total = len(h2h_matches)
+            h_score = round(min(9.8, max(1.5, 5.0 + (h_wins - a_wins) * 1.5)), 1)
+            a_score = round(max(1.5, min(9.8, 5.0 - (h_wins - a_wins) * 1.5)), 1)
+
+            if "factor_scores" in m and "M09_历史交锋与心理克制" in m["factor_scores"]:
+                m["factor_scores"]["M09_历史交锋与心理克制"]["home_score"] = h_score
+                m["factor_scores"]["M09_历史交锋与心理克制"]["away_score"] = a_score
+                m["factor_scores"]["M09_历史交锋与心理克制"]["signal"] = f"{home}交锋占优({h_wins}胜{total-h_wins-a_wins}平{a_wins}负)" if h_wins > a_wins else f"{away}交锋占优" if a_wins > h_wins else "交锋势均力敌"
 
         # 针对博德闪耀 vs 汉坎等实力差距悬殊的强队，应用硬实力与交锋绝对碾压法则
         h_paper = m.get("factor_scores", {}).get("M01_球队基础硬实力", {}).get("home_score", 5.0)
         a_paper = m.get("factor_scores", {}).get("M01_球队基础硬实力", {}).get("away_score", 5.0)
         paper_gap = h_paper - a_paper
+        h2h_h_score = m.get("factor_scores", {}).get("M09_历史交锋与心理克制", {}).get("home_score", 5.0)
 
-        h_score = m.get("factor_scores", {}).get("M09_历史交锋与心理克制", {}).get("home_score", 5.0)
-        h2h_matches = m.get("h2h", {}).get("last_5", [])
-
-        if paper_gap >= 3.5 and (h_score >= 7.5 or (len(h2h_matches) >= 2 and all(x.get("outcome") == "H" for x in h2h_matches))):
+        if paper_gap >= 3.5 and h2h_h_score >= 7.0:
             if "ultimate_conclusion" not in m: m["ultimate_conclusion"] = {}
             m["ultimate_conclusion"]["recommendation"] = "主胜 (实力与交锋绝对碾压)"
             m["ultimate_conclusion"]["primary_bet"] = "主胜"
