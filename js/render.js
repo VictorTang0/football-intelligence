@@ -1325,8 +1325,14 @@ const MatchIQRender = (() => {
           </tr>
         `);
 
-        // Match rows under this date
-        groups[date].forEach(r => {
+        // Match rows under this date (sorted by kickoff time descending: latest to earliest)
+        const sortedDayMatches = [...groups[date]].sort((a, b) => {
+          const tA = a.time || (a.kickoff ? (a.kickoff.split(' ')[1] || a.kickoff.split('T')[1]) : '') || '00:00';
+          const tB = b.time || (b.kickoff ? (b.kickoff.split(' ')[1] || b.kickoff.split('T')[1]) : '') || '00:00';
+          return tB.localeCompare(tA);
+        });
+
+        sortedDayMatches.forEach(r => {
           const p = r.predictions || {};
           const recommendationVal = p.recommendation?.val || r.prediction || '--';
           const scoreVal = p.most_likely_score?.val || '--';

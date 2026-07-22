@@ -305,7 +305,7 @@ def sync():
             record["radar_alert"] = alert
         new_records.append(record)
         
-    new_records.sort(key=lambda x: (x["date"], x["match_id"]))
+    new_records.sort(key=lambda x: (x["date"], x.get("time", "00:00"), x["match_id"]), reverse=True)
     
     history_db["records"] = new_records
     history_db["total_predictions"] = len(new_records)
