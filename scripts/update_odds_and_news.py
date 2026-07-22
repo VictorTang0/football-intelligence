@@ -615,27 +615,22 @@ def apply_dynamic_factor_scores(m):
 
     m01_home = round(max(3.0, min(9.8, h_base)), 1)
     m01_away = round(max(3.0, min(9.8, a_base)), 1)
+    # 2. Lineup Health (M02) - Base 9.2, reduced dynamically by verified injury news
+    m02_home = 9.2
+    m02_away = 9.2
     
-    h_hash = sum(ord(c) for c in home)
-    a_hash = sum(ord(c) for c in away)
-
-    # 2. Lineup Health (M02)
-    m02_home = round(9.0 + (h_hash % 9) * 0.1, 1)
-    m02_away = round(9.0 + (a_hash % 9) * 0.1, 1)
-    
-    # Check for injury keywords in verified news
     news_items = m.get("intelligence", {}).get("verified_news", [])
     for n in news_items:
         title = n.get("title", "")
-        if "伤缺" in title or "停赛" in title or "伤病" in title or "缺阵" in title or "伤势" in title:
-            if home in title or "主队" in title or (n.get("impact") == "负面" and home_tier == "strong"):
-                m02_home = round(max(4.0, m02_home - 2.5 - (h_hash % 3)), 1)
-            if away in title or "客队" in title or (n.get("impact") == "负面" and away_tier == "strong"):
-                m02_away = round(max(4.0, m02_away - 2.5 - (a_hash % 3)), 1)
+        if any(kw in title for kw in ["伤缺", "停赛", "伤病", "缺阵", "伤势"]):
+            if home in title or "主队" in title or (n.get("impact") == "负面" and m01_home >= 8.5):
+                m02_home = round(max(4.0, m02_home - 2.5), 1)
+            if away in title or "客队" in title or (n.get("impact") == "负面" and m01_away >= 8.5):
+                m02_away = round(max(4.0, m02_away - 2.5), 1)
                 
     # 3. Tactical Matchup (M03)
-    m03_home = round(7.5 + ((h_hash + a_hash) % 5) * 0.2 - 0.4, 1)
-    m03_away = round(7.5 + ((h_hash - a_hash) % 5) * 0.2 - 0.4, 1)
+    m03_home = 7.5
+    m03_away = 7.5
     for tag in h_tags:
         if tag in ["铜墙铁壁", "防守专家", "平局大师", "闪退大客车"]:
             m03_home += 0.6
@@ -643,11 +638,13 @@ def apply_dynamic_factor_scores(m):
         if tag in ["铜墙铁壁", "防守专家", "平局大师", "闪退大客车"]:
             m03_away += 0.6
             
-    # 4. Midfield & Transition (M04)
-    m04_home = round(m01_home - 0.2 + (h_hash % 5) * 0.1, 1)
-    m04_away = round(m01_away - 0.2 + (a_hash % 5) * 0.1, 1)
+    # 4. Midfield & Transition (M04) - Tied to M01 Base & Possession Stats
+    h_poss = hs.get("possession", 50.0) if isinstance(hs, dict) else 50.0
+    a_poss = aws.get("possession", 50.0) if isinstance(aws, dict) else 50.0
+    m04_home = round(max(3.0, min(9.8, m01_home * 0.9 + (h_poss - 50.0) * 0.05)), 1)
+    m04_away = round(max(3.0, min(9.8, m01_away * 0.9 + (a_poss - 50.0) * 0.05)), 1)
     
-    # 恶劣天气对战术配合与中场推进效率的削减 (0.8 倍系数修饰)
+    # 恶劣天气对战术配合与中场推进效率的削减
     w_cond = m.get("weather", {}).get("condition", "多云")
     is_extreme_weather = any(cond in w_cond for cond in ["大雨", "暴雨", "雷阵雨", "雪"])
     if is_extreme_weather:
@@ -656,31 +653,29 @@ def apply_dynamic_factor_scores(m):
         m04_home = round(m04_home * 0.8, 1)
         m04_away = round(m04_away * 0.8, 1)
     
-    # 5. Recent Form & Momentum (M05)
-    home_form = m["team_stats"]["home"].get("form", ["W", "D", "L", "W", "D"])
-    away_form = m["team_stats"]["away"].get("form", ["W", "D", "L", "W", "D"])
-    h_w_count = sum(1 for f in home_form if f == "W")
-    a_w_count = sum(1 for f in away_form if f == "W")
-    
-    h_form_score = 6.0 + h_w_count * 0.8 + (h_hash % 5) * 0.1
-    a_form_score = 6.0 + a_w_count * 0.8 + (a_hash % 5) * 0.1
+    # 5. Recent Form & Momentum (M05) - Calculated directly from recent match W/L record
+    rm_h = m.get("team_stats", {}).get("home", {}).get("recent_matches", [])
+    rm_a = m.get("team_stats", {}).get("away", {}).get("recent_matches", [])
+    h_wins = sum(1 for f in rm_h if f.get("outcome") == "W")
+    a_wins = sum(1 for f in rm_a if f.get("outcome") == "W")
+    h_losses = sum(1 for f in rm_h if f.get("outcome") == "L")
+    a_losses = sum(1 for f in rm_a if f.get("outcome") == "L")
+
+    h_form_score = 5.2 + h_wins * 0.9 - h_losses * 0.5
+    a_form_score = 5.2 + a_wins * 0.9 - a_losses * 0.5
     for tag in h_tags:
-        if tag in ["顺风狂飙", "抢分狂魔"]:
-            h_form_score += 0.6
-        if tag in ["虎头蛇尾", "无心恋战"]:
-            h_form_score -= 0.6
+        if tag in ["顺风狂飙", "抢分狂魔"]: h_form_score += 0.6
+        if tag in ["虎头蛇尾", "无心恋战"]: h_form_score -= 0.6
     for tag in a_tags:
-        if tag in ["顺风狂飙", "抢分狂魔"]:
-            a_form_score += 0.6
-        if tag in ["虎头蛇尾", "无心恋战"]:
-            a_form_score -= 0.6
+        if tag in ["顺风狂飙", "抢分狂魔"]: a_form_score += 0.6
+        if tag in ["虎头蛇尾", "无心恋战"]: a_form_score -= 0.6
             
-    m05_home = round(max(3.0, min(10.0, h_form_score)), 1)
-    m05_away = round(max(3.0, min(10.0, a_form_score)), 1)
+    m05_home = round(max(3.0, min(9.8, h_form_score)), 1)
+    m05_away = round(max(3.0, min(9.8, a_form_score)), 1)
     
     # 6. Schedule & Fatigue (M06)
-    m06_home = round(8.5 - (h_hash % 4) * 0.3, 1)
-    m06_away = round(8.5 - (a_hash % 4) * 0.3, 1)
+    m06_home = 8.5
+    m06_away = 8.5
     
     # 7. Environment & Weather (M07)
     venue_notes = m.get("intelligence", {}).get("venue_notes", "")
