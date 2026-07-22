@@ -178,14 +178,23 @@ def match_event(evs, home_zh, away_zh):
         "大田市民": "Daejeon", "蔚山现代": "Ulsan",
         "江原FC": "Gangwon", "金泉尚武": "Gimcheon",
         "济州SK": "Jeju", "浦项制铁": "Pohang",
-        "仁川联": "Incheon", "全北现代": "Jeonbuk"
+        "仁川联": "Incheon", "全北现代": "Jeonbuk",
+        "迈阿密国际": "Inter Miami", "迈国际": "Inter Miami",
+        "芝加哥火焰": "Chicago Fire", "芝加哥": "Chicago",
+        "汉坎": "HamKam", "利勒斯特罗姆": "Lillestrom", "维京": "Viking",
+        "奥莫尼亚": "Omonia", "阿拉木图凯拉特": "Kairat",
+        "弗拉门戈": "Flamengo", "圣保罗": "Sao Paulo", "巴拉纳竞技": "Athletico",
+        "皇家盐湖城": "Salt Lake", "科林蒂安": "Corinthians", "里莫": "Remo"
     }
-    home_en = zh_to_en.get(home_zh, home_zh)
-    away_en = zh_to_en.get(away_zh, away_zh)
+    home_en = zh_to_en.get(home_zh, home_zh).lower()
+    away_en = zh_to_en.get(away_zh, away_zh).lower()
+
+    if not evs: return None
+
     for ev in evs:
-        ev_home = ev['home_team']['name'].lower()
-        ev_away = ev['away_team']['name'].lower()
-        if home_en.lower() in ev_home or away_en.lower() in ev_away:
+        ev_home = ev.get('home_team', {}).get('name', '').lower()
+        ev_away = ev.get('away_team', {}).get('name', '').lower()
+        if (home_en in ev_home or ev_home in home_en) and (away_en in ev_away or ev_away in away_en):
             return ev
     return None
 
