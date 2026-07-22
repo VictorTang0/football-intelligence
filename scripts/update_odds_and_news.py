@@ -587,35 +587,38 @@ def apply_dynamic_factor_scores(m):
     h_tags = list(team_tags_db.get(home, {}).get("tags", {}).keys())
     a_tags = list(team_tags_db.get(away, {}).get("tags", {}).keys())
 
-    # 1. Base Strength (M01)
-    home_tier = known_teams.get(home, "medium")
-    away_tier = known_teams.get(away, "medium")
-    
-    tier_ratings = {"strong": 9.2, "medium": 7.8, "weak": 5.5}
-    h_base = tier_ratings[home_tier]
-    a_base = tier_ratings[away_tier]
-    
+    # 1. Base Strength (M01) dynamically calculated from standings points-per-game & goal difference
+    hs = m.get("home_standing", m.get("team_stats", {}).get("home", {}).get("standing", {}))
+    aws = m.get("away_standing", m.get("team_stats", {}).get("away", {}).get("standing", {}))
+
+    h_played = max(1, hs.get("played", 15))
+    a_played = max(1, aws.get("played", 15))
+    h_ppg = hs.get("points", 20) / float(h_played)
+    a_ppg = aws.get("points", 20) / float(a_played)
+    h_gd = (hs.get("goals_for", 20) - hs.get("goals_against", 20)) / float(h_played)
+    a_gd = (aws.get("goals_for", 20) - aws.get("goals_against", 20)) / float(a_played)
+
+    h_base = 5.0 + h_ppg * 2.0 + h_gd * 1.2
+    a_base = 5.0 + a_ppg * 2.0 + a_gd * 1.2
+
     # Adjust M01 based on tags
     for tag in h_tags:
         if tag in ["灌球高手", "顺风狂飙", "主场狂魔"]:
-            h_base += 0.5
+            h_base += 0.4
         if tag in ["无心恋战", "欺软怕硬"]:
             h_base -= 0.4
     for tag in a_tags:
         if tag in ["灌球高手", "顺风狂飙"]:
-            a_base += 0.5
+            a_base += 0.4
         if tag in ["无心恋战", "欺软怕硬"]:
             a_base -= 0.4
-            
-    # Add a small deterministic hash variation to avoid identical scores
+
+    m01_home = round(max(3.0, min(9.8, h_base)), 1)
+    m01_away = round(max(3.0, min(9.8, a_base)), 1)
+    
     h_hash = sum(ord(c) for c in home)
     a_hash = sum(ord(c) for c in away)
-    h_base += (h_hash % 7) * 0.1 - 0.3
-    a_base += (a_hash % 7) * 0.1 - 0.3
-    
-    m01_home = round(max(3.0, min(10.0, h_base)), 1)
-    m01_away = round(max(3.0, min(10.0, a_base)), 1)
-    
+
     # 2. Lineup Health (M02)
     m02_home = round(9.0 + (h_hash % 9) * 0.1, 1)
     m02_away = round(9.0 + (a_hash % 9) * 0.1, 1)
