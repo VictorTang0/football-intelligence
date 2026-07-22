@@ -124,6 +124,10 @@ def main():
         
     updated_count = 0
     for m in matches_db.get("matches", []):
+        # Skip finished historical matches to avoid overwriting finished stats
+        if m.get("status") == "finished":
+            continue
+
         home_name = m.get("home", "")
         away_name = m.get("away", "")
         
