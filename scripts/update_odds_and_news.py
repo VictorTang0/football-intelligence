@@ -1803,9 +1803,9 @@ def main():
 
     # Pre-calculate cross match draw odds
     handicap_draw_map = {}
-    for tmp in data["matches"]:
-        if tmp["status"] not in ["pending", "postponed"]: continue
-        h = tmp.get("odds_history", [])
+    for m in matches:
+        if m["status"] not in ["pending", "postponed"]: continue
+        h = m.get("odds_history", [])
         if not h: continue
         ls = h[-1]
         ah = ls.get("lottery_handicap", {}) or ls.get("asian_handicap", {})
@@ -1814,7 +1814,7 @@ def main():
             d_o = ls.get("pinnacle", {}).get("draw", 0)
             if d_o > 0: handicap_draw_map[tmp["id"]] = d_o
 
-    for m in data["matches"]:
+    for m in matches:
         mid = m["id"]
         if m["status"] in ["finished", "postponed"] or mid not in screenshot_odds:
             continue
