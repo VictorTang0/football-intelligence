@@ -2170,11 +2170,15 @@ def main():
             conf = min(88, max(76, conf + 18))
             m["ultimate_conclusion"]["risk_level"] = "低"
             if is_strong_favorite:
-                m["ultimate_conclusion"]["recommendation"] = "主胜 (实力与交锋绝对碾压)"
+                rec = "主胜 (实力与交锋绝对碾压)"
                 m["ultimate_conclusion"]["primary_bet"] = "主胜"
             else:
-                m["ultimate_conclusion"]["recommendation"] = "客胜 (实力与交锋绝对碾压)"
+                rec = "客胜 (实力与交锋绝对碾压)"
                 m["ultimate_conclusion"]["primary_bet"] = "客胜"
+            m["ultimate_conclusion"]["recommendation"] = rec
+            if "conclusions" not in m: m["conclusions"] = {}
+            m["conclusions"]["mainstream"] = rec
+            m["conclusions"]["is_subsidized_upset"] = False
         else:
             conf = max(30, min(95, conf))
             old_risk = m["ultimate_conclusion"].get("risk_level", "中")
@@ -2195,14 +2199,16 @@ def main():
                 m["ultimate_conclusion"]["risk_level"] = "高"
                 
         m["ultimate_conclusion"]["confidence"] = conf
+        if "conclusions" in m:
+            m["conclusions"]["mainstream"] = rec
         
-        # 3. Update Reasoning
-        m["ultimate_conclusion"]["reasoning"] = generate_dynamic_reasoning(m)
-        
-        # 4. Update Dynamic Conclusions
+        # 4. Update Dynamic Conclusions & Scores
         apply_dynamic_conclusions(m)
         if "conclusions" in m and "most_likely_score" in m["conclusions"]:
             m["ultimate_conclusion"]["predicted_score"] = m["conclusions"]["most_likely_score"]
+
+        # 3. Update Reasoning
+        m["ultimate_conclusion"]["reasoning"] = generate_dynamic_reasoning(m)
         
         # 5. Update Dynamic Team Stats
         apply_dynamic_team_stats(m)
