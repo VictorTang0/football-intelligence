@@ -452,13 +452,19 @@ def main():
                 print("Running standing enrichment workflow...")
                 subprocess.run(["python3", enrich_path], check=True)
                 
-            # 2. 补全天气信息
+            # 2. 真实核验 H2H 交锋与最近战绩 (数据核验专家)
+            h2h_form_path = os.path.join(scripts_dir, "enrich_h2h_and_form.py")
+            if os.path.exists(h2h_form_path):
+                print("Running real H2H & form verification workflow...")
+                subprocess.run(["python3", h2h_form_path], check=True)
+
+            # 3. 补全天气信息
             weather_path = os.path.join(scripts_dir, "weather_service.py")
             if os.path.exists(weather_path):
                 print("Running weather update workflow...")
                 subprocess.run(["python3", weather_path], check=True)
 
-            # 3. 补全赛事情报与新闻
+            # 4. 补全赛事情报与真实新闻
             intel_path = os.path.join(scripts_dir, "enrich_intelligence.py")
             if os.path.exists(intel_path):
                 print("Running intelligence & news enrichment workflow...")
