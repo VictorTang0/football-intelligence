@@ -279,12 +279,23 @@ def sync():
                             "is_correct": alert_is_correct
                         }
 
+        raw_ko = m.get("kickoff") or m.get("date") or ""
+        time_part = ""
+        if " " in raw_ko:
+            time_part = raw_ko.split(" ")[1]
+        elif "T" in raw_ko:
+            time_part = raw_ko.split("T")[1]
+            
+        if time_part and ":" in time_part:
+            time_part = time_part[:5]
+
         record = {
             "match_id": mid,
             "league": m["league"],
             "home": home,
             "away": away,
             "date": m.get("kickoff", "").split("T")[0].split(" ")[0] if m.get("kickoff") else m.get("date", "").split(" ")[0],
+            "time": time_part,
             "actual_result": actual_result,
             "is_correct": is_correct,
             "confidence": uc.get("confidence", 0),

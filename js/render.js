@@ -1422,11 +1422,24 @@ const MatchIQRender = (() => {
             ? '<span style="color:#ef4444; background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.25); padding:2px 6px; border-radius:4px; font-weight:700; font-size:11px; white-space:nowrap; display:inline-block;">红 (命中)</span>'
             : '<span style="color:#9ca3af; background:rgba(156,163,175,0.08); border:1px solid rgba(156,163,175,0.2); padding:2px 6px; border-radius:4px; font-weight:700; font-size:11px; white-space:nowrap; display:inline-block;">黑 (偏差)</span>';
 
+          // Extract 24-hour kickoff time (HH:mm)
+          let timeStr = r.time || '';
+          if (!timeStr && r.date && r.date.includes(' ')) {
+            timeStr = r.date.split(' ')[1];
+          }
+          if (!timeStr && r.kickoff) {
+            timeStr = r.kickoff.split(' ')[1] || r.kickoff.split('T')[1];
+          }
+          if (timeStr && timeStr.includes(':')) {
+            timeStr = timeStr.substring(0, 5);
+          }
+          const timeBadge = timeStr ? `<span style="display:inline-block; font-size:11px; font-weight:600; color:var(--cyan); background:rgba(0, 212, 255, 0.08); border:1px solid rgba(0, 212, 255, 0.2); padding:1px 5px; border-radius:3px; margin-right:6px; font-family:monospace;">${timeStr}</span>` : '';
+
           rows.push(`
             <tr style="border-bottom:1px solid var(--border-subtle);">
               <td style="padding:4px 8px; font-weight:600; white-space:nowrap; vertical-align:middle; text-align:center;"><span class="tag" style="border:1px solid rgba(0, 212, 255, 0.2); color:var(--cyan); background:rgba(0, 212, 255, 0.03); font-size:11px; padding:1px 6px; border-radius:4px;">${r.league || '--'}</span></td>
               <td style="padding:4px 8px; text-align:left; white-space:nowrap; vertical-align:middle;">
-                <span style="font-weight:600; color:var(--text-1);">${r.home}</span> 
+                ${timeBadge}<span style="font-weight:600; color:var(--text-1);">${r.home}</span> 
                 <span style="color:var(--text-4)">VS</span> 
                 <span style="font-weight:600; color:var(--text-1);">${r.away}</span>
               </td>
