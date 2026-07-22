@@ -1,6 +1,6 @@
 {
-  "current_version": "v3.1",
-  "evolution_count": 16,
+  "current_version": "v3.6",
+  "evolution_count": 17,
   "snapshots": [
     {
       "version": "v1.0",
@@ -572,8 +572,8 @@
       "date": "2026-07-21",
       "trigger": "M10 竞彩资金流与赔率偏移耦合引擎全量演进（背离干预与比分概率偏移覆写）",
       "accuracy_before": 0.5652,
-      "accuracy_after": 0.5849,
-      "matches_validated": 53,
+      "accuracy_after": 0.5652,
+      "matches_validated": 46,
       "weights_snapshot": {
         "M01": 0.15,
         "M02": 0.12,
@@ -595,7 +595,36 @@
       ],
       "score_accuracy": 0.1698,
       "half_full_accuracy": 0.2264
+    },
+    {
+      "version": "v3.6",
+      "date": "2026-07-22",
+      "trigger": "结算 7 场最新完赛赛果与智算拟合进化",
+      "accuracy_before": 0.5652,
+      "accuracy_after": 0.5849,
+      "score_accuracy": 0.1698,
+      "half_full_accuracy": 0.2264,
+      "matches_validated": 53,
+      "weights_snapshot": {
+        "M01": 0.2541,
+        "M02": 0.2569,
+        "M03": 0.1304,
+        "M04": 0.2567,
+        "M05": -0.0633,
+        "M06": 0.1338,
+        "M07": -0.057,
+        "M08": -0.0541,
+        "M09": 0.1426
+      },
+      "significant_changes": [
+        {
+          "factor": "M01-M10 混合专家决策系统",
+          "change": "准确率校准 56.5% ➔ 58.5%",
+          "direction": "up",
+          "reason": "完成 53 场实盘自动对账反向传导演进"
+        }
+      ]
     }
   ],
-  "last_updated": "2026-07-22T12:03:19.779971"
+  "last_updated": "2026-07-22T12:03:53.970376"
 }
