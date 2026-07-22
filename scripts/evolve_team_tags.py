@@ -5,15 +5,56 @@ import re
 def evolve_team_tags():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     matches_path = os.path.join(base_dir, "data", "matches.json")
+    history_path = os.path.join(base_dir, "data", "history.json")
+    train_path = os.path.join(base_dir, "data", "historical_train_2026.json")
+    val_path = os.path.join(base_dir, "data", "historical_val_202512.json")
     tags_path = os.path.join(base_dir, "data", "team_tags.json")
 
-    if not os.path.exists(matches_path):
-        print("matches.json not found!")
-        return
+    all_match_sources = []
+    
+    # 1. Load matches.json
+    if os.path.exists(matches_path):
+        with open(matches_path, "r", encoding="utf-8") as f:
+            m_db = json.load(f)
+            for m in m_db.get("matches", []):
+                res = m.get("ultimate_conclusion", {}).get("actual_result")
+                if res and m.get("home") and m.get("away"):
+                    all_match_sources.append({"home": m["home"], "away": m["away"], "res": res})
+                    
+    # 2. Load history.json
+    if os.path.exists(history_path):
+        with open(history_path, "r", encoding="utf-8") as f:
+            h_db = json.load(f)
+            for r in h_db.get("records", []):
+                res = r.get("actual_result")
+                if res and r.get("home") and r.get("away"):
+                    all_match_sources.append({"home": r["home"], "away": r["away"], "res": res})
+                    
+    # 3. Load 2026 Training Dataset
+    if os.path.exists(train_path):
+        with open(train_path, "r", encoding="utf-8") as f:
+            tr_db = json.load(f)
+            for item in tr_db:
+                home = item.get("home")
+                away = item.get("away")
+                score = item.get("fullTimeScore")
+                ht_score = item.get("halfTimeScore", "0:0")
+                if home and away and score:
+                    res_str = f"{home} {score} {away} ({ht_score})"
+                    all_match_sources.append({"home": home, "away": away, "res": res_str})
 
-    with open(matches_path, "r", encoding="utf-8") as f:
-        matches_db = json.load(f)
-
+    # 4. Load 2025 December Validation Dataset
+    if os.path.exists(val_path):
+        with open(val_path, "r", encoding="utf-8") as f:
+            v_db = json.load(f)
+            for item in v_db:
+                home = item.get("home")
+                away = item.get("away")
+                score = item.get("fullTimeScore")
+                ht_score = item.get("halfTimeScore", "0:0")
+                if home and away and score:
+                    res_str = f"{home} {score} {away} ({ht_score})"
+                    all_match_sources.append({"home": home, "away": away, "res": res_str})
     tags_db = {}
     if os.path.exists(tags_path):
         with open(tags_path, "r", encoding="utf-8") as f:
@@ -21,10 +62,13 @@ def evolve_team_tags():
 
     team_stats = {}
 
-    for m in matches_db.get("matches", []):
-        res = m.get("ultimate_conclusion", {}).get("actual_result")
-        if not res:
+    for m in all_match_sources:
+        home = m.get("home")
+        away = m.get("away")
+        res = m.get("res")
+        if not home or not away or not res:
             continue
+            
         m_ft = re.search(r"(\d+)-(\d+)", str(res))
         if not m_ft:
             continue
@@ -33,11 +77,6 @@ def evolve_team_tags():
         m_ht = re.search(r"\((\d+)-(\d+)\)", str(res))
         ht_h, ht_a = (int(m_ht.group(1)), int(m_ht.group(2))) if m_ht else (None, None)
         
-        home = m.get("home")
-        away = m.get("away")
-        if not home or not away:
-            continue
-            
         for t_name in [home, away]:
             if t_name not in team_stats:
                 team_stats[t_name] = {
