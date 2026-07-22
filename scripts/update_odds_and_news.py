@@ -384,8 +384,18 @@ def apply_dynamic_fundamental_coupling(m):
         
     kc = m.get("conclusions", {}).get("kelly_conclusion", "")
     
-    # 1. Odds-Fundamental Coupling (Direction 4)
-    if "阻尼升水" in kc or "诱买散户" in kc:
+    # Check for Strong Favorite Dominance (e.g. Bodø/Glimt vs HamKam)
+    h_paper = m.get("factor_scores", {}).get("M01_球队基础硬实力", {}).get("home_score", 5.0)
+    a_paper = m.get("factor_scores", {}).get("M01_球队基础硬实力", {}).get("away_score", 5.0)
+    paper_gap = h_paper - a_paper
+    h2h_h_score = m.get("factor_scores", {}).get("M09_历史交锋与心理克制", {}).get("home_score", 5.0)
+    pinnacle_odds = m.get("odds_analysis", {}).get("pinnacle", {}).get("current", {})
+    ph = pinnacle_odds.get("home", 2.0)
+    
+    is_strong_favorite = (paper_gap >= 3.5 and h2h_h_score >= 7.5 and ph <= 1.45)
+    
+    # 1. Odds-Fundamental Coupling (Direction 4) - Bypass for strong favorites
+    if ("阻尼升水" in kc or "诱买散户" in kc) and not is_strong_favorite:
         old_conf = m["ultimate_conclusion"].get("confidence", 65)
         m["ultimate_conclusion"]["confidence"] = min(old_conf, 45)
         m["ultimate_conclusion"]["risk_level"] = "极高"
