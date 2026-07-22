@@ -2003,14 +2003,25 @@ def main():
             moe_score = sum(expert_votes.values())
             m["moe_score"] = moe_score
             
+        # Dynamically re-deduce recommendation based on MoE score, paper strength gap, and real H2H
+        h_paper = m.get("factor_scores", {}).get("M01_球队基础硬实力", {}).get("home_score", 5.0)
+        a_paper = m.get("factor_scores", {}).get("M01_球队基础硬实力", {}).get("away_score", 5.0)
+        paper_gap = h_paper - a_paper
+        h2h_h_score = m.get("factor_scores", {}).get("M09_历史交锋与心理克制", {}).get("home_score", 5.0)
+        h2h_a_score = m.get("factor_scores", {}).get("M09_历史交锋与心理克制", {}).get("away_score", 5.0)
+
         new_rec = old_rec
-        if real_intel:
+        if real_intel and real_intel.get("recommendation"):
             new_rec = real_intel["recommendation"]
-        elif old_rec.startswith("待推演") or not old_rec:
-            # Differentiate based on MoE score delta and odds
-            if moe_score > 0.12:
+        else:
+            # Strong Favorite Dominance Floor Rule (e.g. Bodø/Glimt vs HamKam, Miami vs Chicago, etc.)
+            if paper_gap >= 3.5 and h2h_h_score >= 7.5 and ph <= 1.45:
+                new_rec = "主胜 (实力与交锋绝对碾压)"
+            elif paper_gap <= -3.5 and h2h_a_score >= 7.5 and pa <= 1.45:
+                new_rec = "客胜 (实力与交锋绝对碾压)"
+            elif moe_score > 0.08:
                 new_rec = "主胜" if ph < 1.95 else "主不败"
-            elif moe_score < -0.12:
+            elif moe_score < -0.08:
                 new_rec = "客胜" if pa < 1.95 else "客不败"
             else:
                 new_rec = "平局" if pd < 3.2 else "双选不败"
