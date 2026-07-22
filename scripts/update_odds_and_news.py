@@ -392,7 +392,7 @@ def apply_dynamic_fundamental_coupling(m):
     pinnacle_odds = m.get("odds_analysis", {}).get("pinnacle", {}).get("current", {})
     ph = pinnacle_odds.get("home", 2.0)
     
-    is_strong_favorite = (paper_gap >= 3.5 and h2h_h_score >= 7.5 and ph <= 1.45)
+    is_strong_favorite = (paper_gap >= 3.5 and h2h_h_score >= 7.5) or (ph > 0 and ph <= 1.45)
     
     # 1. Odds-Fundamental Coupling (Direction 4) - Bypass for strong favorites
     if ("阻尼升水" in kc or "诱买散户" in kc) and not is_strong_favorite:
