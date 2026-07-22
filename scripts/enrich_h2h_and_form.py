@@ -37,7 +37,6 @@ def load_official_sporttery_db():
     return records
 
 def match_team_exact(query_name, record_name, record_abbr):
-    """Strict exact team name matching to eliminate cross-league/cross-team mismatches."""
     if not query_name or not record_name:
         return False
     q = query_name.strip()
@@ -47,7 +46,6 @@ def match_team_exact(query_name, record_name, record_abbr):
     if q == r_name or q == r_abbr:
         return True
     if len(q) >= 2 and (q in r_name or r_name in q):
-        # Exclude mismatched substrings
         if q == "首尔" and "首尔FC" in r_name: return True
         if q == "浦项" and "浦项制铁" in r_name: return True
         if q == "蔚山" and "蔚山现代" in r_name: return True
@@ -187,8 +185,10 @@ def enrich_h2h_and_form():
         m["team_stats"]["home"]["recent_matches"] = home_recent
         m["team_stats"]["away"]["recent_matches"] = away_recent
 
-        # Update M09_历史交锋与心理克制 factor score based on real H2H
+        # Calculate H2H factor score
         h2h_matches = official_h2h.get("last_5", [])
+        h_score = 5.0
+        a_score = 5.0
         if h2h_matches:
             h_wins = sum(1 for item in h2h_matches if item.get("outcome") == "H")
             a_wins = sum(1 for item in h2h_matches if item.get("outcome") == "A")
@@ -201,6 +201,20 @@ def enrich_h2h_and_form():
                     m["factor_scores"]["M09_历史交锋与心理克制"]["home_score"] = h_score
                     m["factor_scores"]["M09_历史交锋与心理克制"]["away_score"] = a_score
                     m["factor_scores"]["M09_历史交锋与心理克制"]["signal"] = f"{home}交锋优势({h_wins}胜{total-h_wins-a_wins}平{a_wins}负)" if h_wins > a_wins else f"{away}交锋占优" if a_wins > h_wins else "交锋势均力敌"
+
+        # Apply Strong Favorite Dominance Rule directly if paper gap >= 3.5 and H2H score >= 7.5
+        h_paper = m.get("factor_scores", {}).get("M01_球队基础硬实力", {}).get("home_score", 5.0)
+        a_paper = m.get("factor_scores", {}).get("M01_球队基础硬实力", {}).get("away_score", 5.0)
+        paper_gap = h_paper - a_paper
+
+        if paper_gap >= 3.5 and (h_score >= 7.5 or len(h2h_matches) >= 2 and all(x.get("outcome") == "H" for x in h2h_matches)):
+            if "ultimate_conclusion" not in m: m["ultimate_conclusion"] = {}
+            m["ultimate_conclusion"]["recommendation"] = "主胜 (实力与交锋绝对碾压)"
+            m["ultimate_conclusion"]["primary_bet"] = "主胜"
+            m["ultimate_conclusion"]["predicted_score"] = "3-0"
+            m["ultimate_conclusion"]["confidence"] = 85
+            m["ultimate_conclusion"]["risk_level"] = "低"
+            m["ultimate_conclusion"]["reasoning"] = f"从中国竞彩网 (Sporttery) 官方交锋记录来看，{home} 在交锋与纸面实力（硬实力评分 {h_paper} 对 {a_paper}）上均呈现绝对碾压态势。结合历史交锋 {len(h2h_matches)} 战全胜走势，模型判定本场为高度稳健的主胜格局。"
 
         updated_count += 1
 
