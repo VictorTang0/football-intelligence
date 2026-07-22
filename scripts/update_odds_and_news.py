@@ -1774,8 +1774,19 @@ def main():
         if m["status"] in ["pending", "postponed"] and mid not in active_mids:
             print(f"Removing obsolete unplayed match: {m['home']} vs {m['away']} ({mid})")
             continue
-        cleaned_matches.append(m)
-    data["matches"] = cleaned_matches
+    # Run Official Standings & Real H2H Data Verification Expert BEFORE match processing
+    try:
+        import enrich_standings
+        enrich_standings.main()
+        import enrich_h2h_and_form
+        enrich_h2h_and_form.enrich_h2h_and_form()
+    except Exception as e:
+        print(f"Warning: Failed to run pre-enrichment standings/H2H: {e}")
+
+    # Re-read updated matches.json with enriched standings and H2H
+    with open(path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+        matches = data.get("matches", [])
 
 
 
