@@ -2117,21 +2117,10 @@ def main():
             print(f"  ⚡ [M10 Real-time Re-eval] Detected new Sporttery odds update for {m.get('home')} vs {m.get('away')} (Snapshots: {curr_snapshot}). Re-running M10 preference deduction & attachment rules...")
 
         
-        # ─── POST-PROCESS ULTIMATE CONCLUSION FIELDS ───
-        rec = m["ultimate_conclusion"].get("recommendation", "")
-        
-
-        # Apply 2100 override if any
-        if m["conclusions"].get("rec21"):
-            rec = m["conclusions"]["rec21"]
-            m["ultimate_conclusion"]["recommendation"] = rec
-            m["conclusions"]["kelly_conclusion"] += " | " + m["conclusions"].get("rea21", "")
-            
-        # Apply M10 HAD vs HHAD divergence override
-        # (主胜降水而让主未降，倾向客队受让或让平)
-        if m["conclusions"].get("had_hhad_divergence"):
-            # If our recommendation was Home win, downgrade to narrow win / opponent +1 win
-            if "主胜" in rec:
+        # Apply M10 HAD vs HHAD divergence override ONLY for non-dominant teams
+        # (For strong favorites with paper gap >= 3.5, deep handicaps are normal bookmaker risk protection)
+        if m["conclusions"].get("had_hhad_divergence") and not (paper_gap >= 3.5 and h2h_h_score >= 7.5 and ph <= 1.45):
+            if "主胜" in rec and ph >= 1.65:
                 rec = "双选让平或让负"
                 m["ultimate_conclusion"]["recommendation"] = rec
                 m["ultimate_conclusion"]["primary_bet"] = "让平/让负"
