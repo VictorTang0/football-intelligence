@@ -833,12 +833,20 @@ const MatchIQ = (() => {
     } catch (err) {
       console.error('[MatchIQ] Init error:', err);
     } finally {
-      // Hide loading screen
+      // Hide loading screen & default scroll to Conclusion Summary (#summary-section)
       const loading = document.getElementById('loading-screen');
       if (loading) {
         loading.style.opacity = '0';
         loading.style.transition = 'opacity 0.5s';
-        setTimeout(() => loading.classList.add('hidden'), 500);
+        setTimeout(() => {
+          loading.classList.add('hidden');
+          if (!window.location.hash) {
+            const summaryEl = document.getElementById('summary-section');
+            if (summaryEl) {
+              summaryEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+        }, 500);
       }
     }
   }
