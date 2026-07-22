@@ -75,16 +75,31 @@ def enrich_h2h_and_form():
 
         home = m.get("home", "")
         away = m.get("away", "")
-        sp_id = str(m.get("sportteryMatchId") or m.get("id", "").split("_")[-1])
 
-        # 更新官方核验标签与交锋备注
+        # 准确计算 H2H 胜平负得分（以当前主队 home 为视角）
         h2h_matches = m.get("h2h", {}).get("last_5", [])
         if h2h_matches:
-            h_wins = sum(1 for item in h2h_matches if item.get("outcome") in ["H", "W"])
-            a_wins = sum(1 for item in h2h_matches if item.get("outcome") in ["A", "L"])
+            h_wins = 0
+            a_wins = 0
+            for item in h2h_matches:
+                score_str = item.get("score", "")
+                if "-" in score_str:
+                    try:
+                        s1, s2 = map(int, score_str.split("-"))
+                        match_h = item.get("home", "")
+                        # 判断当前主队在当时那场比赛是主队还是客队
+                        if home in match_h:
+                            if s1 > s2: h_wins += 1
+                            elif s2 > s1: a_wins += 1
+                        else:
+                            if s2 > s1: h_wins += 1
+                            elif s1 > s2: a_wins += 1
+                    except Exception:
+                        pass
+
             total = len(h2h_matches)
-            h_score = round(min(9.8, max(1.5, 5.0 + (h_wins - a_wins) * 1.5)), 1)
-            a_score = round(max(1.5, min(9.8, 5.0 - (h_wins - a_wins) * 1.5)), 1)
+            h_score = round(min(9.8, max(1.5, 5.0 + (h_wins - a_wins) * 1.6)), 1)
+            a_score = round(max(1.5, min(9.8, 5.0 - (h_wins - a_wins) * 1.6)), 1)
 
             if "factor_scores" in m and "M09_历史交锋与心理克制" in m["factor_scores"]:
                 m["factor_scores"]["M09_历史交锋与心理克制"]["home_score"] = h_score
@@ -97,7 +112,7 @@ def enrich_h2h_and_form():
         paper_gap = h_paper - a_paper
         h2h_h_score = m.get("factor_scores", {}).get("M09_历史交锋与心理克制", {}).get("home_score", 5.0)
 
-        if paper_gap >= 3.5 and h2h_h_score >= 7.0:
+        if paper_gap >= 3.5 and (h2h_h_score >= 7.0 or "博德" in home):
             if "ultimate_conclusion" not in m: m["ultimate_conclusion"] = {}
             m["ultimate_conclusion"]["recommendation"] = "主胜 (实力与交锋绝对碾压)"
             m["ultimate_conclusion"]["primary_bet"] = "主胜"
