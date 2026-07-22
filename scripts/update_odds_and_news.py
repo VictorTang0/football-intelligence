@@ -2226,15 +2226,6 @@ def main():
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
-    # 100% Guaranteed Official Standings & Real H2H/Form Data Verification Expert Sync
-    try:
-        import enrich_standings
-        enrich_standings.main()
-        import enrich_h2h_and_form
-        enrich_h2h_and_form.enrich_h2h_and_form()
-    except Exception as e:
-        print(f"Warning: Failed to run standings/H2H verification: {e}")
-
     print("\n🎉 Odds and news update workflow completed successfully!")
 
     # Automatically trigger sync.sh to push updated data to GitHub
