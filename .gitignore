@@ -4,6 +4,11 @@ node_modules/
 .env
 *.log
 
+# Large local training and backtest datasets (Keep frontend repository lightweight for GitHub Pages deployment)
+data/historical_train_2026.json
+data/historical_val_202512.json
+scratch/
+
 # wrangler files
 .wrangler
 .dev.vars*
