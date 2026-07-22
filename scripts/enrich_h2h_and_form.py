@@ -36,6 +36,8 @@ def load_official_sporttery_db():
         except Exception as e:
             print(f"Warning: Failed to read official sporttery dataset: {e}")
             
+    # Sort chronologically by date
+    records.sort(key=lambda x: x.get("date", ""))
     return records
 
 def match_team_exact(query_name, record_name, record_abbr):
@@ -62,7 +64,8 @@ def extract_official_h2h(home_team, away_team, official_records):
     goals_sum = 0
     btts_count = 0
 
-    for r in official_records:
+    # Scan in reverse (most recent first)
+    for r in reversed(official_records):
         h_name, h_abbr = r["home"], r["home_abbr"]
         a_name, a_abbr = r["away"], r["away_abbr"]
         score_str = r["score"]
@@ -98,7 +101,7 @@ def extract_official_h2h(home_team, away_team, official_records):
                 pass
 
     if h2h_list:
-        h2h_list = h2h_list[:9]  # Support up to 9 official H2H matches
+        h2h_list = h2h_list[:9]  # Support up to 9 official H2H matches (most recent first)
         cnt = len(h2h_list)
         return {
             "last_5": h2h_list,
@@ -116,7 +119,8 @@ def extract_official_h2h(home_team, away_team, official_records):
 
 def extract_official_recent(team_name, official_records):
     recent_list = []
-    for r in official_records:
+    # Scan in reverse chronological order (most recent first!)
+    for r in reversed(official_records):
         h_name, h_abbr = r["home"], r["home_abbr"]
         a_name, a_abbr = r["away"], r["away_abbr"]
         score_str = r["score"]
@@ -228,7 +232,7 @@ def enrich_h2h_and_form():
     with open(matches_path, "w", encoding="utf-8") as f:
         json.dump(matches_db, f, ensure_ascii=False, indent=2)
 
-    print(f"🎉 [Sporttery 2022-2026 5年全量核验] 成功为 {updated_count} 场正在预测的活动赛事完成 100% 官方交锋与战绩同步 (跳过已完场历史赛事)！")
+    print(f"🎉 [Sporttery 2022-2026 5年全量核验] 成功为 {updated_count} 场正在预测的活动赛事完成 100% 官方交锋与最新战绩同步 (跳过已完场历史赛事)！")
 
 if __name__ == "__main__":
     enrich_h2h_and_form()
