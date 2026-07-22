@@ -2013,17 +2013,20 @@ def main():
             moe_score = sum(expert_votes.values())
             m["moe_score"] = moe_score
             
-        # Dynamically re-deduce recommendation based on MoE score, paper strength gap, and real H2H
+        # Check for Strong Favorite Dominance (e.g. Bodø/Glimt vs HamKam, Miami, Flamengo, etc.)
         h_paper = m.get("factor_scores", {}).get("M01_球队基础硬实力", {}).get("home_score", 5.0)
         a_paper = m.get("factor_scores", {}).get("M01_球队基础硬实力", {}).get("away_score", 5.0)
         paper_gap = h_paper - a_paper
         h2h_h_score = m.get("factor_scores", {}).get("M09_历史交锋与心理克制", {}).get("home_score", 5.0)
         h2h_a_score = m.get("factor_scores", {}).get("M09_历史交锋与心理克制", {}).get("away_score", 5.0)
 
-        # Strong Favorite Dominance Floor Rule (e.g. Bodø/Glimt vs HamKam, Miami vs Chicago, etc.)
-        if paper_gap >= 3.5 and h2h_h_score >= 7.5 and ph <= 1.45:
+        is_strong_favorite = (paper_gap >= 3.5 and h2h_h_score >= 7.5) or (ph > 0 and ph <= 1.45)
+        is_away_strong_favorite = (paper_gap <= -3.5 and h2h_a_score >= 7.5) or (pa > 0 and pa <= 1.45)
+
+        # Strong Favorite Dominance Floor Rule
+        if is_strong_favorite:
             new_rec = "主胜 (实力与交锋绝对碾压)"
-        elif paper_gap <= -3.5 and h2h_a_score >= 7.5 and pa <= 1.45:
+        elif is_away_strong_favorite:
             new_rec = "客胜 (实力与交锋绝对碾压)"
         elif real_intel and real_intel.get("recommendation"):
             new_rec = real_intel["recommendation"]
@@ -2147,31 +2150,39 @@ def main():
         else:
             m["ultimate_conclusion"]["primary_bet"] = "双选不败"
             
-        # 2. Update Confidence
-        moe_abs = abs(moe_score)
-        # Symmetrical scaling with larger variance
-        conf = 45 + int(moe_abs * 45)
-        conf = max(30, min(95, conf))
-        
-        # Keep track of old risk level to apply penalties
-        old_risk = m["ultimate_conclusion"].get("risk_level", "中")
-        if old_risk == "极高":
-            conf = int(conf * 0.72)
-        elif old_risk == "高":
-            conf = int(conf * 0.85)
-            
-        conf = max(30, min(95, conf))
-        m["ultimate_conclusion"]["confidence"] = conf
-        
-        # Link risk directly to confidence (while preserving "极高" from trap vetoes)
-        if old_risk == "极高" or (conf < 45 and "反基本面冷门" in rec):
-            m["ultimate_conclusion"]["risk_level"] = "极高"
-        elif conf >= 75:
+        # 2. Update Confidence & Risk Level
+        if is_strong_favorite or is_away_strong_favorite:
+            conf = 85
             m["ultimate_conclusion"]["risk_level"] = "低"
-        elif conf >= 55:
-            m["ultimate_conclusion"]["risk_level"] = "中"
+            m["ultimate_conclusion"]["confidence"] = 85
+            if is_strong_favorite:
+                m["ultimate_conclusion"]["predicted_score"] = "3-0"
+                m["ultimate_conclusion"]["primary_bet"] = "主胜"
+            else:
+                m["ultimate_conclusion"]["predicted_score"] = "0-3"
+                m["ultimate_conclusion"]["primary_bet"] = "客胜"
         else:
-            m["ultimate_conclusion"]["risk_level"] = "高"
+            moe_abs = abs(moe_score)
+            conf = 45 + int(moe_abs * 45)
+            conf = max(30, min(95, conf))
+            
+            old_risk = m["ultimate_conclusion"].get("risk_level", "中")
+            if old_risk == "极高":
+                conf = int(conf * 0.72)
+            elif old_risk == "高":
+                conf = int(conf * 0.85)
+                
+            conf = max(30, min(95, conf))
+            m["ultimate_conclusion"]["confidence"] = conf
+            
+            if old_risk == "极高" or (conf < 45 and "反基本面冷门" in rec):
+                m["ultimate_conclusion"]["risk_level"] = "极高"
+            elif conf >= 75:
+                m["ultimate_conclusion"]["risk_level"] = "低"
+            elif conf >= 55:
+                m["ultimate_conclusion"]["risk_level"] = "中"
+            else:
+                m["ultimate_conclusion"]["risk_level"] = "高"
         
         # 3. Update Reasoning
         m["ultimate_conclusion"]["reasoning"] = generate_dynamic_reasoning(m)
