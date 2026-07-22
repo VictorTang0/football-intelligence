@@ -1,8 +1,8 @@
 {
   "version": "v3.5",
-  "last_evolved": "2026-07-22T11:56:13.442834",
+  "last_evolved": "2026-07-22T12:03:19.779981",
   "total_matches_validated": 53,
-  "overall_accuracy": 0.6,
+  "overall_accuracy": 0.5849,
   "factors": [
     {
       "id": "M01",
@@ -160,5 +160,7 @@
     "动态动能": 0.1672,
     "环境心理": 0.0022,
     "战术心理": 0.1661
-  }
+  },
+  "score_accuracy": 0.1698,
+  "half_full_accuracy": 0.2264
 }
