@@ -2201,9 +2201,14 @@ def main():
         
         # 4. Update Dynamic Conclusions
         apply_dynamic_conclusions(m)
+        if "conclusions" in m and "most_likely_score" in m["conclusions"]:
+            m["ultimate_conclusion"]["predicted_score"] = m["conclusions"]["most_likely_score"]
         
         # 5. Update Dynamic Team Stats
         apply_dynamic_team_stats(m)
+
+    # Assign updated matches array back to data dictionary so changes are saved!
+    data["matches"] = matches
 
     # Trim odds_history for finished matches to optimize web bundle payload size
     for m in data.get("matches", []):
