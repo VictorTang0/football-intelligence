@@ -2151,15 +2151,17 @@ def main():
         else:
             m["ultimate_conclusion"]["primary_bet"] = "双选不败"
             
-        # 2. Update Confidence & Risk Level
+        # 2. Update Confidence, Recommendation & Risk Level for Strong Favorites
         if is_strong_favorite or is_away_strong_favorite:
             conf = 85
             m["ultimate_conclusion"]["risk_level"] = "低"
             m["ultimate_conclusion"]["confidence"] = 85
             if is_strong_favorite:
+                m["ultimate_conclusion"]["recommendation"] = "主胜 (实力与交锋绝对碾压)"
                 m["ultimate_conclusion"]["predicted_score"] = "3-0"
                 m["ultimate_conclusion"]["primary_bet"] = "主胜"
             else:
+                m["ultimate_conclusion"]["recommendation"] = "客胜 (实力与交锋绝对碾压)"
                 m["ultimate_conclusion"]["predicted_score"] = "0-3"
                 m["ultimate_conclusion"]["primary_bet"] = "客胜"
         else:
