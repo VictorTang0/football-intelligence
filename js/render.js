@@ -1295,14 +1295,15 @@ const MatchIQRender = (() => {
       return `<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-3);border:1px dashed var(--border);border-radius:var(--radius)">暂无已完赛预测历史</div>`;
     }
 
-    // Group records by date
+    // Group records by YYYY-MM-DD date
     const groups = {};
     records.forEach(r => {
-      const dateStr = r.date || '其他日期';
-      if (!groups[dateStr]) {
-        groups[dateStr] = [];
+      const rawDate = r.date || '其他日期';
+      const cleanDate = rawDate.split(' ')[0].split('T')[0];
+      if (!groups[cleanDate]) {
+        groups[cleanDate] = [];
       }
-      groups[dateStr].push(r);
+      groups[cleanDate].push(r);
     });
 
     // Get sorted unique dates (newest first)

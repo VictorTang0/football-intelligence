@@ -2517,7 +2517,7 @@
       "league": "韩国职业联赛",
       "home": "济州SK",
       "away": "江原FC",
-      "date": "2026-07-21 18:30",
+      "date": "2026-07-21",
       "actual_result": "济州SK 1-1 江原FC (1-1)",
       "is_correct": true,
       "confidence": 45,
@@ -2572,7 +2572,7 @@
       "league": "韩国职业联赛",
       "home": "全北现代",
       "away": "大田市民",
-      "date": "2026-07-21 18:30",
+      "date": "2026-07-21",
       "actual_result": "全北现代 0-0 大田市民 (0-0)",
       "is_correct": true,
       "confidence": 56,
@@ -2627,7 +2627,7 @@
       "league": "韩国职业联赛",
       "home": "蔚山现代",
       "away": "仁川联",
-      "date": "2026-07-21 18:30",
+      "date": "2026-07-21",
       "actual_result": "蔚山现代 1-2 仁川联 (1-1)",
       "is_correct": true,
       "confidence": 38,
@@ -2678,11 +2678,66 @@
       }
     },
     {
+      "match_id": "match_260721_周二204",
+      "league": "巴西甲级联赛",
+      "home": "米内罗竞技",
+      "away": "巴伊亚",
+      "date": "2026-07-22",
+      "actual_result": "米内罗竞技 1-1 巴伊亚 (1-0)",
+      "is_correct": true,
+      "confidence": 51,
+      "predictions": {
+        "recommendation": {
+          "val": "客不败",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "双选不败",
+          "correct": true
+        },
+        "mainstream": {
+          "val": "主队守住主场",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平负 或 负负 或 平胜 (竞彩首选)",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "0-1 或 0-0 或 2-0 (竞彩首选)",
+          "correct": false
+        }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.06000000000000005,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": false
+      }
+    },
+    {
       "match_id": "match_260721_周二205",
       "league": "欧洲冠军联赛",
       "home": "萨巴赫",
       "away": "库奥皮奥",
-      "date": "2026-07-22 00:00",
+      "date": "2026-07-22",
       "actual_result": "萨巴赫 1-0 库奥皮奥 (1-0)",
       "is_correct": false,
       "confidence": 50,
@@ -2737,7 +2792,7 @@
       "league": "欧洲冠军联赛",
       "home": "奥胡斯",
       "away": "波兹南莱赫",
-      "date": "2026-07-22 01:00",
+      "date": "2026-07-22",
       "actual_result": "奥胡斯 1-4 波兹南莱赫 (0-2)",
       "is_correct": true,
       "confidence": 39,
@@ -2792,7 +2847,7 @@
       "league": "欧洲冠军联赛",
       "home": "格拉茨风暴",
       "away": "哈茨",
-      "date": "2026-07-22 02:30",
+      "date": "2026-07-22",
       "actual_result": "格拉茨风暴 4-0 哈茨 (1-0)",
       "is_correct": false,
       "confidence": 36,
@@ -2840,61 +2895,6 @@
         "diff": -0.06000000000000005,
         "recommendation": "主胜（庄家降水防范）",
         "is_correct": true
-      }
-    },
-    {
-      "match_id": "match_260721_周二204",
-      "league": "巴西甲级联赛",
-      "home": "米内罗竞技",
-      "away": "巴伊亚",
-      "date": "2026-07-22 06:30",
-      "actual_result": "米内罗竞技 1-1 巴伊亚 (1-0)",
-      "is_correct": true,
-      "confidence": 51,
-      "predictions": {
-        "recommendation": {
-          "val": "客不败",
-          "correct": true
-        },
-        "primary_bet": {
-          "val": "双选不败",
-          "correct": true
-        },
-        "mainstream": {
-          "val": "主队守住主场",
-          "correct": false
-        },
-        "upset": {
-          "val": "客队客场爆冷",
-          "correct": false
-        },
-        "aggressive": {
-          "val": "比分 2-1",
-          "correct": false
-        },
-        "conservative": {
-          "val": "主队受让",
-          "correct": false
-        },
-        "half_full": {
-          "val": "平负 或 负负 或 平胜 (竞彩首选)",
-          "correct": false
-        },
-        "over_under": {
-          "val": "大 2.5",
-          "correct": false
-        },
-        "most_likely_score": {
-          "val": "0-1 或 0-0 或 2-0 (竞彩首选)",
-          "correct": false
-        }
-      },
-      "radar_alert": {
-        "type": "protect",
-        "target": "主胜",
-        "diff": -0.06000000000000005,
-        "recommendation": "主胜（庄家降水防范）",
-        "is_correct": false
       }
     }
   ],

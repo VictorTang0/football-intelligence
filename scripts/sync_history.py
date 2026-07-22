@@ -284,7 +284,7 @@ def sync():
             "league": m["league"],
             "home": home,
             "away": away,
-            "date": m["kickoff"].split("T")[0],
+            "date": m.get("kickoff", "").split("T")[0].split(" ")[0] if m.get("kickoff") else m.get("date", "").split(" ")[0],
             "actual_result": actual_result,
             "is_correct": is_correct,
             "confidence": uc.get("confidence", 0),
