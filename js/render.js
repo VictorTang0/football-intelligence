@@ -2060,7 +2060,7 @@ const MatchIQRender = (() => {
         combinedBorder = 'rgba(245, 158, 11, 0.25)';
       }
       
-      const combinedBadge = `<span style="padding:4px 8px; border-radius:6px; font-weight:bold; font-size:12px; background:${combinedBg}; color:${combinedColor}; border:1px solid ${combinedBorder}; display:inline-block; white-space:nowrap;">${conf}% (${risk})</span>`;
+      const combinedBadge = `<span style="padding:4px 8px; border-radius:6px; font-weight:bold; font-size:12px; background:${combinedBg}; color:${combinedColor}; border:1px solid ${combinedBorder}; display:inline-block; white-space:nowrap;">${conf}%</span>`;
 
       const multiRecHTML = `
         <div class="multi-rec-box">
@@ -2095,7 +2095,7 @@ const MatchIQRender = (() => {
               <th style="padding:12px 16px;">开赛</th>
               <th style="padding:12px 16px;">对阵</th>
               <th style="padding:12px 16px;">预测结论</th>
-              <th style="padding:12px 16px;">置信度 (风险)</th>
+              <th style="padding:12px 16px;">置信度</th>
               <th style="padding:12px 16px;">最可能比分</th>
               <th style="padding:12px 16px;">多维推荐结论</th>
             </tr>
