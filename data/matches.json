@@ -4838,33 +4838,6 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-22T17:14:48.773356",
-          "pinnacle": {
-            "home": 4.15,
-            "draw": 1.43,
-            "away": 1.43
-          },
-          "kelly_conclusion": "即时返还率为 0.610。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.78，平局 0.41，客胜 0.40。<br/> 散户最热的【主胜】（凯利 1.78）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
-          "asian_handicap": {
-            "handicap": "主队-0.25",
-            "home_odds": 1.92,
-            "away_odds": 1.98
-          },
-          "lottery_handicap": {
-            "handicap": "主让1球",
-            "initial": {
-              "win": 3.2,
-              "draw": 3.65,
-              "lose": 1.85
-            },
-            "current": {
-              "win": 3.2,
-              "draw": 3.65,
-              "lose": 1.85
-            }
-          }
-        },
-        {
           "timestamp": "2026-07-22T17:19:58.798177",
           "pinnacle": {
             "home": 4.23,
@@ -5376,16 +5349,43 @@
               "lose": 1.85
             }
           }
+        },
+        {
+          "timestamp": "2026-07-22T18:21:59.071110",
+          "pinnacle": {
+            "home": 6.17,
+            "draw": 0.97,
+            "away": 0.97
+          },
+          "kelly_conclusion": "即时返还率为 0.450。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 2.65，平局 0.28，客胜 0.27。<br/> 散户最热的【主胜】（凯利 2.65）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+          "asian_handicap": {
+            "handicap": "主队-0.25",
+            "home_odds": 1.92,
+            "away_odds": 1.98
+          },
+          "lottery_handicap": {
+            "handicap": "主让1球",
+            "initial": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            },
+            "current": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            }
+          }
         }
       ],
       "match_context": "欧洲冠军联赛常规赛对决。奥莫尼亚坐镇主场迎接阿拉木图凯拉特的挑战。",
       "ultimate_conclusion": {
-        "recommendation": "客胜 (实力与交锋绝对碾压)",
+        "recommendation": "客胜",
         "primary_bet": "客胜",
-        "confidence": 85,
-        "risk_level": "低",
+        "confidence": 51,
+        "risk_level": "极高",
         "ev_score": 0.0,
-        "reasoning": "欧洲冠军联赛比赛双方战术意图各有侧重。 基本面上，奥莫尼亚在【环境气候适应性】上拥有明显优势（评分 8.2 对 6.9），但阿拉木图凯拉特在【战术克制与匹配】上（评分 6.5 对 5.7）给主队带来制约。结合战意（主 72% / 客 70%），即时欧指主胜由 6.29 降至 6.17，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜 (实力与交锋绝对碾压)】。",
+        "reasoning": "欧洲冠军联赛比赛双方战术意图各有侧重。 基本面上，奥莫尼亚在【环境气候适应性】上拥有明显优势（评分 8.2 对 6.9），但阿拉木图凯拉特在【战术克制与匹配】上（评分 6.5 对 5.7）给主队带来制约。结合战意（主 72% / 客 70%），即时欧指主胜由 6.42 降至 6.29，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
         "confidence_trend": "stable",
         "predicted_score": "0-3"
       },
@@ -5579,14 +5579,14 @@
         "pinnacle": {
           "name": "pinnacle",
           "initial": {
+            "home": 6.42,
+            "draw": 0.93,
+            "away": 0.93
+          },
+          "current": {
             "home": 6.29,
             "draw": 0.95,
             "away": 0.95
-          },
-          "current": {
-            "home": 6.17,
-            "draw": 0.97,
-            "away": 0.97
           },
           "movement": "实时追踪"
         },
@@ -5642,35 +5642,63 @@
         "sbobet": {
           "name": "sbobet",
           "initial": {
+            "home": 6.54,
+            "draw": 0.91,
+            "away": 0.9
+          },
+          "current": {
             "home": 6.42,
             "draw": 0.93,
             "away": 0.92
-          },
-          "current": {
-            "home": 6.29,
-            "draw": 0.95,
-            "away": 0.94
           },
           "movement": "实时追踪"
         },
         "nova88": {
           "name": "nova88",
           "initial": {
-            "home": 6.17,
-            "draw": 0.96,
-            "away": 0.97
+            "home": 6.29,
+            "draw": 0.94,
+            "away": 0.95
           },
           "current": {
-            "home": 6.05,
-            "draw": 0.98,
-            "away": 0.99
+            "home": 6.16,
+            "draw": 0.96,
+            "away": 0.97
           },
           "movement": "实时追踪"
         },
         "crown": {
           "name": "crown",
           "initial": {
-            "home": 6.36,
+            "home": 6.48,
+            "draw": 0.93,
+            "away": 0.92
+          },
+          "current": {
+            "home": 6.35,
+            "draw": 0.95,
+            "away": 0.94
+          },
+          "movement": "实时追踪"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 6.22,
+            "draw": 0.9,
+            "away": 0.98
+          },
+          "current": {
+            "home": 6.1,
+            "draw": 0.92,
+            "away": 1.0
+          },
+          "movement": "实时追踪"
+        },
+        "m8bet": {
+          "name": "m8bet",
+          "initial": {
+            "home": 6.35,
             "draw": 0.95,
             "away": 0.94
           },
@@ -5681,41 +5709,13 @@
           },
           "movement": "实时追踪"
         },
-        "hkjc": {
-          "name": "hkjc",
-          "initial": {
-            "home": 6.1,
-            "draw": 0.92,
-            "away": 1.0
-          },
-          "current": {
-            "home": 5.98,
-            "draw": 0.94,
-            "away": 1.02
-          },
-          "movement": "实时追踪"
-        },
-        "m8bet": {
-          "name": "m8bet",
-          "initial": {
-            "home": 6.23,
-            "draw": 0.97,
-            "away": 0.96
-          },
-          "current": {
-            "home": 6.11,
-            "draw": 0.99,
-            "away": 0.98
-          },
-          "movement": "实时追踪"
-        },
-        "bookmaker_intent": "客队客胜欧赔低至 0.97，客让深盘形成有力支持。庄家意图通过低水防范客胜赔付风险，主队主场防守压力巨大。",
+        "bookmaker_intent": "客队客胜欧赔低至 0.97，客让深盘形成有力支持。庄家意图通过低水防范客胜赔付风险，主队主场防守压力巨大。 [最新盘口修正推演]：随着即时实盘数据震荡调整，由于预测方向已由 '客胜 (实力与交锋绝对碾压)' 修正变更为 '客胜'，表明庄家对常规时间内双方筹码的分流防御重心发生了实质性微调。主队让球水位的波动正在加剧释放出避让资金过热的防御信号。",
         "smoke_screens": [
           "【客让优势烟雾弹】阿拉木图凯拉特 客场让步深盘做热客胜，需警惕 奥莫尼亚 利用主场防守拉锯战逼平爆冷。",
           "【气候阻尼烟雾弹】场地包含 雷阵雨 降水题材，媒体大肆渲染低比分防守战，实际需防范失误增多导致的走爆大球。",
           "【资金流热度烟雾弹】竞彩比分筹码密集涌入 0:0, 2:1，庄家借市场跟风热度升水诱导反向投注。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】赔率水位小幅微震，盘面资金分布均匀，未见异常资金倾斜。预计比赛将按模型原定的首选 '客胜 (实力与交锋绝对碾压)' 剧本打出。"
+        "bookmaker_backed_script": "【庄家看好剧本】赔率水位小幅微震，盘面资金分布均匀，未见异常资金倾斜。预计比赛将按模型原定的首选 '客胜' 剧本打出。"
       },
       "intelligence": {
         "verified_news": [
@@ -5801,7 +5801,7 @@
         "half_full": "平负 或 负负 或 平平 (竞彩首选)",
         "upset_probability": 0.45,
         "upset_direction": "客胜",
-        "kelly_conclusion": "即时返还率为 0.450。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 2.65，平局 0.28，客胜 0.27。<br/> 散户最热的【主胜】（凯利 2.65）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+        "kelly_conclusion": "即时返还率为 0.442。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 2.71，平局 0.28，客胜 0.27。<br/> 散户最热的【主胜】（凯利 2.71）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
         "draw_multiplier": 1.0,
         "upset_trend": "stable",
         "had_hhad_divergence": false,
@@ -5942,7 +5942,7 @@
           "signal": "交锋势均力敌"
         }
       },
-      "moe_score": -0.5709551084949955,
+      "moe_score": -0.5811855708378376,
       "prediction_updated": true
     },
     {
@@ -5963,33 +5963,6 @@
       },
       "status": "pending",
       "odds_history": [
-        {
-          "timestamp": "2026-07-22T17:14:48.776487",
-          "pinnacle": {
-            "home": 4.15,
-            "draw": 1.43,
-            "away": 1.43
-          },
-          "kelly_conclusion": "即时返还率为 0.610。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.78，平局 0.41，客胜 0.40。<br/> 散户最热的【主胜】（凯利 1.78）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
-          "asian_handicap": {
-            "handicap": "主队-0.25",
-            "home_odds": 1.92,
-            "away_odds": 1.98
-          },
-          "lottery_handicap": {
-            "handicap": "主让1球",
-            "initial": {
-              "win": 3.2,
-              "draw": 3.65,
-              "lose": 1.85
-            },
-            "current": {
-              "win": 3.2,
-              "draw": 3.65,
-              "lose": 1.85
-            }
-          }
-        },
         {
           "timestamp": "2026-07-22T17:19:58.804199",
           "pinnacle": {
@@ -6502,16 +6475,43 @@
               "lose": 1.85
             }
           }
+        },
+        {
+          "timestamp": "2026-07-22T18:21:59.072733",
+          "pinnacle": {
+            "home": 6.17,
+            "draw": 0.97,
+            "away": 0.97
+          },
+          "kelly_conclusion": "即时返还率为 0.450。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 2.65，平局 0.28，客胜 0.27。<br/> 散户最热的【主胜】（凯利 2.65）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+          "asian_handicap": {
+            "handicap": "主队-0.25",
+            "home_odds": 1.92,
+            "away_odds": 1.98
+          },
+          "lottery_handicap": {
+            "handicap": "主让1球",
+            "initial": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            },
+            "current": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            }
+          }
         }
       ],
       "match_context": "韩国职业联赛常规赛对决。首尔FC坐镇主场迎接浦项制铁的挑战。",
       "ultimate_conclusion": {
-        "recommendation": "客胜 (实力与交锋绝对碾压)",
+        "recommendation": "客胜",
         "primary_bet": "客胜",
-        "confidence": 85,
-        "risk_level": "低",
+        "confidence": 42,
+        "risk_level": "极高",
         "ev_score": 0.0,
-        "reasoning": "韩国职业联赛比赛双方战术意图各有侧重。 基本面上，首尔FC在【战意与抢分压力】上拥有明显优势（评分 6.56 对 5.36），两队防线与战术匹配相对均衡。结合战意（主 72% / 客 82%），即时欧指主胜由 6.29 降至 6.17，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜 (实力与交锋绝对碾压)】。",
+        "reasoning": "韩国职业联赛比赛双方战术意图各有侧重。 基本面上，首尔FC在【战意与抢分压力】上拥有明显优势（评分 6.56 对 5.36），两队防线与战术匹配相对均衡。结合战意（主 72% / 客 82%），即时欧指主胜由 6.42 降至 6.29，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
         "confidence_trend": "stable",
         "predicted_score": "0-3"
       },
@@ -6723,14 +6723,14 @@
         "pinnacle": {
           "name": "pinnacle",
           "initial": {
+            "home": 6.42,
+            "draw": 0.93,
+            "away": 0.93
+          },
+          "current": {
             "home": 6.29,
             "draw": 0.95,
             "away": 0.95
-          },
-          "current": {
-            "home": 6.17,
-            "draw": 0.97,
-            "away": 0.97
           },
           "movement": "实时追踪"
         },
@@ -6786,35 +6786,63 @@
         "sbobet": {
           "name": "sbobet",
           "initial": {
+            "home": 6.54,
+            "draw": 0.91,
+            "away": 0.9
+          },
+          "current": {
             "home": 6.42,
             "draw": 0.93,
             "away": 0.92
-          },
-          "current": {
-            "home": 6.29,
-            "draw": 0.95,
-            "away": 0.94
           },
           "movement": "实时追踪"
         },
         "nova88": {
           "name": "nova88",
           "initial": {
-            "home": 6.17,
-            "draw": 0.96,
-            "away": 0.97
+            "home": 6.29,
+            "draw": 0.94,
+            "away": 0.95
           },
           "current": {
-            "home": 6.05,
-            "draw": 0.98,
-            "away": 0.99
+            "home": 6.16,
+            "draw": 0.96,
+            "away": 0.97
           },
           "movement": "实时追踪"
         },
         "crown": {
           "name": "crown",
           "initial": {
-            "home": 6.36,
+            "home": 6.48,
+            "draw": 0.93,
+            "away": 0.92
+          },
+          "current": {
+            "home": 6.35,
+            "draw": 0.95,
+            "away": 0.94
+          },
+          "movement": "实时追踪"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 6.22,
+            "draw": 0.9,
+            "away": 0.98
+          },
+          "current": {
+            "home": 6.1,
+            "draw": 0.92,
+            "away": 1.0
+          },
+          "movement": "实时追踪"
+        },
+        "m8bet": {
+          "name": "m8bet",
+          "initial": {
+            "home": 6.35,
             "draw": 0.95,
             "away": 0.94
           },
@@ -6825,40 +6853,12 @@
           },
           "movement": "实时追踪"
         },
-        "hkjc": {
-          "name": "hkjc",
-          "initial": {
-            "home": 6.1,
-            "draw": 0.92,
-            "away": 1.0
-          },
-          "current": {
-            "home": 5.98,
-            "draw": 0.94,
-            "away": 1.02
-          },
-          "movement": "实时追踪"
-        },
-        "m8bet": {
-          "name": "m8bet",
-          "initial": {
-            "home": 6.23,
-            "draw": 0.97,
-            "away": 0.96
-          },
-          "current": {
-            "home": 6.11,
-            "draw": 0.99,
-            "away": 0.98
-          },
-          "movement": "实时追踪"
-        },
-        "bookmaker_intent": "客队客胜欧赔低至 0.97，客让深盘形成有力支持。庄家意图通过低水防范客胜赔付风险，主队主场防守压力巨大。",
+        "bookmaker_intent": "客队客胜欧赔低至 0.97，客让深盘形成有力支持。庄家意图通过低水防范客胜赔付风险，主队主场防守压力巨大。 [最新盘口修正推演]：随着即时实盘数据震荡调整，由于预测方向已由 '客胜 (实力与交锋绝对碾压)' 修正变更为 '客胜'，表明庄家对常规时间内双方筹码的分流防御重心发生了实质性微调。主队让球水位的波动正在加剧释放出避让资金过热的防御信号。",
         "smoke_screens": [
           "【客让优势烟雾弹】浦项制铁 客场让步深盘做热客胜，需警惕 首尔FC 利用主场防守拉锯战逼平爆冷。",
           "【资金流热度烟雾弹】竞彩比分筹码密集涌入 2:1，庄家借市场跟风热度升水诱导反向投注。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】赔率水位小幅微震，盘面资金分布均匀，未见异常资金倾斜。预计比赛将按模型原定的首选 '客胜 (实力与交锋绝对碾压)' 剧本打出。"
+        "bookmaker_backed_script": "【庄家看好剧本】赔率水位小幅微震，盘面资金分布均匀，未见异常资金倾斜。预计比赛将按模型原定的首选 '客胜' 剧本打出。"
       },
       "intelligence": {
         "verified_news": [
@@ -6939,12 +6939,12 @@
         "upset": "客队客场爆冷",
         "aggressive": "比分 2-1",
         "conservative": "主队受让",
-        "most_likely_score": "0-2 或 0-1 或 2-1 (竞彩首选)",
+        "most_likely_score": "1-3 (高赔客胜) 或 1-2 或 2-1 (竞彩首选)",
         "over_under": "大 2.5",
         "half_full": "平胜 (竞彩首选) 或 胜胜",
         "upset_probability": 0.45,
         "upset_direction": "客胜/平局",
-        "kelly_conclusion": "即时返还率为 0.450。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 2.65，平局 0.28，客胜 0.27。<br/> 散户最热的【主胜】（凯利 2.65）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+        "kelly_conclusion": "即时返还率为 0.442。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 2.71，平局 0.28，客胜 0.27。<br/> 散户最热的【主胜】（凯利 2.71）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
         "draw_multiplier": 1.35,
         "upset_trend": "stable",
         "had_hhad_divergence": false,
@@ -7248,7 +7248,7 @@
           "signal": "首尔FC交锋占优"
         }
       },
-      "moe_score": -0.28158362549499594,
+      "moe_score": -0.291814087837838,
       "prediction_updated": true
     },
     {
@@ -7269,33 +7269,6 @@
       },
       "status": "pending",
       "odds_history": [
-        {
-          "timestamp": "2026-07-22T17:14:48.779439",
-          "pinnacle": {
-            "home": 4.15,
-            "draw": 1.43,
-            "away": 1.43
-          },
-          "kelly_conclusion": "即时返还率为 0.610。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.78，平局 0.41，客胜 0.40。<br/> 散户最热的【主胜】（凯利 1.78）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
-          "asian_handicap": {
-            "handicap": "主队-0.25",
-            "home_odds": 1.92,
-            "away_odds": 1.98
-          },
-          "lottery_handicap": {
-            "handicap": "主让1球",
-            "initial": {
-              "win": 3.2,
-              "draw": 3.65,
-              "lose": 1.85
-            },
-            "current": {
-              "win": 3.2,
-              "draw": 3.65,
-              "lose": 1.85
-            }
-          }
-        },
         {
           "timestamp": "2026-07-22T17:19:58.806711",
           "pinnacle": {
@@ -7808,16 +7781,43 @@
               "lose": 1.85
             }
           }
+        },
+        {
+          "timestamp": "2026-07-22T18:21:59.076417",
+          "pinnacle": {
+            "home": 6.17,
+            "draw": 0.97,
+            "away": 0.97
+          },
+          "kelly_conclusion": "即时返还率为 0.450。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 2.65，平局 0.28，客胜 0.27。<br/> 散户最热的【主胜】（凯利 2.65）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+          "asian_handicap": {
+            "handicap": "主队-0.25",
+            "home_odds": 1.92,
+            "away_odds": 1.98
+          },
+          "lottery_handicap": {
+            "handicap": "主让1球",
+            "initial": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            },
+            "current": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            }
+          }
         }
       ],
       "match_context": "韩国职业联赛常规赛对决。富川FC坐镇主场迎接安养FC的挑战。",
       "ultimate_conclusion": {
-        "recommendation": "客胜 (实力与交锋绝对碾压)",
+        "recommendation": "客胜",
         "primary_bet": "客胜",
-        "confidence": 85,
-        "risk_level": "低",
+        "confidence": 51,
+        "risk_level": "极高",
         "ev_score": 0.0,
-        "reasoning": "韩国职业联赛比赛双方战术意图各有侧重。 基本面上，富川FC在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），但安养FC在【战术克制与匹配】上（评分 8.1 对 7.1）给主队带来制约。结合战意（主 95% / 客 82%），即时欧指主胜由 6.29 降至 6.17，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜 (实力与交锋绝对碾压)】。",
+        "reasoning": "韩国职业联赛比赛双方战术意图各有侧重。 基本面上，富川FC在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），但安养FC在【战术克制与匹配】上（评分 8.1 对 7.1）给主队带来制约。结合战意（主 95% / 客 82%），即时欧指主胜由 6.42 降至 6.29，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
         "confidence_trend": "stable",
         "predicted_score": "0-3"
       },
@@ -8029,14 +8029,14 @@
         "pinnacle": {
           "name": "pinnacle",
           "initial": {
+            "home": 6.42,
+            "draw": 0.93,
+            "away": 0.93
+          },
+          "current": {
             "home": 6.29,
             "draw": 0.95,
             "away": 0.95
-          },
-          "current": {
-            "home": 6.17,
-            "draw": 0.97,
-            "away": 0.97
           },
           "movement": "实时追踪"
         },
@@ -8092,35 +8092,63 @@
         "sbobet": {
           "name": "sbobet",
           "initial": {
+            "home": 6.54,
+            "draw": 0.91,
+            "away": 0.9
+          },
+          "current": {
             "home": 6.42,
             "draw": 0.93,
             "away": 0.92
-          },
-          "current": {
-            "home": 6.29,
-            "draw": 0.95,
-            "away": 0.94
           },
           "movement": "实时追踪"
         },
         "nova88": {
           "name": "nova88",
           "initial": {
-            "home": 6.17,
-            "draw": 0.96,
-            "away": 0.97
+            "home": 6.29,
+            "draw": 0.94,
+            "away": 0.95
           },
           "current": {
-            "home": 6.05,
-            "draw": 0.98,
-            "away": 0.99
+            "home": 6.16,
+            "draw": 0.96,
+            "away": 0.97
           },
           "movement": "实时追踪"
         },
         "crown": {
           "name": "crown",
           "initial": {
-            "home": 6.36,
+            "home": 6.48,
+            "draw": 0.93,
+            "away": 0.92
+          },
+          "current": {
+            "home": 6.35,
+            "draw": 0.95,
+            "away": 0.94
+          },
+          "movement": "实时追踪"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 6.22,
+            "draw": 0.9,
+            "away": 0.98
+          },
+          "current": {
+            "home": 6.1,
+            "draw": 0.92,
+            "away": 1.0
+          },
+          "movement": "实时追踪"
+        },
+        "m8bet": {
+          "name": "m8bet",
+          "initial": {
+            "home": 6.35,
             "draw": 0.95,
             "away": 0.94
           },
@@ -8131,40 +8159,12 @@
           },
           "movement": "实时追踪"
         },
-        "hkjc": {
-          "name": "hkjc",
-          "initial": {
-            "home": 6.1,
-            "draw": 0.92,
-            "away": 1.0
-          },
-          "current": {
-            "home": 5.98,
-            "draw": 0.94,
-            "away": 1.02
-          },
-          "movement": "实时追踪"
-        },
-        "m8bet": {
-          "name": "m8bet",
-          "initial": {
-            "home": 6.23,
-            "draw": 0.97,
-            "away": 0.96
-          },
-          "current": {
-            "home": 6.11,
-            "draw": 0.99,
-            "away": 0.98
-          },
-          "movement": "实时追踪"
-        },
-        "bookmaker_intent": "客队客胜欧赔低至 0.97，客让深盘形成有力支持。庄家意图通过低水防范客胜赔付风险，主队主场防守压力巨大。",
+        "bookmaker_intent": "客队客胜欧赔低至 0.97，客让深盘形成有力支持。庄家意图通过低水防范客胜赔付风险，主队主场防守压力巨大。 [最新盘口修正推演]：随着即时实盘数据震荡调整，由于预测方向已由 '客胜 (实力与交锋绝对碾压)' 修正变更为 '客胜'，表明庄家对常规时间内双方筹码的分流防御重心发生了实质性微调。主队让球水位的波动正在加剧释放出避让资金过热的防御信号。",
         "smoke_screens": [
           "【客让优势烟雾弹】安养FC 客场让步深盘做热客胜，需警惕 富川FC 利用主场防守拉锯战逼平爆冷。",
           "【资金流热度烟雾弹】竞彩比分筹码密集涌入 0:1，庄家借市场跟风热度升水诱导反向投注。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】赔率水位小幅微震，盘面资金分布均匀，未见异常资金倾斜。预计比赛将按模型原定的首选 '客胜 (实力与交锋绝对碾压)' 剧本打出。"
+        "bookmaker_backed_script": "【庄家看好剧本】赔率水位小幅微震，盘面资金分布均匀，未见异常资金倾斜。预计比赛将按模型原定的首选 '客胜' 剧本打出。"
       },
       "intelligence": {
         "verified_news": [
@@ -8250,7 +8250,7 @@
         "half_full": "平平 (竞彩首选)",
         "upset_probability": 0.45,
         "upset_direction": "客胜/平局",
-        "kelly_conclusion": "即时返还率为 0.450。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 2.65，平局 0.28，客胜 0.27。<br/> 散户最热的【主胜】（凯利 2.65）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+        "kelly_conclusion": "即时返还率为 0.442。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 2.71，平局 0.28，客胜 0.27。<br/> 散户最热的【主胜】（凯利 2.71）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
         "draw_multiplier": 1.15,
         "upset_trend": "stable",
         "had_hhad_divergence": false,
@@ -8424,7 +8424,7 @@
           "signal": "交锋势均力敌"
         }
       },
-      "moe_score": -0.5788569048949957,
+      "moe_score": -0.5890873672378379,
       "prediction_updated": true
     },
     {
@@ -8445,33 +8445,6 @@
       },
       "status": "pending",
       "odds_history": [
-        {
-          "timestamp": "2026-07-22T17:14:48.782340",
-          "pinnacle": {
-            "home": 4.15,
-            "draw": 1.43,
-            "away": 1.43
-          },
-          "kelly_conclusion": "即时返还率为 0.610。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.78，平局 0.41，客胜 0.40。<br/> 散户最热的【主胜】（凯利 1.78）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
-          "asian_handicap": {
-            "handicap": "主队-0.25",
-            "home_odds": 1.92,
-            "away_odds": 1.98
-          },
-          "lottery_handicap": {
-            "handicap": "主让1球",
-            "initial": {
-              "win": 3.2,
-              "draw": 3.65,
-              "lose": 1.85
-            },
-            "current": {
-              "win": 3.2,
-              "draw": 3.65,
-              "lose": 1.85
-            }
-          }
-        },
         {
           "timestamp": "2026-07-22T17:19:58.808694",
           "pinnacle": {
@@ -8984,16 +8957,43 @@
               "lose": 1.85
             }
           }
+        },
+        {
+          "timestamp": "2026-07-22T18:21:59.078436",
+          "pinnacle": {
+            "home": 6.17,
+            "draw": 0.97,
+            "away": 0.97
+          },
+          "kelly_conclusion": "即时返还率为 0.450。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 2.65，平局 0.28，客胜 0.27。<br/> 散户最热的【主胜】（凯利 2.65）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+          "asian_handicap": {
+            "handicap": "主队-0.25",
+            "home_odds": 1.92,
+            "away_odds": 1.98
+          },
+          "lottery_handicap": {
+            "handicap": "主让1球",
+            "initial": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            },
+            "current": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            }
+          }
         }
       ],
       "match_context": "韩国职业联赛常规赛对决。光州FC坐镇主场迎接金泉尚武的挑战。",
       "ultimate_conclusion": {
-        "recommendation": "客胜 (实力与交锋绝对碾压)",
+        "recommendation": "客胜",
         "primary_bet": "客胜",
-        "confidence": 85,
-        "risk_level": "低",
+        "confidence": 38,
+        "risk_level": "极高",
         "ev_score": 0.0,
-        "reasoning": "韩国职业联赛比赛双方战术意图各有侧重。 基本面上，光州FC在【历史交锋与心理克制】上拥有明显优势（评分 6.4 对 3.6），但金泉尚武在【战意与抢分压力】上（评分 6.16 对 3.6）给主队带来制约。结合战意（主 45% / 客 92%），即时欧指主胜由 6.29 降至 6.17，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜 (实力与交锋绝对碾压)】。",
+        "reasoning": "韩国职业联赛比赛双方战术意图各有侧重。 基本面上，光州FC在【历史交锋与心理克制】上拥有明显优势（评分 6.4 对 3.6），但金泉尚武在【战意与抢分压力】上（评分 6.16 对 3.6）给主队带来制约。结合战意（主 45% / 客 92%），即时欧指主胜由 6.42 降至 6.29，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
         "confidence_trend": "stable",
         "predicted_score": "0-3"
       },
@@ -9205,14 +9205,14 @@
         "pinnacle": {
           "name": "pinnacle",
           "initial": {
+            "home": 6.42,
+            "draw": 0.93,
+            "away": 0.93
+          },
+          "current": {
             "home": 6.29,
             "draw": 0.95,
             "away": 0.95
-          },
-          "current": {
-            "home": 6.17,
-            "draw": 0.97,
-            "away": 0.97
           },
           "movement": "实时追踪"
         },
@@ -9268,35 +9268,63 @@
         "sbobet": {
           "name": "sbobet",
           "initial": {
+            "home": 6.54,
+            "draw": 0.91,
+            "away": 0.9
+          },
+          "current": {
             "home": 6.42,
             "draw": 0.93,
             "away": 0.92
-          },
-          "current": {
-            "home": 6.29,
-            "draw": 0.95,
-            "away": 0.94
           },
           "movement": "实时追踪"
         },
         "nova88": {
           "name": "nova88",
           "initial": {
-            "home": 6.17,
-            "draw": 0.96,
-            "away": 0.97
+            "home": 6.29,
+            "draw": 0.94,
+            "away": 0.95
           },
           "current": {
-            "home": 6.05,
-            "draw": 0.98,
-            "away": 0.99
+            "home": 6.16,
+            "draw": 0.96,
+            "away": 0.97
           },
           "movement": "实时追踪"
         },
         "crown": {
           "name": "crown",
           "initial": {
-            "home": 6.36,
+            "home": 6.48,
+            "draw": 0.93,
+            "away": 0.92
+          },
+          "current": {
+            "home": 6.35,
+            "draw": 0.95,
+            "away": 0.94
+          },
+          "movement": "实时追踪"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 6.22,
+            "draw": 0.9,
+            "away": 0.98
+          },
+          "current": {
+            "home": 6.1,
+            "draw": 0.92,
+            "away": 1.0
+          },
+          "movement": "实时追踪"
+        },
+        "m8bet": {
+          "name": "m8bet",
+          "initial": {
+            "home": 6.35,
             "draw": 0.95,
             "away": 0.94
           },
@@ -9307,40 +9335,12 @@
           },
           "movement": "实时追踪"
         },
-        "hkjc": {
-          "name": "hkjc",
-          "initial": {
-            "home": 6.1,
-            "draw": 0.92,
-            "away": 1.0
-          },
-          "current": {
-            "home": 5.98,
-            "draw": 0.94,
-            "away": 1.02
-          },
-          "movement": "实时追踪"
-        },
-        "m8bet": {
-          "name": "m8bet",
-          "initial": {
-            "home": 6.23,
-            "draw": 0.97,
-            "away": 0.96
-          },
-          "current": {
-            "home": 6.11,
-            "draw": 0.99,
-            "away": 0.98
-          },
-          "movement": "实时追踪"
-        },
-        "bookmaker_intent": "客队客胜欧赔低至 0.97，客让深盘形成有力支持。庄家意图通过低水防范客胜赔付风险，主队主场防守压力巨大。",
+        "bookmaker_intent": "客队客胜欧赔低至 0.97，客让深盘形成有力支持。庄家意图通过低水防范客胜赔付风险，主队主场防守压力巨大。 [最新盘口修正推演]：随着即时实盘数据震荡调整，由于预测方向已由 '客胜 (实力与交锋绝对碾压)' 修正变更为 '客胜'，表明庄家对常规时间内双方筹码的分流防御重心发生了实质性微调。主队让球水位的波动正在加剧释放出避让资金过热的防御信号。",
         "smoke_screens": [
           "【客让优势烟雾弹】金泉尚武 客场让步深盘做热客胜，需警惕 光州FC 利用主场防守拉锯战逼平爆冷。",
           "【资金流热度烟雾弹】竞彩比分筹码密集涌入 1:1, 0:0，庄家借市场跟风热度升水诱导反向投注。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】赔率水位小幅微震，盘面资金分布均匀，未见异常资金倾斜。预计比赛将按模型原定的首选 '客胜 (实力与交锋绝对碾压)' 剧本打出。"
+        "bookmaker_backed_script": "【庄家看好剧本】赔率水位小幅微震，盘面资金分布均匀，未见异常资金倾斜。预计比赛将按模型原定的首选 '客胜' 剧本打出。"
       },
       "intelligence": {
         "verified_news": [
@@ -9426,7 +9426,7 @@
         "half_full": "平平 (竞彩首选)",
         "upset_probability": 0.45,
         "upset_direction": "客胜",
-        "kelly_conclusion": "即时返还率为 0.450。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 2.65，平局 0.28，客胜 0.27。<br/> 散户最热的【主胜】（凯利 2.65）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+        "kelly_conclusion": "即时返还率为 0.442。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 2.71，平局 0.28，客胜 0.27。<br/> 散户最热的【主胜】（凯利 2.71）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
         "draw_multiplier": 1.5499999999999998,
         "upset_trend": "stable",
         "had_hhad_divergence": false,
@@ -9702,7 +9702,7 @@
           "signal": "光州FC交锋占优"
         }
       },
-      "moe_score": -0.12813757689499577,
+      "moe_score": -0.13836803923783791,
       "prediction_updated": true
     },
     {
@@ -35966,33 +35966,6 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-22T17:14:48.786326",
-          "pinnacle": {
-            "home": 2.16,
-            "draw": 2.76,
-            "away": 2.76
-          },
-          "kelly_conclusion": "即时返还率为 0.842。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 0.93，平局 0.80，客胜 0.77。<br/> 散户最热的【主胜】（凯利 0.93）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
-          "asian_handicap": {
-            "handicap": "主队-0.25",
-            "home_odds": 1.92,
-            "away_odds": 1.98
-          },
-          "lottery_handicap": {
-            "handicap": "主让1球",
-            "initial": {
-              "win": 3.2,
-              "draw": 3.65,
-              "lose": 1.85
-            },
-            "current": {
-              "win": 3.2,
-              "draw": 3.65,
-              "lose": 1.85
-            }
-          }
-        },
-        {
           "timestamp": "2026-07-22T17:19:58.810116",
           "pinnacle": {
             "home": 2.2,
@@ -36504,16 +36477,43 @@
               "lose": 1.85
             }
           }
+        },
+        {
+          "timestamp": "2026-07-22T18:21:59.079732",
+          "pinnacle": {
+            "home": 3.2,
+            "draw": 1.85,
+            "away": 1.85
+          },
+          "kelly_conclusion": "即时返还率为 0.718。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.38，平局 0.54，客胜 0.52。<br/> 散户最热的【主胜】（凯利 1.38）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+          "asian_handicap": {
+            "handicap": "主队-0.25",
+            "home_odds": 1.92,
+            "away_odds": 1.98
+          },
+          "lottery_handicap": {
+            "handicap": "主让1球",
+            "initial": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            },
+            "current": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            }
+          }
         }
       ],
       "match_context": "挪威超级联赛常规赛对决。博德闪耀坐镇主场迎接汉坎的挑战。",
       "ultimate_conclusion": {
-        "recommendation": "主胜 (实力与交锋绝对碾压)",
-        "primary_bet": "主胜",
-        "confidence": 85,
-        "risk_level": "低",
+        "recommendation": "反基本面冷门 (客队不败)",
+        "primary_bet": "双选不败",
+        "confidence": 63,
+        "risk_level": "极高",
         "ev_score": 0.0,
-        "reasoning": "从中国竞彩网 (https://www.sporttery.cn/jc/zqszsc/) 即时抓取信息来看，博德闪耀 在交锋与纸面硬实力（评分 9.7 对 4.8）上呈现绝对碾压态势。模型判定本场为高度稳健的主胜格局。",
+        "reasoning": "挪威超级联赛比赛双方战术意图各有侧重。 基本面上，博德闪耀在【球队基础硬实力】上拥有明显优势（评分 9.7 对 4.8），两队防线与战术匹配相对均衡。结合战意（主 72% / 客 92%），即时欧指主胜由 3.33 降至 3.26，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【反基本面冷门 (客队不败)】。",
         "confidence_trend": "up",
         "predicted_score": "3-0"
       },
@@ -36725,14 +36725,14 @@
         "pinnacle": {
           "name": "pinnacle",
           "initial": {
+            "home": 3.33,
+            "draw": 1.77,
+            "away": 1.77
+          },
+          "current": {
             "home": 3.26,
             "draw": 1.81,
             "away": 1.81
-          },
-          "current": {
-            "home": 3.2,
-            "draw": 1.85,
-            "away": 1.85
           },
           "movement": "实时追踪"
         },
@@ -36788,35 +36788,63 @@
         "sbobet": {
           "name": "sbobet",
           "initial": {
-            "home": 3.33,
-            "draw": 1.78,
-            "away": 1.76
+            "home": 3.39,
+            "draw": 1.74,
+            "away": 1.72
           },
           "current": {
-            "home": 3.26,
-            "draw": 1.81,
-            "away": 1.79
+            "home": 3.33,
+            "draw": 1.77,
+            "away": 1.76
           },
           "movement": "实时追踪"
         },
         "nova88": {
           "name": "nova88",
           "initial": {
-            "home": 3.2,
-            "draw": 1.83,
-            "away": 1.85
+            "home": 3.26,
+            "draw": 1.79,
+            "away": 1.81
           },
           "current": {
-            "home": 3.14,
-            "draw": 1.87,
-            "away": 1.89
+            "home": 3.19,
+            "draw": 1.83,
+            "away": 1.85
           },
           "movement": "实时追踪"
         },
         "crown": {
           "name": "crown",
           "initial": {
-            "home": 3.3,
+            "home": 3.36,
+            "draw": 1.77,
+            "away": 1.76
+          },
+          "current": {
+            "home": 3.29,
+            "draw": 1.81,
+            "away": 1.79
+          },
+          "movement": "实时追踪"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 3.23,
+            "draw": 1.72,
+            "away": 1.86
+          },
+          "current": {
+            "home": 3.16,
+            "draw": 1.76,
+            "away": 1.9
+          },
+          "movement": "实时追踪"
+        },
+        "m8bet": {
+          "name": "m8bet",
+          "initial": {
+            "home": 3.29,
             "draw": 1.81,
             "away": 1.79
           },
@@ -36824,34 +36852,6 @@
             "home": 3.23,
             "draw": 1.85,
             "away": 1.83
-          },
-          "movement": "实时追踪"
-        },
-        "hkjc": {
-          "name": "hkjc",
-          "initial": {
-            "home": 3.17,
-            "draw": 1.76,
-            "away": 1.9
-          },
-          "current": {
-            "home": 3.1,
-            "draw": 1.79,
-            "away": 1.94
-          },
-          "movement": "实时追踪"
-        },
-        "m8bet": {
-          "name": "m8bet",
-          "initial": {
-            "home": 3.23,
-            "draw": 1.85,
-            "away": 1.83
-          },
-          "current": {
-            "home": 3.17,
-            "draw": 1.89,
-            "away": 1.87
           },
           "movement": "实时追踪"
         },
@@ -36860,7 +36860,7 @@
           "【气候阻尼烟雾弹】场地包含 雷阵雨 降水题材，媒体大肆渲染低比分防守战，实际需防范失误增多导致的走爆大球。",
           "【交锋往绩烟雾弹】利用 博德闪耀 与 汉坎 历史交锋热度营造单边情绪，意在掩盖近期战术体系调整后的真实实力差距。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主不败' 进行了实质性控赔下调（已降水至 3.2），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。"
+        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主不败' 进行了实质性控赔下调（已降水至 3.26），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。"
       },
       "intelligence": {
         "verified_news": [
@@ -36922,7 +36922,7 @@
         "half_full": "平胜 或 胜胜",
         "upset_probability": 0.68,
         "upset_direction": "客胜/平局",
-        "kelly_conclusion": "即时返还率为 0.718。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.38，平局 0.54，客胜 0.52。<br/> 散户最热的【主胜】（凯利 1.38）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+        "kelly_conclusion": "即时返还率为 0.708。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.40，平局 0.53，客胜 0.51。<br/> 散户最热的【主胜】（凯利 1.40）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
         "draw_multiplier": 1.2,
         "upset_trend": "down",
         "m10_snapshot_count": 3,
@@ -37119,7 +37119,7 @@
           "signal": "博德闪耀交锋占优"
         }
       },
-      "moe_score": 1.0231450716486483,
+      "moe_score": 1.01658316848351,
       "prediction_updated": true,
       "home_standing": {
         "rank": 1,
@@ -37162,33 +37162,6 @@
       },
       "status": "pending",
       "odds_history": [
-        {
-          "timestamp": "2026-07-22T17:14:48.788972",
-          "pinnacle": {
-            "home": 2.16,
-            "draw": 2.76,
-            "away": 2.76
-          },
-          "kelly_conclusion": "即时返还率为 0.842。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 0.93，平局 0.80，客胜 0.77。<br/> 散户最热的【主胜】（凯利 0.93）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
-          "asian_handicap": {
-            "handicap": "主队-0.25",
-            "home_odds": 1.92,
-            "away_odds": 1.98
-          },
-          "lottery_handicap": {
-            "handicap": "主让1球",
-            "initial": {
-              "win": 3.2,
-              "draw": 3.65,
-              "lose": 1.85
-            },
-            "current": {
-              "win": 3.2,
-              "draw": 3.65,
-              "lose": 1.85
-            }
-          }
-        },
         {
           "timestamp": "2026-07-22T17:19:58.811490",
           "pinnacle": {
@@ -37701,16 +37674,43 @@
               "lose": 1.85
             }
           }
+        },
+        {
+          "timestamp": "2026-07-22T18:21:59.080867",
+          "pinnacle": {
+            "home": 3.2,
+            "draw": 1.85,
+            "away": 1.85
+          },
+          "kelly_conclusion": "即时返还率为 0.718。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.38，平局 0.54，客胜 0.52。<br/> 散户最热的【主胜】（凯利 1.38）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+          "asian_handicap": {
+            "handicap": "主队-0.25",
+            "home_odds": 1.92,
+            "away_odds": 1.98
+          },
+          "lottery_handicap": {
+            "handicap": "主让1球",
+            "initial": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            },
+            "current": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            }
+          }
         }
       ],
       "match_context": "挪威超级联赛常规赛对决。利勒斯特罗姆坐镇主场迎接维京的挑战。",
       "ultimate_conclusion": {
         "recommendation": "客胜",
         "primary_bet": "客不败",
-        "confidence": 43,
+        "confidence": 44,
         "risk_level": "极高",
         "ev_score": 0.0,
-        "reasoning": "挪威超级联赛比赛双方战术意图各有侧重。 基本面上，利勒斯特罗姆在【环境气候适应性】上拥有明显优势（评分 8.2 对 6.9），但维京在【近期状态与动能】上（评分 9.0 对 7.0）给主队带来制约。结合战意（主 85% / 客 70%），即时欧指主胜由 3.26 降至 3.20，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
+        "reasoning": "挪威超级联赛比赛双方战术意图各有侧重。 基本面上，利勒斯特罗姆在【环境气候适应性】上拥有明显优势（评分 8.2 对 6.9），但维京在【近期状态与动能】上（评分 9.0 对 7.0）给主队带来制约。结合战意（主 85% / 客 70%），即时欧指主胜由 3.33 降至 3.26，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
         "confidence_trend": "stable"
       },
       "team_stats": {
@@ -37921,14 +37921,14 @@
         "pinnacle": {
           "name": "pinnacle",
           "initial": {
+            "home": 3.33,
+            "draw": 1.77,
+            "away": 1.77
+          },
+          "current": {
             "home": 3.26,
             "draw": 1.81,
             "away": 1.81
-          },
-          "current": {
-            "home": 3.2,
-            "draw": 1.85,
-            "away": 1.85
           },
           "movement": "实时追踪"
         },
@@ -37984,35 +37984,63 @@
         "sbobet": {
           "name": "sbobet",
           "initial": {
-            "home": 3.33,
-            "draw": 1.78,
-            "away": 1.76
+            "home": 3.39,
+            "draw": 1.74,
+            "away": 1.72
           },
           "current": {
-            "home": 3.26,
-            "draw": 1.81,
-            "away": 1.79
+            "home": 3.33,
+            "draw": 1.77,
+            "away": 1.76
           },
           "movement": "实时追踪"
         },
         "nova88": {
           "name": "nova88",
           "initial": {
-            "home": 3.2,
-            "draw": 1.83,
-            "away": 1.85
+            "home": 3.26,
+            "draw": 1.79,
+            "away": 1.81
           },
           "current": {
-            "home": 3.14,
-            "draw": 1.87,
-            "away": 1.89
+            "home": 3.19,
+            "draw": 1.83,
+            "away": 1.85
           },
           "movement": "实时追踪"
         },
         "crown": {
           "name": "crown",
           "initial": {
-            "home": 3.3,
+            "home": 3.36,
+            "draw": 1.77,
+            "away": 1.76
+          },
+          "current": {
+            "home": 3.29,
+            "draw": 1.81,
+            "away": 1.79
+          },
+          "movement": "实时追踪"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 3.23,
+            "draw": 1.72,
+            "away": 1.86
+          },
+          "current": {
+            "home": 3.16,
+            "draw": 1.76,
+            "away": 1.9
+          },
+          "movement": "实时追踪"
+        },
+        "m8bet": {
+          "name": "m8bet",
+          "initial": {
+            "home": 3.29,
             "draw": 1.81,
             "away": 1.79
           },
@@ -38023,35 +38051,7 @@
           },
           "movement": "实时追踪"
         },
-        "hkjc": {
-          "name": "hkjc",
-          "initial": {
-            "home": 3.17,
-            "draw": 1.76,
-            "away": 1.9
-          },
-          "current": {
-            "home": 3.1,
-            "draw": 1.79,
-            "away": 1.94
-          },
-          "movement": "实时追踪"
-        },
-        "m8bet": {
-          "name": "m8bet",
-          "initial": {
-            "home": 3.23,
-            "draw": 1.85,
-            "away": 1.83
-          },
-          "current": {
-            "home": 3.17,
-            "draw": 1.89,
-            "away": 1.87
-          },
-          "movement": "实时追踪"
-        },
-        "bookmaker_intent": "当前主客均赔为 3.20 对 1.85，平赔降至 1.85。庄家意图在于利用均势盘口双向分流资金，借助市场分歧最大化对冲抽水利润。",
+        "bookmaker_intent": "当前主客均赔为 3.26 对 1.81，平赔降至 1.81。庄家意图在于利用均势盘口双向分流资金，借助市场分歧最大化对冲抽水利润。",
         "smoke_screens": [
           "【气候阻尼烟雾弹】场地包含 雷阵雨 降水题材，媒体大肆渲染低比分防守战，实际需防范失误增多导致的走爆大球。",
           "【交锋往绩烟雾弹】利用 利勒斯特罗姆 与 维京 历史交锋热度营造单边情绪，意在掩盖近期战术体系调整后的真实实力差距。"
@@ -38116,9 +38116,9 @@
         "most_likely_score": "0-2 或 0-1",
         "over_under": "小 2.5",
         "half_full": "平负 (竞彩首选) 或 负负",
-        "upset_probability": 0.37,
+        "upset_probability": 0.38,
         "upset_direction": "客胜",
-        "kelly_conclusion": "即时返还率为 0.718。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.38，平局 0.54，客胜 0.52。<br/> 散户最热的【主胜】（凯利 1.38）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+        "kelly_conclusion": "即时返还率为 0.708。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.40，平局 0.53，客胜 0.51。<br/> 散户最热的【主胜】（凯利 1.40）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
         "draw_multiplier": 1.0,
         "upset_trend": "stable",
         "m10_snapshot_count": 3,
@@ -38282,7 +38282,7 @@
           "signal": "维京交锋占优"
         }
       },
-      "moe_score": -0.3671092123513515,
+      "moe_score": -0.3736711155164899,
       "prediction_updated": true,
       "home_standing": {
         "rank": 7,
@@ -38325,33 +38325,6 @@
       },
       "status": "pending",
       "odds_history": [
-        {
-          "timestamp": "2026-07-22T17:14:48.791279",
-          "pinnacle": {
-            "home": 2.16,
-            "draw": 2.76,
-            "away": 2.76
-          },
-          "kelly_conclusion": "即时返还率为 0.842。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 0.93，平局 0.80，客胜 0.77。<br/> 散户最热的【主胜】（凯利 0.93）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
-          "asian_handicap": {
-            "handicap": "主队-0.25",
-            "home_odds": 1.92,
-            "away_odds": 1.98
-          },
-          "lottery_handicap": {
-            "handicap": "主让1球",
-            "initial": {
-              "win": 3.2,
-              "draw": 3.65,
-              "lose": 1.85
-            },
-            "current": {
-              "win": 3.2,
-              "draw": 3.65,
-              "lose": 1.85
-            }
-          }
-        },
         {
           "timestamp": "2026-07-22T17:19:58.813129",
           "pinnacle": {
@@ -38864,6 +38837,33 @@
               "lose": 1.85
             }
           }
+        },
+        {
+          "timestamp": "2026-07-22T18:21:59.082016",
+          "pinnacle": {
+            "home": 3.2,
+            "draw": 1.85,
+            "away": 1.85
+          },
+          "kelly_conclusion": "即时返还率为 0.718。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.38，平局 0.54，客胜 0.52。<br/> 散户最热的【主胜】（凯利 1.38）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+          "asian_handicap": {
+            "handicap": "主队-0.25",
+            "home_odds": 1.92,
+            "away_odds": 1.98
+          },
+          "lottery_handicap": {
+            "handicap": "主让1球",
+            "initial": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            },
+            "current": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            }
+          }
         }
       ],
       "match_context": "美国职业大联盟常规赛对决。迈阿密国际坐镇主场迎接芝加哥火焰的挑战。",
@@ -38873,7 +38873,7 @@
         "confidence": 52,
         "risk_level": "极高",
         "ev_score": 0.0,
-        "reasoning": "美国职业大联盟比赛双方战术意图各有侧重。 基本面上，迈阿密国际在【战意与抢分压力】上拥有明显优势（评分 5.760000000000001 对 3.2），但芝加哥火焰在【历史交锋与心理克制】上（评分 8.0 对 2.0）给主队带来制约。结合战意（主 72% / 客 40%），即时欧指主胜由 3.26 降至 3.20，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
+        "reasoning": "美国职业大联盟比赛双方战术意图各有侧重。 基本面上，迈阿密国际在【战意与抢分压力】上拥有明显优势（评分 5.760000000000001 对 3.2），但芝加哥火焰在【历史交锋与心理克制】上（评分 8.0 对 2.0）给主队带来制约。结合战意（主 72% / 客 40%），即时欧指主胜由 3.33 降至 3.26，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
         "confidence_trend": "stable"
       },
       "team_stats": {
@@ -39084,14 +39084,14 @@
         "pinnacle": {
           "name": "pinnacle",
           "initial": {
+            "home": 3.33,
+            "draw": 1.77,
+            "away": 1.77
+          },
+          "current": {
             "home": 3.26,
             "draw": 1.81,
             "away": 1.81
-          },
-          "current": {
-            "home": 3.2,
-            "draw": 1.85,
-            "away": 1.85
           },
           "movement": "实时追踪"
         },
@@ -39147,35 +39147,63 @@
         "sbobet": {
           "name": "sbobet",
           "initial": {
-            "home": 3.33,
-            "draw": 1.78,
-            "away": 1.76
+            "home": 3.39,
+            "draw": 1.74,
+            "away": 1.72
           },
           "current": {
-            "home": 3.26,
-            "draw": 1.81,
-            "away": 1.79
+            "home": 3.33,
+            "draw": 1.77,
+            "away": 1.76
           },
           "movement": "实时追踪"
         },
         "nova88": {
           "name": "nova88",
           "initial": {
-            "home": 3.2,
-            "draw": 1.83,
-            "away": 1.85
+            "home": 3.26,
+            "draw": 1.79,
+            "away": 1.81
           },
           "current": {
-            "home": 3.14,
-            "draw": 1.87,
-            "away": 1.89
+            "home": 3.19,
+            "draw": 1.83,
+            "away": 1.85
           },
           "movement": "实时追踪"
         },
         "crown": {
           "name": "crown",
           "initial": {
-            "home": 3.3,
+            "home": 3.36,
+            "draw": 1.77,
+            "away": 1.76
+          },
+          "current": {
+            "home": 3.29,
+            "draw": 1.81,
+            "away": 1.79
+          },
+          "movement": "实时追踪"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 3.23,
+            "draw": 1.72,
+            "away": 1.86
+          },
+          "current": {
+            "home": 3.16,
+            "draw": 1.76,
+            "away": 1.9
+          },
+          "movement": "实时追踪"
+        },
+        "m8bet": {
+          "name": "m8bet",
+          "initial": {
+            "home": 3.29,
             "draw": 1.81,
             "away": 1.79
           },
@@ -39186,35 +39214,7 @@
           },
           "movement": "实时追踪"
         },
-        "hkjc": {
-          "name": "hkjc",
-          "initial": {
-            "home": 3.17,
-            "draw": 1.76,
-            "away": 1.9
-          },
-          "current": {
-            "home": 3.1,
-            "draw": 1.79,
-            "away": 1.94
-          },
-          "movement": "实时追踪"
-        },
-        "m8bet": {
-          "name": "m8bet",
-          "initial": {
-            "home": 3.23,
-            "draw": 1.85,
-            "away": 1.83
-          },
-          "current": {
-            "home": 3.17,
-            "draw": 1.89,
-            "away": 1.87
-          },
-          "movement": "实时追踪"
-        },
-        "bookmaker_intent": "当前主客均赔为 3.20 对 1.85，平赔降至 1.85。庄家意图在于利用均势盘口双向分流资金，借助市场分歧最大化对冲抽水利润。",
+        "bookmaker_intent": "当前主客均赔为 3.26 对 1.81，平赔降至 1.81。庄家意图在于利用均势盘口双向分流资金，借助市场分歧最大化对冲抽水利润。",
         "smoke_screens": [
           "【交锋往绩烟雾弹】利用 迈阿密国际 与 芝加哥火焰 历史交锋热度营造单边情绪，意在掩盖近期战术体系调整后的真实实力差距。",
           "【水位微震烟雾弹】盘口水位在临场前频繁微震，涉嫌制造控盘假象分流散户筹码。"
@@ -39279,9 +39279,9 @@
         "most_likely_score": "1-3 (高赔客胜) 或 1-2",
         "over_under": "大 2.5",
         "half_full": "平胜 或 胜胜",
-        "upset_probability": 0.37,
+        "upset_probability": 0.38,
         "upset_direction": "客胜",
-        "kelly_conclusion": "即时返还率为 0.718。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.38，平局 0.54，客胜 0.52。<br/> 散户最热的【主胜】（凯利 1.38）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+        "kelly_conclusion": "即时返还率为 0.708。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.40，平局 0.53，客胜 0.51。<br/> 散户最热的【主胜】（凯利 1.40）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
         "draw_multiplier": 1.0,
         "upset_trend": "stable",
         "m10_snapshot_count": 2,
@@ -39419,7 +39419,7 @@
           "signal": "芝加哥火焰交锋占优"
         }
       },
-      "moe_score": -0.6343168679513514,
+      "moe_score": -0.6408787711164898,
       "prediction_updated": true,
       "home_standing": {
         "rank": 1,
@@ -39462,33 +39462,6 @@
       },
       "status": "pending",
       "odds_history": [
-        {
-          "timestamp": "2026-07-22T17:14:48.794124",
-          "pinnacle": {
-            "home": 2.16,
-            "draw": 2.76,
-            "away": 2.76
-          },
-          "kelly_conclusion": "即时返还率为 0.842。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 0.93，平局 0.80，客胜 0.77。<br/> 散户最热的【主胜】（凯利 0.93）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
-          "asian_handicap": {
-            "handicap": "主队-0.25",
-            "home_odds": 1.92,
-            "away_odds": 1.98
-          },
-          "lottery_handicap": {
-            "handicap": "主让1球",
-            "initial": {
-              "win": 3.2,
-              "draw": 3.65,
-              "lose": 1.85
-            },
-            "current": {
-              "win": 3.2,
-              "draw": 3.65,
-              "lose": 1.85
-            }
-          }
-        },
         {
           "timestamp": "2026-07-22T17:19:58.814578",
           "pinnacle": {
@@ -40001,16 +39974,43 @@
               "lose": 1.85
             }
           }
+        },
+        {
+          "timestamp": "2026-07-22T18:21:59.083134",
+          "pinnacle": {
+            "home": 3.2,
+            "draw": 1.85,
+            "away": 1.85
+          },
+          "kelly_conclusion": "即时返还率为 0.718。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.38，平局 0.54，客胜 0.52。<br/> 散户最热的【主胜】（凯利 1.38）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+          "asian_handicap": {
+            "handicap": "主队-0.25",
+            "home_odds": 1.92,
+            "away_odds": 1.98
+          },
+          "lottery_handicap": {
+            "handicap": "主让1球",
+            "initial": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            },
+            "current": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            }
+          }
         }
       ],
       "match_context": "巴西甲级联赛常规赛对决。沙佩科恩斯坐镇主场迎接弗拉门戈的挑战。",
       "ultimate_conclusion": {
         "recommendation": "客胜",
         "primary_bet": "客不败",
-        "confidence": 38,
+        "confidence": 40,
         "risk_level": "极高",
         "ev_score": 0.0,
-        "reasoning": "巴西甲级联赛比赛双方战术意图各有侧重。 基本面上，沙佩科恩斯在【环境气候适应性】上拥有明显优势（评分 8.2 对 6.9），但弗拉门戈在【战意与抢分压力】上（评分 5.6000000000000005 对 3.6）给主队带来制约。结合战意（主 45% / 客 70%），即时欧指主胜由 3.26 降至 3.20，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
+        "reasoning": "巴西甲级联赛比赛双方战术意图各有侧重。 基本面上，沙佩科恩斯在【环境气候适应性】上拥有明显优势（评分 8.2 对 6.9），但弗拉门戈在【战意与抢分压力】上（评分 5.6000000000000005 对 3.6）给主队带来制约。结合战意（主 45% / 客 70%），即时欧指主胜由 3.33 降至 3.26，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
         "confidence_trend": "stable"
       },
       "team_stats": {
@@ -40185,14 +40185,14 @@
         "pinnacle": {
           "name": "pinnacle",
           "initial": {
+            "home": 3.33,
+            "draw": 1.77,
+            "away": 1.77
+          },
+          "current": {
             "home": 3.26,
             "draw": 1.81,
             "away": 1.81
-          },
-          "current": {
-            "home": 3.2,
-            "draw": 1.85,
-            "away": 1.85
           },
           "movement": "实时追踪"
         },
@@ -40248,35 +40248,63 @@
         "sbobet": {
           "name": "sbobet",
           "initial": {
-            "home": 3.33,
-            "draw": 1.78,
-            "away": 1.76
+            "home": 3.39,
+            "draw": 1.74,
+            "away": 1.72
           },
           "current": {
-            "home": 3.26,
-            "draw": 1.81,
-            "away": 1.79
+            "home": 3.33,
+            "draw": 1.77,
+            "away": 1.76
           },
           "movement": "实时追踪"
         },
         "nova88": {
           "name": "nova88",
           "initial": {
-            "home": 3.2,
-            "draw": 1.83,
-            "away": 1.85
+            "home": 3.26,
+            "draw": 1.79,
+            "away": 1.81
           },
           "current": {
-            "home": 3.14,
-            "draw": 1.87,
-            "away": 1.89
+            "home": 3.19,
+            "draw": 1.83,
+            "away": 1.85
           },
           "movement": "实时追踪"
         },
         "crown": {
           "name": "crown",
           "initial": {
-            "home": 3.3,
+            "home": 3.36,
+            "draw": 1.77,
+            "away": 1.76
+          },
+          "current": {
+            "home": 3.29,
+            "draw": 1.81,
+            "away": 1.79
+          },
+          "movement": "实时追踪"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 3.23,
+            "draw": 1.72,
+            "away": 1.86
+          },
+          "current": {
+            "home": 3.16,
+            "draw": 1.76,
+            "away": 1.9
+          },
+          "movement": "实时追踪"
+        },
+        "m8bet": {
+          "name": "m8bet",
+          "initial": {
+            "home": 3.29,
             "draw": 1.81,
             "away": 1.79
           },
@@ -40287,35 +40315,7 @@
           },
           "movement": "实时追踪"
         },
-        "hkjc": {
-          "name": "hkjc",
-          "initial": {
-            "home": 3.17,
-            "draw": 1.76,
-            "away": 1.9
-          },
-          "current": {
-            "home": 3.1,
-            "draw": 1.79,
-            "away": 1.94
-          },
-          "movement": "实时追踪"
-        },
-        "m8bet": {
-          "name": "m8bet",
-          "initial": {
-            "home": 3.23,
-            "draw": 1.85,
-            "away": 1.83
-          },
-          "current": {
-            "home": 3.17,
-            "draw": 1.89,
-            "away": 1.87
-          },
-          "movement": "实时追踪"
-        },
-        "bookmaker_intent": "当前主客均赔为 3.20 对 1.85，平赔降至 1.85。庄家意图在于利用均势盘口双向分流资金，借助市场分歧最大化对冲抽水利润。",
+        "bookmaker_intent": "当前主客均赔为 3.26 对 1.81，平赔降至 1.81。庄家意图在于利用均势盘口双向分流资金，借助市场分歧最大化对冲抽水利润。",
         "smoke_screens": [
           "【气候阻尼烟雾弹】场地包含 雷阵雨 降水题材，媒体大肆渲染低比分防守战，实际需防范失误增多导致的走爆大球。",
           "【资金流热度烟雾弹】竞彩比分筹码密集涌入 0:3, 0:2，庄家借市场跟风热度升水诱导反向投注。"
@@ -40380,9 +40380,9 @@
         "most_likely_score": "0-2 或 0-1 或 0-3 (竞彩首选)",
         "over_under": "小 2.5",
         "half_full": "平平 或 负负 (竞彩首选)",
-        "upset_probability": 0.37,
+        "upset_probability": 0.38,
         "upset_direction": "客胜",
-        "kelly_conclusion": "即时返还率为 0.718。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.38，平局 0.54，客胜 0.52。<br/> 散户最热的【主胜】（凯利 1.38）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+        "kelly_conclusion": "即时返还率为 0.708。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.40，平局 0.53，客胜 0.51。<br/> 散户最热的【主胜】（凯利 1.40）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
         "draw_multiplier": 1.0,
         "upset_trend": "stable",
         "m10_snapshot_count": 4,
@@ -40518,7 +40518,7 @@
           "signal": "交锋势均力敌"
         }
       },
-      "moe_score": -0.20135023605135122,
+      "moe_score": -0.2079121392164896,
       "prediction_updated": true,
       "home_standing": {
         "rank": 17,
@@ -40561,33 +40561,6 @@
       },
       "status": "pending",
       "odds_history": [
-        {
-          "timestamp": "2026-07-22T17:14:48.795489",
-          "pinnacle": {
-            "home": 2.16,
-            "draw": 2.76,
-            "away": 2.76
-          },
-          "kelly_conclusion": "即时返还率为 0.842。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 0.93，平局 0.80，客胜 0.77。<br/> 散户最热的【主胜】（凯利 0.93）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。 | ⚡ 竞彩背离警报：主胜下调但让主未下调，强烈防范让平/让负！",
-          "asian_handicap": {
-            "handicap": "主队-0.25",
-            "home_odds": 1.92,
-            "away_odds": 1.98
-          },
-          "lottery_handicap": {
-            "handicap": "主让1球",
-            "initial": {
-              "win": 3.2,
-              "draw": 3.65,
-              "lose": 1.85
-            },
-            "current": {
-              "win": 3.2,
-              "draw": 3.65,
-              "lose": 1.85
-            }
-          }
-        },
         {
           "timestamp": "2026-07-22T17:19:58.816035",
           "pinnacle": {
@@ -41100,16 +41073,43 @@
               "lose": 1.85
             }
           }
+        },
+        {
+          "timestamp": "2026-07-22T18:21:59.084402",
+          "pinnacle": {
+            "home": 3.2,
+            "draw": 1.85,
+            "away": 1.85
+          },
+          "kelly_conclusion": "即时返还率为 0.718。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.38，平局 0.54，客胜 0.52。<br/> 散户最热的【主胜】（凯利 1.38）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+          "asian_handicap": {
+            "handicap": "主队-0.25",
+            "home_odds": 1.92,
+            "away_odds": 1.98
+          },
+          "lottery_handicap": {
+            "handicap": "主让1球",
+            "initial": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            },
+            "current": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            }
+          }
         }
       ],
       "match_context": "巴西甲级联赛常规赛对决。圣保罗坐镇主场迎接巴拉纳竞技的挑战。",
       "ultimate_conclusion": {
         "recommendation": "客胜",
         "primary_bet": "客不败",
-        "confidence": 36,
+        "confidence": 38,
         "risk_level": "极高",
         "ev_score": 0.0,
-        "reasoning": "巴西甲级联赛比赛双方战术意图各有侧重。 基本面上，圣保罗在【环境气候适应性】上拥有明显优势（评分 8.2 对 6.9），两队防线与战术匹配相对均衡。结合战意（主 85% / 客 82%），即时欧指主胜由 3.26 降至 3.20，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
+        "reasoning": "巴西甲级联赛比赛双方战术意图各有侧重。 基本面上，圣保罗在【环境气候适应性】上拥有明显优势（评分 8.2 对 6.9），两队防线与战术匹配相对均衡。结合战意（主 85% / 客 82%），即时欧指主胜由 3.33 降至 3.26，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
         "confidence_trend": "stable"
       },
       "team_stats": {
@@ -41320,14 +41320,14 @@
         "pinnacle": {
           "name": "pinnacle",
           "initial": {
+            "home": 3.33,
+            "draw": 1.77,
+            "away": 1.77
+          },
+          "current": {
             "home": 3.26,
             "draw": 1.81,
             "away": 1.81
-          },
-          "current": {
-            "home": 3.2,
-            "draw": 1.85,
-            "away": 1.85
           },
           "movement": "实时追踪"
         },
@@ -41383,35 +41383,63 @@
         "sbobet": {
           "name": "sbobet",
           "initial": {
-            "home": 3.33,
-            "draw": 1.78,
-            "away": 1.76
+            "home": 3.39,
+            "draw": 1.74,
+            "away": 1.72
           },
           "current": {
-            "home": 3.26,
-            "draw": 1.81,
-            "away": 1.79
+            "home": 3.33,
+            "draw": 1.77,
+            "away": 1.76
           },
           "movement": "实时追踪"
         },
         "nova88": {
           "name": "nova88",
           "initial": {
-            "home": 3.2,
-            "draw": 1.83,
-            "away": 1.85
+            "home": 3.26,
+            "draw": 1.79,
+            "away": 1.81
           },
           "current": {
-            "home": 3.14,
-            "draw": 1.87,
-            "away": 1.89
+            "home": 3.19,
+            "draw": 1.83,
+            "away": 1.85
           },
           "movement": "实时追踪"
         },
         "crown": {
           "name": "crown",
           "initial": {
-            "home": 3.3,
+            "home": 3.36,
+            "draw": 1.77,
+            "away": 1.76
+          },
+          "current": {
+            "home": 3.29,
+            "draw": 1.81,
+            "away": 1.79
+          },
+          "movement": "实时追踪"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 3.23,
+            "draw": 1.72,
+            "away": 1.86
+          },
+          "current": {
+            "home": 3.16,
+            "draw": 1.76,
+            "away": 1.9
+          },
+          "movement": "实时追踪"
+        },
+        "m8bet": {
+          "name": "m8bet",
+          "initial": {
+            "home": 3.29,
             "draw": 1.81,
             "away": 1.79
           },
@@ -41422,35 +41450,7 @@
           },
           "movement": "实时追踪"
         },
-        "hkjc": {
-          "name": "hkjc",
-          "initial": {
-            "home": 3.17,
-            "draw": 1.76,
-            "away": 1.9
-          },
-          "current": {
-            "home": 3.1,
-            "draw": 1.79,
-            "away": 1.94
-          },
-          "movement": "实时追踪"
-        },
-        "m8bet": {
-          "name": "m8bet",
-          "initial": {
-            "home": 3.23,
-            "draw": 1.85,
-            "away": 1.83
-          },
-          "current": {
-            "home": 3.17,
-            "draw": 1.89,
-            "away": 1.87
-          },
-          "movement": "实时追踪"
-        },
-        "bookmaker_intent": "平博及竞彩不让球指数出现大幅下调（主胜 3.20 / 平局 1.85），但让球盘口未同向联动。庄家核心意图在于利用‘强队必胜’题材吸纳散户筹码，实际在通过赔率背离全力防范让平/让负。",
+        "bookmaker_intent": "平博及竞彩不让球指数出现大幅下调（主胜 3.26 / 平局 1.81），但让球盘口未同向联动。庄家核心意图在于利用‘强队必胜’题材吸纳散户筹码，实际在通过赔率背离全力防范让平/让负。",
         "smoke_screens": [
           "【竞彩欧让背离烟雾弹】不让球胜/平赔低拉下调，但让球盘口未同向保护，庄家利用‘主胜安全感’诱导筹码独占，实际防范让平/让负高赔付。",
           "【气候阻尼烟雾弹】场地包含 雷阵雨 降水题材，媒体大肆渲染低比分防守战，实际需防范失误增多导致的走爆大球。",
@@ -41516,9 +41516,9 @@
         "most_likely_score": "0-2 或 0-1 或 1-1 (竞彩首选)",
         "over_under": "小 2.5",
         "half_full": "平平 (竞彩首选)",
-        "upset_probability": 0.37,
+        "upset_probability": 0.38,
         "upset_direction": "客胜",
-        "kelly_conclusion": "即时返还率为 0.718。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.38，平局 0.54，客胜 0.52。<br/> 散户最热的【主胜】（凯利 1.38）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+        "kelly_conclusion": "即时返还率为 0.708。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.40，平局 0.53，客胜 0.51。<br/> 散户最热的【主胜】（凯利 1.40）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
         "draw_multiplier": 1.0,
         "upset_trend": "stable",
         "m10_snapshot_count": 4,
@@ -41654,7 +41654,7 @@
           "signal": "交锋势均力敌"
         }
       },
-      "moe_score": -0.12407371630135151,
+      "moe_score": -0.13063561946648988,
       "prediction_updated": true,
       "home_standing": {
         "rank": 5,
@@ -41697,33 +41697,6 @@
       },
       "status": "pending",
       "odds_history": [
-        {
-          "timestamp": "2026-07-22T17:14:48.802283",
-          "pinnacle": {
-            "home": 2.16,
-            "draw": 2.76,
-            "away": 2.76
-          },
-          "kelly_conclusion": "即时返还率为 0.842。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 0.93，平局 0.80，客胜 0.77。<br/> 散户最热的【主胜】（凯利 0.93）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
-          "asian_handicap": {
-            "handicap": "主队-0.25",
-            "home_odds": 1.92,
-            "away_odds": 1.98
-          },
-          "lottery_handicap": {
-            "handicap": "主让1球",
-            "initial": {
-              "win": 3.2,
-              "draw": 3.65,
-              "lose": 1.85
-            },
-            "current": {
-              "win": 3.2,
-              "draw": 3.65,
-              "lose": 1.85
-            }
-          }
-        },
         {
           "timestamp": "2026-07-22T17:19:58.817792",
           "pinnacle": {
@@ -42236,16 +42209,43 @@
               "lose": 1.85
             }
           }
+        },
+        {
+          "timestamp": "2026-07-22T18:21:59.085553",
+          "pinnacle": {
+            "home": 3.2,
+            "draw": 1.85,
+            "away": 1.85
+          },
+          "kelly_conclusion": "即时返还率为 0.718。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.38，平局 0.54，客胜 0.52。<br/> 散户最热的【主胜】（凯利 1.38）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+          "asian_handicap": {
+            "handicap": "主队-0.25",
+            "home_odds": 1.92,
+            "away_odds": 1.98
+          },
+          "lottery_handicap": {
+            "handicap": "主让1球",
+            "initial": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            },
+            "current": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            }
+          }
         }
       ],
       "match_context": "美国职业大联盟常规赛对决。洛杉矶FC坐镇主场迎接皇家盐湖城的挑战。",
       "ultimate_conclusion": {
         "recommendation": "反基本面冷门 (客队不败)",
         "primary_bet": "双选不败",
-        "confidence": 38,
+        "confidence": 39,
         "risk_level": "极高",
         "ev_score": 0.0,
-        "reasoning": "美国职业大联盟比赛双方战术意图各有侧重。 基本面上，洛杉矶FC在【中场与推进效率】上拥有明显优势（评分 9.7 对 7.5），但皇家盐湖城在【历史交锋与心理克制】上（评分 6.2 对 3.8）给主队带来制约。结合战意（主 72% / 客 82%），即时欧指主胜由 3.26 降至 3.20，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【反基本面冷门 (客队不败)】。",
+        "reasoning": "美国职业大联盟比赛双方战术意图各有侧重。 基本面上，洛杉矶FC在【中场与推进效率】上拥有明显优势（评分 9.7 对 7.5），但皇家盐湖城在【历史交锋与心理克制】上（评分 6.2 对 3.8）给主队带来制约。结合战意（主 72% / 客 82%），即时欧指主胜由 3.33 降至 3.26，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【反基本面冷门 (客队不败)】。",
         "confidence_trend": "up"
       },
       "team_stats": {
@@ -42456,14 +42456,14 @@
         "pinnacle": {
           "name": "pinnacle",
           "initial": {
+            "home": 3.33,
+            "draw": 1.77,
+            "away": 1.77
+          },
+          "current": {
             "home": 3.26,
             "draw": 1.81,
             "away": 1.81
-          },
-          "current": {
-            "home": 3.2,
-            "draw": 1.85,
-            "away": 1.85
           },
           "movement": "实时追踪"
         },
@@ -42519,35 +42519,63 @@
         "sbobet": {
           "name": "sbobet",
           "initial": {
-            "home": 3.33,
-            "draw": 1.78,
-            "away": 1.76
+            "home": 3.39,
+            "draw": 1.74,
+            "away": 1.72
           },
           "current": {
-            "home": 3.26,
-            "draw": 1.81,
-            "away": 1.79
+            "home": 3.33,
+            "draw": 1.77,
+            "away": 1.76
           },
           "movement": "实时追踪"
         },
         "nova88": {
           "name": "nova88",
           "initial": {
-            "home": 3.2,
-            "draw": 1.83,
-            "away": 1.85
+            "home": 3.26,
+            "draw": 1.79,
+            "away": 1.81
           },
           "current": {
-            "home": 3.14,
-            "draw": 1.87,
-            "away": 1.89
+            "home": 3.19,
+            "draw": 1.83,
+            "away": 1.85
           },
           "movement": "实时追踪"
         },
         "crown": {
           "name": "crown",
           "initial": {
-            "home": 3.3,
+            "home": 3.36,
+            "draw": 1.77,
+            "away": 1.76
+          },
+          "current": {
+            "home": 3.29,
+            "draw": 1.81,
+            "away": 1.79
+          },
+          "movement": "实时追踪"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 3.23,
+            "draw": 1.72,
+            "away": 1.86
+          },
+          "current": {
+            "home": 3.16,
+            "draw": 1.76,
+            "away": 1.9
+          },
+          "movement": "实时追踪"
+        },
+        "m8bet": {
+          "name": "m8bet",
+          "initial": {
+            "home": 3.29,
             "draw": 1.81,
             "away": 1.79
           },
@@ -42555,34 +42583,6 @@
             "home": 3.23,
             "draw": 1.85,
             "away": 1.83
-          },
-          "movement": "实时追踪"
-        },
-        "hkjc": {
-          "name": "hkjc",
-          "initial": {
-            "home": 3.17,
-            "draw": 1.76,
-            "away": 1.9
-          },
-          "current": {
-            "home": 3.1,
-            "draw": 1.79,
-            "away": 1.94
-          },
-          "movement": "实时追踪"
-        },
-        "m8bet": {
-          "name": "m8bet",
-          "initial": {
-            "home": 3.23,
-            "draw": 1.85,
-            "away": 1.83
-          },
-          "current": {
-            "home": 3.17,
-            "draw": 1.89,
-            "away": 1.87
           },
           "movement": "实时追踪"
         },
@@ -42591,7 +42591,7 @@
           "【交锋往绩烟雾弹】利用 洛杉矶FC 与 皇家盐湖城 历史交锋热度营造单边情绪，意在掩盖近期战术体系调整后的真实实力差距。",
           "【水位微震烟雾弹】盘口水位在临场前频繁微震，涉嫌制造控盘假象分流散户筹码。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主不败' 进行了实质性控赔下调（已降水至 3.2），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。"
+        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主不败' 进行了实质性控赔下调（已降水至 3.26），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。"
       },
       "intelligence": {
         "verified_news": [
@@ -42653,7 +42653,7 @@
         "half_full": "平胜 或 胜胜 (竞彩首选)",
         "upset_probability": 0.68,
         "upset_direction": "客胜/平局",
-        "kelly_conclusion": "即时返还率为 0.718。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.38，平局 0.54，客胜 0.52。<br/> 散户最热的【主胜】（凯利 1.38）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+        "kelly_conclusion": "即时返还率为 0.708。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.40，平局 0.53，客胜 0.51。<br/> 散户最热的【主胜】（凯利 1.40）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
         "draw_multiplier": 1.0,
         "upset_trend": "down",
         "m10_snapshot_count": 3,
@@ -42817,7 +42817,7 @@
           "signal": "皇家盐湖城交锋占优"
         }
       },
-      "moe_score": 0.19175078764864845,
+      "moe_score": 0.18518888448351006,
       "prediction_updated": true,
       "home_standing": {
         "rank": 2,
@@ -42860,33 +42860,6 @@
       },
       "status": "pending",
       "odds_history": [
-        {
-          "timestamp": "2026-07-22T17:14:48.803970",
-          "pinnacle": {
-            "home": 2.16,
-            "draw": 2.76,
-            "away": 2.76
-          },
-          "kelly_conclusion": "即时返还率为 0.842。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 0.93，平局 0.80，客胜 0.77。<br/> 散户最热的【主胜】（凯利 0.93）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
-          "asian_handicap": {
-            "handicap": "主队-0.25",
-            "home_odds": 1.92,
-            "away_odds": 1.98
-          },
-          "lottery_handicap": {
-            "handicap": "主让1球",
-            "initial": {
-              "win": 3.2,
-              "draw": 3.65,
-              "lose": 1.85
-            },
-            "current": {
-              "win": 3.2,
-              "draw": 3.65,
-              "lose": 1.85
-            }
-          }
-        },
         {
           "timestamp": "2026-07-22T17:19:58.818970",
           "pinnacle": {
@@ -43399,16 +43372,43 @@
               "lose": 1.85
             }
           }
+        },
+        {
+          "timestamp": "2026-07-22T18:21:59.086670",
+          "pinnacle": {
+            "home": 3.2,
+            "draw": 1.85,
+            "away": 1.85
+          },
+          "kelly_conclusion": "即时返还率为 0.718。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.38，平局 0.54，客胜 0.52。<br/> 散户最热的【主胜】（凯利 1.38）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+          "asian_handicap": {
+            "handicap": "主队-0.25",
+            "home_odds": 1.92,
+            "away_odds": 1.98
+          },
+          "lottery_handicap": {
+            "handicap": "主让1球",
+            "initial": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            },
+            "current": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            }
+          }
         }
       ],
       "match_context": "巴西甲级联赛常规赛对决。科林蒂安坐镇主场迎接里莫的挑战。",
       "ultimate_conclusion": {
         "recommendation": "客胜",
         "primary_bet": "客不败",
-        "confidence": 38,
+        "confidence": 40,
         "risk_level": "极高",
         "ev_score": 0.0,
-        "reasoning": "巴西甲级联赛比赛双方战术意图各有侧重。 基本面上，科林蒂安在【战意与抢分压力】上拥有明显优势（评分 6.800000000000001 对 3.2），但里莫在【战术克制与匹配】上（评分 7.7 对 7.1）给主队带来制约。结合战意（主 85% / 客 40%），即时欧指主胜由 3.26 降至 3.20，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
+        "reasoning": "巴西甲级联赛比赛双方战术意图各有侧重。 基本面上，科林蒂安在【战意与抢分压力】上拥有明显优势（评分 6.800000000000001 对 3.2），但里莫在【战术克制与匹配】上（评分 7.7 对 7.1）给主队带来制约。结合战意（主 85% / 客 40%），即时欧指主胜由 3.33 降至 3.26，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
         "confidence_trend": "stable"
       },
       "team_stats": {
@@ -43573,14 +43573,14 @@
         "pinnacle": {
           "name": "pinnacle",
           "initial": {
+            "home": 3.33,
+            "draw": 1.77,
+            "away": 1.77
+          },
+          "current": {
             "home": 3.26,
             "draw": 1.81,
             "away": 1.81
-          },
-          "current": {
-            "home": 3.2,
-            "draw": 1.85,
-            "away": 1.85
           },
           "movement": "实时追踪"
         },
@@ -43636,35 +43636,63 @@
         "sbobet": {
           "name": "sbobet",
           "initial": {
-            "home": 3.33,
-            "draw": 1.78,
-            "away": 1.76
+            "home": 3.39,
+            "draw": 1.74,
+            "away": 1.72
           },
           "current": {
-            "home": 3.26,
-            "draw": 1.81,
-            "away": 1.79
+            "home": 3.33,
+            "draw": 1.77,
+            "away": 1.76
           },
           "movement": "实时追踪"
         },
         "nova88": {
           "name": "nova88",
           "initial": {
-            "home": 3.2,
-            "draw": 1.83,
-            "away": 1.85
+            "home": 3.26,
+            "draw": 1.79,
+            "away": 1.81
           },
           "current": {
-            "home": 3.14,
-            "draw": 1.87,
-            "away": 1.89
+            "home": 3.19,
+            "draw": 1.83,
+            "away": 1.85
           },
           "movement": "实时追踪"
         },
         "crown": {
           "name": "crown",
           "initial": {
-            "home": 3.3,
+            "home": 3.36,
+            "draw": 1.77,
+            "away": 1.76
+          },
+          "current": {
+            "home": 3.29,
+            "draw": 1.81,
+            "away": 1.79
+          },
+          "movement": "实时追踪"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 3.23,
+            "draw": 1.72,
+            "away": 1.86
+          },
+          "current": {
+            "home": 3.16,
+            "draw": 1.76,
+            "away": 1.9
+          },
+          "movement": "实时追踪"
+        },
+        "m8bet": {
+          "name": "m8bet",
+          "initial": {
+            "home": 3.29,
             "draw": 1.81,
             "away": 1.79
           },
@@ -43675,35 +43703,7 @@
           },
           "movement": "实时追踪"
         },
-        "hkjc": {
-          "name": "hkjc",
-          "initial": {
-            "home": 3.17,
-            "draw": 1.76,
-            "away": 1.9
-          },
-          "current": {
-            "home": 3.1,
-            "draw": 1.79,
-            "away": 1.94
-          },
-          "movement": "实时追踪"
-        },
-        "m8bet": {
-          "name": "m8bet",
-          "initial": {
-            "home": 3.23,
-            "draw": 1.85,
-            "away": 1.83
-          },
-          "current": {
-            "home": 3.17,
-            "draw": 1.89,
-            "away": 1.87
-          },
-          "movement": "实时追踪"
-        },
-        "bookmaker_intent": "当前主客均赔为 3.20 对 1.85，平赔降至 1.85。庄家意图在于利用均势盘口双向分流资金，借助市场分歧最大化对冲抽水利润。",
+        "bookmaker_intent": "当前主客均赔为 3.26 对 1.81，平赔降至 1.81。庄家意图在于利用均势盘口双向分流资金，借助市场分歧最大化对冲抽水利润。",
         "smoke_screens": [
           "【交锋往绩烟雾弹】利用 科林蒂安 与 里莫 历史交锋热度营造单边情绪，意在掩盖近期战术体系调整后的真实实力差距。",
           "【水位微震烟雾弹】盘口水位在临场前频繁微震，涉嫌制造控盘假象分流散户筹码。"
@@ -43768,9 +43768,9 @@
         "most_likely_score": "0-2 或 0-1",
         "over_under": "小 2.5",
         "half_full": "平平",
-        "upset_probability": 0.37,
+        "upset_probability": 0.38,
         "upset_direction": "客胜",
-        "kelly_conclusion": "即时返还率为 0.718。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.38，平局 0.54，客胜 0.52。<br/> 散户最热的【主胜】（凯利 1.38）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+        "kelly_conclusion": "即时返还率为 0.708。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.40，平局 0.53，客胜 0.51。<br/> 散户最热的【主胜】（凯利 1.40）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
         "draw_multiplier": 1.1,
         "upset_trend": "stable",
         "m10_snapshot_count": 1,
@@ -43882,7 +43882,7 @@
           "signal": "交锋势均力敌"
         }
       },
-      "moe_score": -0.20703489030135142,
+      "moe_score": -0.2135967934664898,
       "prediction_updated": true,
       "home_standing": {
         "rank": 4,
@@ -43925,33 +43925,6 @@
       },
       "status": "pending",
       "odds_history": [
-        {
-          "timestamp": "2026-07-22T17:14:50.673972",
-          "pinnacle": {
-            "home": 2.16,
-            "draw": 2.76,
-            "away": 2.76
-          },
-          "kelly_conclusion": "即时返还率为 0.842。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 0.93，平局 0.80，客胜 0.77。<br/> 散户最热的【主胜】（凯利 0.93）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
-          "asian_handicap": {
-            "handicap": "主队-0.25",
-            "home_odds": 1.92,
-            "away_odds": 1.98
-          },
-          "lottery_handicap": {
-            "handicap": "主让1球",
-            "initial": {
-              "win": 3.2,
-              "draw": 3.65,
-              "lose": 1.85
-            },
-            "current": {
-              "win": 3.2,
-              "draw": 3.65,
-              "lose": 1.85
-            }
-          }
-        },
         {
           "timestamp": "2026-07-22T17:20:01.497321",
           "pinnacle": {
@@ -44464,16 +44437,43 @@
               "lose": 1.85
             }
           }
+        },
+        {
+          "timestamp": "2026-07-22T18:22:01.936771",
+          "pinnacle": {
+            "home": 3.2,
+            "draw": 1.85,
+            "away": 1.85
+          },
+          "kelly_conclusion": "即时返还率为 0.718。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.38，平局 0.54，客胜 0.52。<br/> 散户最热的【主胜】（凯利 1.38）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+          "asian_handicap": {
+            "handicap": "主队-0.25",
+            "home_odds": 1.92,
+            "away_odds": 1.98
+          },
+          "lottery_handicap": {
+            "handicap": "主让1球",
+            "initial": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            },
+            "current": {
+              "win": 3.2,
+              "draw": 3.65,
+              "lose": 1.85
+            }
+          }
         }
       ],
       "match_context": "巴西甲级联赛常规赛对决。博塔弗戈坐镇主场迎接维多利亚的挑战。",
       "ultimate_conclusion": {
         "recommendation": "反基本面冷门 (客队不败)",
         "primary_bet": "双选不败",
-        "confidence": 36,
+        "confidence": 37,
         "risk_level": "极高",
         "ev_score": 0.0,
-        "reasoning": "巴西甲级联赛比赛双方战术意图各有侧重。 基本面上，博塔弗戈在【中场与推进效率】上拥有明显优势（评分 8.9 对 7.8），但维多利亚在【近期状态与动能】上（评分 9.0 对 7.8）给主队带来制约。结合战意（主 72% / 客 92%），即时欧指主胜由 3.26 降至 3.20，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【反基本面冷门 (客队不败)】。",
+        "reasoning": "巴西甲级联赛比赛双方战术意图各有侧重。 基本面上，博塔弗戈在【中场与推进效率】上拥有明显优势（评分 8.9 对 7.8），但维多利亚在【近期状态与动能】上（评分 9.0 对 7.8）给主队带来制约。结合战意（主 72% / 客 92%），即时欧指主胜由 3.33 降至 3.26，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【反基本面冷门 (客队不败)】。",
         "confidence_trend": "up"
       },
       "team_stats": {
@@ -44657,14 +44657,14 @@
         "pinnacle": {
           "name": "pinnacle",
           "initial": {
+            "home": 3.33,
+            "draw": 1.77,
+            "away": 1.77
+          },
+          "current": {
             "home": 3.26,
             "draw": 1.81,
             "away": 1.81
-          },
-          "current": {
-            "home": 3.2,
-            "draw": 1.85,
-            "away": 1.85
           },
           "movement": "实时追踪"
         },
@@ -44720,35 +44720,63 @@
         "sbobet": {
           "name": "sbobet",
           "initial": {
-            "home": 3.33,
-            "draw": 1.78,
-            "away": 1.76
+            "home": 3.39,
+            "draw": 1.74,
+            "away": 1.72
           },
           "current": {
-            "home": 3.26,
-            "draw": 1.81,
-            "away": 1.79
+            "home": 3.33,
+            "draw": 1.77,
+            "away": 1.76
           },
           "movement": "实时追踪"
         },
         "nova88": {
           "name": "nova88",
           "initial": {
-            "home": 3.2,
-            "draw": 1.83,
-            "away": 1.85
+            "home": 3.26,
+            "draw": 1.79,
+            "away": 1.81
           },
           "current": {
-            "home": 3.14,
-            "draw": 1.87,
-            "away": 1.89
+            "home": 3.19,
+            "draw": 1.83,
+            "away": 1.85
           },
           "movement": "实时追踪"
         },
         "crown": {
           "name": "crown",
           "initial": {
-            "home": 3.3,
+            "home": 3.36,
+            "draw": 1.77,
+            "away": 1.76
+          },
+          "current": {
+            "home": 3.29,
+            "draw": 1.81,
+            "away": 1.79
+          },
+          "movement": "实时追踪"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 3.23,
+            "draw": 1.72,
+            "away": 1.86
+          },
+          "current": {
+            "home": 3.16,
+            "draw": 1.76,
+            "away": 1.9
+          },
+          "movement": "实时追踪"
+        },
+        "m8bet": {
+          "name": "m8bet",
+          "initial": {
+            "home": 3.29,
             "draw": 1.81,
             "away": 1.79
           },
@@ -44756,34 +44784,6 @@
             "home": 3.23,
             "draw": 1.85,
             "away": 1.83
-          },
-          "movement": "实时追踪"
-        },
-        "hkjc": {
-          "name": "hkjc",
-          "initial": {
-            "home": 3.17,
-            "draw": 1.76,
-            "away": 1.9
-          },
-          "current": {
-            "home": 3.1,
-            "draw": 1.79,
-            "away": 1.94
-          },
-          "movement": "实时追踪"
-        },
-        "m8bet": {
-          "name": "m8bet",
-          "initial": {
-            "home": 3.23,
-            "draw": 1.85,
-            "away": 1.83
-          },
-          "current": {
-            "home": 3.17,
-            "draw": 1.89,
-            "away": 1.87
           },
           "movement": "实时追踪"
         },
@@ -44792,7 +44792,7 @@
           "【交锋往绩烟雾弹】利用 博塔弗戈 与 维多利亚 历史交锋热度营造单边情绪，意在掩盖近期战术体系调整后的真实实力差距。",
           "【水位微震烟雾弹】盘口水位在临场前频繁微震，涉嫌制造控盘假象分流散户筹码。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主不败' 进行了实质性控赔下调（已降水至 3.2），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。"
+        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主不败' 进行了实质性控赔下调（已降水至 3.26），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。"
       },
       "intelligence": {
         "verified_news": [
@@ -44854,7 +44854,7 @@
         "half_full": "平胜 或 胜胜",
         "upset_probability": 0.68,
         "upset_direction": "客胜/平局",
-        "kelly_conclusion": "即时返还率为 0.718。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.38，平局 0.54，客胜 0.52。<br/> 散户最热的【主胜】（凯利 1.38）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+        "kelly_conclusion": "即时返还率为 0.708。基于散户倾向（主 43% / 平 29% / 客 28%），计算得出即时凯利指数为：主胜 1.40，平局 0.53，客胜 0.51。<br/> 散户最热的【主胜】（凯利 1.40）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
         "draw_multiplier": 1.0,
         "upset_trend": "down",
         "m10_snapshot_count": 1,
@@ -44966,7 +44966,7 @@
           "signal": "交锋势均力敌"
         }
       },
-      "moe_score": 0.12666166089864847,
+      "moe_score": 0.1200997577335101,
       "prediction_updated": true,
       "home_standing": {
         "rank": 2,

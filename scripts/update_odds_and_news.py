@@ -2031,8 +2031,8 @@ def main():
         h2h_h_score = m.get("factor_scores", {}).get("M09_历史交锋与心理克制", {}).get("home_score", 5.0)
         h2h_a_score = m.get("factor_scores", {}).get("M09_历史交锋与心理克制", {}).get("away_score", 5.0)
 
-        is_strong_favorite = (paper_gap >= 3.5 and h2h_h_score >= 7.5) or (ph > 0 and ph <= 1.45)
-        is_away_strong_favorite = (paper_gap <= -3.5 and h2h_a_score >= 7.5) or (pa > 0 and pa <= 1.45)
+        is_strong_favorite = (paper_gap >= 3.5 and h2h_h_score >= 7.0)
+        is_away_strong_favorite = (paper_gap <= -3.5 and h2h_a_score >= 7.0)
 
         # Strong Favorite Dominance Floor Rule
         if is_strong_favorite:
@@ -2162,24 +2162,21 @@ def main():
         else:
             m["ultimate_conclusion"]["primary_bet"] = "双选不败"
             
-        # 2. Update Confidence, Recommendation & Risk Level for Strong Favorites
+        # 2. Update Confidence & Risk Level dynamically via MoE factor consensus
+        moe_abs = abs(moe_score)
+        conf = 48 + int(moe_abs * 40)
+        
         if is_strong_favorite or is_away_strong_favorite:
-            conf = 85
+            conf = min(88, max(76, conf + 18))
             m["ultimate_conclusion"]["risk_level"] = "低"
-            m["ultimate_conclusion"]["confidence"] = 85
             if is_strong_favorite:
                 m["ultimate_conclusion"]["recommendation"] = "主胜 (实力与交锋绝对碾压)"
-                m["ultimate_conclusion"]["predicted_score"] = "3-0"
                 m["ultimate_conclusion"]["primary_bet"] = "主胜"
             else:
                 m["ultimate_conclusion"]["recommendation"] = "客胜 (实力与交锋绝对碾压)"
-                m["ultimate_conclusion"]["predicted_score"] = "0-3"
                 m["ultimate_conclusion"]["primary_bet"] = "客胜"
         else:
-            moe_abs = abs(moe_score)
-            conf = 45 + int(moe_abs * 45)
             conf = max(30, min(95, conf))
-            
             old_risk = m["ultimate_conclusion"].get("risk_level", "中")
             if old_risk == "极高":
                 conf = int(conf * 0.72)
@@ -2187,7 +2184,6 @@ def main():
                 conf = int(conf * 0.85)
                 
             conf = max(30, min(95, conf))
-            m["ultimate_conclusion"]["confidence"] = conf
             
             if old_risk == "极高" or (conf < 45 and "反基本面冷门" in rec):
                 m["ultimate_conclusion"]["risk_level"] = "极高"
@@ -2197,6 +2193,8 @@ def main():
                 m["ultimate_conclusion"]["risk_level"] = "中"
             else:
                 m["ultimate_conclusion"]["risk_level"] = "高"
+                
+        m["ultimate_conclusion"]["confidence"] = conf
         
         # 3. Update Reasoning
         m["ultimate_conclusion"]["reasoning"] = generate_dynamic_reasoning(m)
