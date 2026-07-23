@@ -1,8 +1,64 @@
 {
-  "total_predictions": 62,
+  "total_predictions": 63,
   "correct_predictions": 35,
-  "accuracy_rate": 0.5645,
+  "accuracy_rate": 0.5556,
   "records": [
+    {
+      "match_id": "match_260723_周三209",
+      "league": "美国职业大联盟",
+      "home": "洛杉矶FC",
+      "away": "皇家盐湖城",
+      "date": "2026-07-23",
+      "time": "10:30",
+      "actual_result": "洛杉矶FC 3-1 皇家盐湖城 (2-0)",
+      "is_correct": false,
+      "confidence": 43,
+      "predictions": {
+        "recommendation": {
+          "val": "客胜",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "客胜",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "客胜",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平胜 或 胜胜 (竞彩首选)",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "1-3 (高赔客胜) 或 1-2 或 3-1 (竞彩首选)",
+          "correct": true
+        }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.07999999999999918,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": true
+      }
+    },
     {
       "match_id": "match_260723_周三208",
       "league": "巴西甲级联赛",
@@ -10,7 +66,7 @@
       "away": "巴拉纳竞技",
       "date": "2026-07-23",
       "time": "08:30",
-      "actual_result": "圣保罗 1-2 巴拉纳竞技 (1-1)",
+      "actual_result": "圣保罗 1-2 巴拉纳竞技 (1-0)",
       "is_correct": false,
       "confidence": 34,
       "predictions": {
@@ -4245,18 +4301,18 @@
     }
   ],
   "radar_stats": {
-    "total_alerts": 59,
-    "correct_alerts": 30,
-    "accuracy_rate": 0.5085
+    "total_alerts": 60,
+    "correct_alerts": 31,
+    "accuracy_rate": 0.5167
   },
-  "score_accuracy_rate": 0.1935,
-  "half_full_accuracy_rate": 0.1935,
+  "score_accuracy_rate": 0.2063,
+  "half_full_accuracy_rate": 0.1905,
   "hafu_accuracy_rate": 0.2609,
   "sporttery_primary_stats": {
     "score": {
-      "hits": 3,
-      "total": 15,
-      "accuracy_rate": 0.2
+      "hits": 4,
+      "total": 16,
+      "accuracy_rate": 0.25
     },
     "half_full": {
       "hits": 0,
