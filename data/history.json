@@ -1,8 +1,400 @@
 {
-  "total_predictions": 53,
-  "correct_predictions": 31,
-  "accuracy_rate": 0.5849,
+  "total_predictions": 60,
+  "correct_predictions": 34,
+  "accuracy_rate": 0.5667,
   "records": [
+    {
+      "match_id": "match_260723_周三206",
+      "league": "美国职业大联盟",
+      "home": "迈阿密国际",
+      "away": "芝加哥火焰",
+      "date": "2026-07-23",
+      "time": "07:30",
+      "actual_result": "迈阿密国际 3-2 芝加哥火焰 (1-1)",
+      "is_correct": true,
+      "confidence": 46,
+      "predictions": {
+        "recommendation": {
+          "val": "主不败",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "双选不败",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "主不败",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平胜 或 胜胜",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "2-1 或 1-1",
+          "correct": false
+        }
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "平局",
+        "diff": 0.06999999999999984,
+        "recommendation": "分出胜负",
+        "is_correct": true
+      }
+    },
+    {
+      "match_id": "match_260723_周三205",
+      "league": "挪威超级联赛",
+      "home": "利勒斯特罗姆",
+      "away": "维京",
+      "date": "2026-07-23",
+      "time": "01:00",
+      "actual_result": "利勒斯特罗姆 1-2 维京 (0-1)",
+      "is_correct": true,
+      "confidence": 52,
+      "predictions": {
+        "recommendation": {
+          "val": "客胜",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "客胜",
+          "correct": true
+        },
+        "mainstream": {
+          "val": "客胜",
+          "correct": true
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平负 (竞彩首选) 或 负负",
+          "correct": false
+        },
+        "over_under": {
+          "val": "小 2.5",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "0-2 或 0-1 或 1-2 (竞彩首选)",
+          "correct": true
+        }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.07999999999999918,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": false
+      }
+    },
+    {
+      "match_id": "match_260723_周三204",
+      "league": "挪威超级联赛",
+      "home": "博德闪耀",
+      "away": "汉坎",
+      "date": "2026-07-23",
+      "time": "01:00",
+      "actual_result": "博德闪耀 3-0 汉坎 (1-0)",
+      "is_correct": false,
+      "confidence": 51,
+      "predictions": {
+        "recommendation": {
+          "val": "反基本面冷门 (客队不败)",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "双选不败",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "主不败",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平胜 或 胜胜 (竞彩首选)",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "0-1 或 0-0 或 3-0 (竞彩首选)",
+          "correct": true
+        }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.07999999999999918,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": true
+      }
+    },
+    {
+      "match_id": "match_260722_周三210",
+      "league": "欧洲冠军联赛",
+      "home": "奥莫尼亚",
+      "away": "阿拉木图凯拉特",
+      "date": "2026-07-23",
+      "time": "01:00",
+      "actual_result": "奥莫尼亚 1-0 阿拉木图凯拉特 (1-0)",
+      "is_correct": false,
+      "confidence": 51,
+      "predictions": {
+        "recommendation": {
+          "val": "客胜",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "客胜",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "客胜",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平负 或 负负 或 平平 (竞彩首选)",
+          "correct": false
+        },
+        "over_under": {
+          "val": "小 2.5",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "0-2 或 0-1 或 0-0 (竞彩首选)",
+          "correct": false
+        }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.16000000000000014,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": true
+      }
+    },
+    {
+      "match_id": "match_260722_周三203",
+      "league": "韩国职业联赛",
+      "home": "光州FC",
+      "away": "金泉尚武",
+      "date": "2026-07-22",
+      "time": "18:30",
+      "actual_result": "光州FC 1-1 金泉尚武 (1-1)",
+      "is_correct": false,
+      "confidence": 59,
+      "predictions": {
+        "recommendation": {
+          "val": "客胜",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "客胜",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "客胜",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平平 (竞彩首选)",
+          "correct": false
+        },
+        "over_under": {
+          "val": "小 2.5",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "0-2 或 0-1 或 1-1 (竞彩首选)",
+          "correct": true
+        }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.16000000000000014,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": false
+      }
+    },
+    {
+      "match_id": "match_260722_周三202",
+      "league": "韩国职业联赛",
+      "home": "富川FC",
+      "away": "安养FC",
+      "date": "2026-07-22",
+      "time": "18:30",
+      "actual_result": "富川FC 2-3 安养FC (1-1)",
+      "is_correct": true,
+      "confidence": 61,
+      "predictions": {
+        "recommendation": {
+          "val": "客胜",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "客胜",
+          "correct": true
+        },
+        "mainstream": {
+          "val": "客胜",
+          "correct": true
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平平 (竞彩首选)",
+          "correct": false
+        },
+        "over_under": {
+          "val": "小 2.5",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "0-2 或 0-1 (竞彩首选)",
+          "correct": false
+        }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.16000000000000014,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": false
+      }
+    },
+    {
+      "match_id": "match_260722_周三201",
+      "league": "韩国职业联赛",
+      "home": "首尔FC",
+      "away": "浦项制铁",
+      "date": "2026-07-22",
+      "time": "18:30",
+      "actual_result": "首尔FC 3-1 浦项制铁 (1-0)",
+      "is_correct": false,
+      "confidence": 43,
+      "predictions": {
+        "recommendation": {
+          "val": "客胜",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "客胜",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "客胜",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平胜 (竞彩首选) 或 胜胜",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "1-3 (高赔客胜) 或 1-2 或 2-1 (竞彩首选)",
+          "correct": false
+        }
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.16000000000000014,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": true
+      }
+    },
     {
       "match_id": "match_260721_周二204",
       "league": "巴西甲级联赛",
@@ -3741,11 +4133,11 @@
     }
   ],
   "radar_stats": {
-    "total_alerts": 50,
-    "correct_alerts": 26,
-    "accuracy_rate": 0.52
+    "total_alerts": 57,
+    "correct_alerts": 30,
+    "accuracy_rate": 0.5263
   },
-  "score_accuracy_rate": 0.1698,
-  "half_full_accuracy_rate": 0.2264,
+  "score_accuracy_rate": 0.2,
+  "half_full_accuracy_rate": 0.2,
   "hafu_accuracy_rate": 0.2609
 }

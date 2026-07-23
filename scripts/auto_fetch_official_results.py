@@ -129,6 +129,7 @@ def main():
             res = evaluate_match_prediction(m, ft_score, ht_score)
             if res:
                 m["ultimate_conclusion"]["actual_result"] = res["actual_result"]
+                m["result"] = res
                 m["status"] = "finished"
                 updated = True
                 print(f"  Synced official result for {m.get('home')} vs {m.get('away')}: {res['actual_result']}")
