@@ -2303,22 +2303,60 @@ const MatchIQRender = (() => {
         </div>
       `;
 
-      return `
-        <tr>
-          <td class="font-mono" style="color:var(--text-3); font-weight:700;">${matchNo}</td>
-          <td>${getLeagueBadgeHtml(league)}</td>
-          <td>${kickoff}</td>
-          <td>${matchup}</td>
-          <td>${directionHTML}</td>
-          <td>${combinedBadge}</td>
-          <td class="font-mono" style="color:var(--green); font-weight:bold;">${scoreMarker}${renderUnderlinedScore(score)}</td>
-          <td style="padding: 4px 8px; white-space: normal;">${multiRecHTML}</td>
-        </tr>
+      const mobileCardHtml = `
+        <div class="mobile-summary-card">
+          <div class="msc-header">
+            <div><span class="match-no-badge">${matchNo}</span>${getLeagueBadgeHtml(league)}</div>
+            <div style="font-family:var(--font-mono); color:var(--text-3); font-size:11px;">⏰ ${kickoff}</div>
+          </div>
+          <div class="msc-matchup">
+            <div><span style="color:var(--text-1);">${m.home}</span> <span style="color:var(--text-4); font-size:12px;">VS</span> <span style="color:var(--text-1);">${m.away}</span></div>
+            <div>${tagHtml}</div>
+          </div>
+          <div class="msc-grid">
+            <div class="msc-item">
+              <span class="msc-label">预测方向</span>
+              <span class="msc-val" style="color:${hadColor}; font-weight:700;">${hadMarker}${confidenceConclusion}</span>
+            </div>
+            <div class="msc-item">
+              <span class="msc-label">置信度</span>
+              <span class="msc-val" style="color:${combinedColor}; font-weight:700;">${conf}% (${risk}风险)</span>
+            </div>
+            <div class="msc-item">
+              <span class="msc-label">最可能比分</span>
+              <span class="msc-val font-mono" style="color:var(--green);">${scoreMarker}${renderUnderlinedTwoScores(twoScores)}</span>
+            </div>
+            <div class="msc-item">
+              <span class="msc-label">半全场 / 进球</span>
+              <span class="msc-val" style="color:#818cf8; font-size:11px;">${hfMarker}${renderTaggedText(halfFullClean)} <span style="color:var(--text-2);">(${combinedGoalsHTML})</span></span>
+            </div>
+          </div>
+        </div>
       `;
-    }).join('');
+
+      return {
+        tableRow: `
+          <tr>
+            <td class="font-mono" style="color:var(--text-3); font-weight:700;">${matchNo}</td>
+            <td>${getLeagueBadgeHtml(league)}</td>
+            <td>${kickoff}</td>
+            <td>${matchup}</td>
+            <td>${directionHTML}</td>
+            <td>${combinedBadge}</td>
+            <td class="font-mono" style="color:var(--green); font-weight:bold;">${scoreMarker}${renderUnderlinedScore(score)}</td>
+            <td style="padding: 4px 8px; white-space: normal;">${multiRecHTML}</td>
+          </tr>
+        `,
+        mobileCard: mobileCardHtml
+      };
+    });
+
+    const tableRowsHtml = rows.map(r => r.tableRow).join('');
+    const mobileCardsHtml = rows.map(r => r.mobileCard).join('');
 
     return `
-      <div style="overflow-x:auto; background:rgba(13,21,39,0.3); border:1px solid var(--border-subtle); border-radius:12px; box-shadow:0 8px 32px rgba(0,0,0,0.2); backdrop-filter:blur(8px);">
+      <!-- Desktop Table View -->
+      <div class="desktop-only-view table-responsive" style="background:rgba(13,21,39,0.3); border:1px solid var(--border-subtle); border-radius:12px; box-shadow:0 8px 32px rgba(0,0,0,0.2); backdrop-filter:blur(8px);">
         <table class="summary-table" style="width:100%; border-collapse:collapse; text-align:left; font-size:13px; color:var(--text-2);">
           <thead>
             <tr style="border-bottom:1px solid var(--border-subtle); background:rgba(255,255,255,0.02);">
@@ -2333,9 +2371,14 @@ const MatchIQRender = (() => {
             </tr>
           </thead>
           <tbody>
-            ${rows}
+            ${tableRowsHtml}
           </tbody>
         </table>
+      </div>
+
+      <!-- Dedicated Mobile View -->
+      <div class="mobile-only-view mobile-summary-cards">
+        ${mobileCardsHtml}
       </div>
     `;
   }

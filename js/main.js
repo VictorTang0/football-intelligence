@@ -799,6 +799,7 @@ const MatchIQ = (() => {
   // ─── NAVIGATION & BACK TO TOP ───
   function initNavigation() {
     const sideLinks = document.querySelectorAll('.side-index-link');
+    const mobileBottomTabs = document.querySelectorAll('.mobile-bottom-tab');
     const backToTop = document.getElementById('back-to-top');
     const sections = Array.from(sideLinks).map(link => document.getElementById(link.dataset.target)).filter(Boolean);
 
@@ -827,6 +828,14 @@ const MatchIQ = (() => {
         }
       });
 
+      mobileBottomTabs.forEach(tab => {
+        if (tab.dataset.target === currentSectionId) {
+          tab.classList.add('active');
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+
       // 2. Back to Top visibility
       if (window.scrollY > 300) {
         backToTop?.classList.add('visible');
@@ -836,7 +845,8 @@ const MatchIQ = (() => {
     }, { passive: true });
 
     // Smooth scroll for nav links
-    sideLinks.forEach(link => {
+    const allNavLinks = [...sideLinks, ...mobileBottomTabs];
+    allNavLinks.forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
         const targetId = link.dataset.target;
@@ -853,6 +863,7 @@ const MatchIQ = (() => {
         }
       });
     });
+
 
     // Smooth scroll back to top
     backToTop?.addEventListener('click', () => {
