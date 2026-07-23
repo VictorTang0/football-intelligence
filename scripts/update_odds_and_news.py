@@ -1217,57 +1217,50 @@ def apply_dynamic_team_stats(m):
         }
         return pools.get(lg, ["赫尔辛基", "莫尔德", "马尔默", "哥德堡", "布兰", "瓦萨", "库普斯"])
         
-    def gen_local(team_name, form_list):
-        import random
-        from datetime import datetime, timedelta
-        try:
-            kickoff_dt = datetime.fromisoformat(kickoff.replace("Z", "+00:00"))
-        except Exception:
-            kickoff_dt = datetime.now()
-        teams_pool = [t for t in get_league_teams_local(league) if t != team_name]
-        if not teams_pool:
-            teams_pool = ["对手A", "对手B", "对手C", "对手D"]
-        recent_list = []
-        seed_val = sum(ord(c) for c in team_name)
-        state = random.getstate()
-        random.seed(seed_val)
-        for idx, outcome in enumerate(form_list):
-            days_back += random.randint(4, 7)
-            match_date = (kickoff_dt - timedelta(days=days_back)).strftime("%Y-%m-%d")
-            opponent = random.choice(teams_pool)
-            is_home = (idx % 2 == 0)
-            if outcome == "W":
-                our_g = random.choices([1, 2, 3, 4], weights=[0.4, 0.35, 0.2, 0.05])[0]
-                opp_g = random.choice(list(range(our_g)))
-            elif outcome == "L":
-                opp_g = random.choices([1, 2, 3, 4], weights=[0.4, 0.35, 0.2, 0.05])[0]
-                our_g = random.choice(list(range(opp_g)))
-            else:
-                our_g = random.choices([0, 1, 2, 3], weights=[0.2, 0.5, 0.2, 0.1])[0]
-                opp_g = our_g
-            our_ht = random.randint(0, our_g)
-            opp_ht = random.randint(0, opp_g)
-            home_team = team_name if is_home else opponent
-            away_team = opponent if is_home else team_name
-            home_score = our_g if is_home else opp_g
-            away_score = opp_g if is_home else our_g
-            home_ht = our_ht if is_home else opp_ht
-            away_ht = opp_ht if is_home else our_ht
-            recent_list.append({
-                "date": match_date,
-                "home": home_team,
-                "away": away_team,
-                "score": f"{home_score}-{away_score}",
-                "half_score": f"{home_ht}-{away_ht}",
-                "outcome": outcome
-            })
-        random.setstate(state)
-        return recent_list
+    # 真实竞彩官方战绩提取算子 (100% 拒绝任何伪随机数据拼装)
+    def fetch_real_official_recent_5(team_name):
+        hist_db_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "official_sporttery_2022_2026.json")
+        matches = []
+        if os.path.exists(hist_db_path):
+            try:
+                with open(hist_db_path, "r", encoding="utf-8") as f:
+                    hist_db = json.load(f)
+                for item in hist_db:
+                    h = item.get("homeTeam", "")
+                    a = item.get("awayTeam", "")
+                    if team_name in h or team_name in a or h in team_name or a in team_name:
+                        dt = item.get("matchDate", "")
+                        score = item.get("sectionsNo999", "")
+                        ht_score = item.get("sectionsNo1", "")
+                        if score and ":" in score:
+                            matches.append({
+                                "date": dt,
+                                "league": item.get("leagueNameAbbr", ""),
+                                "home": h,
+                                "away": a,
+                                "score": score.replace(":", "-"),
+                                "half_score": ht_score.replace(":", "-") if ht_score else "",
+                                "outcome": "W" if (team_name in h and int(score.split(":")[0]) > int(score.split(":")[1])) or (team_name in a and int(score.split(":")[1]) > int(score.split(":")[0])) else "L" if (team_name in h and int(score.split(":")[0]) < int(score.split(":")[1])) or (team_name in a and int(score.split(":")[1]) < int(score.split(":")[0])) else "D"
+                            })
+            except Exception: pass
+        # Sort strictly by date descending to ensure TRUE RECENT 5
+        matches.sort(key=lambda x: x["date"], reverse=True)
+        return matches[:5]
 
-    if "recent_matches" not in m["team_stats"]["home"]:
-        m["team_stats"]["home"]["recent_matches"] = gen_local(home, m["team_stats"]["home"]["form"])
-    if "recent_matches" not in m["team_stats"]["away"]:
-        m["team_stats"]["away"]["recent_matches"] = gen_local(away, m["team_stats"]["away"]["form"])
+    real_home_recent = fetch_real_official_recent_5(home)
+    real_away_recent = fetch_real_official_recent_5(away)
+
+    if real_home_recent:
+        m["team_stats"]["home"]["recent_matches"] = real_home_recent
+        m["team_stats"]["home"]["form"] = [r["outcome"] for r in real_home_recent]
+    else:
+        m["team_stats"]["home"]["recent_matches_note"] = "竞彩网暂未查到该队历史开奖近况，已标记为待补充"
+
+    if real_away_recent:
+        m["team_stats"]["away"]["recent_matches"] = real_away_recent
+        m["team_stats"]["away"]["form"] = [r["outcome"] for r in real_away_recent]
+    else:
+        m["team_stats"]["away"]["recent_matches_note"] = "竞彩网暂未查到该队历史开奖近况，已标记为待补充"
 
 
 # Load real-world match intelligence from data/real_news_feed.json if exists
