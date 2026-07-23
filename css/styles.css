@@ -1699,9 +1699,9 @@ section { padding: clamp(32px, 5vw, 64px) 0; }
 .multi-rec-box {
   display: grid;
   grid-template-columns: repeat(2, minmax(max-content, 1fr));
-  gap: 6px 16px;
+  gap: 6px 14px;
   text-align: left;
-  font-size: 12px;
+  font-size: clamp(12.5px, 0.95vw, 14px);
 }
 .mr-item {
   display: flex;
@@ -1710,20 +1710,21 @@ section { padding: clamp(32px, 5vw, 64px) 0; }
 }
 .mr-label {
   color: var(--text-2);
-  font-size: 10px;
+  font-size: 10.5px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   background: rgba(0, 212, 255, 0.05);
   border: 1px solid rgba(0, 212, 255, 0.2);
   border-radius: 4px;
-  padding: 1px 4px;
+  padding: 2px 5px;
   min-width: 32px;
   text-align: center;
   font-weight: 700;
 }
 .mr-val {
   color: #f1f5f9;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: clamp(12.5px, 0.95vw, 14.5px);
 }
 .mr-val.highlight {
   color: var(--cyan);

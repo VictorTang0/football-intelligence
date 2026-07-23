@@ -2282,10 +2282,10 @@ const MatchIQRender = (() => {
       const hfMarker = m.diff_markers?.hf ? `<span class="live-change-lamp" title="半全场推荐因临场盘口有微调"></span>` : '';
 
       const directionHTML = `
-        <div style="text-align:left; font-size:12px; line-height:1.45;">
+        <div style="text-align:left; font-size:clamp(12px, 0.95vw, 13.5px); line-height:1.5;">
           <div style="margin-bottom:2px; color:var(--text-3);">胜平负：${hadMarker}<span style="color:${hadColor}; font-weight:700;">${had}</span></div>
           <div style="margin-bottom:2px; color:var(--text-3);">让球盘(${hcLabel})：${hadMarker}<span style="color:${hhadColor}; font-weight:700;">${hhad}</span></div>
-          <div style="border-top:1px solid rgba(255,255,255,0.06); margin-top:4px; padding-top:4px; color:#10b981; font-weight:800; font-size:11.5px;">信心推荐：${hadMarker}${confidenceConclusion}</div>
+          <div style="border-top:1px solid rgba(255,255,255,0.06); margin-top:4px; padding-top:4px; color:#10b981; font-weight:800; font-size:clamp(12px, 0.95vw, 13.5px);">信心推荐：${hadMarker}${confidenceConclusion}</div>
         </div>
       `;
 
@@ -2343,7 +2343,7 @@ const MatchIQRender = (() => {
             <td>${matchup}</td>
             <td>${directionHTML}</td>
             <td>${combinedBadge}</td>
-            <td class="font-mono" style="color:var(--green); font-weight:bold;">${scoreMarker}${renderUnderlinedScore(score)}</td>
+            <td class="font-mono" style="color:var(--green); font-weight:800; font-size:clamp(14px, 1.1vw, 16px);">${scoreMarker}${renderUnderlinedScore(score)}</td>
             <td style="padding: 4px 8px; white-space: normal;">${multiRecHTML}</td>
           </tr>
         `,
