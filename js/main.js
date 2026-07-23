@@ -119,6 +119,8 @@ const MatchIQ = (() => {
     try {
       const versionBadge = document.getElementById('version-badge');
       const matchCountEl = document.getElementById('header-match-count');
+      const spScoreEl = document.getElementById('header-sporttery-score-val');
+      const spHafuEl = document.getElementById('header-sporttery-hafu-val');
       const accEl = document.getElementById('header-accuracy');
       const scoreAccEl = document.getElementById('header-score-accuracy');
       const hfAccEl = document.getElementById('header-hf-accuracy');
@@ -128,6 +130,17 @@ const MatchIQ = (() => {
       const latestVersion = evolution?.snapshots?.slice(-1)[0]?.version || weights?.version || 'v3.5';
       if (versionBadge) versionBadge.textContent = latestVersion;
       if (matchCountEl) matchCountEl.textContent = upcomingMatches.length;
+
+      // 竞彩首选命中率 (比分 / 半全场) 专属显示
+      if (spScoreEl) {
+        const spScoreAcc = history?.sporttery_primary_stats?.score?.accuracy_rate;
+        spScoreEl.textContent = spScoreAcc !== null && spScoreAcc !== undefined ? (spScoreAcc * 100).toFixed(1) + '%' : '--%';
+      }
+      if (spHafuEl) {
+        const spHafuAcc = history?.sporttery_primary_stats?.half_full?.accuracy_rate;
+        spHafuEl.textContent = spHafuAcc !== null && spHafuAcc !== undefined ? (spHafuAcc * 100).toFixed(1) + '%' : '--%';
+      }
+
       if (accEl) {
         const acc = history?.accuracy_rate;
         accEl.textContent = acc !== null && acc !== undefined ? (acc * 100).toFixed(1) + '%' : '--';

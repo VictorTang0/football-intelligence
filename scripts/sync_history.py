@@ -318,6 +318,81 @@ def sync():
     history_db["score_accuracy_rate"] = round(score_correct / history_db["total_predictions"], 4) if history_db["total_predictions"] > 0 else 0.0
     history_db["half_full_accuracy_rate"] = round(hf_correct / history_db["total_predictions"], 4) if history_db["total_predictions"] > 0 else 0.0
     
+    # 专属计算：只统计在预测中被标记了 (竞彩首选) 的比分与半全场内容
+    sp_score_hits, sp_score_total = 0, 0
+    sp_hafu_hits, sp_hafu_total = 0, 0
+
+    for m in matches_db.get("matches", []):
+        if m.get("status") != "finished":
+            continue
+        actual = m.get("ultimate_conclusion", {}).get("actual_result", "")
+        if not actual or "-" not in actual:
+            continue
+
+        m_score = re.search(r'(\d+)\s*[-–:]\s*(\d+)\s*\((.*?)\)', actual)
+        if not m_score:
+            m_score_simple = re.search(r'(\d+)\s*[-–:]\s*(\d+)', actual)
+            if not m_score_simple: continue
+            hg, ag = int(m_score_simple.group(1)), int(m_score_simple.group(2))
+            ht_str = ""
+        else:
+            hg, ag = int(m_score.group(1)), int(m_score.group(2))
+            ht_str = m_score.group(3)
+
+        ft_score_clean = f"{hg}-{ag}"
+        actual_hafu = ""
+        if ht_str and "-" in ht_str:
+            try:
+                ht1, ht2 = map(int, ht_str.split("-"))
+                ht_res = "胜" if ht1 > ht2 else "负" if ht2 > ht1 else "平"
+                ft_res = "胜" if hg > ag else "负" if ag > hg else "平"
+                actual_hafu = f"{ht_res}{ft_res}"
+            except Exception: pass
+
+        conc = m.get("conclusions", {})
+        mls = conc.get("most_likely_score", "")
+        hf = conc.get("half_full", "")
+
+        if "(竞彩首选)" in mls:
+            parts = mls.split("或")
+            primary_score = None
+            for p in parts:
+                if "竞彩首选" in p:
+                    primary_score = p.split("(")[0].strip().replace(":", "-")
+                    break
+            if primary_score:
+                sp_score_total += 1
+                if primary_score == ft_score_clean:
+                    sp_score_hits += 1
+
+        if "(竞彩首选)" in hf:
+            parts = hf.split("或")
+            primary_hafu = None
+            for p in parts:
+                if "竞彩首选" in p:
+                    primary_hafu = p.split("(")[0].strip().replace("/", "").replace(" ", "")
+                    break
+            if primary_hafu and actual_hafu:
+                sp_hafu_total += 1
+                if primary_hafu == actual_hafu:
+                    sp_hafu_hits += 1
+
+    sp_score_acc = round(sp_score_hits / sp_score_total, 4) if sp_score_total > 0 else 0.0
+    sp_hafu_acc = round(sp_hafu_hits / sp_hafu_total, 4) if sp_hafu_total > 0 else 0.0
+
+    history_db["sporttery_primary_stats"] = {
+        "score": {
+            "hits": sp_score_hits,
+            "total": sp_score_total,
+            "accuracy_rate": sp_score_acc
+        },
+        "half_full": {
+            "hits": sp_hafu_hits,
+            "total": sp_hafu_total,
+            "accuracy_rate": sp_hafu_acc
+        }
+    }
+
     # Calculate cumulative radar accuracy stats
     radar_alerts = [r["radar_alert"] for r in new_records if r.get("radar_alert")]
     radar_count = len(radar_alerts)
@@ -333,6 +408,7 @@ def sync():
         
     print(f"✅ Successfully synchronized history.json! Total predictions: {history_db['total_predictions']}, Correct: {history_db['correct_predictions']}, Accuracy: {history_db['accuracy_rate']}")
     print(f"📊 Score Accuracy: {history_db['score_accuracy_rate']}, Half/Full Accuracy: {history_db['half_full_accuracy_rate']}")
+    print(f"🎯 Sporttery Primary Score Accuracy: {sp_score_acc} ({sp_score_hits}/{sp_score_total}), Primary Hafu Accuracy: {sp_hafu_acc} ({sp_hafu_hits}/{sp_hafu_total})")
     print(f"📊 Radar Stats: Total {radar_count}, Correct {radar_correct}, Accuracy {history_db['radar_stats']['accuracy_rate']}")
     return True
 
