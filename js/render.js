@@ -990,8 +990,25 @@ const MatchIQRender = (() => {
           <div class="cs-value">${renderUnderlinedScore(c.most_likely_score)}</div>
         </div>
         <div class="cs-item">
-          <div class="cs-label">大小球</div>
-          <div class="cs-value">${c.over_under || '--'}</div>
+          <div class="cs-label">大小球/具体进球数</div>
+          <div class="cs-value">
+            ${renderTaggedText(c.over_under || '--')}
+            ${(() => {
+              const matchesForGoals = (c.most_likely_score || '').match(/\d+[:\-]\d+/g);
+              if (matchesForGoals) {
+                const goals = matchesForGoals.map(s => {
+                  const parts = s.split(/[:\-]/);
+                  return parseInt(parts[0], 10) + parseInt(parts[1], 10);
+                });
+                const uniqueGoals = [...new Set(goals)].sort((a, b) => a - b);
+                if (conf >= 55 && uniqueGoals.length > 0) {
+                  const topGoals = uniqueGoals.slice(0, 2);
+                  return `<span style="font-size:11px; color:#eab308; font-weight:700; display:block; margin-top:3px;">推荐：${topGoals.join('、')}球</span>`;
+                }
+              }
+              return '';
+            })()}
+          </div>
         </div>
         <div class="cs-item">
           <div class="cs-label">半/全场</div>
@@ -2128,7 +2145,6 @@ const MatchIQRender = (() => {
 
       const primaryBet = getPrimaryBet(m);
       const twoScores = getTwoScores(score);
-      const twoGoals = getTwoGoals(score);
       const halfFullClean = halfFull;
 
       // Combine confidence and risk level with beautiful colors
@@ -2211,11 +2227,30 @@ const MatchIQRender = (() => {
         </div>
       `;
 
+      // 动态生成进球数及大小球组合（包含竞彩首选标签及具体进球数推荐）
+      let ou = m.conclusions?.over_under || '--';
+      let ouHTML = renderTaggedText(ou);
+      let goalRecommendText = "";
+      const matchesForGoals = score.match(/\d+[:\-]\d+/g);
+      if (matchesForGoals) {
+        const goals = matchesForGoals.map(s => {
+          const parts = s.split(/[:\-]/);
+          return parseInt(parts[0], 10) + parseInt(parts[1], 10);
+        });
+        const uniqueGoals = [...new Set(goals)].sort((a, b) => a - b);
+        // 如果系统置信度 >= 55%，推荐具体进球数（最多 2 个值）
+        if (conf >= 55 && uniqueGoals.length > 0) {
+          const topGoals = uniqueGoals.slice(0, 2);
+          goalRecommendText = ` <span style="color:#eab308; font-weight:700; margin-left:3px;">(${topGoals.join('、')}球)</span>`;
+        }
+      }
+      const combinedGoalsHTML = `${ouHTML}${goalRecommendText}`;
+
       const multiRecHTML = `
         <div class="multi-rec-box">
           <div class="mr-item"><span class="mr-label">方向</span><span class="mr-val highlight">${confidenceConclusion}</span></div>
           <div class="mr-item"><span class="mr-label">比分</span><span class="mr-val font-mono">${renderUnderlinedTwoScores(twoScores)}</span></div>
-          <div class="mr-item"><span class="mr-label">进球</span><span class="mr-val font-mono">${twoGoals}</span></div>
+          <div class="mr-item"><span class="mr-label">进球</span><span class="mr-val" style="font-weight:700;">${combinedGoalsHTML}</span></div>
           <div class="mr-item"><span class="mr-label">半全</span><span class="mr-val" style="color:#818cf8;">${renderTaggedText(halfFullClean)}</span></div>
         </div>
       `;
