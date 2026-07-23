@@ -51,18 +51,25 @@ const MatchIQRender = (() => {
       p_goals = [...new Set(p_goals)].sort((a, b) => a - b).slice(0, 2);
     }
 
-    // 2. 获取 M10 系统具体进球数 M_goals（最多保留前 2 个）
+    // 2. 获取 M10 系统具体进球数 M_goals（只有在 M10 确实检测到变盘时才推荐）
     let m_goals = [];
     const m10Scores = m.conclusions?.sporttery_hot_scores || [];
     const snapshotCount = m.conclusions?.m10_snapshot_count || 1;
+    // 只有在快照数 >= 2（代表确实发生了临场变盘水温变化）且 M10 模块被激活时才进行 M10 推荐
     if (snapshotCount >= 2 && m10Scores.length > 0) {
-      const matchesM = m10Scores.join(' ').match(/\d+[:\-]\d+/g);
+      const hasDivergence = m.conclusions?.had_hhad_divergence === true;
+      // 规则：若发生剪刀差背离，则代表主力资金异动强烈，只取最核心的第一比分（凝聚力最高），实现“特别有信心时只推荐一个”
+      // 否则，取前 2 项进行常规偏离覆盖
+      const limit = hasDivergence ? 1 : 2;
+      const targetScores = m10Scores.slice(0, limit);
+      
+      const matchesM = targetScores.join(' ').match(/\d+[:\-]\d+/g);
       if (matchesM) {
         m_goals = matchesM.map(s => {
           const parts = s.split(/[:\-]/);
           return parseInt(parts[0], 10) + parseInt(parts[1], 10);
         });
-        m_goals = [...new Set(m_goals)].sort((a, b) => a - b).slice(0, 2);
+        m_goals = [...new Set(m_goals)].sort((a, b) => a - b);
       }
     }
 
