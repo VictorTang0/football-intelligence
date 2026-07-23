@@ -1,6 +1,6 @@
 {
   "current_version": "v3.9",
-  "evolution_count": 20,
+  "evolution_count": 21,
   "snapshots": [
     {
       "version": "v1.0",
@@ -711,7 +711,17 @@
           "reason": "完成 63 场实盘自动对账反向传导演进"
         }
       ]
+    },
+    {
+      "version": "v4.0",
+      "timestamp": "2026-07-23T13:48:45+08:00",
+      "validated_matches": 63,
+      "accuracy_rate": 0.5556,
+      "score_accuracy_rate": 0.2063,
+      "half_full_accuracy_rate": 0.1905,
+      "notes": "v4.0 Major Release: Dual-core architecture, M10 Master 4D preferences & 2x4 top bar mini table."
     }
   ],
-  "last_updated": "2026-07-23T13:19:21.734136"
+  "last_updated": "2026-07-23T13:48:43.354470",
+  "version": "v4.0"
 }

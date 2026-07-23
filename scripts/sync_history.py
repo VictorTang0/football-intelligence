@@ -318,7 +318,9 @@ def sync():
     history_db["score_accuracy_rate"] = round(score_correct / history_db["total_predictions"], 4) if history_db["total_predictions"] > 0 else 0.0
     history_db["half_full_accuracy_rate"] = round(hf_correct / history_db["total_predictions"], 4) if history_db["total_predictions"] > 0 else 0.0
     
-    # 专属计算：只统计在预测中被标记了 (竞彩首选) 的比分与半全场内容
+    # 专属计算：M10 竞彩大师在【胜平负/方向】、【进球数】、【比分】、【半全场】四大维度的 (竞彩首选) 独立命中率
+    sp_dir_hits, sp_dir_total = 0, 0
+    sp_goals_hits, sp_goals_total = 0, 0
     sp_score_hits, sp_score_total = 0, 0
     sp_hafu_hits, sp_hafu_total = 0, 0
 
@@ -340,6 +342,11 @@ def sync():
             ht_str = m_score.group(3)
 
         ft_score_clean = f"{hg}-{ag}"
+        is_home_win = (hg > ag)
+        is_draw = (hg == ag)
+        is_away_win = (hg < ag)
+        total_goals = hg + ag
+
         actual_hafu = ""
         if ht_str and "-" in ht_str:
             try:
@@ -349,10 +356,31 @@ def sync():
                 actual_hafu = f"{ht_res}{ft_res}"
             except Exception: pass
 
+        uc = m.get("ultimate_conclusion", {})
         conc = m.get("conclusions", {})
+        rec = uc.get("recommendation", "")
         mls = conc.get("most_likely_score", "")
+        ou = conc.get("over_under", "")
         hf = conc.get("half_full", "")
 
+        # 1. 竞彩首选方向/胜平负
+        if "(竞彩首选)" in rec:
+            sp_dir_total += 1
+            dir_correct = False
+            if is_home_win and any(x in rec for x in ["主胜", "主队胜", "主不败", "胜"]): dir_correct = True
+            elif is_draw and any(x in rec for x in ["平局", "主不败", "客不败", "平"]): dir_correct = True
+            elif is_away_win and any(x in rec for x in ["客胜", "客队胜", "客不败", "负"]): dir_correct = True
+            if dir_correct: sp_dir_hits += 1
+
+        # 2. 竞彩首选总进球数
+        if "(竞彩首选)" in ou:
+            sp_goals_total += 1
+            goals_correct = False
+            if "大 2.5" in ou and total_goals > 2.5: goals_correct = True
+            elif "小 2.5" in ou and total_goals < 2.5: goals_correct = True
+            if goals_correct: sp_goals_hits += 1
+
+        # 3. 竞彩首选比分
         if "(竞彩首选)" in mls:
             parts = mls.split("或")
             primary_score = None
@@ -365,6 +393,7 @@ def sync():
                 if primary_score == ft_score_clean:
                     sp_score_hits += 1
 
+        # 4. 竞彩首选半全场
         if "(竞彩首选)" in hf:
             parts = hf.split("或")
             primary_hafu = None
@@ -377,10 +406,22 @@ def sync():
                 if primary_hafu == actual_hafu:
                     sp_hafu_hits += 1
 
+    sp_dir_acc = round(sp_dir_hits / sp_dir_total, 4) if sp_dir_total > 0 else 0.0
+    sp_goals_acc = round(sp_goals_hits / sp_goals_total, 4) if sp_goals_total > 0 else 0.0
     sp_score_acc = round(sp_score_hits / sp_score_total, 4) if sp_score_total > 0 else 0.0
     sp_hafu_acc = round(sp_hafu_hits / sp_hafu_total, 4) if sp_hafu_total > 0 else 0.0
 
     history_db["sporttery_primary_stats"] = {
+        "direction": {
+            "hits": sp_dir_hits,
+            "total": sp_dir_total,
+            "accuracy_rate": sp_dir_acc
+        },
+        "goals": {
+            "hits": sp_goals_hits,
+            "total": sp_goals_total,
+            "accuracy_rate": sp_goals_acc
+        },
         "score": {
             "hits": sp_score_hits,
             "total": sp_score_total,

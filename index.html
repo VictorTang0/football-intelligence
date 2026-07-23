@@ -83,13 +83,26 @@
           <div class="val" id="header-match-count">0</div>
           <div class="lbl">今日场次</div>
         </div>
-        <div class="meta-stat" style="min-width: 135px;" title="仅统计预测中被标记了 (竞彩首选) 的比分与半全场命中率">
-          <div class="val font-mono" id="header-sporttery-primary-acc" style="font-size: 13.5px; white-space: nowrap;">
-            <span style="color:#10b981;" id="header-sporttery-score-val">--%</span>
-            <span style="color:var(--text-3); font-size:11px; margin:0 1px;">/</span>
-            <span style="color:#818cf8;" id="header-sporttery-hafu-val">--%</span>
-          </div>
-          <div class="lbl" style="white-space: nowrap;">竞彩首选 (比分/半全)</div>
+        <div class="meta-stat m10-table-stat" style="padding: 4px 10px; background: rgba(16, 185, 129, 0.04); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 8px;" title="M10 竞彩大师系统预测四项内容的独立首选命中率">
+          <div class="lbl" style="margin-bottom: 2px; font-weight: bold; color: var(--cyan); white-space: nowrap; text-align: center;">🎯 M10 竞彩首选命中率</div>
+          <table class="m10-mini-table" style="font-size: 11px; border-collapse: collapse; text-align: center; font-family: var(--font-mono); width: 100%;">
+            <thead>
+              <tr style="color: var(--text-3); border-bottom: 1px solid rgba(255,255,255,0.08);">
+                <th style="padding: 1px 5px; font-weight: normal;">方向</th>
+                <th style="padding: 1px 5px; font-weight: normal;">进球</th>
+                <th style="padding: 1px 5px; font-weight: normal;">比分</th>
+                <th style="padding: 1px 5px; font-weight: normal;">半全</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="font-weight: bold;">
+                <td style="padding: 2px 5px; color: #38bdf8;" id="m10-acc-dir">--%</td>
+                <td style="padding: 2px 5px; color: #f59e0b;" id="m10-acc-goals">--%</td>
+                <td style="padding: 2px 5px; color: #10b981;" id="m10-acc-score">--%</td>
+                <td style="padding: 2px 5px; color: #818cf8;" id="m10-acc-hafu">--%</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="meta-stat">
           <div class="val" id="header-accuracy">--%</div>

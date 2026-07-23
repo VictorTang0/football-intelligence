@@ -1091,11 +1091,17 @@ def apply_dynamic_conclusions(m):
             else:
                 final_parts.append(s)
         if not found:
-            # Append newly deduced M10 score without count restriction
             final_parts.append(f"{m10_score_pref} (竞彩首选)")
         most_likely_score = " 或 ".join(final_parts)
     else:
         most_likely_score = " 或 ".join(base_scores)
+
+    # M10 竞彩大师总进球数独立推演 (仅当水温降水信号极强时标记竞彩首选)
+    if is_m10_active and (g_home + g_away >= 3.0 or g_home + g_away <= 1.5):
+        if "大 2.5" in ou_line:
+            ou_line = "大 2.5 (竞彩首选)"
+        elif "小 2.5" in ou_line:
+            ou_line = "小 2.5 (竞彩首选)"
 
     m["conclusions"]["most_likely_score"] = most_likely_score
     m["conclusions"]["over_under"] = ou_line
@@ -1120,13 +1126,19 @@ def apply_dynamic_conclusions(m):
             else:
                 final_hafu_parts.append(h)
         if not found:
-            # Append newly deduced M10 half-full option without count restriction
             final_hafu_parts.append(f"{m10_hafu_pref} (竞彩首选)")
         half_full = " 或 ".join(final_hafu_parts)
     else:
         half_full = " 或 ".join(base_hafu_list)
             
     m["conclusions"]["half_full"] = half_full
+
+    # M10 竞彩大师胜平负/方向独立推演 (仅当竞彩水位水温呈现极端极佳赔付时标记)
+    if is_m10_active and "recommendation" in m.get("ultimate_conclusion", {}):
+        curr_rec = m["ultimate_conclusion"]["recommendation"]
+        # 当 M10 水温处于超低水强砸区间时添加 (竞彩首选)
+        if not curr_rec.endswith("(竞彩首选)") and (m.get("ultimate_conclusion", {}).get("confidence", 0) >= 75 or "反基本面冷门" in curr_rec):
+            m["ultimate_conclusion"]["recommendation"] = f"{curr_rec} (竞彩首选)"
     
     if "反基本面冷门" in rec:
         m["conclusions"]["upset_probability"] = 0.68

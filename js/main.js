@@ -119,8 +119,10 @@ const MatchIQ = (() => {
     try {
       const versionBadge = document.getElementById('version-badge');
       const matchCountEl = document.getElementById('header-match-count');
-      const spScoreEl = document.getElementById('header-sporttery-score-val');
-      const spHafuEl = document.getElementById('header-sporttery-hafu-val');
+      const m10DirEl = document.getElementById('m10-acc-dir');
+      const m10GoalsEl = document.getElementById('m10-acc-goals');
+      const m10ScoreEl = document.getElementById('m10-acc-score');
+      const m10HafuEl = document.getElementById('m10-acc-hafu');
       const accEl = document.getElementById('header-accuracy');
       const scoreAccEl = document.getElementById('header-score-accuracy');
       const hfAccEl = document.getElementById('header-hf-accuracy');
@@ -131,14 +133,23 @@ const MatchIQ = (() => {
       if (versionBadge) versionBadge.textContent = latestVersion;
       if (matchCountEl) matchCountEl.textContent = upcomingMatches.length;
 
-      // 竞彩首选命中率 (比分 / 半全场) 专属显示
-      if (spScoreEl) {
-        const spScoreAcc = history?.sporttery_primary_stats?.score?.accuracy_rate;
-        spScoreEl.textContent = spScoreAcc !== null && spScoreAcc !== undefined ? (spScoreAcc * 100).toFixed(1) + '%' : '--%';
+      // M10 竞彩大师四维首选命中率 (2x4 表格) 专属渲染
+      const spStats = history?.sporttery_primary_stats || {};
+      if (m10DirEl) {
+        const acc = spStats.direction?.accuracy_rate;
+        m10DirEl.textContent = acc !== null && acc !== undefined && spStats.direction?.total > 0 ? (acc * 100).toFixed(1) + '%' : '--%';
       }
-      if (spHafuEl) {
-        const spHafuAcc = history?.sporttery_primary_stats?.half_full?.accuracy_rate;
-        spHafuEl.textContent = spHafuAcc !== null && spHafuAcc !== undefined ? (spHafuAcc * 100).toFixed(1) + '%' : '--%';
+      if (m10GoalsEl) {
+        const acc = spStats.goals?.accuracy_rate;
+        m10GoalsEl.textContent = acc !== null && acc !== undefined && spStats.goals?.total > 0 ? (acc * 100).toFixed(1) + '%' : '--%';
+      }
+      if (m10ScoreEl) {
+        const acc = spStats.score?.accuracy_rate;
+        m10ScoreEl.textContent = acc !== null && acc !== undefined && spStats.score?.total > 0 ? (acc * 100).toFixed(1) + '%' : '--%';
+      }
+      if (m10HafuEl) {
+        const acc = spStats.half_full?.accuracy_rate;
+        m10HafuEl.textContent = acc !== null && acc !== undefined && spStats.half_full?.total > 0 ? (acc * 100).toFixed(1) + '%' : '--%';
       }
 
       if (accEl) {
