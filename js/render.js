@@ -908,18 +908,63 @@ const MatchIQRender = (() => {
         <div class="cc-value">${c.aggressive || '--'}</div>
       </div>`;
 
+    // 智能提取 胜平负(HAD) 与 让球胜平负(HHAD)
+    const recText = uc.recommendation || c.mainstream || '主胜';
+    let had = "平局";
+    if (recText.includes("主胜") || recText.includes("主队胜") || recText.includes("主不败") || recText.includes("胜")) {
+      had = "主胜";
+    } else if (recText.includes("客胜") || recText.includes("客队胜") || recText.includes("客不败") || recText.includes("负")) {
+      had = "客胜";
+    }
+    
+    let hhad = "让平";
+    const mlsText = c.most_likely_score || '';
+    if (had === "主胜") {
+      if (mlsText.includes("2-0") || mlsText.includes("3-0") || mlsText.includes("3-1")) {
+        hhad = "让胜";
+      } else {
+        hhad = "让平";
+      }
+    } else {
+      hhad = "让负";
+    }
+
+    const hadColor = had === "主胜" ? "#ff5252" : had === "客胜" ? "#40a9ff" : "#4caf50";
+    const hhadColor = hhad === "让胜" ? "#ff5252" : hhad === "让平" ? "#f59e0b" : "#40a9ff";
+
+    // 信心结论：高信心只显一种，中低信心显示双选两种
+    let confidenceConclusion = "";
+    const cleanRec = recText.split('(')[0].trim();
+    if (conf >= 75) {
+      confidenceConclusion = cleanRec; // 单选一种
+    } else {
+      // 双选两种
+      if (cleanRec === "主胜" || cleanRec === "双选不败") {
+        confidenceConclusion = "主胜 或 平局";
+      } else if (cleanRec === "客胜") {
+        confidenceConclusion = "平局 或 客胜";
+      } else {
+        confidenceConclusion = `${cleanRec} 或 平局`;
+      }
+    }
+
     return `
     <div class="mc-pane" id="pane-${match.id}-conclusions">
       <div class="conclusions-grid">
-        <div class="conclusion-card mainstream">
-          <div class="cc-label">主流方向</div>
-          <div class="cc-value">${c.mainstream || '--'}</div>
+        <div class="conclusion-card mainstream" style="display:flex; flex-direction:column; justify-content:center; padding:10px 14px; text-align:left;">
+          <div class="cc-label" style="margin-bottom:6px;">主流方向</div>
+          <div class="cc-value-sub" style="font-size:12.5px; font-weight:bold; margin-bottom:4px; color:var(--text-2);">
+            胜平负：<span style="color:${hadColor}">${had}</span>
+          </div>
+          <div class="cc-value-sub" style="font-size:12.5px; font-weight:bold; color:var(--text-2);">
+            让球盘：<span style="color:${hhadColor}">${hhad}</span>
+          </div>
         </div>
         ${upsetHtml}
         ${aggressiveHtml}
-        <div class="conclusion-card conservative">
-          <div class="cc-label">信心结论</div>
-          <div class="cc-value">${c.conservative || '--'}</div>
+        <div class="conclusion-card conservative" style="display:flex; flex-direction:column; justify-content:center; padding:10px 14px; text-align:left;">
+          <div class="cc-label" style="margin-bottom:6px;">信心结论 (${conf >= 75 ? '单选' : '双选'})</div>
+          <div class="cc-value" style="font-size:13.5px; font-weight:800; color:#10b981; text-shadow:0 0 6px rgba(16,185,129,0.15);">${confidenceConclusion}</div>
         </div>
       </div>
       <div class="conclusion-summary">
@@ -2086,9 +2131,57 @@ const MatchIQRender = (() => {
       
       const combinedBadge = `<span style="padding:4px 8px; border-radius:6px; font-weight:bold; font-size:12px; background:${combinedBg}; color:${combinedColor}; border:1px solid ${combinedBorder}; display:inline-block; white-space:nowrap;">${conf}%</span>`;
 
+      // 智能提取 胜平负(HAD) 与 让球胜平负(HHAD)
+      const recText = uc.recommendation || m.conclusions?.mainstream || '主胜';
+      let had = "平局";
+      if (recText.includes("主胜") || recText.includes("主队胜") || recText.includes("主不败") || recText.includes("胜")) {
+        had = "主胜";
+      } else if (recText.includes("客胜") || recText.includes("客队胜") || recText.includes("客不败") || recText.includes("负")) {
+        had = "客胜";
+      }
+      
+      let hhad = "让平";
+      const mlsText = score || '';
+      if (had === "主胜") {
+        if (mlsText.includes("2-0") || mlsText.includes("3-0") || mlsText.includes("3-1")) {
+          hhad = "让胜";
+        } else {
+          hhad = "让平";
+        }
+      } else {
+        hhad = "让负";
+      }
+
+      const hadColor = had === "主胜" ? "#ff5252" : had === "客胜" ? "#40a9ff" : "#4caf50";
+      const hhadColor = hhad === "让胜" ? "#ff5252" : hhad === "让平" ? "#f59e0b" : "#40a9ff";
+
+      // 信心结论：高信心只显一种，中低信心显示双选两种
+      let confidenceConclusion = "";
+      const cleanRec = recText.split('(')[0].trim();
+      if (conf >= 75) {
+        confidenceConclusion = cleanRec; // 单选一种
+      } else {
+        // 双选两种
+        if (cleanRec === "主胜" || cleanRec === "双选不败") {
+          confidenceConclusion = "主胜 或 平局";
+        } else if (cleanRec === "客胜") {
+          confidenceConclusion = "平局 或 客胜";
+        } else {
+          confidenceConclusion = `${cleanRec} 或 平局`;
+        }
+      }
+
+      const directionHTML = `
+        <div style="text-align:left; font-size:12px; line-height:1.45;">
+          <div style="margin-bottom:2px; color:var(--text-3);">胜平负：<span style="color:${hadColor}; font-weight:700;">${had}</span></div>
+          <div style="margin-bottom:2px; color:var(--text-3);">让球盘：<span style="color:${hhadColor}; font-weight:700;">${hhad}</span></div>
+          <div style="border-top:1px solid rgba(255,255,255,0.06); margin-top:4px; padding-top:4px; color:#10b981; font-weight:800; font-size:11.5px;">信心推荐：${confidenceConclusion}</div>
+        </div>
+      `;
+
       const multiRecHTML = `
         <div class="multi-rec-box">
-          <div class="mr-item"><span class="mr-label">方向</span><span class="mr-val highlight">${primaryBet}</span></div>
+          <div class="mr-item"><span class="mr-label">方向</span><span class="mr-val highlight">${confidenceConclusion}</span></div>
           <div class="mr-item"><span class="mr-label">比分</span><span class="mr-val font-mono">${renderUnderlinedTwoScores(twoScores)}</span></div>
           <div class="mr-item"><span class="mr-label">进球</span><span class="mr-val font-mono">${twoGoals}</span></div>
           <div class="mr-item"><span class="mr-label">半全</span><span class="mr-val" style="color:#818cf8;">${renderTaggedText(halfFullClean)}</span></div>
@@ -2101,7 +2194,7 @@ const MatchIQRender = (() => {
           <td>${getLeagueBadgeHtml(league)}</td>
           <td>${kickoff}</td>
           <td>${matchup}</td>
-          <td style="font-weight:700; color:var(--text-1);">${rec}</td>
+          <td>${directionHTML}</td>
           <td>${combinedBadge}</td>
           <td class="font-mono" style="color:var(--green); font-weight:bold;">${renderUnderlinedScore(score)}</td>
           <td style="padding: 4px 8px; white-space: normal;">${multiRecHTML}</td>
