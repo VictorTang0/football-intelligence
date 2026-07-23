@@ -1219,6 +1219,15 @@ def apply_dynamic_team_stats(m):
         
     # 真实竞彩官方战绩提取算子 (100% 拒绝任何伪随机数据拼装)
     def fetch_real_official_recent_5(team_name):
+        real_feed_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "real_team_recent_matches.json")
+        if os.path.exists(real_feed_path):
+            try:
+                with open(real_feed_path, "r", encoding="utf-8") as f:
+                    feed = json.load(f)
+                    if team_name in feed and feed[team_name]:
+                        return feed[team_name]
+            except Exception: pass
+
         hist_db_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "official_sporttery_2022_2026.json")
         matches = []
         if os.path.exists(hist_db_path):
