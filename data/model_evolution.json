@@ -1,6 +1,6 @@
 {
-  "current_version": "v3.9",
-  "evolution_count": 21,
+  "current_version": "v4.1",
+  "evolution_count": 22,
   "snapshots": [
     {
       "version": "v1.0",
@@ -720,8 +720,37 @@
       "score_accuracy_rate": 0.2063,
       "half_full_accuracy_rate": 0.1905,
       "notes": "v4.0 Major Release: Dual-core architecture, M10 Master 4D preferences & 2x4 top bar mini table."
+    },
+    {
+      "version": "v4.1",
+      "date": "2026-07-23",
+      "trigger": "结算 63 场最新完赛赛果与智算拟合进化",
+      "accuracy_before": 0.5556,
+      "accuracy_after": 0.5556,
+      "score_accuracy": 0.2063,
+      "half_full_accuracy": 0.1905,
+      "matches_validated": 63,
+      "weights_snapshot": {
+        "M01": 0.2541,
+        "M02": 0.2569,
+        "M03": 0.1304,
+        "M04": 0.2567,
+        "M05": -0.0633,
+        "M06": 0.1338,
+        "M07": -0.057,
+        "M08": -0.0541,
+        "M09": 0.1426
+      },
+      "significant_changes": [
+        {
+          "factor": "M01-M10 混合专家决策系统",
+          "change": "准确率校准 55.6% ➔ 55.6%",
+          "direction": "up",
+          "reason": "完成 63 场实盘自动对账反向传导演进"
+        }
+      ]
     }
   ],
-  "last_updated": "2026-07-23T13:48:43.354470",
+  "last_updated": "2026-07-23T13:51:10.529272",
   "version": "v4.0"
 }
