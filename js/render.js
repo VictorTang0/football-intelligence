@@ -17,6 +17,19 @@ const MatchIQRender = (() => {
 
   function formatMatchNo(id) {
     if (!id) return '';
+    const matchReg = /match_(\d{2})(\d{2})(\d{2})_(\d+)/.exec(id);
+    if (matchReg) {
+      const year = 2000 + parseInt(matchReg[1], 10);
+      const month = parseInt(matchReg[2], 10) - 1;
+      const day = parseInt(matchReg[3], 10);
+      const code = matchReg[4];
+      const dt = new Date(year, month, day);
+      if (!isNaN(dt.getTime())) {
+        const weekDaysCN = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+        return `${weekDaysCN[dt.getDay()]}${code}`;
+      }
+      return `No.${code}`;
+    }
     const parts = id.split('_');
     if (parts.length >= 3) {
       return `No.${parts[parts.length - 1]}`;

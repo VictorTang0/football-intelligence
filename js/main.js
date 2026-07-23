@@ -74,12 +74,28 @@ const MatchIQ = (() => {
     const numStr = m.match_no || m.matchNumStr || m.id || '';
     let dayNum = 99;
     let matchCode = 999;
-    for (const [wk, idx] of Object.entries(weekdayMap)) {
-      if (numStr.includes(wk)) {
-        dayNum = idx;
-        const codePart = numStr.replace(wk, '').replace(/[^0-9]/g, '').trim();
-        if (codePart) matchCode = parseInt(codePart, 10);
-        break;
+    
+    // 1. Regex match for match_YYMMDD_code (e.g. match_260724_201)
+    const matchReg = /match_(\d{2})(\d{2})(\d{2})_(\d+)/.exec(numStr);
+    if (matchReg) {
+      const year = 2000 + parseInt(matchReg[1], 10);
+      const month = parseInt(matchReg[2], 10) - 1;
+      const day = parseInt(matchReg[3], 10);
+      const dt = new Date(year, month, day);
+      if (!isNaN(dt.getTime())) {
+        const dayOfWeek = dt.getDay(); // 0 (Sun) to 6 (Sat)
+        dayNum = dayOfWeek === 0 ? 7 : dayOfWeek;
+      }
+      matchCode = parseInt(matchReg[4], 10);
+    } else {
+      // 2. Traditional Chinese weekday parsing
+      for (const [wk, idx] of Object.entries(weekdayMap)) {
+        if (numStr.includes(wk)) {
+          dayNum = idx;
+          const codePart = numStr.replace(wk, '').replace(/[^0-9]/g, '').trim();
+          if (codePart) matchCode = parseInt(codePart, 10);
+          break;
+        }
       }
     }
     return [dayNum, matchCode, m.kickoff || '', m.id || ''];
@@ -206,7 +222,7 @@ const MatchIQ = (() => {
       if (parlayContainer) {
         let filteredUpcoming = upcomingMatches;
         if (state.parlayFilter === 'sameday' && upcomingMatches.length > 0) {
-          const sorted = [...upcomingMatches].sort((a, b) => new Date(a.kickoff) - new Date(b.kickoff));
+          const sorted = sortMatchesBySporttery(upcomingMatches);
           const earliestDate = new Date(sorted[0].kickoff).toLocaleDateString('zh-CN', {
             year: 'numeric', month: '2-digit', day: '2-digit'
           }).replace(/\//g, '-');
