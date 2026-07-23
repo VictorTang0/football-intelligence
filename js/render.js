@@ -1001,7 +1001,7 @@ const MatchIQRender = (() => {
                   return parseInt(parts[0], 10) + parseInt(parts[1], 10);
                 });
                 const uniqueGoals = [...new Set(goals)].sort((a, b) => a - b);
-                if (conf >= 55 && uniqueGoals.length > 0) {
+                if (uniqueGoals.length > 0) {
                   const topGoals = uniqueGoals.slice(0, 2);
                   return `<span style="font-size:11px; color:#eab308; font-weight:700; display:block; margin-top:3px;">推荐：${topGoals.join('、')}球</span>`;
                 }
@@ -2238,8 +2238,8 @@ const MatchIQRender = (() => {
           return parseInt(parts[0], 10) + parseInt(parts[1], 10);
         });
         const uniqueGoals = [...new Set(goals)].sort((a, b) => a - b);
-        // 如果系统置信度 >= 55%，推荐具体进球数（最多 2 个值）
-        if (conf >= 55 && uniqueGoals.length > 0) {
+        // 推荐具体进球数（最多 2 个值）
+        if (uniqueGoals.length > 0) {
           const topGoals = uniqueGoals.slice(0, 2);
           goalRecommendText = ` <span style="color:#eab308; font-weight:700; margin-left:3px;">(${topGoals.join('、')}球)</span>`;
         }
