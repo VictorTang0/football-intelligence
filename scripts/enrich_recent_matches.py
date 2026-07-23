@@ -8,13 +8,14 @@ hist_db_path = os.path.join(base_dir, "data", "official_sporttery_2022_2026.json
 real_feed_path = os.path.join(base_dir, "data", "real_team_recent_matches.json")
 
 def load_real_recent_matches(team_name):
-    # 1. First check user-verified / real feed database
+    # 1. First check user-verified / real feed database with fuzzy key matching
     if os.path.exists(real_feed_path):
         try:
             with open(real_feed_path, "r", encoding="utf-8") as f:
                 feed = json.load(f)
-                if team_name in feed and feed[team_name]:
-                    return feed[team_name]
+                for k, matches in feed.items():
+                    if team_name in k or k in team_name or (len(team_name) >= 2 and team_name[:2] in k):
+                        if matches: return matches
         except Exception: pass
 
     # 2. Check full historical database strictly by date descending
