@@ -1,0 +1,28 @@
+{
+  "target_version": "v5.0",
+  "created_at": "2026-07-24T00:07:19+08:00",
+  "description": "MATCH IQ v5.0 终极愿景与量化验收标杆 (Milestone Blueprint Benchmark)",
+  "benchmarks": {
+    "model_architecture": {
+      "name": "自适应贝叶斯强化学习 (Meta-RL Engine)",
+      "target": "贝叶斯自适应因子衰减，南美/欧洲联赛动态先验，非对称冷门密度探测 (Asymmetric Upset Predictor)"
+    },
+    "data_intelligence": {
+      "name": "全流式资金监控与全网零幻觉知识图谱",
+      "target": "必发/Pinnacle/Sporttery 资金流与背离剪刀差监控，主教练战术性格与主裁判执法 DNA 数据库"
+    },
+    "accuracy_targets": {
+      "direction_accuracy_target": 0.65,
+      "score_accuracy_target": 0.30,
+      "kelly_vault_version": "Kelly Vault 2.0 (夏普比率最大化与回撤控制)"
+    },
+    "user_experience": {
+      "name": "PWA 原生应用与 AI 战术对话推演沙盒",
+      "target": "原生 PWA 体验、Web Push 变盘推送、120Hz 触控手感、AI 战术对话推演沙盒"
+    },
+    "auto_pilot": {
+      "name": "100% 全自动无人值守闭环",
+      "target": "全自动抓取->气象/伤停注入->完赛比对->反向传播->Git/Cloudflare 部署全自动闭环，自我修复机制"
+    }
+  }
+}
