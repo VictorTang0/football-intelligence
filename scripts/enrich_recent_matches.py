@@ -6,8 +6,19 @@ base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 matches_path = os.path.join(base_dir, "data", "matches.json")
 hist_db_path = os.path.join(base_dir, "data", "official_sporttery_2022_2026.json")
 real_feed_path = os.path.join(base_dir, "data", "real_team_recent_matches.json")
+override_path = os.path.join(base_dir, "data", "team_recent_matches_override.json")
 
 def load_real_recent_matches(team_name):
+    # 0. Highest priority: User-provided / Override truth database
+    if os.path.exists(override_path):
+        try:
+            with open(override_path, "r", encoding="utf-8") as f:
+                ov = json.load(f)
+                for k, matches in ov.items():
+                    if team_name in k or k in team_name or (len(team_name) >= 2 and team_name[:2] in k):
+                        if matches: return matches
+        except Exception: pass
+
     # 1. First check user-verified / real feed database with fuzzy key matching
     if os.path.exists(real_feed_path):
         try:
