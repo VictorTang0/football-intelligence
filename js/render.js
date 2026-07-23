@@ -2195,7 +2195,7 @@ const MatchIQRender = (() => {
         tagHtml = ` <span style="font-size:10px; font-weight:bold; color:#ef4444; background:rgba(239, 68, 68, 0.08); border:1px solid rgba(239, 68, 68, 0.25); padding:2px 5px; border-radius:4px; margin-left:6px; white-space:nowrap; vertical-align:middle; display:inline-block; line-height:1;">建议观望</span>`;
       }
 
-      const matchup = `<span style="font-weight:600;color:var(--text-1);">${m.home}</span> <span style="color:var(--text-4)">VS</span> <span style="font-weight:600;color:var(--text-1);">${m.away}</span>${tagHtml}`;
+      const matchup = `<span style="font-size:15px; font-weight:800; color:var(--text-1); line-height:1.2; display:inline-block; vertical-align:middle;">${m.home}</span> <span style="color:var(--text-4); font-size:11px; margin:0 2px;">VS</span> <span style="font-size:15px; font-weight:800; color:var(--text-1); line-height:1.2; display:inline-block; vertical-align:middle;">${m.away}</span>${tagHtml}`;
       const score = m.conclusions?.most_likely_score || '--';
       const halfFull = m.conclusions?.half_full || '--';
 
