@@ -37,6 +37,69 @@ const MatchIQRender = (() => {
     return id.replace('match_', 'No.');
   }
 
+  function getGoalsFormattedHTML(m, styleType = 'table') {
+    const scoreStr = m.conclusions?.most_likely_score || '';
+    
+    // 1. 获取主系统具体进球数 P_goals
+    let p_goals = [];
+    const matchesP = scoreStr.match(/\d+[:\-]\d+/g);
+    if (matchesP) {
+      p_goals = matchesP.map(s => {
+        const parts = s.split(/[:\-]/);
+        return parseInt(parts[0], 10) + parseInt(parts[1], 10);
+      });
+      p_goals = [...new Set(p_goals)].sort((a, b) => a - b);
+    }
+
+    // 2. 获取 M10 系统具体进球数 M_goals
+    let m_goals = [];
+    const m10Scores = m.conclusions?.sporttery_hot_scores || [];
+    const snapshotCount = m.conclusions?.m10_snapshot_count || 1;
+    if (snapshotCount >= 2 && m10Scores.length > 0) {
+      const matchesM = m10Scores.join(' ').match(/\d+[:\-]\d+/g);
+      if (matchesM) {
+        m_goals = matchesM.map(s => {
+          const parts = s.split(/[:\-]/);
+          return parseInt(parts[0], 10) + parseInt(parts[1], 10);
+        });
+        m_goals = [...new Set(m_goals)].sort((a, b) => a - b);
+      }
+    }
+
+    // 如果主系统和 M10 都没有预测进球，则直接返回空
+    if (p_goals.length === 0 && m_goals.length === 0) {
+      return '';
+    }
+
+    // 3. 合并、排序并去重，最多取前 2 项
+    const combinedSet = new Set([...p_goals, ...m_goals]);
+    const sortedGoals = [...combinedSet].sort((a, b) => a - b).slice(0, 2);
+
+    // 4. 对每一项进球数，根据颜色规则渲染
+    const renderedItems = sortedGoals.map(g => {
+      const inP = p_goals.includes(g);
+      const inM = m_goals.includes(g);
+      
+      let color = "#40a9ff"; // 蓝色 (仅主系统)
+      let label = "主";
+      if (inM) {
+        color = "#ffd700"; // 金色 (M10 或 重复)
+        label = inP ? "双核" : "M10";
+      }
+      
+      return `<span style="color:${color}; font-weight:800;" title="${label}推荐">${g}球</span>`;
+    });
+
+    if (renderedItems.length === 0) return '';
+
+    // 5. 根据 styleType 组装最终 HTML
+    if (styleType === 'table') {
+      return ` <span style="font-weight:700; margin-left:3px; color:var(--text-3);">(${renderedItems.join('、')})</span>`;
+    } else {
+      return `<span style="font-size:11px; display:block; margin-top:3px; color:var(--text-3); font-weight:700;">推荐：${renderedItems.join('、')}</span>`;
+    }
+  }
+
   function renderUnderlinedScore(scoreStr, actualScoreStr = "") {
     if (!scoreStr || scoreStr === '--') return '--';
     if (typeof scoreStr === 'object') {
@@ -993,21 +1056,7 @@ const MatchIQRender = (() => {
           <div class="cs-label">大小球/具体进球数</div>
           <div class="cs-value">
             ${renderTaggedText(c.over_under || '--')}
-            ${(() => {
-              const matchesForGoals = (c.most_likely_score || '').match(/\d+[:\-]\d+/g);
-              if (matchesForGoals) {
-                const goals = matchesForGoals.map(s => {
-                  const parts = s.split(/[:\-]/);
-                  return parseInt(parts[0], 10) + parseInt(parts[1], 10);
-                });
-                const uniqueGoals = [...new Set(goals)].sort((a, b) => a - b);
-                if (uniqueGoals.length > 0) {
-                  const topGoals = uniqueGoals.slice(0, 2);
-                  return `<span style="font-size:11px; color:#eab308; font-weight:700; display:block; margin-top:3px;">推荐：${topGoals.join('、')}球</span>`;
-                }
-              }
-              return '';
-            })()}
+            ${getGoalsFormattedHTML(match, 'card')}
           </div>
         </div>
         <div class="cs-item">
@@ -2230,21 +2279,7 @@ const MatchIQRender = (() => {
       // 动态生成进球数及大小球组合（包含竞彩首选标签及具体进球数推荐）
       let ou = m.conclusions?.over_under || '--';
       let ouHTML = renderTaggedText(ou);
-      let goalRecommendText = "";
-      const matchesForGoals = score.match(/\d+[:\-]\d+/g);
-      if (matchesForGoals) {
-        const goals = matchesForGoals.map(s => {
-          const parts = s.split(/[:\-]/);
-          return parseInt(parts[0], 10) + parseInt(parts[1], 10);
-        });
-        const uniqueGoals = [...new Set(goals)].sort((a, b) => a - b);
-        // 推荐具体进球数（最多 2 个值）
-        if (uniqueGoals.length > 0) {
-          const topGoals = uniqueGoals.slice(0, 2);
-          goalRecommendText = ` <span style="color:#eab308; font-weight:700; margin-left:3px;">(${topGoals.join('、')}球)</span>`;
-        }
-      }
-      const combinedGoalsHTML = `${ouHTML}${goalRecommendText}`;
+      const combinedGoalsHTML = `${ouHTML}${getGoalsFormattedHTML(m, 'table')}`;
 
       const multiRecHTML = `
         <div class="multi-rec-box">
