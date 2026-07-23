@@ -1816,9 +1816,11 @@ def main():
         print(f"Warning: Failed to run pre-enrichment standings/H2H: {e}")
 
     # Re-read updated matches.json with enriched standings and H2H
+    import copy
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
         matches = data.get("matches", [])
+        prev_matches_db = copy.deepcopy(matches)
 
 
 
@@ -2247,6 +2249,80 @@ def main():
 
     # Assign updated matches array back to data dictionary so changes are saved!
     data["matches"] = matches
+
+    # 临场变盘结论变化标志位 (diff_markers) 比对计算
+    prev_matches_by_id = {m["id"]: m for m in prev_matches_db}
+    import re
+    for m in data.get("matches", []):
+        if m.get("status") in ["finished", "postponed"]:
+            continue
+        mid = m["id"]
+        if mid not in prev_matches_by_id:
+            continue
+        pm = prev_matches_by_id[mid]
+        
+        # 提取当前结论
+        curr_uc = m.get("ultimate_conclusion", {})
+        curr_c = m.get("conclusions", {})
+        
+        # 提取上一轮结论
+        prev_uc = pm.get("ultimate_conclusion", {})
+        prev_c = pm.get("conclusions", {})
+        
+        # 定义对比字段的取值
+        # 1. 胜平负方向变化对比
+        curr_had = curr_uc.get("recommendation", "")
+        prev_had = prev_uc.get("recommendation", "")
+        
+        # 2. 最可能比分对比
+        curr_score = curr_c.get("most_likely_score", "")
+        prev_score = prev_c.get("most_likely_score", "")
+        
+        # 3. 大小球对比
+        curr_ou = curr_c.get("over_under", "")
+        prev_ou = prev_c.get("over_under", "")
+        
+        # 4. 半全场对比
+        curr_hf = curr_c.get("half_full", "")
+        prev_hf = prev_c.get("half_full", "")
+        
+        # 5. 进球具体推荐对比
+        def get_goals_list(match_obj):
+            score_str = match_obj.get("conclusions", {}).get("most_likely_score", "")
+            p_goals = []
+            matches_p = re.findall(r'\d+[:\-]\d+', score_str)
+            if matches_p:
+                for s in matches_p:
+                    parts = re.split(r'[:\-]', s)
+                    p_goals.append(int(parts[0]) + int(parts[1]))
+                p_goals = sorted(list(set(p_goals)))[:2]
+            
+            m_goals = []
+            m10_scores = match_obj.get("conclusions", {}).get("sporttery_hot_scores", [])
+            snapshot_count = match_obj.get("conclusions", {}).get("m10_snapshot_count", 1)
+            if snapshot_count >= 2 and m10_scores:
+                limit = 1 if match_obj.get("conclusions", {}).get("had_hhad_divergence") else 2
+                target_scores = m10_scores[:limit]
+                matches_m = re.findall(r'\d+[:\-]\d+', " ".join(target_scores))
+                if matches_m:
+                    for s in matches_m:
+                        parts = re.split(r'[:\-]', s)
+                        m_goals.append(int(parts[0]) + int(parts[1]))
+                    m_goals = sorted(list(set(m_goals)))[:2]
+            
+            return sorted(list(set(p_goals + m_goals)))
+            
+        curr_goals = get_goals_list(m)
+        prev_goals = get_goals_list(pm)
+        
+        # 写入 diff_markers
+        m["diff_markers"] = {
+            "had": curr_had != prev_had and prev_had != "",
+            "score": curr_score != prev_score and prev_score != "",
+            "ou": curr_ou != prev_ou and prev_ou != "",
+            "hf": curr_hf != prev_hf and prev_hf != "",
+            "goals": curr_goals != prev_goals and len(prev_goals) > 0
+        }
 
     # Trim odds_history for finished matches to optimize web bundle payload size
     for m in data.get("matches", []):

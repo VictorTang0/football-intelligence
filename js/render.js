@@ -2275,11 +2275,17 @@ const MatchIQRender = (() => {
         }
       }
 
+      // 变盘亮灯指示器 (diff_markers)
+      const hadMarker = m.diff_markers?.had ? `<span class="live-change-lamp" title="胜平负方向因临场盘口有微调"></span>` : '';
+      const scoreMarker = m.diff_markers?.score ? `<span class="live-change-lamp" title="比分预测因临场盘口有微调"></span>` : '';
+      const goalsMarker = m.diff_markers?.goals ? `<span class="live-change-lamp" title="进球数推荐因临场盘口有微调"></span>` : '';
+      const hfMarker = m.diff_markers?.hf ? `<span class="live-change-lamp" title="半全场推荐因临场盘口有微调"></span>` : '';
+
       const directionHTML = `
         <div style="text-align:left; font-size:12px; line-height:1.45;">
-          <div style="margin-bottom:2px; color:var(--text-3);">胜平负：<span style="color:${hadColor}; font-weight:700;">${had}</span></div>
-          <div style="margin-bottom:2px; color:var(--text-3);">让球盘(${hcLabel})：<span style="color:${hhadColor}; font-weight:700;">${hhad}</span></div>
-          <div style="border-top:1px solid rgba(255,255,255,0.06); margin-top:4px; padding-top:4px; color:#10b981; font-weight:800; font-size:11.5px;">信心推荐：${confidenceConclusion}</div>
+          <div style="margin-bottom:2px; color:var(--text-3);">胜平负：${hadMarker}<span style="color:${hadColor}; font-weight:700;">${had}</span></div>
+          <div style="margin-bottom:2px; color:var(--text-3);">让球盘(${hcLabel})：${hadMarker}<span style="color:${hhadColor}; font-weight:700;">${hhad}</span></div>
+          <div style="border-top:1px solid rgba(255,255,255,0.06); margin-top:4px; padding-top:4px; color:#10b981; font-weight:800; font-size:11.5px;">信心推荐：${hadMarker}${confidenceConclusion}</div>
         </div>
       `;
 
@@ -2290,10 +2296,10 @@ const MatchIQRender = (() => {
 
       const multiRecHTML = `
         <div class="multi-rec-box">
-          <div class="mr-item"><span class="mr-label">方向</span><span class="mr-val highlight">${confidenceConclusion}</span></div>
-          <div class="mr-item"><span class="mr-label">比分</span><span class="mr-val font-mono">${renderUnderlinedTwoScores(twoScores)}</span></div>
-          <div class="mr-item"><span class="mr-label">进球</span><span class="mr-val" style="font-weight:700;">${combinedGoalsHTML}</span></div>
-          <div class="mr-item"><span class="mr-label">半全</span><span class="mr-val" style="color:#818cf8;">${renderTaggedText(halfFullClean)}</span></div>
+          <div class="mr-item"><span class="mr-label">方向</span><span class="mr-val highlight">${hadMarker}${confidenceConclusion}</span></div>
+          <div class="mr-item"><span class="mr-label">比分</span><span class="mr-val font-mono">${scoreMarker}${renderUnderlinedTwoScores(twoScores)}</span></div>
+          <div class="mr-item"><span class="mr-label">进球</span><span class="mr-val" style="font-weight:700;">${goalsMarker}${combinedGoalsHTML}</span></div>
+          <div class="mr-item"><span class="mr-label">半全</span><span class="mr-val" style="color:#818cf8;">${hfMarker}${renderTaggedText(halfFullClean)}</span></div>
         </div>
       `;
 
@@ -2305,7 +2311,7 @@ const MatchIQRender = (() => {
           <td>${matchup}</td>
           <td>${directionHTML}</td>
           <td>${combinedBadge}</td>
-          <td class="font-mono" style="color:var(--green); font-weight:bold;">${renderUnderlinedScore(score)}</td>
+          <td class="font-mono" style="color:var(--green); font-weight:bold;">${scoreMarker}${renderUnderlinedScore(score)}</td>
           <td style="padding: 4px 8px; white-space: normal;">${multiRecHTML}</td>
         </tr>
       `;
