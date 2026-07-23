@@ -427,7 +427,13 @@ const MatchIQRender = (() => {
                 homeStyle = 'color:#4caf50; font-weight:500;'; // 平局
                 awayStyle = 'color:#4caf50; font-weight:500;'; // 平局
               }
-              const dateStr = m.date ? `<span style="color:var(--text-3); font-size:11px; font-family:monospace; margin-right:4px;">[${m.date}]</span>` : '';
+              const fullDateStr = (dStr) => {
+                if (!dStr) return '';
+                if (/^\d{2}-\d{2}$/.test(dStr)) return `2026-${dStr}`;
+                return dStr;
+              };
+
+              const dateStr = m.date ? `<span style="color:var(--text-3); font-size:11px; font-family:monospace; margin-right:4px;">[${fullDateStr(m.date)}]</span>` : '';
               return `
                 <div style="display:flex; align-items:center; justify-content:space-between; padding:6px 10px; background:rgba(255,255,255,0.01); border-radius:4px; border:1px solid rgba(255,255,255,0.03); font-size:12px;">
                   <div style="display:flex; align-items:center; gap:6px;">
@@ -466,32 +472,37 @@ const MatchIQRender = (() => {
           ${matches.slice(0, 5).map(m => {
             const outcome = m.outcome || 'D';
             
-            // 依据该队（teamName）在这场比赛里是主是客，判定两队名称的着色
             let homeStyle = '';
             let awayStyle = '';
             const isHomeTeamTarget = (m.home === teamName);
             if (outcome === 'W') {
               if (isHomeTeamTarget) {
-                homeStyle = 'color:#ff5252; font-weight:700;'; // 主队（目标队）胜
-                awayStyle = 'color:#40a9ff; font-weight:500;'; // 客队负
+                homeStyle = 'color:#ff5252; font-weight:700;';
+                awayStyle = 'color:#40a9ff; font-weight:500;';
               } else {
-                homeStyle = 'color:#40a9ff; font-weight:500;'; // 主队负
-                awayStyle = 'color:#ff5252; font-weight:700;'; // 客队（目标队）胜
+                homeStyle = 'color:#40a9ff; font-weight:500;';
+                awayStyle = 'color:#ff5252; font-weight:700;';
               }
             } else if (outcome === 'L') {
               if (isHomeTeamTarget) {
-                homeStyle = 'color:#40a9ff; font-weight:500;'; // 主队（目标队）负
-                awayStyle = 'color:#ff5252; font-weight:700;'; // 客队胜
+                homeStyle = 'color:#40a9ff; font-weight:500;';
+                awayStyle = 'color:#ff5252; font-weight:700;';
               } else {
-                homeStyle = 'color:#ff5252; font-weight:700;'; // 主队胜
-                awayStyle = 'color:#40a9ff; font-weight:500;'; // 客队（目标队）负
+                homeStyle = 'color:#ff5252; font-weight:700;';
+                awayStyle = 'color:#40a9ff; font-weight:500;';
               }
             } else {
-              homeStyle = 'color:#4caf50; font-weight:500;'; // 平局
-              awayStyle = 'color:#4caf50; font-weight:500;'; // 平局
+              homeStyle = 'color:#4caf50; font-weight:500;';
+              awayStyle = 'color:#4caf50; font-weight:500;';
             }
             
-            const dateStr = m.date ? `<span style="color:var(--text-3); font-size:10px; font-family:monospace; margin-right:4px;">[${m.date.substring(5)}]</span>` : '';
+            const formatFullRecentDate = (dStr) => {
+              if (!dStr) return '';
+              if (/^\d{2}-\d{2}$/.test(dStr)) return `2026-${dStr}`;
+              return dStr;
+            };
+
+            const dateStr = m.date ? `<span style="color:var(--text-3); font-size:10px; font-family:monospace; margin-right:4px;">[${formatFullRecentDate(m.date)}]</span>` : '';
             return `
               <div style="display:flex; align-items:center; justify-content:space-between; padding:5px 8px; background:rgba(255,255,255,0.01); border-radius:4px; border:1px solid rgba(255,255,255,0.02); font-size:11px;">
                 <div style="display:flex; align-items:center; gap:5px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
