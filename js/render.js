@@ -40,7 +40,7 @@ const MatchIQRender = (() => {
   function getGoalsFormattedHTML(m, styleType = 'table') {
     const scoreStr = m.conclusions?.most_likely_score || '';
     
-    // 1. 获取主系统具体进球数 P_goals
+    // 1. 获取主系统具体进球数 P_goals（最多保留前 2 个）
     let p_goals = [];
     const matchesP = scoreStr.match(/\d+[:\-]\d+/g);
     if (matchesP) {
@@ -48,10 +48,10 @@ const MatchIQRender = (() => {
         const parts = s.split(/[:\-]/);
         return parseInt(parts[0], 10) + parseInt(parts[1], 10);
       });
-      p_goals = [...new Set(p_goals)].sort((a, b) => a - b);
+      p_goals = [...new Set(p_goals)].sort((a, b) => a - b).slice(0, 2);
     }
 
-    // 2. 获取 M10 系统具体进球数 M_goals
+    // 2. 获取 M10 系统具体进球数 M_goals（最多保留前 2 个）
     let m_goals = [];
     const m10Scores = m.conclusions?.sporttery_hot_scores || [];
     const snapshotCount = m.conclusions?.m10_snapshot_count || 1;
@@ -62,7 +62,7 @@ const MatchIQRender = (() => {
           const parts = s.split(/[:\-]/);
           return parseInt(parts[0], 10) + parseInt(parts[1], 10);
         });
-        m_goals = [...new Set(m_goals)].sort((a, b) => a - b);
+        m_goals = [...new Set(m_goals)].sort((a, b) => a - b).slice(0, 2);
       }
     }
 
@@ -71,9 +71,9 @@ const MatchIQRender = (() => {
       return '';
     }
 
-    // 3. 合并、排序并去重，最多取前 2 项
+    // 3. 合并、排序并去重（双系统分别取最多 2 个，合并后当分歧存在时允许展示更多）
     const combinedSet = new Set([...p_goals, ...m_goals]);
-    const sortedGoals = [...combinedSet].sort((a, b) => a - b).slice(0, 2);
+    const sortedGoals = [...combinedSet].sort((a, b) => a - b);
 
     // 4. 对每一项进球数，根据颜色规则渲染
     const renderedItems = sortedGoals.map(g => {
