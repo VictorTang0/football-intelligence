@@ -967,12 +967,14 @@ const MatchIQRender = (() => {
     <div class="mc-pane" id="pane-${match.id}-conclusions">
       <div class="conclusions-grid">
         <div class="conclusion-card mainstream" style="display:flex; flex-direction:column; justify-content:center; padding:10px 14px; text-align:left;">
-          <div class="cc-label" style="margin-bottom:6px;">主流方向</div>
-          <div class="cc-value-sub" style="font-size:12.5px; font-weight:bold; margin-bottom:4px; color:var(--text-2);">
-            胜平负：<span style="color:${hadColor}">${had}</span>
-          </div>
-          <div class="cc-value-sub" style="font-size:12.5px; font-weight:bold; color:var(--text-2);">
-            让球盘(${hcLabel})：<span style="color:${hhadColor}">${hhad}</span>
+          <div class="cc-label" style="margin-bottom:8px;">主流方向</div>
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span style="padding:4px 8px; border-radius:4px; font-size:13px; font-weight:bold; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); color:var(--text-2); white-space:nowrap;">
+              胜平负 <span style="color:${hadColor}; margin-left:4px; font-weight:800;">${had}</span>
+            </span>
+            <span style="padding:4px 8px; border-radius:4px; font-size:13px; font-weight:bold; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); color:var(--text-2); white-space:nowrap;">
+              让球盘(${hcLabel}) <span style="color:${hhadColor}; margin-left:4px; font-weight:800;">${hhad}</span>
+            </span>
           </div>
         </div>
         ${upsetHtml}
