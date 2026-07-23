@@ -55,11 +55,8 @@ const MatchIQRender = (() => {
     let m_goals = [];
     const m10Scores = m.conclusions?.sporttery_hot_scores || [];
     const snapshotCount = m.conclusions?.m10_snapshot_count || 1;
-    // 只有在快照数 >= 2（代表确实发生了临场变盘水温变化）且 M10 模块被激活时才进行 M10 推荐
     if (snapshotCount >= 2 && m10Scores.length > 0) {
       const hasDivergence = m.conclusions?.had_hhad_divergence === true;
-      // 规则：若发生剪刀差背离，则代表主力资金异动强烈，只取最核心的第一比分（凝聚力最高），实现“特别有信心时只推荐一个”
-      // 否则，取前 2 项进行常规偏离覆盖
       const limit = hasDivergence ? 1 : 2;
       const targetScores = m10Scores.slice(0, limit);
       
@@ -73,16 +70,14 @@ const MatchIQRender = (() => {
       }
     }
 
-    // 如果主系统和 M10 都没有预测进球，则直接返回空
     if (p_goals.length === 0 && m_goals.length === 0) {
       return '';
     }
 
-    // 3. 合并、排序并去重（双系统分别取最多 2 个，合并后当分歧存在时允许展示更多）
     const combinedSet = new Set([...p_goals, ...m_goals]);
     const sortedGoals = [...combinedSet].sort((a, b) => a - b);
 
-    // 4. 对每一项进球数，根据颜色规则渲染
+    // 只用写数字，去掉“球”字
     const renderedItems = sortedGoals.map(g => {
       const inP = p_goals.includes(g);
       const inM = m_goals.includes(g);
@@ -94,12 +89,11 @@ const MatchIQRender = (() => {
         label = inP ? "双核" : "M10";
       }
       
-      return `<span style="color:${color}; font-weight:800;" title="${label}推荐">${g}球</span>`;
+      return `<span style="color:${color}; font-weight:800;" title="${label}推荐">${g}</span>`;
     });
 
     if (renderedItems.length === 0) return '';
 
-    // 5. 根据 styleType 组装最终 HTML
     if (styleType === 'table') {
       return ` <span style="font-weight:700; margin-left:3px; color:var(--text-3);">(${renderedItems.join('、')})</span>`;
     } else {
@@ -115,8 +109,8 @@ const MatchIQRender = (() => {
     }
     if (typeof scoreStr !== 'string') scoreStr = String(scoreStr);
     
-    // Normalize "竞彩概率偏移首选" -> "竞彩首选"
-    scoreStr = scoreStr.replace(/竞彩概率偏移首选/g, '竞彩首选');
+    // Normalize "竞彩概率偏移首选" / "竞彩首选" -> "竞彩"
+    scoreStr = scoreStr.replace(/竞彩概率偏移首选/g, '竞彩').replace(/竞彩首选/g, '竞彩');
 
     const cleanActual = actualScoreStr ? actualScoreStr.replace(/\s+/g, '').split('(')[0].replace(':', '-') : '';
     const parts = scoreStr.split(/\s*或\s*/);
@@ -127,26 +121,29 @@ const MatchIQRender = (() => {
       const tagMatch = part.match(/^(.*?)\s*(\(.*?\))$/);
       if (tagMatch) {
         scoreText = tagMatch[1].trim();
-        tagText = tagMatch[2].trim();
+        tagText = tagMatch[2].trim().replace(/竞彩首选/g, '竞彩');
       }
 
       const cleanScore = scoreText.replace(/\s+/g, '').replace(':', '-');
       const isThisPartCorrect = Boolean(cleanActual && (cleanScore === cleanActual));
       
-      // Rule 1: Underline is strictly fixed to index === 0 (primary prediction score), synced with predictions.
       const shouldUnderline = (index === 0);
-      const underlineStyle = shouldUnderline ? 'text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px;' : 'text-decoration: none;';
+      const underlineStyle = shouldUnderline ? 'text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 2px;' : 'text-decoration: none;';
 
-      // Rule 2: If this score hits actual score, highlight red bold.
-      const colorStyle = isThisPartCorrect ? 'color:var(--rose, #f43f5e); font-weight:700;' : 'color:var(--text-2); font-weight:500;';
+      const colorStyle = isThisPartCorrect ? 'color:var(--rose, #f43f5e); font-weight:800;' : 'color:var(--text-2); font-weight:700;';
 
       const scoreSpan = `<span style="${colorStyle} ${underlineStyle}">${scoreText}</span>`;
-      const tagSpan = tagText ? `<span style="font-size:10.5px; color:var(--cyan); font-weight:normal; text-decoration:none !important; margin-left:3px; display:inline-block;">${tagText}</span>` : '';
+      const tagSpan = tagText ? `<span style="font-size:10px; color:var(--cyan); font-weight:normal; text-decoration:none !important; margin-left:2px; display:inline-block;">${tagText}</span>` : '';
 
       return scoreSpan + tagSpan;
     });
 
-    return renderedParts.join(' <span style="color:var(--text-4); text-decoration:none;">或</span> ');
+    // 两个比分子项为一行，超过2个比分时自动换行
+    const chunks = [];
+    for (let i = 0; i < renderedParts.length; i += 2) {
+      chunks.push(renderedParts.slice(i, i + 2).join(' <span style="color:var(--text-4); text-decoration:none;">或</span> '));
+    }
+    return chunks.join('<br>');
   }
 
   function renderUnderlinedTwoScores(twoScoresStr, actualScoreStr = "") {
@@ -157,37 +154,44 @@ const MatchIQRender = (() => {
     }
     if (typeof twoScoresStr !== 'string') twoScoresStr = String(twoScoresStr);
     
-    twoScoresStr = twoScoresStr.replace(/竞彩概率偏移首选/g, '竞彩首选');
+    twoScoresStr = twoScoresStr.replace(/竞彩概率偏移首选/g, '竞彩').replace(/竞彩首选/g, '竞彩');
     const cleanActual = actualScoreStr ? actualScoreStr.replace(/\s+/g, '').split('(')[0].replace(':', '-') : '';
     const parts = twoScoresStr.split(/(?:,\s*|\s*或\s*)/);
 
-    return parts.map((part, index) => {
+    const renderedParts = parts.map((part, index) => {
       let scoreText = part.trim();
       let tagText = "";
       const tagMatch = part.match(/^(.*?)\s*(\(.*?\))$/);
       if (tagMatch) {
         scoreText = tagMatch[1].trim();
-        tagText = tagMatch[2].trim();
+        tagText = tagMatch[2].trim().replace(/竞彩首选/g, '竞彩');
       }
 
       const cleanScore = scoreText.replace(/\s+/g, '').replace(':', '-');
       const isThisPartCorrect = Boolean(cleanActual && (cleanScore === cleanActual));
 
       const shouldUnderline = (index === 0);
-      const underlineStyle = shouldUnderline ? 'text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px;' : 'text-decoration: none;';
+      const underlineStyle = shouldUnderline ? 'text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 2px;' : 'text-decoration: none;';
 
-      const colorStyle = isThisPartCorrect ? 'color:var(--rose, #f43f5e); font-weight:700;' : 'color:var(--text-2); font-weight:500;';
+      const colorStyle = isThisPartCorrect ? 'color:var(--rose, #f43f5e); font-weight:800;' : 'color:var(--text-2); font-weight:700;';
 
       const scoreSpan = `<span style="${colorStyle} ${underlineStyle}">${scoreText}</span>`;
-      const tagSpan = tagText ? `<span style="font-size:10.5px; color:var(--cyan); font-weight:normal; text-decoration:none !important; margin-left:3px; display:inline-block;">${tagText}</span>` : '';
+      const tagSpan = tagText ? `<span style="font-size:10px; color:var(--cyan); font-weight:normal; text-decoration:none !important; margin-left:2px; display:inline-block;">${tagText}</span>` : '';
 
       return scoreSpan + tagSpan;
-    }).join(', ');
+    });
+
+    // 两个比分子项为一行，超过2个比分时自动换行
+    const chunks = [];
+    for (let i = 0; i < renderedParts.length; i += 2) {
+      chunks.push(renderedParts.slice(i, i + 2).join(', '));
+    }
+    return chunks.join('<br>');
   }
 
   function renderTaggedText(textStr) {
     if (!textStr || textStr === '--') return '--';
-    textStr = String(textStr).replace(/竞彩概率偏移首选/g, '竞彩首选');
+    textStr = String(textStr).replace(/竞彩概率偏移首选/g, '竞彩').replace(/竞彩首选/g, '竞彩');
     const parts = textStr.split(/\s*或\s*/);
     return parts.map(part => {
       let mainText = part.trim();
@@ -195,9 +199,9 @@ const MatchIQRender = (() => {
       const tagMatch = part.match(/^(.*?)\s*(\(.*?\))$/);
       if (tagMatch) {
         mainText = tagMatch[1].trim();
-        tagText = tagMatch[2].trim();
+        tagText = tagMatch[2].trim().replace(/竞彩首选/g, '竞彩');
       }
-      const tagSpan = tagText ? `<span style="font-size:10.5px; color:var(--cyan); font-weight:normal; margin-left:3px; display:inline-block;">${tagText}</span>` : '';
+      const tagSpan = tagText ? `<span style="font-size:10px; color:var(--cyan); font-weight:normal; margin-left:2px; display:inline-block;">${tagText}</span>` : '';
       return mainText + tagSpan;
     }).join(' <span style="color:var(--text-4)">或</span> ');
   }
@@ -2102,7 +2106,7 @@ const MatchIQRender = (() => {
     };
 
     const getTwoGoals = (scoreStr) => {
-      if (!scoreStr || scoreStr === '--') return '2, 3球';
+      if (!scoreStr || scoreStr === '--') return '2, 3';
       const matches = scoreStr.match(/\d+[:\-]\d+/g);
       if (matches) {
         const goals = matches.map(s => {
@@ -2111,15 +2115,14 @@ const MatchIQRender = (() => {
         });
         const unique = [...new Set(goals)].sort((a, b) => a - b);
         if (unique.length >= 2) {
-          // Allow showing 2 or 3 goal numbers depending on circumstances
-          return unique.slice(0, 3).map(g => g + '球').join(', ');
+          return unique.slice(0, 3).join(', ');
         } else if (unique.length === 1) {
           const g = unique[0];
           const secondG = g > 0 ? g - 1 : g + 1;
-          return [g, secondG].sort((a, b) => a - b).map(val => val + '球').join(', ');
+          return [g, secondG].sort((a, b) => a - b).join(', ');
         }
       }
-      return '2, 3球';
+      return '2, 3';
     };
 
     const getLeagueBadgeHtml = (league) => {
