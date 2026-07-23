@@ -917,18 +917,33 @@ const MatchIQRender = (() => {
       had = "客胜";
     }
     
-    let hhad = "让平";
-    const mlsText = c.most_likely_score || '';
-    if (had === "主胜") {
-      if (mlsText.includes("2-0") || mlsText.includes("3-0") || mlsText.includes("3-1")) {
-        hhad = "让胜";
-      } else {
-        hhad = "让平";
-      }
+    // 从竞彩网获取真实的让球数，拒绝固定让 1 球
+    let hc = -1;
+    const hcRaw = match.handicap_line;
+    if (hcRaw !== undefined && hcRaw !== null && hcRaw !== '') {
+      hc = parseInt(hcRaw, 10);
     } else {
-      hhad = "让负";
+      hc = had === "主胜" ? -1 : 1;
     }
 
+    const mlsText = c.most_likely_score || '';
+    let homeG = 1, awayG = 0;
+    const scoresReg = /(\d+)-(\d+)/.exec(mlsText);
+    if (scoresReg) {
+      homeG = parseInt(scoresReg[1], 10);
+      awayG = parseInt(scoresReg[2], 10);
+    } else {
+      if (had === "主胜") { homeG = 2; awayG = 0; }
+      else if (had === "客胜") { homeG = 0; awayG = 2; }
+      else { homeG = 1; awayG = 1; }
+    }
+
+    const diff = homeG - awayG + hc;
+    let hhad = "让平";
+    if (diff > 0) hhad = "让胜";
+    else if (diff < 0) hhad = "让负";
+
+    const hcLabel = hc > 0 ? `+${hc}` : `${hc}`;
     const hadColor = had === "主胜" ? "#ff5252" : had === "客胜" ? "#40a9ff" : "#4caf50";
     const hhadColor = hhad === "让胜" ? "#ff5252" : hhad === "让平" ? "#f59e0b" : "#40a9ff";
 
@@ -957,7 +972,7 @@ const MatchIQRender = (() => {
             胜平负：<span style="color:${hadColor}">${had}</span>
           </div>
           <div class="cc-value-sub" style="font-size:12.5px; font-weight:bold; color:var(--text-2);">
-            让球盘：<span style="color:${hhadColor}">${hhad}</span>
+            让球盘(${hcLabel})：<span style="color:${hhadColor}">${hhad}</span>
           </div>
         </div>
         ${upsetHtml}
@@ -2140,18 +2155,33 @@ const MatchIQRender = (() => {
         had = "客胜";
       }
       
-      let hhad = "让平";
-      const mlsText = score || '';
-      if (had === "主胜") {
-        if (mlsText.includes("2-0") || mlsText.includes("3-0") || mlsText.includes("3-1")) {
-          hhad = "让胜";
-        } else {
-          hhad = "让平";
-        }
+      // 从竞彩网获取真实的让球数，拒绝固定让 1 球
+      let hc = -1;
+      const hcRaw = m.handicap_line;
+      if (hcRaw !== undefined && hcRaw !== null && hcRaw !== '') {
+        hc = parseInt(hcRaw, 10);
       } else {
-        hhad = "让负";
+        hc = had === "主胜" ? -1 : 1;
       }
 
+      const mlsText = score || '';
+      let homeG = 1, awayG = 0;
+      const scoresReg = /(\d+)-(\d+)/.exec(mlsText);
+      if (scoresReg) {
+        homeG = parseInt(scoresReg[1], 10);
+        awayG = parseInt(scoresReg[2], 10);
+      } else {
+        if (had === "主胜") { homeG = 2; awayG = 0; }
+        else if (had === "客胜") { homeG = 0; awayG = 2; }
+        else { homeG = 1; awayG = 1; }
+      }
+
+      const diff = homeG - awayG + hc;
+      let hhad = "让平";
+      if (diff > 0) hhad = "让胜";
+      else if (diff < 0) hhad = "让负";
+
+      const hcLabel = hc > 0 ? `+${hc}` : `${hc}`;
       const hadColor = had === "主胜" ? "#ff5252" : had === "客胜" ? "#40a9ff" : "#4caf50";
       const hhadColor = hhad === "让胜" ? "#ff5252" : hhad === "让平" ? "#f59e0b" : "#40a9ff";
 
@@ -2174,7 +2204,7 @@ const MatchIQRender = (() => {
       const directionHTML = `
         <div style="text-align:left; font-size:12px; line-height:1.45;">
           <div style="margin-bottom:2px; color:var(--text-3);">胜平负：<span style="color:${hadColor}; font-weight:700;">${had}</span></div>
-          <div style="margin-bottom:2px; color:var(--text-3);">让球盘：<span style="color:${hhadColor}; font-weight:700;">${hhad}</span></div>
+          <div style="margin-bottom:2px; color:var(--text-3);">让球盘(${hcLabel})：<span style="color:${hhadColor}; font-weight:700;">${hhad}</span></div>
           <div style="border-top:1px solid rgba(255,255,255,0.06); margin-top:4px; padding-top:4px; color:#10b981; font-weight:800; font-size:11.5px;">信心推荐：${confidenceConclusion}</div>
         </div>
       `;

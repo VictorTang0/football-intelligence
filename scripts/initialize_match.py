@@ -179,25 +179,41 @@ def create_complete_match(raw_match):
     p_away = 100 - p_home - p_draw
     
     # ─── CALCULATE HANDICAPS ───
+    raw_hc = raw_match.get("handicap_line")
+    if raw_hc:
+        try:
+            val = int(float(raw_hc))
+            if val < 0:
+                jc_line = f"主让{abs(val)}球"
+            else:
+                jc_line = f"主受让{val}球"
+        except Exception:
+            jc_line = "主让1球"
+    else:
+        if home_odds < 1.45:
+            jc_line = "主让1球"
+        elif home_odds < 1.85:
+            jc_line = "主让1球"
+        elif home_odds < 2.30:
+            jc_line = "主让1球"
+        else:
+            jc_line = "主受让1球"
+
     if home_odds < 1.45:
         ah_line = "主队-1.25"
         ah_init_h, ah_init_a = 1.95, 1.95
-        jc_line = "主让1球"
         jc_init_w, jc_init_d, jc_init_l = 1.95, 3.50, 3.10
     elif home_odds < 1.85:
         ah_line = "主队-0.75"
         ah_init_h, ah_init_a = 1.88, 2.02
-        jc_line = "主让1球"
         jc_init_w, jc_init_d, jc_init_l = 3.20, 3.65, 1.85
     elif home_odds < 2.30:
         ah_line = "主队-0.25"
         ah_init_h, ah_init_a = 1.92, 1.98
-        jc_line = "主让1球"
         jc_init_w, jc_init_d, jc_init_l = 3.20, 3.65, 1.85
     else:
         ah_line = "主队+0.25"
         ah_init_h, ah_init_a = 2.02, 1.88
-        jc_line = "主受让1球"
         jc_init_w, jc_init_d, jc_init_l = 1.62, 3.75, 4.35
         
     ou_line = 2.75 if (home_odds < 1.5 or away_odds < 1.8) else 2.25
@@ -207,6 +223,7 @@ def create_complete_match(raw_match):
         "sportteryMatchId": raw_match.get("sportteryMatchId"),
         "league": league,
         "home": home,
+        "handicap_line": raw_hc,
         "away": away,
         "kickoff": kickoff,
         "venue": raw_match.get("venue", f"{home}主场球场"),
