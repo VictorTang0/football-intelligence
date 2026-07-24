@@ -372,13 +372,25 @@ def sync():
             elif is_away_win and any(x in rec for x in ["客胜", "客队胜", "客不败", "负"]): dir_correct = True
             if dir_correct: sp_dir_hits += 1
 
-        # 2. 竞彩首选总进球数
-        if "(竞彩首选)" in ou:
+        # 2. 竞彩首选总进球数：改成 M10 系统具体推荐的进球数命中率评估
+        m10_goals = []
+        m10_scores = conc.get("sporttery_hot_scores", [])
+        snapshot_count = conc.get("m10_snapshot_count", 1)
+        if snapshot_count >= 2 and m10_scores:
+            limit = 1 if conc.get("had_hhad_divergence") else 2
+            target_scores = m10_scores[:limit]
+            
+            matches_m = re.findall(r'\d+[:\-]\d+', " ".join(target_scores))
+            if matches_m:
+                for s in matches_m:
+                    parts = re.split(r'[:\-]', s)
+                    m10_goals.append(int(parts[0]) + int(parts[1]))
+                m10_goals = sorted(list(set(m10_goals)))[:2]
+        
+        if m10_goals:
             sp_goals_total += 1
-            goals_correct = False
-            if "大 2.5" in ou and total_goals > 2.5: goals_correct = True
-            elif "小 2.5" in ou and total_goals < 2.5: goals_correct = True
-            if goals_correct: sp_goals_hits += 1
+            if int(total_goals) in m10_goals:
+                sp_goals_hits += 1
 
         # 3. 竞彩首选比分
         if "(竞彩首选)" in mls:

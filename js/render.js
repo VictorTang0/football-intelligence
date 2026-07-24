@@ -38,7 +38,7 @@ const MatchIQRender = (() => {
   }
 
   function getGoalsFormattedHTML(m, styleType = 'table') {
-    const scoreStr = m.conclusions?.most_likely_score || '';
+    const scoreStr = m.conclusions?.most_likely_score || m.predictions?.most_likely_score?.val || '';
     
     // 1. 获取主系统具体进球数 P_goals（最多保留前 2 个）
     let p_goals = [];
@@ -1638,7 +1638,10 @@ const MatchIQRender = (() => {
             hfValHtml = renderedParts.join(' <span style="color:var(--text-4)">或</span> ');
           }
           const hfHtml = `<div style="white-space:nowrap;"><span style="color:var(--text-3);font-weight:500;">半全:</span> ${hfValHtml}${hfCorrect ? badgeRed : badgeBlack}</div>`;
-          const goalsHtml = `<div style="white-space:nowrap;"><span style="color:var(--text-3);font-weight:500;">进球:</span> <span style="font-weight:600; color:${goalsCorrect ? 'var(--rose, #f43f5e)' : 'var(--text-2)'};">${goalsVal}</span>${goalsCorrect ? badgeRed : badgeBlack}</div>`;
+          const ouValHtml = renderTaggedText(goalsVal);
+          const goalsDetailHtml = getGoalsFormattedHTML(r, 'table');
+          const combinedGoalsVal = `${ouValHtml}${goalsDetailHtml}`;
+          const goalsHtml = `<div style="white-space:nowrap;"><span style="color:var(--text-3);font-weight:500;">进球:</span> <span style="font-weight:600; color:${goalsCorrect ? 'var(--rose, #f43f5e)' : 'var(--text-2)'};">${combinedGoalsVal}</span>${goalsCorrect ? badgeRed : badgeBlack}</div>`;
 
           const detailsHTML = `
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:2px 12px; text-align:left; font-size:12px; line-height:1.2; padding:0; width:100%; min-width:220px;">
