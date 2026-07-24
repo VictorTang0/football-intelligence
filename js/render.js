@@ -37,7 +37,7 @@ const MatchIQRender = (() => {
     return id.replace('match_', 'No.');
   }
 
-  function getGoalsFormattedHTML(m, styleType = 'table') {
+  function getGoalsFormattedHTML(m, styleType = 'table', actualGoals = null) {
     const scoreStr = m.conclusions?.most_likely_score || m.predictions?.most_likely_score?.val || '';
     
     // 1. 获取主系统具体进球数 P_goals（最多保留前 2 个）
@@ -89,7 +89,11 @@ const MatchIQRender = (() => {
         label = inP ? "双核" : "M10";
       }
       
-      return `<span style="color:${color}; font-weight:800;" title="${label}推荐">${g}</span>`;
+      const isHit = actualGoals !== null && g === actualGoals;
+      const weight = isHit ? "900" : "600";
+      const shadow = isHit ? `text-shadow: 0 0 5px ${color};` : '';
+      
+      return `<span style="color:${color}; font-weight:${weight}; ${shadow}" title="${label}推荐 (实际进球: ${actualGoals ?? '--'})">${g}</span>`;
     });
 
     if (renderedItems.length === 0) return '';
@@ -1638,8 +1642,23 @@ const MatchIQRender = (() => {
             hfValHtml = renderedParts.join(' <span style="color:var(--text-4)">或</span> ');
           }
           const hfHtml = `<div style="white-space:nowrap;"><span style="color:var(--text-3);font-weight:500;">半全:</span> ${hfValHtml}${hfCorrect ? badgeRed : badgeBlack}</div>`;
+          let actualGoals = null;
+          if (r.actual_result) {
+            const scoreMatch = r.actual_result.match(/(\d+)[:\-]\d+/);
+            if (scoreMatch) {
+              const parts = r.actual_result.split(/[\s(]/);
+              for (let part of parts) {
+                const subMatch = /(\d+)[:\-](\d+)/.exec(part);
+                if (subMatch) {
+                  actualGoals = parseInt(subMatch[1], 10) + parseInt(subMatch[2], 10);
+                  break;
+                }
+              }
+            }
+          }
+
           const ouValHtml = renderTaggedText(goalsVal);
-          const goalsDetailHtml = getGoalsFormattedHTML(r, 'table');
+          const goalsDetailHtml = getGoalsFormattedHTML(r, 'table', actualGoals);
           const combinedGoalsVal = `${ouValHtml}${goalsDetailHtml}`;
           const goalsHtml = `<div style="white-space:nowrap;"><span style="color:var(--text-3);font-weight:500;">进球:</span> <span style="font-weight:600; color:${goalsCorrect ? 'var(--rose, #f43f5e)' : 'var(--text-2)'};">${combinedGoalsVal}</span>${goalsCorrect ? badgeRed : badgeBlack}</div>`;
 
