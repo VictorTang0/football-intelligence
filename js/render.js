@@ -101,6 +101,65 @@ const MatchIQRender = (() => {
     }
   }
 
+  function getMergedUpsetConclusion(m) {
+    const uc = m.ultimate_conclusion || {};
+    const c = m.conclusions || {};
+    const recText = uc.recommendation || c.mainstream || '主胜';
+    const conf = uc.confidence || 0;
+    const cleanRec = recText.split('(')[0].trim();
+    
+    const upsetProb = c.upset_probability || 0;
+    const upsetDir = c.upset_direction || '';
+
+    let text = "";
+    let label = "";
+    let isUpsetMitigated = false;
+
+    if (upsetProb >= 0.55 && upsetDir) {
+      isUpsetMitigated = true;
+      let targetDir = upsetDir;
+      if (targetDir.includes("不败")) {
+        targetDir = targetDir;
+      } else if (targetDir === "客胜" || targetDir === "让负") {
+        targetDir = "平局 或 客胜";
+      } else if (targetDir === "主胜" || targetDir === "让胜") {
+        targetDir = "主胜 或 平局";
+      } else if (targetDir === "平局" || targetDir === "让平") {
+        if (cleanRec.includes("主")) targetDir = "主胜 或 平局";
+        else if (cleanRec.includes("客")) targetDir = "平局 或 客胜";
+        else targetDir = "平局";
+      }
+      text = targetDir;
+      label = `<span style="font-size:10px; font-weight:bold; color:#f43f5e; background:rgba(244, 63, 94, 0.08); border:1px solid rgba(244, 63, 94, 0.3); padding:2px 5px; border-radius:4px; margin-left:4px; vertical-align:middle; display:inline-block; line-height:1.2;">🚨雷达介入</span>`;
+    }
+    else if (upsetProb >= 0.40 && upsetDir) {
+      isUpsetMitigated = true;
+      if (cleanRec === "主胜" || cleanRec === "双选不败" || cleanRec.includes("主")) {
+        text = "主胜 或 平局";
+      } else if (cleanRec === "客胜" || cleanRec.includes("客")) {
+        text = "平局 或 客胜";
+      } else {
+        text = `${cleanRec} 或 平局`;
+      }
+      label = `<span style="font-size:10px; font-weight:bold; color:#eab308; background:rgba(234, 179, 8, 0.08); border:1px solid rgba(234, 179, 8, 0.25); padding:2px 5px; border-radius:4px; margin-left:4px; vertical-align:middle; display:inline-block; line-height:1.2;">⚠️避险双选</span>`;
+    }
+    else {
+      if (conf >= 75) {
+        text = cleanRec;
+      } else {
+        if (cleanRec === "主胜" || cleanRec === "双选不败" || cleanRec.includes("主")) {
+          text = "主胜 或 平局";
+        } else if (cleanRec === "客胜" || cleanRec.includes("客")) {
+          text = "平局 或 客胜";
+        } else {
+          text = `${cleanRec} 或 平局`;
+        }
+      }
+    }
+
+    return { text, label, isUpsetMitigated };
+  }
+
   function renderUnderlinedScore(scoreStr, actualScoreStr = "") {
     if (!scoreStr || scoreStr === '--') return '--';
     if (typeof scoreStr === 'object') {
@@ -1021,20 +1080,18 @@ const MatchIQRender = (() => {
     const hadColor = had === "主胜" ? "#ff5252" : had === "客胜" ? "#40a9ff" : "#4caf50";
     const hhadColor = hhad === "让胜" ? "#ff5252" : hhad === "让平" ? "#f59e0b" : "#40a9ff";
 
-    // 信心结论：高信心只显一种，中低信心显示双选两种
-    let confidenceConclusion = "";
-    const cleanRec = recText.split('(')[0].trim();
-    if (conf >= 75) {
-      confidenceConclusion = cleanRec; // 单选一种
-    } else {
-      // 双选两种
-      if (cleanRec === "主胜" || cleanRec === "双选不败") {
-        confidenceConclusion = "主胜 或 平局";
-      } else if (cleanRec === "客胜") {
-        confidenceConclusion = "平局 或 客胜";
-      } else {
-        confidenceConclusion = `${cleanRec} 或 平局`;
-      }
+    // 信心结论：将主系统正路推荐与风控雷达有机结合
+    const mergedUpset = getMergedUpsetConclusion(match);
+    const confidenceConclusion = mergedUpset.text;
+    const upsetBadgeHtml = mergedUpset.label;
+    const upsetProb = c.upset_probability || 0;
+    
+    // 动态确定信心推荐的颜色
+    let recColor = "#10b981"; // 绿色
+    if (upsetProb >= 0.55) {
+      recColor = "#f43f5e"; // 玫瑰色 (重度风控/雷达强力介入)
+    } else if (upsetProb >= 0.40) {
+      recColor = "#f59e0b"; // 琥珀色 (中度风控/避险双选)
     }
 
     return `
@@ -1055,7 +1112,7 @@ const MatchIQRender = (() => {
         ${aggressiveHtml}
         <div class="conclusion-card conservative" style="display:flex; flex-direction:column; justify-content:center; padding:10px 14px; text-align:left;">
           <div class="cc-label" style="margin-bottom:6px;">信心结论 (${conf >= 75 ? '单选' : '双选'})</div>
-          <div class="cc-value" style="font-size:13.5px; font-weight:800; color:#10b981; text-shadow:0 0 6px rgba(16,185,129,0.15);">${confidenceConclusion}</div>
+          <div class="cc-value" style="font-size:13.5px; font-weight:800; color:${recColor}; text-shadow:0 0 6px ${recColor}33;">${confidenceConclusion}${upsetBadgeHtml}</div>
         </div>
       </div>
       <div class="conclusion-summary">
@@ -2262,20 +2319,19 @@ const MatchIQRender = (() => {
       const hadColor = had === "主胜" ? "#ff5252" : had === "客胜" ? "#40a9ff" : "#4caf50";
       const hhadColor = hhad === "让胜" ? "#ff5252" : hhad === "让平" ? "#f59e0b" : "#40a9ff";
 
-      // 信心结论：高信心只显一种，中低信心显示双选两种
-      let confidenceConclusion = "";
-      const cleanRec = recText.split('(')[0].trim();
-      if (conf >= 75) {
-        confidenceConclusion = cleanRec; // 单选一种
-      } else {
-        // 双选两种
-        if (cleanRec === "主胜" || cleanRec === "双选不败") {
-          confidenceConclusion = "主胜 或 平局";
-        } else if (cleanRec === "客胜") {
-          confidenceConclusion = "平局 或 客胜";
-        } else {
-          confidenceConclusion = `${cleanRec} 或 平局`;
-        }
+      // 信心结论：将主系统正路推荐与风控雷达有机结合
+      const mergedUpset = getMergedUpsetConclusion(m);
+      const confidenceConclusion = mergedUpset.text;
+      const upsetBadgeHtml = mergedUpset.label;
+      const isMitigated = mergedUpset.isUpsetMitigated;
+      const upsetProb = m.conclusions?.upset_probability || 0;
+      
+      // 动态确定信心推荐的颜色
+      let recColor = "#10b981"; // 绿色
+      if (upsetProb >= 0.55) {
+        recColor = "#f43f5e"; // 玫瑰色 (重度风控/雷达强力介入)
+      } else if (upsetProb >= 0.40) {
+        recColor = "#f59e0b"; // 琥珀色 (中度风控/避险双选)
       }
 
       // 变盘亮灯指示器 (diff_markers)
@@ -2288,7 +2344,7 @@ const MatchIQRender = (() => {
         <div style="text-align:left; font-size:clamp(12px, 0.95vw, 13.5px); line-height:1.5;">
           <div style="margin-bottom:2px; color:var(--text-3);">胜平负：${hadMarker}<span style="color:${hadColor}; font-weight:700;">${had}</span></div>
           <div style="margin-bottom:2px; color:var(--text-3);">让球盘(${hcLabel})：${hadMarker}<span style="color:${hhadColor}; font-weight:700;">${hhad}</span></div>
-          <div style="border-top:1px solid rgba(255,255,255,0.06); margin-top:4px; padding-top:4px; color:#10b981; font-weight:800; font-size:clamp(12px, 0.95vw, 13.5px);">信心推荐：${hadMarker}${confidenceConclusion}</div>
+          <div style="border-top:1px solid rgba(255,255,255,0.06); margin-top:4px; padding-top:4px; color:${recColor}; font-weight:800; font-size:clamp(12px, 0.95vw, 13.5px);">信心推荐：${hadMarker}${confidenceConclusion}${upsetBadgeHtml}</div>
         </div>
       `;
 
@@ -2299,7 +2355,7 @@ const MatchIQRender = (() => {
 
       const multiRecHTML = `
         <div class="multi-rec-box">
-          <div class="mr-item"><span class="mr-label">方向</span><span class="mr-val highlight">${hadMarker}${confidenceConclusion}</span></div>
+          <div class="mr-item"><span class="mr-label">方向</span><span class="mr-val highlight" style="color:${recColor};">${hadMarker}${confidenceConclusion}${upsetBadgeHtml}</span></div>
           <div class="mr-item"><span class="mr-label">比分</span><span class="mr-val font-mono">${scoreMarker}${renderUnderlinedTwoScores(twoScores)}</span></div>
           <div class="mr-item"><span class="mr-label">进球</span><span class="mr-val" style="font-weight:700;">${goalsMarker}${combinedGoalsHTML}</span></div>
           <div class="mr-item"><span class="mr-label">半全</span><span class="mr-val" style="color:#818cf8;">${hfMarker}${renderTaggedText(halfFullClean)}</span></div>
@@ -2319,7 +2375,7 @@ const MatchIQRender = (() => {
           <div class="msc-grid">
             <div class="msc-item">
               <span class="msc-label">预测方向</span>
-              <span class="msc-val" style="color:${hadColor}; font-weight:700;">${hadMarker}${confidenceConclusion}</span>
+              <span class="msc-val" style="color:${recColor}; font-weight:700;">${hadMarker}${confidenceConclusion}${upsetBadgeHtml}</span>
             </div>
             <div class="msc-item">
               <span class="msc-label">置信度</span>
