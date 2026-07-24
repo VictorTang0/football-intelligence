@@ -289,6 +289,12 @@ def sync():
         if time_part and ":" in time_part:
             time_part = time_part[:5]
 
+        conclusions_map = {
+            "sporttery_hot_scores": conc.get("sporttery_hot_scores", []),
+            "m10_snapshot_count": conc.get("m10_snapshot_count", 1),
+            "had_hhad_divergence": conc.get("had_hhad_divergence", False)
+        }
+
         record = {
             "match_id": mid,
             "league": m["league"],
@@ -299,7 +305,8 @@ def sync():
             "actual_result": actual_result,
             "is_correct": is_correct,
             "confidence": uc.get("confidence", 0),
-            "predictions": predictions_map
+            "predictions": predictions_map,
+            "conclusions": conclusions_map
         }
         if alert:
             record["radar_alert"] = alert
