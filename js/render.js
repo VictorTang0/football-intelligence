@@ -91,7 +91,13 @@ const MatchIQRender = (() => {
       
       const isHit = actualGoals !== null && g === actualGoals;
       const weight = isHit ? "900" : "600";
-      const sizeStyle = isHit ? "font-size: 1.15em; display: inline-block;" : "";
+      
+      let sizeStyle = "";
+      if (actualGoals !== null) {
+        sizeStyle = isHit ? "font-size: 1.15em; display: inline-block;" : "font-size: 0.88em; opacity: 0.8; display: inline-block;";
+      } else {
+        sizeStyle = "";
+      }
       
       return `<span style="color:${color}; font-weight:${weight}; ${sizeStyle}" title="${label}推荐 (实际进球: ${actualGoals ?? '--'})">${g}</span>`;
     });
