@@ -2515,7 +2515,7 @@ const MatchIQRender = (() => {
           <div class="msc-grid">
             <div class="msc-item">
               <span class="msc-label">预测方向</span>
-              <span class="msc-val" style="color:${recColor}; font-weight:700;">${hadMarker}${confidenceConclusion}${upsetBadgeHtml}</span>
+              <span class="msc-val" style="color:${recColor}; font-weight:700;">${hadMarker}${confidenceConclusion}${upsetBadgeHtml}${getArrowHtml('had')}</span>
             </div>
             <div class="msc-item">
               <span class="msc-label">置信度</span>
@@ -2523,11 +2523,11 @@ const MatchIQRender = (() => {
             </div>
             <div class="msc-item">
               <span class="msc-label">最可能比分</span>
-              <span class="msc-val font-mono" style="color:var(--green);">${scoreMarker}${renderUnderlinedTwoScores(twoScores)}</span>
+              <span class="msc-val font-mono" style="color:var(--green);">${scoreMarker}${renderUnderlinedTwoScores(twoScores)}${getArrowHtml('score')}</span>
             </div>
             <div class="msc-item">
               <span class="msc-label">半全场 / 进球</span>
-              <span class="msc-val" style="color:#818cf8; font-size:11px;">${hfMarker}${renderTaggedText(halfFullClean)} <span style="color:var(--text-2);">(${combinedGoalsHTML})</span></span>
+              <span class="msc-val" style="color:#818cf8; font-size:11px;">${hfMarker}${renderTaggedText(halfFullClean)}${getArrowHtml('hf')} <span style="color:var(--text-2);">(${combinedGoalsHTML}${getArrowHtml('goals')})</span></span>
             </div>
           </div>
         </div>
@@ -2541,7 +2541,7 @@ const MatchIQRender = (() => {
           <td>${matchup}</td>
           <td>${directionHTML}</td>
           <td>${combinedBadge}</td>
-          <td class="font-mono" style="color:var(--green); font-weight:800; font-size:clamp(14px, 1.1vw, 16px);">${scoreMarker}${renderUnderlinedScore(score)}</td>
+          <td class="font-mono" style="color:var(--green); font-weight:800; font-size:clamp(14px, 1.1vw, 16px);">${scoreMarker}${renderUnderlinedScore(score)}${getArrowHtml('score')}</td>
           <td style="padding: 4px 8px; white-space: normal;">${multiRecHTML}</td>
         </tr>
       `;
