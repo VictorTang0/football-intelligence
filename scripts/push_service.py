@@ -43,6 +43,51 @@ def sort_matches_by_date_and_code(matches_list):
         return (kickoff_date, code)
     return sorted(matches_list, key=sort_key)
 
+def get_handicap_info_html(m):
+    c = m.get("conclusions", {})
+    uc = m.get("ultimate_conclusion", {})
+    oa = m.get("odds_analysis", {})
+    
+    lh = oa.get("lottery_handicap", {})
+    hc_raw = lh.get("handicap", "")
+    hc_num = 0
+    if "主让" in str(hc_raw) or "-1" in str(hc_raw):
+        hc_num = -1
+    elif "客让" in str(hc_raw) or "+1" in str(hc_raw):
+        hc_num = 1
+    elif c.get("hhad_hc"):
+        try:
+            hc_num = int(c.get("hhad_hc"))
+        except:
+            hc_num = -1
+
+    if hc_num == 0:
+        hc_num = -1
+
+    hc_label = f"+{hc_num}" if hc_num > 0 else f"{hc_num}"
+
+    hhad_rec = c.get("hhad_recommendation") or uc.get("secondary_bet") or ""
+    if not hhad_rec or hhad_rec == "--":
+        rec = uc.get("recommendation", "")
+        if "主胜" in rec:
+            hhad_rec = "让主胜"
+        elif "客胜" in rec:
+            hhad_rec = "让客胜"
+        elif "主不败" in rec:
+            hhad_rec = "让平 或 让胜" if hc_num == -1 else "让主胜"
+        elif "客不败" in rec:
+            hhad_rec = "让平 或 让客胜" if hc_num == -1 else "让客胜"
+        else:
+            hhad_rec = "让平"
+
+    if "(竞彩" not in hhad_rec and "让" in hhad_rec:
+        hhad_rec += " (竞彩)"
+
+    sp_val = c.get("hhad_sp", "") or lh.get("current", {}).get("draw", "")
+    sp_str = f' <span style="color: #64748b; font-size: 10.5px;">[SP: {sp_val}]</span>' if sp_val else ''
+
+    return f"让球({hc_label}): <span style='color: #38bdf8; font-weight: bold;'>{hhad_rec}</span>{sp_str}"
+
 def format_goals_formatted_html(m):
     c = m.get("conclusions", {})
     uc = m.get("ultimate_conclusion", {})
@@ -57,7 +102,7 @@ def format_goals_formatted_html(m):
             p_goals.append(int(parts[0]) + int(parts[1]))
         p_goals = sorted(list(set(p_goals)))[:2]
         
-    # 2. M10 系统具体进球数 m_goals
+    # 2. M10 系统具体进球数 m_goals (不限限制，变盘热度推演)
     m_goals = []
     m10_scores = c.get("sporttery_hot_scores", [])
     snapshot_count = c.get("m10_snapshot_count", 1)
@@ -81,9 +126,9 @@ def format_goals_formatted_html(m):
     for g in combined:
         in_m = (g in m_goals)
         if in_m:
-            items_html.append(f'<span style="color: #fbbf24; font-weight: bold;">{g}</span>')
+            items_html.append(f'<span style="color: #fbbf24; font-weight: bold; font-size: 13px;">{g}</span>')
         else:
-            items_html.append(f'<span style="color: #38bdf8; font-weight: bold;">{g}</span>')
+            items_html.append(f'<span style="color: #38bdf8; font-weight: bold; font-size: 13px;">{g}</span>')
 
     return "(" + "、".join(items_html) + ")"
 
@@ -105,15 +150,14 @@ def render_match_card_html(m):
     baseline_rec = m.get("baseline_recommendation", "--")
     current_rec = m.get("current_recommendation") or uc.get("recommendation", "--")
     
-    # 推荐结论（带 (竞彩) 标识）
+    # 格式化胜平负推荐结论（带 (竞彩) 标识）
     if "(竞彩" not in current_rec and "竞彩" in uc.get("primary_bet", ""):
         current_rec += " (竞彩)"
+    if "(竞彩" not in current_rec and "不败" in current_rec:
+        current_rec += " (竞彩)"
 
-    handicap_rec = c.get("hhad_recommendation") or uc.get("secondary_bet", "--")
-    if handicap_rec and "(竞彩" not in handicap_rec and "让" in handicap_rec:
-        handicap_rec += " (竞彩)"
-    handicap_sp = c.get("hhad_sp", "")
-    sp_str = f' <span style="color: #64748b; font-size: 10px;">[SP: {handicap_sp}]</span>' if handicap_sp else ''
+    # 让球加减球与结论 HTML
+    handicap_html = get_handicap_info_html(m)
 
     # 信心级别与风险标签
     conf = uc.get("confidence", 60)
@@ -122,14 +166,14 @@ def render_match_card_html(m):
 
     # 雷达 Badge
     is_radar = m.get("radar_triggered") or c.get("had_hhad_divergence", False)
-    radar_badge = ' <span style="background-color: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); padding: 1px 4px; border-radius: 3px; font-size: 9px;">雷达干预</span>' if is_radar else ''
+    radar_badge = ' <span style="background-color: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); padding: 1px 4px; border-radius: 3px; font-size: 9.5px;">雷达干预</span>' if is_radar else ''
 
     # 变盘展示
     has_rec_changed = (baseline_rec != current_rec and baseline_rec != "--")
     if has_rec_changed:
-        rec_display = f'<span style="text-decoration: line-through; color: #64748b;">{baseline_rec}</span> ➔ <span style="color: #f43f5e; font-weight: bold; text-decoration: underline;">{current_rec}</span>'
+        rec_display = f'<span style="text-decoration: line-through; color: #64748b; font-size: 11px;">{baseline_rec}</span> ➔ <span style="color: #f43f5e; font-weight: bold; text-decoration: underline; font-size: 13.5px;">{current_rec}</span>'
     else:
-        rec_display = f'<span style="color: #38bdf8; font-weight: bold;">{current_rec}</span>'
+        rec_display = f'<span style="color: #38bdf8; font-weight: bold; font-size: 13.5px;">{current_rec}</span>'
 
     # 比分、双色进球数（主系统天蓝 / M10与双核金黄）与半全场
     scores = m.get("current_scores") or uc.get("predicted_score") or c.get("most_likely_score", "--")
@@ -141,30 +185,30 @@ def render_match_card_html(m):
     water_row_html = ""
     if odds_mov:
         water_row_html = f'''
-        <div style="background-color: rgba(56, 189, 248, 0.03); padding: 7px 10px; font-size: 10.5px; color: #94a3b8; border-bottom: 1px solid rgba(255, 255, 255, 0.05); font-family: monospace;">
+        <div style="background-color: rgba(56, 189, 248, 0.03); padding: 8px 10px; font-size: 11.5px; color: #94a3b8; border-bottom: 1px solid rgba(255, 255, 255, 0.05); font-family: monospace;">
           💧 <strong>水位异动</strong>: <span style="color: #fbbf24; font-weight: bold;">{odds_mov}</span>
         </div>
         '''
 
     return f'''
-    <div style="background-color: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; margin-bottom: 12px; overflow: hidden;">
+    <div style="background-color: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; margin-bottom: 14px; overflow: hidden;">
       <div style="display: flex; border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
-        <div style="width: 38%; background-color: rgba(255, 255, 255, 0.03); padding: 10px 8px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid rgba(255, 255, 255, 0.06);">
-          <div style="font-size: 10px; color: #94a3b8; font-weight: bold; margin-bottom: 4px;">{match_no} • {kickoff}</div>
-          <div style="font-size: 13px; font-weight: bold; color: #f8fafc; line-height: 1.3;">{home}</div>
-          <div style="font-size: 9px; color: #64748b; margin: 2px 0;">VS</div>
-          <div style="font-size: 13px; font-weight: bold; color: #f8fafc; line-height: 1.3;">{away}</div>
+        <div style="width: 38%; background-color: rgba(255, 255, 255, 0.03); padding: 12px 8px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid rgba(255, 255, 255, 0.06);">
+          <div style="font-size: 11px; color: #94a3b8; font-weight: bold; margin-bottom: 4px;">{match_no} • {kickoff}</div>
+          <div style="font-size: 14.5px; font-weight: bold; color: #ffffff; line-height: 1.3;">{home}</div>
+          <div style="font-size: 10px; color: #64748b; margin: 2px 0;">VS</div>
+          <div style="font-size: 14.5px; font-weight: bold; color: #ffffff; line-height: 1.3;">{away}</div>
         </div>
-        <div style="width: 62%; padding: 8px 10px; font-size: 11px; display: flex; flex-direction: column; gap: 4px;">
+        <div style="width: 62%; padding: 10px 12px; font-size: 12.5px; display: flex; flex-direction: column; gap: 5px;">
           <div>{rec_display}{radar_badge}</div>
-          <div style="color: #cbd5e1;">让球: <span style="color: #38bdf8; font-weight: bold;">{handicap_rec}</span>{sp_str}</div>
-          <div style="font-size: 10px; color: #94a3b8;">信心: <span style="{conf_class}">{conf}%</span> | {cold_tag}</div>
+          <div style="color: #cbd5e1; font-size: 12px;">{handicap_html}</div>
+          <div style="font-size: 11px; color: #94a3b8;">信心: <span style="{conf_class}">{conf}%</span> | {cold_tag}</div>
         </div>
       </div>
       {water_row_html}
-      <div style="padding: 8px 10px; font-size: 11px; background-color: rgba(0, 0, 0, 0.15); display: flex; flex-direction: column; gap: 4px;">
-        <div style="color: #f1f5f9;">🎯 <strong>最可能比分</strong>: <span style="color: #10b981; font-weight: bold;">{scores}</span></div>
-        <div style="color: #94a3b8;">⚽ <strong>具体进球数</strong>: {goals_html} | <strong>半全场</strong>: <span style="color: #a855f7; font-weight: bold;">{hf}</span></div>
+      <div style="padding: 10px 12px; font-size: 12px; background-color: rgba(0, 0, 0, 0.15); display: flex; flex-direction: column; gap: 5px;">
+        <div style="color: #f1f5f9; font-size: 12.5px;">🎯 <strong>最可能比分</strong>: <span style="color: #10b981; font-weight: bold; font-size: 13px;">{scores}</span></div>
+        <div style="color: #94a3b8; font-size: 12px;">⚽ <strong>具体进球数</strong>: {goals_html} | <strong>半全场</strong>: <span style="color: #a855f7; font-weight: bold; font-size: 12.5px;">{hf}</span></div>
       </div>
     </div>
     '''
