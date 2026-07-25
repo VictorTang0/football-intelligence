@@ -440,16 +440,29 @@ def main():
     with open(MATCHES_PATH, "r", encoding="utf-8") as f:
         database = json.load(f)
         
+    import re
     existing_ids = {m["id"] for m in database["matches"]}
+    existing_pairs = {(re.sub(r'（[^）]*）|\([^)]*\)', '', m.get("home", "")).strip(), re.sub(r'（[^）]*）|\([^)]*\)', '', m.get("away", "")).strip()) for m in database["matches"]}
     added_count = 0
     
     for raw in new_raw_matches:
-        if raw["id"] in existing_ids:
-            print(f"Match {raw['id']} already exists, skipping.")
+        # Standardize ID (strip out Chinese character day prefixes)
+        raw_id = raw.get("id", "")
+        clean_id = re.sub(r'match_(\d+)_周[一二三四五六日](\d+)', r'match_\1_\2', raw_id)
+        raw["id"] = clean_id
+        
+        home_clean = re.sub(r'（[^）]*）|\([^)]*\)', '', raw.get("home", "")).strip()
+        away_clean = re.sub(r'（[^）]*）|\([^)]*\)', '', raw.get("away", "")).strip()
+        pair_key = (home_clean, away_clean)
+
+        if clean_id in existing_ids or pair_key in existing_pairs:
+            print(f"Match {home_clean} vs {away_clean} ({clean_id}) already exists, skipping.")
             continue
             
         full_match = create_complete_match(raw)
         database["matches"].append(full_match)
+        existing_ids.add(clean_id)
+        existing_pairs.add(pair_key)
         added_count += 1
         print(f"Initialized & Appended: {full_match['home']} vs {full_match['away']} ({full_match['id']})")
         
