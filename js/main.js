@@ -71,20 +71,32 @@ const MatchIQ = (() => {
 
   const weekdayMap = {"周一": 1, "周二": 2, "周三": 3, "周四": 4, "周五": 5, "周六": 6, "周日": 7};
   function getSportterySortKey(m) {
-    const dateStr = (m.kickoff || '').split('T')[0].split(' ')[0] || '9999-99-99';
-    const numStr = m.match_no || m.matchNumStr || m.id || '';
-    const numMatch = numStr.match(/\d+$/);
-    const code = numMatch ? parseInt(numMatch[0], 10) : 999;
-    return [dateStr, code, m.kickoff || '', m.id || ''];
+    // 优先使用竞彩官方开售业务日期 issue_date (如 260725) 或 business_date (如 2026-07-25)
+    let dateCode = m.issue_date || m.business_date || '';
+    if (!dateCode) {
+      const matchReg = /match_(\d{6})_(\d+)/.exec(m.id || '');
+      if (matchReg) {
+        dateCode = matchReg[1];
+      } else {
+        dateCode = (m.kickoff || '').split('T')[0].split(' ')[0] || '9999-99-99';
+      }
+    }
+    let code = m.match_code;
+    if (code === undefined || code === null) {
+      const numStr = m.match_no || m.matchNumStr || m.id || '';
+      const numMatch = numStr.match(/\d+$/);
+      code = numMatch ? parseInt(numMatch[0], 10) : 999;
+    }
+    return [dateCode, code, m.kickoff || '', m.id || ''];
   }
 
   function sortMatchesBySporttery(matchList) {
     return [...matchList].sort((a, b) => {
       const keyA = getSportterySortKey(a);
       const keyB = getSportterySortKey(b);
-      // 1. Sort by Kickoff Date (YYYY-MM-DD) ascending
+      // 1. Sort by official Business Date / issue_date (e.g. 260725 < 260726 < 260727) ascending
       if (keyA[0] !== keyB[0]) return keyA[0].localeCompare(keyB[0]);
-      // 2. Sort by Match Number Code (201, 202...) ascending
+      // 2. Sort by Match Code (201 < 202 < ... < 211) ascending
       if (keyA[1] !== keyB[1]) return keyA[1] - keyB[1];
       // 3. Fallback: Kickoff exact timestamp
       return keyA[2].localeCompare(keyB[2]);
