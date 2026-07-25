@@ -2425,6 +2425,57 @@ def main():
         has_odds_change = check_odds_water_changed(pm, m)
         is_radar = m.get("conclusions", {}).get("had_hhad_divergence", False)
         
+        # ── Compute Dual System Arrows (Blue: Primary, Gold: M10) ──
+        arrows = {
+            "had": {"primary": "none", "m10": "none"},
+            "hhad": {"primary": "none", "m10": "none"},
+            "score": {"primary": "none", "m10": "none"},
+            "goals": {"primary": "none", "m10": "none"},
+            "hf": {"primary": "none", "m10": "none"}
+        }
+
+        if has_odds_change or has_conclusion_change or is_radar:
+            p_conf_curr = m.get("ultimate_conclusion", {}).get("confidence", 60)
+            p_conf_prev = pm.get("ultimate_conclusion", {}).get("confidence", 60)
+            p_diff = p_conf_curr - p_conf_prev
+
+            # Primary System Arrow calculation (Blue)
+            if p_diff > 0:
+                arrows["had"]["primary"] = "up"
+                arrows["hhad"]["primary"] = "up"
+            elif p_diff < 0:
+                arrows["had"]["primary"] = "down"
+                arrows["hhad"]["primary"] = "down"
+
+            # M10 System Arrow calculation (Gold)
+            init_w = float(m.get("odds_analysis", {}).get("lottery_handicap", {}).get("initial", {}).get("win", 0))
+            curr_w = float(m.get("odds_analysis", {}).get("lottery_handicap", {}).get("current", {}).get("win", 0))
+            rec_text = m.get("ultimate_conclusion", {}).get("recommendation", "")
+            
+            if init_w > 0 and curr_w > 0:
+                if ("主" in rec_text and curr_w < init_w) or ("客" in rec_text and curr_w > init_w):
+                    arrows["had"]["m10"] = "up"
+                elif ("主" in rec_text and curr_w > init_w) or ("客" in rec_text and curr_w < init_w):
+                    arrows["had"]["m10"] = "down"
+
+            if is_radar:
+                arrows["hhad"]["m10"] = "down"
+                arrows["had"]["m10"] = "down"
+            elif has_odds_change and arrows["hhad"]["m10"] == "none":
+                arrows["hhad"]["m10"] = "up"
+
+            if diff.get("score"):
+                arrows["score"]["primary"] = "up" if p_diff >= 0 else "down"
+                arrows["score"]["m10"] = "up"
+            if diff.get("goals"):
+                arrows["goals"]["primary"] = "up" if p_diff >= 0 else "down"
+                arrows["goals"]["m10"] = "up"
+            if diff.get("hf"):
+                arrows["hf"]["primary"] = "up" if p_diff >= 0 else "down"
+                arrows["hf"]["m10"] = "up"
+
+        m["subitem_arrows"] = arrows
+
         if has_conclusion_change or has_odds_change or is_radar:
             m["has_changed_in_push"] = True
             m["has_conclusion_changed"] = (has_conclusion_change or is_radar)

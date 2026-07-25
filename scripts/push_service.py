@@ -153,6 +153,24 @@ def format_goals_formatted_html(m):
 
     return "(" + "、".join(items_html) + ")"
 
+def get_arrow_html(m, subitem_key):
+    arrows = m.get("subitem_arrows", {}).get(subitem_key, {})
+    p_arrow = arrows.get("primary", "none")
+    m_arrow = arrows.get("m10", "none")
+
+    res = ""
+    if p_arrow == "up":
+        res += '<span style="color:#38bdf8;font-weight:bold;margin-left:2px;">↑</span>'
+    elif p_arrow == "down":
+        res += '<span style="color:#38bdf8;font-weight:bold;margin-left:2px;">↓</span>'
+
+    if m_arrow == "up":
+        res += '<span style="color:#fbbf24;font-weight:bold;margin-left:2px;">↑</span>'
+    elif m_arrow == "down":
+        res += '<span style="color:#fbbf24;font-weight:bold;margin-left:2px;">↓</span>'
+
+    return res
+
 def render_match_card_html(m):
     match_no = m.get("match_num_str") or m.get("match_no") or m.get("id", "").split("_")[-1]
     home = m.get("home", "")
@@ -184,6 +202,11 @@ def render_match_card_html(m):
     dot_goals = "🟡 " if goals_changed else ""
     dot_hf = "🟡 " if hf_changed else ""
 
+    arrow_had = get_arrow_html(m, "had")
+    arrow_score = get_arrow_html(m, "score")
+    arrow_goals = get_arrow_html(m, "goals")
+    arrow_hf = get_arrow_html(m, "hf")
+
     baseline_rec = m.get("baseline_recommendation", "--")
     current_rec = (m.get("current_recommendation") or uc.get("recommendation", "--"))
     conf = uc.get("confidence", 60)
@@ -202,9 +225,9 @@ def render_match_card_html(m):
 
     has_rec_changed = (baseline_rec != current_rec and baseline_rec != "--")
     if has_rec_changed:
-        rec_display = f'{dot_had}<span style="text-decoration:line-through;color:#64748b;font-size:11px;">{baseline_rec}</span>➔<span style="color:#f43f5e;font-weight:bold;text-decoration:underline;font-size:13.5px;">{current_rec}</span>'
+        rec_display = f'{dot_had}<span style="text-decoration:line-through;color:#64748b;font-size:11px;">{baseline_rec}</span>➔<span style="color:#f43f5e;font-weight:bold;text-decoration:underline;font-size:13.5px;">{current_rec}</span>{arrow_had}'
     else:
-        rec_display = f'{dot_had}<span style="color:#38bdf8;font-weight:bold;font-size:13.5px;">{current_rec}</span>'
+        rec_display = f'{dot_had}<span style="color:#38bdf8;font-weight:bold;font-size:13.5px;">{current_rec}</span>{arrow_had}'
 
     scores = m.get("current_scores") or uc.get("predicted_score") or c.get("most_likely_score", "--")
     goals_html = format_goals_formatted_html(m)
@@ -215,7 +238,7 @@ def render_match_card_html(m):
     if odds_mov:
         water_row_html = f'<div class="wb">{dot_water}💧 <strong>水位异动</strong>: <span style="color:#fbbf24;font-weight:bold;">{odds_mov}</span></div>'
 
-    return f'''<div class="cb"><div class="cm"><div class="ct"><div class="mm">{match_no} • {kickoff}{time_dot}</div><div class="tt">{home}</div><div class="vt">VS</div><div class="tt">{away}</div></div><div class="ci"><div>{rec_display}{radar_badge}</div><div style="color:#cbd5e1;font-size:12px;">{handicap_html}</div><div style="font-size:11px;color:#94a3b8;">信心: <span style="{conf_class}">{conf}%</span> | {cold_tag}</div></div></div>{water_row_html}<div class="db"><div style="color:#f1f5f9;font-size:12.5px;">{dot_score}🎯 <strong>最可能比分</strong>: <span style="color:#10b981;font-weight:bold;font-size:13px;">{scores}</span></div><div style="color:#94a3b8;font-size:12px;">{dot_goals}⚽ <strong>具体进球数</strong>: {goals_html} | {dot_hf}<strong>半全场</strong>: <span style="color:#a855f7;font-weight:bold;font-size:12.5px;">{hf}</span></div></div></div>'''
+    return f'''<div class="cb"><div class="cm"><div class="ct"><div class="mm">{match_no} • {kickoff}{time_dot}</div><div class="tt">{home}</div><div class="vt">VS</div><div class="tt">{away}</div></div><div class="ci"><div>{rec_display}{radar_badge}</div><div style="color:#cbd5e1;font-size:12px;">{handicap_html}</div><div style="font-size:11px;color:#94a3b8;">信心: <span style="{conf_class}">{conf}%</span> | {cold_tag}</div></div></div>{water_row_html}<div class="db"><div style="color:#f1f5f9;font-size:12.5px;">{dot_score}🎯 <strong>最可能比分</strong>: <span style="color:#10b981;font-weight:bold;font-size:13px;">{scores}</span>{arrow_score}</div><div style="color:#94a3b8;font-size:12px;">{dot_goals}⚽ <strong>具体进球数</strong>: {goals_html}{arrow_goals} | {dot_hf}<strong>半全场</strong>: <span style="color:#a855f7;font-weight:bold;font-size:12.5px;">{hf}</span>{arrow_hf}</div></div></div>'''
 
 def push_scheduled_update(matches, has_any_change=False):
     sorted_matches = sort_matches_by_date_and_code(matches)

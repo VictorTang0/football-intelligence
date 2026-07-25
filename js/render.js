@@ -2467,10 +2467,22 @@ const MatchIQRender = (() => {
         waterHtml = `<div style="margin-top:3px; font-size:10.5px; color:#fbbf24; font-family:var(--font-mono);">💧 ${m.odds_movement_str}</div>`;
       }
 
+      function getArrowHtml(subitemKey) {
+        const arrows = m.subitem_arrows?.[subitemKey] || {};
+        const pArrow = arrows.primary || 'none';
+        const mArrow = arrows.m10 || 'none';
+        let res = '';
+        if (pArrow === 'up') res += '<span style="color:#38bdf8; font-weight:900; margin-left:2px;" title="主系统信心上升">↑</span>';
+        else if (pArrow === 'down') res += '<span style="color:#38bdf8; font-weight:900; margin-left:2px;" title="主系统信心下降">↓</span>';
+        if (mArrow === 'up') res += '<span style="color:#fbbf24; font-weight:900; margin-left:2px;" title="M10系统资金走势上升">↑</span>';
+        else if (mArrow === 'down') res += '<span style="color:#fbbf24; font-weight:900; margin-left:2px;" title="M10系统资金走势下降">↓</span>';
+        return res;
+      }
+
       const directionHTML = `
         <div style="text-align:left; font-size:clamp(12px, 0.95vw, 13.5px); line-height:1.5;">
-          <div style="margin-bottom:3px;">${hadMarker}${recDisplayHtml}</div>
-          <div style="margin-bottom:3px; color:var(--text-3); font-size:12px;">${hhadDisplayHtml}</div>
+          <div style="margin-bottom:3px;">${hadMarker}${recDisplayHtml}${getArrowHtml('had')}</div>
+          <div style="margin-bottom:3px; color:var(--text-3); font-size:12px;">${hhadDisplayHtml}${getArrowHtml('hhad')}</div>
           <div style="font-size:11px; color:var(--text-3);">信心: <span style="${confClass}">${conf}%</span> | <span style="color:var(--text-2);">${coldTag}</span></div>
           ${waterHtml}
         </div>
@@ -2483,10 +2495,10 @@ const MatchIQRender = (() => {
 
       const multiRecHTML = `
         <div class="multi-rec-box">
-          <div class="mr-item"><span class="mr-label">方向</span><span class="mr-val highlight" style="color:${recColor};">${hadMarker}${confidenceConclusion}${upsetBadgeHtml}</span></div>
-          <div class="mr-item"><span class="mr-label">比分</span><span class="mr-val font-mono">${scoreMarker}${renderUnderlinedTwoScores(twoScores)}</span></div>
-          <div class="mr-item"><span class="mr-label">进球</span><span class="mr-val" style="font-weight:700;">${goalsMarker}${combinedGoalsHTML}</span></div>
-          <div class="mr-item"><span class="mr-label">半全</span><span class="mr-val" style="color:#818cf8;">${hfMarker}${renderTaggedText(halfFullClean)}</span></div>
+          <div class="mr-item"><span class="mr-label">方向</span><span class="mr-val highlight" style="color:${recColor};">${hadMarker}${confidenceConclusion}${upsetBadgeHtml}${getArrowHtml('had')}</span></div>
+          <div class="mr-item"><span class="mr-label">比分</span><span class="mr-val font-mono">${scoreMarker}${renderUnderlinedTwoScores(twoScores)}${getArrowHtml('score')}</span></div>
+          <div class="mr-item"><span class="mr-label">进球</span><span class="mr-val" style="font-weight:700;">${goalsMarker}${combinedGoalsHTML}${getArrowHtml('goals')}</span></div>
+          <div class="mr-item"><span class="mr-label">半全</span><span class="mr-val" style="color:#818cf8;">${hfMarker}${renderTaggedText(halfFullClean)}${getArrowHtml('hf')}</span></div>
         </div>
       `;
 
