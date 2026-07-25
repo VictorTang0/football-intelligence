@@ -2464,15 +2464,23 @@ def main():
             elif has_odds_change and arrows["hhad"]["m10"] == "none":
                 arrows["hhad"]["m10"] = "up"
 
-            if diff.get("score"):
-                arrows["score"]["primary"] = "up" if p_diff >= 0 else "down"
+            # Score (比分) dual system arrows (Blue: Primary, Gold: M10)
+            arrows["score"]["primary"] = "up" if p_diff >= 0 else "down"
+            if init_w > 0 and curr_w > 0:
+                arrows["score"]["m10"] = "up" if curr_w <= init_w else "down"
+            else:
                 arrows["score"]["m10"] = "up"
-            if diff.get("goals"):
-                arrows["goals"]["primary"] = "up" if p_diff >= 0 else "down"
+
+            # Goals (具体进球数) dual system arrows (Blue: Primary, Gold: M10)
+            arrows["goals"]["primary"] = "up" if p_diff >= 0 else "down"
+            if init_w > 0 and curr_w > 0:
+                arrows["goals"]["m10"] = "up" if curr_w <= init_w else "down"
+            else:
                 arrows["goals"]["m10"] = "up"
-            if diff.get("hf"):
-                arrows["hf"]["primary"] = "up" if p_diff >= 0 else "down"
-                arrows["hf"]["m10"] = "up"
+
+            # Half-Full (半全场) dual system arrows (Blue: Primary, Gold: M10)
+            arrows["hf"]["primary"] = "up" if p_diff >= 0 else "down"
+            arrows["hf"]["m10"] = "down" if is_radar else "up"
 
         m["subitem_arrows"] = arrows
 

@@ -30,6 +30,8 @@ COMMON_CSS = """<style>
 .wb{background:rgba(56,189,248,0.03);padding:5px 8px;font-size:11px;color:#94a3b8;border-bottom:1px solid rgba(255,255,255,0.05);font-family:monospace;}
 .db{padding:6px 8px;font-size:12px;background:rgba(0,0,0,0.15);display:flex;flex-direction:column;gap:3px;}
 .br{background:rgba(245,158,11,0.15);color:#f59e0b;border:1px solid rgba(245,158,11,0.3);padding:1px 4px;border-radius:3px;font-size:9.5px;}
+.b{color:#38bdf8;font-weight:bold;margin-left:1px;}
+.g{color:#fbbf24;font-weight:bold;margin-left:1px;}
 </style>"""
 
 def send_push(title, content):
@@ -160,14 +162,14 @@ def get_arrow_html(m, subitem_key):
 
     res = ""
     if p_arrow == "up":
-        res += '<span style="color:#38bdf8;font-weight:bold;margin-left:2px;">↑</span>'
+        res += '<span class="b">↑</span>'
     elif p_arrow == "down":
-        res += '<span style="color:#38bdf8;font-weight:bold;margin-left:2px;">↓</span>'
+        res += '<span class="b">↓</span>'
 
     if m_arrow == "up":
-        res += '<span style="color:#fbbf24;font-weight:bold;margin-left:2px;">↑</span>'
+        res += '<span class="g">↑</span>'
     elif m_arrow == "down":
-        res += '<span style="color:#fbbf24;font-weight:bold;margin-left:2px;">↓</span>'
+        res += '<span class="g">↓</span>'
 
     return res
 
