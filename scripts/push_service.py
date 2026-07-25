@@ -175,7 +175,7 @@ def render_match_card_html(m):
     goals_changed = diff.get("goals", False)
     hf_changed = diff.get("hf", False)
 
-    has_match_changed = m.get("has_changed_in_push") or had_changed or water_changed or score_changed or goals_changed or hf_changed
+    has_match_changed = m.get("has_conclusion_changed", False) or had_changed or score_changed or goals_changed or hf_changed
 
     time_dot = '<span style="font-size:11px;margin-left:4px;">🟡</span>' if has_match_changed else ''
     dot_had = "🟡 " if had_changed else ""

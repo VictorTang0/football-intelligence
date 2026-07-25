@@ -2427,6 +2427,7 @@ def main():
         
         if has_conclusion_change or has_odds_change or is_radar:
             m["has_changed_in_push"] = True
+            m["has_conclusion_changed"] = (has_conclusion_change or is_radar)
             m["odds_water_changed"] = has_odds_change
             m["baseline_recommendation"] = m.get("baseline_recommendation") or pm.get("baseline_recommendation") or pm.get("ultimate_conclusion", {}).get("recommendation", "--")
             m["current_recommendation"] = m.get("ultimate_conclusion", {}).get("recommendation", "--")
@@ -2436,6 +2437,7 @@ def main():
             changed_matches.append(m)
         else:
             m["has_changed_in_push"] = False
+            m["has_conclusion_changed"] = False
 
     def sort_matches_key(m):
         kickoff_date = (m.get("kickoff") or "").split("T")[0].split(" ")[0]
@@ -2462,6 +2464,7 @@ def main():
     # 按照 用户最新推送规则 进行推送：
     # 每次唤醒无论是否有更新都推送一次；
     # ≤ 8 场时推送全部，> 8 场时只推送当日比赛编号日期 (issue_date) 包含的所有赛事。
+    # 规则：仅当结论/方向发生变化时才计入 [情况有变]，纯水位变化不计入 [情况有变] (显示 [牌没问题])。
     try:
         import push_service
         all_matches = data.get("matches", [])
@@ -2482,7 +2485,7 @@ def main():
         else:
             target_matches = first_date_matches
         
-        has_any_change = any(m.get("has_changed_in_push") or m.get("odds_water_changed") for m in target_matches)
+        has_any_change = any(m.get("has_conclusion_changed", False) for m in target_matches)
         title_prefix = "情况有变" if has_any_change else "牌没问题"
         
         print(f"📲 Triggering Push Notification: [{title_prefix}] ({len(target_matches)} matches pushed, Has Any Change: {has_any_change})...")
