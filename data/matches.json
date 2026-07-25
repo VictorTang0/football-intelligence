@@ -41488,7 +41488,7 @@
         "humidity": 58,
         "wind_kmh": 7
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-24T11:18:28.529564",
@@ -41738,7 +41738,8 @@
         "ev_score": 0.0,
         "reasoning": "芬兰超级联赛比赛双方战术意图各有侧重。 基本面上，金泉尚武在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），但大田市民在【近期状态与动能】上（评分 4.7 对 3.1）给主队带来制约。结合战意（主 95% / 客 92%），即时欧指主胜由 3.01 降至 2.95，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "stable",
-        "predicted_score": "0-1 或 0-0 或 1-2 (竞彩)"
+        "predicted_score": "0-1 或 0-0 或 1-2 (竞彩)",
+        "actual_result": "金泉尚武 3-2 大田市民 (2-1)"
       },
       "team_stats": {
         "home": {
@@ -42425,7 +42426,16 @@
       "current_recommendation": "客不败",
       "current_scores": "0-1 或 0-0 或 1-2 (竞彩)",
       "current_goals": "小 2.5",
-      "radar_triggered": false
+      "radar_triggered": false,
+      "result": {
+        "actual_result": "金泉尚武 3-2 大田市民 (2-1)",
+        "ft_score": "3:2",
+        "ht_score": "2:1",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": false
+      }
     },
     {
       "id": "match_260725_202",
@@ -42443,7 +42453,7 @@
         "humidity": 51,
         "wind_kmh": 16
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-24T11:18:28.964401",
@@ -42693,7 +42703,8 @@
         "ev_score": 0.0,
         "reasoning": "瑞典超级联赛比赛双方战术意图各有侧重。 基本面上，浦项制铁在【历史交锋与心理克制】上拥有明显优势（评分 5.9 对 4.1），但全北现代在【战术克制与匹配】上（评分 8.7 对 7.5）给主队带来制约。结合战意（主 85% / 客 70%），即时欧指主胜由 3.06 降至 3.00，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "stable",
-        "predicted_score": "1-2 或 1-1 (竞彩)"
+        "predicted_score": "1-2 或 1-1 (竞彩)",
+        "actual_result": "浦项制铁 0-2 全北现代 (0-1)"
       },
       "team_stats": {
         "home": {
@@ -43474,7 +43485,16 @@
       "current_recommendation": "客不败",
       "current_scores": "1-2 或 1-1 (竞彩)",
       "current_goals": "大 2.5 (竞彩)",
-      "radar_triggered": false
+      "radar_triggered": false,
+      "result": {
+        "actual_result": "浦项制铁 0-2 全北现代 (0-1)",
+        "ft_score": "0:2",
+        "ht_score": "0:1",
+        "rec_correct": true,
+        "hafu_correct": true,
+        "ou_correct": false,
+        "score_correct": false
+      }
     },
     {
       "id": "match_260725_203",
@@ -45444,9 +45464,9 @@
             "away": 1.36
           },
           "current": {
-            "home": 6.3,
-            "draw": 4.7,
-            "away": 1.32
+            "home": 5.55,
+            "draw": 4.45,
+            "away": 1.38
           },
           "movement": "实时追踪"
         },
@@ -47721,9 +47741,9 @@
             "away": 3.26
           },
           "current": {
-            "home": 1.9,
-            "draw": 3.22,
-            "away": 3.42
+            "home": 1.93,
+            "draw": 3.18,
+            "away": 3.37
           },
           "movement": "实时追踪"
         },
@@ -48875,9 +48895,9 @@
             "away": 2.3
           },
           "current": {
-            "home": 2.5,
-            "draw": 3.2,
-            "away": 2.4
+            "home": 2.54,
+            "draw": 3.1,
+            "away": 2.42
           },
           "movement": "实时追踪"
         },
@@ -62915,9 +62935,9 @@
             "away": 3.18
           },
           "current": {
-            "home": 2.16,
-            "draw": 3.65,
-            "away": 2.55
+            "home": 2.21,
+            "draw": 3.6,
+            "away": 2.51
           },
           "movement": "实时追踪"
         },
