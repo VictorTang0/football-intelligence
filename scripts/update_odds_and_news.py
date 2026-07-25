@@ -2328,7 +2328,7 @@ def main():
         p_analysis = prev_m.get("odds_analysis", {})
         c_analysis = curr_m.get("odds_analysis", {})
         
-        # Compare Pinnacle European odds
+        # 1. 欧赔 (Pinnacle) 包含 home, draw, away
         p_pin = p_analysis.get("pinnacle", {}).get("current", {})
         c_pin = c_analysis.get("pinnacle", {}).get("current", {})
         if (p_pin.get("home") != c_pin.get("home") or
@@ -2336,20 +2336,26 @@ def main():
             p_pin.get("away") != c_pin.get("away")):
             return True
             
-        # Compare Asian handicap odds
+        # 2. 亚盘 (Asian Handicap) 包含 handicap, home_odds, away_odds
         p_ah = p_analysis.get("asian_handicap", {}).get("current", {})
         c_ah = c_analysis.get("asian_handicap", {}).get("current", {})
-        if (p_ah.get("line") != c_ah.get("line") or
-            p_ah.get("home") != c_ah.get("home") or
-            p_ah.get("away") != c_ah.get("away")):
+        if (p_ah.get("handicap") != c_ah.get("handicap") or
+            p_ah.get("home_odds") != c_ah.get("home_odds") or
+            p_ah.get("away_odds") != c_ah.get("away_odds")):
             return True
             
-        # Compare Sporttery official odds
+        # 3. 竞彩官方 (Lottery Handicap / HAD) 包含 win, draw, lose
         p_lot = p_analysis.get("lottery_handicap", {}).get("current", {})
         c_lot = c_analysis.get("lottery_handicap", {}).get("current", {})
-        if (p_lot.get("home") != c_lot.get("home") or
+        if (p_lot.get("win") != c_lot.get("win") or
             p_lot.get("draw") != c_lot.get("draw") or
-            p_lot.get("away") != c_lot.get("away")):
+            p_lot.get("lose") != c_lot.get("lose")):
+            return True
+
+        # 4. M10 水位快照轨迹
+        p_traj = prev_m.get("conclusions", {}).get("m10_water_trajectory", [])
+        c_traj = curr_m.get("conclusions", {}).get("m10_water_trajectory", [])
+        if len(p_traj) != len(c_traj):
             return True
 
         return False
