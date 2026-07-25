@@ -1,8 +1,136 @@
 {
-  "total_predictions": 67,
-  "correct_predictions": 33,
-  "accuracy_rate": 0.4925,
+  "total_predictions": 69,
+  "correct_predictions": 34,
+  "accuracy_rate": 0.4928,
   "records": [
+    {
+      "match_id": "match_260725_202",
+      "league": "瑞典超级联赛",
+      "home": "浦项制铁",
+      "away": "全北现代",
+      "date": "2026-07-25",
+      "time": "18:30",
+      "actual_result": "浦项制铁 0-2 全北现代 (0-1)",
+      "is_correct": true,
+      "confidence": 37,
+      "predictions": {
+        "recommendation": {
+          "val": "客不败",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "双选不败",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "客不败",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平负 (竞彩) 或 负负",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5 (竞彩)",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "1-2 或 1-1 (竞彩)",
+          "correct": false
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [
+          "1:1",
+          "2:2",
+          "0:1"
+        ],
+        "m10_snapshot_count": 9,
+        "had_hhad_divergence": false
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.06000000000000005,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": false
+      }
+    },
+    {
+      "match_id": "match_260725_201",
+      "league": "芬兰超级联赛",
+      "home": "金泉尚武",
+      "away": "大田市民",
+      "date": "2026-07-25",
+      "time": "18:30",
+      "actual_result": "金泉尚武 3-2 大田市民 (2-1)",
+      "is_correct": false,
+      "confidence": 47,
+      "predictions": {
+        "recommendation": {
+          "val": "客不败",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "双选不败",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "客不败",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平平 (竞彩)",
+          "correct": false
+        },
+        "over_under": {
+          "val": "小 2.5",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "0-1 或 0-0 或 1-2 (竞彩)",
+          "correct": false
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [
+          "1:2"
+        ],
+        "m10_snapshot_count": 6,
+        "had_hhad_divergence": false
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.05999999999999961,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": true
+      }
+    },
     {
       "match_id": "match_260724_202",
       "league": "巴甲",
@@ -4941,12 +5069,12 @@
     }
   ],
   "radar_stats": {
-    "total_alerts": 64,
-    "correct_alerts": 37,
-    "accuracy_rate": 0.5781
+    "total_alerts": 66,
+    "correct_alerts": 38,
+    "accuracy_rate": 0.5758
   },
-  "score_accuracy_rate": 0.194,
-  "half_full_accuracy_rate": 0.1791,
+  "score_accuracy_rate": 0.1884,
+  "half_full_accuracy_rate": 0.1739,
   "hafu_accuracy_rate": 0.2609,
   "sporttery_primary_stats": {
     "direction": {
@@ -4955,14 +5083,14 @@
       "accuracy_rate": 1.0
     },
     "goals": {
-      "hits": 7,
-      "total": 22,
-      "accuracy_rate": 0.3182
+      "hits": 8,
+      "total": 24,
+      "accuracy_rate": 0.3333
     },
     "score": {
       "hits": 4,
-      "total": 22,
-      "accuracy_rate": 0.1818
+      "total": 24,
+      "accuracy_rate": 0.1667
     },
     "half_full": {
       "hits": 0,
