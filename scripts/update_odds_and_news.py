@@ -2518,6 +2518,30 @@ def main():
     except Exception as e:
         pass
 
+    # ── Check for matches past kickoff time to prompt user permission ──
+    now_dt = datetime.now()
+    past_kickoff_matches = []
+    for m in data.get("matches", []):
+        if m.get("status") != "finished" and not m.get("is_finished"):
+            k_str = m.get("kickoff") or m.get("kickoff_time") or ""
+            try:
+                if "T" in k_str:
+                    k_dt = datetime.fromisoformat(k_str)
+                else:
+                    k_dt = datetime.strptime(k_str, "%Y-%m-%d %H:%M:%S")
+                if now_dt > k_dt:
+                    past_kickoff_matches.append(m)
+            except Exception:
+                pass
+
+    if past_kickoff_matches:
+        print("\n⏰ [时间性完赛检测及权限预警]")
+        print("检测到以下赛事在时间上已超过开赛点，但尚未取得核销赛果：")
+        for pm in past_kickoff_matches:
+            no = pm.get("match_no") or pm.get("id", "").split("_")[-1]
+            print(f"  - [{no}] {pm.get('home')} vs {pm.get('away')} (开赛时间: {pm.get('kickoff')})")
+        print("💬 依据您的规则，未经您的允许严禁将任何赛事从列表中移除。已保持 status: 'pending' 留在列表中！")
+
     print("\n🎉 Odds and news update workflow completed successfully!")
 
     # 按照 用户最新推送规则 进行推送：
