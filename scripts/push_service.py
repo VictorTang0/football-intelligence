@@ -43,6 +43,50 @@ def sort_matches_by_date_and_code(matches_list):
         return (kickoff_date, code)
     return sorted(matches_list, key=sort_key)
 
+def format_goals_formatted_html(m):
+    c = m.get("conclusions", {})
+    uc = m.get("ultimate_conclusion", {})
+    score_str = c.get("most_likely_score") or uc.get("predicted_score", "")
+    
+    # 1. 主系统具体进球数 p_goals (最多 2 个)
+    p_goals = []
+    matches_p = re.findall(r'\d+[:\-]\d+', score_str)
+    if matches_p:
+        for s in matches_p:
+            parts = re.split(r'[:\-]', s)
+            p_goals.append(int(parts[0]) + int(parts[1]))
+        p_goals = sorted(list(set(p_goals)))[:2]
+        
+    # 2. M10 系统具体进球数 m_goals
+    m_goals = []
+    m10_scores = c.get("sporttery_hot_scores", [])
+    snapshot_count = c.get("m10_snapshot_count", 1)
+    if snapshot_count >= 2 and m10_scores:
+        limit = 1 if c.get("had_hhad_divergence") else 2
+        target_scores = m10_scores[:limit]
+        matches_m = re.findall(r'\d+[:\-]\d+', " ".join(target_scores))
+        if matches_m:
+            for s in matches_m:
+                parts = re.split(r'[:\-]', s)
+                m_goals.append(int(parts[0]) + int(parts[1]))
+            m_goals = sorted(list(set(m_goals)))
+            
+    combined = sorted(list(set(p_goals + m_goals)))
+    if not combined:
+        goals_raw = str(c.get("over_under", "--")).replace("球", "").strip()
+        return f'<span style="color: #38bdf8; font-weight: bold;">({goals_raw})</span>'
+
+    # 对齐 render.js 逻辑：仅主系统 -> 天蓝 #38bdf8；M10/双核重合 -> 金黄 #fbbf24
+    items_html = []
+    for g in combined:
+        in_m = (g in m_goals)
+        if in_m:
+            items_html.append(f'<span style="color: #fbbf24; font-weight: bold;">{g}</span>')
+        else:
+            items_html.append(f'<span style="color: #38bdf8; font-weight: bold;">{g}</span>')
+
+    return "(" + "、".join(items_html) + ")"
+
 def render_match_card_html(m):
     match_no = m.get("match_no") or m.get("id", "").split("_")[-1]
     home = m.get("home", "")
@@ -87,12 +131,9 @@ def render_match_card_html(m):
     else:
         rec_display = f'<span style="color: #38bdf8; font-weight: bold;">{current_rec}</span>'
 
-    # 比分、金色具体进球数 (#fbbf24) 与半全场
+    # 比分、双色进球数（主系统天蓝 / M10与双核金黄）与半全场
     scores = m.get("current_scores") or uc.get("predicted_score") or c.get("most_likely_score", "--")
-    goals = m.get("current_goals") or c.get("over_under", "--")
-    goals_clean = str(goals).replace("球", "").strip()
-    if goals_clean and not goals_clean.startswith("("):
-        goals_clean = f"({goals_clean})"
+    goals_html = format_goals_formatted_html(m)
     hf = c.get("half_full", "--")
 
     # 水位变动通栏
@@ -123,7 +164,7 @@ def render_match_card_html(m):
       {water_row_html}
       <div style="padding: 8px 10px; font-size: 11px; background-color: rgba(0, 0, 0, 0.15); display: flex; flex-direction: column; gap: 4px;">
         <div style="color: #f1f5f9;">🎯 <strong>最可能比分</strong>: <span style="color: #10b981; font-weight: bold;">{scores}</span></div>
-        <div style="color: #94a3b8;">⚽ <strong>具体进球数</strong>: <span style="color: #fbbf24; font-weight: bold;">{goals_clean}</span> | <strong>半全场</strong>: <span style="color: #a855f7; font-weight: bold;">{hf}</span></div>
+        <div style="color: #94a3b8;">⚽ <strong>具体进球数</strong>: {goals_html} | <strong>半全场</strong>: <span style="color: #a855f7; font-weight: bold;">{hf}</span></div>
       </div>
     </div>
     '''
