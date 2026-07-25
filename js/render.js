@@ -1063,13 +1063,6 @@ const MatchIQRender = (() => {
     } else if (recText.includes("客胜") || recText.includes("客队胜") || recText.includes("客不败") || recText.includes("负")) {
       had = "客胜";
     }
-
-    let hadDisplayHtml = `胜平负 <span style="color:${hadColor}; margin-left:4px; font-weight:800;">${had}</span>`;
-    if (hasRecChanged) {
-      hadDisplayHtml = `胜平负 <span style="text-decoration:line-through; opacity:0.6; font-size:11px; margin-left:4px;">${bRec}</span> ➔ <span style="color:#f43f5e; font-weight:800; text-decoration:underline;">${cRec}</span> <span class="live-change-lamp" title="临场变盘介入"></span>`;
-    } else if (match.odds_movement_str) {
-      hadDisplayHtml += ` <span style="color:#fbbf24; font-size:10.5px; font-family:var(--font-mono); margin-left:4px;" title="即时水位走势">💧 ${match.odds_movement_str}</span>`;
-    }
     
     // 从竞彩网获取真实的让球数，拒绝固定让 1 球
     let hc = -1;
@@ -1100,6 +1093,13 @@ const MatchIQRender = (() => {
     const hcLabel = hc > 0 ? `+${hc}` : `${hc}`;
     const hadColor = had === "主胜" ? "#ff5252" : had === "客胜" ? "#40a9ff" : "#4caf50";
     const hhadColor = hhad === "让胜" ? "#ff5252" : hhad === "让平" ? "#f59e0b" : "#40a9ff";
+
+    let hadDisplayHtml = `胜平负 <span style="color:${hadColor}; margin-left:4px; font-weight:800;">${had}</span>`;
+    if (hasRecChanged) {
+      hadDisplayHtml = `胜平负 <span style="text-decoration:line-through; opacity:0.6; font-size:11px; margin-left:4px;">${bRec}</span> ➔ <span style="color:#f43f5e; font-weight:800; text-decoration:underline;">${cRec}</span> <span class="live-change-lamp" title="临场变盘介入"></span>`;
+    } else if (match.odds_movement_str) {
+      hadDisplayHtml += ` <span style="color:#fbbf24; font-size:10.5px; font-family:var(--font-mono); margin-left:4px;" title="即时水位走势">💧 ${match.odds_movement_str}</span>`;
+    }
 
     // 信心结论：将主系统正路推荐与风控雷达有机结合
     const mergedUpset = getMergedUpsetConclusion(match);
@@ -2375,7 +2375,7 @@ const MatchIQRender = (() => {
 
       // 变盘亮灯指示器 (diff_markers)
       const bRec = m.baseline_recommendation || '';
-      const cRec = m.current_recommendation || uc.recommendation || '';
+      const cRec = m.current_recommendation || m.ultimate_conclusion?.recommendation || '';
       const hasRecChanged = (bRec && cRec && bRec !== '--' && bRec !== cRec);
 
       let hadTextHtml = `<span style="color:${hadColor}; font-weight:700;">${had}</span>`;
