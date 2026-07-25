@@ -2380,25 +2380,50 @@ const MatchIQRender = (() => {
       const hfMarker = m.diff_markers?.hf ? `<span class="live-change-lamp" title="半全场推荐因临场盘口有微调"></span>` : '';
 
       const bRec = m.baseline_recommendation || '';
-      const cRec = m.current_recommendation || m.ultimate_conclusion?.recommendation || '';
-      const hasRecChanged = (bRec && cRec && bRec !== '--' && bRec !== cRec);
+      let cRec = m.current_recommendation || uc.recommendation || '';
 
-      let hadTextHtml = `<span style="color:${hadColor}; font-weight:700;">${had}</span>`;
-      if (hasRecChanged) {
-        hadTextHtml = `<span style="text-decoration:line-through; opacity:0.6; font-size:11px; margin-right:2px;">${bRec}</span> ➔ <span style="color:#f43f5e; font-weight:800; text-decoration:underline;">${cRec}</span>`;
+      if (cRec && !cRec.includes('(竞彩')) {
+        if (uc.primary_bet?.includes('竞彩') || cRec.includes('不败') || cRec.includes('胜')) {
+          cRec += ' (竞彩)';
+        }
       }
+
+      const hasRecChanged = (bRec && cRec && bRec !== '--' && bRec !== cRec);
+      const isRadar = m.radar_triggered || m.conclusions?.had_hhad_divergence;
+      const radarBadgeHtml = isRadar ? ' <span style="background:rgba(245, 158, 11, 0.15); color:#f59e0b; border:1px solid rgba(245, 158, 11, 0.3); padding:1px 4px; border-radius:3px; font-size:9.5px;">雷达干预</span>' : '';
+
+      let recDisplayHtml = `<span style="color:#38bdf8; font-weight:800;">${cRec}</span>${radarBadgeHtml}`;
+      if (hasRecChanged) {
+        recDisplayHtml = `<span style="text-decoration:line-through; opacity:0.6; font-size:11px; margin-right:4px;">${bRec}</span> ➔ <span style="color:#f43f5e; font-weight:800; text-decoration:underline;">${cRec}</span>${radarBadgeHtml}`;
+      }
+
+      // 让球信息 (对齐手机端加减球与 SP 显示)
+      let hhadRec = m.conclusions?.hhad_recommendation || uc.secondary_bet || '';
+      if (!hhadRec || hhadRec === '--') {
+        if (had === "主胜") hhadRec = "让主胜";
+        else hhadRec = "让客胜";
+      }
+      if (hhadRec && !hhadRec.includes('(竞彩') && hhadRec.includes('让')) {
+        hhadRec += ' (竞彩)';
+      }
+      const spVal = m.conclusions?.hhad_sp || m.odds_analysis?.lottery_handicap?.current?.draw || '';
+      const spStr = spVal ? ` <span style="color:#64748b; font-size:10.5px;">[SP: ${spVal}]</span>` : '';
+      const hhadDisplayHtml = `让球(${hcLabel}): <span style="color:#38bdf8; font-weight:700;">${hhadRec}</span>${spStr}`;
+
+      const confClass = conf >= 75 ? 'color:#10b981; font-weight:bold;' : 'color:#fbbf24; font-weight:bold;';
+      const coldTag = cRec.includes('反基本面冷门') ? '反基本面冷门' : '主力资金指向';
 
       let waterHtml = '';
       if (m.odds_movement_str) {
-        waterHtml = `<div style="margin-top:2px; font-size:10.5px; color:#fbbf24; font-family:var(--font-mono);">💧 ${m.odds_movement_str}</div>`;
+        waterHtml = `<div style="margin-top:3px; font-size:10.5px; color:#fbbf24; font-family:var(--font-mono);">💧 ${m.odds_movement_str}</div>`;
       }
 
       const directionHTML = `
         <div style="text-align:left; font-size:clamp(12px, 0.95vw, 13.5px); line-height:1.5;">
-          <div style="margin-bottom:2px; color:var(--text-3);">胜平负：${hadMarker}${hadTextHtml}</div>
-          <div style="margin-bottom:2px; color:var(--text-3);">让球盘(${hcLabel})：${hadMarker}<span style="color:${hhadColor}; font-weight:700;">${hhad}</span></div>
+          <div style="margin-bottom:3px;">${hadMarker}${recDisplayHtml}</div>
+          <div style="margin-bottom:3px; color:var(--text-3); font-size:12px;">${hhadDisplayHtml}</div>
+          <div style="font-size:11px; color:var(--text-3);">信心: <span style="${confClass}">${conf}%</span> | <span style="color:var(--text-2);">${coldTag}</span></div>
           ${waterHtml}
-          <div style="border-top:1px solid rgba(255,255,255,0.06); margin-top:4px; padding-top:4px; color:${recColor}; font-weight:800; font-size:clamp(12px, 0.95vw, 13.5px);">信心推荐：${hadMarker}${confidenceConclusion}${upsetBadgeHtml}</div>
         </div>
       `;
 
