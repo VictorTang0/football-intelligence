@@ -189,10 +189,7 @@ def render_match_card_html(m):
     
     if "(竞彩" not in current_rec and "竞彩" in str(uc.get("primary_bet", "")):
         current_rec += " (竞彩)"
-    if "(竞彩" not in current_rec and "不败" in current_rec:
-        current_rec += " (竞彩)"
-
-    current_rec = current_rec.replace("竞彩", "竞彩")
+    current_rec = current_rec.replace("竞彩首选", "竞彩")
     handicap_html = get_handicap_info_html(m)
 
     conf = uc.get("confidence", 60)

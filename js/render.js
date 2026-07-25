@@ -2427,10 +2427,11 @@ const MatchIQRender = (() => {
       let cRec = m.current_recommendation || uc.recommendation || '';
 
       if (cRec && !cRec.includes('(竞彩')) {
-        if (uc.primary_bet?.includes('竞彩') || cRec.includes('不败') || cRec.includes('胜')) {
+        if (uc.primary_bet?.includes('竞彩') || cRec.includes('竞彩')) {
           cRec += ' (竞彩)';
         }
       }
+      cRec = cRec.replace('竞彩首选', '竞彩');
 
       const hasRecChanged = (bRec && cRec && bRec !== '--' && bRec !== cRec);
       const isRadar = m.radar_triggered || m.conclusions?.had_hhad_divergence;
@@ -2447,9 +2448,10 @@ const MatchIQRender = (() => {
         if (had === "主胜") hhadRec = "让主胜";
         else hhadRec = "让客胜";
       }
-      if (hhadRec && !hhadRec.includes('(竞彩') && hhadRec.includes('让')) {
+      if (hhadRec && !hhadRec.includes('(竞彩') && hhadRec.includes('竞彩')) {
         hhadRec += ' (竞彩)';
       }
+      hhadRec = hhadRec.replace('竞彩首选', '竞彩');
       const spVal = m.conclusions?.hhad_sp || m.odds_analysis?.lottery_handicap?.current?.draw || '';
       const spStr = spVal ? ` <span style="color:#64748b; font-size:10.5px;">[SP: ${spVal}]</span>` : '';
       const hhadDisplayHtml = `让球(${hcLabel}): <span style="color:#38bdf8; font-weight:700;">${hhadRec}</span>${spStr}`;
