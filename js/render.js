@@ -2423,10 +2423,13 @@ const MatchIQRender = (() => {
       const goalsMarker = m.diff_markers?.goals ? `<span class="live-change-lamp" title="进球数推荐因临场盘口有微调"></span>` : '';
       const hfMarker = m.diff_markers?.hf ? `<span class="live-change-lamp" title="半全场推荐因临场盘口有微调"></span>` : '';
 
+      const conf = uc.confidence || m.conclusions?.confidence || 60;
       const bRec = m.baseline_recommendation || '';
       let cRec = m.current_recommendation || uc.recommendation || '';
 
-      if (cRec && !cRec.includes('(竞彩')) {
+      if (conf < 60) {
+        cRec = cRec.replace(/\(?竞彩\)?/g, '').trim();
+      } else if (cRec && !cRec.includes('(竞彩')) {
         if (uc.primary_bet?.includes('竞彩') || cRec.includes('竞彩')) {
           cRec += ' (竞彩)';
         }

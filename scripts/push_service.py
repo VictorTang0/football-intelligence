@@ -184,15 +184,16 @@ def render_match_card_html(m):
     dot_goals = "🟡 " if goals_changed else ""
     dot_hf = "🟡 " if hf_changed else ""
 
-    baseline_rec = m.get("baseline_recommendation", "--").replace("竞彩", "竞彩")
-    current_rec = (m.get("current_recommendation") or uc.get("recommendation", "--")).replace("竞彩", "竞彩")
+    baseline_rec = m.get("baseline_recommendation", "--")
+    current_rec = (m.get("current_recommendation") or uc.get("recommendation", "--"))
+    conf = uc.get("confidence", 60)
     
-    if "(竞彩" not in current_rec and "竞彩" in str(uc.get("primary_bet", "")):
+    if conf < 60:
+        current_rec = current_rec.replace("(竞彩)", "").replace("竞彩", "").strip()
+    elif "(竞彩" not in current_rec and "竞彩" in str(uc.get("primary_bet", "")):
         current_rec += " (竞彩)"
     current_rec = current_rec.replace("竞彩首选", "竞彩")
     handicap_html = get_handicap_info_html(m)
-
-    conf = uc.get("confidence", 60)
     conf_class = "color:#10b981;font-weight:bold;" if conf >= 75 else "color:#fbbf24;font-weight:bold;"
     cold_tag = "反基本面冷门" if "反基本面冷门" in current_rec else "主力资金指向"
 
