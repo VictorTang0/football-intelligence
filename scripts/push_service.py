@@ -162,52 +162,52 @@ def push_live_change_alert(changed_matches):
         match_no = m.get("match_no", "")
         home = m.get("home", "")
         away = m.get("away", "")
-        kickoff = m.get("kickoff_time", "")
+        kickoff = m.get("kickoff_time") or m.get("kickoff", "")
+        if "T" in kickoff:
+            kickoff = kickoff.split("T")[1][:5]
         
-        baseline_rec = m.get("baseline_recommendation", "--")
-        current_rec = m.get("current_recommendation", "--")
-        
-        baseline_rec = baseline_rec.split("(")[0].strip()
-        current_rec = current_rec.split("(")[0].strip()
+        baseline_rec = m.get("baseline_recommendation", "--").split("(")[0].strip()
+        current_rec = m.get("current_recommendation", m.get("ultimate_conclusion", {}).get("recommendation", "--")).split("(")[0].strip()
         
         is_radar = m.get("radar_triggered", False)
         radar_badge = ' <span style="background-color: rgba(245, 158, 11, 0.1); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); padding: 1px 3px; border-radius: 3px; font-size: 9px;">雷达干预</span>' if is_radar else ''
         
-        scores = m.get("current_scores", "--")
-        goals = m.get("current_goals", "--")
-        hf = m.get("current_half_full", "--")
+        scores = m.get("current_scores", m.get("ultimate_conclusion", {}).get("predicted_score", "--"))
+        goals = m.get("current_goals", m.get("conclusions", {}).get("over_under", "--"))
+        odds_mov = m.get("odds_movement_str", "水位异动监测中")
+        has_rec_changed = (baseline_rec != current_rec and baseline_rec != "--")
+
+        rec_display = f'<span style="color: #38bdf8; font-weight: bold;">{current_rec}</span>'
+        if has_rec_changed:
+            rec_display = f'<span style="text-decoration: line-through; color: #64748b;">{baseline_rec}</span> ➔ <span style="color: #f43f5e; font-weight: bold; text-decoration: underline;">{current_rec}</span>'
 
         rows_html += f"""
         <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
           <td style="padding: 6px; font-weight: bold; color: #94a3b8;">{match_no}</td>
           <td style="padding: 6px; font-weight: bold;">{home} vs {away}</td>
           <td style="padding: 6px; color: #38bdf8; font-size: 10px;">{kickoff}</td>
-          <td style="padding: 6px;">
-            <span style="text-decoration: line-through; color: #64748b;">{baseline_rec}</span> ➔ 
-            <span style="color: #f43f5e; font-weight: bold; text-decoration: underline;">{current_rec}</span>{radar_badge}
-          </td>
+          <td style="padding: 6px;">{rec_display}{radar_badge}</td>
         </tr>
         <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.02); background-color: rgba(255,255,255,0.01);">
           <td colspan="4" style="padding: 6px 12px; font-size: 11px; color: #94a3b8;">
-            🎯 <strong>终盘比分</strong>: <span style="color: #10b981; font-weight: bold;">{scores}</span> | 
-            ⚽ <strong>进球数</strong>: <span style="color: #fbbf24; font-weight: bold;">{goals}</span> | 
-            半全场: <span style="color: #818cf8; font-weight: bold;">{hf}</span>
+            💧 <strong>水位异动</strong>: <span style="color: #fbbf24; font-family: monospace;">{odds_mov}</span><br/>
+            🎯 <strong>当前结论比分</strong>: <span style="color: #10b981; font-weight: bold;">{scores}</span> | 进球数: <span style="color: #38bdf8;">{goals}</span>
           </td>
         </tr>
         """
 
     content = f"""
     <div style="font-family: Arial, sans-serif; background-color: #0f172a; color: #f1f5f9; padding: 15px; border-radius: 8px; border: 1px solid rgba(0, 212, 255, 0.2);">
-      <h3 style="color: #f43f5e; margin-top: 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">⚡ 临场变盘与风控警报</h3>
-      <p style="font-size: 12px; color: #94a3b8;">检测到竞彩即时盘口异动，已自动刷新以下变盘赛事：</p>
+      <h3 style="color: #f43f5e; margin-top: 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">💧 盘口水位异动与最新结论警报</h3>
+      <p style="font-size: 12px; color: #94a3b8;">检测到竞彩/欧赔水位或结论异动，已为您同步以下变盘赛事：</p>
       
       <table style="width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 11px; color: #e2e8f0; text-align: left;">
         <thead>
           <tr style="background-color: rgba(255, 255, 255, 0.03); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-            <th style="padding: 6px;">编号</th>
-            <th style="padding: 6px;">对阵双方</th>
-            <th style="padding: 6px;">开赛</th>
-            <th style="padding: 6px;">预测轨迹 (初盘 ➔ 临场)</th>
+            <th style="padding: 6px; width: 12%;">编号</th>
+            <th style="padding: 6px; width: 35%;">对阵双方</th>
+            <th style="padding: 6px; width: 15%;">开赛</th>
+            <th style="padding: 6px; width: 38%;">预测结论 (初盘 ➔ 最新)</th>
           </tr>
         </thead>
         <tbody>
@@ -216,11 +216,11 @@ def push_live_change_alert(changed_matches):
       </table>
 
       <p style="font-size: 11px; color: #64748b; text-align: center; margin-top: 15px; margin-bottom: 0;">
-        💬 临场异动跟踪中 • <a href="https://victortang0.github.io/football-intelligence/" style="color: #00d4ff; text-decoration: none;">打开 MATCH IQ 看板 ➔</a>
+        💬 水位与结论异动实时跟踪中 • <a href="https://victortang0.github.io/football-intelligence/" style="color: #00d4ff; text-decoration: none;">打开 MATCH IQ 看板 ➔</a>
       </p>
     </div>
     """
-    return send_push("⚡ MATCH IQ 变盘实时警报", content)
+    return send_push("💧 MATCH IQ 水位变动与最新结论警报", content)
 
 def push_closing_summary(matches, is_pre_final=False):
     sorted_matches = sort_matches_by_date_and_code(matches)

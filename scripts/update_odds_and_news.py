@@ -2324,9 +2324,62 @@ def main():
             "goals": curr_goals != prev_goals and len(prev_goals) > 0
         }
 
-    # Trim odds_history for finished matches to optimize web bundle payload size
+    def check_odds_water_changed(prev_m, curr_m):
+        p_analysis = prev_m.get("odds_analysis", {})
+        c_analysis = curr_m.get("odds_analysis", {})
+        
+        # Compare Pinnacle European odds
+        p_pin = p_analysis.get("pinnacle", {}).get("current", {})
+        c_pin = c_analysis.get("pinnacle", {}).get("current", {})
+        if (p_pin.get("home") != c_pin.get("home") or
+            p_pin.get("draw") != c_pin.get("draw") or
+            p_pin.get("away") != c_pin.get("away")):
+            return True
+            
+        # Compare Asian handicap odds
+        p_ah = p_analysis.get("asian_handicap", {}).get("current", {})
+        c_ah = c_analysis.get("asian_handicap", {}).get("current", {})
+        if (p_ah.get("line") != c_ah.get("line") or
+            p_ah.get("home") != c_ah.get("home") or
+            p_ah.get("away") != c_ah.get("away")):
+            return True
+            
+        # Compare Sporttery official odds
+        p_lot = p_analysis.get("lottery_handicap", {}).get("current", {})
+        c_lot = c_analysis.get("lottery_handicap", {}).get("current", {})
+        if (p_lot.get("home") != c_lot.get("home") or
+            p_lot.get("draw") != c_lot.get("draw") or
+            p_lot.get("away") != c_lot.get("away")):
+            return True
+
+        return False
+
+    changed_matches = []
     for m in data.get("matches", []):
-        if m.get("status") == "finished" and "odds_history" in m:
+        if m.get("status") in ["finished", "postponed"]:
+            continue
+        mid = m["id"]
+        if mid not in prev_matches_by_id:
+            continue
+        pm = prev_matches_by_id[mid]
+        
+        diff = m.get("diff_markers", {})
+        has_conclusion_change = any(diff.values()) if diff else False
+        has_odds_change = check_odds_water_changed(pm, m)
+        is_radar = m.get("conclusions", {}).get("had_hhad_divergence", False)
+        
+        if has_conclusion_change or has_odds_change or is_radar:
+            p_pin = pm.get("odds_analysis", {}).get("pinnacle", {}).get("current", {})
+            c_pin = m.get("odds_analysis", {}).get("pinnacle", {}).get("current", {})
+            m["odds_movement_str"] = f"主 {p_pin.get('home','--')}➔{c_pin.get('home','--')} | 平 {p_pin.get('draw','--')}➔{c_pin.get('draw','--')} | 客 {p_pin.get('away','--')}➔{c_pin.get('away','--')}"
+            m["odds_water_changed"] = has_odds_change
+            m["baseline_recommendation"] = m.get("baseline_recommendation") or pm.get("baseline_recommendation") or pm.get("ultimate_conclusion", {}).get("recommendation", "--")
+            m["current_recommendation"] = m.get("ultimate_conclusion", {}).get("recommendation", "--")
+            m["current_scores"] = m.get("ultimate_conclusion", {}).get("predicted_score", "--")
+            m["current_goals"] = m.get("conclusions", {}).get("over_under", "--")
+            m["radar_triggered"] = is_radar
+            changed_matches.append(m)
+
     def sort_matches_key(m):
         kickoff_date = (m.get("kickoff") or "").split("T")[0].split(" ")[0]
         num_str = m.get("match_no") or m.get("id") or ""
@@ -2340,6 +2393,31 @@ def main():
         json.dump(data, f, ensure_ascii=False, indent=2)
 
     print("\n🎉 Odds and news update workflow completed successfully!")
+
+    # Push notifications trigger check
+    if "--pre-final" in sys.argv:
+        print("⏳ Triggering Pre-Final push summary...")
+        try:
+            import push_service
+            push_service.push_closing_summary(data.get("matches", []), is_pre_final=True)
+        except Exception as e:
+            print("❌ Push error:", e)
+    elif "--final" in sys.argv:
+        print("🏁 Triggering Final push summary...")
+        try:
+            import push_service
+            push_service.push_closing_summary(data.get("matches", []), is_pre_final=False)
+        except Exception as e:
+            print("❌ Push error:", e)
+    elif changed_matches:
+        print(f"💧 Detected {len(changed_matches)} matches with odds/water level or conclusion changes! Triggering push notification...")
+        try:
+            import push_service
+            push_service.push_live_change_alert(changed_matches)
+        except Exception as e:
+            print("❌ Push error:", e)
+    else:
+        print("ℹ️ No odds water or conclusion changes detected across pending matches. Skipping push.")
 
     # Automatically trigger sync.sh to push updated data to GitHub
     import subprocess
