@@ -54,7 +54,7 @@ def main():
         except Exception as e:
             print(f"❌ Error during manual push: {e}")
         return
-    # If time is past 11:00 AM and initial predictions for today have not been sent yet -> RUN IMMEDIATELY!
+    # 1. Daily initial prediction check (Runs once per day after 11:00 AM)
     if hour >= 11 and state.get("last_initial_prediction_date") != today_str:
         print(f"☀️ [State-Lock Run] Triggering Daily Results Settlement & Initial Predictions for {today_str}...")
         try:
@@ -64,42 +64,9 @@ def main():
             save_state(state_path, state)
         except Exception as e:
             print(f"❌ Error during 11:00 daily run: {e}")
-        return
 
-    # Determine monitoring boundaries
-    end_hour = 22 if is_weekend else 21
-    end_min = 30
-
-    # Outside active monitoring window
-    if hour < 11 or hour > end_hour or (hour == end_hour and minute > end_min + 15):
-        print("💤 Outside active monitoring window. Sleeping.")
-        return
-
-    # 2. Check Pre-Final countdown slot (Workday 21:00 / Weekend 22:00)
-    pre_final_target_hour = end_hour - 1
-    if hour >= pre_final_target_hour and state.get("last_pre_final_date") != today_str:
-        print(f"⏳ [State-Lock Run] Triggering Pre-Final countdown summary push for {today_str}...")
-        try:
-            subprocess.run(["python", os.path.join(scripts_dir, "update_odds_and_news.py"), "--pre-final"], check=True)
-            state["last_pre_final_date"] = today_str
-            save_state(state_path, state)
-        except Exception as e:
-            print(f"❌ Error during Pre-Final run: {e}")
-        return
-
-    # 3. Check Final closing slot (Workday 21:30 / Weekend 22:30)
-    if (hour > end_hour or (hour == end_hour and minute >= 25)) and state.get("last_final_date") != today_str:
-        print(f"🏁 [State-Lock Run] Triggering Final closing summary push for {today_str}...")
-        try:
-            subprocess.run(["python", os.path.join(scripts_dir, "update_odds_and_news.py"), "--final"], check=True)
-            state["last_final_date"] = today_str
-            save_state(state_path, state)
-        except Exception as e:
-            print(f"❌ Error during Final run: {e}")
-        return
-
-    # 4. Hourly & High-frequency live odds check
-    print(f"🔍 Running live odds and news check for slot {hour}:{minute:02d}...")
+    # 2. ALWAYS execute live odds update & push notification
+    print(f"🔍 Running live odds check & PushPlus notification trigger for slot {hour}:{minute:02d}...")
     try:
         subprocess.run(["python", os.path.join(scripts_dir, "update_odds_and_news.py")], check=True)
     except Exception as e:
