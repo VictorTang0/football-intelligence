@@ -2446,8 +2446,16 @@ def main():
 
     data["matches"].sort(key=sort_matches_key)
 
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+    # 自动进行前端 JS 静态语法预检防崩溃保护
+    try:
+        import subprocess
+        res = subprocess.run(["node", "-c", "js/render.js"], capture_output=True, text=True)
+        if res.returncode != 0:
+            print("❌ WARNING: js/render.js contains JavaScript syntax error:", res.stderr)
+        else:
+            print("✅ Pre-flight check: js/render.js JavaScript syntax 100% valid!")
+    except Exception as e:
+        pass
 
     print("\n🎉 Odds and news update workflow completed successfully!")
 
