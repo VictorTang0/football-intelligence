@@ -6,6 +6,19 @@ import re
 
 PUSHPLUS_TOKEN = "960491d71cdb4ce8b10b5a7de29ac5e6"
 
+LUCK_QUOTES = [
+    "好运只偏爱有准备的头脑，祝今天旗开得胜！🎲✨",
+    "筹码在手，天下我有，祝今日红单连连！💰🔥",
+    "借东风，迎财神，愿今天好运常伴你左右！🍀🏮",
+    "冷静博弈，理智前行，好运自然水到渠成！🎯💼",
+    "搏一搏，单车变摩托；祝今日大红大紫，福星高照！🏍️🚀",
+    "财富的密码已经开启，愿你的选择今天能得到运气的拥抱！🔑💎",
+    "量化数据为底，财神眷顾在旁，祝今天一红到底！📊📈",
+    "智者不入爱河，博者手握乾坤，祝今日逢赌必胜！🎲👑",
+    "富贵险中求，红单信手抓，愿命运女神今天向你微笑！🍀🎰",
+    "乾坤未定，你我皆是黑马，祝今日盘盘开花！🐎🏆"
+]
+
 COMMON_CSS = """<style>
 .cb{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);border-radius:8px;margin-bottom:8px;overflow:hidden;}
 .cm{display:flex;border-bottom:1px solid rgba(255,255,255,0.06);}
@@ -214,7 +227,10 @@ def push_scheduled_update(matches, has_any_change=False):
     header_color = "#f43f5e" if has_any_change else "#10b981"
     sub_text = "检测到盘口水位或预测结论有更新，产生变化的子项已用 🟡 标记：" if has_any_change else "盘口水位稳定，资金模型及预测结论一切正常："
 
-    content = f"""{COMMON_CSS}<div style="font-family:Arial,sans-serif;background-color:#0f172a;color:#f1f5f9;padding:12px;border-radius:8px;border:1px solid rgba(0,212,255,0.2);"><h3 style="color:{header_color};margin-top:0;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:6px;">{title_prefix} (共{len(matches)}场)</h3><p style="font-size:12px;color:#94a3b8;">{sub_text}</p>{cards_html}<p style="font-size:11px;color:#64748b;text-align:center;margin-top:12px;margin-bottom:0;">💬 今日盘口跟踪中 • <a href="https://victortang0.github.io/football-intelligence/" style="color:#00d4ff;text-decoration:none;">打开 MATCH IQ 看板 ➔</a></p></div>"""
+    selected_quote = random.choice(LUCK_QUOTES)
+    quote_html = f'<div style="background-color:rgba(56,189,248,0.05);padding:8px 10px;border-radius:6px;border:1px solid rgba(56,189,248,0.2);font-size:12px;text-align:center;font-weight:bold;color:#38bdf8;margin-top:10px;">{selected_quote}</div>'
+
+    content = f"""{COMMON_CSS}<div style="font-family:Arial,sans-serif;background-color:#0f172a;color:#f1f5f9;padding:12px;border-radius:8px;border:1px solid rgba(0,212,255,0.2);"><h3 style="color:{header_color};margin-top:0;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:6px;">{title_prefix} (共{len(matches)}场)</h3><p style="font-size:12px;color:#94a3b8;">{sub_text}</p>{cards_html}{quote_html}<p style="font-size:11px;color:#64748b;text-align:center;margin-top:12px;margin-bottom:0;">💬 今日盘口跟踪中 • <a href="https://victortang0.github.io/football-intelligence/" style="color:#00d4ff;text-decoration:none;">打开 MATCH IQ 看板 ➔</a></p></div>"""
     return send_push(title, content)
 
 def push_daily_results(records_settled, model_evolution):

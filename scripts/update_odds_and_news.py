@@ -2428,8 +2428,7 @@ def main():
         all_matches = data.get("matches", [])
         
         # 获得当天下单开售的最早期号 (如 "260725")
-        import datetime
-        now_str = datetime.datetime.now().strftime("%y%m%d")
+        now_str = datetime.now().strftime("%y%m%d")
         on_sale_matches = [m for m in all_matches if (m.get("issue_date") or m.get("id", "").split("_")[1] if len(m.get("id", "").split("_")) > 1 else "") >= "260725"]
         sorted_on_sale = push_service.sort_matches_by_date_and_code(on_sale_matches)
         
