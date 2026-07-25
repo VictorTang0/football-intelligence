@@ -105,8 +105,11 @@ const MatchIQ = (() => {
 
   // ─── RENDER APP ───
   function renderApp() {
-    const matches = state.matches?.matches || [];
-    const rawUpcoming = matches.filter(m => !m.is_finished && m.status !== 'finished' && !m.ultimate_conclusion?.actual_result);
+    const rawUpcoming = matches.filter(m => {
+      if (m.status === 'waiting_result' || m.status_label === '等待赛果') return true;
+      if (m.issue_date >= '260725' || (m.id && m.id.includes('260725'))) return true;
+      return !m.is_finished && m.status !== 'finished';
+    });
     const upcomingMatches = sortMatchesBySporttery(rawUpcoming);
     const weights = state.weights;
     const history = state.history;

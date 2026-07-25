@@ -2502,11 +2502,16 @@ const MatchIQRender = (() => {
         </div>
       `;
 
+      const isWaitingResult = (m.status === 'waiting_result' || m.status_label === '等待赛果');
+      const kickoffDisplay = isWaitingResult
+        ? `<span style="background:rgba(245, 158, 11, 0.15); color:#f59e0b; border:1px solid rgba(245,158,11,0.35); padding:2px 6px; border-radius:4px; font-size:11px; font-weight:bold; display:inline-block;" title="比赛已开赛拉锯中，等待官方核销最终赛果">⏳ 等待赛果</span>`
+        : kickoff;
+
       const mobileCardHtml = `
-        <div class="mobile-summary-card">
+        <div class="mobile-summary-card" style="${isWaitingResult ? 'border:1px solid rgba(245,158,11,0.3); background:rgba(245,158,11,0.02);' : ''}">
           <div class="msc-header">
             <div><span class="match-no-badge">${matchNo}</span>${getLeagueBadgeHtml(league)}</div>
-            <div style="font-family:var(--font-mono); color:var(--text-3); font-size:11px;">⏰ ${kickoff}</div>
+            <div style="font-family:var(--font-mono); color:var(--text-3); font-size:11px;">${kickoffDisplay}</div>
           </div>
           <div class="msc-matchup">
             <div><span style="color:var(--text-1);">${m.home}</span> <span style="color:var(--text-4); font-size:12px;">VS</span> <span style="color:var(--text-1);">${m.away}</span></div>
@@ -2534,10 +2539,10 @@ const MatchIQRender = (() => {
       `;
 
       tableRowsHtml += `
-        <tr>
+        <tr style="${isWaitingResult ? 'background:rgba(245, 158, 11, 0.03);' : ''}">
           <td class="font-mono" style="color:var(--text-3); font-weight:700;">${matchNo}</td>
           <td>${getLeagueBadgeHtml(league)}</td>
-          <td>${kickoff}</td>
+          <td>${kickoffDisplay}</td>
           <td>${matchup}</td>
           <td>${directionHTML}</td>
           <td>${combinedBadge}</td>

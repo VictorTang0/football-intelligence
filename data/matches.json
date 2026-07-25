@@ -41488,7 +41488,7 @@
         "humidity": 58,
         "wind_kmh": 7
       },
-      "status": "finished",
+      "status": "waiting_result",
       "odds_history": [
         {
           "timestamp": "2026-07-24T11:18:28.529564",
@@ -42435,7 +42435,8 @@
         "hafu_correct": false,
         "ou_correct": false,
         "score_correct": false
-      }
+      },
+      "status_label": "等待赛果"
     },
     {
       "id": "match_260725_202",
@@ -42453,7 +42454,7 @@
         "humidity": 51,
         "wind_kmh": 16
       },
-      "status": "finished",
+      "status": "waiting_result",
       "odds_history": [
         {
           "timestamp": "2026-07-24T11:18:28.964401",
@@ -43494,7 +43495,8 @@
         "hafu_correct": true,
         "ou_correct": false,
         "score_correct": false
-      }
+      },
+      "status_label": "等待赛果"
     },
     {
       "id": "match_260725_203",
