@@ -2395,6 +2395,7 @@ def main():
         is_radar = m.get("conclusions", {}).get("had_hhad_divergence", False)
         
         if has_conclusion_change or has_odds_change or is_radar:
+            m["has_changed_in_push"] = True
             m["odds_water_changed"] = has_odds_change
             m["baseline_recommendation"] = m.get("baseline_recommendation") or pm.get("baseline_recommendation") or pm.get("ultimate_conclusion", {}).get("recommendation", "--")
             m["current_recommendation"] = m.get("ultimate_conclusion", {}).get("recommendation", "--")
@@ -2402,6 +2403,8 @@ def main():
             m["current_goals"] = m.get("conclusions", {}).get("over_under", "--")
             m["radar_triggered"] = is_radar
             changed_matches.append(m)
+        else:
+            m["has_changed_in_push"] = False
 
     def sort_matches_key(m):
         kickoff_date = (m.get("kickoff") or "").split("T")[0].split(" ")[0]
@@ -2417,30 +2420,28 @@ def main():
 
     print("\n🎉 Odds and news update workflow completed successfully!")
 
-    # Push notifications trigger check
-    if "--pre-final" in sys.argv:
-        print("⏳ Triggering Pre-Final push summary...")
-        try:
-            import push_service
-            push_service.push_closing_summary(data.get("matches", []), is_pre_final=True)
-        except Exception as e:
-            print("❌ Push error:", e)
-    elif "--final" in sys.argv:
-        print("🏁 Triggering Final push summary...")
-        try:
-            import push_service
-            push_service.push_closing_summary(data.get("matches", []), is_pre_final=False)
-        except Exception as e:
-            print("❌ Push error:", e)
-    elif changed_matches:
-        print(f"💧 Detected {len(changed_matches)} matches with odds/water level or conclusion changes! Triggering push notification...")
-        try:
-            import push_service
-            push_service.push_live_change_alert(changed_matches)
-        except Exception as e:
-            print("❌ Push error:", e)
-    else:
-        print("ℹ️ No odds water or conclusion changes detected across pending matches. Skipping push.")
+    # 按照 用户最新推送规则 进行推送：
+    # 每次唤醒无论是否有更新都推送一次；
+    # ≤ 8 场时推送全部，> 8 场时只推送当日比赛编号日期 (issue_date) 包含的所有赛事。
+    try:
+        import push_service
+        pending_matches = [m for m in data.get("matches", []) if m.get("status") == "pending"]
+        sorted_pending = push_service.sort_matches_by_date_and_code(pending_matches)
+        
+        if len(sorted_pending) <= 8:
+            target_matches = sorted_pending
+        else:
+            first_date = sorted_pending[0].get("issue_date") or sorted_pending[0].get("business_date")
+            target_matches = [m for m in sorted_pending if (m.get("issue_date") == first_date or m.get("business_date") == first_date)]
+        
+        has_any_change = any(m.get("has_changed_in_push") or m.get("odds_water_changed") for m in target_matches)
+        title_prefix = "情况有变" if has_any_change else "牌没问题"
+        
+        print(f"📲 Triggering Push Notification: [{title_prefix}] ({len(target_matches)} matches pushed, Has Any Change: {has_any_change})...")
+        push_res = push_service.push_scheduled_update(target_matches, has_any_change=has_any_change)
+        print("Push Result:", push_res)
+    except Exception as e:
+        print("❌ Push error:", e)
 
     # Automatically trigger sync.sh to push updated data to GitHub
     import subprocess
