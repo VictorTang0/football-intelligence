@@ -9,7 +9,12 @@ on:
     - cron: '0 3 * * *'
     - cron: '0 4-11 * * *'
     - cron: '0,30 12-14 * * *'
-  workflow_dispatch: # Enables API trigger via Cloudflare Worker
+  workflow_dispatch:
+    inputs:
+      force_push:
+        description: 'Force push current summary table'
+        required: false
+        default: 'true'
 
 jobs:
   autopilot:
@@ -34,4 +39,8 @@ jobs:
         env:
           TZ: "Asia/Shanghai" # Force timezone context
         run: |
-          python scripts/autopilot_orchestrator.py
+          if [ "${{ github.event.inputs.force_push }}" = "true" ]; then
+            python scripts/autopilot_orchestrator.py --force-push
+          else
+            python scripts/autopilot_orchestrator.py
+          fi

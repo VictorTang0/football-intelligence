@@ -40,7 +40,20 @@ def main():
 
     state = load_state(state_path)
 
-    # 1. Check Daily 11:00 Settlement & Initial Predictions Lock (State-based resilient execution)
+    # 0. Manual/Forced Push Trigger
+    if "--force-push" in sys.argv:
+        print("📢 [Manual Trigger] Running live update and pushing current predictions summary table to phone...")
+        try:
+            subprocess.run(["python", os.path.join(scripts_dir, "update_odds_and_news.py")], check=True)
+            with open(os.path.join(base_dir, "data", "matches.json"), "r", encoding="utf-8") as f:
+                matches_db = json.load(f)
+            today_matches = [m for m in matches_db.get("matches", []) if m.get("status") == "pending"]
+            import push_service
+            push_service.push_initial_predictions(today_matches)
+            print("✅ Manual summary table push completed successfully!")
+        except Exception as e:
+            print(f"❌ Error during manual push: {e}")
+        return
     # If time is past 11:00 AM and initial predictions for today have not been sent yet -> RUN IMMEDIATELY!
     if hour >= 11 and state.get("last_initial_prediction_date") != today_str:
         print(f"☀️ [State-Lock Run] Triggering Daily Results Settlement & Initial Predictions for {today_str}...")
