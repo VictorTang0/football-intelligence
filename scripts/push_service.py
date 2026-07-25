@@ -92,11 +92,20 @@ def push_daily_results(records_settled, model_evolution):
       </p>
     </div>
     """
-    return send_push(f"💰 MATCH IQ 战绩结算及模型进化 ({version})", content)
+def sort_matches_by_date_and_code(matches_list):
+    import re
+    def sort_key(m):
+        kickoff_date = (m.get("kickoff") or m.get("kickoff_time") or "").split("T")[0].split(" ")[0]
+        num_str = m.get("match_no") or m.get("id") or ""
+        num_match = re.search(r'\d+$', num_str)
+        code = int(num_match.group(0)) if num_match else 999
+        return (kickoff_date, code)
+    return sorted(matches_list, key=sort_key)
 
 def push_initial_predictions(matches):
+    sorted_matches = sort_matches_by_date_and_code(matches)
     rows_html = ""
-    for m in matches:
+    for m in sorted_matches:
         match_no = m.get("match_no", "")
         league = m.get("league", "")
         home = m.get("home", "")
@@ -147,8 +156,9 @@ def push_initial_predictions(matches):
     return send_push("🔮 MATCH IQ 今日初盘锁定大表", content)
 
 def push_live_change_alert(changed_matches):
+    sorted_matches = sort_matches_by_date_and_code(changed_matches)
     rows_html = ""
-    for m in changed_matches:
+    for m in sorted_matches:
         match_no = m.get("match_no", "")
         home = m.get("home", "")
         away = m.get("away", "")
@@ -213,8 +223,9 @@ def push_live_change_alert(changed_matches):
     return send_push("⚡ MATCH IQ 变盘实时警报", content)
 
 def push_closing_summary(matches, is_pre_final=False):
+    sorted_matches = sort_matches_by_date_and_code(matches)
     rows_html = ""
-    for m in matches:
+    for m in sorted_matches:
         match_no = m.get("match_no", "")
         league = m.get("league", "")
         home = m.get("home", "")

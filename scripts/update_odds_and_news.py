@@ -2327,9 +2327,14 @@ def main():
     # Trim odds_history for finished matches to optimize web bundle payload size
     for m in data.get("matches", []):
         if m.get("status") == "finished" and "odds_history" in m:
-            oh = m["odds_history"]
-            if len(oh) > 2:
-                m["odds_history"] = [oh[0], oh[-1]]
+    def sort_matches_key(m):
+        kickoff_date = (m.get("kickoff") or "").split("T")[0].split(" ")[0]
+        num_str = m.get("match_no") or m.get("id") or ""
+        num_match = re.search(r'\d+$', num_str)
+        code = int(num_match.group(0)) if num_match else 999
+        return (kickoff_date, code)
+
+    data["matches"].sort(key=sort_matches_key)
 
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)

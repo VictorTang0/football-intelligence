@@ -71,42 +71,22 @@ const MatchIQ = (() => {
 
   const weekdayMap = {"周一": 1, "周二": 2, "周三": 3, "周四": 4, "周五": 5, "周六": 6, "周日": 7};
   function getSportterySortKey(m) {
+    const dateStr = (m.kickoff || '').split('T')[0].split(' ')[0] || '9999-99-99';
     const numStr = m.match_no || m.matchNumStr || m.id || '';
-    let dayNum = 99;
-    let matchCode = 999;
-    
-    // 1. Regex match for match_YYMMDD_code (e.g. match_260724_201)
-    const matchReg = /match_(\d{2})(\d{2})(\d{2})_(\d+)/.exec(numStr);
-    if (matchReg) {
-      const year = 2000 + parseInt(matchReg[1], 10);
-      const month = parseInt(matchReg[2], 10) - 1;
-      const day = parseInt(matchReg[3], 10);
-      const dt = new Date(year, month, day);
-      if (!isNaN(dt.getTime())) {
-        const dayOfWeek = dt.getDay(); // 0 (Sun) to 6 (Sat)
-        dayNum = dayOfWeek === 0 ? 7 : dayOfWeek;
-      }
-      matchCode = parseInt(matchReg[4], 10);
-    } else {
-      // 2. Traditional Chinese weekday parsing
-      for (const [wk, idx] of Object.entries(weekdayMap)) {
-        if (numStr.includes(wk)) {
-          dayNum = idx;
-          const codePart = numStr.replace(wk, '').replace(/[^0-9]/g, '').trim();
-          if (codePart) matchCode = parseInt(codePart, 10);
-          break;
-        }
-      }
-    }
-    return [dayNum, matchCode, m.kickoff || '', m.id || ''];
+    const numMatch = numStr.match(/\d+$/);
+    const code = numMatch ? parseInt(numMatch[0], 10) : 999;
+    return [dateStr, code, m.kickoff || '', m.id || ''];
   }
 
   function sortMatchesBySporttery(matchList) {
     return [...matchList].sort((a, b) => {
       const keyA = getSportterySortKey(a);
       const keyB = getSportterySortKey(b);
-      if (keyA[0] !== keyB[0]) return keyA[0] - keyB[0];
+      // 1. Sort by Kickoff Date (YYYY-MM-DD) ascending
+      if (keyA[0] !== keyB[0]) return keyA[0].localeCompare(keyB[0]);
+      // 2. Sort by Match Number Code (201, 202...) ascending
       if (keyA[1] !== keyB[1]) return keyA[1] - keyB[1];
+      // 3. Fallback: Kickoff exact timestamp
       return keyA[2].localeCompare(keyB[2]);
     });
   }
