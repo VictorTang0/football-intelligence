@@ -2365,14 +2365,45 @@ def main():
         if m.get("status") in ["finished", "postponed"]:
             continue
             
+        mid = m.get("id", "")
+        code = mid.split("_")[-1]
+        bdata = bonus_db.get(mid) or bonus_db.get(f"match_260725_{code}") or bonus_db.get(f"match_{code}")
+        if not bdata:
+            for k, v in bonus_db.items():
+                if m.get("home") in k or k.endswith(f"_{code}") or k.endswith(code):
+                    bdata = v
+                    break
+
+        if bdata and "oddsHistory" in bdata:
+            had_list = bdata["oddsHistory"].get("hadList", [])
+            if had_list:
+                init_item = had_list[0]
+                curr_item = had_list[-1]
+                try:
+                    init_w = float(init_item.get("h", 0))
+                    init_d = float(init_item.get("d", 0))
+                    init_l = float(init_item.get("a", 0))
+                    curr_w = float(curr_item.get("h", 0))
+                    curr_d = float(curr_item.get("d", 0))
+                    curr_l = float(curr_item.get("a", 0))
+                    if init_w > 0 and curr_w > 0:
+                        if "odds_analysis" not in m: m["odds_analysis"] = {}
+                        m["odds_analysis"]["lottery_handicap"] = {
+                            "initial": {"win": init_w, "draw": init_d, "lose": init_l},
+                            "current": {"win": curr_w, "draw": curr_d, "lose": curr_l}
+                        }
+                except Exception:
+                    pass
+
         lot_info = m.get("odds_analysis", {}).get("lottery_handicap", {})
         init_odds = lot_info.get("initial", {})
         curr_odds = lot_info.get("current", {})
         
-        if not init_odds.get("win"):
+        if not init_odds.get("win") or (init_odds.get("win") == curr_odds.get("win") and init_odds.get("draw") == curr_odds.get("draw")):
             pin_info = m.get("odds_analysis", {}).get("pinnacle", {})
-            init_odds = {"win": pin_info.get("initial", {}).get("home"), "draw": pin_info.get("initial", {}).get("draw"), "lose": pin_info.get("initial", {}).get("away")}
-            curr_odds = {"win": pin_info.get("current", {}).get("home"), "draw": pin_info.get("current", {}).get("draw"), "lose": pin_info.get("current", {}).get("away")}
+            if pin_info.get("initial") and pin_info.get("current"):
+                init_odds = {"win": pin_info.get("initial", {}).get("home"), "draw": pin_info.get("initial", {}).get("draw"), "lose": pin_info.get("initial", {}).get("away")}
+                curr_odds = {"win": pin_info.get("current", {}).get("home"), "draw": pin_info.get("current", {}).get("draw"), "lose": pin_info.get("current", {}).get("away")}
         
         init_w = init_odds.get("win") or init_odds.get("home") or "--"
         init_d = init_odds.get("draw") or "--"
