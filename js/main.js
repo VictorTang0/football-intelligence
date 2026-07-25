@@ -105,6 +105,7 @@ const MatchIQ = (() => {
 
   // ─── RENDER APP ───
   function renderApp() {
+    const matches = state.matches?.matches || [];
     const rawUpcoming = matches.filter(m => {
       if (m.status === 'waiting_result' || m.status_label === '等待赛果') return true;
       if (m.issue_date >= '260725' || (m.id && m.id.includes('260725'))) return true;
