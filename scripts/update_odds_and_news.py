@@ -2364,6 +2364,26 @@ def main():
     for m in data.get("matches", []):
         if m.get("status") in ["finished", "postponed"]:
             continue
+            
+        lot_info = m.get("odds_analysis", {}).get("lottery_handicap", {})
+        init_odds = lot_info.get("initial", {})
+        curr_odds = lot_info.get("current", {})
+        
+        if not init_odds.get("win"):
+            pin_info = m.get("odds_analysis", {}).get("pinnacle", {})
+            init_odds = {"win": pin_info.get("initial", {}).get("home"), "draw": pin_info.get("initial", {}).get("draw"), "lose": pin_info.get("initial", {}).get("away")}
+            curr_odds = {"win": pin_info.get("current", {}).get("home"), "draw": pin_info.get("current", {}).get("draw"), "lose": pin_info.get("current", {}).get("away")}
+        
+        init_w = init_odds.get("win") or init_odds.get("home") or "--"
+        init_d = init_odds.get("draw") or "--"
+        init_l = init_odds.get("lose") or init_odds.get("away") or "--"
+        
+        curr_w = curr_odds.get("win") or curr_odds.get("home") or "--"
+        curr_d = curr_odds.get("draw") or "--"
+        curr_l = curr_odds.get("lose") or curr_odds.get("away") or "--"
+        
+        m["odds_movement_str"] = f"胜 {init_w}➔{curr_w} | 平 {init_d}➔{curr_d} | 负 {init_l}➔{curr_l}"
+
         mid = m["id"]
         if mid not in prev_matches_by_id:
             continue
@@ -2375,9 +2395,6 @@ def main():
         is_radar = m.get("conclusions", {}).get("had_hhad_divergence", False)
         
         if has_conclusion_change or has_odds_change or is_radar:
-            p_pin = pm.get("odds_analysis", {}).get("pinnacle", {}).get("current", {})
-            c_pin = m.get("odds_analysis", {}).get("pinnacle", {}).get("current", {})
-            m["odds_movement_str"] = f"主 {p_pin.get('home','--')}➔{c_pin.get('home','--')} | 平 {p_pin.get('draw','--')}➔{c_pin.get('draw','--')} | 客 {p_pin.get('away','--')}➔{c_pin.get('away','--')}"
             m["odds_water_changed"] = has_odds_change
             m["baseline_recommendation"] = m.get("baseline_recommendation") or pm.get("baseline_recommendation") or pm.get("ultimate_conclusion", {}).get("recommendation", "--")
             m["current_recommendation"] = m.get("ultimate_conclusion", {}).get("recommendation", "--")
