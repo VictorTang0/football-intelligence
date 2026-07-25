@@ -43202,7 +43202,7 @@
         "humidity": 58,
         "wind_kmh": 7
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-24T11:18:28.529564",
@@ -43484,7 +43484,8 @@
         "ev_score": 0.0,
         "reasoning": "芬兰超级联赛比赛双方战术意图各有侧重。 基本面上，雅罗在【战术克制与匹配】上拥有明显优势（评分 8.7 对 7.5），但塞伊奈约基在【历史交锋与心理克制】上（评分 8.0 对 2.0）给主队带来制约。结合战意（主 85% / 客 82%），即时欧指主胜由 2.43 降至 2.38，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "stable",
-        "predicted_score": "1-0 或 0-0 或 1-1 (竞彩首选)"
+        "predicted_score": "1-0 或 0-0 或 1-1 (竞彩首选)",
+        "actual_result": "雅罗 2-1 塞伊奈约基 (1-0)"
       },
       "team_stats": {
         "home": {
@@ -44071,6 +44072,15 @@
         "ou": false,
         "hf": false,
         "goals": false
+      },
+      "result": {
+        "actual_result": "雅罗 2-1 塞伊奈约基 (1-0)",
+        "ft_score": "2:1",
+        "ht_score": "1:0",
+        "rec_correct": false,
+        "hafu_correct": true,
+        "ou_correct": true,
+        "score_correct": false
       }
     },
     {
@@ -44089,7 +44099,7 @@
         "humidity": 51,
         "wind_kmh": 16
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-24T11:18:28.964401",
@@ -44371,7 +44381,8 @@
         "ev_score": 0.0,
         "reasoning": "瑞典超级联赛比赛双方战术意图各有侧重。 基本面上，韦斯特罗斯在【战意与抢分压力】上拥有明显优势（评分 9.5 对 7.0），但厄尔格里特在【球队基础硬实力】上（评分 9.1 对 5.8）给主队带来制约。结合战意（主 95% / 客 70%），即时欧指主胜由 2.43 降至 2.38，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "stable",
-        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩首选)"
+        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩首选)",
+        "actual_result": "韦斯特罗斯 2-0 厄尔格里特 (1-0)"
       },
       "team_stats": {
         "home": {
@@ -44938,6 +44949,15 @@
         "ou": false,
         "hf": false,
         "goals": false
+      },
+      "result": {
+        "actual_result": "韦斯特罗斯 2-0 厄尔格里特 (1-0)",
+        "ft_score": "2:0",
+        "ht_score": "1:0",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": true,
+        "score_correct": false
       }
     },
     {
