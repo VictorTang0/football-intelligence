@@ -33,6 +33,8 @@ COMMON_CSS = """<style>
 </style>"""
 
 def send_push(title, content):
+    title = str(title).replace("竞彩首选", "竞彩")
+    content = str(content).replace("竞彩首选", "竞彩")
     url = f"http://www.pushplus.plus/send?token={PUSHPLUS_TOKEN}"
     payload = {
         "token": PUSHPLUS_TOKEN,
@@ -103,7 +105,7 @@ def get_handicap_info_html(m):
     if "(竞彩" not in hhad_rec and "让" in hhad_rec:
         hhad_rec += " (竞彩)"
 
-    hhad_rec = hhad_rec.replace("竞彩首选", "竞彩")
+    hhad_rec = hhad_rec.replace("竞彩", "竞彩")
 
     sp_val = c.get("hhad_sp", "") or lh.get("current", {}).get("draw", "")
     sp_str = f' <span style="color:#64748b;font-size:10.5px;">[SP: {sp_val}]</span>' if sp_val else ''
@@ -182,15 +184,15 @@ def render_match_card_html(m):
     dot_goals = "🟡 " if goals_changed else ""
     dot_hf = "🟡 " if hf_changed else ""
 
-    baseline_rec = m.get("baseline_recommendation", "--").replace("竞彩首选", "竞彩")
-    current_rec = (m.get("current_recommendation") or uc.get("recommendation", "--")).replace("竞彩首选", "竞彩")
+    baseline_rec = m.get("baseline_recommendation", "--").replace("竞彩", "竞彩")
+    current_rec = (m.get("current_recommendation") or uc.get("recommendation", "--")).replace("竞彩", "竞彩")
     
     if "(竞彩" not in current_rec and "竞彩" in str(uc.get("primary_bet", "")):
         current_rec += " (竞彩)"
     if "(竞彩" not in current_rec and "不败" in current_rec:
         current_rec += " (竞彩)"
 
-    current_rec = current_rec.replace("竞彩首选", "竞彩")
+    current_rec = current_rec.replace("竞彩", "竞彩")
     handicap_html = get_handicap_info_html(m)
 
     conf = uc.get("confidence", 60)
@@ -244,7 +246,7 @@ def push_daily_results(records_settled, model_evolution):
         match_no = r.get("match_no", "")
         home = r.get("home", "")
         away = r.get("away", "")
-        rec = r.get("recommendation", "").replace("竞彩首选", "竞彩")
+        rec = r.get("recommendation", "").replace("竞彩", "竞彩")
         score = r.get("score", "")
         is_correct = r.get("is_correct", False)
         actual = r.get("actual_result", "")

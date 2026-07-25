@@ -325,7 +325,7 @@ def sync():
     history_db["score_accuracy_rate"] = round(score_correct / history_db["total_predictions"], 4) if history_db["total_predictions"] > 0 else 0.0
     history_db["half_full_accuracy_rate"] = round(hf_correct / history_db["total_predictions"], 4) if history_db["total_predictions"] > 0 else 0.0
     
-    # 专属计算：M10 竞彩大师在【胜平负/方向】、【进球数】、【比分】、【半全场】四大维度的 (竞彩首选) 独立命中率
+    # 专属计算：M10 竞彩大师在【胜平负/方向】、【进球数】、【比分】、【半全场】四大维度的 (竞彩) 独立命中率
     sp_dir_hits, sp_dir_total = 0, 0
     sp_goals_hits, sp_goals_total = 0, 0
     sp_score_hits, sp_score_total = 0, 0
@@ -370,8 +370,8 @@ def sync():
         ou = conc.get("over_under", "")
         hf = conc.get("half_full", "")
 
-        # 1. 竞彩首选方向/胜平负
-        if "(竞彩首选)" in rec:
+        # 1. 竞彩方向/胜平负
+        if "(竞彩)" in rec:
             sp_dir_total += 1
             dir_correct = False
             if is_home_win and any(x in rec for x in ["主胜", "主队胜", "主不败", "胜"]): dir_correct = True
@@ -379,7 +379,7 @@ def sync():
             elif is_away_win and any(x in rec for x in ["客胜", "客队胜", "客不败", "负"]): dir_correct = True
             if dir_correct: sp_dir_hits += 1
 
-        # 2. 竞彩首选总进球数：改成 M10 系统具体推荐的进球数命中率评估
+        # 2. 竞彩总进球数：改成 M10 系统具体推荐的进球数命中率评估
         m10_goals = []
         m10_scores = conc.get("sporttery_hot_scores", [])
         snapshot_count = conc.get("m10_snapshot_count", 1)
@@ -399,12 +399,12 @@ def sync():
             if int(total_goals) in m10_goals:
                 sp_goals_hits += 1
 
-        # 3. 竞彩首选比分
-        if "(竞彩首选)" in mls:
+        # 3. 竞彩比分
+        if "(竞彩)" in mls:
             parts = mls.split("或")
             primary_score = None
             for p in parts:
-                if "竞彩首选" in p:
+                if "竞彩" in p:
                     primary_score = p.split("(")[0].strip().replace(":", "-")
                     break
             if primary_score:
@@ -412,12 +412,12 @@ def sync():
                 if primary_score == ft_score_clean:
                     sp_score_hits += 1
 
-        # 4. 竞彩首选半全场
-        if "(竞彩首选)" in hf:
+        # 4. 竞彩半全场
+        if "(竞彩)" in hf:
             parts = hf.split("或")
             primary_hafu = None
             for p in parts:
-                if "竞彩首选" in p:
+                if "竞彩" in p:
                     primary_hafu = p.split("(")[0].strip().replace("/", "").replace(" ", "")
                     break
             if primary_hafu and actual_hafu:

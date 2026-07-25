@@ -178,8 +178,8 @@ const MatchIQRender = (() => {
     }
     if (typeof scoreStr !== 'string') scoreStr = String(scoreStr);
     
-    // Normalize "竞彩概率偏移首选" / "竞彩首选" -> "竞彩"
-    scoreStr = scoreStr.replace(/竞彩概率偏移首选/g, '竞彩').replace(/竞彩首选/g, '竞彩');
+    // Normalize "竞彩概率偏移首选" / "竞彩" -> "竞彩"
+    scoreStr = scoreStr.replace(/竞彩概率偏移首选/g, '竞彩').replace(/竞彩/g, '竞彩');
 
     const cleanActual = actualScoreStr ? actualScoreStr.replace(/\s+/g, '').split('(')[0].replace(':', '-') : '';
     const parts = scoreStr.split(/\s*或\s*/);
@@ -190,7 +190,7 @@ const MatchIQRender = (() => {
       const tagMatch = part.match(/^(.*?)\s*(\(.*?\))$/);
       if (tagMatch) {
         scoreText = tagMatch[1].trim();
-        tagText = tagMatch[2].trim().replace(/竞彩首选/g, '竞彩');
+        tagText = tagMatch[2].trim().replace(/竞彩/g, '竞彩');
       }
 
       const cleanScore = scoreText.replace(/\s+/g, '').replace(':', '-');
@@ -223,7 +223,7 @@ const MatchIQRender = (() => {
     }
     if (typeof twoScoresStr !== 'string') twoScoresStr = String(twoScoresStr);
     
-    twoScoresStr = twoScoresStr.replace(/竞彩概率偏移首选/g, '竞彩').replace(/竞彩首选/g, '竞彩');
+    twoScoresStr = twoScoresStr.replace(/竞彩概率偏移首选/g, '竞彩').replace(/竞彩/g, '竞彩');
     const cleanActual = actualScoreStr ? actualScoreStr.replace(/\s+/g, '').split('(')[0].replace(':', '-') : '';
     const parts = twoScoresStr.split(/(?:,\s*|\s*或\s*)/);
 
@@ -233,7 +233,7 @@ const MatchIQRender = (() => {
       const tagMatch = part.match(/^(.*?)\s*(\(.*?\))$/);
       if (tagMatch) {
         scoreText = tagMatch[1].trim();
-        tagText = tagMatch[2].trim().replace(/竞彩首选/g, '竞彩');
+        tagText = tagMatch[2].trim().replace(/竞彩/g, '竞彩');
       }
 
       const cleanScore = scoreText.replace(/\s+/g, '').replace(':', '-');
@@ -260,7 +260,7 @@ const MatchIQRender = (() => {
 
   function renderTaggedText(textStr) {
     if (!textStr || textStr === '--') return '--';
-    textStr = String(textStr).replace(/竞彩概率偏移首选/g, '竞彩').replace(/竞彩首选/g, '竞彩');
+    textStr = String(textStr).replace(/竞彩概率偏移首选/g, '竞彩').replace(/竞彩/g, '竞彩');
     const parts = textStr.split(/\s*或\s*/);
     return parts.map(part => {
       let mainText = part.trim();
@@ -268,7 +268,7 @@ const MatchIQRender = (() => {
       const tagMatch = part.match(/^(.*?)\s*(\(.*?\))$/);
       if (tagMatch) {
         mainText = tagMatch[1].trim();
-        tagText = tagMatch[2].trim().replace(/竞彩首选/g, '竞彩');
+        tagText = tagMatch[2].trim().replace(/竞彩/g, '竞彩');
       }
       const tagSpan = tagText ? `<span style="font-size:10px; color:var(--cyan); font-weight:normal; margin-left:2px; display:inline-block;">${tagText}</span>` : '';
       return mainText + tagSpan;
@@ -2471,7 +2471,7 @@ const MatchIQRender = (() => {
         </div>
       `;
 
-      // 动态生成进球数及大小球组合（包含竞彩首选标签及具体进球数推荐）
+      // 动态生成进球数及大小球组合（包含竞彩标签及具体进球数推荐）
       let ou = m.conclusions?.over_under || '--';
       let ouHTML = renderTaggedText(ou);
       const combinedGoalsHTML = `${ouHTML}${getGoalsFormattedHTML(m, 'table')}`;
