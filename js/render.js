@@ -1052,12 +1052,23 @@ const MatchIQRender = (() => {
       </div>`;
 
     // 智能提取 胜平负(HAD) 与 让球胜平负(HHAD)
-    const recText = uc.recommendation || c.mainstream || '主胜';
+    const bRec = match.baseline_recommendation || '';
+    const cRec = match.current_recommendation || uc.recommendation || c.mainstream || '主胜';
+    const hasRecChanged = (bRec && cRec && bRec !== '--' && bRec !== cRec);
+
+    const recText = cRec;
     let had = "平局";
     if (recText.includes("主胜") || recText.includes("主队胜") || recText.includes("主不败") || recText.includes("胜")) {
       had = "主胜";
     } else if (recText.includes("客胜") || recText.includes("客队胜") || recText.includes("客不败") || recText.includes("负")) {
       had = "客胜";
+    }
+
+    let hadDisplayHtml = `胜平负 <span style="color:${hadColor}; margin-left:4px; font-weight:800;">${had}</span>`;
+    if (hasRecChanged) {
+      hadDisplayHtml = `胜平负 <span style="text-decoration:line-through; opacity:0.6; font-size:11px; margin-left:4px;">${bRec}</span> ➔ <span style="color:#f43f5e; font-weight:800; text-decoration:underline;">${cRec}</span> <span class="live-change-lamp" title="临场变盘介入"></span>`;
+    } else if (match.odds_movement_str) {
+      hadDisplayHtml += ` <span style="color:#fbbf24; font-size:10.5px; font-family:var(--font-mono); margin-left:4px;" title="即时水位走势">💧 ${match.odds_movement_str}</span>`;
     }
     
     // 从竞彩网获取真实的让球数，拒绝固定让 1 球
@@ -1108,10 +1119,10 @@ const MatchIQRender = (() => {
     <div class="mc-pane" id="pane-${match.id}-conclusions">
       <div class="conclusions-grid">
         <div class="conclusion-card mainstream" style="display:flex; flex-direction:column; justify-content:center; padding:10px 14px; text-align:left;">
-          <div class="cc-label" style="margin-bottom:8px;">主流方向</div>
+          <div class="cc-label" style="margin-bottom:8px;">主流方向与变盘走势</div>
           <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
             <span style="padding:4px 8px; border-radius:4px; font-size:13px; font-weight:bold; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); color:var(--text-2); white-space:nowrap;">
-              胜平负 <span style="color:${hadColor}; margin-left:4px; font-weight:800;">${had}</span>
+              ${hadDisplayHtml}
             </span>
             <span style="padding:4px 8px; border-radius:4px; font-size:13px; font-weight:bold; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); color:var(--text-2); white-space:nowrap;">
               让球盘(${hcLabel}) <span style="color:${hhadColor}; margin-left:4px; font-weight:800;">${hhad}</span>
@@ -2363,15 +2374,25 @@ const MatchIQRender = (() => {
       }
 
       // 变盘亮灯指示器 (diff_markers)
-      const hadMarker = m.diff_markers?.had ? `<span class="live-change-lamp" title="胜平负方向因临场盘口有微调"></span>` : '';
-      const scoreMarker = m.diff_markers?.score ? `<span class="live-change-lamp" title="比分预测因临场盘口有微调"></span>` : '';
-      const goalsMarker = m.diff_markers?.goals ? `<span class="live-change-lamp" title="进球数推荐因临场盘口有微调"></span>` : '';
-      const hfMarker = m.diff_markers?.hf ? `<span class="live-change-lamp" title="半全场推荐因临场盘口有微调"></span>` : '';
+      const bRec = m.baseline_recommendation || '';
+      const cRec = m.current_recommendation || uc.recommendation || '';
+      const hasRecChanged = (bRec && cRec && bRec !== '--' && bRec !== cRec);
+
+      let hadTextHtml = `<span style="color:${hadColor}; font-weight:700;">${had}</span>`;
+      if (hasRecChanged) {
+        hadTextHtml = `<span style="text-decoration:line-through; opacity:0.6; font-size:11px; margin-right:2px;">${bRec}</span> ➔ <span style="color:#f43f5e; font-weight:800; text-decoration:underline;">${cRec}</span>`;
+      }
+
+      let waterHtml = '';
+      if (m.odds_movement_str) {
+        waterHtml = `<div style="margin-top:2px; font-size:10.5px; color:#fbbf24; font-family:var(--font-mono);">💧 ${m.odds_movement_str}</div>`;
+      }
 
       const directionHTML = `
         <div style="text-align:left; font-size:clamp(12px, 0.95vw, 13.5px); line-height:1.5;">
-          <div style="margin-bottom:2px; color:var(--text-3);">胜平负：${hadMarker}<span style="color:${hadColor}; font-weight:700;">${had}</span></div>
+          <div style="margin-bottom:2px; color:var(--text-3);">胜平负：${hadMarker}${hadTextHtml}</div>
           <div style="margin-bottom:2px; color:var(--text-3);">让球盘(${hcLabel})：${hadMarker}<span style="color:${hhadColor}; font-weight:700;">${hhad}</span></div>
+          ${waterHtml}
           <div style="border-top:1px solid rgba(255,255,255,0.06); margin-top:4px; padding-top:4px; color:${recColor}; font-weight:800; font-size:clamp(12px, 0.95vw, 13.5px);">信心推荐：${hadMarker}${confidenceConclusion}${upsetBadgeHtml}</div>
         </div>
       `;
