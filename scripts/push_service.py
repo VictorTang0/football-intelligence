@@ -6,30 +6,18 @@ import re
 
 PUSHPLUS_TOKEN = "960491d71cdb4ce8b10b5a7de29ac5e6"
 
-LUCK_QUOTES = [
-    "好运只偏爱有准备的头脑，祝今天旗开得胜！🎲✨",
-    "筹码在手，天下我有，祝今日红单连连！💰🔥",
-    "借东风，迎财神，愿今天好运常伴你左右！🍀🏮",
-    "冷静博弈，理智前行，好运自然水到渠成！🎯💼",
-    "搏一搏，单车变摩托；祝今日大红大紫，福星高照！🏍️🚀",
-    "财富的密码已经开启，愿你的选择今天能得到运气的拥抱！🔑💎",
-    "量化数据为底，财神眷顾在旁，祝今天一红到底！📊📈"
-]
-
-COMMON_CSS = """
-<style>
-.card-box { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
-.card-main { display: flex; border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
-.col-teams { width: 38%; background: rgba(255, 255, 255, 0.03); padding: 10px 8px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid rgba(255, 255, 255, 0.06); }
-.col-info { width: 62%; padding: 8px 10px; font-size: 12px; display: flex; flex-direction: column; gap: 4px; }
-.match-meta { font-size: 11px; color: #94a3b8; font-weight: bold; margin-bottom: 3px; }
-.team-title { font-size: 14.5px; font-weight: bold; color: #ffffff; line-height: 1.3; }
-.vs-tag { font-size: 10px; color: #64748b; margin: 1px 0; }
-.water-box { background: rgba(56, 189, 248, 0.03); padding: 6px 10px; font-size: 11px; color: #94a3b8; border-bottom: 1px solid rgba(255, 255, 255, 0.05); font-family: monospace; }
-.detail-box { padding: 8px 10px; font-size: 12px; background: rgba(0, 0, 0, 0.15); display: flex; flex-direction: column; gap: 4px; }
-.badge-radar { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); padding: 1px 4px; border-radius: 3px; font-size: 9.5px; }
-</style>
-"""
+COMMON_CSS = """<style>
+.cb{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);border-radius:8px;margin-bottom:8px;overflow:hidden;}
+.cm{display:flex;border-bottom:1px solid rgba(255,255,255,0.06);}
+.ct{width:38%;background:rgba(255,255,255,0.03);padding:8px 6px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(255,255,255,0.06);}
+.ci{width:62%;padding:6px 8px;font-size:12px;display:flex;flex-direction:column;gap:3px;}
+.mm{font-size:11px;color:#94a3b8;font-weight:bold;margin-bottom:2px;}
+.tt{font-size:14px;font-weight:bold;color:#ffffff;line-height:1.2;}
+.vt{font-size:10px;color:#64748b;}
+.wb{background:rgba(56,189,248,0.03);padding:5px 8px;font-size:11px;color:#94a3b8;border-bottom:1px solid rgba(255,255,255,0.05);font-family:monospace;}
+.db{padding:6px 8px;font-size:12px;background:rgba(0,0,0,0.15);display:flex;flex-direction:column;gap:3px;}
+.br{background:rgba(245,158,11,0.15);color:#f59e0b;border:1px solid rgba(245,158,11,0.3);padding:1px 4px;border-radius:3px;font-size:9.5px;}
+</style>"""
 
 def send_push(title, content):
     url = f"http://www.pushplus.plus/send?token={PUSHPLUS_TOKEN}"
@@ -102,10 +90,12 @@ def get_handicap_info_html(m):
     if "(竞彩" not in hhad_rec and "让" in hhad_rec:
         hhad_rec += " (竞彩)"
 
-    sp_val = c.get("hhad_sp", "") or lh.get("current", {}).get("draw", "")
-    sp_str = f' <span style="color: #64748b; font-size: 10.5px;">[SP: {sp_val}]</span>' if sp_val else ''
+    hhad_rec = hhad_rec.replace("竞彩首选", "竞彩")
 
-    return f"让球({hc_label}): <span style='color: #38bdf8; font-weight: bold;'>{hhad_rec}</span>{sp_str}"
+    sp_val = c.get("hhad_sp", "") or lh.get("current", {}).get("draw", "")
+    sp_str = f' <span style="color:#64748b;font-size:10.5px;">[SP: {sp_val}]</span>' if sp_val else ''
+
+    return f"让球({hc_label}): <span style='color:#38bdf8;font-weight:bold;'>{hhad_rec}</span>{sp_str}"
 
 def format_goals_formatted_html(m):
     c = m.get("conclusions", {})
@@ -136,15 +126,15 @@ def format_goals_formatted_html(m):
     combined = sorted(list(set(p_goals + m_goals)))
     if not combined:
         goals_raw = str(c.get("over_under", "--")).replace("球", "").strip()
-        return f'<span style="color: #38bdf8; font-weight: bold;">({goals_raw})</span>'
+        return f'<span style="color:#38bdf8;font-weight:bold;">({goals_raw})</span>'
 
     items_html = []
     for g in combined:
         in_m = (g in m_goals)
         if in_m:
-            items_html.append(f'<span style="color: #fbbf24; font-weight: bold; font-size: 13px;">{g}</span>')
+            items_html.append(f'<span style="color:#fbbf24;font-weight:bold;font-size:13px;">{g}</span>')
         else:
-            items_html.append(f'<span style="color: #38bdf8; font-weight: bold; font-size: 13px;">{g}</span>')
+            items_html.append(f'<span style="color:#38bdf8;font-weight:bold;font-size:13px;">{g}</span>')
 
     return "(" + "、".join(items_html) + ")"
 
@@ -162,29 +152,46 @@ def render_match_card_html(m):
 
     uc = m.get("ultimate_conclusion", {})
     c = m.get("conclusions", {})
+    diff = m.get("diff_markers", {})
 
-    baseline_rec = m.get("baseline_recommendation", "--")
-    current_rec = m.get("current_recommendation") or uc.get("recommendation", "--")
+    had_changed = diff.get("had") or (m.get("baseline_recommendation") and m.get("baseline_recommendation") != m.get("current_recommendation") and m.get("baseline_recommendation") != "--")
+    water_changed = m.get("odds_water_changed", False)
+    score_changed = diff.get("score", False)
+    goals_changed = diff.get("goals", False)
+    hf_changed = diff.get("hf", False)
+
+    has_match_changed = m.get("has_changed_in_push") or had_changed or water_changed or score_changed or goals_changed or hf_changed
+
+    time_dot = '<span style="font-size:11px;margin-left:4px;">🟡</span>' if has_match_changed else ''
+    dot_had = "🟡 " if had_changed else ""
+    dot_water = "🟡 " if water_changed else ""
+    dot_score = "🟡 " if score_changed else ""
+    dot_goals = "🟡 " if goals_changed else ""
+    dot_hf = "🟡 " if hf_changed else ""
+
+    baseline_rec = m.get("baseline_recommendation", "--").replace("竞彩首选", "竞彩")
+    current_rec = (m.get("current_recommendation") or uc.get("recommendation", "--")).replace("竞彩首选", "竞彩")
     
-    if "(竞彩" not in current_rec and "竞彩" in uc.get("primary_bet", ""):
+    if "(竞彩" not in current_rec and "竞彩" in str(uc.get("primary_bet", "")):
         current_rec += " (竞彩)"
     if "(竞彩" not in current_rec and "不败" in current_rec:
         current_rec += " (竞彩)"
 
+    current_rec = current_rec.replace("竞彩首选", "竞彩")
     handicap_html = get_handicap_info_html(m)
 
     conf = uc.get("confidence", 60)
-    conf_class = "color: #10b981; font-weight: bold;" if conf >= 75 else "color: #fbbf24; font-weight: bold;"
+    conf_class = "color:#10b981;font-weight:bold;" if conf >= 75 else "color:#fbbf24;font-weight:bold;"
     cold_tag = "反基本面冷门" if "反基本面冷门" in current_rec else "主力资金指向"
 
     is_radar = m.get("radar_triggered") or c.get("had_hhad_divergence", False)
-    radar_badge = ' <span class="badge-radar">雷达干预</span>' if is_radar else ''
+    radar_badge = ' <span class="br">雷达干预</span>' if is_radar else ''
 
     has_rec_changed = (baseline_rec != current_rec and baseline_rec != "--")
     if has_rec_changed:
-        rec_display = f'<span style="text-decoration: line-through; color: #64748b; font-size: 11px;">{baseline_rec}</span> ➔ <span style="color: #f43f5e; font-weight: bold; text-decoration: underline; font-size: 13.5px;">{current_rec}</span>'
+        rec_display = f'{dot_had}<span style="text-decoration:line-through;color:#64748b;font-size:11px;">{baseline_rec}</span>➔<span style="color:#f43f5e;font-weight:bold;text-decoration:underline;font-size:13.5px;">{current_rec}</span>'
     else:
-        rec_display = f'<span style="color: #38bdf8; font-weight: bold; font-size: 13.5px;">{current_rec}</span>'
+        rec_display = f'{dot_had}<span style="color:#38bdf8;font-weight:bold;font-size:13.5px;">{current_rec}</span>'
 
     scores = m.get("current_scores") or uc.get("predicted_score") or c.get("most_likely_score", "--")
     goals_html = format_goals_formatted_html(m)
@@ -193,63 +200,21 @@ def render_match_card_html(m):
     odds_mov = m.get("odds_movement_str", "")
     water_row_html = ""
     if odds_mov:
-        water_row_html = f'''
-        <div class="water-box">
-          💧 <strong>水位异动</strong>: <span style="color: #fbbf24; font-weight: bold;">{odds_mov}</span>
-        </div>
-        '''
+        water_row_html = f'<div class="wb">{dot_water}💧 <strong>水位异动</strong>: <span style="color:#fbbf24;font-weight:bold;">{odds_mov}</span></div>'
 
-    # 黄色圆点标志：当该场比赛产生变动时，在赛事名旁显示 🟡
-    has_match_changed = m.get("has_changed_in_push") or m.get("odds_water_changed") or (m.get("diff_markers") and any(m.get("diff_markers").values()))
-    yellow_dot = "🟡 " if has_match_changed else ""
-
-    return f'''
-    <div class="card-box">
-      <div class="card-main">
-        <div class="col-teams">
-          <div class="match-meta">{match_no} • {kickoff}</div>
-          <div class="team-title">{yellow_dot}{home}</div>
-          <div class="vs-tag">VS</div>
-          <div class="team-title">{away}</div>
-        </div>
-        <div class="col-info">
-          <div>{rec_display}{radar_badge}</div>
-          <div style="color: #cbd5e1; font-size: 12px;">{handicap_html}</div>
-          <div style="font-size: 11px; color: #94a3b8;">信心: <span style="{conf_class}">{conf}%</span> | {cold_tag}</div>
-        </div>
-      </div>
-      {water_row_html}
-      <div class="detail-box">
-        <div style="color: #f1f5f9; font-size: 12.5px;">🎯 <strong>最可能比分</strong>: <span style="color: #10b981; font-weight: bold; font-size: 13px;">{scores}</span></div>
-        <div style="color: #94a3b8; font-size: 12px;">⚽ <strong>具体进球数</strong>: {goals_html} | <strong>半全场</strong>: <span style="color: #a855f7; font-weight: bold; font-size: 12.5px;">{hf}</span></div>
-      </div>
-    </div>
-    '''
+    return f'''<div class="cb"><div class="cm"><div class="ct"><div class="mm">{match_no} • {kickoff}{time_dot}</div><div class="tt">{home}</div><div class="vt">VS</div><div class="tt">{away}</div></div><div class="ci"><div>{rec_display}{radar_badge}</div><div style="color:#cbd5e1;font-size:12px;">{handicap_html}</div><div style="font-size:11px;color:#94a3b8;">信心: <span style="{conf_class}">{conf}%</span> | {cold_tag}</div></div></div>{water_row_html}<div class="db"><div style="color:#f1f5f9;font-size:12.5px;">{dot_score}🎯 <strong>最可能比分</strong>: <span style="color:#10b981;font-weight:bold;font-size:13px;">{scores}</span></div><div style="color:#94a3b8;font-size:12px;">{dot_goals}⚽ <strong>具体进球数</strong>: {goals_html} | {dot_hf}<strong>半全场</strong>: <span style="color:#a855f7;font-weight:bold;font-size:12.5px;">{hf}</span></div></div></div>'''
 
 def push_scheduled_update(matches, has_any_change=False):
     sorted_matches = sort_matches_by_date_and_code(matches)
     cards_html = "".join([render_match_card_html(m) for m in sorted_matches])
     
-    # 根据是否有变动确定前四个字标题
     title_prefix = "情况有变" if has_any_change else "牌没问题"
     title = f"{title_prefix} - MATCH IQ 盘口跟踪 ({len(matches)}场)"
     
     header_color = "#f43f5e" if has_any_change else "#10b981"
-    sub_text = "检测到盘口水位或预测结论有更新，产生变化的赛事已用 🟡 标记：" if has_any_change else "盘口水位稳定，资金模型及预测结论一切正常："
+    sub_text = "检测到盘口水位或预测结论有更新，产生变化的子项已用 🟡 标记：" if has_any_change else "盘口水位稳定，资金模型及预测结论一切正常："
 
-    content = f"""
-    {COMMON_CSS}
-    <div style="font-family: Arial, sans-serif; background-color: #0f172a; color: #f1f5f9; padding: 15px; border-radius: 8px; border: 1px solid rgba(0, 212, 255, 0.2);">
-      <h3 style="color: {header_color}; margin-top: 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">{title_prefix} (共{len(matches)}场)</h3>
-      <p style="font-size: 12px; color: #94a3b8;">{sub_text}</p>
-      
-      {cards_html}
-
-      <p style="font-size: 11px; color: #64748b; text-align: center; margin-top: 15px; margin-bottom: 0;">
-        💬 今日盘口跟踪中 • <a href="https://victortang0.github.io/football-intelligence/" style="color: #00d4ff; text-decoration: none;">打开 MATCH IQ 看板 ➔</a>
-      </p>
-    </div>
-    """
+    content = f"""{COMMON_CSS}<div style="font-family:Arial,sans-serif;background-color:#0f172a;color:#f1f5f9;padding:12px;border-radius:8px;border:1px solid rgba(0,212,255,0.2);"><h3 style="color:{header_color};margin-top:0;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:6px;">{title_prefix} (共{len(matches)}场)</h3><p style="font-size:12px;color:#94a3b8;">{sub_text}</p>{cards_html}<p style="font-size:11px;color:#64748b;text-align:center;margin-top:12px;margin-bottom:0;">💬 今日盘口跟踪中 • <a href="https://victortang0.github.io/football-intelligence/" style="color:#00d4ff;text-decoration:none;">打开 MATCH IQ 看板 ➔</a></p></div>"""
     return send_push(title, content)
 
 def push_daily_results(records_settled, model_evolution):
@@ -263,55 +228,15 @@ def push_daily_results(records_settled, model_evolution):
         match_no = r.get("match_no", "")
         home = r.get("home", "")
         away = r.get("away", "")
-        rec = r.get("recommendation", "")
+        rec = r.get("recommendation", "").replace("竞彩首选", "竞彩")
         score = r.get("score", "")
         is_correct = r.get("is_correct", False)
         actual = r.get("actual_result", "")
 
-        status_html = '<span style="color: #10b981; font-weight: bold;">红 📈</span>' if is_correct else '<span style="color: #94a3b8;">黑 📉</span>'
-        rows_html += f"""
-        <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
-          <td style="padding: 6px; font-weight: bold; color: #94a3b8;">{match_no}</td>
-          <td style="padding: 6px;">{home} vs {away}</td>
-          <td style="padding: 6px; color: #38bdf8;">{rec} <span style="font-size: 10px; color: #64748b;">({score})</span></td>
-          <td style="padding: 6px; font-family: monospace;">{actual}</td>
-          <td style="padding: 6px;">{status_html}</td>
-        </tr>
-        """
+        status_html = '<span style="color:#10b981;font-weight:bold;">红 📈</span>' if is_correct else '<span style="color:#94a3b8;">黑 📉</span>'
+        rows_html += f"""<tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td style="padding:6px;font-weight:bold;color:#94a3b8;">{match_no}</td><td style="padding:6px;">{home} vs {away}</td><td style="padding:6px;color:#38bdf8;">{rec} <span style="font-size:10px;color:#64748b;">({score})</span></td><td style="padding:6px;font-family:monospace;">{actual}</td><td style="padding:6px;">{status_html}</td></tr>"""
 
-    content = f"""
-    {COMMON_CSS}
-    <div style="font-family: Arial, sans-serif; background-color: #0f172a; color: #f1f5f9; padding: 15px; border-radius: 8px; border: 1px solid rgba(0, 212, 255, 0.2);">
-      <h3 style="color: #10b981; margin-top: 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">💰 MATCH IQ 昨日红黑清算单</h3>
-      <p style="font-size: 12px; color: #94a3b8;">昨日已完赛赛事预测结算列表：</p>
-      
-      <table style="width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 11px; color: #e2e8f0; text-align: left;">
-        <thead>
-          <tr style="background-color: rgba(255, 255, 255, 0.03); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-            <th style="padding: 6px;">编号</th>
-            <th style="padding: 6px;">赛事对阵</th>
-            <th style="padding: 6px;">预测推荐</th>
-            <th style="padding: 6px;">赛果</th>
-            <th style="padding: 6px;">结果</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows_html}
-        </tbody>
-      </table>
-
-      <div style="background-color: rgba(56, 189, 248, 0.05); padding: 12px; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.2); font-size: 12px; margin-top: 15px; line-height: 1.5;">
-        🚀 <strong>模型自动进化报告 ({version})</strong><br/>
-        • 历史总验证场次: <span style="color: #f1f5f9; font-weight: bold;">{total_validated} 场</span><br/>
-        • 胜平负/方向命中率: <span style="color: #10b981; font-weight: bold;">{direction_acc * 100:.2f}%</span><br/>
-        • 最可能比分命中率: <span style="color: #fbbf24; font-weight: bold;">{score_acc * 100:.2f}%</span>
-      </div>
-      
-      <p style="font-size: 11px; color: #64748b; text-align: center; margin-top: 15px; margin-bottom: 0;">
-        💬 自动结算已部署 • <a href="https://victortang0.github.io/football-intelligence/" style="color: #00d4ff; text-decoration: none;">打开 MATCH IQ 看板 ➔</a>
-      </p>
-    </div>
-    """
+    content = f"""{COMMON_CSS}<div style="font-family:Arial,sans-serif;background-color:#0f172a;color:#f1f5f9;padding:12px;border-radius:8px;border:1px solid rgba(0,212,255,0.2);"><h3 style="color:#10b981;margin-top:0;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:6px;">💰 MATCH IQ 昨日红黑清算单</h3><p style="font-size:12px;color:#94a3b8;">昨日已完赛赛事预测结算列表：</p><table style="width:100%;border-collapse:collapse;margin:12px 0;font-size:11px;color:#e2e8f0;text-align:left;"><thead><tr style="background-color:rgba(255,255,255,0.03);border-bottom:1px solid rgba(255,255,255,0.1);"><th style="padding:6px;">编号</th><th style="padding:6px;">赛事对阵</th><th style="padding:6px;">预测推荐</th><th style="padding:6px;">赛果</th><th style="padding:6px;">结果</th></tr></thead><tbody>{rows_html}</tbody></table><div style="background-color:rgba(56,189,248,0.05);padding:10px;border-radius:6px;border:1px solid rgba(56,189,248,0.2);font-size:12px;margin-top:12px;line-height:1.5;">🚀 <strong>模型自动进化报告 ({version})</strong><br/>• 历史总验证场次: <span style="color:#f1f5f9;font-weight:bold;">{total_validated} 场</span><br/>• 胜平负/方向命中率: <span style="color:#10b981;font-weight:bold;">{direction_acc * 100:.2f}%</span><br/>• 最可能比分命中率: <span style="color:#fbbf24;font-weight:bold;">{score_acc * 100:.2f}%</span></div><p style="font-size:11px;color:#64748b;text-align:center;margin-top:12px;margin-bottom:0;">💬 自动结算已部署 • <a href="https://victortang0.github.io/football-intelligence/" style="color:#00d4ff;text-decoration:none;">打开 MATCH IQ 看板 ➔</a></p></div>"""
     return send_push(f"💰 MATCH IQ 战绩结算及模型进化 ({version})", content)
 
 def push_initial_predictions(matches):

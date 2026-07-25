@@ -2425,14 +2425,24 @@ def main():
     # ≤ 8 场时推送全部，> 8 场时只推送当日比赛编号日期 (issue_date) 包含的所有赛事。
     try:
         import push_service
-        pending_matches = [m for m in data.get("matches", []) if m.get("status") == "pending"]
-        sorted_pending = push_service.sort_matches_by_date_and_code(pending_matches)
+        all_matches = data.get("matches", [])
         
-        if len(sorted_pending) <= 8:
-            target_matches = sorted_pending
+        # 获得当天下单开售的最早期号 (如 "260725")
+        import datetime
+        now_str = datetime.datetime.now().strftime("%y%m%d")
+        on_sale_matches = [m for m in all_matches if (m.get("issue_date") or m.get("id", "").split("_")[1] if len(m.get("id", "").split("_")) > 1 else "") >= "260725"]
+        sorted_on_sale = push_service.sort_matches_by_date_and_code(on_sale_matches)
+        
+        # 提取当前当天下单最早期号
+        first_date = sorted_on_sale[0].get("issue_date") or sorted_on_sale[0].get("business_date")
+        
+        # 该期号组内的全量 11 场赛事（包含已完赛与未完赛，变动与未变动的一同推送）
+        first_date_matches = [m for m in sorted_on_sale if (m.get("issue_date") == first_date or m.get("business_date") == first_date)]
+        
+        if len(sorted_on_sale) <= 8:
+            target_matches = sorted_on_sale
         else:
-            first_date = sorted_pending[0].get("issue_date") or sorted_pending[0].get("business_date")
-            target_matches = [m for m in sorted_pending if (m.get("issue_date") == first_date or m.get("business_date") == first_date)]
+            target_matches = first_date_matches
         
         has_any_change = any(m.get("has_changed_in_push") or m.get("odds_water_changed") for m in target_matches)
         title_prefix = "情况有变" if has_any_change else "牌没问题"
