@@ -2374,6 +2374,11 @@ const MatchIQRender = (() => {
       }
 
       // 变盘亮灯指示器 (diff_markers)
+      const hadMarker = m.diff_markers?.had ? `<span class="live-change-lamp" title="胜平负方向因临场盘口有微调"></span>` : '';
+      const scoreMarker = m.diff_markers?.score ? `<span class="live-change-lamp" title="比分预测因临场盘口有微调"></span>` : '';
+      const goalsMarker = m.diff_markers?.goals ? `<span class="live-change-lamp" title="进球数推荐因临场盘口有微调"></span>` : '';
+      const hfMarker = m.diff_markers?.hf ? `<span class="live-change-lamp" title="半全场推荐因临场盘口有微调"></span>` : '';
+
       const bRec = m.baseline_recommendation || '';
       const cRec = m.current_recommendation || m.ultimate_conclusion?.recommendation || '';
       const hasRecChanged = (bRec && cRec && bRec !== '--' && bRec !== cRec);
@@ -2655,3 +2660,7 @@ const MatchIQRender = (() => {
     formatTime
   };
 })();
+
+if (typeof window !== 'undefined') {
+  window.MatchIQRender = MatchIQRender;
+}
