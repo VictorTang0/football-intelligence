@@ -1,8 +1,69 @@
 {
-  "total_predictions": 77,
+  "total_predictions": 78,
   "correct_predictions": 38,
-  "accuracy_rate": 0.4935,
+  "accuracy_rate": 0.4872,
   "records": [
+    {
+      "match_id": "match_260725_211",
+      "league": "美职",
+      "home": "圣何塞",
+      "away": "洛城银河",
+      "date": "2026-07-26",
+      "time": "10:30",
+      "actual_result": "圣何塞 1-1 洛城银河 (0-1)",
+      "is_correct": false,
+      "confidence": 40,
+      "predictions": {
+        "recommendation": {
+          "val": "主胜",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "主胜",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "主胜",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平胜 或 胜胜",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5 (竞彩)",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "3-1 (高赔拉开) 或 2-1",
+          "correct": false
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [],
+        "m10_snapshot_count": 2,
+        "had_hhad_divergence": false
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "平局",
+        "diff": 0.2799999999999998,
+        "recommendation": "分出胜负",
+        "is_correct": false
+      }
+    },
     {
       "match_id": "match_260725_210",
       "league": "美职",
@@ -5568,12 +5629,12 @@
     }
   ],
   "radar_stats": {
-    "total_alerts": 73,
+    "total_alerts": 74,
     "correct_alerts": 41,
-    "accuracy_rate": 0.5616
+    "accuracy_rate": 0.5541
   },
-  "score_accuracy_rate": 0.1818,
-  "half_full_accuracy_rate": 0.1558,
+  "score_accuracy_rate": 0.1795,
+  "half_full_accuracy_rate": 0.1538,
   "hafu_accuracy_rate": 0.2609,
   "sporttery_primary_stats": {
     "direction": {
