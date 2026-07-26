@@ -15,6 +15,14 @@ def sync_evolution_data():
     except Exception as e:
         print(f"Error running sync_history: {e}")
 
+    # Run automated gradient backpropagation to optimize factor weights on newly settled matches
+    try:
+        import error_backprop_sandbox
+        print("🧠 Running automated factor weight backpropagation optimization...")
+        error_backprop_sandbox.run_backprop_sandbox()
+    except Exception as e:
+        print(f"Warning: Error running error_backprop_sandbox: {e}")
+
     if not os.path.exists(evo_path) or not os.path.exists(weights_path):
         return
         
