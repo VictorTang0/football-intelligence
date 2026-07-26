@@ -27,8 +27,9 @@ def main():
 
     pending_yesterday_or_earlier = []
     for m in matches_db.get("matches", []):
-        if m.get("status") == "Pending":
-            kickoff_str = m.get("kickoff", "").split("T")[0]
+        st = m.get("status", "").lower()
+        if st in ["pending", "waiting_result"]:
+            kickoff_str = m.get("kickoff", "").split("T")[0].split(" ")[0]
             if kickoff_str < today_str:
                 pending_yesterday_or_earlier.append(m)
 
@@ -36,7 +37,7 @@ def main():
         print("✅ No pending matches from yesterday or earlier. Today's settlement is already complete.")
         return
 
-    print(f"📋 Found {len(pending_yesterday_or_earlier)} pending matches.")
+    print(f"📋 Found {len(pending_yesterday_or_earlier)} pending/waiting_result matches from yesterday or earlier.")
 
     try:
         import auto_fetch_official_results
@@ -49,8 +50,9 @@ def main():
 
     still_pending = []
     for m in matches_db.get("matches", []):
-        if m.get("status") == "Pending":
-            kickoff_str = m.get("kickoff", "").split("T")[0]
+        st = m.get("status", "").lower()
+        if st in ["pending", "waiting_result"]:
+            kickoff_str = m.get("kickoff", "").split("T")[0].split(" ")[0]
             if kickoff_str < today_str:
                 still_pending.append(m)
 

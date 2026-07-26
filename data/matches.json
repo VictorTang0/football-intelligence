@@ -41488,7 +41488,7 @@
         "humidity": 58,
         "wind_kmh": 7
       },
-      "status": "waiting_result",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-24T11:18:28.529564",
@@ -42454,7 +42454,7 @@
         "humidity": 51,
         "wind_kmh": 16
       },
-      "status": "waiting_result",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-24T11:18:28.964401",
@@ -43515,7 +43515,7 @@
         "wind_kmh": 15,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-25T12:07:04.057510",
@@ -44035,7 +44035,8 @@
         "ev_score": 0.0,
         "reasoning": "瑞超联赛的人工草皮主场优势极其明显，客队适应常面临考验。 基本面上，代格福什在【历史交锋与心理克制】上拥有明显优势（评分 8.0 对 2.0），但佐加顿斯在【近期状态与动能】上（评分 6.0 对 3.0）给主队带来制约。结合战意（主 95% / 客 82%），即时欧指主胜由 5.20 降至 5.10，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
         "confidence_trend": "stable",
-        "predicted_score": "0-2 或 0-1 或 1-3 (竞彩)"
+        "predicted_score": "0-2 或 0-1 或 1-3 (竞彩)",
+        "actual_result": "代格福什 0-1 佐加顿斯 (0-1)"
       },
       "team_stats": {
         "home": {
@@ -44712,7 +44713,16 @@
       "issue_date": "260725",
       "match_code": 203,
       "match_num_str": "周六203",
-      "has_changed_in_push": false
+      "has_changed_in_push": false,
+      "result": {
+        "actual_result": "代格福什 0-1 佐加顿斯 (0-1)",
+        "ft_score": "0:1",
+        "ht_score": "0:1",
+        "rec_correct": true,
+        "hafu_correct": true,
+        "ou_correct": false,
+        "score_correct": true
+      }
     },
     {
       "id": "match_260725_204",
@@ -44731,7 +44741,7 @@
         "wind_kmh": 12,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-25T12:07:04.379819",
@@ -45251,7 +45261,8 @@
         "ev_score": 0.0,
         "reasoning": "芬超联赛常呈现低比分拉锯，防守落位速度是决定性因素。 基本面上，玛丽港在【环境气候适应性】上拥有明显优势（评分 8.9 对 7.5），但AC奥卢在【历史交锋与心理克制】上（评分 5.6 对 4.4）给主队带来制约。结合战意（主 85% / 客 82%），即时欧指主胜由 5.66 降至 5.55，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客胜】。",
         "confidence_trend": "stable",
-        "predicted_score": "0-2 或 0-1 或 1-2 (竞彩)"
+        "predicted_score": "0-2 或 0-1 或 1-2 (竞彩)",
+        "actual_result": "玛丽港 1-1 AC奥卢 (1-0)"
       },
       "team_stats": {
         "home": {
@@ -45874,7 +45885,16 @@
       "current_recommendation": "客胜",
       "current_scores": "0-2 或 0-1 或 1-2 (竞彩)",
       "current_goals": "小 2.5",
-      "radar_triggered": false
+      "radar_triggered": false,
+      "result": {
+        "actual_result": "玛丽港 1-1 AC奥卢 (1-0)",
+        "ft_score": "1:1",
+        "ht_score": "1:0",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": true,
+        "score_correct": false
+      }
     },
     {
       "id": "match_260725_205",
@@ -45893,7 +45913,7 @@
         "wind_kmh": 7,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-25T12:07:04.691002",
@@ -46413,7 +46433,8 @@
         "ev_score": 0.0,
         "reasoning": "挪超联赛大开大合，大球率高，进攻端对体能消耗极大。 基本面上，克里斯蒂在【近期状态与动能】上拥有明显优势（评分 4.6 对 3.0），两队防线与战术匹配相对均衡。结合战意（主 85% / 客 82%），即时欧指 1.88 / 3.50 / 3.22 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主胜】。",
         "confidence_trend": "up",
-        "predicted_score": "2-0 或 1-0"
+        "predicted_score": "2-0 或 1-0",
+        "actual_result": "克里斯蒂 1-2 斯达 (1-1)"
       },
       "team_stats": {
         "home": {
@@ -46989,7 +47010,16 @@
       "issue_date": "260725",
       "match_code": 205,
       "match_num_str": "周六205",
-      "has_changed_in_push": false
+      "has_changed_in_push": false,
+      "result": {
+        "actual_result": "克里斯蒂 1-2 斯达 (1-1)",
+        "ft_score": "1:2",
+        "ht_score": "1:1",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": false
+      }
     },
     {
       "id": "match_260725_206",
@@ -47008,7 +47038,7 @@
         "wind_kmh": 10,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-25T12:07:04.994105",
@@ -47528,7 +47558,8 @@
         "ev_score": 0.0,
         "reasoning": "芬超联赛常呈现低比分拉锯，防守落位速度是决定性因素。 基本面上，库奥皮奥在【球队基础硬实力】上拥有明显优势（评分 9.8 对 7.5），两队防线与战术匹配相对均衡。结合战意（主 72% / 客 82%），即时欧指 1.90 / 3.30 / 3.33 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主胜】。",
         "confidence_trend": "up",
-        "predicted_score": "2-0 或 1-0 或 1-1 (竞彩)"
+        "predicted_score": "2-0 或 1-0 或 1-1 (竞彩)",
+        "actual_result": "库奥皮奥 3-1 瓦萨 (3-0)"
       },
       "team_stats": {
         "home": {
@@ -48143,7 +48174,16 @@
       "current_recommendation": "主胜",
       "current_scores": "2-0 或 1-0 或 1-1 (竞彩)",
       "current_goals": "小 2.5 (竞彩)",
-      "radar_triggered": false
+      "radar_triggered": false,
+      "result": {
+        "actual_result": "库奥皮奥 3-1 瓦萨 (3-0)",
+        "ft_score": "3:1",
+        "ht_score": "3:0",
+        "rec_correct": true,
+        "hafu_correct": true,
+        "ou_correct": false,
+        "score_correct": false
+      }
     },
     {
       "id": "match_260725_207",
@@ -48162,7 +48202,7 @@
         "wind_kmh": 9,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-25T12:07:05.331458",
@@ -48682,7 +48722,8 @@
         "ev_score": 0.0,
         "reasoning": "瑞超联赛的人工草皮主场优势极其明显，客队适应常面临考验。 基本面上，卡尔马在【历史交锋与心理克制】上拥有明显优势（评分 6.0 对 4.0），但米亚尔比在【球队基础硬实力】上（评分 9.8 对 8.2）给主队带来制约。结合战意（主 85% / 客 70%），即时欧指 2.50 / 3.30 / 2.35 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "down",
-        "predicted_score": "0-1 或 0-0 或 0-2 (竞彩)"
+        "predicted_score": "0-1 或 0-0 或 0-2 (竞彩)",
+        "actual_result": "卡尔马 2-1 米亚尔比 (1-1)"
       },
       "team_stats": {
         "home": {
@@ -49330,7 +49371,16 @@
       "issue_date": "260725",
       "match_code": 207,
       "match_num_str": "周六207",
-      "has_changed_in_push": false
+      "has_changed_in_push": false,
+      "result": {
+        "actual_result": "卡尔马 2-1 米亚尔比 (1-1)",
+        "ft_score": "2:1",
+        "ht_score": "1:1",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": false
+      }
     },
     {
       "id": "match_260726_201",
@@ -53745,9 +53795,9 @@
             "away": 1.81
           },
           "current": {
-            "home": 4.0,
-            "draw": 2.95,
-            "away": 1.85
+            "home": 4.1,
+            "draw": 2.98,
+            "away": 1.82
           },
           "movement": "实时追踪"
         },
@@ -56091,9 +56141,9 @@
             "away": 5.78
           },
           "current": {
-            "home": 1.33,
-            "draw": 4.8,
-            "away": 5.9
+            "home": 1.31,
+            "draw": 4.88,
+            "away": 6.2
           },
           "movement": "实时追踪"
         },
@@ -57330,9 +57380,9 @@
             "away": 3.63
           },
           "current": {
-            "home": 1.71,
+            "home": 1.66,
             "draw": 3.65,
-            "away": 3.7
+            "away": 3.95
           },
           "movement": "实时追踪"
         },
@@ -57762,7 +57812,7 @@
         "wind_kmh": 11,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-25T12:07:05.682638",
@@ -58282,7 +58332,8 @@
         "ev_score": 0.0,
         "reasoning": "巴甲比赛双方战术意图各有侧重。 基本面上，巴竞技在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），但巴西国际在【近期状态与动能】上（评分 7.4 对 6.0）给主队带来制约。结合战意（主 85% / 客 82%），即时欧指 2.73 / 2.56 / 2.13 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【平局】。",
         "confidence_trend": "down",
-        "predicted_score": "1-1 或 0-0 或 1-0 (竞彩)"
+        "predicted_score": "1-1 或 0-0 或 1-0 (竞彩)",
+        "actual_result": "巴竞技 2-0 巴西国际 (1-0)"
       },
       "team_stats": {
         "home": {
@@ -58874,7 +58925,16 @@
       "issue_date": "260725",
       "match_code": 208,
       "match_num_str": "周六208",
-      "has_changed_in_push": true
+      "has_changed_in_push": true,
+      "result": {
+        "actual_result": "巴竞技 2-0 巴西国际 (1-0)",
+        "ft_score": "2:0",
+        "ht_score": "1:0",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": true,
+        "score_correct": false
+      }
     },
     {
       "id": "match_260726_208",
@@ -60006,7 +60066,7 @@
         "wind_kmh": 18,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-25T12:07:06.023111",
@@ -60526,7 +60586,8 @@
         "ev_score": 0.0,
         "reasoning": "巴甲比赛双方战术意图各有侧重。 基本面上，桑托斯在【战意与抢分压力】上拥有明显优势（评分 6.4 对 2.0），两队防线与战术匹配相对均衡。结合战意（主 95% / 客 40%），即时欧指 2.12 / 3.09 / 2.87 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【反基本面冷门 (客队不败) (竞彩)】。",
         "confidence_trend": "up",
-        "predicted_score": "1-0 或 0-0"
+        "predicted_score": "1-0 或 0-0",
+        "actual_result": "桑托斯 2-2 沙佩科 (1-0)"
       },
       "team_stats": {
         "home": {
@@ -61052,7 +61113,16 @@
       "issue_date": "260725",
       "match_code": 209,
       "match_num_str": "周六209",
-      "has_changed_in_push": true
+      "has_changed_in_push": true,
+      "result": {
+        "actual_result": "桑托斯 2-2 沙佩科 (1-0)",
+        "ft_score": "2:2",
+        "ht_score": "1:0",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": false
+      }
     },
     {
       "id": "match_260726_209",
@@ -64092,9 +64162,9 @@
             "away": 4.21
           },
           "current": {
-            "home": 1.55,
-            "draw": 4.0,
-            "away": 4.3
+            "home": 1.5,
+            "draw": 4.1,
+            "away": 4.56
           },
           "movement": "实时追踪"
         },
@@ -69885,9 +69955,9 @@
             "away": 2.05
           },
           "current": {
-            "home": 2.74,
-            "draw": 3.5,
-            "away": 2.09
+            "home": 2.8,
+            "draw": 3.55,
+            "away": 2.04
           },
           "movement": "实时追踪"
         },
@@ -73374,9 +73444,9 @@
             "away": 4.65
           },
           "current": {
-            "home": 1.37,
-            "draw": 4.15,
-            "away": 6.3
+            "home": 1.35,
+            "draw": 4.25,
+            "away": 6.5
           },
           "movement": "实时追踪"
         },
