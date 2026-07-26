@@ -64570,7 +64570,7 @@
         "wind_kmh": 7,
         "is_new": false
       },
-      "status": "waiting_result",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-25T12:07:06.669880",
@@ -65090,7 +65090,8 @@
         "ev_score": 0.0,
         "reasoning": "美职比赛双方战术意图各有侧重。 基本面上，圣何塞在【近期状态与动能】上拥有明显优势（评分 8.3 对 5.9），两队防线与战术匹配相对均衡。结合战意（主 85% / 客 82%），即时欧指 1.63 / 3.85 / 6.25 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主胜】。",
         "confidence_trend": "up",
-        "predicted_score": "3-1 (高赔拉开) 或 2-1"
+        "predicted_score": "3-1 (高赔拉开) 或 2-1",
+        "actual_result": "圣何塞 1-1 洛城银河 (0-1)"
       },
       "team_stats": {
         "home": {
@@ -65732,7 +65733,16 @@
       "match_num_str": "周六211",
       "has_changed_in_push": true,
       "status_label": "等待赛果",
-      "is_finished": false
+      "is_finished": false,
+      "result": {
+        "actual_result": "圣何塞 1-1 洛城银河 (0-1)",
+        "ft_score": "1:1",
+        "ht_score": "0:1",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": false
+      }
     },
     {
       "id": "match_260726_211",

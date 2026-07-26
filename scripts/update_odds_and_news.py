@@ -2078,6 +2078,23 @@ def main():
             moe_score = sum(expert_votes.values())
             m["moe_score"] = moe_score
             
+        # ─── PROPOSAL D: SPORTTERY HHAD ODDS RANGE MAPPING (M10 SYSTEM SOFT SIGNAL) ───
+        sporttery_snaps = m.get("sporttery_odds_snapshots", [])
+        if sporttery_snaps and isinstance(sporttery_snaps, list) and len(sporttery_snaps) > 0:
+            latest_snap = sporttery_snaps[-1] if isinstance(sporttery_snaps[-1], dict) else {}
+            hhad_data = latest_snap.get("hhad", {})
+            if hhad_data and hhad_data.get("fixedodds") == "+1":
+                try:
+                    hhad_h_odds = float(hhad_data.get("h", 0))
+                    if 2.70 <= hhad_h_odds <= 3.75:
+                        m["conclusions"]["m10_hhad_range_preference"] = "让胜偏好 (中高赔价值区间)"
+                        moe_score += 0.15
+                    elif 1.40 <= hhad_h_odds <= 1.80:
+                        m["conclusions"]["m10_hhad_range_preference"] = "让胜/让平偏好 (稳健防范区间)"
+                        moe_score += 0.15
+                except Exception:
+                    pass
+
         # Check for Strong Favorite Dominance (e.g. Bodø/Glimt vs HamKam, Miami, Flamengo, etc.)
         h_paper = m.get("factor_scores", {}).get("M01_球队基础硬实力", {}).get("home_score", 5.0)
         a_paper = m.get("factor_scores", {}).get("M01_球队基础硬实力", {}).get("away_score", 5.0)
@@ -2087,6 +2104,17 @@ def main():
 
         is_strong_favorite = (paper_gap >= 3.5 and h2h_h_score >= 7.0)
         is_away_strong_favorite = (paper_gap <= -3.5 and h2h_a_score >= 7.0)
+
+        # ─── PROPOSAL B: LEAGUE RISK TIER CHECK ───
+        league_name = m.get("league", "")
+        is_tier1 = any(t in league_name for t in ["巴甲", "巴乙", "巴西", "澳超", "韩职", "韩国"])
+        is_tier2 = any(t in league_name for t in ["俄超", "捷甲", "希超", "波兰", "泰超", "中超", "中甲"])
+        is_cup = any(t in league_name for t in ["欧冠", "欧联", "杯赛", "世界杯", "资格赛"])
+
+        # Disable "实力绝对碾压" hard override in Tier 1, Tier 2, and Cup matches
+        if is_tier1 or is_tier2 or is_cup:
+            is_strong_favorite = False
+            is_away_strong_favorite = False
 
         # Strong Favorite Dominance Floor Rule
         if is_strong_favorite:
@@ -2102,6 +2130,18 @@ def main():
                 new_rec = "客胜" if pa < 1.95 else "客不败"
             else:
                 new_rec = "平局" if pd < 3.2 else "双选不败"
+
+        # ─── PROPOSAL A: ANTI-FUNDAMENTAL UPSET TIGHTENING ───
+        if "反基本面" in new_rec or "冷门" in new_rec:
+            home_win_rate = m.get("team_stats", {}).get("home", {}).get("season_stats", {}).get("home_win_rate", 0.5)
+            if (paper_gap >= 2.0 and h_paper >= 7.0) or home_win_rate >= 0.60:
+                new_rec = "双选主平 (主场稳健保护)"
+
+        # ─── PROPOSAL C: HOME-DOMINANT LEAGUE CORRECTION ───
+        is_home_dominant = any(t in league_name for t in ["挪超", "挪威", "芬超", "芬兰", "韩职", "韩国", "巴甲", "巴西"])
+        if is_home_dominant:
+            if ("客胜" in new_rec or "客队" in new_rec) and not is_away_strong_favorite:
+                new_rec = "双选不败 (主场倾斜保护)"
                 
         if mid == "match_260716_208":
             new_rec = "客胜 (温哥华反击优势)"
@@ -2258,8 +2298,17 @@ def main():
                 conf = int(conf * 0.72)
             elif old_risk == "高":
                 conf = int(conf * 0.85)
-                
-            conf = max(30, min(95, conf))
+
+            # ─── PROPOSAL B: LEAGUE RISK TIER CONFIDENCE CEILING ───
+            conf_cap = 95
+            if is_tier1:
+                conf_cap = 75
+            elif is_tier2 or is_cup:
+                conf_cap = 78
+            elif any(t in league_name for t in ["瑞超", "挪超", "芬超", "日职"]):
+                conf_cap = 82
+
+            conf = max(30, min(conf_cap, conf))
             
             if old_risk == "极高" or (conf < 45 and "反基本面冷门" in rec):
                 m["ultimate_conclusion"]["risk_level"] = "极高"
