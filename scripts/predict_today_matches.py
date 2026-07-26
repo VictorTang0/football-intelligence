@@ -42,9 +42,10 @@ def main():
     locked_count = 0
 
     for m in matches_db.get("matches", []):
-        if m.get("status") == "Pending":
-            kickoff_str = m.get("kickoff", "").split("T")[0]
-            if kickoff_str >= today_str:
+        st = m.get("status", "").lower()
+        if st in ["pending", "waiting_result"]:
+            kickoff_str = m.get("kickoff", "").split("T")[0].split(" ")[0]
+            if kickoff_str >= today_str or st == "waiting_result":
                 today_matches.append(m)
                 if not m.get("baseline_recommendation"):
                     uc = m.get("ultimate_conclusion", {})

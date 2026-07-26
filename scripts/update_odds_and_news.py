@@ -1848,9 +1848,29 @@ def main():
             d_o = ls.get("pinnacle", {}).get("draw", 0)
             if d_o > 0: handicap_draw_map[tmp["id"]] = d_o
 
+    now_dt = datetime.now()
     for m in matches:
         mid = m["id"]
-        if m["status"] in ["finished", "postponed"] or mid not in screenshot_odds:
+        # Check if kickoff time has passed and no actual result yet -> mark waiting_result & LOCK
+        k_str = m.get("kickoff") or m.get("kickoff_time") or ""
+        is_past_kickoff = False
+        try:
+            if "T" in k_str:
+                k_dt = datetime.fromisoformat(k_str)
+            else:
+                k_dt = datetime.strptime(k_str, "%Y-%m-%d %H:%M:%S")
+            if now_dt > k_dt:
+                is_past_kickoff = True
+        except Exception:
+            pass
+
+        if is_past_kickoff and not m.get("ultimate_conclusion", {}).get("actual_result"):
+            m["status"] = "waiting_result"
+            m["status_label"] = "等待赛果"
+            m["is_finished"] = False
+
+        if m["status"] in ["finished", "waiting_result", "postponed"]:
+            print(f"🔒 [Locking Match Conclusion] Skipping live odds/prediction updates for {m.get('home')} vs {m.get('away')} ({mid}) [Status: {m['status']}]")
             continue
         m["handicap_draw_map"] = handicap_draw_map # inject into m for usage
 
