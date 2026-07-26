@@ -1,6 +1,6 @@
 {
-  "current_version": "v4.7",
-  "evolution_count": 28,
+  "current_version": "v4.8",
+  "evolution_count": 29,
   "snapshots": [
     {
       "version": "v1.0",
@@ -807,8 +807,37 @@
           "reason": "完成 78 场实盘自动对账反向传导演进"
         }
       ]
+    },
+    {
+      "version": "v4.8",
+      "date": "2026-07-26",
+      "trigger": "结算 1 场最新完赛赛果与智算拟合进化",
+      "accuracy_before": 0.4805,
+      "accuracy_after": 0.4872,
+      "score_accuracy": 0.1795,
+      "half_full_accuracy": 0.1538,
+      "matches_validated": 78,
+      "weights_snapshot": {
+        "M01": 0.4976,
+        "M02": 0.4291,
+        "M03": 0.294,
+        "M04": -0.2757,
+        "M05": -0.0765,
+        "M06": -0.4406,
+        "M07": 0.3061,
+        "M08": 0.1618,
+        "M09": 0.1041
+      },
+      "significant_changes": [
+        {
+          "factor": "M01-M10 混合专家决策系统",
+          "change": "准确率校准 48.0% ➔ 48.7%",
+          "direction": "up",
+          "reason": "完成 78 场实盘自动对账反向传导演进"
+        }
+      ]
     }
   ],
-  "last_updated": "2026-07-26T16:02:54.253026",
+  "last_updated": "2026-07-26T17:04:12.359199",
   "version": "v4.0"
 }
