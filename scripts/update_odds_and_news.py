@@ -2676,13 +2676,28 @@ def main():
         import push_service
         all_matches = data.get("matches", [])
         
+        # Load history record match_ids to prevent pushing matches that are already in prediction history
+        history_mids = set()
+        h_path = os.path.join(base_dir, "data", "history.json")
+        if os.path.exists(h_path):
+            try:
+                with open(h_path, "r", encoding="utf-8") as hf:
+                    h_data = json.load(hf)
+                    history_mids = set(r.get("match_id") for r in h_data.get("records", []) if r.get("match_id"))
+            except Exception:
+                pass
+
         # Select active matches matching Web summary table:
         # All waiting_result matches + all pending matches for TODAY'S issue date (260726) & LATER
+        # Filter out finished matches & matches already synced to history.json
         today_issue_date = datetime.now().strftime("%y%m%d")
         all_target_matches = [
             m for m in all_matches 
-            if (m.get("status") == "waiting_result" or m.get("status_label") == "等待赛果")
-            or (m.get("status") in ["pending", "Pending"] and (m.get("issue_date") or (m.get("id", "").split("_")[1] if len(m.get("id", "").split("_")) > 1 else "")) >= today_issue_date)
+            if m.get("id") not in history_mids and m.get("status") != "finished" and not m.get("is_finished")
+            and (
+                (m.get("status") == "waiting_result" or m.get("status_label") == "等待赛果")
+                or (m.get("status") in ["pending", "Pending"] and (m.get("issue_date") or (m.get("id", "").split("_")[1] if len(m.get("id", "").split("_")) > 1 else "")) >= today_issue_date)
+            )
         ]
         sorted_target_matches = push_service.sort_matches_by_date_and_code(all_target_matches)
         # Cap to max 8 matches per push notification batch to guarantee PushPlus < 20,000 chars limit (HTML payload size safety)
