@@ -2216,12 +2216,30 @@ def main():
         else:
             m["ultimate_conclusion"]["primary_bet"] = "双选不败"
             
-        # 2. Update Confidence & Risk Level dynamically via MoE factor consensus
+        # 2. Update Confidence & Risk Level dynamically via MoE factor consensus with Rolling Temperature Scaling
         moe_abs = abs(moe_score)
         conf = 48 + int(moe_abs * 40)
+
+        # Apply Rolling 10-Match Temperature Protection (Primary Engine calibration)
+        rolling_temp = 1.0
+        try:
+            h_path = os.path.join(base_dir, "data", "history.json")
+            if os.path.exists(h_path):
+                with open(h_path, "r", encoding="utf-8") as hf:
+                    h_data = json.load(hf)
+                    recent_10 = h_data.get("records", [])[-10:]
+                    if recent_10:
+                        r_corr = sum(1 for r in recent_10 if r.get("is_correct"))
+                        r_acc = r_corr / len(recent_10)
+                        if r_acc < 0.50:
+                            rolling_temp = 0.88
+        except Exception:
+            pass
+
+        conf = int(conf * rolling_temp)
         
         if is_strong_favorite or is_away_strong_favorite:
-            conf = min(88, max(76, conf + 18))
+            conf = min(85, max(74, conf + 14))
             m["ultimate_conclusion"]["risk_level"] = "低"
             if is_strong_favorite:
                 rec = "主胜 (实力与交锋绝对碾压)"
