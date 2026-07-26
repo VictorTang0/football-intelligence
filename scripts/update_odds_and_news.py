@@ -2676,21 +2676,17 @@ def main():
         import push_service
         all_matches = data.get("matches", [])
         
-        # 获得当天下单开售的最早期号 (如 "260725")
-        now_str = datetime.now().strftime("%y%m%d")
-        on_sale_matches = [m for m in all_matches if (m.get("issue_date") or m.get("id", "").split("_")[1] if len(m.get("id", "").split("_")) > 1 else "") >= "260725"]
-        sorted_on_sale = push_service.sort_matches_by_date_and_code(on_sale_matches)
-        
-        # 提取当前当天下单最早期号
-        first_date = sorted_on_sale[0].get("issue_date") or sorted_on_sale[0].get("business_date")
-        
-        # 该期号组内的全量 11 场赛事（包含已完赛与未完赛，变动与未变动的一同推送）
-        first_date_matches = [m for m in sorted_on_sale if (m.get("issue_date") == first_date or m.get("business_date") == first_date)]
-        
-        if len(sorted_on_sale) <= 8:
-            target_matches = sorted_on_sale
-        else:
-            target_matches = first_date_matches
+        # Select active matches matching Web summary table:
+        # All waiting_result matches + all pending matches for TODAY'S issue date (260726) & LATER
+        today_issue_date = datetime.now().strftime("%y%m%d")
+        all_target_matches = [
+            m for m in all_matches 
+            if (m.get("status") == "waiting_result" or m.get("status_label") == "等待赛果")
+            or (m.get("status") in ["pending", "Pending"] and (m.get("issue_date") or (m.get("id", "").split("_")[1] if len(m.get("id", "").split("_")) > 1 else "")) >= today_issue_date)
+        ]
+        sorted_target_matches = push_service.sort_matches_by_date_and_code(all_target_matches)
+        # Cap to max 8 matches per push notification batch to guarantee PushPlus < 20,000 chars limit (HTML payload size safety)
+        target_matches = sorted_target_matches[:8]
         
         has_any_change = any(m.get("has_conclusion_changed", False) for m in target_matches)
         title_prefix = "情况有变" if has_any_change else "牌没问题"
