@@ -1824,7 +1824,13 @@ def main():
 
 
 
-    # ─── LOAD SPORTTERY BONUS HISTORY (M10) ───
+    # ─── FETCH & LOAD SPORTTERY BONUS HISTORY (M10) ───
+    try:
+        import fetch_bonus
+        fetch_bonus.main()
+    except Exception as e:
+        print(f"Warning: Failed to run fetch_bonus: {e}")
+
     bonus_db = {}
     bonus_path = os.path.join(base_dir, "data", "sporttery_bonus.json")
     if os.path.exists(bonus_path):
@@ -1904,6 +1910,37 @@ def main():
             
         old_intent = m.get("odds_analysis", {}).get("bookmaker_intent", "")
         m["odds_analysis"] = {**m.get("odds_analysis", {}), **parse_odds_data(api_odds, base)}
+
+        # Inject Official Sporttery HAD Odds (中国竞彩官方胜平负)
+        sp_key = mid
+        b_data = bonus_db.get(sp_key) or bonus_db.get(m.get("sportteryMatchId")) or {}
+        if not b_data:
+            for k in bonus_db:
+                if m.get("home") in k or m.get("away") in k or (m.get("match_code") and str(m.get("match_code")) in k):
+                    b_data = bonus_db[k]
+                    break
+        oh = b_data.get("oddsHistory", {})
+        had_list = oh.get("hadList", [])
+        if had_list and len(had_list) > 0:
+            init_sp = had_list[0]
+            curr_sp = had_list[-1]
+            try:
+                m["odds_analysis"]["sporttery"] = {
+                    "name": "中国竞彩 (Sporttery)",
+                    "initial": {
+                        "home": float(init_sp.get("h", 0)),
+                        "draw": float(init_sp.get("d", 0)),
+                        "away": float(init_sp.get("a", 0))
+                    },
+                    "current": {
+                        "home": float(curr_sp.get("h", 0)),
+                        "draw": float(curr_sp.get("d", 0)),
+                        "away": float(curr_sp.get("a", 0))
+                    },
+                    "movement": f"更新于 {curr_sp.get('updateTime', '')}"
+                }
+            except Exception:
+                pass
 
         # 1.5 Dynamic Bookmaker Intent & Smoke Screen Deduction
         pinnacle_odds = m["odds_analysis"]["pinnacle"]["current"]

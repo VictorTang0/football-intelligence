@@ -781,9 +781,10 @@ const MatchIQRender = (() => {
   // ─── ODDS PANE ───
   function renderOddsPane(match) {
     const odds = match.odds_analysis || {};
-    const bookKeys = ['pinnacle', 'sbobet', 'nova88', 'crown', 'hkjc', 'm8bet'];
+    const bookKeys = ['sporttery', 'pinnacle', 'sbobet', 'nova88', 'crown', 'hkjc', 'm8bet'];
     const fallbackKeys = ['company_1', 'company_2', 'company_3'];
     const bookNames = {
+      sporttery: "中国竞彩 (Sporttery)",
       pinnacle: "平博 (Pinnacle)",
       sbobet: "利记 (SBOBET)",
       nova88: "新宝 (Nova88)",
