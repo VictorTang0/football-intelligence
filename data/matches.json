@@ -62272,7 +62272,7 @@
         "wind_kmh": 8,
         "is_new": false
       },
-      "status": "waiting_result",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-25T12:07:06.338227",
@@ -62792,7 +62792,8 @@
         "ev_score": 0.0,
         "reasoning": "美职比赛双方战术意图各有侧重。 基本面上，圣迭戈FC在【近期状态与动能】上拥有明显优势（评分 6.0 对 3.7），两队防线与战术匹配相对均衡。结合战意（主 85% / 客 82%），即时欧指 2.04 / 3.01 / 3.24 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败】。",
         "confidence_trend": "up",
-        "predicted_score": "2-1 或 1-1"
+        "predicted_score": "2-1 或 1-1",
+        "actual_result": "圣迭戈FC 1-0 达拉斯 (0-0)"
       },
       "team_stats": {
         "home": {
@@ -63410,7 +63411,16 @@
       "match_num_str": "周六210",
       "has_changed_in_push": true,
       "status_label": "等待赛果",
-      "is_finished": false
+      "is_finished": false,
+      "result": {
+        "actual_result": "圣迭戈FC 1-0 达拉斯 (0-0)",
+        "ft_score": "1:0",
+        "ht_score": "0:0",
+        "rec_correct": true,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": false
+      }
     },
     {
       "id": "match_260726_210",

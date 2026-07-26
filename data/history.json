@@ -4,6 +4,67 @@
   "accuracy_rate": 0.4935,
   "records": [
     {
+      "match_id": "match_260725_210",
+      "league": "美职",
+      "home": "圣迭戈FC",
+      "away": "达拉斯",
+      "date": "2026-07-26",
+      "time": "09:30",
+      "actual_result": "圣迭戈FC 1-0 达拉斯 (0-0)",
+      "is_correct": true,
+      "confidence": 36,
+      "predictions": {
+        "recommendation": {
+          "val": "主不败",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "双选不败",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "主不败",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平平",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5 (竞彩)",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "2-1 或 1-1",
+          "correct": false
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [],
+        "m10_snapshot_count": 2,
+        "had_hhad_divergence": false
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "主胜",
+        "diff": 0.1299999999999999,
+        "recommendation": "客不败",
+        "is_correct": false
+      }
+    },
+    {
       "match_id": "match_260725_209",
       "league": "巴甲",
       "home": "桑托斯",
