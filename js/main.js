@@ -92,9 +92,14 @@ const MatchIQ = (() => {
 
   function sortMatchesBySporttery(matchList) {
     return [...matchList].sort((a, b) => {
+      // Priority: waiting_result / pending first (0), finished last (1)
+      const finishedA = (a.status === 'finished' || a.is_finished || a.ultimate_conclusion?.actual_result) ? 1 : 0;
+      const finishedB = (b.status === 'finished' || b.is_finished || b.ultimate_conclusion?.actual_result) ? 1 : 0;
+      if (finishedA !== finishedB) return finishedA - finishedB;
+
       const keyA = getSportterySortKey(a);
       const keyB = getSportterySortKey(b);
-      // 1. Sort by official Business Date / issue_date (e.g. 260725 < 260726 < 260727) ascending
+      // 1. Sort by official Business Date / issue_date ascending
       if (keyA[0] !== keyB[0]) return keyA[0].localeCompare(keyB[0]);
       // 2. Sort by Match Code (201 < 202 < ... < 211) ascending
       if (keyA[1] !== keyB[1]) return keyA[1] - keyB[1];
@@ -108,8 +113,8 @@ const MatchIQ = (() => {
     const matches = state.matches?.matches || [];
     const rawUpcoming = matches.filter(m => {
       if (m.status === 'waiting_result' || m.status_label === '等待赛果') return true;
-      if (m.issue_date >= '260725' || (m.id && m.id.includes('260725'))) return true;
-      return !m.is_finished && m.status !== 'finished';
+      if (m.status === 'pending' || m.status === 'Pending') return true;
+      return false;
     });
     const upcomingMatches = sortMatchesBySporttery(rawUpcoming);
     const weights = state.weights;
