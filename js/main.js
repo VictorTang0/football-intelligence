@@ -116,7 +116,11 @@ const MatchIQ = (() => {
   function renderApp() {
     const matches = state.matches?.matches || [];
     const rawUpcoming = matches.filter(m => {
+      // 1. Exclude finished matches that already have actual_result (they belong exclusively to History Table)
+      if (m.status === 'finished' || m.is_finished || m.ultimate_conclusion?.actual_result) return false;
+      // 2. Include waiting_result matches
       if (m.status === 'waiting_result' || m.status_label === '等待赛果') return true;
+      // 3. Include pending matches
       if (m.status === 'pending' || m.status === 'Pending') return true;
       return false;
     });
