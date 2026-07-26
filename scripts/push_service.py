@@ -56,6 +56,7 @@ def send_push(title, content):
 
 def sort_matches_by_date_and_code(matches_list):
     def sort_key(m):
+        rank = 0 if (m.get("status") == "waiting_result" or m.get("status_label") == "等待赛果") else 1
         dt_code = m.get("issue_date") or m.get("business_date") or ""
         if not dt_code:
             dt_code = (m.get("kickoff") or m.get("kickoff_time") or "").split("T")[0].split(" ")[0]
@@ -64,7 +65,7 @@ def sort_matches_by_date_and_code(matches_list):
             num_str = m.get("match_no") or m.get("id") or ""
             num_match = re.search(r'\d+$', num_str)
             num_code = int(num_match.group(0)) if num_match else 999
-        return (dt_code, num_code)
+        return (rank, dt_code, num_code)
     return sorted(matches_list, key=sort_key)
 
 def get_handicap_info_html(m):

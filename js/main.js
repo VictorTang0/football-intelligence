@@ -92,10 +92,14 @@ const MatchIQ = (() => {
 
   function sortMatchesBySporttery(matchList) {
     return [...matchList].sort((a, b) => {
-      // Priority: waiting_result / pending first (0), finished last (1)
-      const finishedA = (a.status === 'finished' || a.is_finished || a.ultimate_conclusion?.actual_result) ? 1 : 0;
-      const finishedB = (b.status === 'finished' || b.is_finished || b.ultimate_conclusion?.actual_result) ? 1 : 0;
-      if (finishedA !== finishedB) return finishedA - finishedB;
+      const getRank = (m) => {
+        if (m.status === 'waiting_result' || m.status_label === '等待赛果') return 0;
+        if (m.status === 'finished' || m.is_finished || m.ultimate_conclusion?.actual_result) return 2;
+        return 1;
+      };
+      const rankA = getRank(a);
+      const rankB = getRank(b);
+      if (rankA !== rankB) return rankA - rankB;
 
       const keyA = getSportterySortKey(a);
       const keyB = getSportterySortKey(b);
