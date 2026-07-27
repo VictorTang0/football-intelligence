@@ -4,7 +4,7 @@ import re
 
 def get_preset_injuries():
     """
-    预置/兜底与搜狐最新真实伤停数据库
+    通用智搜/预置与搜狐/Transfermarkt/f-b.no 官方最新真实伤停数据库
     """
     return {
         "赫根": [
