@@ -40,6 +40,9 @@ def deduce_m10_hub_conclusions(match_obj, bonus_db):
 
     m10_hub = {}
 
+    snapshot_count = max(len(had_list), len(hhad_list), len(crs_list), len(ttg_list), len(hafu_list), 1)
+    m10_hub["snapshot_count"] = snapshot_count
+
     # 1. 亚欧盘资金流状态
     hhad_line = match_obj.get("handicap_line") or "-1"
     divergence = False

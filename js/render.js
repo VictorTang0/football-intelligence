@@ -1175,39 +1175,13 @@ const MatchIQRender = (() => {
         const hotScores = c.sporttery_hot_scores || [];
         const hotHafu = c.sporttery_hot_hafu || [];
         const hasDivergence = c.had_hhad_divergence === true;
-        const snapshotCount = c.m10_snapshot_count || (c.m10_applied ? 2 : (hotScores.length > 0 || hasDivergence) ? 2 : 1);
-        const isM10Active = snapshotCount >= 2;
-
-        const trajectory = c.m10_water_trajectory || [];
-        let trajectoryHtml = '';
-        if (trajectory.length >= 2) {
-          const first = trajectory[0];
-          const last = trajectory[trajectory.length - 1];
-          trajectoryHtml = `<div style="font-size: 11px; color: var(--cyan); margin-top: 4px; background: rgba(0,212,255,0.06); padding: 4px 8px; border-radius: 4px;">📈 竞彩官方变盘水温轨迹 (${trajectory.length} 次快照): 主胜 ${first.h}➔${last.h} | 平局 ${first.d}➔${last.d} | 客胜 ${first.a}➔${last.a}</div>`;
-        }
-
-        if (isM10Active) {
-          let alerts = [];
-          if (hasDivergence) {
-            alerts.push(`<div style="color: #ff5252; font-weight: bold; margin-bottom: 4px; display:flex; align-items:center; gap:4px;">🚨 M10 欧让剪刀差背离预警：不让球客/平指数大幅下调，让球未同向调整，防范让平/让负！</div>`);
-          }
-          
-          let details = [];
-          if (hotScores.length > 0) {
-            details.push(`比分概率偏移 Top 3：<strong style="color: var(--cyan); text-shadow: 0 0 4px rgba(0,212,255,0.4);">${hotScores.join(', ')}</strong>`);
-          }
-          if (hotHafu.length > 0) {
-            details.push(`半全场概率偏移 Top 3：<strong style="color: var(--cyan); text-shadow: 0 0 4px rgba(0,212,255,0.4);">${hotHafu.join(', ')}</strong>`);
-          }
-
-          const alertsStr = alerts.length > 0 ? alerts.join('') : '<div style="color: var(--green); margin-bottom: 4px;">✅ M10 资金流平稳：未检测到异常欧让背离特征。</div>';
-          const detailsStr = details.length > 0 ? details.join(' · ') : `已自动完成 ${snapshotCount} 次即时变盘水温快照对比分析。`;
-
-          const hub = match.m10_hub_analysis || {};
-          const euStatus = hub.asian_eu_status?.description || '水温拉锯平稳 (资金分布均衡)';
-          
-          const hadText = hub.had_analysis?.text || '当前无竞彩推荐';
-          const hadTraj = hub.had_analysis?.trajectory || '暂无水位轨迹';
+        const hub = match.m10_hub_analysis || c.m10_hub_analysis || {};
+        const snapshotCount = hub.snapshot_count || c.m10_snapshot_count || 1;
+        
+        const euStatus = hub.asian_eu_status?.description || '水温拉锯平稳 (资金分布均衡)';
+        
+        const hadText = hub.had_analysis?.text || '当前无竞彩推荐';
+        const hadTraj = hub.had_analysis?.trajectory || '暂无水位轨迹';
 
           const hhadText = hub.hhad_analysis?.text || '当前无竞彩推荐';
           const hhadTraj = hub.hhad_analysis?.trajectory || '暂无水位轨迹';
@@ -1273,18 +1247,6 @@ const MatchIQRender = (() => {
               ${hafuList}
             </div>
           </div>`;
-        } else {
-          return `
-          <div class="m10-hub-box" style="margin-top: 15px; padding: 12px; background: rgba(255, 255, 255, 0.02); border-left: 4px solid var(--text-4); border-radius: 4px; text-align: left; opacity: 0.85;">
-            <div style="font-weight: bold; font-size: 13px; margin-bottom: 6px; color: var(--text-3); display: flex; align-items: center; justify-content: space-between;">
-              <span>🎯 M10 竞彩决策数据中枢</span>
-              <span style="font-size: 10px; padding: 1px 4px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 3px; color: var(--text-3);">初盘快照 (${snapshotCount}/2)</span>
-            </div>
-            <div style="font-size: 12px; line-height: 1.5; color: var(--text-4);">
-              <div style="margin-bottom: 4px; color: #ffa726;">⏱️ 已采集 ${snapshotCount} 次初盘数据，系统将在检测到下一次水位变盘时自动激活对比状态。</div>
-            </div>
-          </div>`;
-        }
       })()}
     </div>`;
   }

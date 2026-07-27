@@ -2262,10 +2262,14 @@ def main():
         prev_snapshot = m.get("conclusions", {}).get("m10_snapshot_count", 0)
         compute_m10_factors(m, bonus_db)
         try:
-            import m10_engine
-            m["m10_hub_analysis"] = m10_engine.deduce_m10_hub_conclusions(m, bonus_db)
+            import scripts.m10_engine as m10_engine
+            hub_res = m10_engine.deduce_m10_hub_conclusions(m, bonus_db)
+            m["m10_hub_analysis"] = hub_res
+            m["conclusions"]["m10_hub_analysis"] = hub_res
+            if hub_res and "snapshot_count" in hub_res:
+                m["conclusions"]["m10_snapshot_count"] = hub_res["snapshot_count"]
         except Exception as e:
-            pass
+            print(f"Error deducting m10_hub_analysis: {e}")
         m["public_vs_bookmaker"] = compute_public_vs_bookmaker(m, bonus_db)
         curr_snapshot = m.get("conclusions", {}).get("m10_snapshot_count", 0)
 
