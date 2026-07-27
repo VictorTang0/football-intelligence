@@ -526,6 +526,19 @@ const MatchIQRender = (() => {
     const home = match.team_stats?.home?.season_stats || {};
     const away = match.team_stats?.away?.season_stats || {};
     const h2h  = match.head_to_head || match.h2h || {};
+    const pitch = match.pitch_info || {};
+
+    const pitchBanner = `
+    <div style="margin-bottom: 12px; padding: 10px 14px; background: rgba(0, 212, 255, 0.03); border: 1px solid rgba(0, 212, 255, 0.15); border-radius: 8px; font-size: 12px; text-align: left; display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <span style="font-weight: 700; color: var(--cyan);">🏟️ 比赛场地:</span>
+        <span style="color: var(--text-1); margin-left: 6px;">${pitch.stadium_name || '主场'}</span>
+        <span style="color: var(--text-3); margin-left: 8px; font-size: 11.5px;">(${pitch.display_label || '标准草皮'})</span>
+      </div>
+      <span style="font-size: 10.5px; padding: 2px 6px; background: ${pitch.turf_mismatch ? 'rgba(239, 68, 68, 0.15)' : 'rgba(255,255,255,0.06)'}; color: ${pitch.turf_mismatch ? '#ef4444' : 'var(--text-3)'}; border-radius: 4px;">
+        ${pitch.turf_mismatch ? '⚠️ 存在客队草皮错位壁垒' : '草皮适配正常'}
+      </span>
+    </div>`;
 
     const statRows = [
       { name: '进球', h: home.goals_scored, a: away.goals_scored },
@@ -721,6 +734,7 @@ const MatchIQRender = (() => {
 
     return `
     <div class="mc-pane ${paneId === 'stats' ? 'active' : ''}" id="pane-${match.id}-stats">
+      ${pitchBanner}
       <div class="stats-grid">
         <div>
           <!-- 八边形雷达图 -->

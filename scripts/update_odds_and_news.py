@@ -1838,6 +1838,8 @@ def main():
         enrich_standings.enrich_standings()
         import enrich_h2h_and_form
         enrich_h2h_and_form.enrich_h2h_and_form()
+        import enrich_pitch_data
+        enrich_pitch_data.enrich_pitch_data()
     except Exception as e:
         print(f"Warning: Failed to run pre-enrichment standings/H2H: {e}")
 
