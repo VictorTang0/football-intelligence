@@ -3,18 +3,20 @@
     "matches_evaluated": 4,
     "tags": {
       "灌球高手": {
-        "level": 3,
-        "level_name": "统治级火力",
+        "level": 5,
+        "level_name": "史诗级火力",
+        "weight_boost": 0.3,
         "score": 3.5,
-        "confidence": 95,
-        "desc": "场均轰入 3.50 球，攻击力极其强悍"
+        "confidence": 98,
+        "desc": "场均轰入 3.50 球，攻击力极其恐怖"
       },
       "无心恋战": {
-        "level": 3,
-        "level_name": "重度防线崩盘",
+        "level": 5,
+        "level_name": "灾难级崩盘",
+        "weight_boost": 0.3,
         "score": 3.0,
-        "confidence": 90,
-        "desc": "场均失球达 3.00 球，防守漏洞大"
+        "confidence": 95,
+        "desc": "场均失球达 3.00 球，防线溃不成军"
       }
     }
   },
@@ -22,18 +24,20 @@
     "matches_evaluated": 4,
     "tags": {
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 4,
+        "level_name": "金刚防线",
+        "weight_boost": 0.22,
         "score": 0.5,
-        "confidence": 95,
-        "desc": "场均仅失 0.50 球，防线极具韧性"
+        "confidence": 92,
+        "desc": "场均仅失 0.50 球，防守防空能力极强"
       },
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 50.0,
-        "confidence": 90,
-        "desc": "平局率高达 50.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 50.0%，极其偏爱平局"
       }
     }
   },
@@ -41,11 +45,12 @@
     "matches_evaluated": 2,
     "tags": {
       "无心恋战": {
-        "level": 2,
+        "level": 3,
         "level_name": "防线吃紧",
+        "weight_boost": 0.15,
         "score": 2.0,
-        "confidence": 80,
-        "desc": "场均失球 2.00 球，防空反击隐患多"
+        "confidence": 82,
+        "desc": "场均失球 2.00 球，防空反击隐患大"
       }
     }
   },
@@ -53,17 +58,19 @@
     "matches_evaluated": 2,
     "tags": {
       "灌球高手": {
-        "level": 2,
+        "level": 3,
         "level_name": "高效进攻",
+        "weight_boost": 0.15,
         "score": 2.0,
         "confidence": 85,
         "desc": "场均轰入 2.00 球，锋线产出稳定"
       },
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       }
     }
@@ -72,11 +79,12 @@
     "matches_evaluated": 2,
     "tags": {
       "无心恋战": {
-        "level": 2,
+        "level": 3,
         "level_name": "防线吃紧",
+        "weight_boost": 0.15,
         "score": 2.0,
-        "confidence": 80,
-        "desc": "场均失球 2.00 球，防空反击隐患多"
+        "confidence": 82,
+        "desc": "场均失球 2.00 球，防空反击隐患大"
       }
     }
   },
@@ -84,11 +92,12 @@
     "matches_evaluated": 4,
     "tags": {
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 4,
+        "level_name": "金刚防线",
+        "weight_boost": 0.22,
         "score": 0.5,
-        "confidence": 95,
-        "desc": "场均仅失 0.50 球，防线极具韧性"
+        "confidence": 92,
+        "desc": "场均仅失 0.50 球，防守防空能力极强"
       }
     }
   },
@@ -96,25 +105,28 @@
     "matches_evaluated": 4,
     "tags": {
       "灌球高手": {
-        "level": 3,
-        "level_name": "统治级火力",
+        "level": 5,
+        "level_name": "史诗级火力",
+        "weight_boost": 0.3,
         "score": 4.5,
-        "confidence": 95,
-        "desc": "场均轰入 4.50 球，攻击力极其强悍"
+        "confidence": 98,
+        "desc": "场均轰入 4.50 球，攻击力极其恐怖"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       },
-      "抢分狂魔": {
+      "无心恋战": {
         "level": 2,
-        "level_name": "强悍抢分",
-        "score": 18,
-        "confidence": 85,
-        "desc": "不败率高，抢分势头猛"
+        "level_name": "防守松懈",
+        "weight_boost": 0.08,
+        "score": 1.5,
+        "confidence": 75,
+        "desc": "场均失球 1.50 球"
       }
     }
   },
@@ -122,25 +134,28 @@
     "matches_evaluated": 4,
     "tags": {
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 50.0,
-        "confidence": 90,
-        "desc": "平局率高达 50.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 50.0%，极其偏爱平局"
       },
       "逆转专家": {
         "level": 3,
         "level_name": "绝境翻盘王",
+        "weight_boost": 0.15,
         "score": 2,
-        "confidence": 88,
-        "desc": "多次完成半场落后逆转/追平"
+        "confidence": 85,
+        "desc": "具备强悍落后追平/翻盘韧性"
       },
       "无心恋战": {
-        "level": 3,
-        "level_name": "重度防线崩盘",
+        "level": 5,
+        "level_name": "灾难级崩盘",
+        "weight_boost": 0.3,
         "score": 3.5,
-        "confidence": 90,
-        "desc": "场均失球达 3.50 球，防守漏洞大"
+        "confidence": 95,
+        "desc": "场均失球达 3.50 球，防线溃不成军"
       }
     }
   },
@@ -148,11 +163,12 @@
     "matches_evaluated": 2,
     "tags": {
       "无心恋战": {
-        "level": 2,
+        "level": 3,
         "level_name": "防线吃紧",
+        "weight_boost": 0.15,
         "score": 2.0,
-        "confidence": 80,
-        "desc": "场均失球 2.00 球，防空反击隐患多"
+        "confidence": 82,
+        "desc": "场均失球 2.00 球，防空反击隐患大"
       }
     }
   },
@@ -160,17 +176,19 @@
     "matches_evaluated": 2,
     "tags": {
       "灌球高手": {
-        "level": 2,
+        "level": 3,
         "level_name": "高效进攻",
+        "weight_boost": 0.15,
         "score": 2.0,
         "confidence": 85,
         "desc": "场均轰入 2.00 球，锋线产出稳定"
       },
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       }
     }
@@ -179,25 +197,28 @@
     "matches_evaluated": 4,
     "tags": {
       "灌球高手": {
-        "level": 3,
+        "level": 4,
         "level_name": "统治级火力",
+        "weight_boost": 0.22,
         "score": 2.5,
-        "confidence": 95,
-        "desc": "场均轰入 2.50 球，攻击力极其强悍"
+        "confidence": 92,
+        "desc": "场均轰入 2.50 球，进攻威慑极高"
       },
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 4,
+        "level_name": "金刚防线",
+        "weight_boost": 0.22,
         "score": 0.5,
-        "confidence": 95,
-        "desc": "场均仅失 0.50 球，防线极具韧性"
+        "confidence": 92,
+        "desc": "场均仅失 0.50 球，防守防空能力极强"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       }
     }
   },
@@ -205,11 +226,12 @@
     "matches_evaluated": 2,
     "tags": {
       "无心恋战": {
-        "level": 3,
-        "level_name": "重度防线崩盘",
+        "level": 5,
+        "level_name": "灾难级崩盘",
+        "weight_boost": 0.3,
         "score": 3.0,
-        "confidence": 90,
-        "desc": "场均失球达 3.00 球，防守漏洞大"
+        "confidence": 95,
+        "desc": "场均失球达 3.00 球，防线溃不成军"
       }
     }
   },
@@ -217,51 +239,65 @@
     "matches_evaluated": 2,
     "tags": {
       "灌球高手": {
-        "level": 2,
+        "level": 3,
         "level_name": "高效进攻",
+        "weight_boost": 0.15,
         "score": 2.0,
         "confidence": 85,
         "desc": "场均轰入 2.00 球，锋线产出稳定"
       },
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       },
       "逆转专家": {
         "level": 3,
         "level_name": "绝境翻盘王",
+        "weight_boost": 0.15,
         "score": 2,
-        "confidence": 88,
-        "desc": "多次完成半场落后逆转/追平"
+        "confidence": 85,
+        "desc": "具备强悍落后追平/翻盘韧性"
       }
     }
   },
   "斯海杜克": {
     "matches_evaluated": 4,
     "tags": {
+      "灌球高手": {
+        "level": 2,
+        "level_name": "火力积极",
+        "weight_boost": 0.08,
+        "score": 1.5,
+        "confidence": 78,
+        "desc": "场均轰入 1.50 球，破门能力顺畅"
+      },
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       }
     }
   },
@@ -269,37 +305,57 @@
     "matches_evaluated": 4,
     "tags": {
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 4,
+        "level_name": "金刚防线",
+        "weight_boost": 0.22,
         "score": 0.5,
-        "confidence": 95,
-        "desc": "场均仅失 0.50 球，防线极具韧性"
+        "confidence": 92,
+        "desc": "场均仅失 0.50 球，防守防空能力极强"
+      },
+      "主场狂魔": {
+        "level": 2,
+        "level_name": "主战积极",
+        "weight_boost": 0.08,
+        "score": 50.0,
+        "confidence": 76,
+        "desc": "主场胜率达 50.0%，主场有心理优势"
       },
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 50.0,
-        "confidence": 90,
-        "desc": "平局率高达 50.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 50.0%，极其偏爱平局"
       }
     }
   },
   "桑托斯": {
     "matches_evaluated": 4,
     "tags": {
+      "灌球高手": {
+        "level": 2,
+        "level_name": "火力积极",
+        "weight_boost": 0.08,
+        "score": 1.5,
+        "confidence": 78,
+        "desc": "场均轰入 1.50 球，破门能力顺畅"
+      },
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 50.0,
-        "confidence": 90,
-        "desc": "平局率高达 50.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 50.0%，极其偏爱平局"
       },
       "无心恋战": {
-        "level": 2,
+        "level": 3,
         "level_name": "防线吃紧",
+        "weight_boost": 0.15,
         "score": 2.0,
-        "confidence": 80,
-        "desc": "场均失球 2.00 球，防空反击隐患多"
+        "confidence": 82,
+        "desc": "场均失球 2.00 球，防空反击隐患大"
       }
     }
   },
@@ -307,25 +363,28 @@
     "matches_evaluated": 4,
     "tags": {
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 5,
+        "level_name": "零封壁垒",
+        "weight_boost": 0.3,
         "score": 0.0,
-        "confidence": 95,
-        "desc": "场均仅失 0.00 球，防线极具韧性"
+        "confidence": 98,
+        "desc": "场均仅失 0.00 球，门前滴水不漏"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       },
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 50.0,
-        "confidence": 90,
-        "desc": "平局率高达 50.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 50.0%，极其偏爱平局"
       }
     }
   },
@@ -333,10 +392,11 @@
     "matches_evaluated": 2,
     "tags": {
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       }
     }
@@ -345,18 +405,20 @@
     "matches_evaluated": 2,
     "tags": {
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 5,
+        "level_name": "零封壁垒",
+        "weight_boost": 0.3,
         "score": 0.0,
-        "confidence": 95,
-        "desc": "场均仅失 0.00 球，防线极具韧性"
+        "confidence": 98,
+        "desc": "场均仅失 0.00 球，门前滴水不漏"
       },
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 90,
-        "desc": "平局率高达 100.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 100.0%，极其偏爱平局"
       }
     }
   },
@@ -364,18 +426,20 @@
     "matches_evaluated": 2,
     "tags": {
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 5,
+        "level_name": "零封壁垒",
+        "weight_boost": 0.3,
         "score": 0.0,
-        "confidence": 95,
-        "desc": "场均仅失 0.00 球，防线极具韧性"
+        "confidence": 98,
+        "desc": "场均仅失 0.00 球，门前滴水不漏"
       },
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 90,
-        "desc": "平局率高达 100.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 100.0%，极其偏爱平局"
       }
     }
   },
@@ -383,25 +447,28 @@
     "matches_evaluated": 2,
     "tags": {
       "灌球高手": {
-        "level": 3,
-        "level_name": "统治级火力",
+        "level": 5,
+        "level_name": "史诗级火力",
+        "weight_boost": 0.3,
         "score": 3.0,
-        "confidence": 95,
-        "desc": "场均轰入 3.00 球，攻击力极其强悍"
+        "confidence": 98,
+        "desc": "场均轰入 3.00 球，攻击力极其恐怖"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       },
       "无心恋战": {
-        "level": 2,
+        "level": 3,
         "level_name": "防线吃紧",
+        "weight_boost": 0.15,
         "score": 2.0,
-        "confidence": 80,
-        "desc": "场均失球 2.00 球，防空反击隐患多"
+        "confidence": 82,
+        "desc": "场均失球 2.00 球，防空反击隐患大"
       }
     }
   },
@@ -409,18 +476,20 @@
     "matches_evaluated": 2,
     "tags": {
       "灌球高手": {
-        "level": 2,
+        "level": 3,
         "level_name": "高效进攻",
+        "weight_boost": 0.15,
         "score": 2.0,
         "confidence": 85,
         "desc": "场均轰入 2.00 球，锋线产出稳定"
       },
       "无心恋战": {
-        "level": 3,
-        "level_name": "重度防线崩盘",
+        "level": 5,
+        "level_name": "灾难级崩盘",
+        "weight_boost": 0.3,
         "score": 3.0,
-        "confidence": 90,
-        "desc": "场均失球达 3.00 球，防守漏洞大"
+        "confidence": 95,
+        "desc": "场均失球达 3.00 球，防线溃不成军"
       }
     }
   },
@@ -428,11 +497,12 @@
     "matches_evaluated": 2,
     "tags": {
       "无心恋战": {
-        "level": 3,
-        "level_name": "重度防线崩盘",
+        "level": 5,
+        "level_name": "灾难级崩盘",
+        "weight_boost": 0.3,
         "score": 5.0,
-        "confidence": 90,
-        "desc": "场均失球达 5.00 球，防守漏洞大"
+        "confidence": 95,
+        "desc": "场均失球达 5.00 球，防线溃不成军"
       }
     }
   },
@@ -440,17 +510,19 @@
     "matches_evaluated": 2,
     "tags": {
       "灌球高手": {
-        "level": 3,
-        "level_name": "统治级火力",
+        "level": 5,
+        "level_name": "史诗级火力",
+        "weight_boost": 0.3,
         "score": 5.0,
-        "confidence": 95,
-        "desc": "场均轰入 5.00 球，攻击力极其强悍"
+        "confidence": 98,
+        "desc": "场均轰入 5.00 球，攻击力极其恐怖"
       },
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       }
     }
@@ -458,19 +530,29 @@
   "哥德堡": {
     "matches_evaluated": 4,
     "tags": {
-      "主场狂魔": {
+      "灌球高手": {
         "level": 2,
-        "level_name": "主场强势",
+        "level_name": "火力积极",
+        "weight_boost": 0.08,
+        "score": 1.5,
+        "confidence": 78,
+        "desc": "场均轰入 1.50 球，破门能力顺畅"
+      },
+      "主场狂魔": {
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       },
       "无心恋战": {
-        "level": 3,
-        "level_name": "重度防线崩盘",
+        "level": 5,
+        "level_name": "灾难级崩盘",
+        "weight_boost": 0.3,
         "score": 2.5,
-        "confidence": 90,
-        "desc": "场均失球达 2.50 球，防守漏洞大"
+        "confidence": 95,
+        "desc": "场均失球达 2.50 球，防线溃不成军"
       }
     }
   },
@@ -478,23 +560,49 @@
     "matches_evaluated": 4,
     "tags": {
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 50.0,
-        "confidence": 90,
-        "desc": "平局率高达 50.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 50.0%，极其偏爱平局"
+      },
+      "无心恋战": {
+        "level": 2,
+        "level_name": "防守松懈",
+        "weight_boost": 0.08,
+        "score": 1.5,
+        "confidence": 75,
+        "desc": "场均失球 1.50 球"
       }
     }
   },
   "大田市民": {
     "matches_evaluated": 6,
     "tags": {
+      "灌球高手": {
+        "level": 1,
+        "level_name": "偶有爆发",
+        "weight_boost": 0.04,
+        "score": 1.33,
+        "confidence": 70,
+        "desc": "场均轰入 1.33 球，进攻初具威胁"
+      },
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 66.7,
-        "confidence": 90,
-        "desc": "平局率高达 66.7%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 66.7%，极其偏爱平局"
+      },
+      "无心恋战": {
+        "level": 2,
+        "level_name": "防守松懈",
+        "weight_boost": 0.08,
+        "score": 1.67,
+        "confidence": 75,
+        "desc": "场均失球 1.67 球"
       }
     }
   },
@@ -502,25 +610,36 @@
     "matches_evaluated": 6,
     "tags": {
       "灌球高手": {
-        "level": 2,
+        "level": 3,
         "level_name": "高效进攻",
+        "weight_boost": 0.15,
         "score": 2.0,
         "confidence": 85,
         "desc": "场均轰入 2.00 球，锋线产出稳定"
       },
       "平局大师": {
-        "level": 2,
+        "level": 3,
         "level_name": "高发平局",
+        "weight_boost": 0.15,
         "score": 33.3,
-        "confidence": 80,
+        "confidence": 82,
         "desc": "平局率达 33.3%，胶着战偏多"
       },
       "逆转专家": {
         "level": 3,
         "level_name": "绝境翻盘王",
+        "weight_boost": 0.15,
         "score": 2,
-        "confidence": 88,
-        "desc": "多次完成半场落后逆转/追平"
+        "confidence": 85,
+        "desc": "具备强悍落后追平/翻盘韧性"
+      },
+      "无心恋战": {
+        "level": 2,
+        "level_name": "防守松懈",
+        "weight_boost": 0.08,
+        "score": 1.67,
+        "confidence": 75,
+        "desc": "场均失球 1.67 球"
       }
     }
   },
@@ -528,18 +647,20 @@
     "matches_evaluated": 4,
     "tags": {
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       },
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 50.0,
-        "confidence": 90,
-        "desc": "平局率高达 50.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 50.0%，极其偏爱平局"
       }
     }
   },
@@ -547,43 +668,56 @@
     "matches_evaluated": 2,
     "tags": {
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 5,
+        "level_name": "零封壁垒",
+        "weight_boost": 0.3,
         "score": 0.0,
-        "confidence": 95,
-        "desc": "场均仅失 0.00 球，防线极具韧性"
+        "confidence": 98,
+        "desc": "场均仅失 0.00 球，门前滴水不漏"
       },
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 90,
-        "desc": "平局率高达 100.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 100.0%，极其偏爱平局"
       }
     }
   },
   "江原FC": {
     "matches_evaluated": 6,
     "tags": {
-      "铜墙铁壁": {
+      "灌球高手": {
         "level": 1,
+        "level_name": "偶有爆发",
+        "weight_boost": 0.04,
+        "score": 1.33,
+        "confidence": 70,
+        "desc": "场均轰入 1.33 球，进攻初具威胁"
+      },
+      "铜墙铁壁": {
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       },
       "平局大师": {
-        "level": 2,
+        "level": 3,
         "level_name": "高发平局",
+        "weight_boost": 0.15,
         "score": 33.3,
-        "confidence": 80,
+        "confidence": 82,
         "desc": "平局率达 33.3%，胶着战偏多"
       }
     }
@@ -591,19 +725,37 @@
   "金泉尚武": {
     "matches_evaluated": 6,
     "tags": {
+      "灌球高手": {
+        "level": 1,
+        "level_name": "偶有爆发",
+        "weight_boost": 0.04,
+        "score": 1.33,
+        "confidence": 70,
+        "desc": "场均轰入 1.33 球，进攻初具威胁"
+      },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       },
       "平局大师": {
-        "level": 2,
+        "level": 3,
         "level_name": "高发平局",
+        "weight_boost": 0.15,
         "score": 33.3,
-        "confidence": 80,
+        "confidence": 82,
         "desc": "平局率达 33.3%，胶着战偏多"
+      },
+      "无心恋战": {
+        "level": 2,
+        "level_name": "防守松懈",
+        "weight_boost": 0.08,
+        "score": 1.67,
+        "confidence": 75,
+        "desc": "场均失球 1.67 球"
       }
     }
   },
@@ -611,25 +763,28 @@
     "matches_evaluated": 6,
     "tags": {
       "灌球高手": {
-        "level": 2,
-        "level_name": "高效进攻",
+        "level": 4,
+        "level_name": "统治级火力",
+        "weight_boost": 0.22,
         "score": 2.33,
-        "confidence": 85,
-        "desc": "场均轰入 2.33 球，锋线产出稳定"
+        "confidence": 92,
+        "desc": "场均轰入 2.33 球，进攻威慑极高"
       },
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 5,
+        "level_name": "零封壁垒",
+        "weight_boost": 0.3,
         "score": 0.0,
-        "confidence": 95,
-        "desc": "场均仅失 0.00 球，防线极具韧性"
+        "confidence": 98,
+        "desc": "场均仅失 0.00 球，门前滴水不漏"
       },
       "主场狂魔": {
-        "level": 3,
-        "level_name": "魔鬼主场",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 92,
-        "desc": "主场胜率高达 100.0%，主场威慑极强"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       }
     }
   },
@@ -637,10 +792,11 @@
     "matches_evaluated": 2,
     "tags": {
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       }
     }
@@ -649,32 +805,44 @@
     "matches_evaluated": 6,
     "tags": {
       "灌球高手": {
-        "level": 1,
+        "level": 2,
         "level_name": "火力积极",
+        "weight_boost": 0.08,
         "score": 1.67,
-        "confidence": 75,
-        "desc": "场均轰入 1.67 球，具备破门能力"
+        "confidence": 78,
+        "desc": "场均轰入 1.67 球，破门能力顺畅"
       },
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       },
-      "平局大师": {
+      "主场狂魔": {
         "level": 2,
+        "level_name": "主战积极",
+        "weight_boost": 0.08,
+        "score": 50.0,
+        "confidence": 76,
+        "desc": "主场胜率达 50.0%，主场有心理优势"
+      },
+      "平局大师": {
+        "level": 3,
         "level_name": "高发平局",
+        "weight_boost": 0.15,
         "score": 33.3,
-        "confidence": 80,
+        "confidence": 82,
         "desc": "平局率达 33.3%，胶着战偏多"
       },
       "逆转专家": {
         "level": 3,
         "level_name": "绝境翻盘王",
+        "weight_boost": 0.15,
         "score": 2,
-        "confidence": 88,
-        "desc": "多次完成半场落后逆转/追平"
+        "confidence": 85,
+        "desc": "具备强悍落后追平/翻盘韧性"
       }
     }
   },
@@ -682,11 +850,12 @@
     "matches_evaluated": 6,
     "tags": {
       "无心恋战": {
-        "level": 3,
-        "level_name": "重度防线崩盘",
+        "level": 4,
+        "level_name": "重度防线漏洞",
+        "weight_boost": 0.22,
         "score": 2.33,
-        "confidence": 90,
-        "desc": "场均失球达 2.33 球，防守漏洞大"
+        "confidence": 88,
+        "desc": "场均失球达 2.33 球，门前失误频繁"
       }
     }
   },
@@ -694,25 +863,28 @@
     "matches_evaluated": 2,
     "tags": {
       "灌球高手": {
-        "level": 2,
+        "level": 3,
         "level_name": "高效进攻",
+        "weight_boost": 0.15,
         "score": 2.0,
         "confidence": 85,
         "desc": "场均轰入 2.00 球，锋线产出稳定"
       },
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 5,
+        "level_name": "零封壁垒",
+        "weight_boost": 0.3,
         "score": 0.0,
-        "confidence": 95,
-        "desc": "场均仅失 0.00 球，防线极具韧性"
+        "confidence": 98,
+        "desc": "场均仅失 0.00 球，门前滴水不漏"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       }
     }
   },
@@ -720,51 +892,73 @@
     "matches_evaluated": 4,
     "tags": {
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 50.0,
-        "confidence": 90,
-        "desc": "平局率高达 50.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 50.0%，极其偏爱平局"
       },
       "逆转专家": {
         "level": 3,
         "level_name": "绝境翻盘王",
+        "weight_boost": 0.15,
         "score": 2,
-        "confidence": 88,
-        "desc": "多次完成半场落后逆转/追平"
+        "confidence": 85,
+        "desc": "具备强悍落后追平/翻盘韧性"
       },
       "无心恋战": {
-        "level": 2,
+        "level": 3,
         "level_name": "防线吃紧",
+        "weight_boost": 0.15,
         "score": 2.0,
-        "confidence": 80,
-        "desc": "场均失球 2.00 球，防空反击隐患多"
+        "confidence": 82,
+        "desc": "场均失球 2.00 球，防空反击隐患大"
       }
     }
   },
   "仁川联": {
     "matches_evaluated": 6,
     "tags": {
+      "灌球高手": {
+        "level": 1,
+        "level_name": "偶有爆发",
+        "weight_boost": 0.04,
+        "score": 1.33,
+        "confidence": 70,
+        "desc": "场均轰入 1.33 球，进攻初具威胁"
+      },
       "铜墙铁壁": {
-        "level": 2,
+        "level": 3,
         "level_name": "坚固防线",
+        "weight_boost": 0.15,
         "score": 0.67,
         "confidence": 85,
         "desc": "场均失 0.67 球，门前防守严密"
       },
-      "平局大师": {
+      "主场狂魔": {
         "level": 2,
+        "level_name": "主战积极",
+        "weight_boost": 0.08,
+        "score": 50.0,
+        "confidence": 76,
+        "desc": "主场胜率达 50.0%，主场有心理优势"
+      },
+      "平局大师": {
+        "level": 3,
         "level_name": "高发平局",
+        "weight_boost": 0.15,
         "score": 33.3,
-        "confidence": 80,
+        "confidence": 82,
         "desc": "平局率达 33.3%，胶着战偏多"
       },
       "逆转专家": {
         "level": 3,
         "level_name": "绝境翻盘王",
+        "weight_boost": 0.15,
         "score": 2,
-        "confidence": 88,
-        "desc": "多次完成半场落后逆转/追平"
+        "confidence": 85,
+        "desc": "具备强悍落后追平/翻盘韧性"
       }
     }
   },
@@ -772,17 +966,19 @@
     "matches_evaluated": 6,
     "tags": {
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 5,
+        "level_name": "零封壁垒",
+        "weight_boost": 0.3,
         "score": 0.33,
-        "confidence": 95,
-        "desc": "场均仅失 0.33 球，防线极具韧性"
+        "confidence": 98,
+        "desc": "场均仅失 0.33 球，门前滴水不漏"
       },
       "平局大师": {
-        "level": 2,
+        "level": 3,
         "level_name": "高发平局",
+        "weight_boost": 0.15,
         "score": 33.3,
-        "confidence": 80,
+        "confidence": 82,
         "desc": "平局率达 33.3%，胶着战偏多"
       }
     }
@@ -791,25 +987,28 @@
     "matches_evaluated": 4,
     "tags": {
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       },
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 90,
-        "desc": "平局率高达 100.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 100.0%，极其偏爱平局"
       },
       "逆转专家": {
         "level": 3,
         "level_name": "绝境翻盘王",
+        "weight_boost": 0.15,
         "score": 2,
-        "confidence": 88,
-        "desc": "多次完成半场落后逆转/追平"
+        "confidence": 85,
+        "desc": "具备强悍落后追平/翻盘韧性"
       }
     }
   },
@@ -817,18 +1016,20 @@
     "matches_evaluated": 2,
     "tags": {
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       },
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 90,
-        "desc": "平局率高达 100.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 100.0%，极其偏爱平局"
       }
     }
   },
@@ -836,11 +1037,12 @@
     "matches_evaluated": 6,
     "tags": {
       "无心恋战": {
-        "level": 3,
-        "level_name": "重度防线崩盘",
+        "level": 5,
+        "level_name": "灾难级崩盘",
+        "weight_boost": 0.3,
         "score": 2.67,
-        "confidence": 90,
-        "desc": "场均失球达 2.67 球，防守漏洞大"
+        "confidence": 95,
+        "desc": "场均失球达 2.67 球，防线溃不成军"
       }
     }
   },
@@ -848,17 +1050,19 @@
     "matches_evaluated": 2,
     "tags": {
       "灌球高手": {
-        "level": 3,
-        "level_name": "统治级火力",
+        "level": 5,
+        "level_name": "史诗级火力",
+        "weight_boost": 0.3,
         "score": 4.0,
-        "confidence": 95,
-        "desc": "场均轰入 4.00 球，攻击力极其强悍"
+        "confidence": 98,
+        "desc": "场均轰入 4.00 球，攻击力极其恐怖"
       },
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       }
     }
@@ -867,25 +1071,28 @@
     "matches_evaluated": 2,
     "tags": {
       "灌球高手": {
-        "level": 2,
+        "level": 3,
         "level_name": "高效进攻",
+        "weight_boost": 0.15,
         "score": 2.0,
         "confidence": 85,
         "desc": "场均轰入 2.00 球，锋线产出稳定"
       },
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       }
     }
   },
@@ -893,30 +1100,49 @@
     "matches_evaluated": 4,
     "tags": {
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 50.0,
-        "confidence": 90,
-        "desc": "平局率高达 50.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 50.0%，极其偏爱平局"
+      },
+      "无心恋战": {
+        "level": 2,
+        "level_name": "防守松懈",
+        "weight_boost": 0.08,
+        "score": 1.5,
+        "confidence": 75,
+        "desc": "场均失球 1.50 球"
       }
     }
   },
   "赫尔辛基": {
     "matches_evaluated": 4,
     "tags": {
+      "灌球高手": {
+        "level": 2,
+        "level_name": "火力积极",
+        "weight_boost": 0.08,
+        "score": 1.5,
+        "confidence": 78,
+        "desc": "场均轰入 1.50 球，破门能力顺畅"
+      },
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 4,
+        "level_name": "金刚防线",
+        "weight_boost": 0.22,
         "score": 0.5,
-        "confidence": 95,
-        "desc": "场均仅失 0.50 球，防线极具韧性"
+        "confidence": 92,
+        "desc": "场均仅失 0.50 球，防守防空能力极强"
       },
       "主场狂魔": {
-        "level": 3,
-        "level_name": "魔鬼主场",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 92,
-        "desc": "主场胜率高达 100.0%，主场威慑极强"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       }
     }
   },
@@ -924,11 +1150,12 @@
     "matches_evaluated": 4,
     "tags": {
       "无心恋战": {
-        "level": 3,
-        "level_name": "重度防线崩盘",
+        "level": 5,
+        "level_name": "灾难级崩盘",
+        "weight_boost": 0.3,
         "score": 2.5,
-        "confidence": 90,
-        "desc": "场均失球达 2.50 球，防守漏洞大"
+        "confidence": 95,
+        "desc": "场均失球达 2.50 球，防线溃不成军"
       }
     }
   },
@@ -936,18 +1163,20 @@
     "matches_evaluated": 2,
     "tags": {
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 5,
+        "level_name": "零封壁垒",
+        "weight_boost": 0.3,
         "score": 0.0,
-        "confidence": 95,
-        "desc": "场均仅失 0.00 球，防线极具韧性"
+        "confidence": 98,
+        "desc": "场均仅失 0.00 球，门前滴水不漏"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       }
     }
   },
@@ -955,10 +1184,11 @@
     "matches_evaluated": 2,
     "tags": {
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       }
     }
@@ -967,25 +1197,28 @@
     "matches_evaluated": 2,
     "tags": {
       "灌球高手": {
-        "level": 2,
+        "level": 3,
         "level_name": "高效进攻",
+        "weight_boost": 0.15,
         "score": 2.0,
         "confidence": 85,
         "desc": "场均轰入 2.00 球，锋线产出稳定"
       },
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 5,
+        "level_name": "零封壁垒",
+        "weight_boost": 0.3,
         "score": 0.0,
-        "confidence": 95,
-        "desc": "场均仅失 0.00 球，防线极具韧性"
+        "confidence": 98,
+        "desc": "场均仅失 0.00 球，门前滴水不漏"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       }
     }
   },
@@ -993,11 +1226,20 @@
     "matches_evaluated": 4,
     "tags": {
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 50.0,
-        "confidence": 90,
-        "desc": "平局率高达 50.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 50.0%，极其偏爱平局"
+      },
+      "无心恋战": {
+        "level": 2,
+        "level_name": "防守松懈",
+        "weight_boost": 0.08,
+        "score": 1.5,
+        "confidence": 75,
+        "desc": "场均失球 1.50 球"
       }
     }
   },
@@ -1005,18 +1247,20 @@
     "matches_evaluated": 4,
     "tags": {
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 50.0,
-        "confidence": 90,
-        "desc": "平局率高达 50.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 50.0%，极其偏爱平局"
       },
       "无心恋战": {
-        "level": 2,
+        "level": 3,
         "level_name": "防线吃紧",
+        "weight_boost": 0.15,
         "score": 2.0,
-        "confidence": 80,
-        "desc": "场均失球 2.00 球，防空反击隐患多"
+        "confidence": 82,
+        "desc": "场均失球 2.00 球，防空反击隐患大"
       }
     }
   },
@@ -1024,25 +1268,28 @@
     "matches_evaluated": 4,
     "tags": {
       "灌球高手": {
-        "level": 3,
-        "level_name": "统治级火力",
+        "level": 5,
+        "level_name": "史诗级火力",
+        "weight_boost": 0.3,
         "score": 3.0,
-        "confidence": 95,
-        "desc": "场均轰入 3.00 球，攻击力极其强悍"
+        "confidence": 98,
+        "desc": "场均轰入 3.00 球，攻击力极其恐怖"
       },
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 4,
+        "level_name": "金刚防线",
+        "weight_boost": 0.22,
         "score": 0.5,
-        "confidence": 95,
-        "desc": "场均仅失 0.50 球，防线极具韧性"
+        "confidence": 92,
+        "desc": "场均仅失 0.50 球，防守防空能力极强"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       }
     }
   },
@@ -1050,37 +1297,49 @@
     "matches_evaluated": 2,
     "tags": {
       "灌球高手": {
-        "level": 2,
+        "level": 3,
         "level_name": "高效进攻",
+        "weight_boost": 0.15,
         "score": 2.0,
         "confidence": 85,
         "desc": "场均轰入 2.00 球，锋线产出稳定"
       },
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       }
     }
   },
   "奥斯KFUM": {
     "matches_evaluated": 4,
     "tags": {
+      "灌球高手": {
+        "level": 2,
+        "level_name": "火力积极",
+        "weight_boost": 0.08,
+        "score": 1.5,
+        "confidence": 78,
+        "desc": "场均轰入 1.50 球，破门能力顺畅"
+      },
       "无心恋战": {
-        "level": 3,
-        "level_name": "重度防线崩盘",
+        "level": 5,
+        "level_name": "灾难级崩盘",
+        "weight_boost": 0.3,
         "score": 3.0,
-        "confidence": 90,
-        "desc": "场均失球达 3.00 球，防守漏洞大"
+        "confidence": 95,
+        "desc": "场均失球达 3.00 球，防线溃不成军"
       }
     }
   },
@@ -1088,11 +1347,12 @@
     "matches_evaluated": 4,
     "tags": {
       "无心恋战": {
-        "level": 2,
+        "level": 3,
         "level_name": "防线吃紧",
+        "weight_boost": 0.15,
         "score": 2.0,
-        "confidence": 80,
-        "desc": "场均失球 2.00 球，防空反击隐患多"
+        "confidence": 82,
+        "desc": "场均失球 2.00 球，防空反击隐患大"
       }
     }
   },
@@ -1100,18 +1360,20 @@
     "matches_evaluated": 2,
     "tags": {
       "灌球高手": {
-        "level": 3,
-        "level_name": "统治级火力",
+        "level": 5,
+        "level_name": "史诗级火力",
+        "weight_boost": 0.3,
         "score": 3.0,
-        "confidence": 95,
-        "desc": "场均轰入 3.00 球，攻击力极其强悍"
+        "confidence": 98,
+        "desc": "场均轰入 3.00 球，攻击力极其恐怖"
       },
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 5,
+        "level_name": "零封壁垒",
+        "weight_boost": 0.3,
         "score": 0.0,
-        "confidence": 95,
-        "desc": "场均仅失 0.00 球，防线极具韧性"
+        "confidence": 98,
+        "desc": "场均仅失 0.00 球，门前滴水不漏"
       }
     }
   },
@@ -1119,18 +1381,20 @@
     "matches_evaluated": 4,
     "tags": {
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       },
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 50.0,
-        "confidence": 90,
-        "desc": "平局率高达 50.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 50.0%，极其偏爱平局"
       }
     }
   },
@@ -1138,25 +1402,28 @@
     "matches_evaluated": 4,
     "tags": {
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 5,
+        "level_name": "零封壁垒",
+        "weight_boost": 0.3,
         "score": 0.0,
-        "confidence": 95,
-        "desc": "场均仅失 0.00 球，防线极具韧性"
+        "confidence": 98,
+        "desc": "场均仅失 0.00 球，门前滴水不漏"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       },
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 50.0,
-        "confidence": 90,
-        "desc": "平局率高达 50.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 50.0%，极其偏爱平局"
       }
     }
   },
@@ -1164,18 +1431,28 @@
     "matches_evaluated": 4,
     "tags": {
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 50.0,
-        "confidence": 90,
-        "desc": "平局率高达 50.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 50.0%，极其偏爱平局"
       },
       "逆转专家": {
         "level": 3,
         "level_name": "绝境翻盘王",
+        "weight_boost": 0.15,
         "score": 2,
-        "confidence": 88,
-        "desc": "多次完成半场落后逆转/追平"
+        "confidence": 85,
+        "desc": "具备强悍落后追平/翻盘韧性"
+      },
+      "无心恋战": {
+        "level": 2,
+        "level_name": "防守松懈",
+        "weight_boost": 0.08,
+        "score": 1.5,
+        "confidence": 75,
+        "desc": "场均失球 1.50 球"
       }
     }
   },
@@ -1183,18 +1460,20 @@
     "matches_evaluated": 4,
     "tags": {
       "灌球高手": {
-        "level": 2,
+        "level": 3,
         "level_name": "高效进攻",
+        "weight_boost": 0.15,
         "score": 2.0,
         "confidence": 85,
         "desc": "场均轰入 2.00 球，锋线产出稳定"
       },
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 4,
+        "level_name": "金刚防线",
+        "weight_boost": 0.22,
         "score": 0.5,
-        "confidence": 95,
-        "desc": "场均仅失 0.50 球，防线极具韧性"
+        "confidence": 92,
+        "desc": "场均仅失 0.50 球，防守防空能力极强"
       }
     }
   },
@@ -1202,11 +1481,12 @@
     "matches_evaluated": 2,
     "tags": {
       "无心恋战": {
-        "level": 2,
+        "level": 3,
         "level_name": "防线吃紧",
+        "weight_boost": 0.15,
         "score": 2.0,
-        "confidence": 80,
-        "desc": "场均失球 2.00 球，防空反击隐患多"
+        "confidence": 82,
+        "desc": "场均失球 2.00 球，防空反击隐患大"
       }
     }
   },
@@ -1214,25 +1494,28 @@
     "matches_evaluated": 6,
     "tags": {
       "灌球高手": {
-        "level": 1,
+        "level": 2,
         "level_name": "火力积极",
+        "weight_boost": 0.08,
         "score": 1.67,
-        "confidence": 75,
-        "desc": "场均轰入 1.67 球，具备破门能力"
+        "confidence": 78,
+        "desc": "场均轰入 1.67 球，破门能力顺畅"
       },
       "铜墙铁壁": {
-        "level": 2,
+        "level": 3,
         "level_name": "坚固防线",
+        "weight_boost": 0.15,
         "score": 0.67,
         "confidence": 85,
         "desc": "场均失 0.67 球，门前防守严密"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       }
     }
   },
@@ -1240,37 +1523,49 @@
     "matches_evaluated": 2,
     "tags": {
       "灌球高手": {
-        "level": 3,
-        "level_name": "统治级火力",
+        "level": 5,
+        "level_name": "史诗级火力",
+        "weight_boost": 0.3,
         "score": 4.0,
-        "confidence": 95,
-        "desc": "场均轰入 4.00 球，攻击力极其强悍"
+        "confidence": 98,
+        "desc": "场均轰入 4.00 球，攻击力极其恐怖"
       },
       "无心恋战": {
-        "level": 3,
-        "level_name": "重度防线崩盘",
+        "level": 5,
+        "level_name": "灾难级崩盘",
+        "weight_boost": 0.3,
         "score": 6.0,
-        "confidence": 90,
-        "desc": "场均失球达 6.00 球，防守漏洞大"
+        "confidence": 95,
+        "desc": "场均失球达 6.00 球，防线溃不成军"
       }
     }
   },
   "富川FC": {
     "matches_evaluated": 6,
     "tags": {
+      "灌球高手": {
+        "level": 1,
+        "level_name": "偶有爆发",
+        "weight_boost": 0.04,
+        "score": 1.33,
+        "confidence": 70,
+        "desc": "场均轰入 1.33 球，进攻初具威胁"
+      },
       "平局大师": {
-        "level": 2,
+        "level": 3,
         "level_name": "高发平局",
+        "weight_boost": 0.15,
         "score": 33.3,
-        "confidence": 80,
+        "confidence": 82,
         "desc": "平局率达 33.3%，胶着战偏多"
       },
       "无心恋战": {
-        "level": 3,
-        "level_name": "重度防线崩盘",
+        "level": 4,
+        "level_name": "重度防线漏洞",
+        "weight_boost": 0.22,
         "score": 2.33,
-        "confidence": 90,
-        "desc": "场均失球达 2.33 球，防守漏洞大"
+        "confidence": 88,
+        "desc": "场均失球达 2.33 球，门前失误频繁"
       }
     }
   },
@@ -1278,11 +1573,28 @@
     "matches_evaluated": 6,
     "tags": {
       "灌球高手": {
-        "level": 2,
-        "level_name": "高效进攻",
+        "level": 4,
+        "level_name": "统治级火力",
+        "weight_boost": 0.22,
         "score": 2.33,
-        "confidence": 85,
-        "desc": "场均轰入 2.33 球，锋线产出稳定"
+        "confidence": 92,
+        "desc": "场均轰入 2.33 球，进攻威慑极高"
+      },
+      "主场狂魔": {
+        "level": 2,
+        "level_name": "主战积极",
+        "weight_boost": 0.08,
+        "score": 50.0,
+        "confidence": 76,
+        "desc": "主场胜率达 50.0%，主场有心理优势"
+      },
+      "无心恋战": {
+        "level": 2,
+        "level_name": "防守松懈",
+        "weight_boost": 0.08,
+        "score": 1.67,
+        "confidence": 75,
+        "desc": "场均失球 1.67 球"
       }
     }
   },
@@ -1290,18 +1602,36 @@
     "matches_evaluated": 6,
     "tags": {
       "灌球高手": {
-        "level": 2,
+        "level": 3,
         "level_name": "高效进攻",
+        "weight_boost": 0.15,
         "score": 2.0,
         "confidence": 85,
         "desc": "场均轰入 2.00 球，锋线产出稳定"
       },
-      "平局大师": {
+      "主场狂魔": {
         "level": 2,
+        "level_name": "主战积极",
+        "weight_boost": 0.08,
+        "score": 50.0,
+        "confidence": 76,
+        "desc": "主场胜率达 50.0%，主场有心理优势"
+      },
+      "平局大师": {
+        "level": 3,
         "level_name": "高发平局",
+        "weight_boost": 0.15,
         "score": 33.3,
-        "confidence": 80,
+        "confidence": 82,
         "desc": "平局率达 33.3%，胶着战偏多"
+      },
+      "无心恋战": {
+        "level": 1,
+        "level_name": "防线隐患",
+        "weight_boost": 0.04,
+        "score": 1.33,
+        "confidence": 70,
+        "desc": "场均失球 1.33 球"
       }
     }
   },
@@ -1309,23 +1639,41 @@
     "matches_evaluated": 6,
     "tags": {
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 66.7,
-        "confidence": 90,
-        "desc": "平局率高达 66.7%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 66.7%，极其偏爱平局"
+      },
+      "无心恋战": {
+        "level": 1,
+        "level_name": "防线隐患",
+        "weight_boost": 0.04,
+        "score": 1.33,
+        "confidence": 70,
+        "desc": "场均失球 1.33 球"
       }
     }
   },
   "埃夫斯堡": {
     "matches_evaluated": 4,
     "tags": {
-      "无心恋战": {
+      "灌球高手": {
         "level": 2,
+        "level_name": "火力积极",
+        "weight_boost": 0.08,
+        "score": 1.5,
+        "confidence": 78,
+        "desc": "场均轰入 1.50 球，破门能力顺畅"
+      },
+      "无心恋战": {
+        "level": 3,
         "level_name": "防线吃紧",
+        "weight_boost": 0.15,
         "score": 2.0,
-        "confidence": 80,
-        "desc": "场均失球 2.00 球，防空反击隐患多"
+        "confidence": 82,
+        "desc": "场均失球 2.00 球，防空反击隐患大"
       }
     }
   },
@@ -1333,25 +1681,28 @@
     "matches_evaluated": 4,
     "tags": {
       "灌球高手": {
-        "level": 3,
-        "level_name": "统治级火力",
+        "level": 5,
+        "level_name": "史诗级火力",
+        "weight_boost": 0.3,
         "score": 3.5,
-        "confidence": 95,
-        "desc": "场均轰入 3.50 球，攻击力极其强悍"
+        "confidence": 98,
+        "desc": "场均轰入 3.50 球，攻击力极其恐怖"
       },
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       }
     }
   },
@@ -1359,11 +1710,20 @@
     "matches_evaluated": 4,
     "tags": {
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 50.0,
-        "confidence": 90,
-        "desc": "平局率高达 50.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 50.0%，极其偏爱平局"
+      },
+      "无心恋战": {
+        "level": 2,
+        "level_name": "防守松懈",
+        "weight_boost": 0.08,
+        "score": 1.5,
+        "confidence": 75,
+        "desc": "场均失球 1.50 球"
       }
     }
   },
@@ -1371,18 +1731,20 @@
     "matches_evaluated": 2,
     "tags": {
       "灌球高手": {
-        "level": 2,
+        "level": 3,
         "level_name": "高效进攻",
+        "weight_boost": 0.15,
         "score": 2.0,
         "confidence": 85,
         "desc": "场均轰入 2.00 球，锋线产出稳定"
       },
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 5,
+        "level_name": "零封壁垒",
+        "weight_boost": 0.3,
         "score": 0.0,
-        "confidence": 95,
-        "desc": "场均仅失 0.00 球，防线极具韧性"
+        "confidence": 98,
+        "desc": "场均仅失 0.00 球，门前滴水不漏"
       }
     }
   },
@@ -1390,32 +1752,44 @@
     "matches_evaluated": 6,
     "tags": {
       "灌球高手": {
-        "level": 2,
+        "level": 3,
         "level_name": "高效进攻",
+        "weight_boost": 0.15,
         "score": 2.0,
         "confidence": 85,
         "desc": "场均轰入 2.00 球，锋线产出稳定"
       },
       "铜墙铁壁": {
-        "level": 2,
+        "level": 3,
         "level_name": "坚固防线",
+        "weight_boost": 0.15,
         "score": 0.67,
         "confidence": 85,
         "desc": "场均失 0.67 球，门前防守严密"
       },
+      "主场狂魔": {
+        "level": 2,
+        "level_name": "主战积极",
+        "weight_boost": 0.08,
+        "score": 50.0,
+        "confidence": 76,
+        "desc": "主场胜率达 50.0%，主场有心理优势"
+      },
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 66.7,
-        "confidence": 90,
-        "desc": "平局率高达 66.7%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 66.7%，极其偏爱平局"
       },
       "逆转专家": {
         "level": 3,
         "level_name": "绝境翻盘王",
+        "weight_boost": 0.15,
         "score": 2,
-        "confidence": 88,
-        "desc": "多次完成半场落后逆转/追平"
+        "confidence": 85,
+        "desc": "具备强悍落后追平/翻盘韧性"
       }
     }
   },
@@ -1423,11 +1797,12 @@
     "matches_evaluated": 4,
     "tags": {
       "无心恋战": {
-        "level": 3,
-        "level_name": "重度防线崩盘",
+        "level": 5,
+        "level_name": "灾难级崩盘",
+        "weight_boost": 0.3,
         "score": 2.5,
-        "confidence": 90,
-        "desc": "场均失球达 2.50 球，防守漏洞大"
+        "confidence": 95,
+        "desc": "场均失球达 2.50 球，防线溃不成军"
       }
     }
   },
@@ -1435,18 +1810,20 @@
     "matches_evaluated": 2,
     "tags": {
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 5,
+        "level_name": "零封壁垒",
+        "weight_boost": 0.3,
         "score": 0.0,
-        "confidence": 95,
-        "desc": "场均仅失 0.00 球，防线极具韧性"
+        "confidence": 98,
+        "desc": "场均仅失 0.00 球，门前滴水不漏"
       },
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 90,
-        "desc": "平局率高达 100.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 100.0%，极其偏爱平局"
       }
     }
   },
@@ -1454,18 +1831,20 @@
     "matches_evaluated": 4,
     "tags": {
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       },
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 50.0,
-        "confidence": 90,
-        "desc": "平局率高达 50.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 50.0%，极其偏爱平局"
       }
     }
   },
@@ -1473,18 +1852,20 @@
     "matches_evaluated": 4,
     "tags": {
       "灌球高手": {
-        "level": 3,
+        "level": 4,
         "level_name": "统治级火力",
+        "weight_boost": 0.22,
         "score": 2.5,
-        "confidence": 95,
-        "desc": "场均轰入 2.50 球，攻击力极其强悍"
+        "confidence": 92,
+        "desc": "场均轰入 2.50 球，进攻威慑极高"
       },
       "无心恋战": {
-        "level": 2,
+        "level": 3,
         "level_name": "防线吃紧",
+        "weight_boost": 0.15,
         "score": 2.0,
-        "confidence": 80,
-        "desc": "场均失球 2.00 球，防空反击隐患多"
+        "confidence": 82,
+        "desc": "场均失球 2.00 球，防空反击隐患大"
       }
     }
   },
@@ -1492,18 +1873,20 @@
     "matches_evaluated": 4,
     "tags": {
       "灌球高手": {
-        "level": 2,
+        "level": 3,
         "level_name": "高效进攻",
+        "weight_boost": 0.15,
         "score": 2.0,
         "confidence": 85,
         "desc": "场均轰入 2.00 球，锋线产出稳定"
       },
       "无心恋战": {
-        "level": 2,
+        "level": 3,
         "level_name": "防线吃紧",
+        "weight_boost": 0.15,
         "score": 2.0,
-        "confidence": 80,
-        "desc": "场均失球 2.00 球，防空反击隐患多"
+        "confidence": 82,
+        "desc": "场均失球 2.00 球，防空反击隐患大"
       }
     }
   },
@@ -1511,31 +1894,35 @@
     "matches_evaluated": 6,
     "tags": {
       "灌球高手": {
-        "level": 1,
+        "level": 2,
         "level_name": "火力积极",
+        "weight_boost": 0.08,
         "score": 1.67,
-        "confidence": 75,
-        "desc": "场均轰入 1.67 球，具备破门能力"
+        "confidence": 78,
+        "desc": "场均轰入 1.67 球，破门能力顺畅"
       },
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       },
       "平局大师": {
-        "level": 2,
+        "level": 3,
         "level_name": "高发平局",
+        "weight_boost": 0.15,
         "score": 33.3,
-        "confidence": 80,
+        "confidence": 82,
         "desc": "平局率达 33.3%，胶着战偏多"
       }
     }
@@ -1544,11 +1931,12 @@
     "matches_evaluated": 4,
     "tags": {
       "无心恋战": {
-        "level": 3,
-        "level_name": "重度防线崩盘",
+        "level": 5,
+        "level_name": "灾难级崩盘",
+        "weight_boost": 0.3,
         "score": 2.5,
-        "confidence": 90,
-        "desc": "场均失球达 2.50 球，防守漏洞大"
+        "confidence": 95,
+        "desc": "场均失球达 2.50 球，防线溃不成军"
       }
     }
   },
@@ -1556,18 +1944,20 @@
     "matches_evaluated": 2,
     "tags": {
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 5,
+        "level_name": "零封壁垒",
+        "weight_boost": 0.3,
         "score": 0.0,
-        "confidence": 95,
-        "desc": "场均仅失 0.00 球，防线极具韧性"
+        "confidence": 98,
+        "desc": "场均仅失 0.00 球，门前滴水不漏"
       },
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 90,
-        "desc": "平局率高达 100.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 100.0%，极其偏爱平局"
       }
     }
   },
@@ -1575,11 +1965,12 @@
     "matches_evaluated": 4,
     "tags": {
       "无心恋战": {
-        "level": 2,
+        "level": 3,
         "level_name": "防线吃紧",
+        "weight_boost": 0.15,
         "score": 2.0,
-        "confidence": 80,
-        "desc": "场均失球 2.00 球，防空反击隐患多"
+        "confidence": 82,
+        "desc": "场均失球 2.00 球，防空反击隐患大"
       }
     }
   },
@@ -1587,25 +1978,28 @@
     "matches_evaluated": 4,
     "tags": {
       "灌球高手": {
-        "level": 2,
+        "level": 3,
         "level_name": "高效进攻",
+        "weight_boost": 0.15,
         "score": 2.0,
         "confidence": 85,
         "desc": "场均轰入 2.00 球，锋线产出稳定"
       },
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 4,
+        "level_name": "金刚防线",
+        "weight_boost": 0.22,
         "score": 0.5,
-        "confidence": 95,
-        "desc": "场均仅失 0.50 球，防线极具韧性"
+        "confidence": 92,
+        "desc": "场均仅失 0.50 球，防守防空能力极强"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       }
     }
   },
@@ -1613,44 +2007,73 @@
     "matches_evaluated": 4,
     "tags": {
       "灌球高手": {
-        "level": 2,
+        "level": 3,
         "level_name": "高效进攻",
+        "weight_boost": 0.15,
         "score": 2.0,
         "confidence": 85,
         "desc": "场均轰入 2.00 球，锋线产出稳定"
       },
-      "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+      "主场狂魔": {
+        "level": 2,
+        "level_name": "主战积极",
+        "weight_boost": 0.08,
         "score": 50.0,
-        "confidence": 90,
-        "desc": "平局率高达 50.0%，极易打成平局"
+        "confidence": 76,
+        "desc": "主场胜率达 50.0%，主场有心理优势"
+      },
+      "平局大师": {
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
+        "score": 50.0,
+        "confidence": 95,
+        "desc": "平局率高达 50.0%，极其偏爱平局"
+      },
+      "无心恋战": {
+        "level": 2,
+        "level_name": "防守松懈",
+        "weight_boost": 0.08,
+        "score": 1.5,
+        "confidence": 75,
+        "desc": "场均失球 1.50 球"
       }
     }
   },
   "马尔默": {
     "matches_evaluated": 4,
     "tags": {
+      "灌球高手": {
+        "level": 2,
+        "level_name": "火力积极",
+        "weight_boost": 0.08,
+        "score": 1.5,
+        "confidence": 78,
+        "desc": "场均轰入 1.50 球，破门能力顺畅"
+      },
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 50.0,
-        "confidence": 90,
-        "desc": "平局率高达 50.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 50.0%，极其偏爱平局"
       },
       "逆转专家": {
         "level": 3,
         "level_name": "绝境翻盘王",
+        "weight_boost": 0.15,
         "score": 2,
-        "confidence": 88,
-        "desc": "多次完成半场落后逆转/追平"
+        "confidence": 85,
+        "desc": "具备强悍落后追平/翻盘韧性"
       },
       "无心恋战": {
-        "level": 2,
+        "level": 3,
         "level_name": "防线吃紧",
+        "weight_boost": 0.15,
         "score": 2.0,
-        "confidence": 80,
-        "desc": "场均失球 2.00 球，防空反击隐患多"
+        "confidence": 82,
+        "desc": "场均失球 2.00 球，防空反击隐患大"
       }
     }
   },
@@ -1658,18 +2081,20 @@
     "matches_evaluated": 2,
     "tags": {
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 5,
+        "level_name": "零封壁垒",
+        "weight_boost": 0.3,
         "score": 0.0,
-        "confidence": 95,
-        "desc": "场均仅失 0.00 球，防线极具韧性"
+        "confidence": 98,
+        "desc": "场均仅失 0.00 球，门前滴水不漏"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       }
     }
   },
@@ -1677,11 +2102,12 @@
     "matches_evaluated": 2,
     "tags": {
       "无心恋战": {
-        "level": 3,
-        "level_name": "重度防线崩盘",
+        "level": 5,
+        "level_name": "灾难级崩盘",
+        "weight_boost": 0.3,
         "score": 4.0,
-        "confidence": 90,
-        "desc": "场均失球达 4.00 球，防守漏洞大"
+        "confidence": 95,
+        "desc": "场均失球达 4.00 球，防线溃不成军"
       }
     }
   },
@@ -1689,17 +2115,19 @@
     "matches_evaluated": 2,
     "tags": {
       "灌球高手": {
-        "level": 3,
-        "level_name": "统治级火力",
+        "level": 5,
+        "level_name": "史诗级火力",
+        "weight_boost": 0.3,
         "score": 4.0,
-        "confidence": 95,
-        "desc": "场均轰入 4.00 球，攻击力极其强悍"
+        "confidence": 98,
+        "desc": "场均轰入 4.00 球，攻击力极其恐怖"
       },
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       }
     }
@@ -1708,25 +2136,28 @@
     "matches_evaluated": 2,
     "tags": {
       "灌球高手": {
-        "level": 3,
-        "level_name": "统治级火力",
+        "level": 5,
+        "level_name": "史诗级火力",
+        "weight_boost": 0.3,
         "score": 4.0,
-        "confidence": 95,
-        "desc": "场均轰入 4.00 球，攻击力极其强悍"
+        "confidence": 98,
+        "desc": "场均轰入 4.00 球，攻击力极其恐怖"
       },
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 5,
+        "level_name": "零封壁垒",
+        "weight_boost": 0.3,
         "score": 0.0,
-        "confidence": 95,
-        "desc": "场均仅失 0.00 球，防线极具韧性"
+        "confidence": 98,
+        "desc": "场均仅失 0.00 球，门前滴水不漏"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       }
     }
   },
@@ -1734,11 +2165,12 @@
     "matches_evaluated": 2,
     "tags": {
       "无心恋战": {
-        "level": 3,
-        "level_name": "重度防线崩盘",
+        "level": 5,
+        "level_name": "灾难级崩盘",
+        "weight_boost": 0.3,
         "score": 4.0,
-        "confidence": 90,
-        "desc": "场均失球达 4.00 球，防守漏洞大"
+        "confidence": 95,
+        "desc": "场均失球达 4.00 球，防线溃不成军"
       }
     }
   },
@@ -1746,11 +2178,12 @@
     "matches_evaluated": 2,
     "tags": {
       "无心恋战": {
-        "level": 2,
+        "level": 3,
         "level_name": "防线吃紧",
+        "weight_boost": 0.15,
         "score": 2.0,
-        "confidence": 80,
-        "desc": "场均失球 2.00 球，防空反击隐患多"
+        "confidence": 82,
+        "desc": "场均失球 2.00 球，防空反击隐患大"
       }
     }
   },
@@ -1758,25 +2191,28 @@
     "matches_evaluated": 2,
     "tags": {
       "灌球高手": {
-        "level": 3,
-        "level_name": "统治级火力",
+        "level": 5,
+        "level_name": "史诗级火力",
+        "weight_boost": 0.3,
         "score": 3.0,
-        "confidence": 95,
-        "desc": "场均轰入 3.00 球，攻击力极其强悍"
+        "confidence": 98,
+        "desc": "场均轰入 3.00 球，攻击力极其恐怖"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       },
       "无心恋战": {
-        "level": 2,
+        "level": 3,
         "level_name": "防线吃紧",
+        "weight_boost": 0.15,
         "score": 2.0,
-        "confidence": 80,
-        "desc": "场均失球 2.00 球，防空反击隐患多"
+        "confidence": 82,
+        "desc": "场均失球 2.00 球，防空反击隐患大"
       }
     }
   },
@@ -1784,18 +2220,20 @@
     "matches_evaluated": 2,
     "tags": {
       "灌球高手": {
-        "level": 2,
+        "level": 3,
         "level_name": "高效进攻",
+        "weight_boost": 0.15,
         "score": 2.0,
         "confidence": 85,
         "desc": "场均轰入 2.00 球，锋线产出稳定"
       },
       "无心恋战": {
-        "level": 3,
-        "level_name": "重度防线崩盘",
+        "level": 5,
+        "level_name": "灾难级崩盘",
+        "weight_boost": 0.3,
         "score": 3.0,
-        "confidence": 90,
-        "desc": "场均失球达 3.00 球，防守漏洞大"
+        "confidence": 95,
+        "desc": "场均失球达 3.00 球，防线溃不成军"
       }
     }
   },
@@ -1803,11 +2241,12 @@
     "matches_evaluated": 2,
     "tags": {
       "无心恋战": {
-        "level": 3,
-        "level_name": "重度防线崩盘",
+        "level": 5,
+        "level_name": "灾难级崩盘",
+        "weight_boost": 0.3,
         "score": 4.0,
-        "confidence": 90,
-        "desc": "场均失球达 4.00 球，防守漏洞大"
+        "confidence": 95,
+        "desc": "场均失球达 4.00 球，防线溃不成军"
       }
     }
   },
@@ -1815,25 +2254,28 @@
     "matches_evaluated": 4,
     "tags": {
       "灌球高手": {
-        "level": 3,
+        "level": 4,
         "level_name": "统治级火力",
+        "weight_boost": 0.22,
         "score": 2.5,
-        "confidence": 95,
-        "desc": "场均轰入 2.50 球，攻击力极其强悍"
+        "confidence": 92,
+        "desc": "场均轰入 2.50 球，进攻威慑极高"
       },
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 4,
+        "level_name": "金刚防线",
+        "weight_boost": 0.22,
         "score": 0.5,
-        "confidence": 95,
-        "desc": "场均仅失 0.50 球，防线极具韧性"
+        "confidence": 92,
+        "desc": "场均仅失 0.50 球，防守防空能力极强"
       },
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 50.0,
-        "confidence": 90,
-        "desc": "平局率高达 50.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 50.0%，极其偏爱平局"
       }
     }
   },
@@ -1841,11 +2283,20 @@
     "matches_evaluated": 4,
     "tags": {
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 50.0,
-        "confidence": 90,
-        "desc": "平局率高达 50.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 50.0%，极其偏爱平局"
+      },
+      "无心恋战": {
+        "level": 2,
+        "level_name": "防守松懈",
+        "weight_boost": 0.08,
+        "score": 1.5,
+        "confidence": 75,
+        "desc": "场均失球 1.50 球"
       }
     }
   },
@@ -1853,25 +2304,28 @@
     "matches_evaluated": 2,
     "tags": {
       "灌球高手": {
-        "level": 2,
+        "level": 3,
         "level_name": "高效进攻",
+        "weight_boost": 0.15,
         "score": 2.0,
         "confidence": 85,
         "desc": "场均轰入 2.00 球，锋线产出稳定"
       },
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       },
       "逆转专家": {
         "level": 3,
         "level_name": "绝境翻盘王",
+        "weight_boost": 0.15,
         "score": 2,
-        "confidence": 88,
-        "desc": "多次完成半场落后逆转/追平"
+        "confidence": 85,
+        "desc": "具备强悍落后追平/翻盘韧性"
       }
     }
   },
@@ -1879,11 +2333,12 @@
     "matches_evaluated": 2,
     "tags": {
       "无心恋战": {
-        "level": 3,
-        "level_name": "重度防线崩盘",
+        "level": 5,
+        "level_name": "灾难级崩盘",
+        "weight_boost": 0.3,
         "score": 3.0,
-        "confidence": 90,
-        "desc": "场均失球达 3.00 球，防守漏洞大"
+        "confidence": 95,
+        "desc": "场均失球达 3.00 球，防线溃不成军"
       }
     }
   },
@@ -1891,18 +2346,20 @@
     "matches_evaluated": 2,
     "tags": {
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 5,
+        "level_name": "零封壁垒",
+        "weight_boost": 0.3,
         "score": 0.0,
-        "confidence": 95,
-        "desc": "场均仅失 0.00 球，防线极具韧性"
+        "confidence": 98,
+        "desc": "场均仅失 0.00 球，门前滴水不漏"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       }
     }
   },
@@ -1910,25 +2367,28 @@
     "matches_evaluated": 2,
     "tags": {
       "灌球高手": {
-        "level": 3,
-        "level_name": "统治级火力",
+        "level": 5,
+        "level_name": "史诗级火力",
+        "weight_boost": 0.3,
         "score": 3.0,
-        "confidence": 95,
-        "desc": "场均轰入 3.00 球，攻击力极其强悍"
+        "confidence": 98,
+        "desc": "场均轰入 3.00 球，攻击力极其恐怖"
       },
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 5,
+        "level_name": "零封壁垒",
+        "weight_boost": 0.3,
         "score": 0.0,
-        "confidence": 95,
-        "desc": "场均仅失 0.00 球，防线极具韧性"
+        "confidence": 98,
+        "desc": "场均仅失 0.00 球，门前滴水不漏"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       }
     }
   },
@@ -1936,11 +2396,12 @@
     "matches_evaluated": 2,
     "tags": {
       "无心恋战": {
-        "level": 3,
-        "level_name": "重度防线崩盘",
+        "level": 5,
+        "level_name": "灾难级崩盘",
+        "weight_boost": 0.3,
         "score": 3.0,
-        "confidence": 90,
-        "desc": "场均失球达 3.00 球，防守漏洞大"
+        "confidence": 95,
+        "desc": "场均失球达 3.00 球，防线溃不成军"
       }
     }
   },
@@ -1948,18 +2409,20 @@
     "matches_evaluated": 2,
     "tags": {
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       },
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 90,
-        "desc": "平局率高达 100.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 100.0%，极其偏爱平局"
       }
     }
   },
@@ -1967,25 +2430,28 @@
     "matches_evaluated": 2,
     "tags": {
       "灌球高手": {
-        "level": 2,
+        "level": 3,
         "level_name": "高效进攻",
+        "weight_boost": 0.15,
         "score": 2.0,
         "confidence": 85,
         "desc": "场均轰入 2.00 球，锋线产出稳定"
       },
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       }
     }
   },
@@ -1993,11 +2459,12 @@
     "matches_evaluated": 2,
     "tags": {
       "无心恋战": {
-        "level": 2,
+        "level": 3,
         "level_name": "防线吃紧",
+        "weight_boost": 0.15,
         "score": 2.0,
-        "confidence": 80,
-        "desc": "场均失球 2.00 球，防空反击隐患多"
+        "confidence": 82,
+        "desc": "场均失球 2.00 球，防空反击隐患大"
       }
     }
   },
@@ -2005,18 +2472,20 @@
     "matches_evaluated": 2,
     "tags": {
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 5,
+        "level_name": "零封壁垒",
+        "weight_boost": 0.3,
         "score": 0.0,
-        "confidence": 95,
-        "desc": "场均仅失 0.00 球，防线极具韧性"
+        "confidence": 98,
+        "desc": "场均仅失 0.00 球，门前滴水不漏"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       }
     }
   },
@@ -2024,10 +2493,11 @@
     "matches_evaluated": 2,
     "tags": {
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       }
     }
@@ -2036,11 +2506,12 @@
     "matches_evaluated": 2,
     "tags": {
       "无心恋战": {
-        "level": 2,
+        "level": 3,
         "level_name": "防线吃紧",
+        "weight_boost": 0.15,
         "score": 2.0,
-        "confidence": 80,
-        "desc": "场均失球 2.00 球，防空反击隐患多"
+        "confidence": 82,
+        "desc": "场均失球 2.00 球，防空反击隐患大"
       }
     }
   },
@@ -2048,11 +2519,12 @@
     "matches_evaluated": 2,
     "tags": {
       "无心恋战": {
-        "level": 2,
+        "level": 3,
         "level_name": "防线吃紧",
+        "weight_boost": 0.15,
         "score": 2.0,
-        "confidence": 80,
-        "desc": "场均失球 2.00 球，防空反击隐患多"
+        "confidence": 82,
+        "desc": "场均失球 2.00 球，防空反击隐患大"
       }
     }
   },
@@ -2060,11 +2532,12 @@
     "matches_evaluated": 2,
     "tags": {
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 5,
+        "level_name": "零封壁垒",
+        "weight_boost": 0.3,
         "score": 0.0,
-        "confidence": 95,
-        "desc": "场均仅失 0.00 球，防线极具韧性"
+        "confidence": 98,
+        "desc": "场均仅失 0.00 球，门前滴水不漏"
       }
     }
   },
@@ -2072,18 +2545,20 @@
     "matches_evaluated": 2,
     "tags": {
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       },
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 90,
-        "desc": "平局率高达 100.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 100.0%，极其偏爱平局"
       }
     }
   },
@@ -2091,25 +2566,28 @@
     "matches_evaluated": 2,
     "tags": {
       "灌球高手": {
-        "level": 2,
+        "level": 3,
         "level_name": "高效进攻",
+        "weight_boost": 0.15,
         "score": 2.0,
         "confidence": 85,
         "desc": "场均轰入 2.00 球，锋线产出稳定"
       },
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 5,
+        "level_name": "零封壁垒",
+        "weight_boost": 0.3,
         "score": 0.0,
-        "confidence": 95,
-        "desc": "场均仅失 0.00 球，防线极具韧性"
+        "confidence": 98,
+        "desc": "场均仅失 0.00 球，门前滴水不漏"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       }
     }
   },
@@ -2117,11 +2595,12 @@
     "matches_evaluated": 2,
     "tags": {
       "无心恋战": {
-        "level": 2,
+        "level": 3,
         "level_name": "防线吃紧",
+        "weight_boost": 0.15,
         "score": 2.0,
-        "confidence": 80,
-        "desc": "场均失球 2.00 球，防空反击隐患多"
+        "confidence": 82,
+        "desc": "场均失球 2.00 球，防空反击隐患大"
       }
     }
   },
@@ -2129,10 +2608,11 @@
     "matches_evaluated": 2,
     "tags": {
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       }
     }
@@ -2141,18 +2621,20 @@
     "matches_evaluated": 2,
     "tags": {
       "铜墙铁壁": {
-        "level": 3,
-        "level_name": "金刚不坏",
+        "level": 5,
+        "level_name": "零封壁垒",
+        "weight_boost": 0.3,
         "score": 0.0,
-        "confidence": 95,
-        "desc": "场均仅失 0.00 球，防线极具韧性"
+        "confidence": 98,
+        "desc": "场均仅失 0.00 球，门前滴水不漏"
       },
       "主场狂魔": {
-        "level": 2,
-        "level_name": "主场强势",
+        "level": 5,
+        "level_name": "堡垒禁区",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 82,
-        "desc": "主场胜率达 100.0%，主战拿分稳定"
+        "confidence": 96,
+        "desc": "主场胜率达 100.0%，无解主场壁垒"
       }
     }
   },
@@ -2160,10 +2642,11 @@
     "matches_evaluated": 2,
     "tags": {
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       }
     }
@@ -2172,25 +2655,28 @@
     "matches_evaluated": 2,
     "tags": {
       "铜墙铁壁": {
-        "level": 1,
+        "level": 2,
         "level_name": "防守稳定",
+        "weight_boost": 0.08,
         "score": 1.0,
-        "confidence": 75,
+        "confidence": 78,
         "desc": "场均失 1.00 球，不易溃败"
       },
       "平局大师": {
-        "level": 3,
-        "level_name": "平局收割机",
+        "level": 5,
+        "level_name": "绝对平局控",
+        "weight_boost": 0.3,
         "score": 100.0,
-        "confidence": 90,
-        "desc": "平局率高达 100.0%，极易打成平局"
+        "confidence": 95,
+        "desc": "平局率高达 100.0%，极其偏爱平局"
       },
       "逆转专家": {
         "level": 3,
         "level_name": "绝境翻盘王",
+        "weight_boost": 0.15,
         "score": 2,
-        "confidence": 88,
-        "desc": "多次完成半场落后逆转/追平"
+        "confidence": 85,
+        "desc": "具备强悍落后追平/翻盘韧性"
       }
     }
   }

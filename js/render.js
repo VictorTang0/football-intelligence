@@ -1362,14 +1362,26 @@ const MatchIQRender = (() => {
         let color = 'var(--cyan)';
         let bg = 'rgba(0, 212, 255, 0.1)';
         let border = 'rgba(0, 212, 255, 0.25)';
-        if (lvl === 3) {
+        if (lvl === 5) {
+          color = '#a855f7';
+          bg = 'rgba(168, 85, 247, 0.2)';
+          border = 'rgba(168, 85, 247, 0.45)';
+        } else if (lvl === 4) {
           color = '#ef4444';
-          bg = 'rgba(239, 68, 68, 0.15)';
+          bg = 'rgba(239, 68, 68, 0.18)';
           border = 'rgba(239, 68, 68, 0.4)';
-        } else if (lvl === 2) {
+        } else if (lvl === 3) {
           color = '#f59e0b';
           bg = 'rgba(245, 158, 11, 0.15)';
-          border = 'rgba(245, 158, 11, 0.4)';
+          border = 'rgba(245, 158, 11, 0.35)';
+        } else if (lvl === 2) {
+          color = 'var(--cyan)';
+          bg = 'rgba(0, 212, 255, 0.1)';
+          border = 'rgba(0, 212, 255, 0.25)';
+        } else {
+          color = 'var(--text-3)';
+          bg = 'rgba(255, 255, 255, 0.05)';
+          border = 'rgba(255, 255, 255, 0.15)';
         }
 
         return `

@@ -2,7 +2,7 @@ import json
 import os
 import re
 
-def compute_tag_levels(stats):
+def compute_tag_5levels(stats):
     p = stats.get("played", 0)
     if p < 1:
         return {}
@@ -15,49 +15,75 @@ def compute_tag_levels(stats):
     
     tags = {}
 
-    # 1. 灌球高手 (Offensive Master)
-    if avg_gf >= 2.5:
-        tags["灌球高手"] = {"level": 3, "level_name": "统治级火力", "score": round(avg_gf, 2), "confidence": 95, "desc": f"场均轰入 {avg_gf:.2f} 球，攻击力极其强悍"}
-    elif avg_gf >= 2.0:
-        tags["灌球高手"] = {"level": 2, "level_name": "高效进攻", "score": round(avg_gf, 2), "confidence": 85, "desc": f"场均轰入 {avg_gf:.2f} 球，锋线产出稳定"}
-    elif avg_gf >= 1.6:
-        tags["灌球高手"] = {"level": 1, "level_name": "火力积极", "score": round(avg_gf, 2), "confidence": 75, "desc": f"场均轰入 {avg_gf:.2f} 球，具备破门能力"}
+    # 1. 灌球高手 (Offensive Master) — 5 阶平滑划分
+    if avg_gf >= 2.8:
+        tags["灌球高手"] = {"level": 5, "level_name": "史诗级火力", "weight_boost": 0.30, "score": round(avg_gf, 2), "confidence": 98, "desc": f"场均轰入 {avg_gf:.2f} 球，攻击力极其恐怖"}
+    elif avg_gf >= 2.3:
+        tags["灌球高手"] = {"level": 4, "level_name": "统治级火力", "weight_boost": 0.22, "score": round(avg_gf, 2), "confidence": 92, "desc": f"场均轰入 {avg_gf:.2f} 球，进攻威慑极高"}
+    elif avg_gf >= 1.9:
+        tags["灌球高手"] = {"level": 3, "level_name": "高效进攻", "weight_boost": 0.15, "score": round(avg_gf, 2), "confidence": 85, "desc": f"场均轰入 {avg_gf:.2f} 球，锋线产出稳定"}
+    elif avg_gf >= 1.5:
+        tags["灌球高手"] = {"level": 2, "level_name": "火力积极", "weight_boost": 0.08, "score": round(avg_gf, 2), "confidence": 78, "desc": f"场均轰入 {avg_gf:.2f} 球，破门能力顺畅"}
+    elif avg_gf >= 1.2:
+        tags["灌球高手"] = {"level": 1, "level_name": "偶有爆发", "weight_boost": 0.04, "score": round(avg_gf, 2), "confidence": 70, "desc": f"场均轰入 {avg_gf:.2f} 球，进攻初具威胁"}
 
-    # 2. 铜墙铁壁 (Iron Fortress)
-    if avg_ga <= 0.5:
-        tags["铜墙铁壁"] = {"level": 3, "level_name": "金刚不坏", "score": round(avg_ga, 2), "confidence": 95, "desc": f"场均仅失 {avg_ga:.2f} 球，防线极具韧性"}
-    elif avg_ga <= 0.8:
-        tags["铜墙铁壁"] = {"level": 2, "level_name": "坚固防线", "score": round(avg_ga, 2), "confidence": 85, "desc": f"场均失 {avg_ga:.2f} 球，门前防守严密"}
-    elif avg_ga <= 1.0:
-        tags["铜墙铁壁"] = {"level": 1, "level_name": "防守稳定", "score": round(avg_ga, 2), "confidence": 75, "desc": f"场均失 {avg_ga:.2f} 球，不易溃败"}
+    # 2. 铜墙铁壁 (Iron Fortress) — 5 阶平滑划分
+    if avg_ga <= 0.4:
+        tags["铜墙铁壁"] = {"level": 5, "level_name": "零封壁垒", "weight_boost": 0.30, "score": round(avg_ga, 2), "confidence": 98, "desc": f"场均仅失 {avg_ga:.2f} 球，门前滴水不漏"}
+    elif avg_ga <= 0.65:
+        tags["铜墙铁壁"] = {"level": 4, "level_name": "金刚防线", "weight_boost": 0.22, "score": round(avg_ga, 2), "confidence": 92, "desc": f"场均仅失 {avg_ga:.2f} 球，防守防空能力极强"}
+    elif avg_ga <= 0.85:
+        tags["铜墙铁壁"] = {"level": 3, "level_name": "坚固防线", "weight_boost": 0.15, "score": round(avg_ga, 2), "confidence": 85, "desc": f"场均失 {avg_ga:.2f} 球，门前防守严密"}
+    elif avg_ga <= 1.05:
+        tags["铜墙铁壁"] = {"level": 2, "level_name": "防守稳定", "weight_boost": 0.08, "score": round(avg_ga, 2), "confidence": 78, "desc": f"场均失 {avg_ga:.2f} 球，不易溃败"}
+    elif avg_ga <= 1.2:
+        tags["铜墙铁壁"] = {"level": 1, "level_name": "防守合格", "weight_boost": 0.04, "score": round(avg_ga, 2), "confidence": 70, "desc": f"场均失 {avg_ga:.2f} 球，具备基础抗压"}
 
-    # 3. 主场狂魔 (Home Dominator)
-    if home_win_rate >= 0.75 and stats.get("home_played", 0) >= 3:
-        tags["主场狂魔"] = {"level": 3, "level_name": "魔鬼主场", "score": round(home_win_rate * 100, 1), "confidence": 92, "desc": f"主场胜率高达 {home_win_rate*100:.1f}%，主场威慑极强"}
-    elif home_win_rate >= 0.60 and stats.get("home_played", 0) >= 2:
-        tags["主场狂魔"] = {"level": 2, "level_name": "主场强势", "score": round(home_win_rate * 100, 1), "confidence": 82, "desc": f"主场胜率达 {home_win_rate*100:.1f}%，主战拿分稳定"}
+    # 3. 主场狂魔 (Home Dominator) — 5 阶平滑划分
+    hp = stats.get("home_played", 0)
+    if hp >= 2:
+        if home_win_rate >= 0.85:
+            tags["主场狂魔"] = {"level": 5, "level_name": "堡垒禁区", "weight_boost": 0.30, "score": round(home_win_rate * 100, 1), "confidence": 96, "desc": f"主场胜率达 {home_win_rate*100:.1f}%，无解主场壁垒"}
+        elif home_win_rate >= 0.70:
+            tags["主场狂魔"] = {"level": 4, "level_name": "魔鬼主场", "weight_boost": 0.22, "score": round(home_win_rate * 100, 1), "confidence": 90, "desc": f"主场胜率达 {home_win_rate*100:.1f}%，主场威慑力强"}
+        elif home_win_rate >= 0.58:
+            tags["主场狂魔"] = {"level": 3, "level_name": "主场强势", "weight_boost": 0.15, "score": round(home_win_rate * 100, 1), "confidence": 84, "desc": f"主场胜率达 {home_win_rate*100:.1f}%，主战拿分稳定"}
+        elif home_win_rate >= 0.48:
+            tags["主场狂魔"] = {"level": 2, "level_name": "主战积极", "weight_boost": 0.08, "score": round(home_win_rate * 100, 1), "confidence": 76, "desc": f"主场胜率达 {home_win_rate*100:.1f}%，主场有心理优势"}
+        elif home_win_rate >= 0.40:
+            tags["主场狂魔"] = {"level": 1, "level_name": "主场偏向", "weight_boost": 0.04, "score": round(home_win_rate * 100, 1), "confidence": 70, "desc": f"主场胜率达 {home_win_rate*100:.1f}%，略占便宜"}
 
-    # 4. 平局大师 (Draw Specialist)
-    if draw_rate >= 0.40:
-        tags["平局大师"] = {"level": 3, "level_name": "平局收割机", "score": round(draw_rate * 100, 1), "confidence": 90, "desc": f"平局率高达 {draw_rate*100:.1f}%，极易打成平局"}
+    # 4. 平局大师 (Draw Specialist) — 5 阶平滑划分
+    if draw_rate >= 0.45:
+        tags["平局大师"] = {"level": 5, "level_name": "绝对平局控", "weight_boost": 0.30, "score": round(draw_rate * 100, 1), "confidence": 95, "desc": f"平局率高达 {draw_rate*100:.1f}%，极其偏爱平局"}
+    elif draw_rate >= 0.38:
+        tags["平局大师"] = {"level": 4, "level_name": "平局收割机", "weight_boost": 0.22, "score": round(draw_rate * 100, 1), "confidence": 88, "desc": f"平局率高达 {draw_rate*100:.1f}%，平局期望极高"}
     elif draw_rate >= 0.30:
-        tags["平局大师"] = {"level": 2, "level_name": "高发平局", "score": round(draw_rate * 100, 1), "confidence": 80, "desc": f"平局率达 {draw_rate*100:.1f}%，胶着战偏多"}
+        tags["平局大师"] = {"level": 3, "level_name": "高发平局", "weight_boost": 0.15, "score": round(draw_rate * 100, 1), "confidence": 82, "desc": f"平局率达 {draw_rate*100:.1f}%，胶着战偏多"}
+    elif draw_rate >= 0.25:
+        tags["平局大师"] = {"level": 2, "level_name": "防守相持", "weight_boost": 0.08, "score": round(draw_rate * 100, 1), "confidence": 75, "desc": f"平局率达 {draw_rate*100:.1f}%，经常僵持成平"}
+    elif draw_rate >= 0.20:
+        tags["平局大师"] = {"level": 1, "level_name": "平局倾向", "weight_boost": 0.04, "score": round(draw_rate * 100, 1), "confidence": 70, "desc": f"平局率达 {draw_rate*100:.1f}%"}
 
     # 5. 逆转专家 (Comeback King)
-    if comebacks >= 2:
-        tags["逆转专家"] = {"level": 3, "level_name": "绝境翻盘王", "score": comebacks, "confidence": 88, "desc": f"多次完成半场落后逆转/追平"}
+    if comebacks >= 3:
+        tags["逆转专家"] = {"level": 5, "level_name": "绝地打不死", "weight_boost": 0.30, "score": comebacks, "confidence": 95, "desc": "多次下半场落后实现大逆转"}
+    elif comebacks >= 2:
+        tags["逆转专家"] = {"level": 3, "level_name": "绝境翻盘王", "weight_boost": 0.15, "score": comebacks, "confidence": 85, "desc": "具备强悍落后追平/翻盘韧性"}
     elif comebacks >= 1:
-        tags["逆转专家"] = {"level": 2, "level_name": "韧性抗压", "score": comebacks, "confidence": 78, "desc": f"具备落后顽强追分能力"}
+        tags["逆转专家"] = {"level": 1, "level_name": "韧性抗压", "weight_boost": 0.05, "score": comebacks, "confidence": 75, "desc": "具备落后追分能力"}
 
-    # 6. 无心恋战 (Vulnerable Defense)
-    if avg_ga >= 2.2:
-        tags["无心恋战"] = {"level": 3, "level_name": "重度防线崩盘", "score": round(avg_ga, 2), "confidence": 90, "desc": f"场均失球达 {avg_ga:.2f} 球，防守漏洞大"}
-    elif avg_ga >= 1.8:
-        tags["无心恋战"] = {"level": 2, "level_name": "防线吃紧", "score": round(avg_ga, 2), "confidence": 80, "desc": f"场均失球 {avg_ga:.2f} 球，防空反击隐患多"}
-
-    # 7. 抢分狂魔 (Points Collector)
-    if stats["goals_for"] >= 15 and stats["losses"] <= 2:
-        tags["抢分狂魔"] = {"level": 2, "level_name": "强悍抢分", "score": stats["goals_for"], "confidence": 85, "desc": f"不败率高，抢分势头猛"}
+    # 6. 无心恋战 (Vulnerable Defense) — 5 阶平滑划分
+    if avg_ga >= 2.5:
+        tags["无心恋战"] = {"level": 5, "level_name": "灾难级崩盘", "weight_boost": 0.30, "score": round(avg_ga, 2), "confidence": 95, "desc": f"场均失球达 {avg_ga:.2f} 球，防线溃不成军"}
+    elif avg_ga >= 2.1:
+        tags["无心恋战"] = {"level": 4, "level_name": "重度防线漏洞", "weight_boost": 0.22, "score": round(avg_ga, 2), "confidence": 88, "desc": f"场均失球达 {avg_ga:.2f} 球，门前失误频繁"}
+    elif avg_ga >= 1.7:
+        tags["无心恋战"] = {"level": 3, "level_name": "防线吃紧", "weight_boost": 0.15, "score": round(avg_ga, 2), "confidence": 82, "desc": f"场均失球 {avg_ga:.2f} 球，防空反击隐患大"}
+    elif avg_ga >= 1.4:
+        tags["无心恋战"] = {"level": 2, "level_name": "防守松懈", "weight_boost": 0.08, "score": round(avg_ga, 2), "confidence": 75, "desc": f"场均失球 {avg_ga:.2f} 球"}
+    elif avg_ga >= 1.2:
+        tags["无心恋战"] = {"level": 1, "level_name": "防线隐患", "weight_boost": 0.04, "score": round(avg_ga, 2), "confidence": 70, "desc": f"场均失球 {avg_ga:.2f} 球"}
 
     return tags
 
@@ -89,7 +115,7 @@ def evolve_team_tags():
                 if res and r.get("home") and r.get("away"):
                     all_match_sources.append({"home": r["home"], "away": r["away"], "res": res})
                     
-    # 3. Load 2026 Training & Validation Datasets
+    # 3. Load Datasets
     for p in [train_path, val_path]:
         if os.path.exists(p):
             with open(p, "r", encoding="utf-8") as f:
@@ -156,7 +182,7 @@ def evolve_team_tags():
     tags_db = {}
     total_evaluated = 0
     for team, stats in team_stats.items():
-        evaluated_tags = compute_tag_levels(stats)
+        evaluated_tags = compute_tag_5levels(stats)
         if evaluated_tags:
             tags_db[team] = {
                 "matches_evaluated": stats["played"],
@@ -167,7 +193,7 @@ def evolve_team_tags():
     with open(tags_path, "w", encoding="utf-8") as f:
         json.dump(tags_db, f, ensure_ascii=False, indent=2)
 
-    print(f"✅ [球队标签系统演算成功] 已为 {total_evaluated} 支球队量化评估了带有 Level 等级与置信度的标签!")
+    print(f"✅ [5阶平滑评级算法演进完毕] 已为 {total_evaluated} 支球队量化评估了 5 阶精细化平滑标签 (Lv.1 到 Lv.5)!")
 
 if __name__ == "__main__":
     evolve_team_tags()
