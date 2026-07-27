@@ -1349,6 +1349,56 @@ const MatchIQRender = (() => {
       </div>
     `;
 
+    const renderTagBadges = (teamName, tagsObj) => {
+      const entries = Object.entries(tagsObj || {});
+      if (entries.length === 0) {
+        return `<span style="font-size:11px; color:var(--text-4);">暂无特别标签</span>`;
+      }
+      return entries.map(([tagName, info]) => {
+        const lvl = typeof info === 'object' ? (info.level || 1) : 1;
+        const lvlName = typeof info === 'object' ? (info.level_name || '') : '';
+        const conf = typeof info === 'object' ? (info.confidence || 80) : 80;
+        
+        let color = 'var(--cyan)';
+        let bg = 'rgba(0, 212, 255, 0.1)';
+        let border = 'rgba(0, 212, 255, 0.25)';
+        if (lvl === 3) {
+          color = '#ef4444';
+          bg = 'rgba(239, 68, 68, 0.15)';
+          border = 'rgba(239, 68, 68, 0.4)';
+        } else if (lvl === 2) {
+          color = '#f59e0b';
+          bg = 'rgba(245, 158, 11, 0.15)';
+          border = 'rgba(245, 158, 11, 0.4)';
+        }
+
+        return `
+        <div style="display:inline-flex; align-items:center; gap:4px; padding:3px 8px; background:${bg}; border:1px solid ${border}; border-radius:4px; margin-right:6px; margin-bottom:6px;">
+          <span style="font-size:11.5px; font-weight:700; color:${color};">${tagName} <span style="font-size:10px; font-weight:normal;">Lv.${lvl}</span></span>
+          ${lvlName ? `<span style="font-size:9.5px; color:var(--text-3); font-weight:normal;">(${lvlName})</span>` : ''}
+          <span style="font-size:9px; opacity:0.7; color:var(--text-4); margin-left:2px;">${conf}%</span>
+        </div>`;
+      }).join('');
+    };
+
+    const teamTagsHtml = `
+    <div style="margin-top:14px; padding:12px 14px; background:rgba(255,255,255,0.02); border:1px solid var(--border-subtle); border-radius:8px; text-align:left;">
+      <div style="font-size:12px; font-weight:700; color:var(--text-1); margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
+        <span>🏷️ 球队性格与量化标签演进中枢</span>
+        <span style="font-size:10.5px; color:var(--cyan); font-weight:normal;">全量 117 支球队进化中</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div>
+          <div style="font-size:11px; color:var(--text-3); margin-bottom:6px; font-weight:bold;">${home} 标签:</div>
+          <div>${renderTagBadges(home, homeTags)}</div>
+        </div>
+        <div>
+          <div style="font-size:11px; color:var(--text-3); margin-bottom:6px; font-weight:bold;">${away} 标签:</div>
+          <div>${renderTagBadges(away, awayTags)}</div>
+        </div>
+      </div>
+    </div>`;
+
     return `
     <div class="mc-pane" id="pane-${match.id}-factors">
       <div style="margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;">
@@ -1362,6 +1412,7 @@ const MatchIQRender = (() => {
         </div>
       </div>
       <div class="factors-grid">${rows}${m10Row}</div>
+      ${teamTagsHtml}
     </div>`;
   }
 
