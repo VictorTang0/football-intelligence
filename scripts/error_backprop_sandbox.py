@@ -41,9 +41,12 @@ def get_actual_outcome(actual_str, home_team, away_team):
     except Exception:
         return None
 
-def compute_mse(finished_matches, factor_weights, experts):
+def compute_calibrated_loss(finished_matches, factor_weights, experts):
     total_mse = 0
     valid_count = 0
+    high_conf_hits, high_conf_total = 0, 0
+    low_conf_hits, low_conf_total = 0, 0
+
     for m in finished_matches:
         actual_str = m.get("ultimate_conclusion", {}).get("actual_result", "")
         outcome = get_actual_outcome(actual_str, m["home"], m["away"])
@@ -54,14 +57,34 @@ def compute_mse(finished_matches, factor_weights, experts):
         
         # Predict
         pred_score = calculate_moe_score(m.get("factor_scores", {}), factor_weights, experts)
-        # Normalize pred_score to roughly [-1.0, 1.0] domain
         pred_normalized = max(-1.0, min(1.0, pred_score / 2.0))
         
         error = (target - pred_normalized) ** 2
         total_mse += error
         valid_count += 1
+
+        # Track Confidence Calibration performance
+        conf = m.get("ultimate_conclusion", {}).get("confidence", 0)
+        is_hit = m.get("is_correct", False)
+        if conf >= 60:
+            high_conf_total += 1
+            if is_hit: high_conf_hits += 1
+        elif conf > 0:
+            low_conf_total += 1
+            if is_hit: low_conf_hits += 1
         
-    return total_mse / valid_count if valid_count > 0 else 0
+    mse = total_mse / valid_count if valid_count > 0 else 0
+    
+    # Calculate Expected Calibration Error (ECE) & Inversion Penalty
+    high_acc = high_conf_hits / high_conf_total if high_conf_total > 0 else 0.5
+    low_acc = low_conf_hits / low_conf_total if low_conf_total > 0 else 0.5
+    
+    inversion_penalty = 0.0
+    if low_acc > high_acc:
+        # Penalize confidence inversion strongly
+        inversion_penalty = (low_acc - high_acc) * 0.5
+        
+    return mse + inversion_penalty
 
 def run_backprop_sandbox():
     with open(weights_path, "r", encoding="utf-8") as f:
@@ -80,12 +103,12 @@ def run_backprop_sandbox():
         print("MoE experts not found in weights.json. Exiting.")
         return
     
-    current_mse = compute_mse(finished_matches, base_factors, base_experts)
-    print(f"Current Baseline MSE: {current_mse:.4f}")
+    current_loss = compute_calibrated_loss(finished_matches, base_factors, base_experts)
+    print(f"Current Calibrated Loss (MSE + Inversion Penalty): {current_loss:.4f}")
     
     # 1. Grid Perturbation for Factor Weights (M01-M08)
     best_factors = copy.deepcopy(base_factors)
-    best_mse = current_mse
+    best_loss = current_loss
     learning_rate = 0.05
     
     print("Testing factor perturbations...")
@@ -97,11 +120,11 @@ def run_backprop_sandbox():
             total = sum(test_factors.values())
             test_factors = {k: v/total for k, v in test_factors.items()}
             
-            mse = compute_mse(finished_matches, test_factors, base_experts)
-            if mse < best_mse:
-                best_mse = mse
+            loss = compute_calibrated_loss(finished_matches, test_factors, base_experts)
+            if loss < best_loss:
+                best_loss = loss
                 best_factors = copy.deepcopy(test_factors)
-                print(f"  > Improved MSE to {best_mse:.4f} by adjusting {fid}")
+                print(f"  > Improved Loss to {best_loss:.4f} by adjusting {fid}")
                 
     # 2. Grid Perturbation for MoE Experts
     best_experts = copy.deepcopy(base_experts)
@@ -116,15 +139,15 @@ def run_backprop_sandbox():
                 for k in test_exp:
                     test_exp[k]["weight"] = round(test_exp[k]["weight"] / total, 4)
                 
-            mse = compute_mse(finished_matches, best_factors, test_exp)
-            if mse < best_mse:
-                best_mse = mse
+            loss = compute_calibrated_loss(finished_matches, best_factors, test_exp)
+            if loss < best_loss:
+                best_loss = loss
                 best_experts = copy.deepcopy(test_exp)
-                print(f"  > Improved MSE to {best_mse:.4f} by adjusting Expert: {exp_id}")
+                print(f"  > Improved Loss to {best_loss:.4f} by adjusting Expert: {exp_id}")
                 
     # Write back if improved
-    if best_mse < current_mse:
-        print(f"Applying new optimized weights. Final MSE: {best_mse:.4f}")
+    if best_loss < current_loss:
+        print(f"Applying new optimized weights. Final Calibrated Loss: {best_loss:.4f}")
         for f in weights_db["factors"]:
             f["weight"] = round(best_factors[f["id"]], 4)
         weights_db["experts"] = best_experts
