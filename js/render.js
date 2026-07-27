@@ -1183,81 +1183,57 @@ const MatchIQRender = (() => {
 
       <!-- M10 Hub Rendering -->
       ${(() => {
-        const hotScores = c.sporttery_hot_scores || [];
-        const hotHafu = c.sporttery_hot_hafu || [];
-        const hasDivergence = c.had_hhad_divergence === true;
         const hub = match.m10_hub_analysis || c.m10_hub_analysis || {};
-        const snapshotCount = hub.snapshot_count || c.m10_snapshot_count || 1;
-        
-        const euStatus = hub.asian_eu_status?.description || '水温拉锯平稳 (资金分布均衡)';
-        
-        const hadText = hub.had_analysis?.text || '当前无竞彩推荐';
-        const hadTraj = hub.had_analysis?.trajectory || '暂无水位轨迹';
+        const snapshotCount = c.m10_snapshot_count || hub.snapshot_count || (match.odds_analysis?.water_trajectory?.length) || (match.odds_analysis?.water_snapshots?.length) || 1;
+        const conf = hub.confidence || c.m10_confidence || 80;
 
-          const hhadText = hub.hhad_analysis?.text || '当前无竞彩推荐';
-          const hhadTraj = hub.hhad_analysis?.trajectory || '暂无水位轨迹';
+        const cleanText = (txt) => {
+          if (!txt || txt === 'None' || txt === '--') return '无推荐';
+          return String(txt).replace(/[\(（]竞彩[\)）]/g, '').trim() || '无推荐';
+        };
 
-          const crsList = (hub.crs_analysis?.items || []).map(item => {
-            if (item.is_invalid) {
-              return `<del style="opacity:0.5; color:#9ca3af; margin-right:8px;">${item.score} (${item.arrow})</del>`;
-            } else {
-              return `<span style="color:#ffd700; font-weight:700; margin-right:8px;">${item.score} (${item.arrow})</span>`;
-            }
-          }).join('') || '<span style="color:var(--text-4);">当前无竞彩推荐</span>';
+        const hadVal = cleanText(hub.had_recommendation || hub.m10_had);
+        const hhadVal = cleanText(hub.hhad_recommendation || hub.m10_hhad);
+        const scoreVal = cleanText(hub.predicted_score || hub.m10_predicted_score);
+        const goalsVal = cleanText(hub.over_under || hub.m10_over_under);
+        const hfVal = cleanText(hub.half_full || hub.m10_half_full);
 
-          const goalsList = (hub.goals_analysis?.items || []).map(item => {
-            if (item.is_invalid) {
-              return `<del style="opacity:0.5; color:#9ca3af; margin-right:8px;">${item.goal} (${item.arrow})</del>`;
-            } else {
-              return `<span style="color:#ffd700; font-weight:700; margin-right:8px;">${item.goal} (${item.arrow})</span>`;
-            }
-          }).join('') || '<span style="color:var(--text-4);">当前无竞彩推荐</span>';
+        const styleRec = (val) => val !== '无推荐' 
+          ? 'color:#ef4444; font-weight:800; font-size:13px;' 
+          : 'color:var(--text-3); font-weight:500;';
 
-          const hafuList = (hub.hafu_analysis?.items || []).map(item => {
-            if (item.is_invalid) {
-              return `<del style="opacity:0.5; color:#9ca3af; margin-right:8px;">${item.hafu} (${item.arrow})</del>`;
-            } else {
-              return `<span style="color:#818cf8; font-weight:700; margin-right:8px;">${item.hafu} (${item.arrow})</span>`;
-            }
-          }).join('') || '<span style="color:var(--text-4);">当前无竞彩推荐</span>';
-
-          return `
-          <div class="m10-hub-box" style="margin-top: 15px; padding: 14px; background: rgba(0, 188, 212, 0.04); border: 1px solid rgba(0, 188, 212, 0.2); border-left: 4px solid var(--cyan); border-radius: 8px; text-align: left; font-size:12.5px; line-height:1.6;">
-            <div style="font-weight: 800; font-size: 13.5px; margin-bottom: 10px; color: var(--cyan); display: flex; align-items: center; justify-content: space-between; border-bottom:1px solid rgba(0,188,212,0.15); padding-bottom:6px;">
-              <span>🎯 M10 竞彩决策数据中枢 (415 场实盘水温训练集)</span>
-              <span style="font-size: 10.5px; padding: 2px 6px; background: rgba(0,188,212,0.15); border: 1px solid rgba(0,188,212,0.3); border-radius: 4px; color: var(--cyan);">采集 ${snapshotCount} 次变盘</span>
-            </div>
-            
-            <div style="margin-bottom:8px; background:rgba(255,255,255,0.02); padding:6px 10px; border-radius:4px;">
-              <span style="color:var(--text-3); font-weight:600;">1. 亚欧盘资金流：</span>
-              <span style="font-weight:700;">${euStatus}</span>
+        return `
+        <div class="m10-hub-box" style="margin-top: 15px; padding: 14px; background: rgba(0, 188, 212, 0.04); border: 1px solid rgba(0, 188, 212, 0.2); border-left: 4px solid var(--cyan); border-radius: 8px; text-align: left; font-size:12.5px; line-height:1.6;">
+          <div style="font-weight: 800; font-size: 13.5px; margin-bottom: 10px; color: var(--cyan); display: flex; align-items: center; justify-content: space-between; border-bottom:1px solid rgba(0,188,212,0.15); padding-bottom:6px;">
+            <span>🎯 M10 竞彩决策数据中枢 (实盘水温独立推演)</span>
+            <span>
+              <span style="font-size: 10.5px; padding: 2px 6px; background: rgba(0,188,212,0.15); border: 1px solid rgba(0,188,212,0.3); border-radius: 4px; color: var(--cyan); margin-right:4px;">采集 ${snapshotCount} 次变盘</span>
+              <span style="font-size: 10.5px; padding: 2px 6px; background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.4); border-radius: 4px; color: #ef4444; font-weight:bold;">置信度 ${conf}%</span>
+            </span>
+          </div>
+          
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:8px;">
+            <div style="background:rgba(255,255,255,0.02); padding:6px 10px; border-radius:4px;">
+              <span style="color:var(--text-3); font-weight:600;">① 胜平负：</span><span style="${styleRec(hadVal)}">${hadVal}</span>
             </div>
 
-            <div style="margin-bottom:8px; background:rgba(255,255,255,0.02); padding:6px 10px; border-radius:4px;">
-              <div style="color:var(--text-3); font-size:11.5px; font-family:var(--font-mono); margin-bottom:2px;">胜平负水位: ${hadTraj}</div>
-              <div><span style="color:var(--text-3); font-weight:600;">2. 胜平负结论：</span><span style="color:#10b981; font-weight:800;">${hadText}</span></div>
+            <div style="background:rgba(255,255,255,0.02); padding:6px 10px; border-radius:4px;">
+              <span style="color:var(--text-3); font-weight:600;">② 让球胜平负：</span><span style="${styleRec(hhadVal)}">${hhadVal}</span>
             </div>
 
-            <div style="margin-bottom:8px; background:rgba(255,255,255,0.02); padding:6px 10px; border-radius:4px;">
-              <div style="color:var(--text-3); font-size:11.5px; font-family:var(--font-mono); margin-bottom:2px;">让球水位: ${hhadTraj}</div>
-              <div><span style="color:var(--text-3); font-weight:600;">3. 让球盘结论：</span><span style="color:#10b981; font-weight:800;">${hhadText}</span></div>
+            <div style="background:rgba(255,255,255,0.02); padding:6px 10px; border-radius:4px;">
+              <span style="color:var(--text-3); font-weight:600;">③ 预测比分：</span><span style="${styleRec(scoreVal)}">${scoreVal}</span>
             </div>
 
-            <div style="margin-bottom:8px; background:rgba(255,255,255,0.02); padding:6px 10px; border-radius:4px;">
-              <span style="color:var(--text-3); font-weight:600;">4. 比分偏离 (Top3)：</span>
-              ${crsList}
+            <div style="background:rgba(255,255,255,0.02); padding:6px 10px; border-radius:4px;">
+              <span style="color:var(--text-3); font-weight:600;">④ 具体进球数：</span><span style="${styleRec(goalsVal)}">${goalsVal}</span>
             </div>
 
-            <div style="margin-bottom:8px; background:rgba(255,255,255,0.02); padding:6px 10px; border-radius:4px;">
-              <span style="color:var(--text-3); font-weight:600;">5. 进球数偏离 (Top3)：</span>
-              ${goalsList}
+            <div style="background:rgba(255,255,255,0.02); padding:6px 10px; border-radius:4px;">
+              <span style="color:var(--text-3); font-weight:600;">⑤ 半全场：</span><span style="${styleRec(hfVal)}">${hfVal}</span>
             </div>
-
-            <div style="margin-bottom:4px; background:rgba(255,255,255,0.02); padding:6px 10px; border-radius:4px;">
-              <span style="color:var(--text-3); font-weight:600;">6. 半全场偏离 (Top2)：</span>
-              ${hafuList}
-            </div>
-          </div>`;
+          </div>
+        </div>`;
       })()}
     </div>`;
   }
