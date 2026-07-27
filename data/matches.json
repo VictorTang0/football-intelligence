@@ -76418,18 +76418,44 @@
               "lose": 3.36
             }
           }
+        },
+        {
+          "timestamp": "2026-07-27T16:43:31.058549",
+          "pinnacle": {
+            "home": 1.79,
+            "draw": 3.4,
+            "away": 3.62
+          },
+          "kelly_conclusion": "即时返还率为 0.851。基于散户倾向（主 50% / 平 24% / 客 26%），计算得出即时凯利指数为：主胜 1.17，平局 0.68，客胜 0.66。<br/> 散户最热的【主胜】（凯利 1.17）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+          "asian_handicap": {
+            "handicap": "主队-0.75",
+            "home_odds": 1.88,
+            "away_odds": 2.02
+          },
+          "lottery_handicap": {
+            "initial": {
+              "win": 1.77,
+              "draw": 3.75,
+              "lose": 3.36
+            },
+            "current": {
+              "win": 1.77,
+              "draw": 3.75,
+              "lose": 3.36
+            }
+          }
         }
       ],
       "match_context": "瑞超常规赛对决。赫根坐镇主场迎接索尔纳的挑战。",
       "ultimate_conclusion": {
-        "recommendation": "平局",
-        "primary_bet": "平局",
-        "confidence": 34,
+        "recommendation": "反基本面冷门 (客队不败) (竞彩)",
+        "primary_bet": "双选不败",
+        "confidence": 36,
         "risk_level": "极高",
         "ev_score": 0.0,
-        "reasoning": "瑞超联赛的人工草皮主场优势极其明显，客队适应常面临考验。 基本面上，赫根在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），但索尔纳在【近期状态与动能】上（评分 8.9 对 6.6）给主队带来制约。结合战意（主 85% / 客 82%），即时欧指主胜由 2.39 降至 2.34，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【平局】。",
-        "confidence_trend": "down",
-        "predicted_score": "2-2 或 1-1"
+        "reasoning": "瑞超联赛的人工草皮主场优势极其明显，客队适应常面临考验。 基本面上，赫根在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），但索尔纳在【近期状态与动能】上（评分 8.9 对 6.6）给主队带来制约。结合战意（主 85% / 客 82%），即时欧指 2.39 / 2.77 / 2.49 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【反基本面冷门 (客队不败) (竞彩)】。",
+        "confidence_trend": "up",
+        "predicted_score": "2-1 或 1-1 或 2-2 (竞彩)"
       },
       "team_stats": {
         "home": {
@@ -76639,14 +76665,14 @@
         "pinnacle": {
           "name": "pinnacle",
           "initial": {
+            "home": 2.44,
+            "draw": 2.71,
+            "away": 2.44
+          },
+          "current": {
             "home": 2.39,
             "draw": 2.77,
             "away": 2.49
-          },
-          "current": {
-            "home": 1.79,
-            "draw": 3.4,
-            "away": 3.62
           },
           "movement": "实时追踪"
         },
@@ -76670,9 +76696,9 @@
             "lose": 3.36
           },
           "current": {
-            "win": 1.77,
-            "draw": 3.75,
-            "lose": 3.36
+            "win": 1.79,
+            "draw": 3.4,
+            "lose": 3.62
           }
         },
         "over_under": {
@@ -76701,79 +76727,79 @@
         "sbobet": {
           "name": "sbobet",
           "initial": {
-            "home": 2.43,
-            "draw": 2.72,
-            "away": 2.41
+            "home": 2.49,
+            "draw": 2.66,
+            "away": 2.37
           },
           "current": {
-            "home": 2.39,
-            "draw": 2.77,
-            "away": 2.46
+            "home": 2.44,
+            "draw": 2.71,
+            "away": 2.42
           },
           "movement": "实时追踪"
         },
         "nova88": {
           "name": "nova88",
           "initial": {
+            "home": 2.39,
+            "draw": 2.74,
+            "away": 2.49
+          },
+          "current": {
             "home": 2.34,
             "draw": 2.8,
             "away": 2.54
-          },
-          "current": {
-            "home": 2.29,
-            "draw": 2.86,
-            "away": 2.59
           },
           "movement": "实时追踪"
         },
         "crown": {
           "name": "crown",
           "initial": {
-            "home": 2.41,
-            "draw": 2.77,
-            "away": 2.46
+            "home": 2.46,
+            "draw": 2.71,
+            "away": 2.42
           },
           "current": {
-            "home": 2.36,
-            "draw": 2.83,
-            "away": 2.51
+            "home": 2.41,
+            "draw": 2.77,
+            "away": 2.47
           },
           "movement": "实时追踪"
         },
         "hkjc": {
           "name": "hkjc",
           "initial": {
+            "home": 2.36,
+            "draw": 2.63,
+            "away": 2.56
+          },
+          "current": {
             "home": 2.32,
             "draw": 2.69,
             "away": 2.61
-          },
-          "current": {
-            "home": 2.27,
-            "draw": 2.75,
-            "away": 2.67
           },
           "movement": "实时追踪"
         },
         "m8bet": {
           "name": "m8bet",
           "initial": {
-            "home": 2.36,
+            "home": 2.41,
+            "draw": 2.77,
+            "away": 2.46
+          },
+          "current": {
+            "home": 2.37,
             "draw": 2.83,
             "away": 2.51
           },
-          "current": {
-            "home": 2.32,
-            "draw": 2.89,
-            "away": 2.57
-          },
           "movement": "实时追踪"
         },
-        "bookmaker_intent": "当前主客均赔为 2.34 对 2.54，平赔降至 2.83。庄家意图在于利用均势盘口双向分流资金，借助市场分歧最大化对冲抽水利润。",
+        "bookmaker_intent": "当前主客均赔为 2.34 对 2.54，平赔降至 2.83。庄家意图在于利用均势盘口双向分流资金，借助市场分歧最大化对冲抽水利润。 [最新盘口修正推演]：随着即时实盘数据震荡调整，由于预测方向已由 '平局' 修正变更为 '主不败'，表明庄家对常规时间内双方筹码的分流防御重心发生了实质性微调。主队让球水位的波动正在加剧释放出避让资金过热的防御信号。",
         "smoke_screens": [
-          "【平局均势烟雾弹】平赔低压至 2.83 呈现均势拉锯假象，极易掩盖其中一方胜意强烈的真实走势。",
+          "【平局均势烟雾弹】平赔低压至 2.77 呈现均势拉锯假象，极易掩盖其中一方胜意强烈的真实走势。",
           "【交锋往绩烟雾弹】利用 赫根 与 索尔纳 历史交锋热度营造单边情绪，意在掩盖近期战术体系调整后的真实实力差距。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】首选的 '平局' 赔率升水至 2.83 呈阻力。结合舆情热度（大众倾向均衡），此为典型的热门诱买陷阱，庄家其实更防范相反的「分出胜负」剧本打出。",
+        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主不败' 进行了实质性控赔下调（已降水至 2.39），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。",
         "sporttery": {
           "name": "中国竞彩 (Sporttery)",
           "initial": {
@@ -76782,11 +76808,11 @@
             "away": 3.36
           },
           "current": {
-            "home": 1.75,
-            "draw": 3.75,
-            "away": 3.43
+            "home": 1.79,
+            "draw": 3.4,
+            "away": 3.62
           },
-          "movement": "更新于 12:41:10"
+          "movement": "更新于 14:36:05"
         }
       },
       "intelligence": {
@@ -76840,31 +76866,150 @@
         }
       },
       "conclusions": {
-        "mainstream": "平局",
+        "mainstream": "主不败",
         "upset": "客队客场爆冷",
         "aggressive": "比分 2-1",
         "conservative": "主队受让",
-        "most_likely_score": "2-2 或 1-1",
-        "over_under": "大 2.5",
-        "half_full": "平负 或 负负",
-        "upset_probability": 0.22,
+        "most_likely_score": "2-1 或 1-1 或 2-2 (竞彩)",
+        "over_under": "大 2.5 (竞彩)",
+        "half_full": "平平 (竞彩)",
+        "upset_probability": 0.68,
         "upset_direction": "客胜/平局",
-        "kelly_conclusion": "即时返还率为 0.851。基于散户倾向（主 50% / 平 24% / 客 26%），计算得出即时凯利指数为：主胜 1.17，平局 0.68，客胜 0.66。<br/> 散户最热的【主胜】（凯利 1.17）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+        "kelly_conclusion": "即时返还率为 0.847。基于散户倾向（主 50% / 平 24% / 客 26%），计算得出即时凯利指数为：主胜 1.20，平局 0.67，客胜 0.65。<br/> 散户最热的【主胜】（凯利 1.20）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
         "draw_multiplier": 1.0,
-        "upset_trend": "up",
-        "m10_snapshot_count": 1,
-        "m10_applied": false,
+        "upset_trend": "down",
+        "m10_snapshot_count": 6,
+        "m10_applied": true,
         "m10_water_trajectory": [
           {
             "time": "09:35:19",
             "h": "1.77",
             "d": "3.75",
             "a": "3.36"
+          },
+          {
+            "time": "12:41:10",
+            "h": "1.75",
+            "d": "3.75",
+            "a": "3.43"
+          },
+          {
+            "time": "11:45:49",
+            "h": "1.75",
+            "d": "3.65",
+            "a": "3.52"
+          },
+          {
+            "time": "12:13:02",
+            "h": "1.77",
+            "d": "3.57",
+            "a": "3.52"
+          },
+          {
+            "time": "13:54:41",
+            "h": "1.77",
+            "d": "3.47",
+            "a": "3.62"
+          },
+          {
+            "time": "14:36:05",
+            "h": "1.79",
+            "d": "3.40",
+            "a": "3.62"
           }
         ],
         "had_hhad_divergence": false,
-        "sporttery_hot_scores": [],
-        "sporttery_hot_hafu": []
+        "sporttery_hot_scores": [
+          "2:2"
+        ],
+        "sporttery_hot_hafu": [
+          "平平",
+          "平胜",
+          "胜负"
+        ],
+        "m10_hub_analysis": {
+          "snapshot_count": 6,
+          "asian_eu_status": {
+            "has_divergence": true,
+            "description": "🚨 欧让剪刀差背离 (主胜升水/让负降水，庄家强防主不败)"
+          },
+          "had_analysis": {
+            "trajectory": "主胜 1.77➔1.79(↑) | 平 3.75➔3.40(↓) | 客胜 3.36➔3.62(↑)",
+            "has_recommendation": true,
+            "primary": "平局",
+            "secondary": "主胜",
+            "text": "最可能：平局 | 次可能：主胜"
+          },
+          "hhad_analysis": {
+            "trajectory": "让胜(-1) 3.16➔3.30(↑) | 让平 3.75➔3.75(-) | 让负 1.83➔1.79(↓)",
+            "has_recommendation": true,
+            "primary": "让负",
+            "secondary": "让平",
+            "text": "最可能：让负 | 次可能：让平"
+          },
+          "crs_analysis": {
+            "items": [],
+            "has_recommendation": false
+          },
+          "goals_analysis": {
+            "items": [
+              {
+                "goal": "4球",
+                "drop": 0.40000000000000036,
+                "arrow": "↓",
+                "is_invalid": false
+              },
+              {
+                "goal": "3球",
+                "drop": 0.25,
+                "arrow": "↓",
+                "is_invalid": false
+              },
+              {
+                "goal": "5球",
+                "drop": 0.20000000000000018,
+                "arrow": "↓",
+                "is_invalid": false
+              },
+              {
+                "goal": "6球",
+                "drop": -0.5,
+                "arrow": "↑",
+                "is_invalid": true
+              },
+              {
+                "goal": "1球",
+                "drop": -0.7999999999999998,
+                "arrow": "↑",
+                "is_invalid": true
+              }
+            ],
+            "has_recommendation": true
+          },
+          "hafu_analysis": {
+            "items": [
+              {
+                "hafu": "胜负",
+                "drop": 2.0,
+                "arrow": "↓",
+                "is_invalid": false
+              },
+              {
+                "hafu": "平平",
+                "drop": 0.5,
+                "arrow": "↓",
+                "is_invalid": false
+              },
+              {
+                "hafu": "负胜",
+                "drop": -1.0,
+                "arrow": "↑",
+                "is_invalid": true
+              }
+            ],
+            "has_recommendation": true
+          }
+        }
       },
       "h2h": {
         "last_5": [
@@ -76991,25 +77136,25 @@
       "public_vs_bookmaker": [
         {
           "outcome": "主胜",
-          "public_prob": "54.5%",
-          "bookmaker_implied": "50.0%",
-          "true_est": "50.0%",
+          "public_prob": "54.0%",
+          "bookmaker_implied": "49.5%",
+          "true_est": "49.5%",
           "payout_risk": "低",
           "bookmaker_attitude": "中性"
         },
         {
           "outcome": "平局",
-          "public_prob": "21.4%",
-          "bookmaker_implied": "23.6%",
-          "true_est": "23.6%",
+          "public_prob": "23.8%",
+          "bookmaker_implied": "26.1%",
+          "true_est": "26.1%",
           "payout_risk": "低",
           "bookmaker_attitude": "中性"
         },
         {
           "outcome": "客胜",
-          "public_prob": "24.0%",
-          "bookmaker_implied": "26.4%",
-          "true_est": "26.4%",
+          "public_prob": "22.2%",
+          "bookmaker_implied": "24.5%",
+          "true_est": "24.5%",
           "payout_risk": "低",
           "bookmaker_attitude": "中性"
         }
@@ -77087,22 +77232,22 @@
           "signal": "赫根抢分战意更浓"
         },
         "M09_历史交锋与心理克制": {
-          "home_score": 9.8,
-          "away_score": 1.5,
+          "home_score": 5.0,
+          "away_score": 5.0,
           "weight": 0.08,
-          "signal": "赫根交锋占优(5胜1平0负)"
+          "signal": "交锋势均力敌"
         }
       },
-      "moe_score": 0.004229137925566971,
+      "moe_score": 0.0879492592862996,
       "prediction_updated": true,
       "diff_markers": {
-        "had": false,
-        "score": false,
-        "ou": false,
-        "hf": false,
-        "goals": false
+        "had": true,
+        "score": true,
+        "ou": true,
+        "hf": true,
+        "goals": true
       },
-      "odds_movement_str": "胜 2.39➔2.34 | 平 2.77➔2.83 | 负 2.49➔2.54",
+      "odds_movement_str": "胜 1.77➔1.79 | 平 3.75➔3.4 | 负 3.36➔3.62",
       "business_date": "2026-07-27",
       "issue_date": "260727",
       "match_code": 201,
@@ -77110,10 +77255,116 @@
       "has_changed_in_push": true,
       "odds_water_changed": true,
       "baseline_recommendation": "主胜",
-      "current_recommendation": "平局",
-      "current_scores": "2-2 或 1-1",
-      "current_goals": "大 2.5",
-      "radar_triggered": false
+      "current_recommendation": "反基本面冷门 (客队不败) (竞彩)",
+      "current_scores": "2-1 或 1-1 或 2-2 (竞彩)",
+      "current_goals": "大 2.5 (竞彩)",
+      "radar_triggered": false,
+      "m10_hub_analysis": {
+        "snapshot_count": 6,
+        "asian_eu_status": {
+          "has_divergence": true,
+          "description": "🚨 欧让剪刀差背离 (主胜升水/让负降水，庄家强防主不败)"
+        },
+        "had_analysis": {
+          "trajectory": "主胜 1.77➔1.79(↑) | 平 3.75➔3.40(↓) | 客胜 3.36➔3.62(↑)",
+          "has_recommendation": true,
+          "primary": "平局",
+          "secondary": "主胜",
+          "text": "最可能：平局 | 次可能：主胜"
+        },
+        "hhad_analysis": {
+          "trajectory": "让胜(-1) 3.16➔3.30(↑) | 让平 3.75➔3.75(-) | 让负 1.83➔1.79(↓)",
+          "has_recommendation": true,
+          "primary": "让负",
+          "secondary": "让平",
+          "text": "最可能：让负 | 次可能：让平"
+        },
+        "crs_analysis": {
+          "items": [],
+          "has_recommendation": false
+        },
+        "goals_analysis": {
+          "items": [
+            {
+              "goal": "4球",
+              "drop": 0.40000000000000036,
+              "arrow": "↓",
+              "is_invalid": false
+            },
+            {
+              "goal": "3球",
+              "drop": 0.25,
+              "arrow": "↓",
+              "is_invalid": false
+            },
+            {
+              "goal": "5球",
+              "drop": 0.20000000000000018,
+              "arrow": "↓",
+              "is_invalid": false
+            },
+            {
+              "goal": "6球",
+              "drop": -0.5,
+              "arrow": "↑",
+              "is_invalid": true
+            },
+            {
+              "goal": "1球",
+              "drop": -0.7999999999999998,
+              "arrow": "↑",
+              "is_invalid": true
+            }
+          ],
+          "has_recommendation": true
+        },
+        "hafu_analysis": {
+          "items": [
+            {
+              "hafu": "胜负",
+              "drop": 2.0,
+              "arrow": "↓",
+              "is_invalid": false
+            },
+            {
+              "hafu": "平平",
+              "drop": 0.5,
+              "arrow": "↓",
+              "is_invalid": false
+            },
+            {
+              "hafu": "负胜",
+              "drop": -1.0,
+              "arrow": "↑",
+              "is_invalid": true
+            }
+          ],
+          "has_recommendation": true
+        }
+      },
+      "subitem_arrows": {
+        "had": {
+          "primary": "up",
+          "m10": "up"
+        },
+        "hhad": {
+          "primary": "up",
+          "m10": "up"
+        },
+        "score": {
+          "primary": "up",
+          "m10": "down"
+        },
+        "goals": {
+          "primary": "up",
+          "m10": "down"
+        },
+        "hf": {
+          "primary": "up",
+          "m10": "up"
+        }
+      },
+      "has_conclusion_changed": true
     },
     {
       "id": "match_260727_202",
@@ -77641,18 +77892,44 @@
               "lose": 4.45
             }
           }
+        },
+        {
+          "timestamp": "2026-07-27T16:43:31.076477",
+          "pinnacle": {
+            "home": 1.48,
+            "draw": 3.95,
+            "away": 5.0
+          },
+          "kelly_conclusion": "即时返还率为 0.887。基于散户倾向（主 58% / 平 23% / 客 19%），计算得出即时凯利指数为：主胜 1.17，平局 0.66，客胜 0.67。<br/> 散户最热的【主胜】（凯利 1.17）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+          "asian_handicap": {
+            "handicap": "主队-0.75",
+            "home_odds": 1.88,
+            "away_odds": 2.02
+          },
+          "lottery_handicap": {
+            "initial": {
+              "win": 1.53,
+              "draw": 3.8,
+              "lose": 4.7
+            },
+            "current": {
+              "win": 1.57,
+              "draw": 3.75,
+              "lose": 4.45
+            }
+          }
         }
       ],
       "match_context": "挪超常规赛对决。罗森博格坐镇主场迎接腓特烈的挑战。",
       "ultimate_conclusion": {
-        "recommendation": "反基本面冷门 (客队不败) (竞彩)",
+        "recommendation": "客不败",
         "primary_bet": "双选不败",
-        "confidence": 36,
+        "confidence": 65,
         "risk_level": "极高",
         "ev_score": 0.0,
-        "reasoning": "挪超联赛大开大合，大球率高，进攻端对体能消耗极大。 基本面上，罗森博格在【近期状态与动能】上拥有明显优势（评分 8.0 对 4.6），两队防线与战术匹配相对均衡。结合战意（主 85% / 客 82%），即时欧指 2.01 / 2.87 / 3.55 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【反基本面冷门 (客队不败) (竞彩)】。",
-        "confidence_trend": "up",
-        "predicted_score": "1-0 或 0-0"
+        "reasoning": "挪超联赛大开大合，大球率高，进攻端对体能消耗极大。 基本面上，罗森博格在【近期状态与动能】上拥有明显优势（评分 8.0 对 4.6），两队防线与战术匹配相对均衡。结合战意（主 85% / 客 82%），即时欧指 2.05 / 2.81 / 3.48 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
+        "confidence_trend": "down",
+        "predicted_score": "1-0 或 0-0 或 2-0 (竞彩)"
       },
       "team_stats": {
         "home": {
@@ -77862,14 +78139,14 @@
         "pinnacle": {
           "name": "pinnacle",
           "initial": {
+            "home": 2.09,
+            "draw": 2.75,
+            "away": 3.41
+          },
+          "current": {
             "home": 2.05,
             "draw": 2.81,
             "away": 3.48
-          },
-          "current": {
-            "home": 1.48,
-            "draw": 3.95,
-            "away": 5.0
           },
           "movement": "实时追踪"
         },
@@ -77893,9 +78170,9 @@
             "lose": 4.7
           },
           "current": {
-            "win": 1.57,
-            "draw": 3.75,
-            "lose": 4.45
+            "win": 1.48,
+            "draw": 3.95,
+            "lose": 5.0
           }
         },
         "over_under": {
@@ -77924,33 +78201,61 @@
         "sbobet": {
           "name": "sbobet",
           "initial": {
-            "home": 2.09,
-            "draw": 2.76,
-            "away": 3.37
+            "home": 2.13,
+            "draw": 2.7,
+            "away": 3.31
           },
           "current": {
-            "home": 2.05,
-            "draw": 2.81,
-            "away": 3.44
+            "home": 2.09,
+            "draw": 2.75,
+            "away": 3.38
           },
           "movement": "实时追踪"
         },
         "nova88": {
           "name": "nova88",
           "initial": {
+            "home": 2.05,
+            "draw": 2.78,
+            "away": 3.48
+          },
+          "current": {
             "home": 2.01,
             "draw": 2.84,
             "away": 3.55
-          },
-          "current": {
-            "home": 1.97,
-            "draw": 2.9,
-            "away": 3.62
           },
           "movement": "实时追踪"
         },
         "crown": {
           "name": "crown",
+          "initial": {
+            "home": 2.11,
+            "draw": 2.75,
+            "away": 3.38
+          },
+          "current": {
+            "home": 2.07,
+            "draw": 2.81,
+            "away": 3.45
+          },
+          "movement": "实时追踪"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 2.03,
+            "draw": 2.67,
+            "away": 3.58
+          },
+          "current": {
+            "home": 1.99,
+            "draw": 2.73,
+            "away": 3.65
+          },
+          "movement": "实时追踪"
+        },
+        "m8bet": {
+          "name": "m8bet",
           "initial": {
             "home": 2.07,
             "draw": 2.81,
@@ -77963,40 +78268,12 @@
           },
           "movement": "实时追踪"
         },
-        "hkjc": {
-          "name": "hkjc",
-          "initial": {
-            "home": 1.99,
-            "draw": 2.73,
-            "away": 3.65
-          },
-          "current": {
-            "home": 1.95,
-            "draw": 2.78,
-            "away": 3.73
-          },
-          "movement": "实时追踪"
-        },
-        "m8bet": {
-          "name": "m8bet",
-          "initial": {
-            "home": 2.03,
-            "draw": 2.87,
-            "away": 3.51
-          },
-          "current": {
-            "home": 1.99,
-            "draw": 2.93,
-            "away": 3.59
-          },
-          "movement": "实时追踪"
-        },
-        "bookmaker_intent": "主队主胜欧赔低至 1.56，让步规格明显。庄家核心意图在于利用深盘压低赔付，主队胜算极高，散户押注大多集中于主队胜出，庄家通过低水位进行合理防范。 [最新盘口修正推演]：随着即时实盘数据震荡调整，由于预测方向已由 '反基本面冷门 (客队不败) (竞彩)' 修正变更为 '主不败'，表明庄家对常规时间内双方筹码的分流防御重心发生了实质性微调。主队让球水位的波动正在加剧释放出避让资金过热的防御信号。",
+        "bookmaker_intent": "主队主胜欧赔低至 1.56，让步规格明显。庄家核心意图在于利用深盘压低赔付，主队胜算极高，散户押注大多集中于主队胜出，庄家通过低水位进行合理防范。 [最新盘口修正推演]：随着即时实盘数据震荡调整，由于预测方向已由 '反基本面冷门 (客队不败) (竞彩)' 修正变更为 '客不败'，表明庄家对常规时间内双方筹码的分流防御重心发生了实质性微调。主队让球水位的波动正在加剧释放出避让资金过热的防御信号。",
         "smoke_screens": [
           "【交锋往绩烟雾弹】利用 罗森博格 与 腓特烈 历史交锋热度营造单边情绪，意在掩盖近期战术体系调整后的真实实力差距。",
           "【水位微震烟雾弹】盘口水位在临场前频繁微震，涉嫌制造控盘假象分流散户筹码。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主不败' 进行了实质性控赔下调（已降水至 2.01），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。",
+        "bookmaker_backed_script": "【庄家看好剧本】首选的 '客不败' 赔率升水至 3.48 呈阻力。结合舆情热度（大众倾向均衡），此为典型的热门诱买陷阱，庄家其实更防范相反的「主队受让或不败」剧本打出。",
         "sporttery": {
           "name": "中国竞彩 (Sporttery)",
           "initial": {
@@ -78005,11 +78282,11 @@
             "away": 4.7
           },
           "current": {
-            "home": 1.57,
-            "draw": 3.75,
-            "away": 4.45
+            "home": 1.48,
+            "draw": 3.95,
+            "away": 5.0
           },
-          "movement": "更新于 16:48:49"
+          "movement": "更新于 15:06:15"
         }
       },
       "intelligence": {
@@ -78063,19 +78340,19 @@
         }
       },
       "conclusions": {
-        "mainstream": "主不败",
+        "mainstream": "客不败",
         "upset": "客队客场爆冷",
         "aggressive": "比分 2-1",
         "conservative": "主队受让",
-        "most_likely_score": "1-0 或 0-0",
-        "over_under": "小 2.5 (竞彩)",
-        "half_full": "平胜 或 胜胜 或 负负 (竞彩)",
-        "upset_probability": 0.68,
+        "most_likely_score": "1-0 或 0-0 或 2-0 (竞彩)",
+        "over_under": "小 2.5",
+        "half_full": "平平 或 胜胜 (竞彩)",
+        "upset_probability": 0.17,
         "upset_direction": "客胜/平局",
-        "kelly_conclusion": "即时返还率为 0.887。基于散户倾向（主 58% / 平 23% / 客 19%），计算得出即时凯利指数为：主胜 1.17，平局 0.66，客胜 0.67。<br/> 散户最热的【主胜】（凯利 1.17）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+        "kelly_conclusion": "即时返还率为 0.884。基于散户倾向（主 58% / 平 23% / 客 19%），计算得出即时凯利指数为：主胜 1.19，平局 0.65，客胜 0.66。<br/> 散户最热的【主胜】（凯利 1.19）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
         "draw_multiplier": 1.0,
-        "upset_trend": "down",
-        "m10_snapshot_count": 2,
+        "upset_trend": "up",
+        "m10_snapshot_count": 5,
         "m10_applied": true,
         "m10_water_trajectory": [
           {
@@ -78089,15 +78366,106 @@
             "h": "1.57",
             "d": "3.75",
             "a": "4.45"
+          },
+          {
+            "time": "11:46:56",
+            "h": "1.53",
+            "d": "3.80",
+            "a": "4.70"
+          },
+          {
+            "time": "12:51:19",
+            "h": "1.51",
+            "d": "3.85",
+            "a": "4.85"
+          },
+          {
+            "time": "15:06:15",
+            "h": "1.48",
+            "d": "3.95",
+            "a": "5.00"
           }
         ],
         "had_hhad_divergence": false,
-        "sporttery_hot_scores": [],
+        "sporttery_hot_scores": [
+          "2:0",
+          "2:1",
+          "3:1"
+        ],
         "sporttery_hot_hafu": [
-          "负负",
-          "平平",
-          "平负"
-        ]
+          "胜胜"
+        ],
+        "m10_hub_analysis": {
+          "snapshot_count": 5,
+          "asian_eu_status": {
+            "has_divergence": true,
+            "description": "🚨 欧让剪刀差背离 (主胜降水/让胜升水，庄家强防客不败)"
+          },
+          "had_analysis": {
+            "trajectory": "主胜 1.53➔1.48(↓) | 平 3.80➔3.95(↑) | 客胜 4.70➔5.00(↑)",
+            "has_recommendation": true,
+            "primary": "主胜",
+            "secondary": "平局",
+            "text": "最可能：主胜 | 次可能：平局"
+          },
+          "hhad_analysis": {
+            "trajectory": "让胜(-1) 2.75➔2.65(↓) | 让平 3.35➔3.25(↓) | 让负 2.14➔2.25(↑)",
+            "has_recommendation": true,
+            "primary": "让胜",
+            "secondary": "让平",
+            "text": "最可能：让胜 | 次可能：让平"
+          },
+          "crs_analysis": {
+            "items": [],
+            "has_recommendation": false
+          },
+          "goals_analysis": {
+            "items": [
+              {
+                "goal": "2球",
+                "drop": 0.19999999999999973,
+                "arrow": "↓",
+                "is_invalid": false
+              },
+              {
+                "goal": "3球",
+                "drop": 0.1499999999999999,
+                "arrow": "↓",
+                "is_invalid": false
+              },
+              {
+                "goal": "5球",
+                "drop": -0.75,
+                "arrow": "↑",
+                "is_invalid": true
+              },
+              {
+                "goal": "6球",
+                "drop": -1.5,
+                "arrow": "↑",
+                "is_invalid": true
+              }
+            ],
+            "has_recommendation": true
+          },
+          "hafu_analysis": {
+            "items": [
+              {
+                "hafu": "负负",
+                "drop": -0.9000000000000004,
+                "arrow": "↑",
+                "is_invalid": true
+              },
+              {
+                "hafu": "胜平",
+                "drop": -1.0,
+                "arrow": "↑",
+                "is_invalid": true
+              }
+            ],
+            "has_recommendation": false
+          }
+        }
       },
       "h2h": {
         "last_5": [
@@ -78188,27 +78556,27 @@
       "public_vs_bookmaker": [
         {
           "outcome": "主胜",
-          "public_prob": "66.0%",
-          "bookmaker_implied": "56.5%",
-          "true_est": "61.0%",
-          "payout_risk": "极高",
-          "bookmaker_attitude": "诱多防范"
+          "public_prob": "69.6%",
+          "bookmaker_implied": "59.9%",
+          "true_est": "64.4%",
+          "payout_risk": "偏高",
+          "bookmaker_attitude": "压水防范"
         },
         {
           "outcome": "平局",
-          "public_prob": "17.9%",
-          "bookmaker_implied": "23.6%",
-          "true_est": "21.0%",
+          "public_prob": "14.3%",
+          "bookmaker_implied": "22.4%",
+          "true_est": "17.6%",
           "payout_risk": "低",
           "bookmaker_attitude": "放弃风控"
         },
         {
           "outcome": "客胜",
           "public_prob": "16.1%",
-          "bookmaker_implied": "19.9%",
+          "bookmaker_implied": "17.7%",
           "true_est": "18.0%",
           "payout_risk": "低",
-          "bookmaker_attitude": "放弃风控"
+          "bookmaker_attitude": "中性"
         }
       ],
       "home_standing": {
@@ -78284,22 +78652,22 @@
           "signal": "罗森博格抢分战意更浓"
         },
         "M09_历史交锋与心理克制": {
-          "home_score": 8.2,
-          "away_score": 1.8,
+          "home_score": 5.3,
+          "away_score": 4.7,
           "weight": 0.08,
-          "signal": "罗森博格交锋占优(2胜2平0负)"
+          "signal": "罗森博格交锋占优"
         }
       },
-      "moe_score": 0.08773262444196418,
+      "moe_score": -1.0767390075313341,
       "prediction_updated": true,
       "diff_markers": {
-        "had": false,
-        "score": false,
-        "ou": false,
-        "hf": false,
-        "goals": false
+        "had": true,
+        "score": true,
+        "ou": true,
+        "hf": true,
+        "goals": true
       },
-      "odds_movement_str": "胜 1.53➔1.57 | 平 3.8➔3.75 | 负 4.7➔4.45",
+      "odds_movement_str": "胜 1.53➔1.48 | 平 3.8➔3.95 | 负 4.7➔5.0",
       "business_date": "2026-07-27",
       "issue_date": "260727",
       "match_code": 202,
@@ -78307,10 +78675,104 @@
       "has_changed_in_push": true,
       "odds_water_changed": true,
       "baseline_recommendation": "主胜",
-      "current_recommendation": "反基本面冷门 (客队不败) (竞彩)",
-      "current_scores": "1-0 或 0-0",
-      "current_goals": "小 2.5 (竞彩)",
-      "radar_triggered": false
+      "current_recommendation": "客不败",
+      "current_scores": "1-0 或 0-0 或 2-0 (竞彩)",
+      "current_goals": "小 2.5",
+      "radar_triggered": false,
+      "m10_hub_analysis": {
+        "snapshot_count": 5,
+        "asian_eu_status": {
+          "has_divergence": true,
+          "description": "🚨 欧让剪刀差背离 (主胜降水/让胜升水，庄家强防客不败)"
+        },
+        "had_analysis": {
+          "trajectory": "主胜 1.53➔1.48(↓) | 平 3.80➔3.95(↑) | 客胜 4.70➔5.00(↑)",
+          "has_recommendation": true,
+          "primary": "主胜",
+          "secondary": "平局",
+          "text": "最可能：主胜 | 次可能：平局"
+        },
+        "hhad_analysis": {
+          "trajectory": "让胜(-1) 2.75➔2.65(↓) | 让平 3.35➔3.25(↓) | 让负 2.14➔2.25(↑)",
+          "has_recommendation": true,
+          "primary": "让胜",
+          "secondary": "让平",
+          "text": "最可能：让胜 | 次可能：让平"
+        },
+        "crs_analysis": {
+          "items": [],
+          "has_recommendation": false
+        },
+        "goals_analysis": {
+          "items": [
+            {
+              "goal": "2球",
+              "drop": 0.19999999999999973,
+              "arrow": "↓",
+              "is_invalid": false
+            },
+            {
+              "goal": "3球",
+              "drop": 0.1499999999999999,
+              "arrow": "↓",
+              "is_invalid": false
+            },
+            {
+              "goal": "5球",
+              "drop": -0.75,
+              "arrow": "↑",
+              "is_invalid": true
+            },
+            {
+              "goal": "6球",
+              "drop": -1.5,
+              "arrow": "↑",
+              "is_invalid": true
+            }
+          ],
+          "has_recommendation": true
+        },
+        "hafu_analysis": {
+          "items": [
+            {
+              "hafu": "负负",
+              "drop": -0.9000000000000004,
+              "arrow": "↑",
+              "is_invalid": true
+            },
+            {
+              "hafu": "胜平",
+              "drop": -1.0,
+              "arrow": "↑",
+              "is_invalid": true
+            }
+          ],
+          "has_recommendation": false
+        }
+      },
+      "subitem_arrows": {
+        "had": {
+          "primary": "up",
+          "m10": "down"
+        },
+        "hhad": {
+          "primary": "up",
+          "m10": "up"
+        },
+        "score": {
+          "primary": "up",
+          "m10": "up"
+        },
+        "goals": {
+          "primary": "up",
+          "m10": "up"
+        },
+        "hf": {
+          "primary": "up",
+          "m10": "up"
+        }
+      },
+      "has_conclusion_changed": true
     }
   ]
 }

@@ -2672,6 +2672,11 @@ def main():
 
     data["matches"].sort(key=sort_matches_key)
 
+    # ── SAVE UPDATED DATA TO DISK ──
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    print(f"✅ [Data Saved] Successfully updated and saved {len(data.get('matches', []))} matches to data/matches.json!")
+
     # 自动进行前端 JS 静态语法预检防崩溃保护
     try:
         import subprocess
