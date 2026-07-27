@@ -2262,7 +2262,10 @@ def main():
         prev_snapshot = m.get("conclusions", {}).get("m10_snapshot_count", 0)
         compute_m10_factors(m, bonus_db)
         try:
-            import scripts.m10_engine as m10_engine
+            try:
+                import m10_engine
+            except ImportError:
+                from scripts import m10_engine
             hub_res = m10_engine.deduce_m10_hub_conclusions(m, bonus_db)
             m["m10_hub_analysis"] = hub_res
             m["conclusions"]["m10_hub_analysis"] = hub_res
