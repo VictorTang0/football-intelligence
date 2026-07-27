@@ -2681,6 +2681,9 @@ def main():
 
     # ── 100% 纯 M10 结论与竞彩期次 Tag 自动化工作流融合 ──
     try:
+        import sys
+        if base_dir not in sys.path:
+            sys.path.append(base_dir)
         from scripts.generate_pure_m10_conclusions import deduce_pure_m10
         for m in data.get("matches", []):
             m10_res = deduce_pure_m10(m)
