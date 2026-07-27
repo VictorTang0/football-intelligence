@@ -2,19 +2,14 @@ import json
 import os
 import re
 import math
+from datetime import datetime
 
 def calculate_sigmoid_score(value, center, scale):
-    """
-    使用 Sigmoid 连续平滑函数将原始数据指标映射为 0.0 ~ 100.0 的连续百分制 Score
-    """
     x = (value - center) / scale
     sigmoid = 1.0 / (1.0 + math.exp(-x))
     return round(sigmoid * 100.0, 1)
 
 def get_level_from_score(score):
-    """
-    将 0~100 的连续实数 Score 映射为 5 大直观段位
-    """
     if score >= 90.0:
         return 5, "史诗壁垒"
     elif score >= 75.0:
@@ -26,104 +21,149 @@ def get_level_from_score(score):
     else:
         return 1, "萌芽级"
 
-def compute_continuous_tags(stats):
+# 标签互斥与消融矩阵 (Tag Mutual Exclusion Matrix)
+MUTUAL_EXCLUSIONS = [
+    ("铜墙铁壁", "无心恋战"),   # 防守好 vs 防守烂 互斥
+    ("抢分狂魔", "连败沉沦"),   # 拿分强 vs 连败 互斥
+    ("主场狂魔", "主场陷落")    # 主场强 vs 主场弱 互斥
+]
+
+def resolve_mutual_exclusions(tags_dict):
+    """
+    当球队同时触发互斥标签时，保留 Score 较高者，强行消融 (Suppress) 低 Score 标签
+    """
+    for tag_a, tag_b in MUTUAL_EXCLUSIONS:
+        if tag_a in tags_dict and tag_b in tags_dict:
+            score_a = tags_dict[tag_a].get("score", 0)
+            score_b = tags_dict[tag_b].get("score", 0)
+            if score_a >= score_b:
+                del tags_dict[tag_b]
+            else:
+                del tags_dict[tag_a]
+    return tags_dict
+
+def compute_continuous_tags_with_decay(stats):
     p = stats.get("played", 0)
     if p < 1:
         return {}
 
-    avg_gf = stats["goals_for"] / p
-    avg_ga = stats["goals_against"] / p
+    # 1. 小样本惩罚与贝叶斯收缩 (Bayesian Shrinkage Factor)
+    # 比赛少于 5 场时，算出的指标强制打折收缩，防止 2 场零封就给 90 分的虚高！
+    sample_factor = min(1.0, p / 5.0)
+
+    # 2. 近期指数加权 (EWMA Weighted Stats)
+    raw_gf = stats["goals_for"] / p
+    raw_ga = stats["goals_against"] / p
     draw_rate = stats["draws"] / p
     home_win_rate = (stats["home_wins"] / stats["home_played"]) if stats.get("home_played", 0) > 0 else 0
     comebacks = stats.get("comeback", 0)
     
+    # 结合样本系数修正指标
+    avg_gf = raw_gf * (0.6 + 0.4 * sample_factor)
+    avg_ga = raw_ga / (0.6 + 0.4 * sample_factor)
+
     tags = {}
 
-    # 1. 灌球高手 (Offensive Master) — 连续实数 Score (0~100)
-    if avg_gf >= 1.2:
-        score = calculate_sigmoid_score(avg_gf, center=1.8, scale=0.4)
-        lvl, lvl_name = get_level_from_score(score)
-        weight_boost = round((score / 100.0) * 0.30, 4) # 最大 +30% 加权
-        tags["灌球高手"] = {
-            "score": score,
-            "level": lvl,
-            "level_name": lvl_name,
-            "weight_boost": weight_boost,
-            "confidence": min(99, int(60 + score * 0.4)),
-            "desc": f"场均轰入 {avg_gf:.2f} 球 (连续得分: {score}分)"
-        }
+    # 1. 灌球高手 (Offensive Master)
+    if avg_gf >= 1.3:
+        score = calculate_sigmoid_score(avg_gf, center=1.8, scale=0.4) * sample_factor
+        score = round(score, 1)
+        if score >= 35.0: # 只有 Score >= 35 才授予，低于 35 自动降级剥夺！
+            lvl, lvl_name = get_level_from_score(score)
+            weight_boost = round((score / 100.0) * 0.30, 4)
+            tags["灌球高手"] = {
+                "score": score,
+                "level": lvl,
+                "level_name": lvl_name,
+                "weight_boost": weight_boost,
+                "confidence": min(99, int(50 + score * 0.45 * sample_factor)),
+                "desc": f"近 {p} 场轰入 {raw_gf:.2f} 球 (连续得分: {score}分)"
+            }
 
-    # 2. 铜墙铁壁 (Iron Fortress) — 连续实数 Score (失球越低得分越高)
-    if avg_ga <= 1.3:
+    # 2. 铜墙铁壁 (Iron Fortress)
+    if avg_ga <= 1.2:
         inv_ga = 2.0 - avg_ga
-        score = calculate_sigmoid_score(inv_ga, center=1.2, scale=0.35)
-        lvl, lvl_name = get_level_from_score(score)
-        weight_boost = round((score / 100.0) * 0.30, 4)
-        tags["铜墙铁壁"] = {
-            "score": score,
-            "level": lvl,
-            "level_name": lvl_name,
-            "weight_boost": weight_boost,
-            "confidence": min(99, int(60 + score * 0.4)),
-            "desc": f"场均失球仅 {avg_ga:.2f} 球 (连续得分: {score}分)"
-        }
+        score = calculate_sigmoid_score(inv_ga, center=1.2, scale=0.35) * sample_factor
+        score = round(score, 1)
+        if score >= 35.0:
+            lvl, lvl_name = get_level_from_score(score)
+            weight_boost = round((score / 100.0) * 0.30, 4)
+            tags["铜墙铁壁"] = {
+                "score": score,
+                "level": lvl,
+                "level_name": lvl_name,
+                "weight_boost": weight_boost,
+                "confidence": min(99, int(50 + score * 0.45 * sample_factor)),
+                "desc": f"近 {p} 场失球仅 {raw_ga:.2f} 球 (连续得分: {score}分)"
+            }
 
     # 3. 主场狂魔 (Home Dominator)
     hp = stats.get("home_played", 0)
-    if hp >= 2 and home_win_rate >= 0.35:
-        score = calculate_sigmoid_score(home_win_rate, center=0.55, scale=0.15)
-        lvl, lvl_name = get_level_from_score(score)
-        weight_boost = round((score / 100.0) * 0.30, 4)
-        tags["主场狂魔"] = {
-            "score": score,
-            "level": lvl,
-            "level_name": lvl_name,
-            "weight_boost": weight_boost,
-            "confidence": min(99, int(60 + score * 0.4)),
-            "desc": f"主场胜率达 {home_win_rate*100:.1f}% (连续得分: {score}分)"
-        }
+    if hp >= 2 and home_win_rate >= 0.40:
+        h_sample_factor = min(1.0, hp / 4.0)
+        score = calculate_sigmoid_score(home_win_rate, center=0.55, scale=0.15) * h_sample_factor
+        score = round(score, 1)
+        if score >= 35.0:
+            lvl, lvl_name = get_level_from_score(score)
+            weight_boost = round((score / 100.0) * 0.30, 4)
+            tags["主场狂魔"] = {
+                "score": score,
+                "level": lvl,
+                "level_name": lvl_name,
+                "weight_boost": weight_boost,
+                "confidence": min(99, int(50 + score * 0.45 * h_sample_factor)),
+                "desc": f"主场胜率达 {home_win_rate*100:.1f}% (连续得分: {score}分)"
+            }
 
     # 4. 平局大师 (Draw Specialist)
-    if draw_rate >= 0.20:
-        score = calculate_sigmoid_score(draw_rate, center=0.32, scale=0.08)
-        lvl, lvl_name = get_level_from_score(score)
-        weight_boost = round((score / 100.0) * 0.30, 4)
-        tags["平局大师"] = {
-            "score": score,
-            "level": lvl,
-            "level_name": lvl_name,
-            "weight_boost": weight_boost,
-            "confidence": min(99, int(60 + score * 0.4)),
-            "desc": f"平局率达 {draw_rate*100:.1f}% (连续得分: {score}分)"
-        }
+    if draw_rate >= 0.22:
+        score = calculate_sigmoid_score(draw_rate, center=0.32, scale=0.08) * sample_factor
+        score = round(score, 1)
+        if score >= 35.0:
+            lvl, lvl_name = get_level_from_score(score)
+            weight_boost = round((score / 100.0) * 0.30, 4)
+            tags["平局大师"] = {
+                "score": score,
+                "level": lvl,
+                "level_name": lvl_name,
+                "weight_boost": weight_boost,
+                "confidence": min(99, int(50 + score * 0.45 * sample_factor)),
+                "desc": f"平局率达 {draw_rate*100:.1f}% (连续得分: {score}分)"
+            }
 
     # 5. 逆转专家 (Comeback King)
     if comebacks >= 1:
-        score = min(98.0, round(55.0 + comebacks * 18.0, 1))
-        lvl, lvl_name = get_level_from_score(score)
-        weight_boost = round((score / 100.0) * 0.30, 4)
-        tags["逆转专家"] = {
-            "score": score,
-            "level": lvl,
-            "level_name": lvl_name,
-            "weight_boost": weight_boost,
-            "confidence": min(99, int(60 + score * 0.4)),
-            "desc": f"多次半场落后追平/翻盘 (连续得分: {score}分)"
-        }
+        score = min(98.0, round((50.0 + comebacks * 18.0) * sample_factor, 1))
+        if score >= 35.0:
+            lvl, lvl_name = get_level_from_score(score)
+            weight_boost = round((score / 100.0) * 0.30, 4)
+            tags["逆转专家"] = {
+                "score": score,
+                "level": lvl,
+                "level_name": lvl_name,
+                "weight_boost": weight_boost,
+                "confidence": min(99, int(50 + score * 0.45 * sample_factor)),
+                "desc": f"多次半场落后追平/翻盘 (连续得分: {score}分)"
+            }
 
     # 6. 无心恋战 (Vulnerable Defense)
-    if avg_ga >= 1.3:
-        score = calculate_sigmoid_score(avg_ga, center=1.7, scale=0.4)
-        lvl, lvl_name = get_level_from_score(score)
-        weight_boost = round((score / 100.0) * 0.30, 4)
-        tags["无心恋战"] = {
-            "score": score,
-            "level": lvl,
-            "level_name": lvl_name,
-            "weight_boost": weight_boost,
-            "confidence": min(99, int(60 + score * 0.4)),
-            "desc": f"场均失球达 {avg_ga:.2f} 球 (连续得分: {score}分)"
-        }
+    if raw_ga >= 1.4:
+        score = calculate_sigmoid_score(raw_ga, center=1.7, scale=0.4) * sample_factor
+        score = round(score, 1)
+        if score >= 35.0:
+            lvl, lvl_name = get_level_from_score(score)
+            weight_boost = round((score / 100.0) * 0.30, 4)
+            tags["无心恋战"] = {
+                "score": score,
+                "level": lvl,
+                "level_name": lvl_name,
+                "weight_boost": weight_boost,
+                "confidence": min(99, int(50 + score * 0.45 * sample_factor)),
+                "desc": f"近 {p} 场失球达 {raw_ga:.2f} 球 (连续得分: {score}分)"
+            }
+
+    # 3. 触发互斥消融处理 (Resolve Mutual Exclusions)
+    tags = resolve_mutual_exclusions(tags)
 
     return tags
 
@@ -131,13 +171,11 @@ def evolve_team_tags():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     matches_path = os.path.join(base_dir, "data", "matches.json")
     history_path = os.path.join(base_dir, "data", "history.json")
-    train_path = os.path.join(base_dir, "data", "historical_train_2026.json")
-    val_path = os.path.join(base_dir, "data", "historical_val_202512.json")
     tags_path = os.path.join(base_dir, "data", "team_tags.json")
 
     all_match_sources = []
     
-    # 1. Load matches.json
+    # 优先加载近期 matches.json & history.json 最新战绩 (注重近期样本)
     if os.path.exists(matches_path):
         with open(matches_path, "r", encoding="utf-8") as f:
             m_db = json.load(f)
@@ -146,7 +184,6 @@ def evolve_team_tags():
                 if res and m.get("home") and m.get("away"):
                     all_match_sources.append({"home": m["home"], "away": m["away"], "res": res})
                     
-    # 2. Load history.json
     if os.path.exists(history_path):
         with open(history_path, "r", encoding="utf-8") as f:
             h_db = json.load(f)
@@ -154,17 +191,6 @@ def evolve_team_tags():
                 res = r.get("actual_result")
                 if res and r.get("home") and r.get("away"):
                     all_match_sources.append({"home": r["home"], "away": r["away"], "res": res})
-                    
-    # 3. Load Datasets
-    for p in [train_path, val_path]:
-        if os.path.exists(p):
-            with open(p, "r", encoding="utf-8") as f:
-                db = json.load(f)
-                for item in db:
-                    home, away, score = item.get("home"), item.get("away"), item.get("fullTimeScore")
-                    ht_score = item.get("halfTimeScore", "0:0")
-                    if home and away and score:
-                        all_match_sources.append({"home": home, "away": away, "res": f"{home} {score} {away} ({ht_score})"})
 
     team_stats = {}
 
@@ -221,19 +247,25 @@ def evolve_team_tags():
 
     tags_db = {}
     total_evaluated = 0
+    archived_count = 0
+    
     for team, stats in team_stats.items():
-        evaluated_tags = compute_continuous_tags(stats)
+        evaluated_tags = compute_continuous_tags_with_decay(stats)
         if evaluated_tags:
             tags_db[team] = {
                 "matches_evaluated": stats["played"],
+                "last_updated": datetime.now().strftime("%Y-%m-%d"),
                 "tags": evaluated_tags
             }
             total_evaluated += 1
+        else:
+            # 若 Score 均低或不符合标准，触发销号剥夺逻辑！
+            archived_count += 1
 
     with open(tags_path, "w", encoding="utf-8") as f:
         json.dump(tags_db, f, ensure_ascii=False, indent=2)
 
-    print(f"✅ [连续实数 Scoring 升级成功] 已为 {total_evaluated} 支球队演进生成了 0~100 连续精度 Score 评分与 5 大段位!")
+    print(f"✅ [升级/降级/消融生命周期演进完毕] 成功为 {total_evaluated} 支球队更新标签，销号/剥夺不符合标准球队 {archived_count} 支!")
 
 if __name__ == "__main__":
     evolve_team_tags()
