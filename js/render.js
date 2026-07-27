@@ -1668,30 +1668,38 @@ const MatchIQRender = (() => {
       return `<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-3);border:1px dashed var(--border);border-radius:var(--radius)">暂无已完赛预测历史</div>`;
     }
 
-    // Group records by YYYY-MM-DD date
+    // Group records by Sporttery issue date (e.g., 260726 / YYMMDD)
     const groups = {};
     records.forEach(r => {
-      const rawDate = r.date || '其他日期';
-      const cleanDate = rawDate.split(' ')[0].split('T')[0];
-      if (!groups[cleanDate]) {
-        groups[cleanDate] = [];
+      const mid = r.id || '';
+      const no = r.match_no || '';
+      let issueTag = '260726';
+      
+      const mId = mid.match(/match_(\d{6})_/);
+      if (mId) {
+        issueTag = mId[1];
+      } else {
+        const rawDate = r.date || '2026-07-26';
+        issueTag = rawDate.split(' ')[0].split('T')[0].replace(/-/g, '').slice(2);
       }
-      groups[cleanDate].push(r);
+      
+      if (!groups[issueTag]) {
+        groups[issueTag] = [];
+      }
+      groups[issueTag].push(r);
     });
 
-    // Get sorted unique dates (newest first)
-    const sortedDates = Object.keys(groups).sort((a, b) => new Date(b) - new Date(a));
+    // 1. Sort dates ASCENDING (从早到晚: e.g., 260725 -> 260726 -> 260727)
+    const sortedDates = Object.keys(groups).sort((a, b) => a.localeCompare(b));
+    const recent5Dates = sortedDates.slice(-5); // Take the latest 5 dates in timeline order
 
-    const recent5Dates = sortedDates.slice(0, 5);
-
-    // M10 独立 5 日历史红黑推荐面板渲染 (最近1日展示 + 较旧4日折叠)
     let m10HistoryPanelHtml = '';
     if (recent5Dates.length > 0) {
-      const day1 = recent5Dates[0];
-      const older4Days = recent5Dates.slice(1);
+      const day1 = recent5Dates[recent5Dates.length - 1]; // Latest date
+      const older4Days = recent5Dates.slice(0, recent5Dates.length - 1);
 
-      function renderM10DayRows(dayDate) {
-        const rawMatches = groups[dayDate] || [];
+      function renderM10DayRows(dayTag) {
+        const rawMatches = groups[dayTag] || [];
         if (rawMatches.length === 0) {
           return `<div style="font-size:11px; color:var(--text-4); padding:6px 8px;">该日暂无对账记录</div>`;
         }
@@ -1702,11 +1710,18 @@ const MatchIQRender = (() => {
           return t || '无推荐';
         };
 
-        // Sort matches by confidence descending
+        // 2. Sort matches by Sporttery Code DESCENDING (从大到小: e.g., 周日 218 -> 周日 201)
         const sortedMatches = [...rawMatches].sort((a, b) => {
-          const confA = a.m10_hub_analysis?.confidence || a.conclusions?.m10_confidence || a.confidence || 0;
-          const confB = b.m10_hub_analysis?.confidence || b.conclusions?.m10_confidence || b.confidence || 0;
-          return confB - confA;
+          const getNum = (m) => {
+            const mid = m.id || '';
+            const no = m.match_no || '';
+            const mId = mid.match(/_(\d+)$/);
+            if (mId) return parseInt(mId[1], 10);
+            const mNo = no.match(/(\d+)/);
+            if (mNo) return parseInt(mNo[1], 10);
+            return 0;
+          };
+          return getNum(b) - getNum(a); // 从大到小 218 -> 201
         });
 
         let dayRedCount = 0;
@@ -1758,13 +1773,14 @@ const MatchIQRender = (() => {
             }
           }
 
-          // Use real match code like 201, 202, 203
-          const matchCode = m.code || (m.id ? m.id.split('_').pop() : '') || `${idx + 201}`;
+          // Format match code like 周日 218
+          const numOnly = m.code || (m.id ? m.id.split('_').pop() : '') || '201';
+          const matchCode = m.match_no || `周日 ${numOnly}`;
           const itemStyle = (isHit) => isHit ? 'color:#ef4444; font-weight:800; text-shadow:0 0 4px rgba(239,68,68,0.3);' : 'color:#f8fafc; font-weight:500;';
 
           return `
             <div style="padding:8px 12px; border-bottom:1px solid rgba(255,255,255,0.05); margin-bottom:5px; border-radius:6px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; font-size:12.5px; ${rowHighlight}">
-              <div style="display:flex; align-items:center; gap:8px; min-width:200px;">
+              <div style="display:flex; align-items:center; gap:8px; min-width:210px;">
                 <strong style="color:var(--cyan); font-size:13px; font-weight:800;">[${matchCode}]</strong>
                 <div>
                   <div style="font-weight:700; color:#ffffff; line-height:1.2;">${m.home} vs ${m.away} ${ftScore ? `<span style="color:var(--cyan); font-weight:800; margin-left:4px;">${ftScore}</span>` : ''}</div>
@@ -1785,7 +1801,7 @@ const MatchIQRender = (() => {
         }).join('');
 
         const winRate = dayValidCount > 0 ? (dayRedCount / dayValidCount * 100.0).toFixed(1) : '0.0';
-        const formattedDateTag = `比赛编号日期${dayDate.replace(/-/g,'').slice(2)}`;
+        const formattedDateTag = `比赛编号日期 ${dayTag}`;
         const totalMatchesCount = sortedMatches.length;
         const summaryHeader = `
           <div style="margin-bottom:8px; font-size:12px; color:var(--cyan); background:rgba(0,188,212,0.08); padding:6px 12px; border-radius:6px; display:flex; justify-content:space-between; align-items:center; border:1px solid rgba(0,188,212,0.2);">
@@ -1837,16 +1853,23 @@ const MatchIQRender = (() => {
         rows.push(`
           <tr class="history-date-row">
             <td colspan="5" style="text-align:left; font-weight:700; background:rgba(255,255,255,0.02); color:var(--cyan); padding:10px 16px; border-bottom:1px solid var(--border-subtle);">
-              📅 ${date}
+              📅 比赛编号日期 ${date}
             </td>
           </tr>
         `);
 
-        // Match rows under this date (sorted by kickoff time descending: latest to earliest)
+        // Match rows under this date (sorted by Sporttery Code DESCENDING: 218 -> 201)
         const sortedDayMatches = [...groups[date]].sort((a, b) => {
-          const tA = a.time || (a.kickoff ? (a.kickoff.split(' ')[1] || a.kickoff.split('T')[1]) : '') || '00:00';
-          const tB = b.time || (b.kickoff ? (b.kickoff.split(' ')[1] || b.kickoff.split('T')[1]) : '') || '00:00';
-          return tB.localeCompare(tA);
+          const getNum = (m) => {
+            const mid = m.id || '';
+            const no = m.match_no || '';
+            const mId = mid.match(/_(\d+)$/);
+            if (mId) return parseInt(mId[1], 10);
+            const mNo = no.match(/(\d+)/);
+            if (mNo) return parseInt(mNo[1], 10);
+            return 0;
+          };
+          return getNum(b) - getNum(a); // 从大到小 218 -> 201
         });
 
         sortedDayMatches.forEach(r => {
