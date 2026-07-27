@@ -1692,16 +1692,45 @@ const MatchIQRender = (() => {
 
       function renderM10DayRows(dayDate) {
         const matches = groups[dayDate] || [];
-        return matches.map(m => {
-          const hub = m.m10_hub_analysis || {};
-          const hadRec = hub.had_analysis?.text || '当前无竞彩推荐';
-          const isRed = m.is_correct;
-          const badge = isRed ? '<span style="color:#ef4444; background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3); padding:1px 5px; border-radius:3px; font-weight:700; font-size:10px;">红</span>' : '<span style="color:#6b7280; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:1px 5px; border-radius:3px; font-size:10px;">黑</span>';
+        if (matches.length === 0) {
+          return `<div style="font-size:11px; color:var(--text-4); padding:6px 8px;">该日暂无对账记录</div>`;
+        }
+        return matches.map((m, idx) => {
+          const p = m.predictions || {};
+          const hadRec = p.recommendation?.val || m.prediction || (m.conclusions?.primary_recommendation) || '无推荐';
+          const scoreRec = p.most_likely_score?.val || m.conclusions?.predicted_score || '无推荐';
+          const goalsRec = p.over_under?.val || m.conclusions?.over_under || '无推荐';
+          const hfRec = p.half_full?.val || m.conclusions?.half_full || '无推荐';
+          const m10Rec = m.m10_hub_analysis?.m10_preference || m.conclusions?.m10_preference || '无推荐';
+
+          const matchNo = m.match_no || m.code || `场次${idx + 1}`;
+          const isRed = p.recommendation ? !!p.recommendation.correct : (m.is_correct === true);
+          
+          const rowStyle = isRed 
+            ? 'color:#ef4444; font-weight:700; background:rgba(239, 68, 68, 0.06); border-left:3px solid #ef4444;' 
+            : 'color:var(--text-2); background:rgba(255,255,255,0.01);';
+            
+          const badgeHtml = isRed 
+            ? '<span style="color:#ef4444; background:rgba(239, 68, 68, 0.15); border:1px solid rgba(239,68,68,0.4); padding:1px 6px; border-radius:3px; font-size:10px; font-weight:bold; margin-left:6px;">🔴 红单</span>' 
+            : '<span style="color:#9ca3af; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.15); padding:1px 5px; border-radius:3px; font-size:10px; font-weight:normal; margin-left:6px;">黑单</span>';
+
           return `
-            <div style="display:flex; align-items:center; justify-content:space-between; font-size:11.5px; padding:4px 8px; border-bottom:1px solid rgba(255,255,255,0.03);">
-              <span style="font-weight:600; color:var(--text-2); min-width:120px;">${m.home} vs ${m.away}</span>
-              <span style="color:var(--cyan); font-weight:700;">${hadRec}</span>
-              <span>${badge}</span>
+            <div style="padding:6px 10px; border-bottom:1px solid rgba(255,255,255,0.04); margin-bottom:4px; border-radius:4px; ${rowStyle}">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:3px; font-size:11.5px;">
+                <span>
+                  <strong style="color:var(--cyan); margin-right:4px;">[${matchNo}]</strong>
+                  <span>${m.home} vs ${m.away}</span>
+                  ${m.actual_result ? `<span style="font-size:10px; opacity:0.8; margin-left:6px;">(完赛 ${m.actual_result})</span>` : ''}
+                </span>
+                <span>${badgeHtml}</span>
+              </div>
+              <div style="font-size:10.5px; opacity:0.9; display:flex; flex-wrap:wrap; gap:8px; line-height:1.4;">
+                <span>①胜平负/让球: <strong style="${isRed ? 'color:#ef4444;' : 'color:var(--text-1);'}">${hadRec}</strong></span>
+                <span>②比分: <strong>${scoreRec}</strong></span>
+                <span>③总进球: <strong>${goalsRec}</strong></span>
+                <span>④半全场: <strong>${hfRec}</strong></span>
+                <span>⑤M10水温偏好: <strong>${m10Rec}</strong></span>
+              </div>
             </div>`;
         }).join('');
       }
