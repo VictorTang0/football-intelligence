@@ -1786,9 +1786,10 @@ const MatchIQRender = (() => {
 
         const winRate = dayValidCount > 0 ? (dayRedCount / dayValidCount * 100.0).toFixed(1) : '0.0';
         const formattedDateTag = `比赛编号日期${dayDate.replace(/-/g,'').slice(2)}`;
+        const totalMatchesCount = sortedMatches.length;
         const summaryHeader = `
           <div style="margin-bottom:8px; font-size:12px; color:var(--cyan); background:rgba(0,188,212,0.08); padding:6px 12px; border-radius:6px; display:flex; justify-content:space-between; align-items:center; border:1px solid rgba(0,188,212,0.2);">
-            <span>📅 <strong>${formattedDateTag}</strong> | 红黑单统计: <strong style="color:#ffffff;">${dayRedCount} 红</strong> / <strong style="color:#ffffff;">${dayValidCount} 有效场</strong></span>
+            <span>📅 <strong>${formattedDateTag} (共 ${totalMatchesCount} 场)</strong> | 红黑单统计: <strong style="color:#ffffff;">${dayRedCount} 红</strong> / <strong style="color:#ffffff;">${dayValidCount} 有效场</strong></span>
             <span style="font-weight:800; font-size:13px; color:#ef4444;">胜率 ${winRate}%</span>
           </div>`;
 
