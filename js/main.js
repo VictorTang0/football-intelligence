@@ -144,10 +144,6 @@ const MatchIQ = (() => {
     try {
       const versionBadge = document.getElementById('version-badge');
       const matchCountEl = document.getElementById('header-match-count');
-      const m10DirEl = document.getElementById('m10-acc-dir');
-      const m10GoalsEl = document.getElementById('m10-acc-goals');
-      const m10ScoreEl = document.getElementById('m10-acc-score');
-      const m10HafuEl = document.getElementById('m10-acc-hafu');
       const accEl = document.getElementById('header-accuracy');
       const scoreAccEl = document.getElementById('header-score-accuracy');
       const hfAccEl = document.getElementById('header-hf-accuracy');
