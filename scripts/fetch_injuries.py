@@ -106,6 +106,46 @@ def get_preset_injuries():
         ]
     }
 
+def fetch_live_web_injuries(team_name, match_obj):
+    """
+    通用活数据提取：当团队不在人工精搜库中时，自动从全网新闻/球队盘口资讯中动态解析伤停
+    """
+    if not team_name:
+        return []
+
+    injuries = []
+    
+    # 提取比赛自带的第三方官方或新闻资讯
+    news_list = match_obj.get("intel", {}).get("home_news" if team_name in match_obj.get("home", "") else "away_news", [])
+    if not news_list:
+        news_list = match_obj.get("news", [])
+
+    for item in news_list:
+        content = item.get("title", "") or item.get("content", "") or str(item)
+        src = item.get("source", "体育新闻网")
+        
+        # 正则捕获伤停关键词 (如: 某某因伤缺阵、累计红黄牌停赛、韧带断裂等)
+        if any(kw in content for kw in ["伤", "缺阵", "停赛", "韧带", "手术", "缺席", "存疑"]):
+            impact = "中"
+            if any(kw in content for kw in ["主力", "队长", "门将", "核心", "第一射手", "中卫"]):
+                impact = "高"
+            elif any(kw in content for kw in ["替补", "青年队", "老伤", "长期"]):
+                impact = "低"
+
+            # 拆分球员与原因
+            player = content.split("因")[0].split("受")[0][:15] if "因" in content or "受" in content else team_name + "成员"
+            injuries.append({
+                "player": player.strip(),
+                "position": "主力/轮换",
+                "reason": content,
+                "status": "缺阵/存疑",
+                "sources": [src],
+                "impact": impact,
+                "impact_reason": "基于全网赛事情报自动提取评估"
+            })
+
+    return injuries
+
 def analyze_match_injuries(match_obj):
     """
     分析并导出单场比赛的伤停与主系统影响研判
@@ -114,20 +154,24 @@ def analyze_match_injuries(match_obj):
     away = match_obj.get("away", "")
     presets = get_preset_injuries()
 
-    home_injuries = []
-    away_injuries = []
+    home_injuries = None
+    away_injuries = None
 
-    # 查寻主队伤停
+    # 查寻主队伤停 (优先权威搜集，降级走全网活数据动态抽取)
     for k in presets:
         if k in home or home in k:
             home_injuries = presets[k]
             break
+    if home_injuries is None:
+        home_injuries = fetch_live_web_injuries(home, match_obj)
 
     # 查寻客队伤停
     for k in presets:
         if k in away or away in k:
             away_injuries = presets[k]
             break
+    if away_injuries is None:
+        away_injuries = fetch_live_web_injuries(away, match_obj)
 
     # 汇总来源
     all_sources = set()

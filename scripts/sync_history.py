@@ -307,7 +307,8 @@ def sync():
             "confidence": uc.get("confidence", 0),
             "predictions": predictions_map,
             "conclusions": conclusions_map,
-            "m10_hub_analysis": m.get("m10_hub_analysis", {})
+            "m10_hub_analysis": m.get("m10_hub_analysis", {}),
+            "injury_analysis": m.get("injury_analysis", {})
         }
         if alert:
             record["radar_alert"] = alert
