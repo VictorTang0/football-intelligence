@@ -1938,13 +1938,7 @@ def main():
         m["odds_analysis"] = {**m.get("odds_analysis", {}), **parse_odds_data(api_odds, base)}
 
         # Inject Official Sporttery HAD Odds (中国竞彩官方胜平负)
-        sp_key = mid
-        b_data = bonus_db.get(sp_key) or bonus_db.get(m.get("sportteryMatchId")) or {}
-        if not b_data:
-            for k in bonus_db:
-                if m.get("home") in k or m.get("away") in k or (m.get("match_code") and str(m.get("match_code")) in k):
-                    b_data = bonus_db[k]
-                    break
+        b_data = get_bonus_data_smart(m, bonus_db)
         oh = b_data.get("oddsHistory", {})
         had_list = oh.get("hadList", [])
         if had_list and len(had_list) > 0:
@@ -2543,14 +2537,7 @@ def main():
         if m.get("status") in ["finished", "postponed"]:
             continue
             
-        mid = m.get("id", "")
-        code = mid.split("_")[-1]
-        bdata = bonus_db.get(mid) or bonus_db.get(f"match_260725_{code}") or bonus_db.get(f"match_{code}")
-        if not bdata:
-            for k, v in bonus_db.items():
-                if m.get("home") in k or k.endswith(f"_{code}") or k.endswith(code):
-                    bdata = v
-                    break
+        bdata = get_bonus_data_smart(m, bonus_db)
 
         if bdata and "oddsHistory" in bdata:
             had_list = bdata["oddsHistory"].get("hadList", [])
