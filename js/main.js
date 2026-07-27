@@ -158,24 +158,19 @@ const MatchIQ = (() => {
       if (versionBadge) versionBadge.textContent = latestVersion;
       if (matchCountEl) matchCountEl.textContent = upcomingMatches.length;
 
-      // M10 竞彩大师四维首选命中率 (2x4 表格) 专属渲染
-      const spStats = history?.sporttery_primary_stats || {};
-      if (m10DirEl) {
-        const acc = spStats.direction?.accuracy_rate;
-        m10DirEl.textContent = acc !== null && acc !== undefined && spStats.direction?.total > 0 ? (acc * 100).toFixed(1) + '%' : '--%';
-      }
-      if (m10GoalsEl) {
-        const acc = spStats.goals?.accuracy_rate;
-        m10GoalsEl.textContent = acc !== null && acc !== undefined && spStats.goals?.total > 0 ? (acc * 100).toFixed(1) + '%' : '--%';
-      }
-      if (m10ScoreEl) {
-        const acc = spStats.score?.accuracy_rate;
-        m10ScoreEl.textContent = acc !== null && acc !== undefined && spStats.score?.total > 0 ? (acc * 100).toFixed(1) + '%' : '--%';
-      }
-      if (m10HafuEl) {
-        const acc = spStats.half_full?.accuracy_rate;
-        m10HafuEl.textContent = acc !== null && acc !== undefined && spStats.half_full?.total > 0 ? (acc * 100).toFixed(1) + '%' : '--%';
-      }
+      // M10 竞彩大师 5 维独立开奖命中率 (415场实盘水温训) 专属渲染
+      const m10Stats = history?.m10_stats || {};
+      const m10HadEl = document.getElementById('m10-acc-had');
+      const m10HhadEl = document.getElementById('m10-acc-hhad');
+      const m10GoalsEl = document.getElementById('m10-acc-goals');
+      const m10ScoreEl = document.getElementById('m10-acc-score');
+      const m10HafuEl = document.getElementById('m10-acc-hafu');
+
+      if (m10HadEl) m10HadEl.textContent = m10Stats.had !== undefined ? (m10Stats.had * 100).toFixed(1) + '%' : '--%';
+      if (m10HhadEl) m10HhadEl.textContent = m10Stats.hhad !== undefined ? (m10Stats.hhad * 100).toFixed(1) + '%' : '--%';
+      if (m10ScoreEl) m10ScoreEl.textContent = m10Stats.crs !== undefined ? (m10Stats.crs * 100).toFixed(1) + '%' : '--%';
+      if (m10GoalsEl) m10GoalsEl.textContent = m10Stats.goals !== undefined ? (m10Stats.goals * 100).toFixed(1) + '%' : '--%';
+      if (m10HafuEl) m10HafuEl.textContent = m10Stats.hafu !== undefined ? (m10Stats.hafu * 100).toFixed(1) + '%' : '--%';
 
       if (accEl) {
         const acc = history?.accuracy_rate;

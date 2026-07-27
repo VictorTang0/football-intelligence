@@ -1,0 +1,26 @@
+{
+  "version": "m10_v1.0",
+  "total_training_samples": 415,
+  "weights": {
+    "w_had": 0.25,
+    "w_hhad": 0.25,
+    "w_crs": 0.2,
+    "w_goals": 0.15,
+    "w_hafu": 0.15
+  },
+  "thresholds": {
+    "had_min_diff": 0.1,
+    "hhad_min_scissors": 0.04,
+    "crs_min_drop": 0.5,
+    "goals_min_cluster": 1.25,
+    "hafu_min_drop": 0.4
+  },
+  "accuracy_stats": {
+    "had": 0.3932,
+    "hhad": 0.4375,
+    "crs": 0.0,
+    "goals": 0.0783,
+    "hafu": 0.0
+  },
+  "last_trained": "2026-07-27T15:05:40.784330"
+}

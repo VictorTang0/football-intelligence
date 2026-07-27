@@ -306,7 +306,8 @@ def sync():
             "is_correct": is_correct,
             "confidence": uc.get("confidence", 0),
             "predictions": predictions_map,
-            "conclusions": conclusions_map
+            "conclusions": conclusions_map,
+            "m10_hub_analysis": m.get("m10_hub_analysis", {})
         }
         if alert:
             record["radar_alert"] = alert
@@ -318,6 +319,12 @@ def sync():
     history_db["total_predictions"] = len(new_records)
     history_db["correct_predictions"] = sum(1 for r in new_records if r["is_correct"])
     history_db["accuracy_rate"] = round(history_db["correct_predictions"] / history_db["total_predictions"], 4) if history_db["total_predictions"] > 0 else 0.0
+
+    try:
+        with open(os.path.join(base_dir, "data", "m10_weights.json"), "r", encoding="utf-8") as mf:
+            m10_w = json.load(mf)
+            history_db["m10_stats"] = m10_w.get("accuracy_stats", {})
+    except Exception: pass
     
     # 计算比分与半全场预测准确率
     score_correct = sum(1 for r in new_records if r.get("predictions", {}).get("most_likely_score", {}).get("correct"))

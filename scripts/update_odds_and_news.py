@@ -2261,6 +2261,11 @@ def main():
         # ─── COMPUTE M10 SPORTTERY FACTORS & RE-EVALUATE PREFERENCE ───
         prev_snapshot = m.get("conclusions", {}).get("m10_snapshot_count", 0)
         compute_m10_factors(m, bonus_db)
+        try:
+            import m10_engine
+            m["m10_hub_analysis"] = m10_engine.deduce_m10_hub_conclusions(m, bonus_db)
+        except Exception as e:
+            pass
         m["public_vs_bookmaker"] = compute_public_vs_bookmaker(m, bonus_db)
         curr_snapshot = m.get("conclusions", {}).get("m10_snapshot_count", 0)
 

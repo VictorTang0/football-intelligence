@@ -1203,18 +1203,74 @@ const MatchIQRender = (() => {
           const alertsStr = alerts.length > 0 ? alerts.join('') : '<div style="color: var(--green); margin-bottom: 4px;">✅ M10 资金流平稳：未检测到异常欧让背离特征。</div>';
           const detailsStr = details.length > 0 ? details.join(' · ') : `已自动完成 ${snapshotCount} 次即时变盘水温快照对比分析。`;
 
+          const hub = match.m10_hub_analysis || {};
+          const euStatus = hub.asian_eu_status?.description || '水温拉锯平稳 (资金分布均衡)';
+          
+          const hadText = hub.had_analysis?.text || '当前无竞彩推荐';
+          const hadTraj = hub.had_analysis?.trajectory || '暂无水位轨迹';
+
+          const hhadText = hub.hhad_analysis?.text || '当前无竞彩推荐';
+          const hhadTraj = hub.hhad_analysis?.trajectory || '暂无水位轨迹';
+
+          const crsList = (hub.crs_analysis?.items || []).map(item => {
+            if (item.is_invalid) {
+              return `<del style="opacity:0.5; color:#9ca3af; margin-right:8px;">${item.score} (${item.arrow})</del>`;
+            } else {
+              return `<span style="color:#ffd700; font-weight:700; margin-right:8px;">${item.score} (${item.arrow})</span>`;
+            }
+          }).join('') || '<span style="color:var(--text-4);">当前无竞彩推荐</span>';
+
+          const goalsList = (hub.goals_analysis?.items || []).map(item => {
+            if (item.is_invalid) {
+              return `<del style="opacity:0.5; color:#9ca3af; margin-right:8px;">${item.goal} (${item.arrow})</del>`;
+            } else {
+              return `<span style="color:#ffd700; font-weight:700; margin-right:8px;">${item.goal} (${item.arrow})</span>`;
+            }
+          }).join('') || '<span style="color:var(--text-4);">当前无竞彩推荐</span>';
+
+          const hafuList = (hub.hafu_analysis?.items || []).map(item => {
+            if (item.is_invalid) {
+              return `<del style="opacity:0.5; color:#9ca3af; margin-right:8px;">${item.hafu} (${item.arrow})</del>`;
+            } else {
+              return `<span style="color:#818cf8; font-weight:700; margin-right:8px;">${item.hafu} (${item.arrow})</span>`;
+            }
+          }).join('') || '<span style="color:var(--text-4);">当前无竞彩推荐</span>';
+
           return `
-          <div class="m10-hub-box" style="margin-top: 15px; padding: 12px; background: rgba(0, 188, 212, 0.06); border-left: 4px solid var(--cyan); border-radius: 4px; text-align: left;">
-            <div style="font-weight: bold; font-size: 13px; margin-bottom: 6px; color: var(--cyan); display: flex; align-items: center; justify-content: space-between;">
-              <span>🎯 M10 竞彩决策数据中枢</span>
-              <span style="font-size: 10px; padding: 1px 4px; background: rgba(0,188,212,0.15); border: 1px solid rgba(0,188,212,0.3); border-radius: 3px; color: var(--cyan);">已激活 (已采集 ${snapshotCount} 次变盘)</span>
+          <div class="m10-hub-box" style="margin-top: 15px; padding: 14px; background: rgba(0, 188, 212, 0.04); border: 1px solid rgba(0, 188, 212, 0.2); border-left: 4px solid var(--cyan); border-radius: 8px; text-align: left; font-size:12.5px; line-height:1.6;">
+            <div style="font-weight: 800; font-size: 13.5px; margin-bottom: 10px; color: var(--cyan); display: flex; align-items: center; justify-content: space-between; border-bottom:1px solid rgba(0,188,212,0.15); padding-bottom:6px;">
+              <span>🎯 M10 竞彩决策数据中枢 (415 场实盘水温训练集)</span>
+              <span style="font-size: 10.5px; padding: 2px 6px; background: rgba(0,188,212,0.15); border: 1px solid rgba(0,188,212,0.3); border-radius: 4px; color: var(--cyan);">采集 ${snapshotCount} 次变盘</span>
             </div>
-            <div style="font-size: 12px; line-height: 1.6; color: var(--text-2);">
-              ${alertsStr}
-              ${trajectoryHtml}
-              <div style="color: var(--text-3); font-size: 11.5px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 4px; margin-top: 4px;">
-                ${detailsStr}
-              </div>
+            
+            <div style="margin-bottom:8px; background:rgba(255,255,255,0.02); padding:6px 10px; border-radius:4px;">
+              <span style="color:var(--text-3); font-weight:600;">1. 亚欧盘资金流：</span>
+              <span style="font-weight:700;">${euStatus}</span>
+            </div>
+
+            <div style="margin-bottom:8px; background:rgba(255,255,255,0.02); padding:6px 10px; border-radius:4px;">
+              <div style="color:var(--text-3); font-size:11.5px; font-family:var(--font-mono); margin-bottom:2px;">胜平负水位: ${hadTraj}</div>
+              <div><span style="color:var(--text-3); font-weight:600;">2. 胜平负结论：</span><span style="color:#10b981; font-weight:800;">${hadText}</span></div>
+            </div>
+
+            <div style="margin-bottom:8px; background:rgba(255,255,255,0.02); padding:6px 10px; border-radius:4px;">
+              <div style="color:var(--text-3); font-size:11.5px; font-family:var(--font-mono); margin-bottom:2px;">让球水位: ${hhadTraj}</div>
+              <div><span style="color:var(--text-3); font-weight:600;">3. 让球盘结论：</span><span style="color:#10b981; font-weight:800;">${hhadText}</span></div>
+            </div>
+
+            <div style="margin-bottom:8px; background:rgba(255,255,255,0.02); padding:6px 10px; border-radius:4px;">
+              <span style="color:var(--text-3); font-weight:600;">4. 比分偏离 (Top3)：</span>
+              ${crsList}
+            </div>
+
+            <div style="margin-bottom:8px; background:rgba(255,255,255,0.02); padding:6px 10px; border-radius:4px;">
+              <span style="color:var(--text-3); font-weight:600;">5. 进球数偏离 (Top3)：</span>
+              ${goalsList}
+            </div>
+
+            <div style="margin-bottom:4px; background:rgba(255,255,255,0.02); padding:6px 10px; border-radius:4px;">
+              <span style="color:var(--text-3); font-weight:600;">6. 半全场偏离 (Top2)：</span>
+              ${hafuList}
             </div>
           </div>`;
         } else {
@@ -1557,8 +1613,62 @@ const MatchIQRender = (() => {
     // Get sorted unique dates (newest first)
     const sortedDates = Object.keys(groups).sort((a, b) => new Date(b) - new Date(a));
 
-    // Limit to the most recent 5 days
     const recent5Dates = sortedDates.slice(0, 5);
+
+    // M10 独立 5 日历史红黑推荐面板渲染 (最近1日展示 + 较旧4日折叠)
+    let m10HistoryPanelHtml = '';
+    if (recent5Dates.length > 0) {
+      const day1 = recent5Dates[0];
+      const older4Days = recent5Dates.slice(1);
+
+      function renderM10DayRows(dayDate) {
+        const matches = groups[dayDate] || [];
+        return matches.map(m => {
+          const hub = m.m10_hub_analysis || {};
+          const hadRec = hub.had_analysis?.text || '当前无竞彩推荐';
+          const isRed = m.is_correct;
+          const badge = isRed ? '<span style="color:#ef4444; background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3); padding:1px 5px; border-radius:3px; font-weight:700; font-size:10px;">红</span>' : '<span style="color:#6b7280; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:1px 5px; border-radius:3px; font-size:10px;">黑</span>';
+          return `
+            <div style="display:flex; align-items:center; justify-content:space-between; font-size:11.5px; padding:4px 8px; border-bottom:1px solid rgba(255,255,255,0.03);">
+              <span style="font-weight:600; color:var(--text-2); min-width:120px;">${m.home} vs ${m.away}</span>
+              <span style="color:var(--cyan); font-weight:700;">${hadRec}</span>
+              <span>${badge}</span>
+            </div>`;
+        }).join('');
+      }
+
+      const day1Html = `
+        <div style="margin-bottom:8px;">
+          <div style="font-weight:700; color:var(--cyan); font-size:11.5px; margin-bottom:4px;">📅 ${day1} (最新1日对账)</div>
+          ${renderM10DayRows(day1)}
+        </div>`;
+
+      let olderHtml = '';
+      if (older4Days.length > 0) {
+        olderHtml = `
+          <div id="m10-older-4days-container" style="display:none; margin-top:8px; border-top:1px dashed rgba(255,255,255,0.08); padding-top:8px;">
+            ${older4Days.map(d => `
+              <div style="margin-bottom:8px;">
+                <div style="font-weight:700; color:var(--text-3); font-size:11.5px; margin-bottom:4px;">📅 ${d}</div>
+                ${renderM10DayRows(d)}
+              </div>`).join('')}
+          </div>
+          <button onclick="const el=document.getElementById('m10-older-4days-container'); const isH=el.style.display==='none'; el.style.display=isH?'block':'none'; this.textContent=isH?'收起较旧 4 日 M10 历史记录 ▴':'展开较旧 4 日 M10 历史记录 ▾';" 
+            style="width:100%; margin-top:6px; padding:4px; font-size:11px; background:rgba(0,188,212,0.08); border:1px solid rgba(0,188,212,0.2); color:var(--cyan); border-radius:4px; cursor:pointer;">
+            展开较旧 4 日 M10 历史记录 ▾
+          </button>`;
+      }
+
+      m10HistoryPanelHtml = `
+        <div class="m10-history-5days-box" style="margin-bottom:16px; padding:12px; background:rgba(0,188,212,0.03); border:1px solid rgba(0,188,212,0.18); border-radius:8px; text-align:left;">
+          <div style="font-weight:800; font-size:12.5px; color:var(--cyan); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;">
+            <span>🎯 M10 独立中枢历史推荐对账记录 (5日面板)</span>
+            <span style="font-size:10px; opacity:0.8;">默认展开 1 日 · 折叠 4 日</span>
+          </div>
+          ${day1Html}
+          ${olderHtml}
+        </div>`;
+    }
 
     // Helper function to render table rows for a list of dates
     function generateRowsForDates(datesList) {
@@ -1759,6 +1869,7 @@ const MatchIQRender = (() => {
 
     return `
       <div style="grid-column: 1 / -1; width: 100%;">
+        ${m10HistoryPanelHtml}
         <div style="width: 100%; overflow-x: auto; background:rgba(13,21,39,0.3); border:1px solid var(--border-subtle); border-radius:12px; box-shadow:0 8px 32px rgba(0,0,0,0.2); backdrop-filter:blur(8px);">
           <table class="history-table" style="width:100%; border-collapse:collapse; text-align:left; font-size:12.5px; color:var(--text-2);">
             <thead>
