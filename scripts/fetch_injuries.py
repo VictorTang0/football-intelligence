@@ -73,6 +73,36 @@ def get_preset_injuries():
                 "impact": "中",
                 "impact_reason": "存疑人员多，临场中后场调配受限"
             }
+        ],
+        "罗森博格": [],
+        "腓特烈": [
+            {
+                "player": "奥乌苏 (Solomon Owusu)",
+                "position": "主力防守中卫/后腰",
+                "reason": "大腿肌肉严重撕裂，目前仍进行复健中，确认缺阵",
+                "status": "确认缺阵",
+                "sources": ["f-b.no", "Transfermarkt"],
+                "impact": "高",
+                "impact_reason": "防线绝对核心中卫缺阵，腓特烈门线抗压与抢断防守大幅削弱"
+            },
+            {
+                "player": "基利 (Sigurd Kvile)",
+                "position": "中后卫",
+                "reason": "膝关节十字韧带断裂长期缺阵",
+                "status": "长期缺阵",
+                "sources": ["Transfermarkt"],
+                "impact": "低",
+                "impact_reason": "长期老伤员，盘口与防线已被消化"
+            },
+            {
+                "player": "萨卡里亚斯·奥普萨尔 (Sakarias Opsahl)",
+                "position": "中场",
+                "reason": "受未知伤病困扰，本场继续缺阵",
+                "status": "伤停缺阵",
+                "sources": ["Transfermarkt"],
+                "impact": "中",
+                "impact_reason": "中场重要轮换拦截受阻"
+            }
         ]
     }
 
