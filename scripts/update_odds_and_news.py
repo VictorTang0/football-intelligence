@@ -2400,10 +2400,15 @@ def main():
         # 3. Update Reasoning
         m["ultimate_conclusion"]["reasoning"] = generate_dynamic_reasoning(m)
         
-    # Force compute & attach m10_hub_analysis for all active matches
-    for m in matches:
-        if m.get("status") in ["finished", "postponed"]:
-            continue
+        try:
+            try:
+                import fetch_injuries
+            except ImportError:
+                from scripts import fetch_injuries
+            m["injury_analysis"] = fetch_injuries.analyze_match_injuries(m)
+        except Exception as e:
+            print(f"Error attaching injury_analysis for {m.get('id')}: {e}")
+
         try:
             try:
                 import m10_engine

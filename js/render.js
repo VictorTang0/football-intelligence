@@ -714,6 +714,71 @@ const MatchIQRender = (() => {
       `;
     };
 
+    function renderInjuriesCard(matchObj) {
+      const injData = matchObj.injury_analysis || {};
+      const homeList = injData.home_injuries || [];
+      const awayList = injData.away_injuries || [];
+      const evalText = injData.system_impact_eval || "双方伤停处于正常范围，未见核心离队风险。";
+      const sources = injData.sources_merged || [];
+      const sourcesStr = sources.length > 0 ? `[来源: ${sources.join(', ')}]` : '';
+
+      const renderList = (list) => {
+        if (!list || list.length === 0) {
+          return `<div style="font-size: 11px; color: var(--text-4); padding: 4px 0; text-align: left;">✅ 全员健康，无已知停赛/伤病</div>`;
+        }
+        return list.map(item => {
+          let impactBadge = '<span style="background:rgba(255,255,255,0.06); color:var(--text-3); font-size:9.5px; padding:1px 5px; border-radius:3px;">⚪ 影响低</span>';
+          if (item.impact === '高') {
+            impactBadge = '<span style="background:rgba(239, 68, 68, 0.15); border:1px solid rgba(239, 68, 68, 0.4); color:#ef4444; font-size:9.5px; padding:1px 5px; border-radius:3px; font-weight:bold;">🔴 影响高</span>';
+          } else if (item.impact === '中') {
+            impactBadge = '<span style="background:rgba(245, 158, 11, 0.15); border:1px solid rgba(245, 158, 11, 0.4); color:#f59e0b; font-size:9.5px; padding:1px 5px; border-radius:3px; font-weight:bold;">🟡 影响中</span>';
+          }
+
+          const srcTags = (item.sources || []).map(s => `<span style="font-size:9px; background:rgba(0,212,255,0.1); color:var(--cyan); border:1px solid rgba(0,212,255,0.25); padding:0px 4px; border-radius:3px; margin-left:4px;">${s}</span>`).join('');
+
+          return `
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: 6px; padding: 6px 8px; margin-bottom: 6px; font-size: 11.5px; text-align: left;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 2px;">
+              <span style="font-weight: 700; color: var(--text-1);">${item.player} <span style="font-size:10px; color:var(--text-3); font-weight:normal;">(${item.position})</span></span>
+              <div>${impactBadge}${srcTags}</div>
+            </div>
+            <div style="color: var(--text-3); font-size: 11px;">⚠️ ${item.reason}</div>
+            ${item.impact_reason ? `<div style="color: rgba(255,255,255,0.45); font-size: 10px; margin-top:2px;">💡 评估: ${item.impact_reason}</div>` : ''}
+          </div>`;
+        }).join('');
+      };
+
+      return `
+      <div class="injuries-card-box" style="padding: 10px 12px; background: rgba(255,255,255,0.015); border: 1px solid var(--border-subtle); border-radius: 8px; text-align: left;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 6px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 6px;">
+          <div style="font-size: 12px; font-weight: 700; color: var(--text-1); display:flex; align-items:center; gap:6px;">
+            <span>🚑 最新伤停及缺阵评估</span>
+            <span style="font-size: 10px; color: var(--cyan); font-weight: normal;">${sourcesStr}</span>
+          </div>
+          <span style="font-size: 9.5px; padding: 1px 5px; background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.2); color: var(--cyan); border-radius: 3px;">多源关联评估</span>
+        </div>
+
+        <div style="font-size: 10.5px; color: #fbbf24; background: rgba(245,158,11,0.06); border: 1px solid rgba(245,158,11,0.15); padding: 4px 8px; border-radius: 4px; margin-bottom: 8px; text-align: left;">
+          ${evalText}
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+          <div>
+            <div style="font-size: 11px; font-weight: 700; color: var(--cyan); margin-bottom: 4px; text-align: left; border-left: 3px solid var(--cyan); padding-left: 4px;">
+              ${matchObj.home || '主队'} 伤停
+            </div>
+            ${renderList(homeList)}
+          </div>
+          <div>
+            <div style="font-size: 11px; font-weight: 700; color: #ff3d00; margin-bottom: 4px; text-align: left; border-left: 3px solid #ff3d00; padding-left: 4px;">
+              ${matchObj.away || '客队'} 伤停
+            </div>
+            ${renderList(awayList)}
+          </div>
+        </div>
+      </div>`;
+    }
+
     const homeRecentHtml = renderTeamRecent(match.team_stats?.home?.name, homeRecent);
     const awayRecentHtml = renderTeamRecent(match.team_stats?.away?.name, awayRecent);
     const homeStandingHtml = renderTeamStanding(match.home || match.team_stats?.home?.name, match.home_standing || match.team_stats?.home?.standing, match.team_stats?.home);
@@ -723,9 +788,14 @@ const MatchIQRender = (() => {
     <div class="mc-pane ${paneId === 'stats' ? 'active' : ''}" id="pane-${match.id}-stats">
       <div class="stats-grid">
         <div>
-          <!-- 八边形雷达图 -->
-          <div class="chart-box">
-            <canvas id="radar-${match.id}"></canvas>
+          <!-- 顶部区域：八边形雷达图 + 伤停缺阵评估 (双列并排) -->
+          <div class="stats-top-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: start;">
+            <!-- 八边形雷达图 -->
+            <div class="chart-box" style="margin-bottom:0;">
+              <canvas id="radar-${match.id}"></canvas>
+            </div>
+            <!-- 伤停评估卡片 -->
+            ${renderInjuriesCard(match)}
           </div>
           
           <!-- 第一部分：双方 H2H 历史交锋 -->
@@ -1433,14 +1503,12 @@ const MatchIQRender = (() => {
         <div class="mc-tabs" id="tabs-${match.id}">
           <div class="mc-tab active" data-tab="stats"   data-match="${match.id}">📊 数据</div>
           <div class="mc-tab"        data-tab="odds"    data-match="${match.id}">💹 盘口</div>
-          <div class="mc-tab"        data-tab="intel"   data-match="${match.id}">🔍 情报</div>
           <div class="mc-tab"        data-tab="conclusions" data-match="${match.id}">🎯 结论</div>
           <div class="mc-tab"        data-tab="factors" data-match="${match.id}">⚙️ 因子</div>
         </div>
 
         ${renderStatsPane(match, 'stats')}
         ${renderOddsPane(match)}
-        ${renderIntelPane(match, teamTags)}
         ${renderConclusionsPane(match)}
         ${renderFactorsPane(match, weightsData, teamTags, tagsConfig)}
       </div>
