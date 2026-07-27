@@ -1691,20 +1691,45 @@ const MatchIQRender = (() => {
       const older4Days = recent5Dates.slice(1);
 
       function renderM10DayRows(dayDate) {
-        const matches = groups[dayDate] || [];
-        if (matches.length === 0) {
+        const rawMatches = groups[dayDate] || [];
+        if (rawMatches.length === 0) {
           return `<div style="font-size:11px; color:var(--text-4); padding:6px 8px;">该日暂无对账记录</div>`;
         }
-        return matches.map((m, idx) => {
-          const p = m.predictions || {};
-          const hadRec = p.recommendation?.val || m.prediction || (m.conclusions?.primary_recommendation) || '无推荐';
-          const scoreRec = p.most_likely_score?.val || m.conclusions?.predicted_score || '无推荐';
-          const goalsRec = p.over_under?.val || m.conclusions?.over_under || '无推荐';
-          const hfRec = p.half_full?.val || m.conclusions?.half_full || '无推荐';
-          const m10Rec = m.m10_hub_analysis?.m10_preference || m.conclusions?.m10_preference || '无推荐';
 
+        // Helper to strip (竞彩) tag
+        const cleanText = (txt) => {
+          if (!txt || txt === '--') return '无推荐';
+          return txt.replace(/[\(（]竞彩[\)）]/g, '').trim() || '无推荐';
+        };
+
+        // Sort matches by M10 confidence descending
+        const sortedMatches = [...rawMatches].sort((a, b) => {
+          const confA = a.m10_hub_analysis?.confidence || a.conclusions?.m10_confidence || a.confidence || 0;
+          const confB = b.m10_hub_analysis?.confidence || b.conclusions?.m10_confidence || b.confidence || 0;
+          return confB - confA;
+        });
+
+        return sortedMatches.map((m, idx) => {
+          const m10 = m.m10_hub_analysis || m.conclusions || {};
+          
+          // Pure M10 conclusions only (no primary fallbacks)
+          const rawHad = m10.had_recommendation || m10.m10_had || (m10.had_analysis?.text);
+          const rawScore = m10.m10_predicted_score || m10.predicted_score;
+          const rawGoals = m10.m10_over_under || m10.over_under;
+          const rawHf = m10.m10_half_full || m10.half_full;
+          const rawPref = m10.m10_preference || m10.m10_water_preference;
+
+          const hadRec = cleanText(rawHad);
+          const scoreRec = cleanText(rawScore);
+          const goalsRec = cleanText(rawGoals);
+          const hfRec = cleanText(rawHf);
+          const m10Rec = cleanText(rawPref);
+          
+          const confVal = m10.confidence || m10.m10_confidence || 80;
           const matchNo = m.match_no || m.code || `场次${idx + 1}`;
-          const isRed = p.recommendation ? !!p.recommendation.correct : (m.is_correct === true);
+          
+          // Red hit condition for M10: M10 HAD recommendation hit
+          const isRed = m10.had_correct === true || (m.is_correct === true && hadRec !== '无推荐');
           
           const rowStyle = isRed 
             ? 'color:#ef4444; font-weight:700; background:rgba(239, 68, 68, 0.06); border-left:3px solid #ef4444;' 
@@ -1722,7 +1747,7 @@ const MatchIQRender = (() => {
                   <span>${m.home} vs ${m.away}</span>
                   ${m.actual_result ? `<span style="font-size:10px; opacity:0.8; margin-left:6px;">(完赛 ${m.actual_result})</span>` : ''}
                 </span>
-                <span>${badgeHtml}</span>
+                <span><span style="font-size:10px; color:var(--cyan); margin-right:4px;">置信度 ${confVal}%</span>${badgeHtml}</span>
               </div>
               <div style="font-size:10.5px; opacity:0.9; display:flex; flex-wrap:wrap; gap:8px; line-height:1.4;">
                 <span>①胜平负/让球: <strong style="${isRed ? 'color:#ef4444;' : 'color:var(--text-1);'}">${hadRec}</strong></span>
