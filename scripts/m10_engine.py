@@ -21,6 +21,33 @@ def load_m10_weights():
         }
     }
 
+def get_bonus_data_smart(match_obj, bonus_db):
+    mid = match_obj.get("id")
+    sp_id = str(match_obj.get("sportteryMatchId") or "")
+    home = match_obj.get("home", "")
+    away = match_obj.get("away", "")
+
+    direct = bonus_db.get(mid) or bonus_db.get(sp_id) or bonus_db.get(f"match_sp_{sp_id}")
+    direct_snaps = len(direct.get("oddsHistory", {}).get("hadList", [])) if direct else 0
+
+    if direct_snaps >= 3:
+        return direct
+
+    best_entry = direct or {}
+    best_count = direct_snaps
+
+    for k, v in bonus_db.items():
+        v_home = v.get("home", "")
+        v_away = v.get("away", "")
+        if home and away and (home in v_home or v_home in home) and (away in v_away or v_away in away):
+            oh = v.get("oddsHistory", {})
+            snaps = max(len(oh.get("hadList", [])), len(oh.get("hhadList", [])), len(oh.get("crsList", [])))
+            if snaps > best_count:
+                best_count = snaps
+                best_entry = v
+
+    return best_entry
+
 def deduce_m10_hub_conclusions(match_obj, bonus_db):
     """
     Deduces M10 6-dimensional conclusions for card UI display based on trained weights
@@ -28,8 +55,7 @@ def deduce_m10_hub_conclusions(match_obj, bonus_db):
     weights_db = load_m10_weights()
     thresholds = weights_db.get("thresholds", {})
     
-    sp_id = str(match_obj.get("sportteryMatchId") or match_obj.get("id") or "")
-    b_data = bonus_db.get(match_obj.get("id")) or bonus_db.get(sp_id) or bonus_db.get(f"match_sp_{sp_id}") or {}
+    b_data = get_bonus_data_smart(match_obj, bonus_db)
     oh = b_data.get("oddsHistory", {})
 
     had_list = oh.get("hadList", [])
