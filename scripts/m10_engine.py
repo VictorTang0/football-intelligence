@@ -30,7 +30,7 @@ def get_bonus_data_smart(match_obj, bonus_db):
     direct = bonus_db.get(mid) or bonus_db.get(sp_id) or bonus_db.get(f"match_sp_{sp_id}")
     direct_snaps = len(direct.get("oddsHistory", {}).get("hadList", [])) if direct else 0
 
-    if direct_snaps >= 3:
+    if direct_snaps >= 5:
         return direct
 
     best_entry = direct or {}
@@ -39,12 +39,13 @@ def get_bonus_data_smart(match_obj, bonus_db):
     for k, v in bonus_db.items():
         v_home = v.get("home", "")
         v_away = v.get("away", "")
-        if home and away and (home in v_home or v_home in home) and (away in v_away or v_away in away):
-            oh = v.get("oddsHistory", {})
-            snaps = max(len(oh.get("hadList", [])), len(oh.get("hhadList", [])), len(oh.get("crsList", [])))
-            if snaps > best_count:
-                best_count = snaps
-                best_entry = v
+        if v_home and v_away and home and away:
+            if (home in v_home or v_home in home) and (away in v_away or v_away in away):
+                oh = v.get("oddsHistory", {})
+                snaps = max(len(oh.get("hadList", [])), len(oh.get("hhadList", [])), len(oh.get("crsList", [])))
+                if snaps > best_count:
+                    best_count = snaps
+                    best_entry = v
 
     return best_entry
 
