@@ -2679,10 +2679,33 @@ def main():
 
     data["matches"].sort(key=sort_matches_key)
 
+    # ── 100% 纯 M10 结论与竞彩期次 Tag 自动化工作流融合 ──
+    try:
+        from scripts.generate_pure_m10_conclusions import deduce_pure_m10
+        for m in data.get("matches", []):
+            m10_res = deduce_pure_m10(m)
+            m["m10_hub_analysis"] = {
+                "had_recommendation": m10_res["m10_had"],
+                "hhad_recommendation": m10_res["m10_hhad"],
+                "predicted_score": m10_res["m10_score"],
+                "over_under": m10_res["m10_goals"],
+                "half_full": m10_res["m10_hf"],
+                "confidence": m10_res["confidence"]
+            }
+    except Exception as e:
+        print(f"⚠️ M10 Hub Auto-Deduction Warning: {e}")
+
     # ── SAVE UPDATED DATA TO DISK ──
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
     print(f"✅ [Data Saved] Successfully updated and saved {len(data.get('matches', []))} matches to data/matches.json!")
+
+    # ── 自动化同步 history.json ──
+    try:
+        import sync_history
+        sync_history.sync()
+    except Exception as e:
+        print(f"⚠️ History Sync Warning: {e}")
 
     # 自动进行前端 JS 静态语法预检防崩溃保护
     try:

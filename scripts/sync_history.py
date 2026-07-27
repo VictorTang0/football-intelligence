@@ -295,8 +295,43 @@ def sync():
             "had_hhad_divergence": conc.get("had_hhad_divergence", False)
         }
 
+        # ─── AUTOMATIC SPORTTERY TAGS & PURE M10 DEDUCTION INTEGRATION ───
+        code_num = None
+        m_code = re.search(r"match_\d{6}_(\d+)", mid)
+        if m_code:
+            code_num = int(m_code.group(1))
+        elif m.get("code"):
+            try:
+                code_num = int(m.get("code"))
+            except:
+                pass
+
+        match_no = f"周日 {code_num:03d}" if (code_num is not None and code_num < 500) else m.get("match_no", "周日 201")
+        m_issue = re.search(r"match_(\d{6})_", mid)
+        issue_date = m_issue.group(1) if m_issue else "260726"
+
+        m10_hub = m.get("m10_hub_analysis", {})
+        if not m10_hub or not m10_hub.get("had_recommendation") or m10_hub.get("had_recommendation") == "无推荐":
+            try:
+                from scripts.generate_pure_m10_conclusions import deduce_pure_m10
+                m10_res = deduce_pure_m10(m)
+                m10_hub = {
+                    "had_recommendation": m10_res["m10_had"],
+                    "hhad_recommendation": m10_res["m10_hhad"],
+                    "predicted_score": m10_res["m10_score"],
+                    "over_under": m10_res["m10_goals"],
+                    "half_full": m10_res["m10_hf"],
+                    "confidence": m10_res["confidence"]
+                }
+            except Exception as e:
+                pass
+
         record = {
             "match_id": mid,
+            "id": mid,
+            "code": str(code_num) if code_num else "201",
+            "match_no": match_no,
+            "issue_date": issue_date,
             "league": m["league"],
             "home": home,
             "away": away,
@@ -307,7 +342,7 @@ def sync():
             "confidence": uc.get("confidence", 0),
             "predictions": predictions_map,
             "conclusions": conclusions_map,
-            "m10_hub_analysis": m.get("m10_hub_analysis", {}),
+            "m10_hub_analysis": m10_hub,
             "injury_analysis": m.get("injury_analysis", {})
         }
         if alert:
