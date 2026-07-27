@@ -1281,13 +1281,14 @@ const MatchIQRender = (() => {
     const activeAdjustments = [];
     const collectAdjustments = (teamName, tags) => {
       Object.entries(tags).forEach(([name, info]) => {
-        if (info.level >= 2) {
+        const boost = typeof info === 'object' ? (info.weight_boost || 0.1) : 0.1;
+        if (boost > 0) {
           const config = tagConfigMap[name];
           if (config && config.factors) {
             activeAdjustments.push({
               teamName,
               tagName: name,
-              level: info.level,
+              weightBoost: boost,
               factorIds: config.factors
             });
           }
@@ -1302,7 +1303,7 @@ const MatchIQRender = (() => {
       adj.factorIds.forEach(fid => {
         const factor = factors.find(f => f.id === fid);
         if (factor) {
-          const multiplier = 1.0 + 0.15 * adj.level;
+          const multiplier = 1.0 + adj.weightBoost;
           factor.weight *= multiplier;
           adjustedFactorIds.add(fid);
         }
@@ -1384,10 +1385,13 @@ const MatchIQRender = (() => {
           border = 'rgba(255, 255, 255, 0.15)';
         }
 
+        const scoreVal = typeof info === 'object' ? (info.score || 0) : 0;
+
         return `
         <div style="display:inline-flex; align-items:center; gap:4px; padding:3px 8px; background:${bg}; border:1px solid ${border}; border-radius:4px; margin-right:6px; margin-bottom:6px;">
           <span style="font-size:11.5px; font-weight:700; color:${color};">${tagName} <span style="font-size:10px; font-weight:normal;">Lv.${lvl}</span></span>
           ${lvlName ? `<span style="font-size:9.5px; color:var(--text-3); font-weight:normal;">(${lvlName})</span>` : ''}
+          ${scoreVal > 0 ? `<span style="font-size:9.5px; color:var(--cyan); font-weight:bold;">[${scoreVal}分]</span>` : ''}
           <span style="font-size:9px; opacity:0.7; color:var(--text-4); margin-left:2px;">${conf}%</span>
         </div>`;
       }).join('');
