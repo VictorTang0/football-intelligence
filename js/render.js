@@ -714,71 +714,6 @@ const MatchIQRender = (() => {
       `;
     };
 
-    function renderInjuriesCard(matchObj) {
-      const injData = matchObj.injury_analysis || {};
-      const homeList = injData.home_injuries || [];
-      const awayList = injData.away_injuries || [];
-      const evalText = injData.system_impact_eval || "双方伤停处于正常范围，未见核心离队风险。";
-      const sources = injData.sources_merged || [];
-      const sourcesStr = sources.length > 0 ? `[来源: ${sources.join(', ')}]` : '';
-
-      const renderList = (list) => {
-        if (!list || list.length === 0) {
-          return `<div style="font-size: 11px; color: var(--text-4); padding: 4px 0; text-align: left;">✅ 全员健康，无已知停赛/伤病</div>`;
-        }
-        return list.map(item => {
-          let impactBadge = '<span style="background:rgba(255,255,255,0.06); color:var(--text-3); font-size:9.5px; padding:1px 5px; border-radius:3px;">⚪ 影响低</span>';
-          if (item.impact === '高') {
-            impactBadge = '<span style="background:rgba(239, 68, 68, 0.15); border:1px solid rgba(239, 68, 68, 0.4); color:#ef4444; font-size:9.5px; padding:1px 5px; border-radius:3px; font-weight:bold;">🔴 影响高</span>';
-          } else if (item.impact === '中') {
-            impactBadge = '<span style="background:rgba(245, 158, 11, 0.15); border:1px solid rgba(245, 158, 11, 0.4); color:#f59e0b; font-size:9.5px; padding:1px 5px; border-radius:3px; font-weight:bold;">🟡 影响中</span>';
-          }
-
-          const srcTags = (item.sources || []).map(s => `<span style="font-size:9px; background:rgba(0,212,255,0.1); color:var(--cyan); border:1px solid rgba(0,212,255,0.25); padding:0px 4px; border-radius:3px; margin-left:4px;">${s}</span>`).join('');
-
-          return `
-          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: 6px; padding: 6px 8px; margin-bottom: 6px; font-size: 11.5px; text-align: left;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 2px;">
-              <span style="font-weight: 700; color: var(--text-1);">${item.player} <span style="font-size:10px; color:var(--text-3); font-weight:normal;">(${item.position})</span></span>
-              <div>${impactBadge}${srcTags}</div>
-            </div>
-            <div style="color: var(--text-3); font-size: 11px;">⚠️ ${item.reason}</div>
-            ${item.impact_reason ? `<div style="color: rgba(255,255,255,0.45); font-size: 10px; margin-top:2px;">💡 评估: ${item.impact_reason}</div>` : ''}
-          </div>`;
-        }).join('');
-      };
-
-      return `
-      <div class="injuries-card-box" style="padding: 10px 12px; background: rgba(255,255,255,0.015); border: 1px solid var(--border-subtle); border-radius: 8px; text-align: left;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 6px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 6px;">
-          <div style="font-size: 12px; font-weight: 700; color: var(--text-1); display:flex; align-items:center; gap:6px;">
-            <span>🚑 最新伤停及缺阵评估</span>
-            <span style="font-size: 10px; color: var(--cyan); font-weight: normal;">${sourcesStr}</span>
-          </div>
-          <span style="font-size: 9.5px; padding: 1px 5px; background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.2); color: var(--cyan); border-radius: 3px;">多源关联评估</span>
-        </div>
-
-        <div style="font-size: 10.5px; color: #fbbf24; background: rgba(245,158,11,0.06); border: 1px solid rgba(245,158,11,0.15); padding: 4px 8px; border-radius: 4px; margin-bottom: 8px; text-align: left;">
-          ${evalText}
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-          <div>
-            <div style="font-size: 11px; font-weight: 700; color: var(--cyan); margin-bottom: 4px; text-align: left; border-left: 3px solid var(--cyan); padding-left: 4px;">
-              ${matchObj.home || '主队'} 伤停
-            </div>
-            ${renderList(homeList)}
-          </div>
-          <div>
-            <div style="font-size: 11px; font-weight: 700; color: #ff3d00; margin-bottom: 4px; text-align: left; border-left: 3px solid #ff3d00; padding-left: 4px;">
-              ${matchObj.away || '客队'} 伤停
-            </div>
-            ${renderList(awayList)}
-          </div>
-        </div>
-      </div>`;
-    }
-
     const homeRecentHtml = renderTeamRecent(match.team_stats?.home?.name, homeRecent);
     const awayRecentHtml = renderTeamRecent(match.team_stats?.away?.name, awayRecent);
     const homeStandingHtml = renderTeamStanding(match.home || match.team_stats?.home?.name, match.home_standing || match.team_stats?.home?.standing, match.team_stats?.home);
@@ -788,14 +723,9 @@ const MatchIQRender = (() => {
     <div class="mc-pane ${paneId === 'stats' ? 'active' : ''}" id="pane-${match.id}-stats">
       <div class="stats-grid">
         <div>
-          <!-- 顶部区域：八边形雷达图 + 伤停缺阵评估 (双列并排) -->
-          <div class="stats-top-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: start;">
-            <!-- 八边形雷达图 -->
-            <div class="chart-box" style="margin-bottom:0;">
-              <canvas id="radar-${match.id}"></canvas>
-            </div>
-            <!-- 伤停评估卡片 -->
-            ${renderInjuriesCard(match)}
+          <!-- 八边形雷达图 -->
+          <div class="chart-box">
+            <canvas id="radar-${match.id}"></canvas>
           </div>
           
           <!-- 第一部分：双方 H2H 历史交锋 -->
@@ -1021,72 +951,69 @@ const MatchIQRender = (() => {
     </div>`;
   }
 
-  // ─── INTELLIGENCE PANE ───
-  function renderIntelPane(match) {
-    const intel = match.intelligence || {};
-    const news = intel.verified_news || [];
-    const mediaPreds = intel.media_predictions || [];
+  // ─── INJURIES PANE ───
+  function renderInjuriesPane(match, paneId) {
+    const injData = match.injury_analysis || {};
+    const homeList = injData.home_injuries || [];
+    const awayList = injData.away_injuries || [];
+    const evalText = injData.system_impact_eval || "双方伤停处于正常轮换范围，未见核心离队/缺阵风险。";
+    const sources = injData.sources_merged || [];
+    const sourcesStr = sources.length > 0 ? `[来源: ${sources.join(', ')}]` : '';
 
-    const newTagHtml = '<span class="new-tag" style="background:#ef4444; color:#fff; font-size:10px; font-weight:800; padding:1px 5px; border-radius:3px; margin-left:6px; vertical-align:middle; box-shadow:0 0 6px rgba(239,68,68,0.5);">NEW</span>';
+    const renderList = (list, teamName) => {
+      if (!list || list.length === 0) {
+        return `<div style="font-size: 12px; color: var(--text-4); padding: 12px; background: rgba(255,255,255,0.01); border-radius:6px; text-align: center;">✅ ${teamName}全员健康，无已知停赛或伤病报告</div>`;
+      }
+      return list.map(item => {
+        let impactBadge = '<span style="background:rgba(255,255,255,0.06); color:var(--text-3); font-size:10px; padding:2px 6px; border-radius:4px;">⚪ 影响低</span>';
+        if (item.impact === '高') {
+          impactBadge = '<span style="background:rgba(239, 68, 68, 0.15); border:1px solid rgba(239, 68, 68, 0.4); color:#ef4444; font-size:10px; padding:2px 6px; border-radius:4px; font-weight:bold;">🔴 影响高</span>';
+        } else if (item.impact === '中') {
+          impactBadge = '<span style="background:rgba(245, 158, 11, 0.15); border:1px solid rgba(245, 158, 11, 0.4); color:#f59e0b; font-size:10px; padding:2px 6px; border-radius:4px; font-weight:bold;">🟡 影响中</span>';
+        }
 
-    const newsHtml = news.map(n => `
-      <div class="news-item">
-        <div class="news-header">
-          <div class="news-title">${n.title}${n.is_new ? newTagHtml : ''}</div>
-          <span class="news-impact ${newsImpactClass(n.impact)}">${n.impact || '--'}</span>
-        </div>
-        <div class="news-meta">
-          <span>${n.source}</span>
-          <span>·</span>
-          <span>${n.date || '--'}</span>
-          ${n.verified ? '<span class="verified-badge">✓ 已验证</span>' : ''}
-          ${n.url ? `<a href="${n.url}" target="_blank" style="font-size:10px;color:var(--cyan)">查看原文 →</a>` : ''}
-        </div>
-      </div>`).join('') || '<div style="color:var(--text-4);font-size:13px;text-align:center;padding:20px">暂无已验证新闻</div>';
+        const srcTags = (item.sources || []).map(s => `<span style="font-size:9.5px; background:rgba(0,212,255,0.1); color:var(--cyan); border:1px solid rgba(0,212,255,0.25); padding:1px 5px; border-radius:3px; margin-left:4px;">${s}</span>`).join('');
 
-    const predHtml = mediaPreds.map(p => `
-      <div class="media-pred-item">
-        <div class="mp-source">${p.source || p.media_name || '媒体/数据源'}${p.is_new ? newTagHtml : ''}</div>
-        <div class="mp-prediction ${mpPredClass(p.prediction)}">${p.prediction}</div>
-        <div class="mp-score">${p.score || p.predicted_score || '--'}</div>
-      </div>`).join('') || '<div style="color:var(--text-4);font-size:13px;text-align:center;padding:20px">暂无媒体预测</div>';
-
-    const isSocialNew = Array.isArray(intel.social_buzz) ? intel.social_buzz.some(s => s.is_new) : (intel.social_buzz && intel.social_buzz.is_new);
-    const isWeatherNew = match.weather?.is_new || intel.weather_is_new;
+        return `
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; text-align: left;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 4px;">
+            <span style="font-size: 13px; font-weight: 700; color: var(--text-1);">${item.player} <span style="font-size:11px; color:var(--text-3); font-weight:normal;">(${item.position})</span></span>
+            <div>${impactBadge}${srcTags}</div>
+          </div>
+          <div style="color: var(--text-2); font-size: 12px; line-height:1.4;">⚠️ ${item.reason}</div>
+          ${item.impact_reason ? `<div style="color: rgba(255,255,255,0.5); font-size: 11px; margin-top:4px; border-top:1px dashed rgba(255,255,255,0.06); padding-top:4px;">💡 评估: ${item.impact_reason}</div>` : ''}
+        </div>`;
+      }).join('');
+    };
 
     return `
-    <div class="mc-pane" id="pane-${match.id}-intel">
-      <div class="intel-grid">
-        <div>
-          <div style="font-size:13px;font-weight:600;color:var(--text-2);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px">已验证新闻</div>
-          <div class="news-list">${newsHtml}</div>
+    <div class="mc-pane ${paneId === 'injuries' ? 'active' : ''}" id="pane-${match.id}-injuries">
+      <div style="padding: 4px; text-align: left;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px; background: rgba(255,255,255,0.02); padding: 10px 14px; border-radius: 8px; border-left: 4px solid var(--cyan);">
+          <div style="font-size: 13px; font-weight: 700; color: var(--text-1); display:flex; align-items:center; gap:8px;">
+            <span>🚑 双方最新伤停及缺阵评估</span>
+            <span style="font-size: 11px; color: var(--cyan); font-weight: normal;">${sourcesStr}</span>
+          </div>
+          <span style="font-size: 10.5px; padding: 2px 8px; background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.3); color: var(--cyan); border-radius: 4px;">多源关联与系统研判</span>
         </div>
-        <div>
-          <div class="media-predictions">
-            <div class="media-pred-title">媒体预测方向</div>
-            <div class="media-pred-list">${predHtml}</div>
+
+        <div style="font-size: 12px; color: #fbbf24; background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.2); padding: 8px 12px; border-radius: 6px; margin-bottom: 14px; text-align: left; line-height: 1.5;">
+          ${evalText}
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div>
+            <div style="font-size: 12px; font-weight: 700; color: var(--cyan); margin-bottom: 8px; text-align: left; border-left: 3px solid var(--cyan); padding-left: 6px;">
+              ${match.home || '主队'} 伤停名单
+            </div>
+            ${renderList(homeList, match.home || '主队')}
           </div>
-          <div style="margin-top:20px;padding:14px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.2);border-radius:var(--radius);">
-            <div style="font-size:12px;color:var(--indigo);font-weight:600;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px">社媒热议${isSocialNew ? newTagHtml : ''}</div>
-            ${intel.social_buzz ? `
-              <div style="font-size:13px;color:var(--text-2);line-height:1.6">
-                <div style="margin-bottom:8px">情绪：${intel.social_buzz.sentiment || (Array.isArray(intel.social_buzz) ? intel.social_buzz[0]?.sentiment : '--')}</div>
-                <div style="margin-bottom:8px">${intel.social_buzz.notable_discussion || (Array.isArray(intel.social_buzz) ? intel.social_buzz[0]?.comment : '--')}</div>
-                <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px">
-                  ${(intel.social_buzz.trending_keywords || []).map(kw =>
-                    `<span class="tag">#${kw}</span>`
-                  ).join('')}
-                </div>
-              </div>` : '<div style="color:var(--text-4);font-size:13px">暂无数据</div>'}
+          <div>
+            <div style="font-size: 12px; font-weight: 700; color: #ff3d00; margin-bottom: 8px; text-align: left; border-left: 3px solid #ff3d00; padding-left: 6px;">
+              ${match.away || '客队'} 伤停名单
+            </div>
+            ${renderList(awayList, match.away || '客队')}
           </div>
-          ${intel.weather_impact ? `
-            <div style="margin-top:12px;padding:12px 14px;background:rgba(255,255,255,0.02);border:1px solid var(--border-subtle);border-radius:var(--radius);font-size:12px;color:var(--text-3)">
-              🌡 ${intel.weather_impact}${isWeatherNew ? newTagHtml : ''}
-            </div>` : ''}
-          ${intel.venue_notes ? `
-            <div style="margin-top:8px;padding:12px 14px;background:rgba(255,255,255,0.02);border:1px solid var(--border-subtle);border-radius:var(--radius);font-size:12px;color:var(--text-3)">
-              🏟 ${intel.venue_notes}
-            </div>` : ''}
         </div>
       </div>
     </div>`;
@@ -1503,12 +1430,14 @@ const MatchIQRender = (() => {
         <div class="mc-tabs" id="tabs-${match.id}">
           <div class="mc-tab active" data-tab="stats"   data-match="${match.id}">📊 数据</div>
           <div class="mc-tab"        data-tab="odds"    data-match="${match.id}">💹 盘口</div>
+          <div class="mc-tab"        data-tab="injuries" data-match="${match.id}">🚑 伤停</div>
           <div class="mc-tab"        data-tab="conclusions" data-match="${match.id}">🎯 结论</div>
           <div class="mc-tab"        data-tab="factors" data-match="${match.id}">⚙️ 因子</div>
         </div>
 
         ${renderStatsPane(match, 'stats')}
         ${renderOddsPane(match)}
+        ${renderInjuriesPane(match)}
         ${renderConclusionsPane(match)}
         ${renderFactorsPane(match, weightsData, teamTags, tagsConfig)}
       </div>
