@@ -1722,7 +1722,17 @@ const MatchIQRender = (() => {
           const goalsText = cleanText(m10.over_under);
           const hfText = cleanText(m10.half_full);
 
-          const res = m.actual_result || m.ultimate_conclusion?.actual_result || '';
+          const rawRes = m.actual_result || m.ultimate_conclusion?.actual_result || '';
+          let ftScore = '';
+          let htScore = '';
+          
+          if (rawRes) {
+            const mFt = rawRes.match(/(\d+-\d+)/);
+            const mHt = rawRes.match(/\((\d+-\d+)\)/);
+            if (mFt) ftScore = mFt[1];
+            if (mHt) htScore = mHt[1];
+            if (!ftScore && !htScore) ftScore = rawRes;
+          }
           
           // Individual Hits
           const hadHit = m10.had_correct === true || (m.is_correct === true && hadText !== '无推荐');
@@ -1754,10 +1764,12 @@ const MatchIQRender = (() => {
 
           return `
             <div style="padding:8px 12px; border-bottom:1px solid rgba(255,255,255,0.05); margin-bottom:5px; border-radius:6px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; font-size:12.5px; ${rowHighlight}">
-              <div style="display:flex; align-items:center; gap:8px; min-width:180px;">
+              <div style="display:flex; align-items:center; gap:8px; min-width:200px;">
                 <strong style="color:var(--cyan); font-size:13px; font-weight:800;">[${matchCode}]</strong>
-                <span style="font-weight:700; color:#ffffff;">${m.home} vs ${m.away}</span>
-                ${res ? `<span style="font-size:11px; color:var(--text-3); font-weight:normal;">(${res})</span>` : ''}
+                <div>
+                  <div style="font-weight:700; color:#ffffff; line-height:1.2;">${m.home} vs ${m.away} ${ftScore ? `<span style="color:var(--cyan); font-weight:800; margin-left:4px;">${ftScore}</span>` : ''}</div>
+                  ${htScore ? `<div style="font-size:10px; color:#94a3b8; font-weight:normal; line-height:1.1; margin-top:2px;">(半场 ${htScore})</div>` : ''}
+                </div>
               </div>
               <div style="display:flex; align-items:center; gap:12px; font-size:12px; flex-grow:1; justify-content:flex-start; margin:2px 0;">
                 <span>胜平负: <span style="${itemStyle(hadHit)}">${hadText}</span></span>

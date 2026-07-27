@@ -76680,32 +76680,6 @@
       "status": "pending",
       "odds_history": [
         {
-          "timestamp": "2026-07-27T16:43:31.058549",
-          "pinnacle": {
-            "home": 1.79,
-            "draw": 3.4,
-            "away": 3.62
-          },
-          "kelly_conclusion": "即时返还率为 0.851。基于散户倾向（主 50% / 平 24% / 客 26%），计算得出即时凯利指数为：主胜 1.17，平局 0.68，客胜 0.66。<br/> 散户最热的【主胜】（凯利 1.17）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
-          "asian_handicap": {
-            "handicap": "主队-0.75",
-            "home_odds": 1.88,
-            "away_odds": 2.02
-          },
-          "lottery_handicap": {
-            "initial": {
-              "win": 1.77,
-              "draw": 3.75,
-              "lose": 3.36
-            },
-            "current": {
-              "win": 1.77,
-              "draw": 3.75,
-              "lose": 3.36
-            }
-          }
-        },
-        {
           "timestamp": "2026-07-27T16:57:09.982313",
           "pinnacle": {
             "home": 1.81,
@@ -77198,6 +77172,32 @@
               "lose": 3.55
             }
           }
+        },
+        {
+          "timestamp": "2026-07-27T19:06:52.364287",
+          "pinnacle": {
+            "home": 1.81,
+            "draw": 3.4,
+            "away": 3.55
+          },
+          "kelly_conclusion": "即时返还率为 0.710。基于散户倾向（主 50% / 平 24% / 客 26%），计算得出即时凯利指数为：主胜 1.74，平局 0.45，客胜 0.44。<br/> 散户最热的【主胜】（凯利 1.74）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+          "asian_handicap": {
+            "handicap": "主队-0.75",
+            "home_odds": 1.88,
+            "away_odds": 2.02
+          },
+          "lottery_handicap": {
+            "initial": {
+              "win": 1.77,
+              "draw": 3.75,
+              "lose": 3.36
+            },
+            "current": {
+              "win": 1.81,
+              "draw": 3.4,
+              "lose": 3.55
+            }
+          }
         }
       ],
       "match_context": "瑞超常规赛对决。赫根坐镇主场迎接索尔纳的挑战。",
@@ -77207,7 +77207,7 @@
         "confidence": 68,
         "risk_level": "极高",
         "ev_score": 0.0,
-        "reasoning": "瑞超联赛的人工草皮主场优势极其明显，客队适应常面临考验。 基本面上，赫根在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），但索尔纳在【近期状态与动能】上（评分 8.3 对 6.0）给主队带来制约。结合战意（主 85% / 客 82%），即时欧指主胜由 3.55 降至 3.48，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【反基本面冷门 (客队不败) (竞彩)】。",
+        "reasoning": "瑞超联赛的人工草皮主场优势极其明显，客队适应常面临考验。 基本面上，赫根在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），但索尔纳在【近期状态与动能】上（评分 8.3 对 6.0）给主队带来制约。结合战意（主 85% / 客 82%），即时欧指主胜由 3.62 降至 3.55，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【反基本面冷门 (客队不败) (竞彩)】。",
         "confidence_trend": "up",
         "predicted_score": "1-2 或 1-1 或 2-2 (竞彩)"
       },
@@ -77429,14 +77429,14 @@
         "pinnacle": {
           "name": "pinnacle",
           "initial": {
+            "home": 3.62,
+            "draw": 1.81,
+            "away": 1.63
+          },
+          "current": {
             "home": 3.55,
             "draw": 1.85,
             "away": 1.66
-          },
-          "current": {
-            "home": 3.48,
-            "draw": 1.89,
-            "away": 1.69
           },
           "movement": "实时追踪"
         },
@@ -77491,70 +77491,70 @@
         "sbobet": {
           "name": "sbobet",
           "initial": {
-            "home": 3.62,
-            "draw": 1.82,
-            "away": 1.61
+            "home": 3.69,
+            "draw": 1.78,
+            "away": 1.58
           },
           "current": {
-            "home": 3.55,
-            "draw": 1.85,
-            "away": 1.64
+            "home": 3.62,
+            "draw": 1.81,
+            "away": 1.61
           },
           "movement": "实时追踪"
         },
         "nova88": {
           "name": "nova88",
           "initial": {
+            "home": 3.55,
+            "draw": 1.83,
+            "away": 1.66
+          },
+          "current": {
             "home": 3.48,
             "draw": 1.87,
             "away": 1.69
-          },
-          "current": {
-            "home": 3.41,
-            "draw": 1.91,
-            "away": 1.72
           },
           "movement": "实时追踪"
         },
         "crown": {
           "name": "crown",
           "initial": {
+            "home": 3.66,
+            "draw": 1.81,
+            "away": 1.61
+          },
+          "current": {
             "home": 3.59,
             "draw": 1.85,
             "away": 1.64
-          },
-          "current": {
-            "home": 3.51,
-            "draw": 1.89,
-            "away": 1.67
           },
           "movement": "实时追踪"
         },
         "hkjc": {
           "name": "hkjc",
           "initial": {
-            "home": 3.44,
-            "draw": 1.8,
-            "away": 1.74
+            "home": 3.51,
+            "draw": 1.76,
+            "away": 1.71
           },
           "current": {
-            "home": 3.38,
-            "draw": 1.83,
-            "away": 1.77
+            "home": 3.44,
+            "draw": 1.79,
+            "away": 1.74
           },
           "movement": "实时追踪"
         },
         "m8bet": {
           "name": "m8bet",
           "initial": {
-            "home": 3.51,
-            "draw": 1.89,
-            "away": 1.67
+            "home": 3.58,
+            "draw": 1.85,
+            "away": 1.64
           },
           "current": {
-            "home": 3.45,
-            "draw": 1.93,
-            "away": 1.71
+            "home": 3.51,
+            "draw": 1.89,
+            "away": 1.68
           },
           "movement": "实时追踪"
         },
@@ -77563,7 +77563,7 @@
           "【客让优势烟雾弹】索尔纳 客场让步深盘做热客胜，需警惕 赫根 利用主场防守拉锯战逼平爆冷。",
           "【资金流热度烟雾弹】竞彩比分筹码密集涌入 2:2, 1:2，庄家借市场跟风热度升水诱导反向投注。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主不败' 进行了实质性控赔下调（已降水至 3.48），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。",
+        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主不败' 进行了实质性控赔下调（已降水至 3.55），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。",
         "sporttery": {
           "name": "中国竞彩 (Sporttery)",
           "initial": {
@@ -77639,7 +77639,7 @@
         "half_full": "平胜 或 胜胜 或 平平 (竞彩)",
         "upset_probability": 0.68,
         "upset_direction": "客胜/平局",
-        "kelly_conclusion": "即时返还率为 0.710。基于散户倾向（主 50% / 平 24% / 客 26%），计算得出即时凯利指数为：主胜 1.74，平局 0.45，客胜 0.44。<br/> 散户最热的【主胜】（凯利 1.74）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+        "kelly_conclusion": "即时返还率为 0.702。基于散户倾向（主 50% / 平 24% / 客 26%），计算得出即时凯利指数为：主胜 1.77，平局 0.44，客胜 0.43。<br/> 散户最热的【主胜】（凯利 1.77）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
         "draw_multiplier": 1.0,
         "upset_trend": "down",
         "m10_snapshot_count": 7,
@@ -78020,7 +78020,7 @@
           "signal": "交锋势均力敌"
         }
       },
-      "moe_score": 2.0275515666281034,
+      "moe_score": 2.1061704291910734,
       "prediction_updated": true,
       "diff_markers": {
         "had": false,
@@ -78263,32 +78263,6 @@
       },
       "status": "pending",
       "odds_history": [
-        {
-          "timestamp": "2026-07-27T16:43:31.076477",
-          "pinnacle": {
-            "home": 1.48,
-            "draw": 3.95,
-            "away": 5.0
-          },
-          "kelly_conclusion": "即时返还率为 0.887。基于散户倾向（主 58% / 平 23% / 客 19%），计算得出即时凯利指数为：主胜 1.17，平局 0.66，客胜 0.67。<br/> 散户最热的【主胜】（凯利 1.17）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
-          "asian_handicap": {
-            "handicap": "主队-0.75",
-            "home_odds": 1.88,
-            "away_odds": 2.02
-          },
-          "lottery_handicap": {
-            "initial": {
-              "win": 1.53,
-              "draw": 3.8,
-              "lose": 4.7
-            },
-            "current": {
-              "win": 1.57,
-              "draw": 3.75,
-              "lose": 4.45
-            }
-          }
-        },
         {
           "timestamp": "2026-07-27T16:57:10.011892",
           "pinnacle": {
@@ -78782,16 +78756,42 @@
               "lose": 5.2
             }
           }
+        },
+        {
+          "timestamp": "2026-07-27T19:06:52.371909",
+          "pinnacle": {
+            "home": 1.45,
+            "draw": 4.05,
+            "away": 5.2
+          },
+          "kelly_conclusion": "即时返还率为 0.782。基于散户倾向（主 58% / 平 23% / 客 19%），计算得出即时凯利指数为：主胜 1.72，平局 0.44，客胜 0.45。<br/> 散户最热的【主胜】（凯利 1.72）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+          "asian_handicap": {
+            "handicap": "主队-0.75",
+            "home_odds": 1.88,
+            "away_odds": 2.02
+          },
+          "lottery_handicap": {
+            "initial": {
+              "win": 1.53,
+              "draw": 3.8,
+              "lose": 4.7
+            },
+            "current": {
+              "win": 1.45,
+              "draw": 4.05,
+              "lose": 5.2
+            }
+          }
         }
       ],
       "match_context": "挪超常规赛对决。罗森博格坐镇主场迎接腓特烈的挑战。",
       "ultimate_conclusion": {
         "recommendation": "反基本面冷门 (客队不败) (竞彩)",
         "primary_bet": "双选不败",
-        "confidence": 42,
+        "confidence": 44,
         "risk_level": "极高",
         "ev_score": 0.0,
-        "reasoning": "挪超联赛大开大合，大球率高，进攻端对体能消耗极大。 基本面上，罗森博格在【近期状态与动能】上拥有明显优势（评分 7.4 对 4.6），两队防线与战术匹配相对均衡。结合战意（主 85% / 客 82%），即时欧指主胜由 3.03 降至 2.97，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【反基本面冷门 (客队不败) (竞彩)】。",
+        "reasoning": "挪超联赛大开大合，大球率高，进攻端对体能消耗极大。 基本面上，罗森博格在【近期状态与动能】上拥有明显优势（评分 7.4 对 4.6），两队防线与战术匹配相对均衡。结合战意（主 85% / 客 82%），即时欧指主胜由 3.09 降至 3.03，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【反基本面冷门 (客队不败) (竞彩)】。",
         "confidence_trend": "up",
         "predicted_score": "0-1 或 0-0 或 2-0 (竞彩)"
       },
@@ -79013,14 +79013,14 @@
         "pinnacle": {
           "name": "pinnacle",
           "initial": {
+            "home": 3.09,
+            "draw": 1.84,
+            "away": 2.27
+          },
+          "current": {
             "home": 3.03,
             "draw": 1.88,
             "away": 2.32
-          },
-          "current": {
-            "home": 2.97,
-            "draw": 1.92,
-            "away": 2.37
           },
           "movement": "实时追踪"
         },
@@ -79075,33 +79075,61 @@
         "sbobet": {
           "name": "sbobet",
           "initial": {
+            "home": 3.15,
+            "draw": 1.81,
+            "away": 2.21
+          },
+          "current": {
             "home": 3.09,
             "draw": 1.84,
             "away": 2.25
-          },
-          "current": {
-            "home": 3.03,
-            "draw": 1.88,
-            "away": 2.3
           },
           "movement": "实时追踪"
         },
         "nova88": {
           "name": "nova88",
           "initial": {
+            "home": 3.03,
+            "draw": 1.86,
+            "away": 2.32
+          },
+          "current": {
             "home": 2.97,
             "draw": 1.9,
             "away": 2.37
-          },
-          "current": {
-            "home": 2.91,
-            "draw": 1.94,
-            "away": 2.42
           },
           "movement": "实时追踪"
         },
         "crown": {
           "name": "crown",
+          "initial": {
+            "home": 3.12,
+            "draw": 1.84,
+            "away": 2.25
+          },
+          "current": {
+            "home": 3.06,
+            "draw": 1.88,
+            "away": 2.3
+          },
+          "movement": "实时追踪"
+        },
+        "hkjc": {
+          "name": "hkjc",
+          "initial": {
+            "home": 3.0,
+            "draw": 1.79,
+            "away": 2.39
+          },
+          "current": {
+            "home": 2.94,
+            "draw": 1.82,
+            "away": 2.44
+          },
+          "movement": "实时追踪"
+        },
+        "m8bet": {
+          "name": "m8bet",
           "initial": {
             "home": 3.06,
             "draw": 1.88,
@@ -79110,35 +79138,7 @@
           "current": {
             "home": 3.0,
             "draw": 1.92,
-            "away": 2.35
-          },
-          "movement": "实时追踪"
-        },
-        "hkjc": {
-          "name": "hkjc",
-          "initial": {
-            "home": 2.94,
-            "draw": 1.83,
-            "away": 2.44
-          },
-          "current": {
-            "home": 2.88,
-            "draw": 1.86,
-            "away": 2.49
-          },
-          "movement": "实时追踪"
-        },
-        "m8bet": {
-          "name": "m8bet",
-          "initial": {
-            "home": 3.0,
-            "draw": 1.92,
-            "away": 2.35
-          },
-          "current": {
-            "home": 2.94,
-            "draw": 1.96,
-            "away": 2.39
+            "away": 2.34
           },
           "movement": "实时追踪"
         },
@@ -79147,7 +79147,7 @@
           "【资金流热度烟雾弹】竞彩比分筹码密集涌入 2:0, 2:1，庄家借市场跟风热度升水诱导反向投注。",
           "【交锋往绩烟雾弹】利用 罗森博格 与 腓特烈 历史交锋热度营造单边情绪，意在掩盖近期战术体系调整后的真实实力差距。"
         ],
-        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主不败' 进行了实质性控赔下调（已降水至 2.97），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。",
+        "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主不败' 进行了实质性控赔下调（已降水至 3.03），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。",
         "sporttery": {
           "name": "中国竞彩 (Sporttery)",
           "initial": {
@@ -79223,7 +79223,7 @@
         "half_full": "平胜 或 胜胜 (竞彩)",
         "upset_probability": 0.68,
         "upset_direction": "客胜/平局",
-        "kelly_conclusion": "即时返还率为 0.782。基于散户倾向（主 58% / 平 23% / 客 19%），计算得出即时凯利指数为：主胜 1.72，平局 0.44，客胜 0.45。<br/> 散户最热的【主胜】（凯利 1.72）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
+        "kelly_conclusion": "即时返还率为 0.773。基于散户倾向（主 58% / 平 23% / 客 19%），计算得出即时凯利指数为：主胜 1.76，平局 0.43，客胜 0.44。<br/> 散户最热的【主胜】（凯利 1.76）呈现超额赔付风险，但宏观走势上庄家对其进行<strong>阻尼升水</strong>， 庄家不降反升，涉嫌利用热门题材诱买散户。本场建议果断逆向操作，走 <strong style='color: #ff9800;'>客队受让或不败</strong> 的冷门路线。",
         "draw_multiplier": 1.0,
         "upset_trend": "down",
         "m10_snapshot_count": 6,
@@ -79554,13 +79554,13 @@
           "signal": "罗森博格交锋占优"
         }
       },
-      "moe_score": 0.28903306141737656,
+      "moe_score": 0.3647735842547616,
       "prediction_updated": true,
       "diff_markers": {
         "had": false,
         "score": false,
-        "ou": true,
-        "hf": true,
+        "ou": false,
+        "hf": false,
         "goals": false
       },
       "odds_movement_str": "胜 1.53➔1.45 | 平 3.8➔4.05 | 负 4.7➔5.2",
@@ -79674,7 +79674,7 @@
           "m10": "up"
         }
       },
-      "has_conclusion_changed": true,
+      "has_conclusion_changed": false,
       "injury_analysis": {
         "home_injuries": [],
         "away_injuries": [
