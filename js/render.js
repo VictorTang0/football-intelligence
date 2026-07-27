@@ -1450,12 +1450,41 @@ const MatchIQRender = (() => {
       }
       const tagsHTML = Object.entries(record.tags).map(([tagName, tagInfo]) => {
         const emoji = tagEmojis[tagName] || '🏷️';
-        const desc = tagDescriptions[tagName] || '暂无说明';
+        const desc = typeof tagInfo === 'object' ? (tagInfo.desc || tagDescriptions[tagName] || '') : (tagDescriptions[tagName] || '');
+        const lvl = typeof tagInfo === 'object' ? (tagInfo.level || 1) : 1;
+        const score = typeof tagInfo === 'object' ? (tagInfo.score || 0) : 0;
+        
+        let color = '#94a3b8';
+        let bg = 'rgba(255, 255, 255, 0.05)';
+        let border = 'rgba(255, 255, 255, 0.15)';
+        let shadow = 'none';
+
+        if (lvl === 5) {
+          color = '#a855f7';
+          bg = 'rgba(168, 85, 247, 0.2)';
+          border = 'rgba(168, 85, 247, 0.5)';
+          shadow = '0 0 6px rgba(168, 85, 247, 0.35)';
+        } else if (lvl === 4) {
+          color = '#ef4444';
+          bg = 'rgba(239, 68, 68, 0.18)';
+          border = 'rgba(239, 68, 68, 0.45)';
+          shadow = '0 0 5px rgba(239, 68, 68, 0.3)';
+        } else if (lvl === 3) {
+          color = '#f59e0b';
+          bg = 'rgba(245, 158, 11, 0.15)';
+          border = 'rgba(245, 158, 11, 0.4)';
+        } else if (lvl === 2) {
+          color = '#00d4ff';
+          bg = 'rgba(0, 212, 255, 0.12)';
+          border = 'rgba(0, 212, 255, 0.3)';
+        }
+
         return `
-          <span class="team-header-tag-badge" data-tooltip="${desc}" style="cursor:help;display:inline-flex;align-items:center;background:rgba(0, 212, 255, 0.05);border:1px solid rgba(0, 212, 255, 0.25);border-radius:4px;padding:1px 5px;font-size:11px;margin: 2px;vertical-align:middle;font-family:var(--font-body);color:var(--cyan);text-shadow: 0 0 3px rgba(0, 212, 255, 0.25);">
+          <span class="team-header-tag-badge" data-tooltip="${desc}" style="cursor:help;display:inline-flex;align-items:center;background:${bg};border:1px solid ${border};border-radius:4px;padding:2px 6px;font-size:11px;margin:2px;vertical-align:middle;font-family:var(--font-body);color:${color};box-shadow:${shadow};font-weight:600;">
             <span style="margin-right:2px">${emoji}</span>
             <span>${tagName}</span>
-            <span style="margin-left:4px;font-weight:700">Lvl ${tagInfo.level}</span>
+            <span style="margin-left:4px;font-size:10px;font-weight:700;">Lv.${lvl}</span>
+            ${score > 0 ? `<span style="margin-left:3px;font-size:9.5px;opacity:0.9;">[${score}分]</span>` : ''}
           </span>
         `;
       }).join('');
