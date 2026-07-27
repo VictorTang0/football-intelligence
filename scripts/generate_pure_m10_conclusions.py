@@ -24,9 +24,9 @@ def deduce_pure_m10(match):
     w_pin = float(pin.get("home", 0)) if pin.get("home") else 0
     l_pin = float(pin.get("away", 0)) if pin.get("away") else 0
 
-    # 1. 胜平负 (HAD) M10 推导
+    # 1. 胜平负 (HAD) M10 推导 (降低触发门槛至 N >= 3 次快照)
     m10_had = "无推荐"
-    if m10_applied or m10_count >= 2:
+    if m10_applied or m10_count >= 3:
         if w_lot > 0 and w_pin > 0:
             if w_lot < w_pin:
                 m10_had = "主胜"
@@ -83,8 +83,11 @@ def deduce_pure_m10(match):
     elif m10_had == "主不败":
         m10_hf = "平胜 或 平平"
 
-    # 置信度计算
-    conf = min(95, 65 + m10_count * 4)
+    # 动态置信度计算：N=3起步 75%，随着快照次数增加递增，最高95%
+    if m10_count >= 3:
+        conf = min(95, 66 + m10_count * 4)
+    else:
+        conf = 50
 
     return {
         "m10_had": m10_had,
