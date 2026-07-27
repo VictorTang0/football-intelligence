@@ -1,8 +1,1106 @@
 {
-  "total_predictions": 78,
-  "correct_predictions": 38,
-  "accuracy_rate": 0.4872,
+  "total_predictions": 96,
+  "correct_predictions": 45,
+  "accuracy_rate": 0.4688,
   "records": [
+    {
+      "match_id": "match_260726_218",
+      "league": "巴甲",
+      "home": "格雷米奥",
+      "away": "弗鲁米嫩",
+      "date": "2026-07-27",
+      "time": "05:30",
+      "actual_result": "格雷米奥 1-1 弗鲁米嫩 (0-0)",
+      "is_correct": false,
+      "confidence": 48,
+      "predictions": {
+        "recommendation": {
+          "val": "客胜",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "客不败",
+          "correct": true
+        },
+        "mainstream": {
+          "val": "客胜",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平负 或 负负",
+          "correct": false
+        },
+        "over_under": {
+          "val": "小 2.5",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "0-2 或 0-1",
+          "correct": false
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [],
+        "m10_snapshot_count": 1,
+        "had_hhad_divergence": false
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.8199999999999998,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": false
+      }
+    },
+    {
+      "match_id": "match_260726_217",
+      "league": "巴甲",
+      "home": "弗拉门戈",
+      "away": "圣保罗",
+      "date": "2026-07-27",
+      "time": "05:30",
+      "actual_result": "弗拉门戈 1-1 圣保罗 (0-0)",
+      "is_correct": true,
+      "confidence": 42,
+      "predictions": {
+        "recommendation": {
+          "val": "反基本面冷门 (客队不败)",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "主不败",
+          "correct": true
+        },
+        "mainstream": {
+          "val": "主胜",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平胜 或 胜胜",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "1-0 或 0-0",
+          "correct": false
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [],
+        "m10_snapshot_count": 1,
+        "had_hhad_divergence": false
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "客胜",
+        "diff": 2.0999999999999996,
+        "recommendation": "主不败",
+        "is_correct": true
+      }
+    },
+    {
+      "match_id": "match_260726_216",
+      "league": "挪超",
+      "home": "奥勒松",
+      "away": "维京",
+      "date": "2026-07-27",
+      "time": "01:15",
+      "actual_result": "奥勒松 1-1 维京 (0-1)",
+      "is_correct": false,
+      "confidence": 58,
+      "predictions": {
+        "recommendation": {
+          "val": "客胜",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "客胜",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "客胜",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平负 或 负负",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "1-3 (高赔客胜) 或 1-2",
+          "correct": false
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [],
+        "m10_snapshot_count": 1,
+        "had_hhad_divergence": false
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -1.37,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": false
+      }
+    },
+    {
+      "match_id": "match_260726_215",
+      "league": "挪超",
+      "home": "桑纳菲",
+      "away": "博德闪耀",
+      "date": "2026-07-26",
+      "time": "23:00",
+      "actual_result": "桑纳菲 0-3 博德闪耀 (0-1)",
+      "is_correct": true,
+      "confidence": 71,
+      "predictions": {
+        "recommendation": {
+          "val": "客胜",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "客胜",
+          "correct": true
+        },
+        "mainstream": {
+          "val": "客胜",
+          "correct": true
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平负 或 负负",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "1-3 (高赔客胜) 或 1-2",
+          "correct": false
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [],
+        "m10_snapshot_count": 1,
+        "had_hhad_divergence": false
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "平局",
+        "diff": 0.5100000000000007,
+        "recommendation": "分出胜负",
+        "is_correct": true
+      }
+    },
+    {
+      "match_id": "match_260726_214",
+      "league": "挪超",
+      "home": "奥斯KFUM",
+      "away": "莫尔德",
+      "date": "2026-07-26",
+      "time": "23:00",
+      "actual_result": "奥斯KFUM 2-4 莫尔德 (1-1)",
+      "is_correct": false,
+      "confidence": 41,
+      "predictions": {
+        "recommendation": {
+          "val": "双选不败",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "双选不败",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "双选不败",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平平",
+          "correct": false
+        },
+        "over_under": {
+          "val": "小 2.5",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "0-1 或 0-0",
+          "correct": false
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [],
+        "m10_snapshot_count": 1,
+        "had_hhad_divergence": false
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "主胜",
+        "diff": 0.08999999999999986,
+        "recommendation": "客不败",
+        "is_correct": true
+      }
+    },
+    {
+      "match_id": "match_260726_213",
+      "league": "挪超",
+      "home": "萨普斯堡",
+      "away": "汉坎",
+      "date": "2026-07-26",
+      "time": "23:00",
+      "actual_result": "萨普斯堡 1-0 汉坎 (1-0)",
+      "is_correct": true,
+      "confidence": 78,
+      "predictions": {
+        "recommendation": {
+          "val": "主胜",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "主胜",
+          "correct": true
+        },
+        "mainstream": {
+          "val": "主胜",
+          "correct": true
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平胜 或 胜胜",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "3-1 (高赔拉开) 或 2-1",
+          "correct": false
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [],
+        "m10_snapshot_count": 1,
+        "had_hhad_divergence": false
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "客胜",
+        "diff": 0.4400000000000004,
+        "recommendation": "主不败",
+        "is_correct": true
+      }
+    },
+    {
+      "match_id": "match_260726_212",
+      "league": "瑞超",
+      "home": "马尔默",
+      "away": "埃夫斯堡",
+      "date": "2026-07-26",
+      "time": "22:30",
+      "actual_result": "马尔默 1-2 埃夫斯堡 (1-2)",
+      "is_correct": false,
+      "confidence": 42,
+      "predictions": {
+        "recommendation": {
+          "val": "双选不败",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "双选不败",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "双选不败",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平胜 或 胜胜",
+          "correct": false
+        },
+        "over_under": {
+          "val": "小 2.5",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "1-0 或 0-0",
+          "correct": false
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [],
+        "m10_snapshot_count": 1,
+        "had_hhad_divergence": false
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "平局",
+        "diff": 0.17000000000000037,
+        "recommendation": "分出胜负",
+        "is_correct": true
+      }
+    },
+    {
+      "match_id": "match_260726_211",
+      "league": "瑞超",
+      "home": "盖斯",
+      "away": "哈尔姆斯",
+      "date": "2026-07-26",
+      "time": "22:30",
+      "actual_result": "盖斯 1-1 哈尔姆斯 (0-0)",
+      "is_correct": false,
+      "confidence": 71,
+      "predictions": {
+        "recommendation": {
+          "val": "主胜",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "主胜",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "主胜",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平胜 或 胜胜",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "2-0 或 1-0",
+          "correct": false
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [],
+        "m10_snapshot_count": 1,
+        "had_hhad_divergence": false
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "客胜",
+        "diff": 0.16999999999999993,
+        "recommendation": "主不败",
+        "is_correct": true
+      }
+    },
+    {
+      "match_id": "match_260726_210",
+      "league": "芬超",
+      "home": "赫尔辛基",
+      "away": "TPS图尔",
+      "date": "2026-07-26",
+      "time": "22:00",
+      "actual_result": "赫尔辛基 1-0 TPS图尔 (1-0)",
+      "is_correct": true,
+      "confidence": 65,
+      "predictions": {
+        "recommendation": {
+          "val": "主胜",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "主胜",
+          "correct": true
+        },
+        "mainstream": {
+          "val": "主胜",
+          "correct": true
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平平",
+          "correct": false
+        },
+        "over_under": {
+          "val": "小 2.5",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "2-0 或 1-0",
+          "correct": true
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [],
+        "m10_snapshot_count": 1,
+        "had_hhad_divergence": false
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "客胜",
+        "diff": 1.6900000000000004,
+        "recommendation": "主不败",
+        "is_correct": true
+      }
+    },
+    {
+      "match_id": "match_260726_209",
+      "league": "挪超",
+      "home": "布兰",
+      "away": "瓦勒伦加",
+      "date": "2026-07-26",
+      "time": "20:30",
+      "actual_result": "布兰 2-3 瓦勒伦加 (0-3)",
+      "is_correct": false,
+      "confidence": 45,
+      "predictions": {
+        "recommendation": {
+          "val": "主胜",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "主胜",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "主胜",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平平",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "3-1 (高赔拉开) 或 2-1",
+          "correct": false
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [],
+        "m10_snapshot_count": 1,
+        "had_hhad_divergence": false
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "客胜",
+        "diff": 0.48,
+        "recommendation": "主不败",
+        "is_correct": false
+      }
+    },
+    {
+      "match_id": "match_260726_208",
+      "league": "芬超",
+      "home": "坦山猫",
+      "away": "拉赫蒂",
+      "date": "2026-07-26",
+      "time": "20:00",
+      "actual_result": "坦山猫 1-0 拉赫蒂 (1-0)",
+      "is_correct": true,
+      "confidence": 43,
+      "predictions": {
+        "recommendation": {
+          "val": "主不败",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "双选不败",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "主不败",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平平",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "2-1 或 1-1",
+          "correct": false
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [],
+        "m10_snapshot_count": 1,
+        "had_hhad_divergence": false
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "主胜",
+        "diff": 0.04999999999999982,
+        "recommendation": "客不败",
+        "is_correct": false
+      }
+    },
+    {
+      "match_id": "match_260726_207",
+      "league": "芬超",
+      "home": "国际图尔",
+      "away": "赫尔火花",
+      "date": "2026-07-26",
+      "time": "20:00",
+      "actual_result": "国际图尔 1-2 赫尔火花 (0-2)",
+      "is_correct": false,
+      "confidence": 45,
+      "predictions": {
+        "recommendation": {
+          "val": "主胜",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "主不败",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "主胜",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平平",
+          "correct": false
+        },
+        "over_under": {
+          "val": "小 2.5",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "2-0 或 1-0",
+          "correct": false
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [],
+        "m10_snapshot_count": 1,
+        "had_hhad_divergence": false
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "客胜",
+        "diff": 0.8700000000000001,
+        "recommendation": "主不败",
+        "is_correct": false
+      }
+    },
+    {
+      "match_id": "match_260726_206",
+      "league": "瑞超",
+      "home": "天狼星",
+      "away": "哥德堡",
+      "date": "2026-07-26",
+      "time": "20:00",
+      "actual_result": "天狼星 4-1 哥德堡 (2-1)",
+      "is_correct": true,
+      "confidence": 62,
+      "predictions": {
+        "recommendation": {
+          "val": "主胜",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "主胜",
+          "correct": true
+        },
+        "mainstream": {
+          "val": "主胜",
+          "correct": true
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平胜 或 胜胜",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "3-1 (高赔拉开) 或 2-1",
+          "correct": false
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [],
+        "m10_snapshot_count": 1,
+        "had_hhad_divergence": false
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "客胜",
+        "diff": 0.8199999999999994,
+        "recommendation": "主不败",
+        "is_correct": true
+      }
+    },
+    {
+      "match_id": "match_260726_205",
+      "league": "瑞超",
+      "home": "布鲁马波",
+      "away": "哈马比",
+      "date": "2026-07-26",
+      "time": "20:00",
+      "actual_result": "布鲁马波 1-1 哈马比 (0-0)",
+      "is_correct": false,
+      "confidence": 61,
+      "predictions": {
+        "recommendation": {
+          "val": "客胜",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "客胜",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "客胜",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平负 或 负负",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "0-2 或 0-1",
+          "correct": false
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [],
+        "m10_snapshot_count": 1,
+        "had_hhad_divergence": false
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "主胜",
+        "diff": 0.33000000000000007,
+        "recommendation": "客不败",
+        "is_correct": true
+      }
+    },
+    {
+      "match_id": "match_260726_204",
+      "league": "韩国职业联赛",
+      "home": "安养FC",
+      "away": "江原FC",
+      "date": "2026-07-26",
+      "time": "18:30",
+      "actual_result": "安养FC 2-1 江原FC (2-0)",
+      "is_correct": false,
+      "confidence": 46,
+      "predictions": {
+        "recommendation": {
+          "val": "客胜",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "客不败",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "客胜",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": true
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平负 或 负负",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5 (竞彩)",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "1-3 (高赔客胜) 或 1-2",
+          "correct": false
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [],
+        "m10_snapshot_count": 2,
+        "had_hhad_divergence": false
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.03000000000000025,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": true
+      }
+    },
+    {
+      "match_id": "match_260726_203",
+      "league": "韩国职业联赛",
+      "home": "光州FC",
+      "away": "济州SK",
+      "date": "2026-07-26",
+      "time": "18:30",
+      "actual_result": "光州FC 1-2 济州SK (1-1)",
+      "is_correct": true,
+      "confidence": 78,
+      "predictions": {
+        "recommendation": {
+          "val": "客胜",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "客不败",
+          "correct": true
+        },
+        "mainstream": {
+          "val": "客胜",
+          "correct": true
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平负 或 负负",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "0-2 或 0-1",
+          "correct": false
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [],
+        "m10_snapshot_count": 1,
+        "had_hhad_divergence": false
+      },
+      "radar_alert": {
+        "type": "protect",
+        "target": "主胜",
+        "diff": -0.27,
+        "recommendation": "主胜（庄家降水防范）",
+        "is_correct": false
+      }
+    },
+    {
+      "match_id": "match_260726_202",
+      "league": "韩国职业联赛",
+      "home": "仁川联",
+      "away": "富川FC",
+      "date": "2026-07-26",
+      "time": "18:30",
+      "actual_result": "仁川联 1-1 富川FC (0-1)",
+      "is_correct": false,
+      "confidence": 51,
+      "predictions": {
+        "recommendation": {
+          "val": "主胜",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "主胜",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "主胜",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平胜 或 胜胜",
+          "correct": false
+        },
+        "over_under": {
+          "val": "小 2.5 (竞彩)",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "2-0 或 1-0",
+          "correct": false
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [],
+        "m10_snapshot_count": 2,
+        "had_hhad_divergence": true
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "客胜",
+        "diff": 0.6099999999999994,
+        "recommendation": "主不败",
+        "is_correct": true
+      }
+    },
+    {
+      "match_id": "match_260726_201",
+      "league": "韩国职业联赛",
+      "home": "首尔FC",
+      "away": "蔚山现代",
+      "date": "2026-07-26",
+      "time": "18:30",
+      "actual_result": "首尔FC 1-3 蔚山现代 (0-2)",
+      "is_correct": false,
+      "confidence": 43,
+      "predictions": {
+        "recommendation": {
+          "val": "主胜",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "主胜",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "主胜",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平胜 或 胜胜",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5 (竞彩)",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "3-1 (高赔拉开) 或 2-1",
+          "correct": false
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [],
+        "m10_snapshot_count": 3,
+        "had_hhad_divergence": false
+      },
+      "radar_alert": {
+        "type": "trap",
+        "target": "客胜",
+        "diff": 0.22999999999999954,
+        "recommendation": "主不败",
+        "is_correct": false
+      }
+    },
     {
       "match_id": "match_260725_211",
       "league": "美职",
@@ -5629,12 +6727,12 @@
     }
   ],
   "radar_stats": {
-    "total_alerts": 74,
-    "correct_alerts": 41,
-    "accuracy_rate": 0.5541
+    "total_alerts": 92,
+    "correct_alerts": 52,
+    "accuracy_rate": 0.5652
   },
-  "score_accuracy_rate": 0.1795,
-  "half_full_accuracy_rate": 0.1538,
+  "score_accuracy_rate": 0.1562,
+  "half_full_accuracy_rate": 0.125,
   "hafu_accuracy_rate": 0.2609,
   "sporttery_primary_stats": {
     "direction": {
