@@ -2380,8 +2380,24 @@ def main():
         # 3. Update Reasoning
         m["ultimate_conclusion"]["reasoning"] = generate_dynamic_reasoning(m)
         
-        # 5. Update Dynamic Team Stats
-        apply_dynamic_team_stats(m)
+    # Force compute & attach m10_hub_analysis for all active matches
+    for m in matches:
+        if m.get("status") in ["finished", "postponed"]:
+            continue
+        try:
+            try:
+                import m10_engine
+            except ImportError:
+                from scripts import m10_engine
+            hub_res = m10_engine.deduce_m10_hub_conclusions(m, bonus_db)
+            m["m10_hub_analysis"] = hub_res
+            if "conclusions" not in m:
+                m["conclusions"] = {}
+            m["conclusions"]["m10_hub_analysis"] = hub_res
+            if hub_res and "snapshot_count" in hub_res:
+                m["conclusions"]["m10_snapshot_count"] = hub_res["snapshot_count"]
+        except Exception as e:
+            print(f"Error finalizing m10_hub_analysis for {m.get('id')}: {e}")
 
     # Assign updated matches array back to data dictionary so changes are saved!
     data["matches"] = matches
