@@ -1696,68 +1696,88 @@ const MatchIQRender = (() => {
           return `<div style="font-size:11px; color:var(--text-4); padding:6px 8px;">该日暂无对账记录</div>`;
         }
 
-        // Helper to strip (竞彩) tag
         const cleanText = (txt) => {
-          if (!txt || txt === '--') return '无推荐';
-          return txt.replace(/[\(（]竞彩[\)）]/g, '').trim() || '无推荐';
+          if (!txt || txt === '--' || txt === 'None') return '无推荐';
+          const t = String(txt).replace(/[\(（]竞彩[\)）]/g, '').trim();
+          return t || '无推荐';
         };
 
-        // Sort matches by M10 confidence descending
+        // Sort matches by confidence descending
         const sortedMatches = [...rawMatches].sort((a, b) => {
           const confA = a.m10_hub_analysis?.confidence || a.conclusions?.m10_confidence || a.confidence || 0;
           const confB = b.m10_hub_analysis?.confidence || b.conclusions?.m10_confidence || b.confidence || 0;
           return confB - confA;
         });
 
-        return sortedMatches.map((m, idx) => {
-          const m10 = m.m10_hub_analysis || m.conclusions || {};
-          
-          // Pure M10 conclusions only (no primary fallbacks)
-          const rawHad = m10.had_recommendation || m10.m10_had || (m10.had_analysis?.text);
-          const rawScore = m10.m10_predicted_score || m10.predicted_score;
-          const rawGoals = m10.m10_over_under || m10.over_under;
-          const rawHf = m10.m10_half_full || m10.half_full;
-          const rawPref = m10.m10_preference || m10.m10_water_preference;
+        let dayRedCount = 0;
+        let dayValidCount = 0;
 
-          const hadRec = cleanText(rawHad);
-          const scoreRec = cleanText(rawScore);
-          const goalsRec = cleanText(rawGoals);
-          const hfRec = cleanText(rawHf);
-          const m10Rec = cleanText(rawPref);
-          
-          const confVal = m10.confidence || m10.m10_confidence || 80;
+        const rowsHtml = sortedMatches.map((m, idx) => {
+          const m10 = m.m10_hub_analysis || m.conclusions || {};
+          const p = m.predictions || {};
+
+          // 5 Pure M10 items
+          const hadText = cleanText(m10.had_recommendation || m10.m10_had || (p.had?.val));
+          const hhadText = cleanText(m10.hhad_recommendation || m10.m10_hhad || (p.hhad?.val));
+          const scoreText = cleanText(m10.m10_predicted_score || m10.predicted_score || (p.most_likely_score?.val));
+          const goalsText = cleanText(m10.m10_over_under || m10.over_under || (p.over_under?.val));
+          const hfText = cleanText(m10.m10_half_full || m10.half_full || (p.half_full?.val));
+
+          // Individual Hits
+          const hadHit = m10.had_correct === true || (p.had ? !!p.had.correct : (m.is_correct && hadText !== '无推荐'));
+          const hhadHit = m10.hhad_correct === true || (p.hhad ? !!p.hhad.correct : false);
+          const scoreHit = m10.score_correct === true || (p.most_likely_score ? !!p.most_likely_score.correct : false);
+          const goalsHit = m10.goals_correct === true || (p.over_under ? !!p.over_under.correct : false);
+          const hfHit = m10.hf_correct === true || (p.half_full ? !!p.half_full.correct : false);
+
+          // Red/Black/No Status Determination
+          let statusBadge = '<span style="color:var(--text-4); background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); padding:1px 5px; border-radius:3px; font-size:10px;">无</span>';
+          let rowHighlight = 'color:var(--text-2); background:rgba(255,255,255,0.01);';
+
+          if (hadText === '无推荐' && hhadText === '无推荐') {
+            statusBadge = '<span style="color:var(--text-4); background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); padding:1px 5px; border-radius:3px; font-size:10px;">无</span>';
+          } else {
+            dayValidCount++;
+            if (hadHit || hhadHit) {
+              dayRedCount++;
+              statusBadge = '<span style="color:#ef4444; background:rgba(239, 68, 68, 0.15); border:1px solid rgba(239,68,68,0.4); padding:1px 6px; border-radius:3px; font-size:10px; font-weight:bold;">🔴 红单</span>';
+              rowHighlight = 'color:#ef4444; font-weight:700; background:rgba(239, 68, 68, 0.05); border-left:3px solid #ef4444;';
+            } else {
+              statusBadge = '<span style="color:#9ca3af; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.15); padding:1px 5px; border-radius:3px; font-size:10px;">黑单</span>';
+            }
+          }
+
           const matchNo = m.match_no || m.code || `场次${idx + 1}`;
-          
-          // Red hit condition for M10: M10 HAD recommendation hit
-          const isRed = m10.had_correct === true || (m.is_correct === true && hadRec !== '无推荐');
-          
-          const rowStyle = isRed 
-            ? 'color:#ef4444; font-weight:700; background:rgba(239, 68, 68, 0.06); border-left:3px solid #ef4444;' 
-            : 'color:var(--text-2); background:rgba(255,255,255,0.01);';
-            
-          const badgeHtml = isRed 
-            ? '<span style="color:#ef4444; background:rgba(239, 68, 68, 0.15); border:1px solid rgba(239,68,68,0.4); padding:1px 6px; border-radius:3px; font-size:10px; font-weight:bold; margin-left:6px;">🔴 红单</span>' 
-            : '<span style="color:#9ca3af; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.15); padding:1px 5px; border-radius:3px; font-size:10px; font-weight:normal; margin-left:6px;">黑单</span>';
+          const itemStyle = (isHit) => isHit ? 'color:#ef4444; font-weight:bold;' : 'color:var(--text-1); font-weight:normal;';
 
           return `
-            <div style="padding:6px 10px; border-bottom:1px solid rgba(255,255,255,0.04); margin-bottom:4px; border-radius:4px; ${rowStyle}">
-              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:3px; font-size:11.5px;">
+            <div style="padding:7px 10px; border-bottom:1px solid rgba(255,255,255,0.04); margin-bottom:4px; border-radius:4px; ${rowHighlight}">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:4px; font-size:11.5px;">
                 <span>
                   <strong style="color:var(--cyan); margin-right:4px;">[${matchNo}]</strong>
                   <span>${m.home} vs ${m.away}</span>
                   ${m.actual_result ? `<span style="font-size:10px; opacity:0.8; margin-left:6px;">(完赛 ${m.actual_result})</span>` : ''}
                 </span>
-                <span><span style="font-size:10px; color:var(--cyan); margin-right:4px;">置信度 ${confVal}%</span>${badgeHtml}</span>
+                <span>${statusBadge}</span>
               </div>
-              <div style="font-size:10.5px; opacity:0.9; display:flex; flex-wrap:wrap; gap:8px; line-height:1.4;">
-                <span>①胜平负/让球: <strong style="${isRed ? 'color:#ef4444;' : 'color:var(--text-1);'}">${hadRec}</strong></span>
-                <span>②比分: <strong>${scoreRec}</strong></span>
-                <span>③总进球: <strong>${goalsRec}</strong></span>
-                <span>④半全场: <strong>${hfRec}</strong></span>
-                <span>⑤M10水温偏好: <strong>${m10Rec}</strong></span>
+              <div style="font-size:10.5px; opacity:0.95; display:grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap:6px; line-height:1.4;">
+                <span>①胜平负: <span style="${itemStyle(hadHit)}">${hadText}</span></span>
+                <span>②让球胜平负: <span style="${itemStyle(hhadHit)}">${hhadText}</span></span>
+                <span>③比分: <span style="${itemStyle(scoreHit)}">${scoreText}</span></span>
+                <span>④具体进球数: <span style="${itemStyle(goalsHit)}">${goalsText}</span></span>
+                <span>⑤半全场: <span style="${itemStyle(hfHit)}">${hfText}</span></span>
               </div>
             </div>`;
         }).join('');
+
+        const winRate = dayValidCount > 0 ? (dayRedCount / dayValidCount * 100.0).toFixed(1) : '0.0';
+        const summaryHeader = `
+          <div style="margin-bottom:6px; font-size:11px; color:var(--cyan); background:rgba(0,188,212,0.06); padding:4px 8px; border-radius:4px; display:flex; justify-content:space-between; align-items:center;">
+            <span>📊 当日红黑单统计: <strong>${dayRedCount} 红</strong> / <strong>${dayValidCount} 有效场</strong></span>
+            <span style="font-weight:700; color:#ef4444;">胜率 ${winRate}%</span>
+          </div>`;
+
+        return summaryHeader + rowsHtml;
       }
 
       const day1Html = `
