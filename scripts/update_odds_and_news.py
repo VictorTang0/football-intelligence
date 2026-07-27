@@ -1835,7 +1835,7 @@ def main():
     # Run Official Standings & Real H2H Data Verification Expert BEFORE match processing
     try:
         import enrich_standings
-        enrich_standings.main()
+        enrich_standings.enrich_standings()
         import enrich_h2h_and_form
         enrich_h2h_and_form.enrich_h2h_and_form()
     except Exception as e:
