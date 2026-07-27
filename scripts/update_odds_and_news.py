@@ -1,10 +1,36 @@
 import json
 
 
-def compute_m10_factors(m, bonus_db):
+def get_bonus_data_smart(m, bonus_db):
     mid = m.get("id")
-    sp_id = m.get("sportteryMatchId")
-    b_data = bonus_db.get(mid) or bonus_db.get(sp_id) or {}
+    sp_id = str(m.get("sportteryMatchId") or "")
+    home = m.get("home", "")
+    away = m.get("away", "")
+
+    direct = bonus_db.get(mid) or bonus_db.get(sp_id) or bonus_db.get(f"match_sp_{sp_id}")
+    direct_snaps = len(direct.get("oddsHistory", {}).get("hadList", [])) if direct else 0
+
+    if direct_snaps >= 3:
+        return direct
+
+    best_entry = direct or {}
+    best_count = direct_snaps
+
+    for k, v in bonus_db.items():
+        v_home = v.get("home", "")
+        v_away = v.get("away", "")
+        if home and away and (home in v_home or v_home in home) and (away in v_away or v_away in away):
+            oh = v.get("oddsHistory", {})
+            snaps = max(len(oh.get("hadList", [])), len(oh.get("hhadList", [])), len(oh.get("crsList", [])))
+            if snaps > best_count:
+                best_count = snaps
+                best_entry = v
+
+    return best_entry
+
+
+def compute_m10_factors(m, bonus_db):
+    b_data = get_bonus_data_smart(m, bonus_db)
     oh = b_data.get("oddsHistory", {})
     had_list = oh.get("hadList", [])
     hhad_list = oh.get("hhadList", [])
