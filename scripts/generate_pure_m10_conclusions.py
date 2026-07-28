@@ -80,28 +80,41 @@ def deduce_pure_m10(match):
         m10_hf = "负负 或 平负"
     elif m10_had == "平局":
         m10_hf = "平平"
-    elif m10_had == "主不败":
-        m10_hf = "平胜 或 平平"
-
-    # 6. 💥 动态大胆预测比分 (Dynamic Bold Score Outlier Engine)
+    # 6. 💥 真·动态大胆预测比分算子 (True Dynamic Mathematical Outlier Engine)
     m10_bold_score = "无"
     m10_bold_reason = ""
     
     collapse_ratio = (w_pin / w_lot) if (w_lot > 0 and w_pin > 0) else 1.0
     upset_index = match.get("upset_risk_index") or match.get("conclusions", {}).get("upset_risk_index", 50)
     
-    if collapse_ratio > 1.25 or (m10_had == "主胜" and m10_count >= 4):
-        m10_bold_score = "💥 4-0 或 5-0 (屠杀血洗)"
-        m10_bold_reason = f"客队防线崩盘指数 CollapseRatio={collapse_ratio:.2f} 触发"
-    elif upset_index >= 65 or (l_lot > 0 and l_pin > 0 and l_lot < l_pin):
-        m10_bold_score = "💥 0-3 或 1-3 (客胜爆冷)"
-        m10_bold_reason = f"资金暗中流向客队，冷门指数 UpsetIndex={upset_index}% 触发"
-    elif m10_goals == "大 2.5" and m10_count >= 3:
-        m10_bold_score = "💥 3-3 或 4-2 (狂野大战)"
-        m10_bold_reason = "大球水位跳水，两队神经刀对轰"
-    elif m10_goals == "小 2.5":
+    # 根据各场比赛的具体赔率区间与水温参数，精准计算个性化极端尾部:
+    if m10_had == "主胜":
+        if w_pin > 0 and w_pin < 1.65:
+            m10_bold_score = "💥 4-0 或 5-0 (屠杀血洗)"
+            m10_bold_reason = f"主胜赔率 {w_pin:.2f} 低于 1.65，客队防线崩盘指数 CollapseRatio={collapse_ratio:.2f} 触发"
+        elif w_pin >= 1.65 and w_pin < 2.20:
+            m10_bold_score = "💥 3-1 或 4-1 (强攻大胜)"
+            m10_bold_reason = f"主胜赔率 {w_pin:.2f} 属于强攻区间，攻防两端压制"
+        else:
+            m10_bold_score = "💥 3-2 或 4-2 (险胜进球大战)"
+            m10_bold_reason = f"主胜赔率 {w_pin:.2f} 偏高，防线互相对流对轰"
+    elif m10_had == "客胜" or m10_had == "客不败":
+        if l_pin > 0 and l_pin < 2.40:
+            m10_bold_score = "💥 0-3 或 1-3 (客胜爆冷)"
+            m10_bold_reason = f"资金暗中支持客队 (客胜赔 {l_pin:.2f})，冷门指数 UpsetIndex={upset_index}% 触发"
+        else:
+            m10_bold_score = "💥 1-2 或 2-3 (逆袭对轰)"
+            m10_bold_reason = f"客队受让优势明显，反击效率极高"
+    elif m10_had == "主不败":
+        if d_lot > 0 and d_lot < 3.50:
+            m10_bold_score = "💥 2-2 或 3-3 (狂野对轰平局)"
+            m10_bold_reason = f"平赔 {d_lot:.2f} 诱导对冲，大球跳水引发惊天高比分平局"
+        else:
+            m10_bold_score = "💥 3-0 或 4-1 (深盘防冷大胜)"
+            m10_bold_reason = "主不败水温锁死下盘，防守反击打穿对手"
+    elif m10_had == "平局":
         m10_bold_score = "💥 0-0 (极限闷宫)"
-        m10_bold_reason = "水温极度看小，铁桶阵守死"
+        m10_bold_reason = "水温极度看小，两队铁桶阵密不透风"
 
     # 动态置信度计算：N=3起步 75%，随着快照次数增加递增，最高95%
     if m10_count >= 3:
