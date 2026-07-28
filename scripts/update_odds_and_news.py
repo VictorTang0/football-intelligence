@@ -2812,6 +2812,7 @@ def main():
         print("❌ Push error:", e)
 
     # Automatically trigger robust Python Auto Git Sync
+    scripts_dir = os.path.dirname(os.path.abspath(__file__))
     auto_git_script = os.path.join(scripts_dir, "auto_git_sync.py")
     if os.path.exists(auto_git_script):
         print("\n🚀 Auto-syncing data changes to GitHub Pages via auto_git_sync.py...")
