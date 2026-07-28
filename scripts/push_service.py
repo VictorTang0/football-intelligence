@@ -22,15 +22,12 @@ LUCK_QUOTES = [
 ]
 
 COMMON_CSS = """<style>
-.cb{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);border-radius:8px;margin-bottom:8px;overflow:hidden;}
-.cm{display:flex;border-bottom:1px solid rgba(255,255,255,0.06);}
-.ct{width:38%;background:rgba(255,255,255,0.03);padding:8px 6px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(255,255,255,0.06);}
-.ci{width:62%;padding:6px 8px;font-size:12px;display:flex;flex-direction:column;gap:3px;}
-.mm{font-size:11px;color:#94a3b8;font-weight:bold;margin-bottom:2px;}
-.tt{font-size:14px;font-weight:bold;color:#ffffff;line-height:1.2;}
-.vt{font-size:10px;color:#64748b;}
-.wb{background:rgba(56,189,248,0.03);padding:5px 8px;font-size:11px;color:#94a3b8;border-bottom:1px solid rgba(255,255,255,0.05);font-family:monospace;}
-.db{padding:6px 8px;font-size:12px;background:rgba(0,0,0,0.15);display:flex;flex-direction:column;gap:3px;}
+.m-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:10px;margin-bottom:8px;}
+.m-header{display:flex;justify-space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:5px;margin-bottom:6px;}
+.m-teams{font-size:14px;font-weight:bold;color:#ffffff;}
+.m-rec{font-size:13px;font-weight:bold;color:#38bdf8;}
+.m-box{background:rgba(0,0,0,0.25);border-radius:6px;padding:6px 8px;font-size:11.5px;color:#cbd5e1;display:flex;flex-direction:column;gap:4px;}
+.m-script{font-size:11px;color:#94a3b8;background:rgba(56,189,248,0.04);border-left:2px solid #38bdf8;padding:5px 7px;margin-top:5px;border-radius:0 4px 4px 0;line-height:1.4;}
 .br{background:rgba(245,158,11,0.15);color:#f59e0b;border:1px solid rgba(245,158,11,0.3);padding:1px 4px;border-radius:3px;font-size:9.5px;}
 .b{color:#38bdf8;font-weight:bold;margin-left:1px;}
 .g{color:#fbbf24;font-weight:bold;margin-left:1px;}
@@ -111,9 +108,8 @@ def get_handicap_info_html(m):
         hhad_rec += " (竞彩)"
 
     hhad_rec = hhad_rec.replace("竞彩", "竞彩")
-
     sp_val = c.get("hhad_sp", "") or lh.get("current", {}).get("draw", "")
-    sp_str = f' <span style="color:#64748b;font-size:10.5px;">[SP: {sp_val}]</span>' if sp_val else ''
+    sp_str = f' <span style="color:#64748b;font-size:10.5px;">[SP:{sp_val}]</span>' if sp_val else ''
 
     return f"让球({hc_label}): <span style='color:#38bdf8;font-weight:bold;'>{hhad_rec}</span>{sp_str}"
 
@@ -152,9 +148,9 @@ def format_goals_formatted_html(m):
     for g in combined:
         in_m = (g in m_goals)
         if in_m:
-            items_html.append(f'<span style="color:#fbbf24;font-weight:bold;font-size:13px;">{g}</span>')
+            items_html.append(f'<span style="color:#fbbf24;font-weight:bold;font-size:12px;">{g}</span>')
         else:
-            items_html.append(f'<span style="color:#38bdf8;font-weight:bold;font-size:13px;">{g}</span>')
+            items_html.append(f'<span style="color:#38bdf8;font-weight:bold;font-size:12px;">{g}</span>')
 
     return "(" + "、".join(items_html) + ")"
 
@@ -180,6 +176,7 @@ def render_match_card_html(m):
     match_no = m.get("match_num_str") or m.get("match_no") or m.get("id", "").split("_")[-1]
     home = m.get("home", "")
     away = m.get("away", "")
+    league = m.get("league", "")
     kickoff = m.get("kickoff_time") or m.get("kickoff", "")
     if "T" in kickoff:
         kickoff = kickoff.split("T")[1][:5]
@@ -200,7 +197,7 @@ def render_match_card_html(m):
 
     has_match_changed = m.get("has_conclusion_changed", False) or had_changed or score_changed or goals_changed or hf_changed
 
-    time_dot = '<span style="font-size:11px;margin-left:4px;">🟡</span>' if has_match_changed else ''
+    time_dot = '<span style="font-size:10px;margin-left:3px;">🟡</span>' if has_match_changed else ''
     dot_had = "🟡 " if had_changed else ""
     dot_water = "🟡 " if water_changed else ""
     dot_score = "🟡 " if score_changed else ""
@@ -215,6 +212,7 @@ def render_match_card_html(m):
     baseline_rec = m.get("baseline_recommendation", "--")
     current_rec = (m.get("current_recommendation") or uc.get("recommendation", "--"))
     conf = uc.get("confidence", 60)
+    risk_level = uc.get("risk_level", "中")
     
     if conf < 60:
         current_rec = current_rec.replace("(竞彩)", "").replace("竞彩", "").strip()
@@ -222,17 +220,19 @@ def render_match_card_html(m):
         current_rec += " (竞彩)"
     current_rec = current_rec.replace("竞彩首选", "竞彩")
     handicap_html = get_handicap_info_html(m)
-    conf_class = "color:#10b981;font-weight:bold;" if conf >= 75 else "color:#fbbf24;font-weight:bold;"
-    cold_tag = "反基本面冷门" if "反基本面冷门" in current_rec else "主力资金指向"
+    conf_color = "#10b981" if conf >= 75 else "#fbbf24"
+    
+    risk_color = "#10b981" if risk_level == "低" else "#f59e0b" if risk_level == "中" else "#f43f5e"
+    risk_bg = "rgba(16,185,129,0.15)" if risk_level == "低" else "rgba(245,158,11,0.15)" if risk_level == "中" else "rgba(244,63,94,0.15)"
 
     is_radar = m.get("radar_triggered") or c.get("had_hhad_divergence", False)
-    radar_badge = ' <span class="br">雷达干预</span>' if is_radar else ''
+    radar_badge = ' <span class="br">雷达预警</span>' if is_radar else ''
 
     has_rec_changed = (baseline_rec != current_rec and baseline_rec != "--")
     if has_rec_changed:
-        rec_display = f'{dot_had}<span style="text-decoration:line-through;color:#64748b;font-size:11px;">{baseline_rec}</span>➔<span style="color:#f43f5e;font-weight:bold;text-decoration:underline;font-size:13.5px;">{current_rec}</span>{arrow_had}'
+        rec_display = f'{dot_had}<span style="text-decoration:line-through;color:#64748b;font-size:11px;">{baseline_rec}</span>➔<span style="color:#f43f5e;font-weight:bold;text-decoration:underline;font-size:13px;">{current_rec}</span>{arrow_had}'
     else:
-        rec_display = f'{dot_had}<span style="color:#38bdf8;font-weight:bold;font-size:13.5px;">{current_rec}</span>{arrow_had}'
+        rec_display = f'{dot_had}<span style="color:#38bdf8;font-weight:bold;font-size:13px;">{current_rec}</span>{arrow_had}'
 
     scores = m.get("current_scores") or uc.get("predicted_score") or c.get("most_likely_score", "--")
     goals_html = format_goals_formatted_html(m)
@@ -241,9 +241,17 @@ def render_match_card_html(m):
     odds_mov = m.get("odds_movement_str", "")
     water_row_html = ""
     if odds_mov:
-        water_row_html = f'<div class="wb">{dot_water}💧 <strong>水位异动</strong>: <span style="color:#fbbf24;font-weight:bold;">{odds_mov}</span></div>'
+        water_row_html = f'<div style="font-size:11px;color:#94a3b8;margin-bottom:5px;">💧 {dot_water}<strong>水位异动</strong>: <span style="color:#fbbf24;font-weight:bold;">{odds_mov}</span></div>'
 
-    return f'''<div class="cb"><div class="cm"><div class="ct"><div class="mm">{match_no} • {kickoff}{time_dot}</div><div class="tt">{home}</div><div class="vt">VS</div><div class="tt">{away}</div></div><div class="ci"><div>{rec_display}{radar_badge}</div><div style="color:#cbd5e1;font-size:12px;">{handicap_html}</div><div style="font-size:11px;color:#94a3b8;">信心: <span style="{conf_class}">{conf}%</span> | {cold_tag}</div></div></div>{water_row_html}<div class="db"><div style="color:#f1f5f9;font-size:12.5px;">{dot_score}🎯 <strong>最可能比分</strong>: <span style="color:#10b981;font-weight:bold;font-size:13px;">{scores}</span>{arrow_score}</div><div style="color:#94a3b8;font-size:12px;">{dot_goals}⚽ <strong>具体进球数</strong>: {goals_html}{arrow_goals} | {dot_hf}<strong>半全场</strong>: <span style="color:#a855f7;font-weight:bold;font-size:12.5px;">{hf}</span>{arrow_hf}</div></div></div>'''
+    # Bookmaker intent / script summary
+    oa = m.get("odds_analysis", {})
+    script = oa.get("bookmaker_backed_script", "")
+    script_html = ""
+    if script:
+        clean_script = script.replace("【庄家看好剧本】", "").strip()
+        script_html = f'<div class="m-script">🎬 <strong>看好剧本</strong>: {clean_script}</div>'
+
+    return f'''<div class="m-card"><div class="m-header"><span style="font-size:11px;color:#94a3b8;font-weight:bold;">{match_no} • {kickoff} ({league}) {time_dot}</span><span style="font-size:10px;padding:1.5px 6px;border-radius:4px;background:{risk_bg};color:{risk_color};font-weight:bold;">{risk_level}风控</span></div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;"><div class="m-teams">{home} <span style="color:#64748b;font-size:11px;font-weight:normal;">VS</span> {away}</div><div class="m-rec">{rec_display} <span style="font-size:11px;color:{conf_color};">[{conf}%]</span>{radar_badge}</div></div>{water_row_html}<div class="m-box"><div>🎯 <strong>竞彩玩法</strong>: {handicap_html}</div><div>⚽ <strong>最可能比分</strong>: {dot_score}<span style="color:#10b981;font-weight:bold;">{scores}</span>{arrow_score} | <strong>具体进球</strong>: {dot_goals}{goals_html}{arrow_goals}</div><div>⏱️ <strong>半全场结果</strong>: {dot_hf}<span style="color:#a855f7;font-weight:bold;">{hf}</span>{arrow_hf}</div></div>{script_html}</div>'''
 
 def push_scheduled_update(matches, has_any_change=False):
     # 防骚扰硬性冷却过滤: 间隔 < 30 分钟且没有重大变盘变化时静默跳过
@@ -268,15 +276,15 @@ def push_scheduled_update(matches, has_any_change=False):
     cards_html = "".join([render_match_card_html(m) for m in sorted_matches])
     
     title_prefix = "情况有变" if has_any_change else "牌没问题"
-    title = f"{title_prefix} - MATCH IQ 盘口跟踪 ({len(matches)}场)"
+    title = f"{title_prefix} - MATCH IQ 临场简报 ({len(matches)}场)"
     
     header_color = "#f43f5e" if has_any_change else "#10b981"
-    sub_text = "检测到盘口水位或预测结论有更新，产生变化的子项已用 🟡 标记：" if has_any_change else "盘口水位稳定，资金模型及预测结论一切正常："
+    sub_text = "极简临场变盘与双系统总结卡片 (变盘项已标 🟡)：" if has_any_change else "临场水温平稳，双系统总结卡片："
 
     selected_quote = random.choice(LUCK_QUOTES)
-    quote_html = f'<div style="background-color:rgba(56,189,248,0.05);padding:8px 10px;border-radius:6px;border:1px solid rgba(56,189,248,0.2);font-size:12px;text-align:center;font-weight:bold;color:#38bdf8;margin-top:10px;">{selected_quote}</div>'
+    quote_html = f'<div style="background-color:rgba(56,189,248,0.04);padding:6px 8px;border-radius:6px;border:1px solid rgba(56,189,248,0.15);font-size:11px;text-align:center;font-weight:bold;color:#38bdf8;margin-top:8px;">{selected_quote}</div>'
 
-    content = f"""{COMMON_CSS}<div style="font-family:Arial,sans-serif;background-color:#0f172a;color:#f1f5f9;padding:12px;border-radius:8px;border:1px solid rgba(0,212,255,0.2);"><h3 style="color:{header_color};margin-top:0;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:6px;">{title_prefix} (共{len(matches)}场)</h3><p style="font-size:12px;color:#94a3b8;">{sub_text}</p>{cards_html}{quote_html}<p style="font-size:11px;color:#64748b;text-align:center;margin-top:12px;margin-bottom:0;">💬 今日盘口跟踪中 • <a href="https://victortang0.github.io/football-intelligence/" style="color:#00d4ff;text-decoration:none;">打开 MATCH IQ 看板 ➔</a></p></div>"""
+    content = f"""{COMMON_CSS}<div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background-color:#0f172a;color:#f1f5f9;padding:10px;border-radius:8px;border:1px solid rgba(0,212,255,0.2);"><h4 style="color:{header_color};margin-top:0;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:5px;font-size:15px;">{title_prefix} • 临场总结 (共{len(matches)}场)</h4><p style="font-size:11px;color:#94a3b8;margin-top:4px;margin-bottom:8px;">{sub_text}</p>{cards_html}{quote_html}<p style="font-size:10.5px;color:#64748b;text-align:center;margin-top:10px;margin-bottom:0;">💬 极简总结推送 • <a href="https://victortang0.github.io/football-intelligence/" style="color:#00d4ff;text-decoration:none;">打开 MATCH IQ 看板 ➔</a></p></div>"""
     return send_push(title, content)
 
 def push_daily_results(records_settled, model_evolution):
