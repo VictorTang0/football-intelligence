@@ -1840,6 +1840,7 @@ const MatchIQRender = (() => {
                 <strong style="color:var(--cyan); font-size:13px; font-weight:800;">[${matchCode}]</strong>
                 <div>
                   <div style="font-weight:700; color:#ffffff; line-height:1.2;">${m.home} vs ${m.away} ${ftScore ? `<span style="color:var(--cyan); font-weight:800; margin-left:4px;">${ftScore}</span>` : ''}</div>
+                  ${m10.m10_bold_score && m10.m10_bold_score !== '无' ? `<div style="font-size:11px; color:#fbbf24; font-weight:bold; margin-top:3px; background:rgba(245,158,11,0.12); padding:1px 6px; border-radius:4px; border:1px solid rgba(245,158,11,0.3); display:inline-block;">${m10.m10_bold_score}</div>` : ''}
                   ${htScore ? `<div style="font-size:10px; color:#94a3b8; font-weight:normal; line-height:1.1; margin-top:2px;">(半场 ${htScore})</div>` : ''}
                 </div>
               </div>

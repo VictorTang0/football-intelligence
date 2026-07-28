@@ -83,6 +83,26 @@ def deduce_pure_m10(match):
     elif m10_had == "主不败":
         m10_hf = "平胜 或 平平"
 
+    # 6. 💥 动态大胆预测比分 (Dynamic Bold Score Outlier Engine)
+    m10_bold_score = "无"
+    m10_bold_reason = ""
+    
+    collapse_ratio = (w_pin / w_lot) if (w_lot > 0 and w_pin > 0) else 1.0
+    upset_index = match.get("upset_risk_index") or match.get("conclusions", {}).get("upset_risk_index", 50)
+    
+    if collapse_ratio > 1.25 or (m10_had == "主胜" and m10_count >= 4):
+        m10_bold_score = "💥 4-0 或 5-0 (屠杀血洗)"
+        m10_bold_reason = f"客队防线崩盘指数 CollapseRatio={collapse_ratio:.2f} 触发"
+    elif upset_index >= 65 or (l_lot > 0 and l_pin > 0 and l_lot < l_pin):
+        m10_bold_score = "💥 0-3 或 1-3 (客胜爆冷)"
+        m10_bold_reason = f"资金暗中流向客队，冷门指数 UpsetIndex={upset_index}% 触发"
+    elif m10_goals == "大 2.5" and m10_count >= 3:
+        m10_bold_score = "💥 3-3 或 4-2 (狂野大战)"
+        m10_bold_reason = "大球水位跳水，两队神经刀对轰"
+    elif m10_goals == "小 2.5":
+        m10_bold_score = "💥 0-0 (极限闷宫)"
+        m10_bold_reason = "水温极度看小，铁桶阵守死"
+
     # 动态置信度计算：N=3起步 75%，随着快照次数增加递增，最高95%
     if m10_count >= 3:
         conf = min(95, 66 + m10_count * 4)
@@ -95,6 +115,8 @@ def deduce_pure_m10(match):
         "m10_score": m10_score,
         "m10_goals": m10_goals,
         "m10_hf": m10_hf,
+        "m10_bold_score": m10_bold_score,
+        "m10_bold_reason": m10_bold_reason,
         "confidence": conf
     }
 
@@ -117,6 +139,8 @@ def update_pure_m10_hub():
             "predicted_score": res["m10_score"],
             "over_under": res["m10_goals"],
             "half_full": res["m10_hf"],
+            "m10_bold_score": res["m10_bold_score"],
+            "m10_bold_reason": res["m10_bold_reason"],
             "confidence": res["confidence"]
         }
         m["m10_hub_analysis"] = m10_dict
