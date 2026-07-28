@@ -238,38 +238,46 @@ def render_match_card_html(m):
     goals_html = format_goals_formatted_html(m)
     hf = c.get("half_full", "--")
 
+    # Bold Score (大胆比分) matching Web UI render.js
+    raw_bold = c.get("m10_bold_score") or c.get("aggressive") or uc.get("aggressive") or uc.get("bold_score") or "--"
+    bold_score_val = str(raw_bold).replace("比分", "").replace("（竞彩）", "").replace("(竞彩)", "").strip()
+    if not bold_score_val or bold_score_val == "None":
+        bold_score_val = "无"
+
     odds_mov = m.get("odds_movement_str", "")
     water_row_html = ""
     if odds_mov:
         water_row_html = f'<div style="font-size:11px;color:#94a3b8;margin-bottom:5px;">💧 {dot_water}<strong>水位异动</strong>: <span style="color:#fbbf24;font-weight:bold;">{odds_mov}</span></div>'
 
-    # M10 System Conclusion formatting
+    # M10 System Conclusion formatting (Strictly Aligned with Web UI render.js L1202-L1250)
     snap_cnt = c.get("m10_snapshot_count", 0)
     oa = m.get("odds_analysis", {})
-    hub = c.get("m10_hub_analysis", {})
-    hhad_an = hub.get("hhad_analysis", {}) if isinstance(hub, dict) else {}
-    had_an = hub.get("had_analysis", {}) if isinstance(hub, dict) else {}
+    hub = c.get("m10_hub_analysis", {}) or {}
+    
+    clean_rec = lambda txt: str(txt).replace("(竞彩)", "").replace("竞彩", "").replace("None", "").strip() if txt and txt != "--" else ""
+    had_val = clean_rec(hub.get("had_analysis", {}).get("primary") or hub.get("had_recommendation") or hub.get("m10_had") or c.get("m10_had"))
+    hhad_val = clean_rec(hub.get("hhad_analysis", {}).get("primary") or hub.get("hhad_recommendation") or hub.get("m10_hhad") or c.get("m10_hhad"))
     eu_an = hub.get("asian_eu_status", {}) if isinstance(hub, dict) else {}
 
     if snap_cnt < 2:
         m10_text = '<span style="color:#94a3b8;">变盘次数不足</span>'
     else:
         parts = []
-        if hhad_an.get("has_recommendation") and hhad_an.get("primary"):
-            parts.append(f"让球:" + hhad_an.get("primary"))
-        elif had_an.get("has_recommendation") and had_an.get("primary"):
-            parts.append(f"胜平负:" + had_an.get("primary"))
-        
+        if had_val:
+            parts.append(f"胜平负:{had_val}")
+        if hhad_val:
+            parts.append(f"让球:{hhad_val}")
         if eu_an.get("has_divergence"):
             parts.append("欧让剪刀差")
         
         range_pref = oa.get("m10_hhad_range_preference")
-        if range_pref:
+        if range_pref and range_pref not in parts:
             parts.append(range_pref)
             
-        m10_text = " | ".join(parts) if parts else "资金分布均衡"
+        m10_text = " | ".join(parts) if parts else "水温拉锯平稳 (资金分布均衡)"
 
-    # Monte Carlo 5000 Sandbox Simulation formatting
+    # Monte Carlo 5000 Sandbox Simulation & Wild Outliers (大球比分) matching Web UI render.js L1263-L1315
+    wild_html = ""
     try:
         from generate_pure_m10_conclusions import run_python_simulation_1000
         sim = run_python_simulation_1000(m)
@@ -278,9 +286,15 @@ def render_match_card_html(m):
         d_pct = win_rate.get("drawPct", "0")
         a_pct = win_rate.get("awayPct", "0")
         style_name = sim.get("styleTag", {}).get("name", "沙盘推演")
-        top_score = sim.get("topScores", [{}])[0].get("score", "--")
-        top_score_pct = sim.get("topScores", [{}])[0].get("pct", "")
-        sandtable_html = f'{style_name}: 胜{h_pct}%/平{d_pct}%/负{a_pct}% (最频{top_score} {top_score_pct})'
+        top_s = sim.get("topScores", [{}])[0]
+        top_score_str = f"{top_s.get('score', '--')} ({top_s.get('pct', '')})" if top_s else "--"
+        
+        sandtable_html = f'{style_name}: 主胜{h_pct}%/平{d_pct}%/客胜{a_pct}% (最频 {top_score_str})'
+
+        wild = sim.get("wildOutliers", [])
+        if wild and len(wild) > 0 and wild[0].get("score"):
+            wild_score_str = f"{wild[0].get('score')} ({wild[0].get('pct')})"
+            wild_html = f'<div>💥 <strong>狂野大球比分</strong>: <span style="color:#ef4444;font-weight:bold;">{wild_score_str}</span></div>'
     except Exception:
         sandtable_html = '<span style="color:#64748b;">推演计算中...</span>'
 
@@ -291,7 +305,7 @@ def render_match_card_html(m):
         clean_script = script.replace("【庄家看好剧本】", "").strip()
         script_html = f'<div class="m-script">🎬 <strong>看好剧本</strong>: {clean_script}</div>'
 
-    return f'''<div class="m-card"><div class="m-header"><span style="font-size:11px;color:#94a3b8;font-weight:bold;">{match_no} • {kickoff} ({league}) {time_dot}</span><span style="font-size:10px;padding:1.5px 6px;border-radius:4px;background:{risk_bg};color:{risk_color};font-weight:bold;">{risk_level}风控</span></div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;"><div class="m-teams">{home} <span style="color:#64748b;font-size:11px;font-weight:normal;">VS</span> {away}</div><div class="m-rec">{rec_display} <span style="font-size:11px;color:{conf_color};">[{conf}%]</span>{radar_badge}</div></div>{water_row_html}<div class="m-box"><div>🎯 <strong>竞彩玩法</strong>: {handicap_html}</div><div>⚽ <strong>最可能比分</strong>: {dot_score}<span style="color:#10b981;font-weight:bold;">{scores}</span>{arrow_score} | <strong>具体进球</strong>: {dot_goals}{goals_html}{arrow_goals}</div><div>⏱️ <strong>半全场结果</strong>: {dot_hf}<span style="color:#a855f7;font-weight:bold;">{hf}</span>{arrow_hf}</div><div>🟡 <strong>M10系统结论</strong>: <span style="color:#fbbf24;font-weight:bold;">{m10_text}</span></div><div>🎮 <strong>沙盘推演(5000次)</strong>: <span style="color:#38bdf8;font-weight:bold;">{sandtable_html}</span></div></div>{script_html}</div>'''
+    return f'''<div class="m-card"><div class="m-header"><span style="font-size:11px;color:#94a3b8;font-weight:bold;">{match_no} • {kickoff} ({league}) {time_dot}</span><span style="font-size:10px;padding:1.5px 6px;border-radius:4px;background:{risk_bg};color:{risk_color};font-weight:bold;">{risk_level}风控</span></div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;"><div class="m-teams">{home} <span style="color:#64748b;font-size:11px;font-weight:normal;">VS</span> {away}</div><div class="m-rec">{rec_display} <span style="font-size:11px;color:{conf_color};">[{conf}%]</span>{radar_badge}</div></div>{water_row_html}<div class="m-box"><div>🎯 <strong>竞彩玩法</strong>: {handicap_html}</div><div>⚽ <strong>最可能比分</strong>: {dot_score}<span style="color:#10b981;font-weight:bold;">{scores}</span>{arrow_score} | 💥 <strong>大胆比分</strong>: <span style="color:#fbbf24;font-weight:bold;">{bold_score_val}</span></div><div>⚽ <strong>具体进球</strong>: {dot_goals}{goals_html}{arrow_goals} | ⏱️ <strong>半全场</strong>: {dot_hf}<span style="color:#a855f7;font-weight:bold;">{hf}</span>{arrow_hf}</div><div>🟡 <strong>M10中枢结论</strong>: <span style="color:#fbbf24;font-weight:bold;">{m10_text}</span></div><div>🎮 <strong>沙盘推演(5000次)</strong>: <span style="color:#38bdf8;font-weight:bold;">{sandtable_html}</span></div>{wild_html}</div>{script_html}</div>'''
 
 def push_scheduled_update(matches, has_any_change=False):
     # 防骚扰硬性冷却过滤: 间隔 < 30 分钟且没有重大变盘变化时静默跳过
