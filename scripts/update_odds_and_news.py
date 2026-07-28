@@ -2811,18 +2811,14 @@ def main():
     except Exception as e:
         print("❌ Push error:", e)
 
-    # Automatically trigger sync.sh to push updated data to GitHub
-    import subprocess
-    sync_script = os.path.join(base_dir, "sync.sh")
-    if os.path.exists(sync_script):
-        print("\n🚀 Auto-syncing data changes to GitHub...")
+    # Automatically trigger robust Python Auto Git Sync
+    auto_git_script = os.path.join(scripts_dir, "auto_git_sync.py")
+    if os.path.exists(auto_git_script):
+        print("\n🚀 Auto-syncing data changes to GitHub Pages via auto_git_sync.py...")
         try:
-            res = subprocess.run(["bash", sync_script], capture_output=True, text=True)
-            print(res.stdout)
-            if res.returncode != 0:
-                print("Warning: sync.sh returned error:", res.stderr)
+            subprocess.run([sys.executable, auto_git_script], check=True)
         except Exception as e:
-            print("Error running sync.sh:", e)
+            print("Error running auto_git_sync.py:", e)
 
 if __name__ == "__main__":
     main()

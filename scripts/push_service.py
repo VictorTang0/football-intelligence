@@ -3,6 +3,8 @@ import urllib.request
 import json
 import random
 import re
+import time
+import os
 
 PUSHPLUS_TOKEN = "960491d71cdb4ce8b10b5a7de29ac5e6"
 
@@ -244,6 +246,24 @@ def render_match_card_html(m):
     return f'''<div class="cb"><div class="cm"><div class="ct"><div class="mm">{match_no} • {kickoff}{time_dot}</div><div class="tt">{home}</div><div class="vt">VS</div><div class="tt">{away}</div></div><div class="ci"><div>{rec_display}{radar_badge}</div><div style="color:#cbd5e1;font-size:12px;">{handicap_html}</div><div style="font-size:11px;color:#94a3b8;">信心: <span style="{conf_class}">{conf}%</span> | {cold_tag}</div></div></div>{water_row_html}<div class="db"><div style="color:#f1f5f9;font-size:12.5px;">{dot_score}🎯 <strong>最可能比分</strong>: <span style="color:#10b981;font-weight:bold;font-size:13px;">{scores}</span>{arrow_score}</div><div style="color:#94a3b8;font-size:12px;">{dot_goals}⚽ <strong>具体进球数</strong>: {goals_html}{arrow_goals} | {dot_hf}<strong>半全场</strong>: <span style="color:#a855f7;font-weight:bold;font-size:12.5px;">{hf}</span>{arrow_hf}</div></div></div>'''
 
 def push_scheduled_update(matches, has_any_change=False):
+    # 防骚扰硬性冷却过滤: 间隔 < 30 分钟且没有重大变盘变化时静默跳过
+    try:
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        state_file = os.path.join(base_dir, "data", "scheduler_state.json")
+        now_ts = int(time.time())
+        if os.path.exists(state_file):
+            with open(state_file, "r", encoding="utf-8") as f:
+                st = json.load(f)
+            last_push_ts = st.get("last_push_timestamp", 0)
+            if not has_any_change and (now_ts - last_push_ts < 1800): # 30 mins
+                print(f"🔕 [Push Cooldown] 上次推送时间在 30 分钟内 ({now_ts - last_push_ts}s 之前)，且无重大方向变化，跳过 Push 消息。")
+                return {"code": 200, "msg": "cooldown_skipped"}
+            st["last_push_timestamp"] = now_ts
+            with open(state_file, "w", encoding="utf-8") as f:
+                json.dump(st, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"Warning during cooldown check: {e}")
+
     sorted_matches = sort_matches_by_date_and_code(matches)
     cards_html = "".join([render_match_card_html(m) for m in sorted_matches])
     
