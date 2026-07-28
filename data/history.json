@@ -73,8 +73,138 @@
         "m10_bold_score": "💥 3-2 或 4-2 (险胜进球大战)",
         "m10_bold_reason": "主胜赔率 5.17 偏高，防线互相对流对轰",
         "confidence": 94,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "20.0",
+            "drawPct": "22.4",
+            "awayPct": "57.6"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "0-1",
+              "count": 547,
+              "pct": "10.9%"
+            },
+            {
+              "score": "1-1",
+              "count": 527,
+              "pct": "10.5%"
+            },
+            {
+              "score": "0-2",
+              "count": 507,
+              "pct": "10.1%"
+            },
+            {
+              "score": "1-2",
+              "count": 498,
+              "pct": "10.0%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 1633,
+              "pct": "32.7%"
+            },
+            {
+              "hf": "平负",
+              "count": 1044,
+              "pct": "20.9%"
+            },
+            {
+              "hf": "平平",
+              "count": 660,
+              "pct": "13.2%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 285,
+              "pct": "5.7%"
+            },
+            {
+              "score": "2-3",
+              "count": 167,
+              "pct": "3.3%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "20.0",
+            "drawPct": "22.4",
+            "awayPct": "57.6"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "0-1",
+              "count": 547,
+              "pct": "10.9%"
+            },
+            {
+              "score": "1-1",
+              "count": 527,
+              "pct": "10.5%"
+            },
+            {
+              "score": "0-2",
+              "count": 507,
+              "pct": "10.1%"
+            },
+            {
+              "score": "1-2",
+              "count": 498,
+              "pct": "10.0%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 1633,
+              "pct": "32.7%"
+            },
+            {
+              "hf": "平负",
+              "count": 1044,
+              "pct": "20.9%"
+            },
+            {
+              "hf": "平平",
+              "count": 660,
+              "pct": "13.2%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 285,
+              "pct": "5.7%"
+            },
+            {
+              "score": "2-3",
+              "count": 167,
+              "pct": "3.3%"
+            }
+          ]
+        }
       },
       "injury_analysis": {
         "home_injuries": [],
@@ -199,8 +329,138 @@
         "m10_bold_score": "💥 3-2 或 4-2 (险胜进球大战)",
         "m10_bold_reason": "主胜赔率 6.06 偏高，防线互相对流对轰",
         "confidence": 95,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "10.4",
+            "drawPct": "16.5",
+            "awayPct": "73.2"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "0-2",
+              "count": 497,
+              "pct": "9.9%"
+            },
+            {
+              "score": "1-2",
+              "count": 474,
+              "pct": "9.5%"
+            },
+            {
+              "score": "0-1",
+              "count": 460,
+              "pct": "9.2%"
+            },
+            {
+              "score": "0-3",
+              "count": 394,
+              "pct": "7.9%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 2356,
+              "pct": "47.1%"
+            },
+            {
+              "hf": "平负",
+              "count": 1052,
+              "pct": "21.0%"
+            },
+            {
+              "hf": "平平",
+              "count": 461,
+              "pct": "9.2%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 394,
+              "pct": "7.9%"
+            },
+            {
+              "score": "1-4",
+              "count": 246,
+              "pct": "4.9%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "10.4",
+            "drawPct": "16.5",
+            "awayPct": "73.2"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "0-2",
+              "count": 497,
+              "pct": "9.9%"
+            },
+            {
+              "score": "1-2",
+              "count": 474,
+              "pct": "9.5%"
+            },
+            {
+              "score": "0-1",
+              "count": 460,
+              "pct": "9.2%"
+            },
+            {
+              "score": "0-3",
+              "count": 394,
+              "pct": "7.9%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 2356,
+              "pct": "47.1%"
+            },
+            {
+              "hf": "平负",
+              "count": 1052,
+              "pct": "21.0%"
+            },
+            {
+              "hf": "平平",
+              "count": 461,
+              "pct": "9.2%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 394,
+              "pct": "7.9%"
+            },
+            {
+              "score": "1-4",
+              "count": 246,
+              "pct": "4.9%"
+            }
+          ]
+        }
       },
       "injury_analysis": {
         "home_injuries": [
@@ -1414,8 +1674,138 @@
         "m10_bold_score": "💥 3-2 或 4-2 (险胜进球大战)",
         "m10_bold_reason": "主胜赔率 4.05 偏高，防线互相对流对轰",
         "confidence": 50,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "30.6",
+            "drawPct": "28.4",
+            "awayPct": "41.0"
+          },
+          "styleTag": {
+            "name": "⚔️ 均势对喷型",
+            "desc": "两队实力极度接近，易诱发互相撕裂防线的大比分或平局",
+            "color": "#fbbf24",
+            "bg": "rgba(251,191,36,0.15)",
+            "border": "rgba(251,191,36,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 649,
+              "pct": "13.0%"
+            },
+            {
+              "score": "0-1",
+              "count": 561,
+              "pct": "11.2%"
+            },
+            {
+              "score": "1-0",
+              "count": 467,
+              "pct": "9.3%"
+            },
+            {
+              "score": "0-0",
+              "count": 467,
+              "pct": "9.3%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 1052,
+              "pct": "21.0%"
+            },
+            {
+              "hf": "平平",
+              "count": 912,
+              "pct": "18.2%"
+            },
+            {
+              "hf": "平负",
+              "count": 836,
+              "pct": "16.7%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 168,
+              "pct": "3.4%"
+            },
+            {
+              "score": "2-3",
+              "count": 133,
+              "pct": "2.7%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "30.6",
+            "drawPct": "28.4",
+            "awayPct": "41.0"
+          },
+          "styleTag": {
+            "name": "⚔️ 均势对喷型",
+            "desc": "两队实力极度接近，易诱发互相撕裂防线的大比分或平局",
+            "color": "#fbbf24",
+            "bg": "rgba(251,191,36,0.15)",
+            "border": "rgba(251,191,36,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 649,
+              "pct": "13.0%"
+            },
+            {
+              "score": "0-1",
+              "count": 561,
+              "pct": "11.2%"
+            },
+            {
+              "score": "1-0",
+              "count": 467,
+              "pct": "9.3%"
+            },
+            {
+              "score": "0-0",
+              "count": 467,
+              "pct": "9.3%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 1052,
+              "pct": "21.0%"
+            },
+            {
+              "hf": "平平",
+              "count": 912,
+              "pct": "18.2%"
+            },
+            {
+              "hf": "平负",
+              "count": 836,
+              "pct": "16.7%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 168,
+              "pct": "3.4%"
+            },
+            {
+              "score": "2-3",
+              "count": 133,
+              "pct": "2.7%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -1568,8 +1958,138 @@
         "m10_bold_score": "💥 1-2 或 2-3 (逆袭对轰)",
         "m10_bold_reason": "客队受让优势明显，反击效率极高",
         "confidence": 50,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "75.6",
+            "drawPct": "16.4",
+            "awayPct": "7.9"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "2-0",
+              "count": 701,
+              "pct": "14.0%"
+            },
+            {
+              "score": "1-0",
+              "count": 677,
+              "pct": "13.5%"
+            },
+            {
+              "score": "3-0",
+              "count": 561,
+              "pct": "11.2%"
+            },
+            {
+              "score": "2-1",
+              "count": 436,
+              "pct": "8.7%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 2418,
+              "pct": "48.4%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1201,
+              "pct": "24.0%"
+            },
+            {
+              "hf": "平平",
+              "count": 538,
+              "pct": "10.8%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 310,
+              "pct": "6.2%"
+            },
+            {
+              "score": "4-1",
+              "count": 182,
+              "pct": "3.6%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "75.6",
+            "drawPct": "16.4",
+            "awayPct": "7.9"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "2-0",
+              "count": 701,
+              "pct": "14.0%"
+            },
+            {
+              "score": "1-0",
+              "count": 677,
+              "pct": "13.5%"
+            },
+            {
+              "score": "3-0",
+              "count": 561,
+              "pct": "11.2%"
+            },
+            {
+              "score": "2-1",
+              "count": 436,
+              "pct": "8.7%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 2418,
+              "pct": "48.4%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1201,
+              "pct": "24.0%"
+            },
+            {
+              "hf": "平平",
+              "count": 538,
+              "pct": "10.8%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 310,
+              "pct": "6.2%"
+            },
+            {
+              "score": "4-1",
+              "count": 182,
+              "pct": "3.6%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -1647,8 +2167,138 @@
         "m10_bold_score": "💥 1-2 或 2-3 (逆袭对轰)",
         "m10_bold_reason": "客队受让优势明显，反击效率极高",
         "confidence": 78,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "71.7",
+            "drawPct": "18.3",
+            "awayPct": "10.0"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "2-0",
+              "count": 710,
+              "pct": "14.2%"
+            },
+            {
+              "score": "1-0",
+              "count": 706,
+              "pct": "14.1%"
+            },
+            {
+              "score": "3-0",
+              "count": 456,
+              "pct": "9.1%"
+            },
+            {
+              "score": "2-1",
+              "count": 446,
+              "pct": "8.9%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 2224,
+              "pct": "44.5%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1192,
+              "pct": "23.8%"
+            },
+            {
+              "hf": "平平",
+              "count": 604,
+              "pct": "12.1%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 244,
+              "pct": "4.9%"
+            },
+            {
+              "score": "4-1",
+              "count": 177,
+              "pct": "3.5%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "71.7",
+            "drawPct": "18.3",
+            "awayPct": "10.0"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "2-0",
+              "count": 710,
+              "pct": "14.2%"
+            },
+            {
+              "score": "1-0",
+              "count": 706,
+              "pct": "14.1%"
+            },
+            {
+              "score": "3-0",
+              "count": 456,
+              "pct": "9.1%"
+            },
+            {
+              "score": "2-1",
+              "count": 446,
+              "pct": "8.9%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 2224,
+              "pct": "44.5%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1192,
+              "pct": "23.8%"
+            },
+            {
+              "hf": "平平",
+              "count": 604,
+              "pct": "12.1%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 244,
+              "pct": "4.9%"
+            },
+            {
+              "score": "4-1",
+              "count": 177,
+              "pct": "3.5%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -1726,8 +2376,138 @@
         "m10_bold_score": "💥 1-2 或 2-3 (逆袭对轰)",
         "m10_bold_reason": "客队受让优势明显，反击效率极高",
         "confidence": 50,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "68.4",
+            "drawPct": "19.9",
+            "awayPct": "11.7"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-0",
+              "count": 659,
+              "pct": "13.2%"
+            },
+            {
+              "score": "2-0",
+              "count": 603,
+              "pct": "12.1%"
+            },
+            {
+              "score": "2-1",
+              "count": 480,
+              "pct": "9.6%"
+            },
+            {
+              "score": "1-1",
+              "count": 454,
+              "pct": "9.1%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 2104,
+              "pct": "42.1%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1133,
+              "pct": "22.7%"
+            },
+            {
+              "hf": "平平",
+              "count": 625,
+              "pct": "12.5%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 203,
+              "pct": "4.1%"
+            },
+            {
+              "score": "4-1",
+              "count": 179,
+              "pct": "3.6%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "68.4",
+            "drawPct": "19.9",
+            "awayPct": "11.7"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-0",
+              "count": 659,
+              "pct": "13.2%"
+            },
+            {
+              "score": "2-0",
+              "count": 603,
+              "pct": "12.1%"
+            },
+            {
+              "score": "2-1",
+              "count": 480,
+              "pct": "9.6%"
+            },
+            {
+              "score": "1-1",
+              "count": 454,
+              "pct": "9.1%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 2104,
+              "pct": "42.1%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1133,
+              "pct": "22.7%"
+            },
+            {
+              "hf": "平平",
+              "count": 625,
+              "pct": "12.5%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 203,
+              "pct": "4.1%"
+            },
+            {
+              "score": "4-1",
+              "count": 179,
+              "pct": "3.6%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -1805,8 +2585,138 @@
         "m10_bold_score": "💥 3-2 或 4-2 (险胜进球大战)",
         "m10_bold_reason": "主胜赔率 2.21 偏高，防线互相对流对轰",
         "confidence": 50,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "51.7",
+            "drawPct": "25.3",
+            "awayPct": "22.9"
+          },
+          "styleTag": {
+            "name": "⚖️ 战术胶着型",
+            "desc": "两队中场缠斗，进球受限，防守拉锯剧烈",
+            "color": "#38bdf8",
+            "bg": "rgba(56,189,248,0.12)",
+            "border": "rgba(56,189,248,0.3)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 569,
+              "pct": "11.4%"
+            },
+            {
+              "score": "1-0",
+              "count": 530,
+              "pct": "10.6%"
+            },
+            {
+              "score": "2-1",
+              "count": 494,
+              "pct": "9.9%"
+            },
+            {
+              "score": "2-0",
+              "count": 422,
+              "pct": "8.4%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 1409,
+              "pct": "28.2%"
+            },
+            {
+              "hf": "平胜",
+              "count": 974,
+              "pct": "19.5%"
+            },
+            {
+              "hf": "平平",
+              "count": 734,
+              "pct": "14.7%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "3-2",
+              "count": 160,
+              "pct": "3.2%"
+            },
+            {
+              "score": "4-1",
+              "count": 127,
+              "pct": "2.5%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "51.7",
+            "drawPct": "25.3",
+            "awayPct": "22.9"
+          },
+          "styleTag": {
+            "name": "⚖️ 战术胶着型",
+            "desc": "两队中场缠斗，进球受限，防守拉锯剧烈",
+            "color": "#38bdf8",
+            "bg": "rgba(56,189,248,0.12)",
+            "border": "rgba(56,189,248,0.3)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 569,
+              "pct": "11.4%"
+            },
+            {
+              "score": "1-0",
+              "count": 530,
+              "pct": "10.6%"
+            },
+            {
+              "score": "2-1",
+              "count": 494,
+              "pct": "9.9%"
+            },
+            {
+              "score": "2-0",
+              "count": 422,
+              "pct": "8.4%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 1409,
+              "pct": "28.2%"
+            },
+            {
+              "hf": "平胜",
+              "count": 974,
+              "pct": "19.5%"
+            },
+            {
+              "hf": "平平",
+              "count": 734,
+              "pct": "14.7%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "3-2",
+              "count": 160,
+              "pct": "3.2%"
+            },
+            {
+              "score": "4-1",
+              "count": 127,
+              "pct": "2.5%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -1884,8 +2794,138 @@
         "m10_bold_score": "💥 1-2 或 2-3 (逆袭对轰)",
         "m10_bold_reason": "客队受让优势明显，反击效率极高",
         "confidence": 50,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "80.9",
+            "drawPct": "13.0",
+            "awayPct": "6.1"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "2-0",
+              "count": 650,
+              "pct": "13.0%"
+            },
+            {
+              "score": "3-0",
+              "count": 584,
+              "pct": "11.7%"
+            },
+            {
+              "score": "1-0",
+              "count": 522,
+              "pct": "10.4%"
+            },
+            {
+              "score": "3-1",
+              "count": 395,
+              "pct": "7.9%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 2739,
+              "pct": "54.8%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1117,
+              "pct": "22.3%"
+            },
+            {
+              "hf": "平平",
+              "count": 413,
+              "pct": "8.3%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 353,
+              "pct": "7.1%"
+            },
+            {
+              "score": "5-0",
+              "count": 249,
+              "pct": "5.0%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "80.9",
+            "drawPct": "13.0",
+            "awayPct": "6.1"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "2-0",
+              "count": 650,
+              "pct": "13.0%"
+            },
+            {
+              "score": "3-0",
+              "count": 584,
+              "pct": "11.7%"
+            },
+            {
+              "score": "1-0",
+              "count": 522,
+              "pct": "10.4%"
+            },
+            {
+              "score": "3-1",
+              "count": 395,
+              "pct": "7.9%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 2739,
+              "pct": "54.8%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1117,
+              "pct": "22.3%"
+            },
+            {
+              "hf": "平平",
+              "count": 413,
+              "pct": "8.3%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 353,
+              "pct": "7.1%"
+            },
+            {
+              "score": "5-0",
+              "count": 249,
+              "pct": "5.0%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -1967,8 +3007,138 @@
         "m10_bold_score": "💥 1-2 或 2-3 (逆袭对轰)",
         "m10_bold_reason": "客队受让优势明显，反击效率极高",
         "confidence": 90,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "68.6",
+            "drawPct": "20.9",
+            "awayPct": "10.5"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-0",
+              "count": 761,
+              "pct": "15.2%"
+            },
+            {
+              "score": "2-0",
+              "count": 645,
+              "pct": "12.9%"
+            },
+            {
+              "score": "2-1",
+              "count": 468,
+              "pct": "9.4%"
+            },
+            {
+              "score": "1-1",
+              "count": 464,
+              "pct": "9.3%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 2113,
+              "pct": "42.3%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1164,
+              "pct": "23.3%"
+            },
+            {
+              "hf": "平平",
+              "count": 679,
+              "pct": "13.6%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 222,
+              "pct": "4.4%"
+            },
+            {
+              "score": "4-1",
+              "count": 165,
+              "pct": "3.3%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "68.6",
+            "drawPct": "20.9",
+            "awayPct": "10.5"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-0",
+              "count": 761,
+              "pct": "15.2%"
+            },
+            {
+              "score": "2-0",
+              "count": 645,
+              "pct": "12.9%"
+            },
+            {
+              "score": "2-1",
+              "count": 468,
+              "pct": "9.4%"
+            },
+            {
+              "score": "1-1",
+              "count": 464,
+              "pct": "9.3%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 2113,
+              "pct": "42.3%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1164,
+              "pct": "23.3%"
+            },
+            {
+              "hf": "平平",
+              "count": 679,
+              "pct": "13.6%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 222,
+              "pct": "4.4%"
+            },
+            {
+              "score": "4-1",
+              "count": 165,
+              "pct": "3.3%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -2050,8 +3220,138 @@
         "m10_bold_score": "💥 3-2 或 4-2 (险胜进球大战)",
         "m10_bold_reason": "主胜赔率 2.54 偏高，防线互相对流对轰",
         "confidence": 86,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "44.8",
+            "drawPct": "28.0",
+            "awayPct": "27.2"
+          },
+          "styleTag": {
+            "name": "⚖️ 战术胶着型",
+            "desc": "两队中场缠斗，进球受限，防守拉锯剧烈",
+            "color": "#38bdf8",
+            "bg": "rgba(56,189,248,0.12)",
+            "border": "rgba(56,189,248,0.3)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 646,
+              "pct": "12.9%"
+            },
+            {
+              "score": "1-0",
+              "count": 539,
+              "pct": "10.8%"
+            },
+            {
+              "score": "2-1",
+              "count": 474,
+              "pct": "9.5%"
+            },
+            {
+              "score": "0-0",
+              "count": 412,
+              "pct": "8.2%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 1193,
+              "pct": "23.9%"
+            },
+            {
+              "hf": "平平",
+              "count": 862,
+              "pct": "17.2%"
+            },
+            {
+              "hf": "平胜",
+              "count": 857,
+              "pct": "17.1%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "3-2",
+              "count": 135,
+              "pct": "2.7%"
+            },
+            {
+              "score": "2-3",
+              "count": 106,
+              "pct": "2.1%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "44.8",
+            "drawPct": "28.0",
+            "awayPct": "27.2"
+          },
+          "styleTag": {
+            "name": "⚖️ 战术胶着型",
+            "desc": "两队中场缠斗，进球受限，防守拉锯剧烈",
+            "color": "#38bdf8",
+            "bg": "rgba(56,189,248,0.12)",
+            "border": "rgba(56,189,248,0.3)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 646,
+              "pct": "12.9%"
+            },
+            {
+              "score": "1-0",
+              "count": 539,
+              "pct": "10.8%"
+            },
+            {
+              "score": "2-1",
+              "count": 474,
+              "pct": "9.5%"
+            },
+            {
+              "score": "0-0",
+              "count": 412,
+              "pct": "8.2%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 1193,
+              "pct": "23.9%"
+            },
+            {
+              "hf": "平平",
+              "count": 862,
+              "pct": "17.2%"
+            },
+            {
+              "hf": "平胜",
+              "count": 857,
+              "pct": "17.1%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "3-2",
+              "count": 135,
+              "pct": "2.7%"
+            },
+            {
+              "score": "2-3",
+              "count": 106,
+              "pct": "2.1%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -2129,8 +3429,138 @@
         "m10_bold_score": "💥 1-2 或 2-3 (逆袭对轰)",
         "m10_bold_reason": "客队受让优势明显，反击效率极高",
         "confidence": 78,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "61.6",
+            "drawPct": "22.9",
+            "awayPct": "15.5"
+          },
+          "styleTag": {
+            "name": "🔥 强攻突破型",
+            "desc": "主场优势显著，主队进攻欲望强劲，看好主胜突破",
+            "color": "#4ade80",
+            "bg": "rgba(74,222,128,0.12)",
+            "border": "rgba(74,222,128,0.35)"
+          },
+          "topScores": [
+            {
+              "score": "1-0",
+              "count": 599,
+              "pct": "12.0%"
+            },
+            {
+              "score": "2-0",
+              "count": 583,
+              "pct": "11.7%"
+            },
+            {
+              "score": "1-1",
+              "count": 531,
+              "pct": "10.6%"
+            },
+            {
+              "score": "2-1",
+              "count": 494,
+              "pct": "9.9%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 1790,
+              "pct": "35.8%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1083,
+              "pct": "21.7%"
+            },
+            {
+              "hf": "平平",
+              "count": 666,
+              "pct": "13.3%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-1",
+              "count": 163,
+              "pct": "3.3%"
+            },
+            {
+              "score": "4-0",
+              "count": 160,
+              "pct": "3.2%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "61.6",
+            "drawPct": "22.9",
+            "awayPct": "15.5"
+          },
+          "styleTag": {
+            "name": "🔥 强攻突破型",
+            "desc": "主场优势显著，主队进攻欲望强劲，看好主胜突破",
+            "color": "#4ade80",
+            "bg": "rgba(74,222,128,0.12)",
+            "border": "rgba(74,222,128,0.35)"
+          },
+          "topScores": [
+            {
+              "score": "1-0",
+              "count": 599,
+              "pct": "12.0%"
+            },
+            {
+              "score": "2-0",
+              "count": 583,
+              "pct": "11.7%"
+            },
+            {
+              "score": "1-1",
+              "count": 531,
+              "pct": "10.6%"
+            },
+            {
+              "score": "2-1",
+              "count": 494,
+              "pct": "9.9%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 1790,
+              "pct": "35.8%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1083,
+              "pct": "21.7%"
+            },
+            {
+              "hf": "平平",
+              "count": 666,
+              "pct": "13.3%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-1",
+              "count": 163,
+              "pct": "3.3%"
+            },
+            {
+              "score": "4-0",
+              "count": 160,
+              "pct": "3.2%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -2212,8 +3642,138 @@
         "m10_bold_score": "💥 3-0 或 4-1 (深盘防冷大胜)",
         "m10_bold_reason": "主不败水温锁死下盘，防守反击打穿对手",
         "confidence": 82,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "17.8",
+            "drawPct": "25.1",
+            "awayPct": "57.1"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 556,
+              "pct": "11.1%"
+            },
+            {
+              "score": "0-1",
+              "count": 556,
+              "pct": "11.1%"
+            },
+            {
+              "score": "0-2",
+              "count": 498,
+              "pct": "10.0%"
+            },
+            {
+              "score": "1-2",
+              "count": 471,
+              "pct": "9.4%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 1653,
+              "pct": "33.1%"
+            },
+            {
+              "hf": "平负",
+              "count": 1002,
+              "pct": "20.0%"
+            },
+            {
+              "hf": "平平",
+              "count": 756,
+              "pct": "15.1%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 277,
+              "pct": "5.5%"
+            },
+            {
+              "score": "2-3",
+              "count": 157,
+              "pct": "3.1%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "17.8",
+            "drawPct": "25.1",
+            "awayPct": "57.1"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 556,
+              "pct": "11.1%"
+            },
+            {
+              "score": "0-1",
+              "count": 556,
+              "pct": "11.1%"
+            },
+            {
+              "score": "0-2",
+              "count": 498,
+              "pct": "10.0%"
+            },
+            {
+              "score": "1-2",
+              "count": 471,
+              "pct": "9.4%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 1653,
+              "pct": "33.1%"
+            },
+            {
+              "hf": "平负",
+              "count": 1002,
+              "pct": "20.0%"
+            },
+            {
+              "hf": "平平",
+              "count": 756,
+              "pct": "15.1%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 277,
+              "pct": "5.5%"
+            },
+            {
+              "score": "2-3",
+              "count": 157,
+              "pct": "3.1%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -2295,8 +3855,138 @@
         "m10_bold_score": "💥 0-3 或 1-3 (客胜爆冷)",
         "m10_bold_reason": "资金暗中支持客队 (客胜赔 1.49)，冷门指数 UpsetIndex=50% 触发",
         "confidence": 94,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "20.7",
+            "drawPct": "25.3",
+            "awayPct": "54.0"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 582,
+              "pct": "11.6%"
+            },
+            {
+              "score": "0-1",
+              "count": 579,
+              "pct": "11.6%"
+            },
+            {
+              "score": "1-2",
+              "count": 485,
+              "pct": "9.7%"
+            },
+            {
+              "score": "0-2",
+              "count": 434,
+              "pct": "8.7%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 1537,
+              "pct": "30.7%"
+            },
+            {
+              "hf": "平负",
+              "count": 994,
+              "pct": "19.9%"
+            },
+            {
+              "hf": "平平",
+              "count": 751,
+              "pct": "15.0%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 247,
+              "pct": "4.9%"
+            },
+            {
+              "score": "2-3",
+              "count": 141,
+              "pct": "2.8%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "20.7",
+            "drawPct": "25.3",
+            "awayPct": "54.0"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 582,
+              "pct": "11.6%"
+            },
+            {
+              "score": "0-1",
+              "count": 579,
+              "pct": "11.6%"
+            },
+            {
+              "score": "1-2",
+              "count": 485,
+              "pct": "9.7%"
+            },
+            {
+              "score": "0-2",
+              "count": 434,
+              "pct": "8.7%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 1537,
+              "pct": "30.7%"
+            },
+            {
+              "hf": "平负",
+              "count": 994,
+              "pct": "19.9%"
+            },
+            {
+              "hf": "平平",
+              "count": 751,
+              "pct": "15.0%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 247,
+              "pct": "4.9%"
+            },
+            {
+              "score": "2-3",
+              "count": 141,
+              "pct": "2.8%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -2378,8 +4068,138 @@
         "m10_bold_score": "💥 2-2 或 3-3 (狂野对轰平局)",
         "m10_bold_reason": "平赔 2.78 诱导对冲，大球跳水引发惊天高比分平局",
         "confidence": 95,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "40.7",
+            "drawPct": "28.7",
+            "awayPct": "30.5"
+          },
+          "styleTag": {
+            "name": "⚔️ 均势对喷型",
+            "desc": "两队实力极度接近，易诱发互相撕裂防线的大比分或平局",
+            "color": "#fbbf24",
+            "bg": "rgba(251,191,36,0.15)",
+            "border": "rgba(251,191,36,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 617,
+              "pct": "12.3%"
+            },
+            {
+              "score": "1-0",
+              "count": 557,
+              "pct": "11.1%"
+            },
+            {
+              "score": "0-0",
+              "count": 502,
+              "pct": "10.0%"
+            },
+            {
+              "score": "0-1",
+              "count": 427,
+              "pct": "8.5%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 1032,
+              "pct": "20.6%"
+            },
+            {
+              "hf": "平平",
+              "count": 904,
+              "pct": "18.1%"
+            },
+            {
+              "hf": "平胜",
+              "count": 833,
+              "pct": "16.7%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "3-2",
+              "count": 124,
+              "pct": "2.5%"
+            },
+            {
+              "score": "2-3",
+              "count": 115,
+              "pct": "2.3%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "40.7",
+            "drawPct": "28.7",
+            "awayPct": "30.5"
+          },
+          "styleTag": {
+            "name": "⚔️ 均势对喷型",
+            "desc": "两队实力极度接近，易诱发互相撕裂防线的大比分或平局",
+            "color": "#fbbf24",
+            "bg": "rgba(251,191,36,0.15)",
+            "border": "rgba(251,191,36,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 617,
+              "pct": "12.3%"
+            },
+            {
+              "score": "1-0",
+              "count": 557,
+              "pct": "11.1%"
+            },
+            {
+              "score": "0-0",
+              "count": 502,
+              "pct": "10.0%"
+            },
+            {
+              "score": "0-1",
+              "count": 427,
+              "pct": "8.5%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 1032,
+              "pct": "20.6%"
+            },
+            {
+              "hf": "平平",
+              "count": 904,
+              "pct": "18.1%"
+            },
+            {
+              "hf": "平胜",
+              "count": 833,
+              "pct": "16.7%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "3-2",
+              "count": 124,
+              "pct": "2.5%"
+            },
+            {
+              "score": "2-3",
+              "count": 115,
+              "pct": "2.3%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -2459,8 +4279,138 @@
         "m10_bold_score": "💥 2-2 或 3-3 (狂野对轰平局)",
         "m10_bold_reason": "平赔 3.10 诱导对冲，大球跳水引发惊天高比分平局",
         "confidence": 90,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "39.8",
+            "drawPct": "27.7",
+            "awayPct": "32.4"
+          },
+          "styleTag": {
+            "name": "⚔️ 均势对喷型",
+            "desc": "两队实力极度接近，易诱发互相撕裂防线的大比分或平局",
+            "color": "#fbbf24",
+            "bg": "rgba(251,191,36,0.15)",
+            "border": "rgba(251,191,36,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 632,
+              "pct": "12.6%"
+            },
+            {
+              "score": "1-0",
+              "count": 536,
+              "pct": "10.7%"
+            },
+            {
+              "score": "0-1",
+              "count": 415,
+              "pct": "8.3%"
+            },
+            {
+              "score": "0-0",
+              "count": 415,
+              "pct": "8.3%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 1013,
+              "pct": "20.3%"
+            },
+            {
+              "hf": "平平",
+              "count": 818,
+              "pct": "16.4%"
+            },
+            {
+              "hf": "平胜",
+              "count": 814,
+              "pct": "16.3%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "3-2",
+              "count": 124,
+              "pct": "2.5%"
+            },
+            {
+              "score": "2-3",
+              "count": 111,
+              "pct": "2.2%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "39.8",
+            "drawPct": "27.7",
+            "awayPct": "32.4"
+          },
+          "styleTag": {
+            "name": "⚔️ 均势对喷型",
+            "desc": "两队实力极度接近，易诱发互相撕裂防线的大比分或平局",
+            "color": "#fbbf24",
+            "bg": "rgba(251,191,36,0.15)",
+            "border": "rgba(251,191,36,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 632,
+              "pct": "12.6%"
+            },
+            {
+              "score": "1-0",
+              "count": 536,
+              "pct": "10.7%"
+            },
+            {
+              "score": "0-1",
+              "count": 415,
+              "pct": "8.3%"
+            },
+            {
+              "score": "0-0",
+              "count": 415,
+              "pct": "8.3%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 1013,
+              "pct": "20.3%"
+            },
+            {
+              "hf": "平平",
+              "count": 818,
+              "pct": "16.4%"
+            },
+            {
+              "hf": "平胜",
+              "count": 814,
+              "pct": "16.3%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "3-2",
+              "count": 124,
+              "pct": "2.5%"
+            },
+            {
+              "score": "2-3",
+              "count": 111,
+              "pct": "2.2%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -2542,8 +4492,138 @@
         "m10_bold_score": "💥 3-0 或 4-1 (深盘防冷大胜)",
         "m10_bold_reason": "主不败水温锁死下盘，防守反击打穿对手",
         "confidence": 95,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "74.5",
+            "drawPct": "18.1",
+            "awayPct": "7.4"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-0",
+              "count": 753,
+              "pct": "15.1%"
+            },
+            {
+              "score": "2-0",
+              "count": 703,
+              "pct": "14.1%"
+            },
+            {
+              "score": "3-0",
+              "count": 546,
+              "pct": "10.9%"
+            },
+            {
+              "score": "2-1",
+              "count": 437,
+              "pct": "8.7%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 2321,
+              "pct": "46.4%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1266,
+              "pct": "25.3%"
+            },
+            {
+              "hf": "平平",
+              "count": 616,
+              "pct": "12.3%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 290,
+              "pct": "5.8%"
+            },
+            {
+              "score": "4-1",
+              "count": 172,
+              "pct": "3.4%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "74.5",
+            "drawPct": "18.1",
+            "awayPct": "7.4"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-0",
+              "count": 753,
+              "pct": "15.1%"
+            },
+            {
+              "score": "2-0",
+              "count": 703,
+              "pct": "14.1%"
+            },
+            {
+              "score": "3-0",
+              "count": 546,
+              "pct": "10.9%"
+            },
+            {
+              "score": "2-1",
+              "count": 437,
+              "pct": "8.7%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 2321,
+              "pct": "46.4%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1266,
+              "pct": "25.3%"
+            },
+            {
+              "hf": "平平",
+              "count": 616,
+              "pct": "12.3%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 290,
+              "pct": "5.8%"
+            },
+            {
+              "score": "4-1",
+              "count": 172,
+              "pct": "3.4%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -2625,8 +4705,138 @@
         "m10_bold_score": "💥 3-0 或 4-1 (深盘防冷大胜)",
         "m10_bold_reason": "主不败水温锁死下盘，防守反击打穿对手",
         "confidence": 82,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "78.3",
+            "drawPct": "13.9",
+            "awayPct": "7.8"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "2-0",
+              "count": 703,
+              "pct": "14.1%"
+            },
+            {
+              "score": "1-0",
+              "count": 634,
+              "pct": "12.7%"
+            },
+            {
+              "score": "3-0",
+              "count": 554,
+              "pct": "11.1%"
+            },
+            {
+              "score": "2-1",
+              "count": 398,
+              "pct": "8.0%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 2576,
+              "pct": "51.5%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1188,
+              "pct": "23.8%"
+            },
+            {
+              "hf": "平平",
+              "count": 433,
+              "pct": "8.7%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 349,
+              "pct": "7.0%"
+            },
+            {
+              "score": "4-1",
+              "count": 242,
+              "pct": "4.8%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "78.3",
+            "drawPct": "13.9",
+            "awayPct": "7.8"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "2-0",
+              "count": 703,
+              "pct": "14.1%"
+            },
+            {
+              "score": "1-0",
+              "count": 634,
+              "pct": "12.7%"
+            },
+            {
+              "score": "3-0",
+              "count": 554,
+              "pct": "11.1%"
+            },
+            {
+              "score": "2-1",
+              "count": 398,
+              "pct": "8.0%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 2576,
+              "pct": "51.5%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1188,
+              "pct": "23.8%"
+            },
+            {
+              "hf": "平平",
+              "count": 433,
+              "pct": "8.7%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 349,
+              "pct": "7.0%"
+            },
+            {
+              "score": "4-1",
+              "count": 242,
+              "pct": "4.8%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -2708,8 +4918,138 @@
         "m10_bold_score": "💥 2-2 或 3-3 (狂野对轰平局)",
         "m10_bold_reason": "平赔 3.25 诱导对冲，大球跳水引发惊天高比分平局",
         "confidence": 94,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "65.7",
+            "drawPct": "22.1",
+            "awayPct": "12.2"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-0",
+              "count": 662,
+              "pct": "13.2%"
+            },
+            {
+              "score": "2-0",
+              "count": 637,
+              "pct": "12.7%"
+            },
+            {
+              "score": "1-1",
+              "count": 503,
+              "pct": "10.1%"
+            },
+            {
+              "score": "2-1",
+              "count": 456,
+              "pct": "9.1%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 1982,
+              "pct": "39.6%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1126,
+              "pct": "22.5%"
+            },
+            {
+              "hf": "平平",
+              "count": 723,
+              "pct": "14.5%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 203,
+              "pct": "4.1%"
+            },
+            {
+              "score": "4-1",
+              "count": 155,
+              "pct": "3.1%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "65.7",
+            "drawPct": "22.1",
+            "awayPct": "12.2"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-0",
+              "count": 662,
+              "pct": "13.2%"
+            },
+            {
+              "score": "2-0",
+              "count": 637,
+              "pct": "12.7%"
+            },
+            {
+              "score": "1-1",
+              "count": 503,
+              "pct": "10.1%"
+            },
+            {
+              "score": "2-1",
+              "count": 456,
+              "pct": "9.1%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 1982,
+              "pct": "39.6%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1126,
+              "pct": "22.5%"
+            },
+            {
+              "hf": "平平",
+              "count": 723,
+              "pct": "14.5%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 203,
+              "pct": "4.1%"
+            },
+            {
+              "score": "4-1",
+              "count": 155,
+              "pct": "3.1%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -2790,8 +5130,138 @@
         "m10_bold_score": "💥 3-0 或 4-1 (深盘防冷大胜)",
         "m10_bold_reason": "主不败水温锁死下盘，防守反击打穿对手",
         "confidence": 78,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "77.3",
+            "drawPct": "15.4",
+            "awayPct": "7.3"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "2-0",
+              "count": 755,
+              "pct": "15.1%"
+            },
+            {
+              "score": "1-0",
+              "count": 594,
+              "pct": "11.9%"
+            },
+            {
+              "score": "3-0",
+              "count": 551,
+              "pct": "11.0%"
+            },
+            {
+              "score": "2-1",
+              "count": 409,
+              "pct": "8.2%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 2506,
+              "pct": "50.1%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1192,
+              "pct": "23.8%"
+            },
+            {
+              "hf": "平平",
+              "count": 497,
+              "pct": "9.9%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 317,
+              "pct": "6.3%"
+            },
+            {
+              "score": "4-1",
+              "count": 200,
+              "pct": "4.0%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "77.3",
+            "drawPct": "15.4",
+            "awayPct": "7.3"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "2-0",
+              "count": 755,
+              "pct": "15.1%"
+            },
+            {
+              "score": "1-0",
+              "count": 594,
+              "pct": "11.9%"
+            },
+            {
+              "score": "3-0",
+              "count": 551,
+              "pct": "11.0%"
+            },
+            {
+              "score": "2-1",
+              "count": 409,
+              "pct": "8.2%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 2506,
+              "pct": "50.1%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1192,
+              "pct": "23.8%"
+            },
+            {
+              "hf": "平平",
+              "count": 497,
+              "pct": "9.9%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 317,
+              "pct": "6.3%"
+            },
+            {
+              "score": "4-1",
+              "count": 200,
+              "pct": "4.0%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -2873,8 +5343,138 @@
         "m10_bold_score": "💥 2-2 或 3-3 (狂野对轰平局)",
         "m10_bold_reason": "平赔 3.03 诱导对冲，大球跳水引发惊天高比分平局",
         "confidence": 95,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "57.5",
+            "drawPct": "24.7",
+            "awayPct": "17.8"
+          },
+          "styleTag": {
+            "name": "🔥 强攻突破型",
+            "desc": "主场优势显著，主队进攻欲望强劲，看好主胜突破",
+            "color": "#4ade80",
+            "bg": "rgba(74,222,128,0.12)",
+            "border": "rgba(74,222,128,0.35)"
+          },
+          "topScores": [
+            {
+              "score": "1-0",
+              "count": 639,
+              "pct": "12.8%"
+            },
+            {
+              "score": "1-1",
+              "count": 573,
+              "pct": "11.5%"
+            },
+            {
+              "score": "2-0",
+              "count": 538,
+              "pct": "10.8%"
+            },
+            {
+              "score": "2-1",
+              "count": 526,
+              "pct": "10.5%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 1614,
+              "pct": "32.3%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1063,
+              "pct": "21.3%"
+            },
+            {
+              "hf": "平平",
+              "count": 788,
+              "pct": "15.8%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-1",
+              "count": 129,
+              "pct": "2.6%"
+            },
+            {
+              "score": "3-2",
+              "count": 124,
+              "pct": "2.5%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "57.5",
+            "drawPct": "24.7",
+            "awayPct": "17.8"
+          },
+          "styleTag": {
+            "name": "🔥 强攻突破型",
+            "desc": "主场优势显著，主队进攻欲望强劲，看好主胜突破",
+            "color": "#4ade80",
+            "bg": "rgba(74,222,128,0.12)",
+            "border": "rgba(74,222,128,0.35)"
+          },
+          "topScores": [
+            {
+              "score": "1-0",
+              "count": 639,
+              "pct": "12.8%"
+            },
+            {
+              "score": "1-1",
+              "count": 573,
+              "pct": "11.5%"
+            },
+            {
+              "score": "2-0",
+              "count": 538,
+              "pct": "10.8%"
+            },
+            {
+              "score": "2-1",
+              "count": 526,
+              "pct": "10.5%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 1614,
+              "pct": "32.3%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1063,
+              "pct": "21.3%"
+            },
+            {
+              "hf": "平平",
+              "count": 788,
+              "pct": "15.8%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-1",
+              "count": 129,
+              "pct": "2.6%"
+            },
+            {
+              "score": "3-2",
+              "count": 124,
+              "pct": "2.5%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -2956,8 +5556,138 @@
         "m10_bold_score": "💥 3-0 或 4-1 (深盘防冷大胜)",
         "m10_bold_reason": "主不败水温锁死下盘，防守反击打穿对手",
         "confidence": 94,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "12.5",
+            "drawPct": "21.4",
+            "awayPct": "66.1"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "0-1",
+              "count": 602,
+              "pct": "12.0%"
+            },
+            {
+              "score": "0-2",
+              "count": 601,
+              "pct": "12.0%"
+            },
+            {
+              "score": "1-2",
+              "count": 485,
+              "pct": "9.7%"
+            },
+            {
+              "score": "1-1",
+              "count": 481,
+              "pct": "9.6%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 2001,
+              "pct": "40.0%"
+            },
+            {
+              "hf": "平负",
+              "count": 1116,
+              "pct": "22.3%"
+            },
+            {
+              "hf": "平平",
+              "count": 670,
+              "pct": "13.4%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 345,
+              "pct": "6.9%"
+            },
+            {
+              "score": "0-4",
+              "count": 204,
+              "pct": "4.1%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "12.5",
+            "drawPct": "21.4",
+            "awayPct": "66.1"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "0-1",
+              "count": 602,
+              "pct": "12.0%"
+            },
+            {
+              "score": "0-2",
+              "count": 601,
+              "pct": "12.0%"
+            },
+            {
+              "score": "1-2",
+              "count": 485,
+              "pct": "9.7%"
+            },
+            {
+              "score": "1-1",
+              "count": 481,
+              "pct": "9.6%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 2001,
+              "pct": "40.0%"
+            },
+            {
+              "hf": "平负",
+              "count": 1116,
+              "pct": "22.3%"
+            },
+            {
+              "hf": "平平",
+              "count": 670,
+              "pct": "13.4%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 345,
+              "pct": "6.9%"
+            },
+            {
+              "score": "0-4",
+              "count": 204,
+              "pct": "4.1%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -3039,8 +5769,138 @@
         "m10_bold_score": "💥 2-2 或 3-3 (狂野对轰平局)",
         "m10_bold_reason": "平赔 3.47 诱导对冲，大球跳水引发惊天高比分平局",
         "confidence": 90,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "68.4",
+            "drawPct": "20.4",
+            "awayPct": "11.2"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "2-0",
+              "count": 663,
+              "pct": "13.3%"
+            },
+            {
+              "score": "1-0",
+              "count": 661,
+              "pct": "13.2%"
+            },
+            {
+              "score": "2-1",
+              "count": 495,
+              "pct": "9.9%"
+            },
+            {
+              "score": "1-1",
+              "count": 456,
+              "pct": "9.1%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 2102,
+              "pct": "42.0%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1138,
+              "pct": "22.8%"
+            },
+            {
+              "hf": "平平",
+              "count": 636,
+              "pct": "12.7%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 208,
+              "pct": "4.2%"
+            },
+            {
+              "score": "4-1",
+              "count": 188,
+              "pct": "3.8%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "68.4",
+            "drawPct": "20.4",
+            "awayPct": "11.2"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "2-0",
+              "count": 663,
+              "pct": "13.3%"
+            },
+            {
+              "score": "1-0",
+              "count": 661,
+              "pct": "13.2%"
+            },
+            {
+              "score": "2-1",
+              "count": 495,
+              "pct": "9.9%"
+            },
+            {
+              "score": "1-1",
+              "count": 456,
+              "pct": "9.1%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 2102,
+              "pct": "42.0%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1138,
+              "pct": "22.8%"
+            },
+            {
+              "hf": "平平",
+              "count": 636,
+              "pct": "12.7%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 208,
+              "pct": "4.2%"
+            },
+            {
+              "score": "4-1",
+              "count": 188,
+              "pct": "3.8%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -3121,8 +5981,138 @@
         "m10_bold_score": "💥 3-2 或 4-2 (险胜进球大战)",
         "m10_bold_reason": "主胜赔率 4.23 偏高，防线互相对流对轰",
         "confidence": 82,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "22.2",
+            "drawPct": "24.2",
+            "awayPct": "53.6"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 569,
+              "pct": "11.4%"
+            },
+            {
+              "score": "0-1",
+              "count": 535,
+              "pct": "10.7%"
+            },
+            {
+              "score": "1-2",
+              "count": 476,
+              "pct": "9.5%"
+            },
+            {
+              "score": "0-2",
+              "count": 433,
+              "pct": "8.7%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 1497,
+              "pct": "29.9%"
+            },
+            {
+              "hf": "平负",
+              "count": 961,
+              "pct": "19.2%"
+            },
+            {
+              "hf": "平平",
+              "count": 683,
+              "pct": "13.7%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 237,
+              "pct": "4.7%"
+            },
+            {
+              "score": "2-3",
+              "count": 158,
+              "pct": "3.2%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "22.2",
+            "drawPct": "24.2",
+            "awayPct": "53.6"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 569,
+              "pct": "11.4%"
+            },
+            {
+              "score": "0-1",
+              "count": 535,
+              "pct": "10.7%"
+            },
+            {
+              "score": "1-2",
+              "count": 476,
+              "pct": "9.5%"
+            },
+            {
+              "score": "0-2",
+              "count": 433,
+              "pct": "8.7%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 1497,
+              "pct": "29.9%"
+            },
+            {
+              "hf": "平负",
+              "count": 961,
+              "pct": "19.2%"
+            },
+            {
+              "hf": "平平",
+              "count": 683,
+              "pct": "13.7%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 237,
+              "pct": "4.7%"
+            },
+            {
+              "score": "2-3",
+              "count": 158,
+              "pct": "3.2%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -3203,8 +6193,138 @@
         "m10_bold_score": "💥 3-2 或 4-2 (险胜进球大战)",
         "m10_bold_reason": "主胜赔率 4.23 偏高，防线互相对流对轰",
         "confidence": 86,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "22.6",
+            "drawPct": "24.6",
+            "awayPct": "52.8"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 595,
+              "pct": "11.9%"
+            },
+            {
+              "score": "0-1",
+              "count": 520,
+              "pct": "10.4%"
+            },
+            {
+              "score": "1-2",
+              "count": 431,
+              "pct": "8.6%"
+            },
+            {
+              "score": "0-2",
+              "count": 420,
+              "pct": "8.4%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 1487,
+              "pct": "29.7%"
+            },
+            {
+              "hf": "平负",
+              "count": 927,
+              "pct": "18.5%"
+            },
+            {
+              "hf": "平平",
+              "count": 708,
+              "pct": "14.2%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 213,
+              "pct": "4.3%"
+            },
+            {
+              "score": "2-3",
+              "count": 177,
+              "pct": "3.5%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "22.6",
+            "drawPct": "24.6",
+            "awayPct": "52.8"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 595,
+              "pct": "11.9%"
+            },
+            {
+              "score": "0-1",
+              "count": 520,
+              "pct": "10.4%"
+            },
+            {
+              "score": "1-2",
+              "count": 431,
+              "pct": "8.6%"
+            },
+            {
+              "score": "0-2",
+              "count": 420,
+              "pct": "8.4%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 1487,
+              "pct": "29.7%"
+            },
+            {
+              "hf": "平负",
+              "count": 927,
+              "pct": "18.5%"
+            },
+            {
+              "hf": "平平",
+              "count": 708,
+              "pct": "14.2%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 213,
+              "pct": "4.3%"
+            },
+            {
+              "score": "2-3",
+              "count": 177,
+              "pct": "3.5%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -3286,8 +6406,138 @@
         "m10_bold_score": "💥 3-2 或 4-2 (险胜进球大战)",
         "m10_bold_reason": "主胜赔率 4.23 偏高，防线互相对流对轰",
         "confidence": 86,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "22.2",
+            "drawPct": "24.6",
+            "awayPct": "53.2"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 544,
+              "pct": "10.9%"
+            },
+            {
+              "score": "0-1",
+              "count": 512,
+              "pct": "10.2%"
+            },
+            {
+              "score": "1-2",
+              "count": 505,
+              "pct": "10.1%"
+            },
+            {
+              "score": "0-2",
+              "count": 426,
+              "pct": "8.5%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 1446,
+              "pct": "28.9%"
+            },
+            {
+              "hf": "平负",
+              "count": 1000,
+              "pct": "20.0%"
+            },
+            {
+              "hf": "平平",
+              "count": 720,
+              "pct": "14.4%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 220,
+              "pct": "4.4%"
+            },
+            {
+              "score": "2-3",
+              "count": 154,
+              "pct": "3.1%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "22.2",
+            "drawPct": "24.6",
+            "awayPct": "53.2"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 544,
+              "pct": "10.9%"
+            },
+            {
+              "score": "0-1",
+              "count": 512,
+              "pct": "10.2%"
+            },
+            {
+              "score": "1-2",
+              "count": 505,
+              "pct": "10.1%"
+            },
+            {
+              "score": "0-2",
+              "count": 426,
+              "pct": "8.5%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 1446,
+              "pct": "28.9%"
+            },
+            {
+              "hf": "平负",
+              "count": 1000,
+              "pct": "20.0%"
+            },
+            {
+              "hf": "平平",
+              "count": 720,
+              "pct": "14.4%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 220,
+              "pct": "4.4%"
+            },
+            {
+              "score": "2-3",
+              "count": 154,
+              "pct": "3.1%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -3365,8 +6615,138 @@
         "m10_bold_score": "💥 3-1 或 4-1 (强攻大胜)",
         "m10_bold_reason": "主胜赔率 2.09 属于强攻区间，攻防两端压制",
         "confidence": 50,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "54.3",
+            "drawPct": "24.7",
+            "awayPct": "21.0"
+          },
+          "styleTag": {
+            "name": "⚖️ 战术胶着型",
+            "desc": "两队中场缠斗，进球受限，防守拉锯剧烈",
+            "color": "#38bdf8",
+            "bg": "rgba(56,189,248,0.12)",
+            "border": "rgba(56,189,248,0.3)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 574,
+              "pct": "11.5%"
+            },
+            {
+              "score": "1-0",
+              "count": 571,
+              "pct": "11.4%"
+            },
+            {
+              "score": "2-1",
+              "count": 495,
+              "pct": "9.9%"
+            },
+            {
+              "score": "2-0",
+              "count": 418,
+              "pct": "8.4%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 1559,
+              "pct": "31.2%"
+            },
+            {
+              "hf": "平胜",
+              "count": 962,
+              "pct": "19.2%"
+            },
+            {
+              "hf": "平平",
+              "count": 758,
+              "pct": "15.2%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "3-2",
+              "count": 166,
+              "pct": "3.3%"
+            },
+            {
+              "score": "4-1",
+              "count": 132,
+              "pct": "2.6%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "54.3",
+            "drawPct": "24.7",
+            "awayPct": "21.0"
+          },
+          "styleTag": {
+            "name": "⚖️ 战术胶着型",
+            "desc": "两队中场缠斗，进球受限，防守拉锯剧烈",
+            "color": "#38bdf8",
+            "bg": "rgba(56,189,248,0.12)",
+            "border": "rgba(56,189,248,0.3)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 574,
+              "pct": "11.5%"
+            },
+            {
+              "score": "1-0",
+              "count": 571,
+              "pct": "11.4%"
+            },
+            {
+              "score": "2-1",
+              "count": 495,
+              "pct": "9.9%"
+            },
+            {
+              "score": "2-0",
+              "count": 418,
+              "pct": "8.4%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 1559,
+              "pct": "31.2%"
+            },
+            {
+              "hf": "平胜",
+              "count": 962,
+              "pct": "19.2%"
+            },
+            {
+              "hf": "平平",
+              "count": 758,
+              "pct": "15.2%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "3-2",
+              "count": 166,
+              "pct": "3.3%"
+            },
+            {
+              "score": "4-1",
+              "count": 132,
+              "pct": "2.6%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -3448,8 +6828,138 @@
         "m10_bold_score": "💥 3-2 或 4-2 (险胜进球大战)",
         "m10_bold_reason": "主胜赔率 4.23 偏高，防线互相对流对轰",
         "confidence": 82,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "22.2",
+            "drawPct": "23.5",
+            "awayPct": "54.3"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 526,
+              "pct": "10.5%"
+            },
+            {
+              "score": "0-1",
+              "count": 502,
+              "pct": "10.0%"
+            },
+            {
+              "score": "1-2",
+              "count": 478,
+              "pct": "9.6%"
+            },
+            {
+              "score": "0-2",
+              "count": 435,
+              "pct": "8.7%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 1544,
+              "pct": "30.9%"
+            },
+            {
+              "hf": "平负",
+              "count": 945,
+              "pct": "18.9%"
+            },
+            {
+              "hf": "平平",
+              "count": 678,
+              "pct": "13.6%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 242,
+              "pct": "4.8%"
+            },
+            {
+              "score": "2-3",
+              "count": 169,
+              "pct": "3.4%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "22.2",
+            "drawPct": "23.5",
+            "awayPct": "54.3"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 526,
+              "pct": "10.5%"
+            },
+            {
+              "score": "0-1",
+              "count": 502,
+              "pct": "10.0%"
+            },
+            {
+              "score": "1-2",
+              "count": 478,
+              "pct": "9.6%"
+            },
+            {
+              "score": "0-2",
+              "count": 435,
+              "pct": "8.7%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 1544,
+              "pct": "30.9%"
+            },
+            {
+              "hf": "平负",
+              "count": 945,
+              "pct": "18.9%"
+            },
+            {
+              "hf": "平平",
+              "count": 678,
+              "pct": "13.6%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 242,
+              "pct": "4.8%"
+            },
+            {
+              "score": "2-3",
+              "count": 169,
+              "pct": "3.4%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -3531,8 +7041,138 @@
         "m10_bold_score": "💥 0-3 或 1-3 (客胜爆冷)",
         "m10_bold_reason": "资金暗中支持客队 (客胜赔 1.40)，冷门指数 UpsetIndex=50% 触发",
         "confidence": 82,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "22.1",
+            "drawPct": "23.9",
+            "awayPct": "54.0"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 562,
+              "pct": "11.2%"
+            },
+            {
+              "score": "0-1",
+              "count": 486,
+              "pct": "9.7%"
+            },
+            {
+              "score": "1-2",
+              "count": 468,
+              "pct": "9.4%"
+            },
+            {
+              "score": "0-2",
+              "count": 415,
+              "pct": "8.3%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 1552,
+              "pct": "31.0%"
+            },
+            {
+              "hf": "平负",
+              "count": 938,
+              "pct": "18.8%"
+            },
+            {
+              "hf": "平平",
+              "count": 727,
+              "pct": "14.5%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 249,
+              "pct": "5.0%"
+            },
+            {
+              "score": "2-3",
+              "count": 178,
+              "pct": "3.6%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "22.1",
+            "drawPct": "23.9",
+            "awayPct": "54.0"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 562,
+              "pct": "11.2%"
+            },
+            {
+              "score": "0-1",
+              "count": 486,
+              "pct": "9.7%"
+            },
+            {
+              "score": "1-2",
+              "count": 468,
+              "pct": "9.4%"
+            },
+            {
+              "score": "0-2",
+              "count": 415,
+              "pct": "8.3%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 1552,
+              "pct": "31.0%"
+            },
+            {
+              "hf": "平负",
+              "count": 938,
+              "pct": "18.8%"
+            },
+            {
+              "hf": "平平",
+              "count": 727,
+              "pct": "14.5%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 249,
+              "pct": "5.0%"
+            },
+            {
+              "score": "2-3",
+              "count": 178,
+              "pct": "3.6%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -3614,8 +7254,138 @@
         "m10_bold_score": "💥 3-2 或 4-2 (险胜进球大战)",
         "m10_bold_reason": "主胜赔率 8.14 偏高，防线互相对流对轰",
         "confidence": 50,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "5.3",
+            "drawPct": "9.6",
+            "awayPct": "85.1"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "0-3",
+              "count": 462,
+              "pct": "9.2%"
+            },
+            {
+              "score": "0-2",
+              "count": 424,
+              "pct": "8.5%"
+            },
+            {
+              "score": "0-4",
+              "count": 380,
+              "pct": "7.6%"
+            },
+            {
+              "score": "1-2",
+              "count": 359,
+              "pct": "7.2%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 3073,
+              "pct": "61.5%"
+            },
+            {
+              "hf": "平负",
+              "count": 969,
+              "pct": "19.4%"
+            },
+            {
+              "hf": "平平",
+              "count": 249,
+              "pct": "5.0%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 462,
+              "pct": "9.2%"
+            },
+            {
+              "score": "0-4",
+              "count": 380,
+              "pct": "7.6%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "5.3",
+            "drawPct": "9.6",
+            "awayPct": "85.1"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "0-3",
+              "count": 462,
+              "pct": "9.2%"
+            },
+            {
+              "score": "0-2",
+              "count": 424,
+              "pct": "8.5%"
+            },
+            {
+              "score": "0-4",
+              "count": 380,
+              "pct": "7.6%"
+            },
+            {
+              "score": "1-2",
+              "count": 359,
+              "pct": "7.2%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 3073,
+              "pct": "61.5%"
+            },
+            {
+              "hf": "平负",
+              "count": 969,
+              "pct": "19.4%"
+            },
+            {
+              "hf": "平平",
+              "count": 249,
+              "pct": "5.0%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 462,
+              "pct": "9.2%"
+            },
+            {
+              "score": "0-4",
+              "count": 380,
+              "pct": "7.6%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -3697,8 +7467,138 @@
         "m10_bold_score": "💥 3-2 或 4-2 (险胜进球大战)",
         "m10_bold_reason": "主胜赔率 8.14 偏高，防线互相对流对轰",
         "confidence": 95,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "4.5",
+            "drawPct": "9.7",
+            "awayPct": "85.9"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "0-3",
+              "count": 504,
+              "pct": "10.1%"
+            },
+            {
+              "score": "0-2",
+              "count": 409,
+              "pct": "8.2%"
+            },
+            {
+              "score": "1-3",
+              "count": 404,
+              "pct": "8.1%"
+            },
+            {
+              "score": "0-4",
+              "count": 389,
+              "pct": "7.8%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 3071,
+              "pct": "61.4%"
+            },
+            {
+              "hf": "平负",
+              "count": 1012,
+              "pct": "20.2%"
+            },
+            {
+              "hf": "平平",
+              "count": 242,
+              "pct": "4.8%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 504,
+              "pct": "10.1%"
+            },
+            {
+              "score": "0-4",
+              "count": 389,
+              "pct": "7.8%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "4.5",
+            "drawPct": "9.7",
+            "awayPct": "85.9"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "0-3",
+              "count": 504,
+              "pct": "10.1%"
+            },
+            {
+              "score": "0-2",
+              "count": 409,
+              "pct": "8.2%"
+            },
+            {
+              "score": "1-3",
+              "count": 404,
+              "pct": "8.1%"
+            },
+            {
+              "score": "0-4",
+              "count": 389,
+              "pct": "7.8%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 3071,
+              "pct": "61.4%"
+            },
+            {
+              "hf": "平负",
+              "count": 1012,
+              "pct": "20.2%"
+            },
+            {
+              "hf": "平平",
+              "count": 242,
+              "pct": "4.8%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 504,
+              "pct": "10.1%"
+            },
+            {
+              "score": "0-4",
+              "count": 389,
+              "pct": "7.8%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -3778,8 +7678,138 @@
         "m10_bold_score": "💥 3-2 或 4-2 (险胜进球大战)",
         "m10_bold_reason": "主胜赔率 8.14 偏高，防线互相对流对轰",
         "confidence": 94,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "4.3",
+            "drawPct": "9.8",
+            "awayPct": "85.9"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "0-3",
+              "count": 503,
+              "pct": "10.1%"
+            },
+            {
+              "score": "0-2",
+              "count": 458,
+              "pct": "9.2%"
+            },
+            {
+              "score": "1-3",
+              "count": 383,
+              "pct": "7.7%"
+            },
+            {
+              "score": "0-4",
+              "count": 355,
+              "pct": "7.1%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 3058,
+              "pct": "61.2%"
+            },
+            {
+              "hf": "平负",
+              "count": 1002,
+              "pct": "20.0%"
+            },
+            {
+              "hf": "平平",
+              "count": 266,
+              "pct": "5.3%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 503,
+              "pct": "10.1%"
+            },
+            {
+              "score": "0-4",
+              "count": 355,
+              "pct": "7.1%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "4.3",
+            "drawPct": "9.8",
+            "awayPct": "85.9"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "0-3",
+              "count": 503,
+              "pct": "10.1%"
+            },
+            {
+              "score": "0-2",
+              "count": 458,
+              "pct": "9.2%"
+            },
+            {
+              "score": "1-3",
+              "count": 383,
+              "pct": "7.7%"
+            },
+            {
+              "score": "0-4",
+              "count": 355,
+              "pct": "7.1%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 3058,
+              "pct": "61.2%"
+            },
+            {
+              "hf": "平负",
+              "count": 1002,
+              "pct": "20.0%"
+            },
+            {
+              "hf": "平平",
+              "count": 266,
+              "pct": "5.3%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 503,
+              "pct": "10.1%"
+            },
+            {
+              "score": "0-4",
+              "count": 355,
+              "pct": "7.1%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -3859,8 +7889,138 @@
         "m10_bold_score": "💥 3-2 或 4-2 (险胜进球大战)",
         "m10_bold_reason": "主胜赔率 8.14 偏高，防线互相对流对轰",
         "confidence": 86,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "4.8",
+            "drawPct": "9.7",
+            "awayPct": "85.5"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "0-3",
+              "count": 481,
+              "pct": "9.6%"
+            },
+            {
+              "score": "0-2",
+              "count": 418,
+              "pct": "8.4%"
+            },
+            {
+              "score": "0-4",
+              "count": 411,
+              "pct": "8.2%"
+            },
+            {
+              "score": "1-3",
+              "count": 382,
+              "pct": "7.6%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 3086,
+              "pct": "61.7%"
+            },
+            {
+              "hf": "平负",
+              "count": 994,
+              "pct": "19.9%"
+            },
+            {
+              "hf": "平平",
+              "count": 245,
+              "pct": "4.9%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 481,
+              "pct": "9.6%"
+            },
+            {
+              "score": "0-4",
+              "count": 411,
+              "pct": "8.2%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "4.8",
+            "drawPct": "9.7",
+            "awayPct": "85.5"
+          },
+          "styleTag": {
+            "name": "💣 反客为主型",
+            "desc": "客队反击极其犀利，谨防客队客场爆冷下克上",
+            "color": "#f87171",
+            "bg": "rgba(248,113,113,0.15)",
+            "border": "rgba(248,113,113,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "0-3",
+              "count": 481,
+              "pct": "9.6%"
+            },
+            {
+              "score": "0-2",
+              "count": 418,
+              "pct": "8.4%"
+            },
+            {
+              "score": "0-4",
+              "count": 411,
+              "pct": "8.2%"
+            },
+            {
+              "score": "1-3",
+              "count": 382,
+              "pct": "7.6%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 3086,
+              "pct": "61.7%"
+            },
+            {
+              "hf": "平负",
+              "count": 994,
+              "pct": "19.9%"
+            },
+            {
+              "hf": "平平",
+              "count": 245,
+              "pct": "4.9%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "0-3",
+              "count": 481,
+              "pct": "9.6%"
+            },
+            {
+              "score": "0-4",
+              "count": 411,
+              "pct": "8.2%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -3942,8 +8102,138 @@
         "m10_bold_score": "💥 3-2 或 4-2 (险胜进球大战)",
         "m10_bold_reason": "主胜赔率 3.02 偏高，防线互相对流对轰",
         "confidence": 90,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "36.2",
+            "drawPct": "29.4",
+            "awayPct": "34.4"
+          },
+          "styleTag": {
+            "name": "⚔️ 均势对喷型",
+            "desc": "两队实力极度接近，易诱发互相撕裂防线的大比分或平局",
+            "color": "#fbbf24",
+            "bg": "rgba(251,191,36,0.15)",
+            "border": "rgba(251,191,36,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 648,
+              "pct": "13.0%"
+            },
+            {
+              "score": "1-0",
+              "count": 452,
+              "pct": "9.0%"
+            },
+            {
+              "score": "0-0",
+              "count": 431,
+              "pct": "8.6%"
+            },
+            {
+              "score": "2-1",
+              "count": 429,
+              "pct": "8.6%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 898,
+              "pct": "18.0%"
+            },
+            {
+              "hf": "负负",
+              "count": 895,
+              "pct": "17.9%"
+            },
+            {
+              "hf": "平平",
+              "count": 868,
+              "pct": "17.4%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "3-2",
+              "count": 131,
+              "pct": "2.6%"
+            },
+            {
+              "score": "2-3",
+              "count": 111,
+              "pct": "2.2%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "36.2",
+            "drawPct": "29.4",
+            "awayPct": "34.4"
+          },
+          "styleTag": {
+            "name": "⚔️ 均势对喷型",
+            "desc": "两队实力极度接近，易诱发互相撕裂防线的大比分或平局",
+            "color": "#fbbf24",
+            "bg": "rgba(251,191,36,0.15)",
+            "border": "rgba(251,191,36,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 648,
+              "pct": "13.0%"
+            },
+            {
+              "score": "1-0",
+              "count": 452,
+              "pct": "9.0%"
+            },
+            {
+              "score": "0-0",
+              "count": 431,
+              "pct": "8.6%"
+            },
+            {
+              "score": "2-1",
+              "count": 429,
+              "pct": "8.6%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 898,
+              "pct": "18.0%"
+            },
+            {
+              "hf": "负负",
+              "count": 895,
+              "pct": "17.9%"
+            },
+            {
+              "hf": "平平",
+              "count": 868,
+              "pct": "17.4%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "3-2",
+              "count": 131,
+              "pct": "2.6%"
+            },
+            {
+              "score": "2-3",
+              "count": 111,
+              "pct": "2.2%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -4025,8 +8315,138 @@
         "m10_bold_score": "💥 3-2 或 4-2 (险胜进球大战)",
         "m10_bold_reason": "主胜赔率 3.02 偏高，防线互相对流对轰",
         "confidence": 82,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "36.4",
+            "drawPct": "27.4",
+            "awayPct": "36.2"
+          },
+          "styleTag": {
+            "name": "⚔️ 均势对喷型",
+            "desc": "两队实力极度接近，易诱发互相撕裂防线的大比分或平局",
+            "color": "#fbbf24",
+            "bg": "rgba(251,191,36,0.15)",
+            "border": "rgba(251,191,36,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 630,
+              "pct": "12.6%"
+            },
+            {
+              "score": "0-1",
+              "count": 460,
+              "pct": "9.2%"
+            },
+            {
+              "score": "1-2",
+              "count": 435,
+              "pct": "8.7%"
+            },
+            {
+              "score": "1-0",
+              "count": 427,
+              "pct": "8.5%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 919,
+              "pct": "18.4%"
+            },
+            {
+              "hf": "负负",
+              "count": 890,
+              "pct": "17.8%"
+            },
+            {
+              "hf": "平平",
+              "count": 796,
+              "pct": "15.9%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "3-2",
+              "count": 143,
+              "pct": "2.9%"
+            },
+            {
+              "score": "2-3",
+              "count": 141,
+              "pct": "2.8%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "36.4",
+            "drawPct": "27.4",
+            "awayPct": "36.2"
+          },
+          "styleTag": {
+            "name": "⚔️ 均势对喷型",
+            "desc": "两队实力极度接近，易诱发互相撕裂防线的大比分或平局",
+            "color": "#fbbf24",
+            "bg": "rgba(251,191,36,0.15)",
+            "border": "rgba(251,191,36,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 630,
+              "pct": "12.6%"
+            },
+            {
+              "score": "0-1",
+              "count": 460,
+              "pct": "9.2%"
+            },
+            {
+              "score": "1-2",
+              "count": 435,
+              "pct": "8.7%"
+            },
+            {
+              "score": "1-0",
+              "count": 427,
+              "pct": "8.5%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 919,
+              "pct": "18.4%"
+            },
+            {
+              "hf": "负负",
+              "count": 890,
+              "pct": "17.8%"
+            },
+            {
+              "hf": "平平",
+              "count": 796,
+              "pct": "15.9%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "3-2",
+              "count": 143,
+              "pct": "2.9%"
+            },
+            {
+              "score": "2-3",
+              "count": 141,
+              "pct": "2.8%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -4108,8 +8528,138 @@
         "m10_bold_score": "💥 3-2 或 4-2 (险胜进球大战)",
         "m10_bold_reason": "主胜赔率 3.02 偏高，防线互相对流对轰",
         "confidence": 78,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "37.1",
+            "drawPct": "27.4",
+            "awayPct": "35.6"
+          },
+          "styleTag": {
+            "name": "⚔️ 均势对喷型",
+            "desc": "两队实力极度接近，易诱发互相撕裂防线的大比分或平局",
+            "color": "#fbbf24",
+            "bg": "rgba(251,191,36,0.15)",
+            "border": "rgba(251,191,36,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 607,
+              "pct": "12.1%"
+            },
+            {
+              "score": "1-0",
+              "count": 470,
+              "pct": "9.4%"
+            },
+            {
+              "score": "0-1",
+              "count": 434,
+              "pct": "8.7%"
+            },
+            {
+              "score": "1-2",
+              "count": 415,
+              "pct": "8.3%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 968,
+              "pct": "19.4%"
+            },
+            {
+              "hf": "负负",
+              "count": 889,
+              "pct": "17.8%"
+            },
+            {
+              "hf": "平平",
+              "count": 792,
+              "pct": "15.8%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "3-2",
+              "count": 132,
+              "pct": "2.6%"
+            },
+            {
+              "score": "0-3",
+              "count": 122,
+              "pct": "2.4%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "37.1",
+            "drawPct": "27.4",
+            "awayPct": "35.6"
+          },
+          "styleTag": {
+            "name": "⚔️ 均势对喷型",
+            "desc": "两队实力极度接近，易诱发互相撕裂防线的大比分或平局",
+            "color": "#fbbf24",
+            "bg": "rgba(251,191,36,0.15)",
+            "border": "rgba(251,191,36,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 607,
+              "pct": "12.1%"
+            },
+            {
+              "score": "1-0",
+              "count": 470,
+              "pct": "9.4%"
+            },
+            {
+              "score": "0-1",
+              "count": 434,
+              "pct": "8.7%"
+            },
+            {
+              "score": "1-2",
+              "count": 415,
+              "pct": "8.3%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 968,
+              "pct": "19.4%"
+            },
+            {
+              "hf": "负负",
+              "count": 889,
+              "pct": "17.8%"
+            },
+            {
+              "hf": "平平",
+              "count": 792,
+              "pct": "15.8%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "3-2",
+              "count": 132,
+              "pct": "2.6%"
+            },
+            {
+              "score": "0-3",
+              "count": 122,
+              "pct": "2.4%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -4191,8 +8741,138 @@
         "m10_bold_score": "💥 0-3 或 1-3 (客胜爆冷)",
         "m10_bold_reason": "资金暗中支持客队 (客胜赔 1.97)，冷门指数 UpsetIndex=50% 触发",
         "confidence": 90,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "36.7",
+            "drawPct": "27.6",
+            "awayPct": "35.7"
+          },
+          "styleTag": {
+            "name": "⚔️ 均势对喷型",
+            "desc": "两队实力极度接近，易诱发互相撕裂防线的大比分或平局",
+            "color": "#fbbf24",
+            "bg": "rgba(251,191,36,0.15)",
+            "border": "rgba(251,191,36,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 599,
+              "pct": "12.0%"
+            },
+            {
+              "score": "1-0",
+              "count": 451,
+              "pct": "9.0%"
+            },
+            {
+              "score": "0-1",
+              "count": 435,
+              "pct": "8.7%"
+            },
+            {
+              "score": "1-2",
+              "count": 423,
+              "pct": "8.5%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 938,
+              "pct": "18.8%"
+            },
+            {
+              "hf": "负负",
+              "count": 894,
+              "pct": "17.9%"
+            },
+            {
+              "hf": "平平",
+              "count": 829,
+              "pct": "16.6%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "2-3",
+              "count": 122,
+              "pct": "2.4%"
+            },
+            {
+              "score": "0-3",
+              "count": 122,
+              "pct": "2.4%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "36.7",
+            "drawPct": "27.6",
+            "awayPct": "35.7"
+          },
+          "styleTag": {
+            "name": "⚔️ 均势对喷型",
+            "desc": "两队实力极度接近，易诱发互相撕裂防线的大比分或平局",
+            "color": "#fbbf24",
+            "bg": "rgba(251,191,36,0.15)",
+            "border": "rgba(251,191,36,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 599,
+              "pct": "12.0%"
+            },
+            {
+              "score": "1-0",
+              "count": 451,
+              "pct": "9.0%"
+            },
+            {
+              "score": "0-1",
+              "count": 435,
+              "pct": "8.7%"
+            },
+            {
+              "score": "1-2",
+              "count": 423,
+              "pct": "8.5%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 938,
+              "pct": "18.8%"
+            },
+            {
+              "hf": "负负",
+              "count": 894,
+              "pct": "17.9%"
+            },
+            {
+              "hf": "平平",
+              "count": 829,
+              "pct": "16.6%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "2-3",
+              "count": 122,
+              "pct": "2.4%"
+            },
+            {
+              "score": "0-3",
+              "count": 122,
+              "pct": "2.4%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -4274,8 +8954,138 @@
         "m10_bold_score": "💥 3-2 或 4-2 (险胜进球大战)",
         "m10_bold_reason": "主胜赔率 3.02 偏高，防线互相对流对轰",
         "confidence": 95,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "37.7",
+            "drawPct": "26.9",
+            "awayPct": "35.4"
+          },
+          "styleTag": {
+            "name": "⚔️ 均势对喷型",
+            "desc": "两队实力极度接近，易诱发互相撕裂防线的大比分或平局",
+            "color": "#fbbf24",
+            "bg": "rgba(251,191,36,0.15)",
+            "border": "rgba(251,191,36,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 615,
+              "pct": "12.3%"
+            },
+            {
+              "score": "1-0",
+              "count": 464,
+              "pct": "9.3%"
+            },
+            {
+              "score": "0-1",
+              "count": 449,
+              "pct": "9.0%"
+            },
+            {
+              "score": "1-2",
+              "count": 414,
+              "pct": "8.3%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 941,
+              "pct": "18.8%"
+            },
+            {
+              "hf": "负负",
+              "count": 901,
+              "pct": "18.0%"
+            },
+            {
+              "hf": "平平",
+              "count": 819,
+              "pct": "16.4%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "3-2",
+              "count": 172,
+              "pct": "3.4%"
+            },
+            {
+              "score": "2-3",
+              "count": 130,
+              "pct": "2.6%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "37.7",
+            "drawPct": "26.9",
+            "awayPct": "35.4"
+          },
+          "styleTag": {
+            "name": "⚔️ 均势对喷型",
+            "desc": "两队实力极度接近，易诱发互相撕裂防线的大比分或平局",
+            "color": "#fbbf24",
+            "bg": "rgba(251,191,36,0.15)",
+            "border": "rgba(251,191,36,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 615,
+              "pct": "12.3%"
+            },
+            {
+              "score": "1-0",
+              "count": 464,
+              "pct": "9.3%"
+            },
+            {
+              "score": "0-1",
+              "count": 449,
+              "pct": "9.0%"
+            },
+            {
+              "score": "1-2",
+              "count": 414,
+              "pct": "8.3%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 941,
+              "pct": "18.8%"
+            },
+            {
+              "hf": "负负",
+              "count": 901,
+              "pct": "18.0%"
+            },
+            {
+              "hf": "平平",
+              "count": 819,
+              "pct": "16.4%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "3-2",
+              "count": 172,
+              "pct": "3.4%"
+            },
+            {
+              "score": "2-3",
+              "count": 130,
+              "pct": "2.6%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
@@ -4357,8 +9167,138 @@
         "m10_bold_score": "💥 0-3 或 1-3 (客胜爆冷)",
         "m10_bold_reason": "资金暗中支持客队 (客胜赔 1.97)，冷门指数 UpsetIndex=50% 触发",
         "confidence": 94,
-        "simulation_5000": null,
-        "simulation_1000": null
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "37.1",
+            "drawPct": "26.7",
+            "awayPct": "36.2"
+          },
+          "styleTag": {
+            "name": "⚔️ 均势对喷型",
+            "desc": "两队实力极度接近，易诱发互相撕裂防线的大比分或平局",
+            "color": "#fbbf24",
+            "bg": "rgba(251,191,36,0.15)",
+            "border": "rgba(251,191,36,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 591,
+              "pct": "11.8%"
+            },
+            {
+              "score": "1-0",
+              "count": 495,
+              "pct": "9.9%"
+            },
+            {
+              "score": "0-1",
+              "count": 481,
+              "pct": "9.6%"
+            },
+            {
+              "score": "2-1",
+              "count": 430,
+              "pct": "8.6%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 922,
+              "pct": "18.4%"
+            },
+            {
+              "hf": "胜胜",
+              "count": 919,
+              "pct": "18.4%"
+            },
+            {
+              "hf": "平平",
+              "count": 824,
+              "pct": "16.5%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "3-2",
+              "count": 133,
+              "pct": "2.7%"
+            },
+            {
+              "score": "2-3",
+              "count": 130,
+              "pct": "2.6%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "37.1",
+            "drawPct": "26.7",
+            "awayPct": "36.2"
+          },
+          "styleTag": {
+            "name": "⚔️ 均势对喷型",
+            "desc": "两队实力极度接近，易诱发互相撕裂防线的大比分或平局",
+            "color": "#fbbf24",
+            "bg": "rgba(251,191,36,0.15)",
+            "border": "rgba(251,191,36,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "1-1",
+              "count": 591,
+              "pct": "11.8%"
+            },
+            {
+              "score": "1-0",
+              "count": 495,
+              "pct": "9.9%"
+            },
+            {
+              "score": "0-1",
+              "count": 481,
+              "pct": "9.6%"
+            },
+            {
+              "score": "2-1",
+              "count": 430,
+              "pct": "8.6%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "负负",
+              "count": 922,
+              "pct": "18.4%"
+            },
+            {
+              "hf": "胜胜",
+              "count": 919,
+              "pct": "18.4%"
+            },
+            {
+              "hf": "平平",
+              "count": 824,
+              "pct": "16.5%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "3-2",
+              "count": 133,
+              "pct": "2.7%"
+            },
+            {
+              "score": "2-3",
+              "count": 130,
+              "pct": "2.6%"
+            }
+          ]
+        }
       },
       "injury_analysis": {},
       "radar_alert": {
