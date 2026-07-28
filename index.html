@@ -240,21 +240,37 @@
       <div class="container">
         <div class="section-header">
           <div>
-            <div class="section-eyebrow">预测历史</div>
-            <h2 class="section-title" id="history-records-heading">已完赛场次历史记录</h2>
+            <div class="section-eyebrow">预测历史 & 战绩核销全景大区</div>
+            <h2 class="section-title" id="history-records-heading">已完赛场次历史记录与全量实盘对账</h2>
           </div>
           <div class="section-line"></div>
         </div>
-        <div class="history-grid" id="history-records-grid">
+
+        <!-- 1. M10 独立中枢 & 竞彩大师主模型实盘红黑清算单 -->
+        <div class="history-grid" id="history-records-grid" style="margin-bottom: 32px;">
           <!-- Populated by JS -->
         </div>
 
-        <!-- ── Risk Radar History Table Container (Added here) ── -->
+        <!-- 2. 串关 / 组合投关实盘历史对账单 -->
+        <div style="margin-top: 32px; margin-bottom: 32px;">
+          <div class="section-header" style="margin-bottom: 16px;">
+            <div>
+              <div class="section-eyebrow">串关战绩</div>
+              <h3 style="font-size: 18px; color: var(--text-1); font-weight: 700; margin: 0;">🔗 组合投关与串关实盘历史对账单</h3>
+            </div>
+            <div class="section-line"></div>
+          </div>
+          <div id="parlay-history-container">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- 3. 异常赔付风控雷达预警历史 -->
         <div style="margin-top: 32px;">
           <div class="section-header" style="margin-bottom: 16px;">
             <div>
               <div class="section-eyebrow">风控历史</div>
-              <h3 style="font-size: 18px; color: var(--text-1); font-weight: 700; margin: 0;">异常赔付风控雷达预警历史</h3>
+              <h3 style="font-size: 18px; color: var(--text-1); font-weight: 700; margin: 0;">📡 异常赔付风控雷达预警历史</h3>
             </div>
             <div class="section-line"></div>
           </div>
@@ -429,10 +445,10 @@
 </div><!-- /#app -->
 
 <!-- Scripts (order matters) -->
-<script src="js/odds-analyzer.js?v=2.34"></script>
-<script src="js/charts.js?v=2.34"></script>
-<script src="js/render.js?v=2.34"></script>
-<script src="js/main.js?v=2.34"></script>
+<script src="js/odds-analyzer.js?v=2.35"></script>
+<script src="js/charts.js?v=2.35"></script>
+<script src="js/render.js?v=2.35"></script>
+<script src="js/main.js?v=2.35"></script>
 
 <script>
   // Update footer timestamp
