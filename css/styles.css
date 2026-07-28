@@ -1004,7 +1004,7 @@ section { padding: clamp(32px, 5vw, 64px) 0; }
     transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .collapsible-body.expanded {
-    max-height: 2500px; /* High enough to contain stats & details */
+    max-height: 8000px; /* High enough to fit all simulation panels and details */
   }
   
   .collapsible-trigger {

@@ -1009,9 +1009,66 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isExpanded) {
           const activeTab = parent.querySelector('.mc-tab.active');
           if (activeTab) {
-            activeTab.click();
+            const matchId = activeTab.dataset.match;
+            const tabName = activeTab.dataset.tab;
+            if (matchId && tabName) {
+              const card = document.getElementById(`card-${matchId}`);
+              if (card) {
+                card.querySelectorAll('.mc-pane').forEach(p => p.classList.remove('active'));
+                const targetPane = document.getElementById(`pane-${matchId}-${tabName}`);
+                if (targetPane) targetPane.classList.add('active');
+              }
+            }
           }
         }
+      }
+    }
+
+    // Global Event Delegation for Match Card Tabs (.mc-tab)
+    const tab = e.target.closest('.mc-tab');
+    if (tab) {
+      const matchId = tab.dataset.match;
+      const tabName = tab.dataset.tab;
+      if (!matchId || !tabName) return;
+
+      const tabsBox = tab.parentElement;
+      if (tabsBox) {
+        tabsBox.querySelectorAll('.mc-tab').forEach(t => t.classList.remove('active'));
+      }
+      tab.classList.add('active');
+
+      const card = document.getElementById(`card-${matchId}`);
+      if (!card) return;
+      card.querySelectorAll('.mc-pane').forEach(p => p.classList.remove('active'));
+      const targetPane = document.getElementById(`pane-${matchId}-${tabName}`);
+      if (targetPane) {
+        targetPane.classList.add('active');
+        setTimeout(() => {
+          const matches = (window.MatchIQ && window.MatchIQ.currentMatches) || [];
+          const match = matches.find(m => m.id === matchId || String(m.id).endsWith(matchId));
+          if (!match) return;
+          if (tabName === 'stats' && window.MatchIQCharts) {
+            const buildRadarData = (s) => ({
+              winRate: (s?.wins || 0) / (s?.played || 1),
+              attackPower: Math.min(1, (s?.goals_scored || 0) / (s?.played || 1) / 2.5),
+              defensiveSolidty: Math.max(0, 1 - (s?.goals_conceded || 0) / (s?.played || 1) / 2.5),
+              formMomentum: (s?.wins || 0) / (s?.played || 1) * 0.9,
+              xgEfficiency: (s?.xg || 1.2) / 2.5
+            });
+            window.MatchIQCharts.initTeamRadar(
+              `radar-${matchId}`,
+              buildRadarData(match.team_stats?.home?.season_stats),
+              buildRadarData(match.team_stats?.away?.season_stats),
+              match.home, match.away
+            );
+          } else if (tabName === 'factors' && window.MatchIQCharts) {
+            const state = window.MatchIQState || {};
+            if (typeof getAdjustedWeights === 'function') {
+              const adjW = getAdjustedWeights(match, state.weights, state.teamTags, state.tagsConfig, state.leagueProfiles);
+              window.MatchIQCharts.initFactorChart(`factor-chart-${matchId}`, {}, adjW);
+            }
+          }
+        }, 50);
       }
     }
   });
