@@ -1878,18 +1878,37 @@ const MatchIQRender = (() => {
         return summaryHeader + rowsHtml;
       }
 
-      const m10RowsContent = sortedDatesDesc.map(d => `
-        <div style="margin-bottom:14px;">
-          ${renderM10DayRows(d)}
-        </div>`).join('');
+      const firstDateM10 = sortedDatesDesc.slice(0, 1);
+      const olderDatesM10 = sortedDatesDesc.slice(1);
+
+      const firstM10Html = firstDateM10.map(d => `<div style="margin-bottom:14px;">${renderM10DayRows(d)}</div>`).join('');
+      let olderM10Html = '';
+      let m10BtnHtml = '';
+
+      if (olderDatesM10.length > 0) {
+        let olderCount = 0;
+        olderDatesM10.forEach(d => { olderCount += (groups[d] || []).length; });
+        olderM10Html = `
+          <div id="m10-older-history-box" style="display:none; border-top:1px dashed rgba(0,188,212,0.2); padding-top:12px; margin-top:10px;">
+            ${olderDatesM10.map(d => `<div style="margin-bottom:14px;">${renderM10DayRows(d)}</div>`).join('')}
+          </div>`;
+        m10BtnHtml = `
+          <div style="text-align:center; margin-top:10px;">
+            <button class="btn-toggle-history" style="background:rgba(0,188,212,0.06); border:1px solid rgba(0,188,212,0.25); color:var(--cyan); padding:6px 18px; border-radius:6px; cursor:pointer; font-size:12px; font-weight:700;" onclick="window.toggleGenericHistory('m10-older-history-box', this, 'M10 较旧期次', ${olderCount})">
+              展开较旧的期次对账 (共 ${olderCount} 场) ▾
+            </button>
+          </div>`;
+      }
 
       m10HistoryPanelHtml = `
         <div class="m10-history-5days-box" style="margin-bottom:16px; padding:12px; background:rgba(0,188,212,0.03); border:1px solid rgba(0,188,212,0.18); border-radius:8px; text-align:left;">
           <div style="font-weight:800; font-size:13px; color:var(--cyan); margin-bottom:10px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(0,188,212,0.15); padding-bottom:6px;">
-            <span>🎯 M10 独立中枢历史推荐对账记录 (全量完赛期次独立核销)</span>
-            <span style="font-size:10.5px; color:#ef4444; font-weight:800;">按期次从新到老完整展开</span>
+            <span>🎯 M10 独立中枢历史推荐对账记录</span>
+            <span style="font-size:10.5px; color:var(--cyan); font-weight:800;">默认展开最新 1 组期号</span>
           </div>
-          ${m10RowsContent}
+          ${firstM10Html}
+          ${olderM10Html}
+          ${m10BtnHtml}
         </div>`;
     }
 
@@ -2046,7 +2065,6 @@ const MatchIQRender = (() => {
             timeStr = timeStr.substring(0, 5);
           }
           const timeBadge = timeStr ? `<span style="display:inline-block; font-size:11px; font-weight:600; color:var(--cyan); background:rgba(0, 212, 255, 0.08); border:1px solid rgba(0, 212, 255, 0.2); padding:1px 5px; border-radius:3px; margin-right:6px; font-family:monospace;">${timeStr}</span>` : '';
-
           rows.push(`
             <tr style="border-bottom:1px solid var(--border-subtle);">
               <td style="padding:4px 8px; font-weight:600; white-space:nowrap; vertical-align:middle; text-align:center;"><span class="tag" style="border:1px solid rgba(0, 212, 255, 0.2); color:var(--cyan); background:rgba(0, 212, 255, 0.03); font-size:11px; padding:1px 6px; border-radius:4px;">${r.league || '--'}</span></td>
@@ -2069,7 +2087,31 @@ const MatchIQRender = (() => {
       return rows.join('');
     }
 
-    const allDatesHTML = generateRowsForDates(sortedDatesDesc);
+    const firstDateList = sortedDatesDesc.slice(0, 1);
+    const olderDatesList = sortedDatesDesc.slice(1);
+
+    const activeRowsHTML = generateRowsForDates(firstDateList);
+    let olderRowsHTML = '';
+    let mainModelToggleBtnHtml = '';
+
+    if (olderDatesList.length > 0) {
+      let olderCount = 0;
+      olderDatesList.forEach(d => { olderCount += (groups[d] || []).length; });
+
+      olderRowsHTML = `
+        <tbody id="main-model-older-tbody" style="display: none; border-top: 1px dashed var(--border-subtle);">
+          ${generateRowsForDates(olderDatesList)}
+        </tbody>
+      `;
+
+      mainModelToggleBtnHtml = `
+        <div style="text-align: center; margin-top: 12px;">
+          <button class="btn-toggle-history" style="background: rgba(0, 212, 255, 0.05); border: 1px solid rgba(0, 212, 255, 0.2); color: var(--cyan); padding: 6px 20px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 700;" onclick="window.toggleGenericHistory('main-model-older-tbody', this, '主模型战绩', ${olderCount})">
+            展开较旧的战绩明细 (共 ${olderCount} 场) ▾
+          </button>
+        </div>
+      `;
+    }
 
     return `
       <div style="grid-column: 1 / -1; width: 100%;">
@@ -2078,8 +2120,8 @@ const MatchIQRender = (() => {
         <!-- Main Model Prediction History Table -->
         <div style="margin-bottom:24px; text-align:left;">
           <div style="font-weight:800; font-size:13.5px; color:var(--text-1); margin-bottom:10px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--border-subtle); padding-bottom:6px;">
-            <span>💰 竞彩大师主模型实盘红黑清算单 (全量完赛 98 场核销明细)</span>
-            <span style="font-size:11px; color:var(--cyan); font-weight:800;">共 ${records.length} 场完赛对账</span>
+            <span>💰 竞彩大师主模型实盘红黑清算单</span>
+            <span style="font-size:11px; color:var(--cyan); font-weight:800;">默认展开最新 1 组</span>
           </div>
           <div style="width: 100%; overflow-x: auto; background:rgba(13,21,39,0.3); border:1px solid var(--border-subtle); border-radius:12px; box-shadow:0 8px 32px rgba(0,0,0,0.2); backdrop-filter:blur(8px);">
             <table class="history-table" style="width:100%; border-collapse:collapse; text-align:left; font-size:12.5px; color:var(--text-2);">
@@ -2093,10 +2135,12 @@ const MatchIQRender = (() => {
                 </tr>
               </thead>
               <tbody class="tbody-newest-days">
-                ${allDatesHTML}
+                ${activeRowsHTML}
               </tbody>
+              ${olderRowsHTML}
             </table>
           </div>
+          ${mainModelToggleBtnHtml}
         </div>
       </div>`;
   }
