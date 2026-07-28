@@ -2799,8 +2799,15 @@ def main():
             )
         ]
         sorted_target_matches = push_service.sort_matches_by_date_and_code(all_target_matches)
-        # Cap to max 8 matches per push notification batch to guarantee PushPlus < 20,000 chars limit (HTML payload size safety)
-        target_matches = sorted_target_matches[:8]
+        
+        # 手机推送规则: 开售赛事 <= 8 场全推； > 8 场只推第一组比赛编号日期
+        if len(sorted_target_matches) <= 8:
+            target_matches = sorted_target_matches
+        else:
+            first_issue = sorted_target_matches[0].get("issue_date") or sorted_target_matches[0].get("business_date")
+            target_matches = [m for m in sorted_target_matches if (m.get("issue_date") or m.get("business_date")) == first_issue]
+            if not target_matches:
+                target_matches = sorted_target_matches[:8]
         
         has_any_change = any(m.get("has_conclusion_changed", False) for m in target_matches)
         title_prefix = "情况有变" if has_any_change else "牌没问题"
