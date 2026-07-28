@@ -614,15 +614,27 @@ def apply_dynamic_factor_scores(m):
     a_tags = list(team_tags_db.get(away, {}).get("tags", {}).keys())
 
     # 1. Base Strength (M01) dynamically calculated from standings points-per-game & goal difference
-    hs = m.get("home_standing", m.get("team_stats", {}).get("home", {}).get("standing", {}))
-    aws = m.get("away_standing", m.get("team_stats", {}).get("away", {}).get("standing", {}))
+    hs = m.get("home_standing", m.get("team_stats", {}).get("home", {}).get("standing", {})) or {}
+    aws = m.get("away_standing", m.get("team_stats", {}).get("away", {}).get("standing", {})) or {}
 
-    h_played = max(1, hs.get("played", 15))
-    a_played = max(1, aws.get("played", 15))
-    h_ppg = hs.get("points", 20) / float(h_played)
-    a_ppg = aws.get("points", 20) / float(a_played)
-    h_gd = (hs.get("goals_for", 20) - hs.get("goals_against", 20)) / float(h_played)
-    a_gd = (aws.get("goals_for", 20) - aws.get("goals_against", 20)) / float(a_played)
+    def safe_int(val, default=15):
+        try:
+            return int(val)
+        except Exception:
+            return default
+
+    def safe_float(val, default=20.0):
+        try:
+            return float(val)
+        except Exception:
+            return default
+
+    h_played = max(1, safe_int(hs.get("played", 15)))
+    a_played = max(1, safe_int(aws.get("played", 15)))
+    h_ppg = safe_float(hs.get("points", 20)) / float(h_played)
+    a_ppg = safe_float(aws.get("points", 20)) / float(a_played)
+    h_gd = (safe_float(hs.get("goals_for", 20)) - safe_float(hs.get("goals_against", 20))) / float(h_played)
+    a_gd = (safe_float(aws.get("goals_for", 20)) - safe_float(aws.get("goals_against", 20))) / float(a_played)
 
     h_base = 5.0 + h_ppg * 2.0 + h_gd * 1.2
     a_base = 5.0 + a_ppg * 2.0 + a_gd * 1.2
@@ -968,17 +980,25 @@ def apply_dynamic_conclusions(m):
     hs = m.get("home_standing", {})
     aws = m.get("away_standing", {})
     
-    h_played = hs.get("played", 18)
-    a_played = aws.get("played", 18)
-    h_gf = hs.get("goals_for", h_stats.get("goals_scored", 20))
-    h_ga = hs.get("goals_against", h_stats.get("goals_conceded", 20))
-    a_gf = aws.get("goals_for", a_stats.get("goals_scored", 20))
-    a_ga = aws.get("goals_against", a_stats.get("goals_conceded", 20))
+    def safe_int(val, default=18):
+        try: return int(val)
+        except Exception: return default
+
+    def safe_float(val, default=20.0):
+        try: return float(val)
+        except Exception: return default
+
+    h_played = safe_int(hs.get("played", 18))
+    a_played = safe_int(aws.get("played", 18))
+    h_gf = safe_float(hs.get("goals_for", h_stats.get("goals_scored", 20)))
+    h_ga = safe_float(hs.get("goals_against", h_stats.get("goals_conceded", 20)))
+    a_gf = safe_float(aws.get("goals_for", a_stats.get("goals_scored", 20)))
+    a_ga = safe_float(aws.get("goals_against", a_stats.get("goals_conceded", 20)))
     
-    avg_h_score = h_gf / h_played if h_played > 0 else 1.1
-    avg_h_concede = h_ga / h_played if h_played > 0 else 1.1
-    avg_a_score = a_gf / a_played if a_played > 0 else 1.1
-    avg_a_concede = a_ga / a_played if a_played > 0 else 1.1
+    avg_h_score = h_gf / float(h_played) if h_played > 0 else 1.1
+    avg_h_concede = h_ga / float(h_played) if h_played > 0 else 1.1
+    avg_a_score = a_gf / float(a_played) if a_played > 0 else 1.1
+    avg_a_concede = a_ga / float(a_played) if a_played > 0 else 1.1
     
     eg_home = (avg_h_score + avg_a_concede) / 2.0
     eg_away = (avg_a_score + avg_h_concede) / 2.0
