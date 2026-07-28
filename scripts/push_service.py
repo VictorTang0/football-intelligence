@@ -238,11 +238,16 @@ def render_match_card_html(m):
     goals_html = format_goals_formatted_html(m)
     hf = c.get("half_full", "--")
 
-    # Bold Score (大胆比分) matching Web UI render.js
-    raw_bold = c.get("m10_bold_score") or c.get("aggressive") or uc.get("aggressive") or uc.get("bold_score") or "--"
-    bold_score_val = str(raw_bold).replace("比分", "").replace("（竞彩）", "").replace("(竞彩)", "").strip()
-    if not bold_score_val or bold_score_val == "None":
+    # M10 System Hub Object (Strictly 100% Aligned with Web UI render.js L1203-L1218)
+    oa = m.get("odds_analysis", {}) or {}
+    hub = m.get("m10_hub_analysis") or c.get("m10_hub_analysis") or {}
+
+    # Bold Score (大胆比分 / M10 动态大胆预测) - Directly reads hub.m10_bold_score or c.m10_bold_score
+    raw_bold = hub.get("m10_bold_score") or c.get("m10_bold_score") or ""
+    if not raw_bold or raw_bold == "None" or raw_bold == "--":
         bold_score_val = "无"
+    else:
+        bold_score_val = str(raw_bold).replace("💥", "").strip()
 
     odds_mov = m.get("odds_movement_str", "")
     water_row_html = ""
@@ -250,22 +255,20 @@ def render_match_card_html(m):
         water_row_html = f'<div style="font-size:11px;color:#94a3b8;margin-bottom:5px;">💧 {dot_water}<strong>水位异动</strong>: <span style="color:#fbbf24;font-weight:bold;">{odds_mov}</span></div>'
 
     # M10 System Conclusion formatting (Strictly Aligned with Web UI render.js L1202-L1250)
-    snap_cnt = c.get("m10_snapshot_count", 0)
-    oa = m.get("odds_analysis", {})
-    hub = c.get("m10_hub_analysis", {}) or {}
+    snap_cnt = c.get("m10_snapshot_count") or hub.get("snapshot_count") or (oa.get("water_trajectory", []) and len(oa.get("water_trajectory"))) or 1
     
-    clean_rec = lambda txt: str(txt).replace("(竞彩)", "").replace("竞彩", "").replace("None", "").strip() if txt and txt != "--" else ""
-    had_val = clean_rec(hub.get("had_analysis", {}).get("primary") or hub.get("had_recommendation") or hub.get("m10_had") or c.get("m10_had"))
-    hhad_val = clean_rec(hub.get("hhad_analysis", {}).get("primary") or hub.get("hhad_recommendation") or hub.get("m10_hhad") or c.get("m10_hhad"))
+    clean_rec = lambda txt: str(txt).replace("(竞彩)", "").replace("（竞彩）", "").replace("竞彩", "").replace("None", "").strip() if txt and txt != "--" and txt != "None" else ""
+    had_val = clean_rec(hub.get("had_recommendation") or hub.get("m10_had") or hub.get("had_analysis", {}).get("primary"))
+    hhad_val = clean_rec(hub.get("hhad_recommendation") or hub.get("m10_hhad") or hub.get("hhad_analysis", {}).get("primary"))
     eu_an = hub.get("asian_eu_status", {}) if isinstance(hub, dict) else {}
 
     if snap_cnt < 2:
         m10_text = '<span style="color:#94a3b8;">变盘次数不足</span>'
     else:
         parts = []
-        if had_val:
+        if had_val and had_val != "无推荐":
             parts.append(f"胜平负:{had_val}")
-        if hhad_val:
+        if hhad_val and hhad_val != "无推荐":
             parts.append(f"让球:{hhad_val}")
         if eu_an.get("has_divergence"):
             parts.append("欧让剪刀差")
@@ -274,7 +277,7 @@ def render_match_card_html(m):
         if range_pref and range_pref not in parts:
             parts.append(range_pref)
             
-        m10_text = " | ".join(parts) if parts else "水温拉锯平稳 (资金分布均衡)"
+        m10_text = " | ".join(parts) if parts else "水温拉锯平稳"
 
     # Monte Carlo 5000 Sandbox Simulation & Wild Outliers (大球比分) matching Web UI render.js L1263-L1315
     wild_html = ""
