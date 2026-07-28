@@ -1213,6 +1213,8 @@ const MatchIQRender = (() => {
         const scoreVal = cleanText(hub.predicted_score || hub.m10_predicted_score);
         const goalsVal = cleanText(hub.over_under || hub.m10_over_under);
         const hfVal = cleanText(hub.half_full || hub.m10_half_full);
+        const boldScoreVal = hub.m10_bold_score || c.m10_bold_score;
+        const boldReasonVal = hub.m10_bold_reason || c.m10_bold_reason;
 
         const styleRec = (val) => val !== '无推荐' 
           ? 'color:#ef4444; font-weight:800; font-size:13px;' 
@@ -1248,6 +1250,13 @@ const MatchIQRender = (() => {
             <div style="background:rgba(255,255,255,0.02); padding:6px 10px; border-radius:4px;">
               <span style="color:var(--text-3); font-weight:600;">⑤ 半全场：</span><span style="${styleRec(hfVal)}">${hfVal}</span>
             </div>
+
+            ${boldScoreVal && boldScoreVal !== '无' ? `
+            <div style="grid-column: 1 / -1; background:rgba(245, 158, 11, 0.1); border:1px solid rgba(245, 158, 11, 0.35); padding:8px 12px; border-radius:6px; margin-top:4px;">
+              <span style="color:#fbbf24; font-weight:800;">⑥ 💥 M10 动态大胆预测：</span>
+              <span style="color:#fbbf24; font-weight:800; font-size:13.5px; background:rgba(245,158,11,0.2); padding:2px 8px; border-radius:4px;">${boldScoreVal}</span>
+              ${boldReasonVal ? `<div style="font-size:11px; color:#cbd5e1; margin-top:3px;">💡 触发依据: ${boldReasonVal}</div>` : ''}
+            </div>` : ''}
           </div>
         </div>`;
       })()}
