@@ -2715,7 +2715,8 @@ def main():
                 "half_full": m10_res["m10_hf"],
                 "m10_bold_score": m10_res["m10_bold_score"],
                 "m10_bold_reason": m10_res["m10_bold_reason"],
-                "confidence": m10_res["confidence"]
+                "confidence": m10_res["confidence"],
+                "simulation_1000": m10_res.get("simulation_1000")
             }
     except Exception as e:
         print(f"⚠️ M10 Hub Auto-Deduction Warning: {e}")

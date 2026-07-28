@@ -133,6 +133,89 @@ def deduce_pure_m10(match):
         "confidence": conf
     }
 
+def run_python_simulation_1000(m):
+    import random
+    import math
+
+    odds = m.get("odds_analysis", {}).get("pinnacle", {}).get("current", {})
+    h_win_prob = 1.0 / odds.get("home", 2.10) if odds.get("home") else 0.45
+    a_win_prob = 1.0 / odds.get("away", 3.10) if odds.get("away") else 0.30
+
+    lambda_h = max(0.6, min(3.8, h_win_prob * 2.7 + 0.35))
+    lambda_a = max(0.5, min(3.5, a_win_prob * 2.4))
+
+    inj = m.get("injury_analysis", {})
+    lambda_h *= max(0.75, 1.0 - (inj.get("home_absences", 0) * 0.06))
+    lambda_a *= max(0.75, 1.0 - (inj.get("away_absences", 0) * 0.06))
+
+    def sample_poisson(lam):
+        L = math.exp(-lam)
+        k = 0
+        p = 1.0
+        while p > L:
+            k += 1
+            p *= random.random()
+        return k - 1
+
+    iterations = 1000
+    home_wins, draws, away_wins = 0, 0, 0
+    score_freq, hf_freq, wild_map = {}, {}, {}
+
+    for _ in range(iterations):
+        fh = 0.85 + random.random() * 0.30
+        fa = 0.85 + random.random() * 0.30
+        lh, la = lambda_h * fh, lambda_a * fa
+
+        if random.random() < 0.025: lh *= 0.60; la *= 1.35
+        if random.random() < 0.025: la *= 0.60; lh *= 1.35
+
+        pen_h = 0.7 if random.random() < 0.10 else 0.0
+        pen_a = 0.7 if random.random() < 0.10 else 0.0
+
+        lh1, la1 = lh * 0.42, la * 0.42
+        hg1 = sample_poisson(lh1)
+        ag1 = sample_poisson(la1)
+
+        bh = 1.30 if hg1 < ag1 else 1.0
+        ba = 1.30 if ag1 < hg1 else 1.0
+
+        lh2 = (lh * 0.58 * bh) + pen_h
+        la2 = (la * 0.58 * ba) + pen_a
+        hg2 = sample_poisson(lh2)
+        ag2 = sample_poisson(la2)
+
+        htot, atot = hg1 + hg2, ag1 + ag2
+        if htot > atot: home_wins += 1
+        elif htot == atot: draws += 1
+        else: away_wins += 1
+
+        score_key = f"{htot}-{atot}"
+        score_freq[score_key] = score_freq.get(score_key, 0) + 1
+
+        ht_r = "胜" if hg1 > ag1 else "平" if hg1 == ag1 else "负"
+        ft_r = "胜" if htot > atot else "平" if htot == atot else "负"
+        hf_key = f"{ht_r}{ft_r}"
+        hf_freq[hf_key] = hf_freq.get(hf_key, 0) + 1
+
+        if (htot + atot >= 5) or (htot == atot and htot >= 3) or (htot == 0 and atot >= 3) or (atot == 0 and htot >= 4):
+            wild_map[score_key] = wild_map.get(score_key, 0) + 1
+
+    top_scores = sorted(score_freq.items(), key=lambda x: x[1], reverse=True)[:4]
+    top_hf = sorted(hf_freq.items(), key=lambda x: x[1], reverse=True)[:3]
+    top_wild = sorted(wild_map.items(), key=lambda x: x[1], reverse=True)[:2]
+
+    return {
+        "iterations": 1000,
+        "winRate": {
+            "homePct": f"{(home_wins / iterations) * 100:.1f}",
+            "drawPct": f"{(draws / iterations) * 100:.1f}",
+            "awayPct": f"{(away_wins / iterations) * 100:.1f}"
+        },
+        "topScores": [{"score": k, "count": v, "pct": f"{(v/iterations)*100:.1f}%"} for k, v in top_scores],
+        "topHalfFull": [{"hf": k, "count": v, "pct": f"{(v/iterations)*100:.1f}%"} for k, v in top_hf],
+        "wildOutliers": [{"score": k, "count": v, "pct": f"{(v/iterations)*100:.1f}%"} for k, v in top_wild]
+    }
+
 def update_pure_m10_hub():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     matches_path = os.path.join(base_dir, "data", "matches.json")
@@ -146,6 +229,7 @@ def update_pure_m10_hub():
     updated_count = 0
     for m in db.get("matches", []):
         res = deduce_pure_m10(m)
+        sim_res = run_python_simulation_1000(m)
         m10_dict = {
             "had_recommendation": res["m10_had"],
             "hhad_recommendation": res["m10_hhad"],
@@ -154,7 +238,8 @@ def update_pure_m10_hub():
             "half_full": res["m10_hf"],
             "m10_bold_score": res["m10_bold_score"],
             "m10_bold_reason": res["m10_bold_reason"],
-            "confidence": res["confidence"]
+            "confidence": res["confidence"],
+            "simulation_1000": sim_res
         }
         m["m10_hub_analysis"] = m10_dict
         updated_count += 1
@@ -162,7 +247,7 @@ def update_pure_m10_hub():
     with open(matches_path, "w", encoding="utf-8") as f:
         json.dump(db, f, ensure_ascii=False, indent=2)
 
-    print(f"✅ [纯M10独立中枢生成完毕] 已为 {updated_count} 场比赛写全100%纯度的M10五项推演结论!")
+    print(f"✅ [纯M10独立中枢生成完毕] 已为 {updated_count} 场比赛写全100%纯度的M10结论与1,000次 Monte Carlo 沙盘推演结果!")
 
 if __name__ == "__main__":
     update_pure_m10_hub()

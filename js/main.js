@@ -1036,3 +1036,122 @@ window.toggleMasterHistorySection = function() {
     badge.style.background = 'rgba(0, 212, 255, 0.1)';
   }
 };
+
+window.runLivePesSimulation = function(matchId) {
+  const matches = (window.MatchIQ && window.MatchIQ.currentMatches) || [];
+  const match = matches.find(m => m.id === matchId || String(m.id).endsWith(matchId));
+  if (!match) {
+    alert('未找到该比赛数据，请刷新重试！');
+    return;
+  }
+
+  let modal = document.getElementById('pes-sim-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'pes-sim-modal';
+    modal.style.cssText = 'position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(5, 10, 20, 0.85); backdrop-filter:blur(12px); z-index:99999; display:flex; align-items:center; justify-content:center; padding:16px; opacity:0; transition:opacity 0.3s;';
+    document.body.appendChild(modal);
+  }
+
+  modal.innerHTML = `
+    <div style="background:rgba(13,21,39,0.95); border:1px solid rgba(168,85,247,0.4); border-radius:16px; width:100%; max-width:540px; padding:24px; box-shadow:0 20px 50px rgba(0,0,0,0.6); position:relative; text-align:left; color:#e2e8f0; font-family:sans-serif;">
+      <button style="position:absolute; top:16px; right:16px; background:none; border:none; color:#94a3b8; font-size:20px; cursor:pointer;" onclick="document.getElementById('pes-sim-modal').style.opacity='0'; setTimeout(()=>document.getElementById('pes-sim-modal').style.display='none',300);">✕</button>
+      
+      <div style="font-size:12px; color:#c084fc; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">🎮 PES / eFootball 蒙特卡洛足球沙盘</div>
+      <div style="font-size:18px; font-weight:800; color:#ffffff; margin-bottom:16px;">
+        ${match.home} <span style="color:#94a3b8; font-weight:normal;">VS</span> ${match.away}
+      </div>
+
+      <div id="sim-progress-box" style="margin-bottom:20px; background:rgba(0,0,0,0.4); padding:16px; border-radius:10px; border:1px solid rgba(168,85,247,0.2);">
+        <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:8px;">
+          <span style="color:#e9d5ff; font-weight:700;">1,000 场平行宇宙沙盘推演中...</span>
+          <span id="sim-counter-text" style="color:#c084fc; font-weight:800;">0 / 1000 场</span>
+        </div>
+        <div style="width:100%; height:8px; background:rgba(255,255,255,0.1); border-radius:4px; overflow:hidden;">
+          <div id="sim-progress-bar" style="width:0%; height:100%; background:linear-gradient(90deg, #c084fc, #3b82f6); transition:width 0.1s linear;"></div>
+        </div>
+      </div>
+
+      <div id="sim-result-container" style="display:none;"></div>
+    </div>
+  `;
+
+  modal.style.display = 'flex';
+  setTimeout(() => { modal.style.opacity = '1'; }, 10);
+
+  const progressBar = document.getElementById('sim-progress-bar');
+  const counterText = document.getElementById('sim-counter-text');
+  const resContainer = document.getElementById('sim-result-container');
+
+  let currentCount = 0;
+  const targetCount = 1000;
+  const interval = setInterval(() => {
+    currentCount += 125;
+    if (currentCount >= targetCount) {
+      currentCount = targetCount;
+      clearInterval(interval);
+
+      const sim = window.PesMonteCarloEngine ? window.PesMonteCarloEngine.runSimulation1000(match) : null;
+      if (sim) {
+        renderSimResultsInModal(resContainer, sim, match);
+      }
+    }
+    progressBar.style.width = (currentCount / targetCount * 100) + '%';
+    counterText.innerText = `${currentCount} / 1000 场`;
+  }, 40);
+
+  function renderSimResultsInModal(container, sim, m) {
+    const topS = sim.topScores || [];
+    const topHF = sim.topHalfFull || [];
+    const wild = sim.wildOutliers || [];
+
+    const scoresHtml = topS.map((s, i) => `
+      <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.03); padding:8px 12px; border-radius:6px; margin-bottom:6px; border:1px solid rgba(255,255,255,0.06);">
+        <span style="font-weight:700; color:#e2e8f0;">No.${i+1} 比分 <span style="color:#c084fc; font-size:14px; margin-left:6px;">${s.score}</span></span>
+        <span style="font-weight:800; color:#4ade80;">${s.pct} <span style="font-size:11px; color:#94a3b8; font-weight:normal;">(${s.count}场)</span></span>
+      </div>`).join('');
+
+    const hfHtml = topHF.map((hf, i) => `
+      <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.03); padding:6px 10px; border-radius:6px; margin-bottom:4px;">
+        <span style="color:#cbd5e1; font-size:12px;">组合 ${hf.hf}</span>
+        <span style="font-weight:700; color:#c084fc; font-size:12px;">${hf.pct}</span>
+      </div>`).join('');
+
+    const wildHtml = wild.map(w => `
+      <span style="display:inline-block; background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.4); color:#fbbf24; padding:3px 8px; border-radius:4px; font-weight:800; font-size:12px; margin-right:6px; margin-bottom:4px;">
+        💥 ${w.score} (${w.pct})
+      </span>`).join('');
+
+    container.innerHTML = `
+      <div style="font-size:13px; font-weight:800; color:#4ade80; margin-bottom:12px; background:rgba(74,222,128,0.1); border:1px solid rgba(74,222,128,0.25); padding:8px 12px; border-radius:6px; text-align:center;">
+        ✅ 1,000 次平行宇宙沙盘推演收敛完毕！
+      </div>
+
+      <div style="margin-bottom:16px;">
+        <div style="font-size:11.5px; color:#94a3b8; margin-bottom:6px;">1,000 场全仿真胜胜负分布表</div>
+        <div style="display:flex; height:24px; border-radius:6px; overflow:hidden; font-size:11px; font-weight:800; text-align:center; line-height:24px;">
+          <div style="width:${sim.winRate.homePct}%; background:#22c55e; color:#000;">主胜 ${sim.winRate.homePct}%</div>
+          <div style="width:${sim.winRate.drawPct}%; background:#64748b; color:#fff;">平 ${sim.winRate.drawPct}%</div>
+          <div style="width:${sim.winRate.awayPct}%; background:#ef4444; color:#fff;">客胜 ${sim.winRate.awayPct}%</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:14px;">
+        <div style="font-size:12px; font-weight:700; color:#e2e8f0; margin-bottom:8px;">🎯 最可能终场比分 Top 4</div>
+        ${scoresHtml}
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div>
+          <div style="font-size:12px; font-weight:700; color:#e2e8f0; margin-bottom:6px;">半全场热力分布</div>
+          ${hfHtml}
+        </div>
+        <div>
+          <div style="font-size:12px; font-weight:700; color:#f87171; margin-bottom:6px;">💥 狂野爆冷比分捕获</div>
+          ${wildHtml || '<div style="font-size:11px; color:#64748b;">本场无明显狂野爆冷</div>'}
+        </div>
+      </div>
+    `;
+    container.style.display = 'block';
+  }
+};
