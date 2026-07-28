@@ -1,6 +1,6 @@
 {
   "version": "v5.0",
-  "last_evolved": "2026-07-28T16:45:25.048151",
+  "last_evolved": "2026-07-28T17:02:17.903808",
   "total_matches_validated": 97,
   "overall_accuracy": 0.4639,
   "factors": [
@@ -129,7 +129,7 @@
   "experts": {
     "fundamental": {
       "name": "基本面专家",
-      "weight": 1.2864,
+      "weight": 1.2728,
       "dimensions": [
         "M01",
         "M02",
@@ -139,7 +139,7 @@
     },
     "narrative": {
       "name": "情报与战意专家",
-      "weight": 0.8158,
+      "weight": 0.777,
       "dimensions": [
         "M03",
         "M04",
@@ -150,7 +150,7 @@
     },
     "odds_capital": {
       "name": "资金与赔率专家",
-      "weight": -1.1022,
+      "weight": -1.0497,
       "dimensions": []
     }
   },
