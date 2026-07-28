@@ -79608,6 +79608,1810 @@
         "ou_correct": false,
         "score_correct": false
       }
+    },
+    {
+      "id": "match_260728_001",
+      "sportteryMatchId": 2040643,
+      "league": "欧冠",
+      "home": "库奥皮奥",
+      "handicap_line": "+1",
+      "away": "萨巴赫",
+      "kickoff": "2026-07-28T23:00:00+08:00",
+      "venue": "库奥皮奥主场球场",
+      "city": "库奥皮奥市",
+      "weather": {
+        "condition": "晴朗",
+        "temp_c": 22,
+        "humidity": 53,
+        "wind_kmh": 11,
+        "is_new": false
+      },
+      "status": "pending",
+      "odds_history": [],
+      "match_context": "欧冠常规赛对决。库奥皮奥坐镇主场迎接萨巴赫的挑战。",
+      "ultimate_conclusion": {
+        "recommendation": "待推演 (需运行盘口更新)",
+        "primary_bet": "待定",
+        "confidence": 65,
+        "risk_level": "中",
+        "ev_score": 0.0,
+        "reasoning": "待运行 update_odds_and_news.py 脚本获取实盘赔率并结合最新伤停新闻完成最终研判。"
+      },
+      "team_stats": {
+        "home": {
+          "name": "库奥皮奥",
+          "form": [
+            "W",
+            "D",
+            "L",
+            "W",
+            "D"
+          ],
+          "form_note": "近期表现稳定，主场韧性良好",
+          "season_stats": {
+            "goals_scored": 19,
+            "goals_conceded": 15,
+            "xg": 18.1,
+            "xga": 15.1,
+            "shots_per_game": 11.7,
+            "shots_on_target": 3.5,
+            "conversion_rate": 0.1,
+            "possession": 48.1,
+            "pass_accuracy": 74.4,
+            "pressing_intensity": 60.4,
+            "set_piece_goals": 4,
+            "counter_attack_speed": 67.1,
+            "clean_sheets": 4,
+            "btts_rate": 0.5,
+            "over25_rate": 0.5,
+            "low_block_resilience": 7.4,
+            "superstar_impact": 6.6
+          },
+          "motivation": 0.8,
+          "motivation_note": "主队常规战意，抢分期望高",
+          "injuries": [],
+          "suspensions": [],
+          "key_players": [
+            {
+              "name": "主力核心",
+              "form": "正常",
+              "goals_last_5": 1,
+              "status": "正常",
+              "note": "攻防组织核心"
+            }
+          ],
+          "standing": {
+            "rank": "--",
+            "played": "--",
+            "won": "--",
+            "drawn": "--",
+            "lost": "--",
+            "points": "--",
+            "goals_for": "--",
+            "goals_against": "--",
+            "zone": "待更新",
+            "verified_multisource": false,
+            "verification_sources": []
+          },
+          "recent_matches": [
+            {
+              "date": "2026-07-22",
+              "league": "欧冠",
+              "home": "萨巴赫",
+              "away": "库奥皮奥",
+              "score": "1-0",
+              "half_score": "1-0",
+              "outcome": "L"
+            },
+            {
+              "date": "2026-07-18",
+              "league": "芬超",
+              "home": "塞伊奈约基",
+              "away": "库奥皮奥",
+              "score": "0-2",
+              "half_score": "0-2",
+              "outcome": "W"
+            },
+            {
+              "date": "2026-06-27",
+              "league": "芬超",
+              "home": "赫尔辛基",
+              "away": "库奥皮奥",
+              "score": "0-4",
+              "half_score": "0-1",
+              "outcome": "W"
+            },
+            {
+              "date": "2026-06-23",
+              "league": "芬超",
+              "home": "库奥皮奥",
+              "away": "坦佩雷山猫",
+              "score": "4-3",
+              "half_score": "4-1",
+              "outcome": "W"
+            },
+            {
+              "date": "2026-06-17",
+              "league": "芬超",
+              "home": "TPS图尔库",
+              "away": "库奥皮奥",
+              "score": "1-2",
+              "half_score": "0-1",
+              "outcome": "W"
+            }
+          ]
+        },
+        "away": {
+          "name": "萨巴赫",
+          "form": [
+            "D",
+            "L",
+            "W",
+            "D",
+            "L"
+          ],
+          "form_note": "客场打法偏防守反击",
+          "season_stats": {
+            "goals_scored": 16,
+            "goals_conceded": 15,
+            "xg": 17.6,
+            "xga": 17.3,
+            "shots_per_game": 11.5,
+            "shots_on_target": 4.1,
+            "conversion_rate": 0.1,
+            "possession": 51.6,
+            "pass_accuracy": 81.3,
+            "pressing_intensity": 56.8,
+            "set_piece_goals": 2,
+            "counter_attack_speed": 68.4,
+            "clean_sheets": 2,
+            "btts_rate": 0.5,
+            "over25_rate": 0.5,
+            "low_block_resilience": 7.0,
+            "superstar_impact": 6.7
+          },
+          "motivation": 0.75,
+          "motivation_note": "客队客场防御为主，常规防守战意",
+          "injuries": [],
+          "suspensions": [],
+          "key_players": [
+            {
+              "name": "进攻箭头",
+              "form": "正常",
+              "goals_last_5": 1,
+              "status": "正常",
+              "note": "前场得分支点"
+            }
+          ],
+          "standing": {
+            "rank": "--",
+            "played": "--",
+            "won": "--",
+            "drawn": "--",
+            "lost": "--",
+            "points": "--",
+            "goals_for": "--",
+            "goals_against": "--",
+            "zone": "待更新",
+            "verified_multisource": false,
+            "verification_sources": []
+          },
+          "recent_matches": [
+            {
+              "date": "2026-07-22",
+              "league": "欧冠",
+              "home": "萨巴赫",
+              "away": "库奥皮奥",
+              "score": "1-0",
+              "half_score": "1-0",
+              "outcome": "W"
+            },
+            {
+              "date": "2026-07-15",
+              "league": "欧冠",
+              "home": "新圣徒",
+              "away": "萨巴赫",
+              "score": "1-2",
+              "half_score": "0-2",
+              "outcome": "W"
+            },
+            {
+              "date": "2026-07-08",
+              "league": "欧冠",
+              "home": "萨巴赫",
+              "away": "新圣徒",
+              "score": "2-0",
+              "half_score": "0-0",
+              "outcome": "W"
+            }
+          ]
+        }
+      },
+      "odds_analysis": {
+        "pinnacle": {
+          "name": "pinnacle",
+          "initial": {
+            "home": 2.74,
+            "draw": 3.3,
+            "away": 2.17
+          },
+          "current": {
+            "home": 2.74,
+            "draw": 3.3,
+            "away": 2.17
+          },
+          "movement": "最新同步"
+        },
+        "asian_handicap": {
+          "initial": {
+            "handicap": "主队+0.25",
+            "home_odds": 2.02,
+            "away_odds": 1.88
+          },
+          "current": {
+            "handicap": "主队+0.25",
+            "home_odds": 2.02,
+            "away_odds": 1.88
+          },
+          "movement_signal": "盘口初开，水位平衡。"
+        },
+        "lottery_handicap": {
+          "handicap": "主受让1球",
+          "initial": {
+            "win": 1.62,
+            "draw": 3.75,
+            "lose": 4.35
+          },
+          "current": {
+            "win": 1.62,
+            "draw": 3.75,
+            "lose": 4.35
+          }
+        },
+        "over_under": {
+          "initial": {
+            "line": 2.25,
+            "over": 1.9,
+            "under": 1.9
+          },
+          "current": {
+            "line": 2.25,
+            "over": 1.9,
+            "under": 1.9
+          },
+          "signal": "大小盘基本均衡。"
+        },
+        "retail_sentiment": {
+          "home_pct": 32,
+          "draw_pct": 27,
+          "away_pct": 41,
+          "home_support": 0.32,
+          "draw_support": 0.27,
+          "away_support": 0.41,
+          "confidence_level": "正常",
+          "mainstream_narrative": "大众倾向均衡"
+        }
+      },
+      "intelligence": {
+        "verified_news": [
+          {
+            "title": "未查到相关公开赛前新闻与一手战报",
+            "source": "核验状态：未查到相关公开资料",
+            "verified": false,
+            "date": "2026-07-28",
+            "url": "https://www.sporttery.cn/",
+            "is_new": false
+          }
+        ],
+        "media_predictions": [
+          {
+            "media_name": "[信源核验]",
+            "prediction": "未查到相关公开媒体预测",
+            "predicted_score": "--",
+            "confidence": "0%",
+            "source": "未查到相关公开资料",
+            "is_new": false
+          }
+        ],
+        "social_buzz": [
+          {
+            "platform": "[信源核验]",
+            "comment": "未查到相关公开热议数据",
+            "sentiment": "未查到相关公开资料",
+            "heat_count": 0,
+            "is_new": false
+          }
+        ],
+        "weather_impact": "天气良好无雨水干扰，两队可完全施展预定的战术配合",
+        "venue_notes": "天然草皮状况极佳，草皮平整度与弹性处于完美状态",
+        "weather_is_new": false,
+        "injuries": {
+          "home": [
+            {
+              "player": "未查到相关公开伤停资料",
+              "reason": "无法证实",
+              "status": "无法证实"
+            }
+          ],
+          "away": [
+            {
+              "player": "未查到相关公开伤停资料",
+              "reason": "无法证实",
+              "status": "无法证实"
+            }
+          ]
+        }
+      },
+      "conclusions": {
+        "mainstream": "主队守住主场",
+        "upset": "客队客场爆冷",
+        "aggressive": "比分 2-1",
+        "conservative": "主队受让",
+        "most_likely_score": "2-1 或 1-1",
+        "over_under": "小 2.5",
+        "half_full": "平/主",
+        "upset_probability": 0.25,
+        "upset_direction": "客胜",
+        "kelly_conclusion": "待运行 update_odds_and_news.py 进行实盘凯利指数计算与赔付风险研判。"
+      },
+      "h2h": {
+        "last_5": [
+          {
+            "date": "2026-07-22",
+            "league": "欧冠",
+            "home": "萨巴赫",
+            "away": "库奥皮奥",
+            "score": "1-0",
+            "half_score": "1-0",
+            "outcome": "A"
+          }
+        ],
+        "avg_goals": 1.0,
+        "btts_rate": 0.0,
+        "note": "[竞彩官网即时核验] 匹配到 1 场体彩官方开奖交锋记录（库奥皮奥 vs 萨巴赫）"
+      },
+      "head_to_head": {
+        "last_5": [
+          {
+            "date": "2026-07-22",
+            "league": "欧冠",
+            "home": "萨巴赫",
+            "away": "库奥皮奥",
+            "score": "1-0",
+            "half_score": "1-0",
+            "outcome": "A"
+          }
+        ],
+        "avg_goals": 1.0,
+        "btts_rate": 0.0,
+        "note": "[竞彩官网即时核验] 匹配到 1 场体彩官方开奖交锋记录（库奥皮奥 vs 萨巴赫）"
+      },
+      "public_vs_bookmaker": [
+        {
+          "outcome": "主胜",
+          "public_prob": "35%",
+          "bookmaker_implied": "32%",
+          "true_est": "32%",
+          "payout_risk": "适中",
+          "bookmaker_attitude": "开盘看好"
+        },
+        {
+          "outcome": "平局",
+          "public_prob": "27%",
+          "bookmaker_implied": "27%",
+          "true_est": "27%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        },
+        {
+          "outcome": "客胜",
+          "public_prob": "37%",
+          "bookmaker_implied": "41%",
+          "true_est": "41%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        }
+      ],
+      "home_standing": {
+        "rank": "--",
+        "played": "--",
+        "won": "--",
+        "drawn": "--",
+        "lost": "--",
+        "points": "--",
+        "goals_for": "--",
+        "goals_against": "--",
+        "zone": "待更新",
+        "verified_multisource": false,
+        "verification_sources": []
+      },
+      "away_standing": {
+        "rank": "--",
+        "played": "--",
+        "won": "--",
+        "drawn": "--",
+        "lost": "--",
+        "points": "--",
+        "goals_for": "--",
+        "goals_against": "--",
+        "zone": "待更新",
+        "verified_multisource": false,
+        "verification_sources": []
+      },
+      "pitch_info": {
+        "stadium_name": "常规主场",
+        "turf_type": "natural",
+        "home_accustomed": "natural",
+        "away_accustomed": "natural",
+        "turf_mismatch": false,
+        "display_label": "天然草场地",
+        "notes": "标准草皮场地"
+      },
+      "m10_hub_analysis": {
+        "had_recommendation": "无推荐",
+        "hhad_recommendation": "无推荐",
+        "predicted_score": "无推荐",
+        "over_under": "无推荐",
+        "half_full": "无推荐",
+        "confidence": 50
+      },
+      "baseline_recommendation": "待推演 (需运行盘口更新)",
+      "baseline_score": "--",
+      "baseline_goals": "小 2.5",
+      "prediction_trajectory": [
+        {
+          "time": "11:43",
+          "val": "待推演"
+        }
+      ]
+    },
+    {
+      "id": "match_260729_002",
+      "sportteryMatchId": 2040644,
+      "league": "欧冠",
+      "home": "哈茨",
+      "handicap_line": "-1",
+      "away": "格风暴",
+      "kickoff": "2026-07-29T02:45:00+08:00",
+      "venue": "哈茨主场球场",
+      "city": "哈茨市",
+      "weather": {
+        "condition": "晴朗",
+        "temp_c": 12,
+        "humidity": 54,
+        "wind_kmh": 14,
+        "is_new": false
+      },
+      "status": "pending",
+      "odds_history": [],
+      "match_context": "欧冠常规赛对决。哈茨坐镇主场迎接格风暴的挑战。",
+      "ultimate_conclusion": {
+        "recommendation": "待推演 (需运行盘口更新)",
+        "primary_bet": "待定",
+        "confidence": 65,
+        "risk_level": "中",
+        "ev_score": 0.0,
+        "reasoning": "待运行 update_odds_and_news.py 脚本获取实盘赔率并结合最新伤停新闻完成最终研判。"
+      },
+      "team_stats": {
+        "home": {
+          "name": "哈茨",
+          "form": [
+            "W",
+            "D",
+            "L",
+            "W",
+            "D"
+          ],
+          "form_note": "近期表现稳定，主场韧性良好",
+          "season_stats": {
+            "goals_scored": 20,
+            "goals_conceded": 15,
+            "xg": 16.9,
+            "xga": 17.9,
+            "shots_per_game": 10.2,
+            "shots_on_target": 4.2,
+            "conversion_rate": 0.1,
+            "possession": 51.3,
+            "pass_accuracy": 83.8,
+            "pressing_intensity": 67.0,
+            "set_piece_goals": 4,
+            "counter_attack_speed": 65.3,
+            "clean_sheets": 6,
+            "btts_rate": 0.5,
+            "over25_rate": 0.4,
+            "low_block_resilience": 6.9,
+            "superstar_impact": 6.2
+          },
+          "motivation": 0.8,
+          "motivation_note": "主队常规战意，抢分期望高",
+          "injuries": [],
+          "suspensions": [],
+          "key_players": [
+            {
+              "name": "主力核心",
+              "form": "正常",
+              "goals_last_5": 1,
+              "status": "正常",
+              "note": "攻防组织核心"
+            }
+          ],
+          "standing": {
+            "rank": "--",
+            "played": "--",
+            "won": "--",
+            "drawn": "--",
+            "lost": "--",
+            "points": "--",
+            "goals_for": "--",
+            "goals_against": "--",
+            "zone": "待更新",
+            "verified_multisource": false,
+            "verification_sources": []
+          },
+          "recent_matches": [
+            {
+              "date": "2026-07-22",
+              "league": "欧冠",
+              "home": "格拉茨风暴",
+              "away": "哈茨",
+              "score": "4-0",
+              "half_score": "1-0",
+              "outcome": "L"
+            },
+            {
+              "date": "2024-12-20",
+              "league": "欧协联",
+              "home": "哈茨",
+              "away": "佩特罗库",
+              "score": "2-2",
+              "half_score": "0-1",
+              "outcome": "D"
+            },
+            {
+              "date": "2024-08-30",
+              "league": "欧罗巴",
+              "home": "哈茨",
+              "away": "比尔森",
+              "score": "0-1",
+              "half_score": "0-0",
+              "outcome": "L"
+            },
+            {
+              "date": "2024-08-23",
+              "league": "欧罗巴",
+              "home": "比尔森",
+              "away": "哈茨",
+              "score": "1-0",
+              "half_score": "0-0",
+              "outcome": "L"
+            },
+            {
+              "date": "2022-10-07",
+              "league": "欧协联",
+              "home": "哈茨",
+              "away": "佛罗伦萨",
+              "score": "0-3",
+              "half_score": "0-2",
+              "outcome": "L"
+            }
+          ]
+        },
+        "away": {
+          "name": "格风暴",
+          "form": [
+            "D",
+            "L",
+            "W",
+            "D",
+            "L"
+          ],
+          "form_note": "客场打法偏防守反击",
+          "season_stats": {
+            "goals_scored": 18,
+            "goals_conceded": 15,
+            "xg": 16.5,
+            "xga": 16.8,
+            "shots_per_game": 10.7,
+            "shots_on_target": 3.5,
+            "conversion_rate": 0.1,
+            "possession": 44.4,
+            "pass_accuracy": 85.8,
+            "pressing_intensity": 61.7,
+            "set_piece_goals": 2,
+            "counter_attack_speed": 75.6,
+            "clean_sheets": 6,
+            "btts_rate": 0.6,
+            "over25_rate": 0.4,
+            "low_block_resilience": 7.2,
+            "superstar_impact": 5.9
+          },
+          "motivation": 0.75,
+          "motivation_note": "客队客场防御为主，常规防守战意",
+          "injuries": [],
+          "suspensions": [],
+          "key_players": [
+            {
+              "name": "进攻箭头",
+              "form": "正常",
+              "goals_last_5": 1,
+              "status": "正常",
+              "note": "前场得分支点"
+            }
+          ],
+          "standing": {
+            "rank": "--",
+            "played": "--",
+            "won": "--",
+            "drawn": "--",
+            "lost": "--",
+            "points": "--",
+            "goals_for": "--",
+            "goals_against": "--",
+            "zone": "待更新",
+            "verified_multisource": false,
+            "verification_sources": []
+          },
+          "recent_matches": [
+            {
+              "date": "2026-07-22",
+              "league": "欧冠",
+              "home": "格拉茨风暴",
+              "away": "哈茨",
+              "score": "4-0",
+              "half_score": "1-0",
+              "outcome": "W"
+            },
+            {
+              "date": "2026-01-23",
+              "league": "欧罗巴",
+              "home": "费耶诺德",
+              "away": "格拉茨风暴",
+              "score": "3-0",
+              "half_score": "1-0",
+              "outcome": "L"
+            },
+            {
+              "date": "2025-12-12",
+              "league": "欧罗巴",
+              "home": "格拉茨风暴",
+              "away": "贝尔格莱德红星",
+              "score": "0-1",
+              "half_score": "0-0",
+              "outcome": "L"
+            },
+            {
+              "date": "2025-11-28",
+              "league": "欧罗巴",
+              "home": "帕纳辛纳科斯",
+              "away": "格拉茨风暴",
+              "score": "2-1",
+              "half_score": "1-1",
+              "outcome": "L"
+            },
+            {
+              "date": "2025-11-07",
+              "league": "欧罗巴",
+              "home": "格拉茨风暴",
+              "away": "诺丁汉森林",
+              "score": "0-0",
+              "half_score": "0-0",
+              "outcome": "D"
+            }
+          ]
+        }
+      },
+      "odds_analysis": {
+        "pinnacle": {
+          "name": "pinnacle",
+          "initial": {
+            "home": 1.75,
+            "draw": 3.75,
+            "away": 3.45
+          },
+          "current": {
+            "home": 1.75,
+            "draw": 3.75,
+            "away": 3.45
+          },
+          "movement": "最新同步"
+        },
+        "asian_handicap": {
+          "initial": {
+            "handicap": "主队-0.75",
+            "home_odds": 1.88,
+            "away_odds": 2.02
+          },
+          "current": {
+            "handicap": "主队-0.75",
+            "home_odds": 1.88,
+            "away_odds": 2.02
+          },
+          "movement_signal": "盘口初开，水位平衡。"
+        },
+        "lottery_handicap": {
+          "handicap": "主让1球",
+          "initial": {
+            "win": 3.2,
+            "draw": 3.65,
+            "lose": 1.85
+          },
+          "current": {
+            "win": 3.2,
+            "draw": 3.65,
+            "lose": 1.85
+          }
+        },
+        "over_under": {
+          "initial": {
+            "line": 2.25,
+            "over": 1.9,
+            "under": 1.9
+          },
+          "current": {
+            "line": 2.25,
+            "over": 1.9,
+            "under": 1.9
+          },
+          "signal": "大小盘基本均衡。"
+        },
+        "retail_sentiment": {
+          "home_pct": 51,
+          "draw_pct": 24,
+          "away_pct": 25,
+          "home_support": 0.51,
+          "draw_support": 0.24,
+          "away_support": 0.25,
+          "confidence_level": "正常",
+          "mainstream_narrative": "大众倾向均衡"
+        }
+      },
+      "intelligence": {
+        "verified_news": [
+          {
+            "title": "未查到相关公开赛前新闻与一手战报",
+            "source": "核验状态：未查到相关公开资料",
+            "verified": false,
+            "date": "2026-07-28",
+            "url": "https://www.sporttery.cn/",
+            "is_new": false
+          }
+        ],
+        "media_predictions": [
+          {
+            "media_name": "[信源核验]",
+            "prediction": "未查到相关公开媒体预测",
+            "predicted_score": "--",
+            "confidence": "0%",
+            "source": "未查到相关公开资料",
+            "is_new": false
+          }
+        ],
+        "social_buzz": [
+          {
+            "platform": "[信源核验]",
+            "comment": "未查到相关公开热议数据",
+            "sentiment": "未查到相关公开资料",
+            "heat_count": 0,
+            "is_new": false
+          }
+        ],
+        "weather_impact": "天气良好无雨水干扰，两队可完全施展预定的战术配合",
+        "venue_notes": "天然草皮状况极佳，草皮平整度与弹性处于完美状态",
+        "weather_is_new": false,
+        "injuries": {
+          "home": [
+            {
+              "player": "未查到相关公开伤停资料",
+              "reason": "无法证实",
+              "status": "无法证实"
+            }
+          ],
+          "away": [
+            {
+              "player": "未查到相关公开伤停资料",
+              "reason": "无法证实",
+              "status": "无法证实"
+            }
+          ]
+        }
+      },
+      "conclusions": {
+        "mainstream": "主队守住主场",
+        "upset": "客队客场爆冷",
+        "aggressive": "比分 2-1",
+        "conservative": "主队受让",
+        "most_likely_score": "2-1 或 1-1",
+        "over_under": "小 2.5",
+        "half_full": "平/主",
+        "upset_probability": 0.25,
+        "upset_direction": "客胜",
+        "kelly_conclusion": "待运行 update_odds_and_news.py 进行实盘凯利指数计算与赔付风险研判。"
+      },
+      "h2h": {
+        "last_5": [
+          {
+            "date": "2026-07-22",
+            "league": "欧冠",
+            "home": "格拉茨风暴",
+            "away": "哈茨",
+            "score": "4-0",
+            "half_score": "1-0",
+            "outcome": "A"
+          }
+        ],
+        "avg_goals": 4.0,
+        "btts_rate": 0.0,
+        "note": "[竞彩官网即时核验] 匹配到 1 场体彩官方开奖交锋记录（哈茨 vs 格风暴）"
+      },
+      "head_to_head": {
+        "last_5": [
+          {
+            "date": "2026-07-22",
+            "league": "欧冠",
+            "home": "格拉茨风暴",
+            "away": "哈茨",
+            "score": "4-0",
+            "half_score": "1-0",
+            "outcome": "A"
+          }
+        ],
+        "avg_goals": 4.0,
+        "btts_rate": 0.0,
+        "note": "[竞彩官网即时核验] 匹配到 1 场体彩官方开奖交锋记录（哈茨 vs 格风暴）"
+      },
+      "public_vs_bookmaker": [
+        {
+          "outcome": "主胜",
+          "public_prob": "55%",
+          "bookmaker_implied": "51%",
+          "true_est": "51%",
+          "payout_risk": "偏高",
+          "bookmaker_attitude": "诱多防范"
+        },
+        {
+          "outcome": "平局",
+          "public_prob": "24%",
+          "bookmaker_implied": "24%",
+          "true_est": "24%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        },
+        {
+          "outcome": "客胜",
+          "public_prob": "22%",
+          "bookmaker_implied": "25%",
+          "true_est": "25%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        }
+      ],
+      "home_standing": {
+        "rank": "--",
+        "played": "--",
+        "won": "--",
+        "drawn": "--",
+        "lost": "--",
+        "points": "--",
+        "goals_for": "--",
+        "goals_against": "--",
+        "zone": "待更新",
+        "verified_multisource": false,
+        "verification_sources": []
+      },
+      "away_standing": {
+        "rank": "--",
+        "played": "--",
+        "won": "--",
+        "drawn": "--",
+        "lost": "--",
+        "points": "--",
+        "goals_for": "--",
+        "goals_against": "--",
+        "zone": "待更新",
+        "verified_multisource": false,
+        "verification_sources": []
+      },
+      "pitch_info": {
+        "stadium_name": "常规主场",
+        "turf_type": "natural",
+        "home_accustomed": "natural",
+        "away_accustomed": "natural",
+        "turf_mismatch": false,
+        "display_label": "天然草场地",
+        "notes": "标准草皮场地"
+      },
+      "m10_hub_analysis": {
+        "had_recommendation": "无推荐",
+        "hhad_recommendation": "无推荐",
+        "predicted_score": "无推荐",
+        "over_under": "无推荐",
+        "half_full": "无推荐",
+        "confidence": 50
+      },
+      "baseline_recommendation": "待推演 (需运行盘口更新)",
+      "baseline_score": "--",
+      "baseline_goals": "小 2.5",
+      "prediction_trajectory": [
+        {
+          "time": "11:43",
+          "val": "待推演"
+        }
+      ]
+    },
+    {
+      "id": "match_260729_001",
+      "sportteryMatchId": 2040645,
+      "league": "欧冠",
+      "home": "阿拉木图",
+      "handicap_line": "-1",
+      "away": "奥莫尼亚",
+      "kickoff": "2026-07-29T23:00:00+08:00",
+      "venue": "阿拉木图主场球场",
+      "city": "阿拉木图市",
+      "weather": {
+        "condition": "晴间多云",
+        "temp_c": 21,
+        "humidity": 61,
+        "wind_kmh": 16,
+        "is_new": false
+      },
+      "status": "pending",
+      "odds_history": [],
+      "match_context": "欧冠常规赛对决。阿拉木图坐镇主场迎接奥莫尼亚的挑战。",
+      "ultimate_conclusion": {
+        "recommendation": "待推演 (需运行盘口更新)",
+        "primary_bet": "待定",
+        "confidence": 65,
+        "risk_level": "中",
+        "ev_score": 0.0,
+        "reasoning": "待运行 update_odds_and_news.py 脚本获取实盘赔率并结合最新伤停新闻完成最终研判。"
+      },
+      "team_stats": {
+        "home": {
+          "name": "阿拉木图",
+          "form": [
+            "W",
+            "D",
+            "L",
+            "W",
+            "D"
+          ],
+          "form_note": "近期表现稳定，主场韧性良好",
+          "season_stats": {
+            "goals_scored": 19,
+            "goals_conceded": 18,
+            "xg": 18.6,
+            "xga": 18.6,
+            "shots_per_game": 11.1,
+            "shots_on_target": 3.9,
+            "conversion_rate": 0.1,
+            "possession": 44.2,
+            "pass_accuracy": 75.7,
+            "pressing_intensity": 60.5,
+            "set_piece_goals": 5,
+            "counter_attack_speed": 63.5,
+            "clean_sheets": 3,
+            "btts_rate": 0.5,
+            "over25_rate": 0.5,
+            "low_block_resilience": 6.6,
+            "superstar_impact": 6.0
+          },
+          "motivation": 0.8,
+          "motivation_note": "主队常规战意，抢分期望高",
+          "injuries": [],
+          "suspensions": [],
+          "key_players": [
+            {
+              "name": "主力核心",
+              "form": "正常",
+              "goals_last_5": 1,
+              "status": "正常",
+              "note": "攻防组织核心"
+            }
+          ],
+          "standing": {
+            "rank": "--",
+            "played": "--",
+            "won": "--",
+            "drawn": "--",
+            "lost": "--",
+            "points": "--",
+            "goals_for": "--",
+            "goals_against": "--",
+            "zone": "待更新",
+            "verified_multisource": false,
+            "verification_sources": []
+          },
+          "recent_matches": [
+            {
+              "date": "2026-07-16",
+              "league": "欧冠",
+              "home": "苏捷斯卡",
+              "away": "阿拉木图凯拉特",
+              "score": "0-2",
+              "half_score": "0-0",
+              "outcome": "W"
+            },
+            {
+              "date": "2026-07-08",
+              "league": "欧冠",
+              "home": "阿拉木图凯拉特",
+              "away": "苏捷斯卡",
+              "score": "2-1",
+              "half_score": "0-0",
+              "outcome": "W"
+            },
+            {
+              "date": "2026-01-29",
+              "league": "欧冠",
+              "home": "阿森纳",
+              "away": "阿拉木图凯拉特",
+              "score": "3-2",
+              "half_score": "3-1",
+              "outcome": "L"
+            },
+            {
+              "date": "2026-01-20",
+              "league": "欧冠",
+              "home": "阿拉木图凯拉特",
+              "away": "布鲁日",
+              "score": "1-4",
+              "half_score": "0-2",
+              "outcome": "L"
+            },
+            {
+              "date": "2025-12-09",
+              "league": "欧冠",
+              "home": "阿拉木图凯拉特",
+              "away": "奥林匹亚科斯",
+              "score": "0-1",
+              "half_score": "0-0",
+              "outcome": "L"
+            }
+          ]
+        },
+        "away": {
+          "name": "奥莫尼亚",
+          "form": [
+            "D",
+            "L",
+            "W",
+            "D",
+            "L"
+          ],
+          "form_note": "客场打法偏防守反击",
+          "season_stats": {
+            "goals_scored": 16,
+            "goals_conceded": 18,
+            "xg": 17.8,
+            "xga": 15.9,
+            "shots_per_game": 12.0,
+            "shots_on_target": 4.1,
+            "conversion_rate": 0.1,
+            "possession": 45.9,
+            "pass_accuracy": 77.1,
+            "pressing_intensity": 59.7,
+            "set_piece_goals": 4,
+            "counter_attack_speed": 68.1,
+            "clean_sheets": 4,
+            "btts_rate": 0.6,
+            "over25_rate": 0.5,
+            "low_block_resilience": 7.8,
+            "superstar_impact": 6.3
+          },
+          "motivation": 0.75,
+          "motivation_note": "客队客场防御为主，常规防守战意",
+          "injuries": [],
+          "suspensions": [],
+          "key_players": [
+            {
+              "name": "进攻箭头",
+              "form": "正常",
+              "goals_last_5": 1,
+              "status": "正常",
+              "note": "前场得分支点"
+            }
+          ],
+          "standing": {
+            "rank": "--",
+            "played": "--",
+            "won": "--",
+            "drawn": "--",
+            "lost": "--",
+            "points": "--",
+            "goals_for": "--",
+            "goals_against": "--",
+            "zone": "待更新",
+            "verified_multisource": false,
+            "verification_sources": []
+          },
+          "recent_matches": [
+            {
+              "date": "2022-10-14",
+              "league": "欧罗巴",
+              "home": "曼彻斯特联",
+              "away": "奥莫尼亚",
+              "score": "1-0",
+              "half_score": "0-0",
+              "outcome": "L"
+            },
+            {
+              "date": "2022-10-07",
+              "league": "欧罗巴",
+              "home": "奥莫尼亚",
+              "away": "曼彻斯特联",
+              "score": "2-3",
+              "half_score": "1-0",
+              "outcome": "L"
+            },
+            {
+              "date": "2022-08-26",
+              "league": "欧罗巴",
+              "home": "奥莫尼亚",
+              "away": "根特",
+              "score": "2-0",
+              "half_score": "2-0",
+              "outcome": "W"
+            }
+          ]
+        }
+      },
+      "odds_analysis": {
+        "pinnacle": {
+          "name": "pinnacle",
+          "initial": {
+            "home": 2.09,
+            "draw": 3.1,
+            "away": 3.05
+          },
+          "current": {
+            "home": 2.09,
+            "draw": 3.1,
+            "away": 3.05
+          },
+          "movement": "最新同步"
+        },
+        "asian_handicap": {
+          "initial": {
+            "handicap": "主队-0.25",
+            "home_odds": 1.92,
+            "away_odds": 1.98
+          },
+          "current": {
+            "handicap": "主队-0.25",
+            "home_odds": 1.92,
+            "away_odds": 1.98
+          },
+          "movement_signal": "盘口初开，水位平衡。"
+        },
+        "lottery_handicap": {
+          "handicap": "主让1球",
+          "initial": {
+            "win": 3.2,
+            "draw": 3.65,
+            "lose": 1.85
+          },
+          "current": {
+            "win": 3.2,
+            "draw": 3.65,
+            "lose": 1.85
+          }
+        },
+        "over_under": {
+          "initial": {
+            "line": 2.25,
+            "over": 1.9,
+            "under": 1.9
+          },
+          "current": {
+            "line": 2.25,
+            "over": 1.9,
+            "under": 1.9
+          },
+          "signal": "大小盘基本均衡。"
+        },
+        "retail_sentiment": {
+          "home_pct": 42,
+          "draw_pct": 29,
+          "away_pct": 29,
+          "home_support": 0.42,
+          "draw_support": 0.29,
+          "away_support": 0.29,
+          "confidence_level": "正常",
+          "mainstream_narrative": "大众倾向均衡"
+        }
+      },
+      "intelligence": {
+        "verified_news": [
+          {
+            "title": "未查到相关公开赛前新闻与一手战报",
+            "source": "核验状态：未查到相关公开资料",
+            "verified": false,
+            "date": "2026-07-28",
+            "url": "https://www.sporttery.cn/",
+            "is_new": false
+          }
+        ],
+        "media_predictions": [
+          {
+            "media_name": "[信源核验]",
+            "prediction": "未查到相关公开媒体预测",
+            "predicted_score": "--",
+            "confidence": "0%",
+            "source": "未查到相关公开资料",
+            "is_new": false
+          }
+        ],
+        "social_buzz": [
+          {
+            "platform": "[信源核验]",
+            "comment": "未查到相关公开热议数据",
+            "sentiment": "未查到相关公开资料",
+            "heat_count": 0,
+            "is_new": false
+          }
+        ],
+        "weather_impact": "天气良好无雨水干扰，两队可完全施展预定的战术配合",
+        "venue_notes": "天然草皮状况极佳，草皮平整度与弹性处于完美状态",
+        "weather_is_new": false,
+        "injuries": {
+          "home": [
+            {
+              "player": "未查到相关公开伤停资料",
+              "reason": "无法证实",
+              "status": "无法证实"
+            }
+          ],
+          "away": [
+            {
+              "player": "未查到相关公开伤停资料",
+              "reason": "无法证实",
+              "status": "无法证实"
+            }
+          ]
+        }
+      },
+      "conclusions": {
+        "mainstream": "主队守住主场",
+        "upset": "客队客场爆冷",
+        "aggressive": "比分 2-1",
+        "conservative": "主队受让",
+        "most_likely_score": "2-1 或 1-1",
+        "over_under": "小 2.5",
+        "half_full": "平/主",
+        "upset_probability": 0.25,
+        "upset_direction": "客胜",
+        "kelly_conclusion": "待运行 update_odds_and_news.py 进行实盘凯利指数计算与赔付风险研判。"
+      },
+      "h2h": {
+        "last_5": [],
+        "avg_goals": null,
+        "btts_rate": null,
+        "note": "[竞彩官网即时核验] 阿拉木图 与 奥莫尼亚 近年无官方开奖交锋记录"
+      },
+      "head_to_head": {
+        "last_5": [],
+        "avg_goals": null,
+        "btts_rate": null,
+        "note": "[竞彩官网即时核验] 阿拉木图 与 奥莫尼亚 近年无官方开奖交锋记录"
+      },
+      "public_vs_bookmaker": [
+        {
+          "outcome": "主胜",
+          "public_prob": "46%",
+          "bookmaker_implied": "42%",
+          "true_est": "42%",
+          "payout_risk": "适中",
+          "bookmaker_attitude": "开盘看好"
+        },
+        {
+          "outcome": "平局",
+          "public_prob": "29%",
+          "bookmaker_implied": "29%",
+          "true_est": "29%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        },
+        {
+          "outcome": "客胜",
+          "public_prob": "26%",
+          "bookmaker_implied": "29%",
+          "true_est": "29%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        }
+      ],
+      "home_standing": {
+        "rank": "--",
+        "played": "--",
+        "won": "--",
+        "drawn": "--",
+        "lost": "--",
+        "points": "--",
+        "goals_for": "--",
+        "goals_against": "--",
+        "zone": "待更新",
+        "verified_multisource": false,
+        "verification_sources": []
+      },
+      "away_standing": {
+        "rank": "--",
+        "played": "--",
+        "won": "--",
+        "drawn": "--",
+        "lost": "--",
+        "points": "--",
+        "goals_for": "--",
+        "goals_against": "--",
+        "zone": "待更新",
+        "verified_multisource": false,
+        "verification_sources": []
+      },
+      "pitch_info": {
+        "stadium_name": "常规主场",
+        "turf_type": "natural",
+        "home_accustomed": "natural",
+        "away_accustomed": "natural",
+        "turf_mismatch": false,
+        "display_label": "天然草场地",
+        "notes": "标准草皮场地"
+      },
+      "m10_hub_analysis": {
+        "had_recommendation": "无推荐",
+        "hhad_recommendation": "无推荐",
+        "predicted_score": "无推荐",
+        "over_under": "无推荐",
+        "half_full": "无推荐",
+        "confidence": 50
+      },
+      "baseline_recommendation": "待推演 (需运行盘口更新)",
+      "baseline_score": "--",
+      "baseline_goals": "小 2.5",
+      "prediction_trajectory": [
+        {
+          "time": "11:43",
+          "val": "待推演"
+        }
+      ]
+    },
+    {
+      "id": "match_260730_002",
+      "sportteryMatchId": 2040646,
+      "league": "欧冠",
+      "home": "波兹南",
+      "handicap_line": "-1",
+      "away": "奥胡斯",
+      "kickoff": "2026-07-30T01:00:00+08:00",
+      "venue": "波兹南主场球场",
+      "city": "波兹南市",
+      "weather": {
+        "condition": "晴间多云",
+        "temp_c": 19,
+        "humidity": 66,
+        "wind_kmh": 9,
+        "is_new": false
+      },
+      "status": "pending",
+      "odds_history": [],
+      "match_context": "欧冠常规赛对决。波兹南坐镇主场迎接奥胡斯的挑战。",
+      "ultimate_conclusion": {
+        "recommendation": "待推演 (需运行盘口更新)",
+        "primary_bet": "待定",
+        "confidence": 65,
+        "risk_level": "中",
+        "ev_score": 0.0,
+        "reasoning": "待运行 update_odds_and_news.py 脚本获取实盘赔率并结合最新伤停新闻完成最终研判。"
+      },
+      "team_stats": {
+        "home": {
+          "name": "波兹南",
+          "form": [
+            "W",
+            "D",
+            "L",
+            "W",
+            "D"
+          ],
+          "form_note": "近期表现稳定，主场韧性良好",
+          "season_stats": {
+            "goals_scored": 18,
+            "goals_conceded": 18,
+            "xg": 15.4,
+            "xga": 18.0,
+            "shots_per_game": 10.4,
+            "shots_on_target": 3.9,
+            "conversion_rate": 0.1,
+            "possession": 52.3,
+            "pass_accuracy": 70.4,
+            "pressing_intensity": 64.2,
+            "set_piece_goals": 5,
+            "counter_attack_speed": 71.8,
+            "clean_sheets": 2,
+            "btts_rate": 0.5,
+            "over25_rate": 0.5,
+            "low_block_resilience": 6.5,
+            "superstar_impact": 6.2
+          },
+          "motivation": 0.8,
+          "motivation_note": "主队常规战意，抢分期望高",
+          "injuries": [],
+          "suspensions": [],
+          "key_players": [
+            {
+              "name": "主力核心",
+              "form": "正常",
+              "goals_last_5": 1,
+              "status": "正常",
+              "note": "攻防组织核心"
+            }
+          ],
+          "standing": {
+            "rank": "--",
+            "played": "--",
+            "won": "--",
+            "drawn": "--",
+            "lost": "--",
+            "points": "--",
+            "goals_for": "--",
+            "goals_against": "--",
+            "zone": "待更新",
+            "verified_multisource": false,
+            "verification_sources": []
+          },
+          "recent_matches": [
+            {
+              "date": "2026-07-22",
+              "league": "欧冠",
+              "home": "奥胡斯",
+              "away": "波兹南莱赫",
+              "score": "1-4",
+              "half_score": "0-2",
+              "outcome": "W"
+            },
+            {
+              "date": "2025-12-19",
+              "league": "欧协联",
+              "home": "奥洛穆茨",
+              "away": "波兹南莱赫",
+              "score": "1-2",
+              "half_score": "0-2",
+              "outcome": "W"
+            },
+            {
+              "date": "2025-12-12",
+              "league": "欧协联",
+              "home": "波兹南莱赫",
+              "away": "美因茨",
+              "score": "1-1",
+              "half_score": "1-1",
+              "outcome": "D"
+            },
+            {
+              "date": "2025-11-28",
+              "league": "欧协联",
+              "home": "波兹南莱赫",
+              "away": "洛桑",
+              "score": "2-0",
+              "half_score": "0-0",
+              "outcome": "W"
+            },
+            {
+              "date": "2025-11-07",
+              "league": "欧协联",
+              "home": "巴列卡诺",
+              "away": "波兹南莱赫",
+              "score": "3-2",
+              "half_score": "0-2",
+              "outcome": "L"
+            }
+          ]
+        },
+        "away": {
+          "name": "奥胡斯",
+          "form": [
+            "D",
+            "L",
+            "W",
+            "D",
+            "L"
+          ],
+          "form_note": "客场打法偏防守反击",
+          "season_stats": {
+            "goals_scored": 18,
+            "goals_conceded": 17,
+            "xg": 17.1,
+            "xga": 18.2,
+            "shots_per_game": 11.5,
+            "shots_on_target": 3.9,
+            "conversion_rate": 0.1,
+            "possession": 49.1,
+            "pass_accuracy": 79.6,
+            "pressing_intensity": 59.1,
+            "set_piece_goals": 4,
+            "counter_attack_speed": 63.3,
+            "clean_sheets": 3,
+            "btts_rate": 0.5,
+            "over25_rate": 0.4,
+            "low_block_resilience": 7.4,
+            "superstar_impact": 5.8
+          },
+          "motivation": 0.75,
+          "motivation_note": "客队客场防御为主，常规防守战意",
+          "injuries": [],
+          "suspensions": [],
+          "key_players": [
+            {
+              "name": "进攻箭头",
+              "form": "正常",
+              "goals_last_5": 1,
+              "status": "正常",
+              "note": "前场得分支点"
+            }
+          ],
+          "standing": {
+            "rank": "--",
+            "played": "--",
+            "won": "--",
+            "drawn": "--",
+            "lost": "--",
+            "points": "--",
+            "goals_for": "--",
+            "goals_against": "--",
+            "zone": "待更新",
+            "verified_multisource": false,
+            "verification_sources": []
+          },
+          "recent_matches": [
+            {
+              "date": "2026-07-22",
+              "league": "欧冠",
+              "home": "奥胡斯",
+              "away": "波兹南莱赫",
+              "score": "1-4",
+              "half_score": "0-2",
+              "outcome": "L"
+            }
+          ]
+        }
+      },
+      "odds_analysis": {
+        "pinnacle": {
+          "name": "pinnacle",
+          "initial": {
+            "home": 1.68,
+            "draw": 3.7,
+            "away": 3.8
+          },
+          "current": {
+            "home": 1.68,
+            "draw": 3.7,
+            "away": 3.8
+          },
+          "movement": "最新同步"
+        },
+        "asian_handicap": {
+          "initial": {
+            "handicap": "主队-0.75",
+            "home_odds": 1.88,
+            "away_odds": 2.02
+          },
+          "current": {
+            "handicap": "主队-0.75",
+            "home_odds": 1.88,
+            "away_odds": 2.02
+          },
+          "movement_signal": "盘口初开，水位平衡。"
+        },
+        "lottery_handicap": {
+          "handicap": "主让1球",
+          "initial": {
+            "win": 3.2,
+            "draw": 3.65,
+            "lose": 1.85
+          },
+          "current": {
+            "win": 3.2,
+            "draw": 3.65,
+            "lose": 1.85
+          }
+        },
+        "over_under": {
+          "initial": {
+            "line": 2.25,
+            "over": 1.9,
+            "under": 1.9
+          },
+          "current": {
+            "line": 2.25,
+            "over": 1.9,
+            "under": 1.9
+          },
+          "signal": "大小盘基本均衡。"
+        },
+        "retail_sentiment": {
+          "home_pct": 53,
+          "draw_pct": 24,
+          "away_pct": 23,
+          "home_support": 0.53,
+          "draw_support": 0.24,
+          "away_support": 0.23,
+          "confidence_level": "正常",
+          "mainstream_narrative": "大众倾向均衡"
+        }
+      },
+      "intelligence": {
+        "verified_news": [
+          {
+            "title": "未查到相关公开赛前新闻与一手战报",
+            "source": "核验状态：未查到相关公开资料",
+            "verified": false,
+            "date": "2026-07-28",
+            "url": "https://www.sporttery.cn/",
+            "is_new": false
+          }
+        ],
+        "media_predictions": [
+          {
+            "media_name": "[信源核验]",
+            "prediction": "未查到相关公开媒体预测",
+            "predicted_score": "--",
+            "confidence": "0%",
+            "source": "未查到相关公开资料",
+            "is_new": false
+          }
+        ],
+        "social_buzz": [
+          {
+            "platform": "[信源核验]",
+            "comment": "未查到相关公开热议数据",
+            "sentiment": "未查到相关公开资料",
+            "heat_count": 0,
+            "is_new": false
+          }
+        ],
+        "weather_impact": "天气良好无雨水干扰，两队可完全施展预定的战术配合",
+        "venue_notes": "天然草皮状况极佳，草皮平整度与弹性处于完美状态",
+        "weather_is_new": false,
+        "injuries": {
+          "home": [
+            {
+              "player": "未查到相关公开伤停资料",
+              "reason": "无法证实",
+              "status": "无法证实"
+            }
+          ],
+          "away": [
+            {
+              "player": "未查到相关公开伤停资料",
+              "reason": "无法证实",
+              "status": "无法证实"
+            }
+          ]
+        }
+      },
+      "conclusions": {
+        "mainstream": "主队守住主场",
+        "upset": "客队客场爆冷",
+        "aggressive": "比分 2-1",
+        "conservative": "主队受让",
+        "most_likely_score": "2-1 或 1-1",
+        "over_under": "小 2.5",
+        "half_full": "平/主",
+        "upset_probability": 0.25,
+        "upset_direction": "客胜",
+        "kelly_conclusion": "待运行 update_odds_and_news.py 进行实盘凯利指数计算与赔付风险研判。"
+      },
+      "h2h": {
+        "last_5": [
+          {
+            "date": "2026-07-22",
+            "league": "欧冠",
+            "home": "奥胡斯",
+            "away": "波兹南莱赫",
+            "score": "1-4",
+            "half_score": "0-2",
+            "outcome": "H"
+          }
+        ],
+        "avg_goals": 5.0,
+        "btts_rate": 1.0,
+        "note": "[竞彩官网即时核验] 匹配到 1 场体彩官方开奖交锋记录（波兹南 vs 奥胡斯）"
+      },
+      "head_to_head": {
+        "last_5": [
+          {
+            "date": "2026-07-22",
+            "league": "欧冠",
+            "home": "奥胡斯",
+            "away": "波兹南莱赫",
+            "score": "1-4",
+            "half_score": "0-2",
+            "outcome": "H"
+          }
+        ],
+        "avg_goals": 5.0,
+        "btts_rate": 1.0,
+        "note": "[竞彩官网即时核验] 匹配到 1 场体彩官方开奖交锋记录（波兹南 vs 奥胡斯）"
+      },
+      "public_vs_bookmaker": [
+        {
+          "outcome": "主胜",
+          "public_prob": "57%",
+          "bookmaker_implied": "53%",
+          "true_est": "53%",
+          "payout_risk": "偏高",
+          "bookmaker_attitude": "诱多防范"
+        },
+        {
+          "outcome": "平局",
+          "public_prob": "24%",
+          "bookmaker_implied": "24%",
+          "true_est": "24%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        },
+        {
+          "outcome": "客胜",
+          "public_prob": "20%",
+          "bookmaker_implied": "23%",
+          "true_est": "23%",
+          "payout_risk": "低",
+          "bookmaker_attitude": "中性"
+        }
+      ],
+      "home_standing": {
+        "rank": "--",
+        "played": "--",
+        "won": "--",
+        "drawn": "--",
+        "lost": "--",
+        "points": "--",
+        "goals_for": "--",
+        "goals_against": "--",
+        "zone": "待更新",
+        "verified_multisource": false,
+        "verification_sources": []
+      },
+      "away_standing": {
+        "rank": "--",
+        "played": "--",
+        "won": "--",
+        "drawn": "--",
+        "lost": "--",
+        "points": "--",
+        "goals_for": "--",
+        "goals_against": "--",
+        "zone": "待更新",
+        "verified_multisource": false,
+        "verification_sources": []
+      },
+      "pitch_info": {
+        "stadium_name": "常规主场",
+        "turf_type": "natural",
+        "home_accustomed": "natural",
+        "away_accustomed": "natural",
+        "turf_mismatch": false,
+        "display_label": "天然草场地",
+        "notes": "标准草皮场地"
+      },
+      "m10_hub_analysis": {
+        "had_recommendation": "无推荐",
+        "hhad_recommendation": "无推荐",
+        "predicted_score": "无推荐",
+        "over_under": "无推荐",
+        "half_full": "无推荐",
+        "confidence": 50
+      },
+      "baseline_recommendation": "待推演 (需运行盘口更新)",
+      "baseline_score": "--",
+      "baseline_goals": "小 2.5",
+      "prediction_trajectory": [
+        {
+          "time": "11:43",
+          "val": "待推演"
+        }
+      ]
     }
   ]
 }
