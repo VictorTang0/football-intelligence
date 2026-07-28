@@ -2069,57 +2069,36 @@ const MatchIQRender = (() => {
       return rows.join('');
     }
 
-    const activeDates = recent5Dates.slice(0, 2);
-    const olderDates = recent5Dates.slice(2, 5);
-
-    const activeRowsHTML = generateRowsForDates(activeDates);
-    let olderRowsHTML = '';
-    let toggleBtnHTML = '';
-
-    if (olderDates.length > 0) {
-      let olderMatchCount = 0;
-      olderDates.forEach(d => {
-        olderMatchCount += groups[d].length;
-      });
-
-      olderRowsHTML = `
-        <tbody id="history-older-days-tbody" style="display: none; border-top: 1px dashed var(--border-subtle);">
-          ${generateRowsForDates(olderDates)}
-        </tbody>
-      `;
-
-      toggleBtnHTML = `
-        <div style="text-align: center; margin-top: 16px;">
-          <button id="btn-toggle-older-history" class="btn-toggle-history" data-count="${olderMatchCount}" style="background: rgba(0, 212, 255, 0.05); border: 1px solid rgba(0, 212, 255, 0.2); color: var(--cyan); padding: 8px 24px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.2s;" onclick="window.toggleOlderHistory()">
-            展开较旧的 3 日历史记录 (共 ${olderMatchCount} 场) ▾
-          </button>
-        </div>
-      `;
-    }
+    const allDatesHTML = generateRowsForDates(sortedDatesDesc);
 
     return `
       <div style="grid-column: 1 / -1; width: 100%;">
         ${m10HistoryPanelHtml}
-        <div style="width: 100%; overflow-x: auto; background:rgba(13,21,39,0.3); border:1px solid var(--border-subtle); border-radius:12px; box-shadow:0 8px 32px rgba(0,0,0,0.2); backdrop-filter:blur(8px);">
-          <table class="history-table" style="width:100%; border-collapse:collapse; text-align:left; font-size:12.5px; color:var(--text-2);">
-            <thead>
-              <tr style="border-bottom:1px solid var(--border-subtle); background:rgba(255,255,255,0.02); font-size:11px; text-transform:uppercase; color:var(--text-3); font-weight:700;">
-                <th style="padding:12px 16px; text-align:center;">联赛</th>
-                <th style="padding:12px 16px; text-align:left;">对阵</th>
-                <th style="padding:12px 16px; text-align:left;">预测内容</th>
-                <th style="padding:12px 16px; text-align:center;">实际赛果</th>
-                <th style="padding:12px 16px; text-align:center;">红黑状态</th>
-              </tr>
-            </thead>
-            <tbody class="tbody-newest-days">
-              ${activeRowsHTML}
-            </tbody>
-            ${olderRowsHTML}
-          </table>
+        
+        <!-- Main Model Prediction History Table -->
+        <div style="margin-bottom:24px; text-align:left;">
+          <div style="font-weight:800; font-size:13.5px; color:var(--text-1); margin-bottom:10px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--border-subtle); padding-bottom:6px;">
+            <span>💰 竞彩大师主模型实盘红黑清算单 (全量完赛 98 场核销明细)</span>
+            <span style="font-size:11px; color:var(--cyan); font-weight:800;">共 ${records.length} 场完赛对账</span>
+          </div>
+          <div style="width: 100%; overflow-x: auto; background:rgba(13,21,39,0.3); border:1px solid var(--border-subtle); border-radius:12px; box-shadow:0 8px 32px rgba(0,0,0,0.2); backdrop-filter:blur(8px);">
+            <table class="history-table" style="width:100%; border-collapse:collapse; text-align:left; font-size:12.5px; color:var(--text-2);">
+              <thead>
+                <tr style="border-bottom:1px solid var(--border-subtle); background:rgba(255,255,255,0.02); font-size:11px; text-transform:uppercase; color:var(--text-3); font-weight:700;">
+                  <th style="padding:12px 16px; text-align:center;">联赛</th>
+                  <th style="padding:12px 16px; text-align:left;">对阵</th>
+                  <th style="padding:12px 16px; text-align:left;">预测内容</th>
+                  <th style="padding:12px 16px; text-align:center;">实际赛果</th>
+                  <th style="padding:12px 16px; text-align:center;">红黑状态</th>
+                </tr>
+              </thead>
+              <tbody class="tbody-newest-days">
+                ${allDatesHTML}
+              </tbody>
+            </table>
+          </div>
         </div>
-        ${toggleBtnHTML}
-      </div>
-    `;
+      </div>`;
   }
 
   // ─── EV PARLAYS RENDERER ───
