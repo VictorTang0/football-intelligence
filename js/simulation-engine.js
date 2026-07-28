@@ -189,13 +189,62 @@
           pct: ((count / iterations) * 100).toFixed(1) + '%'
         }));
 
+      // Calculate Tactical Style Tag
+      const homePctNum = parseFloat(((homeWins / iterations) * 100).toFixed(1));
+      const drawPctNum = parseFloat(((draws / iterations) * 100).toFixed(1));
+      const awayPctNum = parseFloat(((awayWins / iterations) * 100).toFixed(1));
+      const margin = Math.abs(homePctNum - awayPctNum);
+
+      let styleTag = {
+        name: '⚖️ 战术胶着型',
+        desc: '两队中场缠斗，进球受限，防守拉锯剧烈',
+        color: '#38bdf8',
+        bg: 'rgba(56,189,248,0.12)',
+        border: 'rgba(56,189,248,0.3)'
+      };
+
+      if (homePctNum >= 65.0) {
+        styleTag = {
+          name: '🛡️ 强弱悬殊型',
+          desc: '主队压制力极强，高概率触发零封或多球屠杀',
+          color: '#a855f7',
+          bg: 'rgba(168,85,247,0.15)',
+          border: 'rgba(168,85,247,0.4)'
+        };
+      } else if (homePctNum >= 55.0) {
+        styleTag = {
+          name: '🔥 强攻突破型',
+          desc: '主场优势显著，主队进攻欲望强劲，看好主胜突破',
+          color: '#4ade80',
+          bg: 'rgba(74,222,128,0.12)',
+          border: 'rgba(74,222,128,0.35)'
+        };
+      } else if (margin <= 12.0) {
+        styleTag = {
+          name: '⚔️ 均势对喷型',
+          desc: '两队实力极度接近，易诱发互相撕裂防线的大比分或平局',
+          color: '#fbbf24',
+          bg: 'rgba(251,191,36,0.15)',
+          border: 'rgba(251,191,36,0.4)'
+        };
+      } else if (awayPctNum >= 45.0) {
+        styleTag = {
+          name: '💣 反客为主型',
+          desc: '客队反击极其犀利，谨防客队客场爆冷下克上',
+          color: '#f87171',
+          bg: 'rgba(248,113,113,0.15)',
+          border: 'rgba(248,113,113,0.4)'
+        };
+      }
+
       return {
         iterations,
         winRate: {
-          homePct: ((homeWins / iterations) * 100).toFixed(1),
-          drawPct: ((draws / iterations) * 100).toFixed(1),
-          awayPct: ((awayWins / iterations) * 100).toFixed(1)
+          homePct: homePctNum.toFixed(1),
+          drawPct: drawPctNum.toFixed(1),
+          awayPct: awayPctNum.toFixed(1)
         },
+        styleTag,
         topScores: sortedScores,
         topHalfFull: sortedHalfFull,
         wildOutliers: sortedWildOutliers

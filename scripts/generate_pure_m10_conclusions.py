@@ -204,13 +204,29 @@ def run_python_simulation_1000(m):
     top_hf = sorted(hf_freq.items(), key=lambda x: x[1], reverse=True)[:3]
     top_wild = sorted(wild_map.items(), key=lambda x: x[1], reverse=True)[:2]
 
+    hp_num = (home_wins / iterations) * 100
+    ap_num = (away_wins / iterations) * 100
+    margin = abs(hp_num - ap_num)
+
+    if hp_num >= 65.0:
+        style_tag = {"name": "🛡️ 强弱悬殊型", "desc": "主队压制力极强，高概率触发零封或多球屠杀", "color": "#a855f7", "bg": "rgba(168,85,247,0.15)", "border": "rgba(168,85,247,0.4)"}
+    elif hp_num >= 55.0:
+        style_tag = {"name": "🔥 强攻突破型", "desc": "主场优势显著，主队进攻欲望强劲，看好主胜突破", "color": "#4ade80", "bg": "rgba(74,222,128,0.12)", "border": "rgba(74,222,128,0.35)"}
+    elif margin <= 12.0:
+        style_tag = {"name": "⚔️ 均势对喷型", "desc": "两队实力极度接近，易诱发互相撕裂防线的大比分或平局", "color": "#fbbf24", "bg": "rgba(251,191,36,0.15)", "border": "rgba(251,191,36,0.4)"}
+    elif ap_num >= 45.0:
+        style_tag = {"name": "💣 反客为主型", "desc": "客队反击极其犀利，谨防客队客场爆冷下克上", "color": "#f87171", "bg": "rgba(248,113,113,0.15)", "border": "rgba(248,113,113,0.4)"}
+    else:
+        style_tag = {"name": "⚖️ 战术胶着型", "desc": "两队中场缠斗，进球受限，防守拉锯剧烈", "color": "#38bdf8", "bg": "rgba(56,189,248,0.12)", "border": "rgba(56,189,248,0.3)"}
+
     return {
         "iterations": 5000,
         "winRate": {
-            "homePct": f"{(home_wins / iterations) * 100:.1f}",
+            "homePct": f"{hp_num:.1f}",
             "drawPct": f"{(draws / iterations) * 100:.1f}",
-            "awayPct": f"{(away_wins / iterations) * 100:.1f}"
+            "awayPct": f"{ap_num:.1f}"
         },
+        "styleTag": style_tag,
         "topScores": [{"score": k, "count": v, "pct": f"{(v/iterations)*100:.1f}%"} for k, v in top_scores],
         "topHalfFull": [{"hf": k, "count": v, "pct": f"{(v/iterations)*100:.1f}%"} for k, v in top_hf],
         "wildOutliers": [{"score": k, "count": v, "pct": f"{(v/iterations)*100:.1f}%"} for k, v in top_wild]

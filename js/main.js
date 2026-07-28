@@ -1122,10 +1122,20 @@ window.runLivePesSimulation = function(matchId) {
         💥 ${w.score} (${w.pct})
       </span>`).join('');
 
+    const styleTagHtml = sim.styleTag ? `
+      <div style="margin-bottom:12px; background:${sim.styleTag.bg}; border:1px solid ${sim.styleTag.border}; padding:10px 14px; border-radius:8px; display:flex; align-items:center; justify-content:space-between;">
+        <div>
+          <span style="font-weight:800; font-size:13.5px; color:${sim.styleTag.color};">${sim.styleTag.name}</span>
+          <div style="font-size:11.5px; color:#cbd5e1; margin-top:2px;">💡 ${sim.styleTag.desc}</div>
+        </div>
+      </div>` : '';
+
     container.innerHTML = `
       <div style="font-size:13px; font-weight:800; color:#4ade80; margin-bottom:12px; background:rgba(74,222,128,0.1); border:1px solid rgba(74,222,128,0.25); padding:8px 12px; border-radius:6px; text-align:center;">
-        ✅ 1,000 次平行宇宙沙盘推演收敛完毕！
+        ✅ 5,000 次平行宇宙沙盘推演收敛完毕！
       </div>
+
+      ${styleTagHtml}
 
       <div style="margin-bottom:16px;">
         <div style="font-size:11.5px; color:#94a3b8; margin-bottom:6px;">1,000 场全仿真胜胜负分布表</div>

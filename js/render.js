@@ -1270,6 +1270,7 @@ const MatchIQRender = (() => {
                 <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; flex-wrap:wrap; gap:6px;">
                   <span style="color:#c084fc; font-weight:800; font-size:13px; display:flex; align-items:center; gap:6px;">
                     🎮 ⑦ 实况 5,000 次 Monte Carlo 足球沙盘推演
+                    ${sim.styleTag ? `<span style="font-size:10.5px; padding:2px 8px; border-radius:12px; background:${sim.styleTag.bg}; border:1px solid ${sim.styleTag.border}; color:${sim.styleTag.color}; font-weight:700;">${sim.styleTag.name}</span>` : ''}
                   </span>
                   <button style="background:linear-gradient(135deg, rgba(168,85,247,0.3), rgba(147,51,234,0.4)); border:1px solid rgba(192,132,252,0.5); color:#ffffff; font-size:11px; font-weight:800; padding:4px 12px; border-radius:6px; cursor:pointer; transition:all 0.2s;" onclick="window.runLivePesSimulation('${match.id}')">
                     ⚡ 现场跑 5000 场沙盘 ▾
