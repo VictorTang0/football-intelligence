@@ -49,6 +49,10 @@ def process_matches(api_data):
     # We want to support all leagues, so if not in mapping, we fallback to leagueAbbName
     for group in match_info_list:
         sub_matches = group.get("subMatchList", [])
+        # 竞彩官方开售期号/业务日期 (例如 "2026-07-28" -> "260728")
+        bus_date = group.get("businessDate", group.get("businessDateStr", ""))
+        bus_yymmdd = bus_date.replace("-", "")[2:] if bus_date else ""
+
         for m in sub_matches:
             # 1. League
             raw_league = m.get("leagueName", "")
@@ -67,15 +71,15 @@ def process_matches(api_data):
                 
             kickoff_iso = f"{m_date}T{m_time}+08:00"
             
-            # 4. Unique ID formation: match_YYMMDD_num
-            # e.g. "2026-07-18" -> "260718"
-            yymmdd = m_date.replace("-", "")[2:]
+            # 4. Unique ID formation based on official business date (issue_date)
+            # e.g. "周二002" in "2026-07-28" issue -> match_260728_002
+            yymmdd = bus_yymmdd if bus_yymmdd else m_date.replace("-", "")[2:]
             match_num_str = m.get("matchNumStr", "") # e.g. "周六108"
-            # Extract number part
             num = "".join(filter(str.isdigit, match_num_str))
             if not num:
                 continue
-            mid = f"match_{yymmdd}_{num}"
+            num_padded = f"{int(num):03d}"
+            mid = f"match_{yymmdd}_{num_padded}"
             
             # 5. Extract HAD (胜平负) Odds
             had = m.get("had", {})
@@ -90,6 +94,8 @@ def process_matches(api_data):
             # We construct a record for new_matches_input.json
             new_matches_input.append({
                 "id": mid,
+                "match_no": match_num_str,
+                "issue_date": yymmdd,
                 "sportteryMatchId": m.get("matchId"),
                 "league": league,
                 "home": home,
