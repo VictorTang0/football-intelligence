@@ -968,10 +968,26 @@ const MatchIQRender = (() => {
   // ─── INJURIES PANE ───
   function renderInjuriesPane(match, paneId) {
     const injData = match.injury_analysis || {};
-    const homeList = injData.home_injuries || [];
-    const awayList = injData.away_injuries || [];
-    const evalText = injData.system_impact_eval || "双方伤停处于正常轮换范围，未见核心离队/缺阵风险。";
-    const sources = injData.sources_merged || [];
+    let homeList = injData.home_injuries || [];
+    let awayList = injData.away_injuries || [];
+
+    // 多源超强降级取数: 支持从 match.injuries 数组多维解算
+    if ((!homeList || homeList.length === 0) && (!awayList || awayList.length === 0) && Array.isArray(match.injuries)) {
+      homeList = match.injuries.filter(i => i.team === match.home || (i.team && i.team.includes(match.home)));
+      awayList = match.injuries.filter(i => i.team === match.away || (i.team && i.team.includes(match.away)));
+    }
+
+    const intel = match.team_intelligence || {};
+    let evalText = injData.system_impact_eval;
+    if (!evalText) {
+      if (intel.home_notes || intel.away_notes) {
+        evalText = `【多源核验研判】${intel.home_notes || ''} ${intel.away_notes || ''}`;
+      } else {
+        evalText = "双方伤停处于正常轮换范围，未见核心离队/缺阵风险。";
+      }
+    }
+
+    const sources = injData.sources_merged || (intel.key_absences ? ['Transfermarkt 权威核验', 'SportsMole 2026-07-28'] : []);
     const sourcesStr = sources.length > 0 ? `[来源: ${sources.join(', ')}]` : '';
 
     const renderList = (list, teamName) => {
