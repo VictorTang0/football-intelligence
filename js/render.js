@@ -1258,9 +1258,9 @@ const MatchIQRender = (() => {
               ${boldReasonVal ? `<div style="font-size:11px; color:#cbd5e1; margin-top:3px;">💡 触发依据: ${boldReasonVal}</div>` : ''}
             </div>` : ''}
 
-            <!-- ⑦ 🎮 1,000 次实况 Monte Carlo 足球沙盘推演 -->
+            <!-- ⑦ 🎮 5,000 次实况 Monte Carlo 足球沙盘推演 -->
             ${(() => {
-              const sim = m10Hub.simulation_1000 || (window.PesMonteCarloEngine ? window.PesMonteCarloEngine.runSimulation1000(match) : null);
+              const sim = m10Hub.simulation_5000 || m10Hub.simulation_1000 || (window.PesMonteCarloEngine ? window.PesMonteCarloEngine.runSimulation5000(match) : null);
               if (!sim) return '';
               const topS = sim.topScores || [];
               const topHF = sim.topHalfFull || [];
@@ -1269,16 +1269,16 @@ const MatchIQRender = (() => {
               <div style="grid-column: 1 / -1; background:rgba(168, 85, 247, 0.08); border:1px solid rgba(168, 85, 247, 0.3); padding:10px 14px; border-radius:8px; margin-top:6px;">
                 <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; flex-wrap:wrap; gap:6px;">
                   <span style="color:#c084fc; font-weight:800; font-size:13px; display:flex; align-items:center; gap:6px;">
-                    🎮 ⑦ 实况 1,000 次 Monte Carlo 足球沙盘推演
+                    🎮 ⑦ 实况 5,000 次 Monte Carlo 足球沙盘推演
                   </span>
                   <button style="background:linear-gradient(135deg, rgba(168,85,247,0.3), rgba(147,51,234,0.4)); border:1px solid rgba(192,132,252,0.5); color:#ffffff; font-size:11px; font-weight:800; padding:4px 12px; border-radius:6px; cursor:pointer; transition:all 0.2s;" onclick="window.runLivePesSimulation('${match.id}')">
-                    ⚡ 现场跑 1000 场沙盘 ▾
+                    ⚡ 现场跑 5000 场沙盘 ▾
                   </button>
                 </div>
 
                 <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap:8px; font-size:11.5px;">
                   <div style="background:rgba(0,0,0,0.25); padding:6px 10px; border-radius:6px; border:1px solid rgba(255,255,255,0.05);">
-                    <div style="color:var(--text-3); font-size:10.5px; margin-bottom:2px;">千场模拟胜率</div>
+                    <div style="color:var(--text-3); font-size:10.5px; margin-bottom:2px;">5000场极速胜率</div>
                     <div style="font-weight:700;">
                       <span style="color:#4ade80;">主胜 ${sim.winRate.homePct}%</span> / 
                       <span style="color:#94a3b8;">平 ${sim.winRate.drawPct}%</span> / 

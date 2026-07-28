@@ -136,11 +136,11 @@
     },
 
     /**
-     * Run 1000-match Monte Carlo simulation
+     * Run 5000-match Monte Carlo simulation
      */
-    runSimulation1000(match) {
+    runSimulation5000(match) {
       const { lambdaH, lambdaA } = this.calculateLambda(match);
-      const iterations = 1000;
+      const iterations = 5000;
 
       let homeWins = 0, draws = 0, awayWins = 0;
       const scoreFreq = {};
@@ -200,6 +200,10 @@
         topHalfFull: sortedHalfFull,
         wildOutliers: sortedWildOutliers
       };
+    },
+
+    runSimulation1000(match) {
+      return this.runSimulation5000(match);
     }
   };
 

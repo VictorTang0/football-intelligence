@@ -2716,6 +2716,7 @@ def main():
                 "m10_bold_score": m10_res["m10_bold_score"],
                 "m10_bold_reason": m10_res["m10_bold_reason"],
                 "confidence": m10_res["confidence"],
+                "simulation_5000": m10_res.get("simulation_5000"),
                 "simulation_1000": m10_res.get("simulation_1000")
             }
     except Exception as e:

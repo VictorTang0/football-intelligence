@@ -157,7 +157,7 @@ def run_python_simulation_1000(m):
             p *= random.random()
         return k - 1
 
-    iterations = 1000
+    iterations = 5000
     home_wins, draws, away_wins = 0, 0, 0
     score_freq, hf_freq, wild_map = {}, {}, {}
 
@@ -205,7 +205,7 @@ def run_python_simulation_1000(m):
     top_wild = sorted(wild_map.items(), key=lambda x: x[1], reverse=True)[:2]
 
     return {
-        "iterations": 1000,
+        "iterations": 5000,
         "winRate": {
             "homePct": f"{(home_wins / iterations) * 100:.1f}",
             "drawPct": f"{(draws / iterations) * 100:.1f}",
@@ -239,6 +239,7 @@ def update_pure_m10_hub():
             "m10_bold_score": res["m10_bold_score"],
             "m10_bold_reason": res["m10_bold_reason"],
             "confidence": res["confidence"],
+            "simulation_5000": sim_res,
             "simulation_1000": sim_res
         }
         m["m10_hub_analysis"] = m10_dict
@@ -247,7 +248,7 @@ def update_pure_m10_hub():
     with open(matches_path, "w", encoding="utf-8") as f:
         json.dump(db, f, ensure_ascii=False, indent=2)
 
-    print(f"✅ [纯M10独立中枢生成完毕] 已为 {updated_count} 场比赛写全100%纯度的M10结论与1,000次 Monte Carlo 沙盘推演结果!")
+    print(f"✅ [纯M10独立中枢生成完毕] 已为 {updated_count} 场比赛写全100%纯度的M10结论与 5,000 次 Monte Carlo 沙盘推演结果!")
 
 if __name__ == "__main__":
     update_pure_m10_hub()

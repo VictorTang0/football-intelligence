@@ -1064,11 +1064,11 @@ window.runLivePesSimulation = function(matchId) {
 
       <div id="sim-progress-box" style="margin-bottom:20px; background:rgba(0,0,0,0.4); padding:16px; border-radius:10px; border:1px solid rgba(168,85,247,0.2);">
         <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:8px;">
-          <span style="color:#e9d5ff; font-weight:700;">1,000 场平行宇宙沙盘推演中...</span>
-          <span id="sim-counter-text" style="color:#c084fc; font-weight:800;">0 / 1000 场</span>
+          <span style="color:#e9d5ff; font-weight:700;">5,000 场平行宇宙沙盘极速推演中...</span>
+          <span id="sim-counter-text" style="color:#c084fc; font-weight:800;">0 / 5000 场</span>
         </div>
         <div style="width:100%; height:8px; background:rgba(255,255,255,0.1); border-radius:4px; overflow:hidden;">
-          <div id="sim-progress-bar" style="width:0%; height:100%; background:linear-gradient(90deg, #c084fc, #3b82f6); transition:width 0.1s linear;"></div>
+          <div id="sim-progress-bar" style="width:0%; height:100%; background:linear-gradient(90deg, #c084fc, #3b82f6); transition:width 0.08s linear;"></div>
         </div>
       </div>
 
@@ -1084,21 +1084,21 @@ window.runLivePesSimulation = function(matchId) {
   const resContainer = document.getElementById('sim-result-container');
 
   let currentCount = 0;
-  const targetCount = 1000;
+  const targetCount = 5000;
   const interval = setInterval(() => {
-    currentCount += 125;
+    currentCount += 625;
     if (currentCount >= targetCount) {
       currentCount = targetCount;
       clearInterval(interval);
 
-      const sim = window.PesMonteCarloEngine ? window.PesMonteCarloEngine.runSimulation1000(match) : null;
+      const sim = window.PesMonteCarloEngine ? window.PesMonteCarloEngine.runSimulation5000(match) : null;
       if (sim) {
         renderSimResultsInModal(resContainer, sim, match);
       }
     }
     progressBar.style.width = (currentCount / targetCount * 100) + '%';
-    counterText.innerText = `${currentCount} / 1000 场`;
-  }, 40);
+    counterText.innerText = `${currentCount} / 5000 场`;
+  }, 35);
 
   function renderSimResultsInModal(container, sim, m) {
     const topS = sim.topScores || [];
