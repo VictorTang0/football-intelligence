@@ -332,16 +332,6 @@ const MatchIQ = (() => {
       console.error('[MatchIQ] Error rendering history grid:', e);
     }
 
-    // ── Parlay History Section ──
-    try {
-      const parlayHistoryContainer = document.getElementById('parlay-history-container');
-      if (parlayHistoryContainer) {
-        parlayHistoryContainer.innerHTML = MatchIQRender.renderParlayHistory(history);
-      }
-    } catch (e) {
-      console.error('[MatchIQ] Error rendering parlay history:', e);
-    }
-
     // ── Risk Radar History Section ──
     try {
       const radarHistoryContainer = document.getElementById('risk-radar-history-container');
