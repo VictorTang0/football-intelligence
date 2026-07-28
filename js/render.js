@@ -1665,15 +1665,11 @@ const MatchIQRender = (() => {
       groups[issueTag].push(r);
     });
 
-    // 1. Sort dates ASCENDING (从早到晚: e.g., 260725 -> 260726 -> 260727)
-    const sortedDates = Object.keys(groups).sort((a, b) => a.localeCompare(b));
-    const recent5Dates = sortedDates.slice(-5); // Take the latest 5 dates in timeline order
+    // 1. Sort dates DESCENDING (从新到老: e.g., 260727 -> 260726 -> 260725)
+    const sortedDatesDesc = Object.keys(groups).sort((a, b) => b.localeCompare(a));
 
     let m10HistoryPanelHtml = '';
-    if (recent5Dates.length > 0) {
-      const day1 = recent5Dates[recent5Dates.length - 1]; // Latest date
-      const older4Days = recent5Dates.slice(0, recent5Dates.length - 1);
-
+    if (sortedDatesDesc.length > 0) {
       function renderM10DayRows(dayTag) {
         const rawMatches = groups[dayTag] || [];
         if (rawMatches.length === 0) {
@@ -1686,10 +1682,10 @@ const MatchIQRender = (() => {
           return t || '无推荐';
         };
 
-        // 2. Sort matches by Sporttery Code DESCENDING (从大到小: e.g., 周日 218 -> 周日 201)
+        // 2. Sort matches by Sporttery Code DESCENDING (从大到小: e.g., 周一 218 -> 周一 201)
         const sortedMatches = [...rawMatches].sort((a, b) => {
           const getNum = (m) => {
-            const mid = m.id || '';
+            const mid = m.id || m.match_id || '';
             const no = m.match_no || '';
             const mId = mid.match(/_(\d+)$/);
             if (mId) return parseInt(mId[1], 10);
@@ -1697,7 +1693,7 @@ const MatchIQRender = (() => {
             if (mNo) return parseInt(mNo[1], 10);
             return 0;
           };
-          return getNum(b) - getNum(a); // 从大到小 218 -> 201
+          return getNum(b) - getNum(a); // 从大到小
         });
 
         let dayRedCount = 0;
@@ -1706,7 +1702,7 @@ const MatchIQRender = (() => {
         const rowsHtml = sortedMatches.map((m, idx) => {
           const m10 = m.m10_hub_analysis || {};
           
-          // Pure M10 conclusions ONLY (No primary fallbacks)
+          // Pure M10 conclusions ONLY
           const hadText = cleanText(m10.had_recommendation);
           const hhadText = cleanText(m10.hhad_recommendation);
           const scoreText = cleanText(m10.predicted_score);
@@ -1817,9 +1813,9 @@ const MatchIQRender = (() => {
             }
           }
 
-          // Format match code like 周日 218
+          // Format match code like 周一 202
           const numOnly = m.code || (m.id ? m.id.split('_').pop() : '') || '201';
-          const matchCode = m.match_no || `周日 ${numOnly}`;
+          const matchCode = m.match_no || `周一 ${numOnly}`;
           const itemStyle = (isHit) => isHit ? 'color:#ef4444; font-weight:800; text-shadow:0 0 4px rgba(239,68,68,0.3);' : 'color:#f8fafc; font-weight:500;';
 
           return `
@@ -1856,36 +1852,18 @@ const MatchIQRender = (() => {
         return summaryHeader + rowsHtml;
       }
 
-      const day1Html = `
-        <div style="margin-bottom:8px;">
-          <div style="font-weight:700; color:var(--cyan); font-size:11.5px; margin-bottom:4px;">📅 ${day1} (最新1日对账)</div>
-          ${renderM10DayRows(day1)}
-        </div>`;
-
-      let olderHtml = '';
-      if (older4Days.length > 0) {
-        olderHtml = `
-          <div id="m10-older-4days-container" style="display:none; margin-top:8px; border-top:1px dashed rgba(255,255,255,0.08); padding-top:8px;">
-            ${older4Days.map(d => `
-              <div style="margin-bottom:8px;">
-                <div style="font-weight:700; color:var(--text-3); font-size:11.5px; margin-bottom:4px;">📅 ${d}</div>
-                ${renderM10DayRows(d)}
-              </div>`).join('')}
-          </div>
-          <button onclick="const el=document.getElementById('m10-older-4days-container'); const isH=el.style.display==='none'; el.style.display=isH?'block':'none'; this.textContent=isH?'收起较旧 4 日 M10 历史记录 ▴':'展开较旧 4 日 M10 历史记录 ▾';" 
-            style="width:100%; margin-top:6px; padding:4px; font-size:11px; background:rgba(0,188,212,0.08); border:1px solid rgba(0,188,212,0.2); color:var(--cyan); border-radius:4px; cursor:pointer;">
-            展开较旧 4 日 M10 历史记录 ▾
-          </button>`;
-      }
+      const m10RowsContent = sortedDatesDesc.map(d => `
+        <div style="margin-bottom:14px;">
+          ${renderM10DayRows(d)}
+        </div>`).join('');
 
       m10HistoryPanelHtml = `
         <div class="m10-history-5days-box" style="margin-bottom:16px; padding:12px; background:rgba(0,188,212,0.03); border:1px solid rgba(0,188,212,0.18); border-radius:8px; text-align:left;">
-          <div style="font-weight:800; font-size:12.5px; color:var(--cyan); margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;">
-            <span>🎯 M10 独立中枢历史推荐对账记录 (5日面板)</span>
-            <span style="font-size:10px; opacity:0.8;">默认展开 1 日 · 折叠 4 日</span>
+          <div style="font-weight:800; font-size:13px; color:var(--cyan); margin-bottom:10px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(0,188,212,0.15); padding-bottom:6px;">
+            <span>🎯 M10 独立中枢历史推荐对账记录 (全量完赛期次独立核销)</span>
+            <span style="font-size:10.5px; color:#ef4444; font-weight:800;">按期次从新到老完整展开</span>
           </div>
-          ${day1Html}
-          ${olderHtml}
+          ${m10RowsContent}
         </div>`;
     }
 
