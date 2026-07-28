@@ -2704,9 +2704,10 @@ def main():
         import sys
         if base_dir not in sys.path:
             sys.path.append(base_dir)
-        from scripts.generate_pure_m10_conclusions import deduce_pure_m10
+        from scripts.generate_pure_m10_conclusions import deduce_pure_m10, run_python_simulation_1000
         for m in data.get("matches", []):
             m10_res = deduce_pure_m10(m)
+            sim_res = run_python_simulation_1000(m)
             m["m10_hub_analysis"] = {
                 "had_recommendation": m10_res["m10_had"],
                 "hhad_recommendation": m10_res["m10_hhad"],
@@ -2716,8 +2717,8 @@ def main():
                 "m10_bold_score": m10_res["m10_bold_score"],
                 "m10_bold_reason": m10_res["m10_bold_reason"],
                 "confidence": m10_res["confidence"],
-                "simulation_5000": m10_res.get("simulation_5000"),
-                "simulation_1000": m10_res.get("simulation_1000")
+                "simulation_5000": sim_res,
+                "simulation_1000": sim_res
             }
     except Exception as e:
         print(f"⚠️ M10 Hub Auto-Deduction Warning: {e}")
