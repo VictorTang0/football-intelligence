@@ -1716,7 +1716,6 @@ const MatchIQRender = (() => {
           const rawRes = m.actual_result || m.ultimate_conclusion?.actual_result || '';
           let ftScore = '';
           let htScore = '';
-          
           if (rawRes) {
             const mFt = rawRes.match(/(\d+-\d+)/);
             const mHt = rawRes.match(/\((\d+-\d+)\)/);
@@ -1724,13 +1723,82 @@ const MatchIQRender = (() => {
             if (mHt) htScore = mHt[1];
             if (!ftScore && !htScore) ftScore = rawRes;
           }
-          
-          // Individual Hits
-          const hadHit = m10.had_correct === true || (m.is_correct === true && hadText !== '无推荐');
-          const hhadHit = m10.hhad_correct === true;
-          const scoreHit = m10.score_correct === true;
-          const goalsHit = m10.goals_correct === true;
-          const hfHit = m10.hf_correct === true;
+
+          // 实盘结果解析 (全场比分与半场比分)
+          let homeGoals = -1, awayGoals = -1;
+          let htHomeGoals = -1, htAwayGoals = -1;
+
+          if (ftScore && ftScore.includes('-')) {
+            const parts = ftScore.split('-');
+            homeGoals = parseInt(parts[0], 10);
+            awayGoals = parseInt(parts[1], 10);
+          }
+          if (htScore && htScore.includes('-')) {
+            const parts = htScore.split('-');
+            htHomeGoals = parseInt(parts[0], 10);
+            htAwayGoals = parseInt(parts[1], 10);
+          }
+
+          // 1. 实盘胜平负
+          let realHAD = '无';
+          if (homeGoals >= 0 && awayGoals >= 0) {
+            if (homeGoals > awayGoals) realHAD = '主胜';
+            else if (homeGoals === awayGoals) realHAD = '平局';
+            else realHAD = '客胜';
+          }
+
+          // 2. 实盘让球胜平负 (依据竞彩真实让球数)
+          let realHHAD = '无';
+          if (homeGoals >= 0 && awayGoals >= 0) {
+            let hc = -1;
+            const hcRaw = m.handicap_line;
+            if (hcRaw !== undefined && hcRaw !== null && hcRaw !== '') {
+              hc = parseInt(hcRaw, 10);
+            }
+            const diff = (homeGoals + hc) - awayGoals;
+            if (diff > 0) realHHAD = '让胜';
+            else if (diff === 0) realHHAD = '让平';
+            else realHHAD = '让负';
+          }
+
+          // 3. 实盘总进球数
+          const totalGoals = (homeGoals >= 0 && awayGoals >= 0) ? (homeGoals + awayGoals) : -1;
+
+          // 4. 实盘半全场
+          let realHF = '无';
+          if (htHomeGoals >= 0 && htAwayGoals >= 0 && homeGoals >= 0 && awayGoals >= 0) {
+            const htRes = htHomeGoals > htAwayGoals ? '胜' : (htHomeGoals === htAwayGoals ? '平' : '负');
+            const ftRes = homeGoals > awayGoals ? '胜' : (homeGoals === awayGoals ? '平' : '负');
+            realHF = htRes + ftRes;
+          }
+
+          // 精准核算 M10 各子项命中 (纯 M10 结论与实盘真实结果比对)
+          const hadHit = (hadText !== '无推荐') && (
+            (hadText === realHAD) ||
+            (hadText === '主不败' && (realHAD === '主胜' || realHAD === '平局')) ||
+            (hadText === '客不败' && (realHAD === '客胜' || realHAD === '平局'))
+          );
+
+          const hhadHit = (hhadText !== '无推荐') && (
+            (hhadText === realHHAD) ||
+            (hhadText.includes('让胜') && realHHAD === '让胜') ||
+            (hhadText.includes('让平') && realHHAD === '让平') ||
+            (hhadText.includes('让负') && realHHAD === '让负')
+          );
+
+          const scoreHit = (scoreText !== '无推荐') && (homeGoals >= 0 && awayGoals >= 0) && (
+            scoreText.includes(`${homeGoals}-${awayGoals}`) || scoreText.includes(`${homeGoals}:${awayGoals}`)
+          );
+
+          const goalsHit = (goalsText !== '无推荐') && (totalGoals >= 0) && (
+            (goalsText.includes('大 2.5') && totalGoals >= 3) ||
+            (goalsText.includes('小 2.5') && totalGoals <= 2) ||
+            goalsText.includes(`${totalGoals}球`)
+          );
+
+          const hfHit = (hfText !== '无推荐') && (realHF !== '无') && (
+            hfText.includes(realHF)
+          );
 
           // Red/Black/No Status Determination
           let statusBadge = '<span style="color:#94a3b8; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.15); padding:2px 6px; border-radius:4px; font-size:11px;">无</span>';
