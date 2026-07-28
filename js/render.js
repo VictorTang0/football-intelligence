@@ -2539,54 +2539,59 @@ const MatchIQRender = (() => {
       return `<span class="league-abbr-badge" title="${league}" style="border:${border}; color:${color}; background:${bg}; font-size:11px; font-weight:800; padding:2px 8px; border-radius:5px; display:inline-block; letter-spacing:0.5px; box-shadow:0 0 6px ${bg};">${abbr}</span>`;
     };
 
-    let lastGroupDate = null;
+    // 按照竞彩官方期号归组 (e.g., 260728)
+    const groups = {};
+    upcomingMatches.forEach(m => {
+      let issueTag = m.issue_date || m.business_date || '';
+      if (!issueTag) {
+        const mId = (m.id || '').match(/match_(\d{6})_/);
+        issueTag = mId ? mId[1] : (m.kickoff || '').split('T')[0].split(' ')[0].replace(/-/g, '').slice(2);
+      }
+      if (!groups[issueTag]) groups[issueTag] = [];
+      groups[issueTag].push(m);
+    });
+
+    // 1. 组别按日期从早到晚排序 (Date Ascending: 260726 -> 260727 -> 260728)
+    const sortedDates = Object.keys(groups).sort((a, b) => a.localeCompare(b));
+
     let tableRowsHtml = '';
     let mobileCardsHtml = '';
 
-    upcomingMatches.forEach(m => {
-      const matchNo = formatMatchNo(m.id);
-      const league = m.league || '--';
-      const kickoff = formatTime(m.kickoff);
+    sortedDates.forEach(dateTag => {
+      const rawMatches = groups[dateTag] || [];
 
-      // 提取竞彩官方期号/业务日期 (例如 "260725" 或 "2026-07-25")
-      let dateCode = m.issue_date || m.business_date || '';
-      if (!dateCode) {
-        const matchReg = /match_(\d{6})_(\d+)/.exec(m.id || '');
-        dateCode = matchReg ? matchReg[1] : (m.kickoff || '').split('T')[0].split(' ')[0];
-      }
+      // 2. 组内按竞彩编号从大到小排序 (Code Descending: 周二 218 -> 周二 201)
+      const sortedMatches = [...rawMatches].sort((a, b) => {
+        const getNum = (m) => {
+          const mid = m.id || m.match_id || '';
+          const no = m.match_no || '';
+          const mId = mid.match(/_(\d+)$/);
+          if (mId) return parseInt(mId[1], 10);
+          const mNo = no.match(/(\d+)/);
+          if (mNo) return parseInt(mNo[1], 10);
+          return 0;
+        };
+        return getNum(b) - getNum(a);
+      });
 
-      let formattedDateTitle = dateCode;
-      if (dateCode.length === 6) {
-        formattedDateTitle = `20${dateCode.slice(0,2)}-${dateCode.slice(2,4)}-${dateCode.slice(4,6)}`;
-      }
+      // 统一插入竞彩官方期号组 Header (包含组内场数)
+      tableRowsHtml += `
+        <tr class="date-group-divider-row">
+          <td colspan="8" style="padding:10px 16px; background:rgba(56, 189, 248, 0.08); border-top:3.5px solid #38bdf8; border-bottom:1px solid rgba(56, 189, 248, 0.3); font-weight:800; color:#38bdf8; font-size:13.5px; letter-spacing:0.5px;">
+            📅 比赛编号日期 ${dateTag} (共 ${sortedMatches.length} 场)
+          </td>
+        </tr>
+      `;
+      mobileCardsHtml += `
+        <div class="mobile-date-divider" style="margin: 20px 0 10px 0; padding: 8px 12px; background: rgba(56, 189, 248, 0.08); border-left: 4px solid #38bdf8; border-top: 2px solid #38bdf8; border-radius: 4px; font-weight: bold; color: #38bdf8; font-size: 13.5px;">
+          📅 比赛编号日期 ${dateTag} (共 ${sortedMatches.length} 场)
+        </div>
+      `;
 
-      const isNewGroup = (lastGroupDate !== null && lastGroupDate !== dateCode);
-      const isFirstGroup = (lastGroupDate === null);
-      lastGroupDate = dateCode;
-
-      // 如果是新的比赛编号日期组，插入【加粗线】与【日期组 Header】
-      if (isNewGroup) {
-        tableRowsHtml += `
-          <tr class="date-group-divider-row">
-            <td colspan="8" style="padding:10px 16px; background:rgba(56, 189, 248, 0.08); border-top:3.5px solid #38bdf8; border-bottom:1px solid rgba(56, 189, 248, 0.3); font-weight:800; color:#38bdf8; font-size:13px; letter-spacing:0.5px;">
-              📅 竞彩开售期号组：${formattedDateTitle}
-            </td>
-          </tr>
-        `;
-        mobileCardsHtml += `
-          <div class="mobile-date-divider" style="margin: 20px 0 10px 0; padding: 8px 12px; background: rgba(56, 189, 248, 0.08); border-left: 4px solid #38bdf8; border-top: 2px solid #38bdf8; border-radius: 4px; font-weight: bold; color: #38bdf8; font-size: 13px;">
-            📅 竞彩开售期号组：${formattedDateTitle}
-          </div>
-        `;
-      } else if (isFirstGroup) {
-        tableRowsHtml += `
-          <tr class="date-group-divider-row">
-            <td colspan="8" style="padding:8px 16px; background:rgba(255, 255, 255, 0.03); border-bottom:1px solid rgba(255, 255, 255, 0.08); font-weight:800; color:#94a3b8; font-size:12px;">
-              📅 竞彩开售期号组：${formattedDateTitle}
-            </td>
-          </tr>
-        `;
-      }
+      sortedMatches.forEach(m => {
+        const matchNo = formatMatchNo(m.id);
+        const league = m.league || '--';
+        const kickoff = formatTime(m.kickoff);
       
       const uc = m.ultimate_conclusion || {};
       const rec = uc.recommendation || '分析中';
@@ -2694,8 +2699,8 @@ const MatchIQRender = (() => {
       const hfMarker = m.diff_markers?.hf ? `<span class="live-change-lamp" title="半全场推荐因临场盘口有微调"></span>` : '';
 
       const m10Conf = uc.confidence || m.conclusions?.confidence || 60;
-      const bRec = m.baseline_recommendation || '';
       let cRec = m.current_recommendation || uc.recommendation || '';
+      const bRec = m.baseline_recommendation || '';
 
       if (m10Conf < 60) {
         cRec = cRec.replace(/\(?竞彩\)?/g, '').trim();
@@ -2821,7 +2826,8 @@ const MatchIQRender = (() => {
         </tr>
       `;
       mobileCardsHtml += mobileCardHtml;
-    });
+      }); // end sortedMatches
+    }); // end sortedDates
 
     return `
       <!-- Desktop Table View -->

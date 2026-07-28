@@ -272,7 +272,33 @@ const MatchIQ = (() => {
               <div style="font-size:13px">暂无比赛分析数据</div>
             </div>`;
         } else {
-          matchesGrid.innerHTML = upcomingMatches.map(m => {
+          // 对在售卡片按竞彩官方开售期号 (Date Ascending) 与 组内编号 (Code Descending) 统一排序
+          const sortedUpcomingForCards = [...upcomingMatches].sort((a, b) => {
+            const getTag = (m) => {
+              let t = m.issue_date || m.business_date || '';
+              if (!t) {
+                const mId = (m.id || '').match(/match_(\d{6})_/);
+                t = mId ? mId[1] : (m.kickoff || '').split('T')[0].split(' ')[0].replace(/-/g, '').slice(2);
+              }
+              return t;
+            };
+            const dateA = getTag(a);
+            const dateB = getTag(b);
+            if (dateA !== dateB) return dateA.localeCompare(dateB); // 日期从早到晚
+            
+            const getNum = (m) => {
+              const mid = m.id || m.match_id || '';
+              const no = m.match_no || '';
+              const mId = mid.match(/_(\d+)$/);
+              if (mId) return parseInt(mId[1], 10);
+              const mNo = no.match(/(\d+)/);
+              if (mNo) return parseInt(mNo[1], 10);
+              return 0;
+            };
+            return getNum(b) - getNum(a); // 组内编号从大到小 (002 -> 001)
+          });
+
+          matchesGrid.innerHTML = sortedUpcomingForCards.map(m => {
             try {
               return MatchIQRender.renderMatchCard(m, weights, state.teamTags, state.tagsConfig, state.leagueProfiles);
             } catch (err) {
