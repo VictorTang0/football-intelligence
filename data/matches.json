@@ -76705,6 +76705,32 @@
               "lose": 4.35
             }
           }
+        },
+        {
+          "timestamp": "2026-07-28T11:44:44.268997",
+          "pinnacle": {
+            "home": 2.74,
+            "draw": 3.3,
+            "away": 2.17
+          },
+          "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 32% / 平 27% / 客 41%），计算得出即时凯利指数为：主胜 0.88，平局 0.89，客胜 0.89。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>主胜</strong> 剧本。",
+          "asian_handicap": {
+            "handicap": "主队+0.25",
+            "home_odds": 2.02,
+            "away_odds": 1.88
+          },
+          "lottery_handicap": {
+            "initial": {
+              "win": 1.55,
+              "draw": 3.45,
+              "lose": 5.15
+            },
+            "current": {
+              "win": 1.5,
+              "draw": 3.6,
+              "lose": 5.4
+            }
+          }
         }
       ],
       "match_context": "欧冠常规赛对决。库奥皮奥坐镇主场迎接萨巴赫的挑战。",
@@ -77055,10 +77081,10 @@
           },
           "movement": "更新于 22:52:36"
         },
-        "bookmaker_intent": "当前主客均赔为 2.74 对 2.17，平赔降至 3.30。庄家意图在于利用均势盘口双向分流资金，借助市场分歧最大化对冲抽水利润。",
+        "bookmaker_intent": "当前主客均赔为 2.74 对 2.17，平赔降至 3.30。庄家意图在于利用均势盘口双向分流资金，借助市场分歧最大化对冲抽水利润。 [最新盘口修正推演]：随着即时实盘数据震荡调整，由于预测方向已由 '主不败 (竞彩)' 修正变更为 '主不败'，表明庄家对常规时间内双方筹码的分流防御重心发生了实质性微调。主队让球水位的波动正在加剧释放出避让资金过热的防御信号。",
         "smoke_screens": [
-          "【交锋往绩烟雾弹】利用 库奥皮奥 与 萨巴赫 历史交锋热度营造单边情绪，意在掩盖近期战术体系调整后的真实实力差距。",
-          "【水位微震烟雾弹】盘口水位在临场前频繁微震，涉嫌制造控盘假象分流散户筹码。"
+          "【竞彩欧让背离烟雾弹】不让球胜/平赔低拉下调，但让球盘口未同向保护，庄家利用‘主胜安全感’诱导筹码独占，实际防范让平/让负高赔付。",
+          "【资金流热度烟雾弹】竞彩比分筹码密集涌入 2:1, 3:1，庄家借市场跟风热度升水诱导反向投注。"
         ],
         "bookmaker_backed_script": "【庄家看好剧本】庄家对首选的 '主不败' 进行了实质性控赔下调（已降水至 2.74），表明随着实盘筹码买入，庄家在防范主推方向，倾向于支持真实实力打出。"
       },
@@ -77386,20 +77412,20 @@
         "system_impact_eval": "双方伤停处于正常轮换范围，对主预测系统无重大异常扰动。"
       },
       "diff_markers": {
-        "had": true,
-        "score": true,
+        "had": false,
+        "score": false,
         "ou": false,
-        "hf": true,
-        "goals": true
+        "hf": false,
+        "goals": false
       },
       "odds_movement_str": "胜 1.55➔1.5 | 平 3.45➔3.6 | 负 5.15➔5.4",
       "subitem_arrows": {
         "had": {
-          "primary": "up",
+          "primary": "none",
           "m10": "down"
         },
         "hhad": {
-          "primary": "up",
+          "primary": "none",
           "m10": "down"
         },
         "score": {
@@ -77417,7 +77443,7 @@
       },
       "has_changed_in_push": true,
       "has_conclusion_changed": true,
-      "odds_water_changed": true,
+      "odds_water_changed": false,
       "current_recommendation": "主不败 (竞彩)",
       "current_scores": "0-1 或 0-0 或 2-1 (竞彩)",
       "current_goals": "小 2.5",
@@ -80417,6 +80443,32 @@
               "lose": 1.85
             }
           }
+        },
+        {
+          "timestamp": "2026-07-28T11:44:44.280473",
+          "pinnacle": {
+            "home": 2.09,
+            "draw": 3.1,
+            "away": 3.05
+          },
+          "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 42% / 平 29% / 客 29%），计算得出即时凯利指数为：主胜 0.88，平局 0.90，客胜 0.88。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>主胜</strong> 剧本。",
+          "asian_handicap": {
+            "handicap": "主队-0.25",
+            "home_odds": 1.92,
+            "away_odds": 1.98
+          },
+          "lottery_handicap": {
+            "initial": {
+              "win": 1.55,
+              "draw": 3.45,
+              "lose": 5.15
+            },
+            "current": {
+              "win": 1.5,
+              "draw": 3.6,
+              "lose": 5.4
+            }
+          }
         }
       ],
       "match_context": "欧冠常规赛对决。阿拉木图坐镇主场迎接奥莫尼亚的挑战。",
@@ -80767,10 +80819,10 @@
           },
           "movement": "更新于 22:52:36"
         },
-        "bookmaker_intent": "当前主客均赔为 2.09 对 3.05，平赔降至 3.10。庄家意图在于利用均势盘口双向分流资金，借助市场分歧最大化对冲抽水利润。",
+        "bookmaker_intent": "当前主客均赔为 2.09 对 3.05，平赔降至 3.10。庄家意图在于利用均势盘口双向分流资金，借助市场分歧最大化对冲抽水利润。 [最新盘口修正推演]：随着即时实盘数据震荡调整，由于预测方向已由 '客不败 (竞彩)' 修正变更为 '客不败'，表明庄家对常规时间内双方筹码的分流防御重心发生了实质性微调。主队让球水位的波动正在加剧释放出避让资金过热的防御信号。",
         "smoke_screens": [
-          "【交锋往绩烟雾弹】利用 阿拉木图 与 奥莫尼亚 历史交锋热度营造单边情绪，意在掩盖近期战术体系调整后的真实实力差距。",
-          "【水位微震烟雾弹】盘口水位在临场前频繁微震，涉嫌制造控盘假象分流散户筹码。"
+          "【竞彩欧让背离烟雾弹】不让球胜/平赔低拉下调，但让球盘口未同向保护，庄家利用‘主胜安全感’诱导筹码独占，实际防范让平/让负高赔付。",
+          "【资金流热度烟雾弹】竞彩比分筹码密集涌入 2:1, 3:1，庄家借市场跟风热度升水诱导反向投注。"
         ],
         "bookmaker_backed_script": "【庄家看好剧本】首选的 '客不败' 赔率升水至 3.05 呈阻力。结合舆情热度（大众倾向均衡），此为典型的热门诱买陷阱，庄家其实更防范相反的「主队受让或不败」剧本打出。"
       },
@@ -81067,20 +81119,20 @@
         "system_impact_eval": "双方伤停处于正常轮换范围，对主预测系统无重大异常扰动。"
       },
       "diff_markers": {
-        "had": true,
-        "score": true,
+        "had": false,
+        "score": false,
         "ou": false,
-        "hf": true,
-        "goals": true
+        "hf": false,
+        "goals": false
       },
       "odds_movement_str": "胜 1.55➔1.5 | 平 3.45➔3.6 | 负 5.15➔5.4",
       "subitem_arrows": {
         "had": {
-          "primary": "up",
+          "primary": "none",
           "m10": "down"
         },
         "hhad": {
-          "primary": "up",
+          "primary": "none",
           "m10": "down"
         },
         "score": {
@@ -81098,7 +81150,7 @@
       },
       "has_changed_in_push": true,
       "has_conclusion_changed": true,
-      "odds_water_changed": true,
+      "odds_water_changed": false,
       "current_recommendation": "客不败 (竞彩)",
       "current_scores": "1-0 或 0-0 或 2-1 (竞彩)",
       "current_goals": "小 2.5",
@@ -81147,6 +81199,32 @@
               "win": 3.2,
               "draw": 3.65,
               "lose": 1.85
+            }
+          }
+        },
+        {
+          "timestamp": "2026-07-28T11:44:44.287282",
+          "pinnacle": {
+            "home": 1.75,
+            "draw": 3.75,
+            "away": 3.45
+          },
+          "kelly_conclusion": "即时返还率为 0.887。基于散户倾向（主 51% / 平 24% / 客 25%），计算得出即时凯利指数为：主胜 0.89，平局 0.90，客胜 0.86。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>客胜</strong> 剧本。",
+          "asian_handicap": {
+            "handicap": "主队-0.75",
+            "home_odds": 1.88,
+            "away_odds": 2.02
+          },
+          "lottery_handicap": {
+            "initial": {
+              "win": 1.55,
+              "draw": 3.45,
+              "lose": 5.15
+            },
+            "current": {
+              "win": 1.5,
+              "draw": 3.6,
+              "lose": 5.4
             }
           }
         }
@@ -81517,10 +81595,10 @@
           },
           "movement": "更新于 22:52:36"
         },
-        "bookmaker_intent": "当前主客均赔为 1.75 对 3.45，平赔降至 3.75。庄家意图在于利用均势盘口双向分流资金，借助市场分歧最大化对冲抽水利润。",
+        "bookmaker_intent": "当前主客均赔为 1.75 对 3.45，平赔降至 3.75。庄家意图在于利用均势盘口双向分流资金，借助市场分歧最大化对冲抽水利润。 [最新盘口修正推演]：随着即时实盘数据震荡调整，由于预测方向已由 '客不败 (竞彩)' 修正变更为 '客不败'，表明庄家对常规时间内双方筹码的分流防御重心发生了实质性微调。主队让球水位的波动正在加剧释放出避让资金过热的防御信号。",
         "smoke_screens": [
-          "【交锋往绩烟雾弹】利用 哈茨 与 格风暴 历史交锋热度营造单边情绪，意在掩盖近期战术体系调整后的真实实力差距。",
-          "【水位微震烟雾弹】盘口水位在临场前频繁微震，涉嫌制造控盘假象分流散户筹码。"
+          "【竞彩欧让背离烟雾弹】不让球胜/平赔低拉下调，但让球盘口未同向保护，庄家利用‘主胜安全感’诱导筹码独占，实际防范让平/让负高赔付。",
+          "【资金流热度烟雾弹】竞彩比分筹码密集涌入 2:1, 3:1，庄家借市场跟风热度升水诱导反向投注。"
         ],
         "bookmaker_backed_script": "【庄家看好剧本】首选的 '客不败' 赔率升水至 3.45 呈阻力。结合舆情热度（大众倾向均衡），此为典型的热门诱买陷阱，庄家其实更防范相反的「主队受让或不败」剧本打出。"
       },
@@ -81850,20 +81928,20 @@
         "system_impact_eval": "双方伤停处于正常轮换范围，对主预测系统无重大异常扰动。"
       },
       "diff_markers": {
-        "had": true,
-        "score": true,
-        "ou": true,
-        "hf": true,
+        "had": false,
+        "score": false,
+        "ou": false,
+        "hf": false,
         "goals": false
       },
       "odds_movement_str": "胜 1.55➔1.5 | 平 3.45➔3.6 | 负 5.15➔5.4",
       "subitem_arrows": {
         "had": {
-          "primary": "up",
+          "primary": "none",
           "m10": "down"
         },
         "hhad": {
-          "primary": "up",
+          "primary": "none",
           "m10": "down"
         },
         "score": {
@@ -81881,7 +81959,7 @@
       },
       "has_changed_in_push": true,
       "has_conclusion_changed": true,
-      "odds_water_changed": true,
+      "odds_water_changed": false,
       "current_recommendation": "客不败 (竞彩)",
       "current_scores": "2-1 (竞彩) 或 1-1",
       "current_goals": "大 2.5 (竞彩)",
@@ -81930,6 +82008,32 @@
               "win": 3.2,
               "draw": 3.65,
               "lose": 1.85
+            }
+          }
+        },
+        {
+          "timestamp": "2026-07-28T11:44:44.294943",
+          "pinnacle": {
+            "home": 1.68,
+            "draw": 3.7,
+            "away": 3.8
+          },
+          "kelly_conclusion": "即时返还率为 0.886。基于散户倾向（主 53% / 平 24% / 客 23%），计算得出即时凯利指数为：主胜 0.89，平局 0.89，客胜 0.87。<br/> 各项凯利指数与实盘走势皆处于合理波动的安全范围下，资金对流均匀。 建议首选庄家避险安全边界最高的下注解 <strong style='color: #ff9800;'>客胜</strong> 剧本。",
+          "asian_handicap": {
+            "handicap": "主队-0.75",
+            "home_odds": 1.88,
+            "away_odds": 2.02
+          },
+          "lottery_handicap": {
+            "initial": {
+              "win": 1.55,
+              "draw": 3.45,
+              "lose": 5.15
+            },
+            "current": {
+              "win": 1.5,
+              "draw": 3.6,
+              "lose": 5.4
             }
           }
         }
@@ -82264,10 +82368,11 @@
           },
           "movement": "更新于 22:52:36"
         },
-        "bookmaker_intent": "主队主胜欧赔低至 1.68，让步规格明显。庄家核心意图在于利用深盘压低赔付，主队胜算极高，散户押注大多集中于主队胜出，庄家通过低水位进行合理防范。",
+        "bookmaker_intent": "主队主胜欧赔低至 1.68，让步规格明显。庄家核心意图在于利用深盘压低赔付，主队胜算极高，散户押注大多集中于主队胜出，庄家通过低水位进行合理防范。 [最新盘口修正推演]：随着即时实盘数据震荡调整，由于预测方向已由 '客不败 (竞彩)' 修正变更为 '客不败'，表明庄家对常规时间内双方筹码的分流防御重心发生了实质性微调。主队让球水位的波动正在加剧释放出避让资金过热的防御信号。",
         "smoke_screens": [
+          "【竞彩欧让背离烟雾弹】不让球胜/平赔低拉下调，但让球盘口未同向保护，庄家利用‘主胜安全感’诱导筹码独占，实际防范让平/让负高赔付。",
           "【深盘大胜烟雾弹】波兹南 主让深盘吸引散户追捧大胜，需警惕庄家故意低水阻盘实则 1-0/2-0 赢半/小胜收场。",
-          "【交锋往绩烟雾弹】利用 波兹南 与 奥胡斯 历史交锋热度营造单边情绪，意在掩盖近期战术体系调整后的真实实力差距。"
+          "【资金流热度烟雾弹】竞彩比分筹码密集涌入 2:1, 3:1，庄家借市场跟风热度升水诱导反向投注。"
         ],
         "bookmaker_backed_script": "【庄家看好剧本】首选的 '客不败' 赔率升水至 3.8 呈阻力。结合舆情热度（大众倾向均衡），此为典型的热门诱买陷阱，庄家其实更防范相反的「主队受让或不败」剧本打出。"
       },
@@ -82584,20 +82689,20 @@
         "system_impact_eval": "双方伤停处于正常轮换范围，对主预测系统无重大异常扰动。"
       },
       "diff_markers": {
-        "had": true,
-        "score": true,
-        "ou": true,
-        "hf": true,
+        "had": false,
+        "score": false,
+        "ou": false,
+        "hf": false,
         "goals": false
       },
       "odds_movement_str": "胜 1.55➔1.5 | 平 3.45➔3.6 | 负 5.15➔5.4",
       "subitem_arrows": {
         "had": {
-          "primary": "up",
+          "primary": "none",
           "m10": "down"
         },
         "hhad": {
-          "primary": "up",
+          "primary": "none",
           "m10": "down"
         },
         "score": {
@@ -82615,7 +82720,7 @@
       },
       "has_changed_in_push": true,
       "has_conclusion_changed": true,
-      "odds_water_changed": true,
+      "odds_water_changed": false,
       "current_recommendation": "客不败 (竞彩)",
       "current_scores": "2-1 (竞彩) 或 1-1",
       "current_goals": "大 2.5 (竞彩)",
