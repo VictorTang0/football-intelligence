@@ -2713,6 +2713,8 @@ def main():
                 "predicted_score": m10_res["m10_score"],
                 "over_under": m10_res["m10_goals"],
                 "half_full": m10_res["m10_hf"],
+                "m10_bold_score": m10_res["m10_bold_score"],
+                "m10_bold_reason": m10_res["m10_bold_reason"],
                 "confidence": m10_res["confidence"]
             }
     except Exception as e:
