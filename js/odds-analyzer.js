@@ -238,3 +238,8 @@ const OddsAnalyzer = (() => {
   };
 })();
 
+if (typeof window !== 'undefined') {
+  window.OddsAnalyzer = OddsAnalyzer;
+  window.MatchIQOddsAnalyzer = OddsAnalyzer;
+}
+

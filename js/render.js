@@ -843,7 +843,8 @@ const MatchIQRender = (() => {
     const drawP = Math.round((retail.draw_support || 0) * 100);
     const awayP = Math.round((retail.away_support || 0) * 100);
 
-    const traps = OddsAnalyzer.analyzeRetailTrap(match);
+    const analyzerObj = (typeof OddsAnalyzer !== 'undefined' ? OddsAnalyzer : (typeof window !== 'undefined' && window.OddsAnalyzer ? window.OddsAnalyzer : null));
+    const traps = (analyzerObj && typeof analyzerObj.analyzeRetailTrap === 'function') ? analyzerObj.analyzeRetailTrap(match) : [];
     const trapsHtml = traps.map(t => `
       <div style="padding:10px 12px;background:${t.severity==='HIGH'?'var(--red-dim)':'var(--amber-dim)'};border:1px solid ${t.severity==='HIGH'?'rgba(239,68,68,0.3)':'rgba(245,158,11,0.3)'};border-radius:var(--radius-sm);margin-bottom:8px;">
         <span style="font-size:11px;color:${t.severity==='HIGH'?'var(--red)':'var(--amber)'};font-weight:600">${t.outcome} — ${t.severity === 'HIGH' ? '⚠ 高风险陷阱' : '注意'}</span>
@@ -1260,7 +1261,7 @@ const MatchIQRender = (() => {
 
             <!-- ⑦ 🎮 5,000 次实况 Monte Carlo 足球沙盘推演 -->
             ${(() => {
-              const sim = m10Hub.simulation_5000 || m10Hub.simulation_1000 || (window.PesMonteCarloEngine ? window.PesMonteCarloEngine.runSimulation5000(match) : null);
+              const sim = (hub && hub.simulation_5000) || (hub && hub.simulation_1000) || match.m10_hub_analysis?.simulation_5000 || (window.PesMonteCarloEngine ? window.PesMonteCarloEngine.runSimulation5000(match) : null);
               if (!sim) return '';
               const topS = sim.topScores || [];
               const topHF = sim.topHalfFull || [];
