@@ -76677,7 +76677,7 @@
         "wind_kmh": 15,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-27T17:32:09.467717",
@@ -77209,7 +77209,8 @@
         "ev_score": 0.0,
         "reasoning": "瑞超联赛的人工草皮主场优势极其明显，客队适应常面临考验。 基本面上，赫根在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），但索尔纳在【近期状态与动能】上（评分 8.3 对 6.0）给主队带来制约。结合战意（主 85% / 客 82%），即时欧指主胜由 4.24 降至 4.16，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【反基本面冷门 (客队不败) (竞彩)】。",
         "confidence_trend": "up",
-        "predicted_score": "1-2 或 1-1 或 2-2 (竞彩)"
+        "predicted_score": "1-2 或 1-1 或 2-2 (竞彩)",
+        "actual_result": "赫根 0-0 索尔纳 (0-0)"
       },
       "team_stats": {
         "home": {
@@ -78173,6 +78174,15 @@
         "turf_mismatch": true,
         "display_label": "人工合成草皮 (快速球速) ⚡ [客队天然草不适应壁垒]",
         "notes": "典型快速人造草，主场反弹陡"
+      },
+      "result": {
+        "actual_result": "赫根 0-0 索尔纳 (0-0)",
+        "ft_score": "0:0",
+        "ht_score": "0:0",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": false
       }
     },
     {
@@ -78192,7 +78202,7 @@
         "wind_kmh": 12,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-27T17:32:09.483519",
@@ -78724,7 +78734,8 @@
         "ev_score": 0.0,
         "reasoning": "挪超联赛大开大合，大球率高，进攻端对体能消耗极大。 基本面上，罗森博格在【近期状态与动能】上拥有明显优势（评分 7.4 对 4.6），两队防线与战术匹配相对均衡。结合战意（主 85% / 客 82%），即时欧指主胜由 3.62 降至 3.55，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【反基本面冷门 (客队不败) (竞彩)】。",
         "confidence_trend": "up",
-        "predicted_score": "0-1 或 0-0 或 2-0 (竞彩)"
+        "predicted_score": "0-1 或 0-0 或 2-0 (竞彩)",
+        "actual_result": "罗森博格 4-0 腓特烈 (2-0)"
       },
       "team_stats": {
         "home": {
@@ -79595,6 +79606,15 @@
         "turf_mismatch": false,
         "display_label": "天然草场地",
         "notes": "挪超最顶级天然草场"
+      },
+      "result": {
+        "actual_result": "罗森博格 4-0 腓特烈 (2-0)",
+        "ft_score": "4:0",
+        "ht_score": "2:0",
+        "rec_correct": false,
+        "hafu_correct": true,
+        "ou_correct": false,
+        "score_correct": false
       }
     }
   ]
