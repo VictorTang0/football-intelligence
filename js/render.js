@@ -2948,8 +2948,12 @@ const MatchIQRender = (() => {
 
   function renderRadarHistory(historyData) {
     const records = historyData?.records || [];
-    // Filter records that actually triggered a radar alert
-    const radarRecords = records.filter(r => r.radar_alert && r.radar_alert.type);
+    // Filter records that triggered radar or m10 water alert
+    const radarRecords = records.filter(r => 
+      (r.radar_alert && (r.radar_alert.type || r.radar_alert.recommendation)) ||
+      r.is_radar_alert ||
+      r.radar_type
+    );
     
     if (radarRecords.length === 0) {
       return `<div style="text-align:center;padding:40px;color:var(--text-3);border:1px dashed var(--border);border-radius:var(--radius)">暂无风控雷达预警历史记录</div>`;

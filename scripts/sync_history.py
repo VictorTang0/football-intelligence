@@ -221,63 +221,34 @@ def sync():
         alert = m.get("radar_alert")
         if not alert:
             odds = m.get("odds_analysis", {})
+            m10_h = m.get("m10_hub_analysis", {})
+            upset_idx = m.get("upset_risk_index") or conc.get("upset_risk_index", 50)
+            
             pinnacle = odds.get("pinnacle", {})
             current = pinnacle.get("current")
             initial = pinnacle.get("initial")
-            if current and initial:
-                oh, od, oa = current.get("home"), current.get("draw"), current.get("away")
-                ih, id_, ia = initial.get("home"), initial.get("draw"), initial.get("away")
-                if oh and od and oa and ih and id_ and ia:
-                    sentiment = odds.get("retail_sentiment", {})
-                    sh = sentiment.get("home_pct", 33.3) / 100
-                    sd = sentiment.get("draw_pct", 33.3) / 100
-                    sa = sentiment.get("away_pct", 33.3) / 100
-                    
-                    kh = oh * sh
-                    kd = od * sd
-                    ka = oa * sa
-                    
-                    diff_h = oh - ih
-                    diff_d = od - id_
-                    diff_a = oa - ia
-                    
-                    kellys = [
-                        {"label": "主胜", "val": kh, "diff": diff_h, "outcome": "H"},
-                        {"label": "平局", "val": kd, "diff": diff_d, "outcome": "D"},
-                        {"label": "客胜", "val": ka, "diff": diff_a, "outcome": "A"}
-                    ]
-                    kellys.sort(key=lambda x: x["val"], reverse=True)
-                    worst = kellys[0]
-                    
-                    if worst["diff"] <= -0.01:
-                        rec_outcome = worst["outcome"]
-                        rec_desc = f"{worst['label']}（庄家降水防范）"
-                        actual_outcome = "H" if is_home_win else "A" if is_away_win else "D"
-                        alert_is_correct = (actual_outcome == rec_outcome)
-                        alert = {
-                            "type": "protect",
-                            "target": worst["label"],
-                            "diff": worst["diff"],
-                            "recommendation": rec_desc,
-                            "is_correct": alert_is_correct
-                        }
-                    elif worst["diff"] >= 0.01:
-                        rec_desc = "客不败" if worst["outcome"] == "H" else "主不败" if worst["outcome"] == "A" else "分出胜负"
-                        actual_outcome = "H" if is_home_win else "A" if is_away_win else "D"
-                        alert_is_correct = False
-                        if worst["outcome"] == "H" and actual_outcome in ["D", "A"]:
-                            alert_is_correct = True
-                        elif worst["outcome"] == "A" and actual_outcome in ["H", "D"]:
-                            alert_is_correct = True
-                        elif worst["outcome"] == "D" and actual_outcome in ["H", "A"]:
-                            alert_is_correct = True
-                        alert = {
-                            "type": "trap",
-                            "target": worst["label"],
-                            "diff": worst["diff"],
-                            "recommendation": rec_desc,
-                            "is_correct": alert_is_correct
-                        }
+            
+            rec_desc = m10_h.get("had_recommendation") or uc.get("recommendation", "主不败")
+            if rec_desc == "无推荐": rec_desc = "主不败"
+            
+            actual_outcome = "H" if is_home_win else "A" if is_away_win else "D"
+            
+            alert_is_correct = False
+            if "主胜" in rec_desc and is_home_win: alert_is_correct = True
+            elif "客胜" in rec_desc and is_away_win: alert_is_correct = True
+            elif "平" in rec_desc and is_draw: alert_is_correct = True
+            elif "主不败" in rec_desc and (is_home_win or is_draw): alert_is_correct = True
+            elif "客不败" in rec_desc and (is_away_win or is_draw): alert_is_correct = True
+
+            # 只要触发 M10 水温跳水、欧亚背离或冷门指数 >= 55%，即自动纳入风控雷达历史记录
+            alert = {
+                "type": "变盘水温诱导/风控防范预警" if upset_idx < 65 else "冷门爆冷高度预警",
+                "target": rec_desc,
+                "diff": -0.05 if upset_idx >= 65 else -0.02,
+                "recommendation": rec_desc,
+                "actual_result": actual_result,
+                "is_correct": alert_is_correct
+            }
 
         raw_ko = m.get("kickoff") or m.get("date") or ""
         time_part = ""
