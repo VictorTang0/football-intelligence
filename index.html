@@ -238,44 +238,52 @@
     ═════════════════════════════════════════════ -->
     <section id="history-records-section" aria-labelledby="history-records-heading">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" style="cursor: pointer; user-select: none;" onclick="window.toggleMasterHistorySection()">
           <div>
             <div class="section-eyebrow">预测历史 & 战绩核销全景大区</div>
-            <h2 class="section-title" id="history-records-heading">已完赛场次历史记录与全量实盘对账</h2>
+            <h2 class="section-title" id="history-records-heading" style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+              <span>已完赛场次历史记录与全量实盘对账</span>
+              <span id="master-history-toggle-badge" style="font-size: 12.5px; font-weight: 700; padding: 4px 14px; border-radius: 20px; background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3); color: var(--cyan); transition: all 0.2s;">
+                点击展开预测历史 ▾ (共 97 场完赛)
+              </span>
+            </h2>
           </div>
           <div class="section-line"></div>
         </div>
 
-        <!-- 1. M10 独立中枢 & 竞彩大师主模型实盘红黑清算单 -->
-        <div class="history-grid" id="history-records-grid" style="margin-bottom: 32px;">
-          <!-- Populated by JS -->
-        </div>
-
-        <!-- 2. 串关 / 组合投关实盘历史对账单 -->
-        <div style="margin-top: 32px; margin-bottom: 32px;">
-          <div class="section-header" style="margin-bottom: 16px;">
-            <div>
-              <div class="section-eyebrow">串关战绩</div>
-              <h3 style="font-size: 18px; color: var(--text-1); font-weight: 700; margin: 0;">🔗 组合投关与串关实盘历史对账单</h3>
-            </div>
-            <div class="section-line"></div>
-          </div>
-          <div id="parlay-history-container">
+        <!-- Master History Collapsible Content Wrapper (Default Hidden for Ultra-Clean Layout) -->
+        <div id="master-history-wrapper" style="display: none; margin-top: 20px;">
+          <!-- 1. M10 独立中枢 & 竞彩大师主模型实盘红黑清算单 -->
+          <div class="history-grid" id="history-records-grid" style="margin-bottom: 32px;">
             <!-- Populated by JS -->
           </div>
-        </div>
 
-        <!-- 3. 异常赔付风控雷达预警历史 -->
-        <div style="margin-top: 32px;">
-          <div class="section-header" style="margin-bottom: 16px;">
-            <div>
-              <div class="section-eyebrow">风控历史</div>
-              <h3 style="font-size: 18px; color: var(--text-1); font-weight: 700; margin: 0;">📡 异常赔付风控雷达预警历史</h3>
+          <!-- 2. 串关 / 组合投关实盘历史对账单 -->
+          <div style="margin-top: 32px; margin-bottom: 32px;">
+            <div class="section-header" style="margin-bottom: 16px;">
+              <div>
+                <div class="section-eyebrow">串关战绩</div>
+                <h3 style="font-size: 18px; color: var(--text-1); font-weight: 700; margin: 0;">🔗 组合投关与串关实盘历史对账单</h3>
+              </div>
+              <div class="section-line"></div>
             </div>
-            <div class="section-line"></div>
+            <div id="parlay-history-container">
+              <!-- Populated by JS -->
+            </div>
           </div>
-          <div id="risk-radar-history-container">
-            <!-- Populated by JS -->
+
+          <!-- 3. 异常赔付风控雷达预警历史 -->
+          <div style="margin-top: 32px;">
+            <div class="section-header" style="margin-bottom: 16px;">
+              <div>
+                <div class="section-eyebrow">风控历史</div>
+                <h3 style="font-size: 18px; color: var(--text-1); font-weight: 700; margin: 0;">📡 异常赔付风控雷达预警历史</h3>
+              </div>
+              <div class="section-line"></div>
+            </div>
+            <div id="risk-radar-history-container">
+              <!-- Populated by JS -->
+            </div>
           </div>
         </div>
 
@@ -445,10 +453,10 @@
 </div><!-- /#app -->
 
 <!-- Scripts (order matters) -->
-<script src="js/odds-analyzer.js?v=2.36"></script>
-<script src="js/charts.js?v=2.36"></script>
-<script src="js/render.js?v=2.36"></script>
-<script src="js/main.js?v=2.36"></script>
+<script src="js/odds-analyzer.js?v=2.37"></script>
+<script src="js/charts.js?v=2.37"></script>
+<script src="js/render.js?v=2.37"></script>
+<script src="js/main.js?v=2.37"></script>
 
 <script>
   // Update footer timestamp

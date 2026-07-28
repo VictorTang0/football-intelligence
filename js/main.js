@@ -1026,3 +1026,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+window.toggleMasterHistorySection = function() {
+  const wrapper = document.getElementById('master-history-wrapper');
+  const badge = document.getElementById('master-history-toggle-badge');
+  if (!wrapper || !badge) return;
+  const isHidden = (wrapper.style.display === 'none' || wrapper.style.display === '');
+  if (isHidden) {
+    wrapper.style.display = 'block';
+    badge.innerHTML = '收起预测历史 ▴';
+    badge.style.borderColor = 'rgba(239, 68, 68, 0.4)';
+    badge.style.color = '#ef4444';
+    badge.style.background = 'rgba(239, 68, 68, 0.08)';
+  } else {
+    wrapper.style.display = 'none';
+    badge.innerHTML = '点击展开预测历史 ▾ (共 97 场完赛)';
+    badge.style.borderColor = 'rgba(0, 212, 255, 0.3)';
+    badge.style.color = 'var(--cyan)';
+    badge.style.background = 'rgba(0, 212, 255, 0.1)';
+  }
+};
