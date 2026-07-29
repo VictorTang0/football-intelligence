@@ -88221,7 +88221,7 @@
         "wind_kmh": 11,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-28T11:44:21.874505",
@@ -88754,7 +88754,8 @@
         "ev_score": 0.0,
         "reasoning": "欧冠比赛双方战术意图各有侧重。 基本面上，库奥皮奥在【历史交锋与心理克制】上拥有明显优势（评分 8.0 对 2.0），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 2.66 / 3.40 / 2.18 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败】。",
         "confidence_trend": "up",
-        "predicted_score": "0-1 或 0-0 或 1-1 (竞彩)"
+        "predicted_score": "0-1 或 0-0 或 1-1 (竞彩)",
+        "actual_result": "库奥皮奥 0-2 萨巴赫 (0-0)"
       },
       "team_stats": {
         "home": {
@@ -89633,7 +89634,16 @@
       "radar_triggered": false,
       "match_no": "周二 001",
       "issue_date": "260728",
-      "code": "001"
+      "code": "001",
+      "result": {
+        "actual_result": "库奥皮奥 0-2 萨巴赫 (0-0)",
+        "ft_score": "0:2",
+        "ht_score": "0:0",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": true,
+        "score_correct": false
+      }
     },
     {
       "id": "match_260727_201",
@@ -94261,7 +94271,7 @@
         "wind_kmh": 14,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-28T11:44:21.888584",
@@ -94794,7 +94804,8 @@
         "ev_score": 0.0,
         "reasoning": "欧冠比赛双方战术意图各有侧重。 基本面上，哈茨在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），但格风暴在【近期状态与动能】上（评分 4.6 对 3.0）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 1.82 / 3.92 / 3.08 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "down",
-        "predicted_score": "2-1 或 1-1 或 1-2 (竞彩)"
+        "predicted_score": "2-1 或 1-1 或 1-2 (竞彩)",
+        "actual_result": "哈茨 0-2 格风暴 (0-0)"
       },
       "team_stats": {
         "home": {
@@ -95747,6 +95758,15 @@
           "哈茨: 哈尔基特(跟腱断裂)",
           "格拉茨风暴: 格尔吉奇(十字韧带重伤), 罗兹加(肌肉拉伤), 卡马拉(肌肉拉伤)"
         ]
+      },
+      "result": {
+        "actual_result": "哈茨 0-2 格风暴 (0-0)",
+        "ft_score": "0:2",
+        "ht_score": "0:0",
+        "rec_correct": true,
+        "hafu_correct": true,
+        "ou_correct": false,
+        "score_correct": false
       }
     },
     {
