@@ -2966,15 +2966,24 @@ const MatchIQRender = (() => {
       `;
 
       tableRowsHtml += `
-        <tr style="${isWaitingResult ? 'background:rgba(245, 158, 11, 0.03);' : ''}">
-          <td class="font-mono" style="color:var(--text-3); font-weight:700;">${matchNo}</td>
-          <td>${getLeagueBadgeHtml(league)}</td>
-          <td>${kickoffDisplay}</td>
-          <td>${matchup}</td>
-          <td>${directionHTML}</td>
-          <td>${combinedBadge}</td>
-          <td class="font-mono" style="color:var(--green); font-weight:800; font-size:clamp(14px, 1.1vw, 16px);">${scoreMarker}${renderUnderlinedScore(score)}${getArrowHtml('score')}</td>
-          <td style="padding: 4px 8px; white-space: normal;">${multiRecHTML}</td>
+        <tr style="${isWaitingResult ? 'background:rgba(245, 158, 11, 0.03);' : ''}; border-bottom:1px solid rgba(255,255,255,0.05);">
+          <!-- 1. 编号 & 2. 联赛: 缩短二者间距 -->
+          <td class="font-mono" style="color:var(--text-3); font-weight:700; padding:10px 2px 10px 12px; width:70px; white-space:nowrap;">${matchNo}</td>
+          <td style="padding:10px 8px 10px 0px; width:65px; text-align:left;">${getLeagueBadgeHtml(league)}</td>
+          
+          <!-- 3. 开赛时间 & 4. 对阵: 缩短二者间距 -->
+          <td style="padding:10px 4px 10px 2px; width:70px; white-space:nowrap; font-family:var(--font-mono); font-size:11.5px; color:var(--text-3);">${kickoffDisplay}</td>
+          <td style="padding:10px 12px 10px 2px;">${matchup}</td>
+          
+          <!-- 5. 预测结论 -->
+          <td style="padding:10px 8px;">${directionHTML}</td>
+          
+          <!-- 6. 置信度 & 7. 最可能比分: 缩短二者间距 -->
+          <td style="padding:10px 2px 10px 6px; width:55px; text-align:center;">${combinedBadge}</td>
+          <td class="font-mono" style="color:var(--green); font-weight:800; font-size:clamp(14px, 1.1vw, 16px); padding:10px 12px 10px 2px; width:80px; text-align:center; white-space:nowrap;">${scoreMarker}${renderUnderlinedScore(score)}${getArrowHtml('score')}</td>
+          
+          <!-- 8. 多维推荐结论 -->
+          <td style="padding: 6px 12px 6px 8px; white-space: normal;">${multiRecHTML}</td>
         </tr>
       `;
       mobileCardsHtml += mobileCardHtml;
@@ -2987,14 +2996,14 @@ const MatchIQRender = (() => {
         <table class="summary-table" style="width:100%; border-collapse:collapse; text-align:left; font-size:13px; color:var(--text-2);">
           <thead>
             <tr style="border-bottom:1px solid var(--border-subtle); background:rgba(255,255,255,0.02);">
-              <th style="padding:12px 16px;">编号</th>
-              <th style="padding:12px 16px;">联赛</th>
-              <th style="padding:12px 16px;">开赛</th>
-              <th style="padding:12px 16px;">对阵</th>
-              <th style="padding:12px 16px;">预测结论</th>
-              <th style="padding:12px 16px;">置信度</th>
-              <th style="padding:12px 16px;">最可能比分</th>
-              <th style="padding:12px 16px;">多维推荐结论</th>
+              <th style="padding:12px 2px 12px 12px; width:70px;">编号</th>
+              <th style="padding:12px 8px 12px 0px; width:65px;">联赛</th>
+              <th style="padding:12px 4px 12px 2px; width:70px;">开赛</th>
+              <th style="padding:12px 12px 12px 2px;">对阵</th>
+              <th style="padding:12px 8px;">预测结论</th>
+              <th style="padding:12px 2px 12px 6px; width:55px; text-align:center;">置信度</th>
+              <th style="padding:12px 12px 12px 2px; width:80px; text-align:center;">最可能比分</th>
+              <th style="padding:12px 12px 12px 8px;">多维推荐结论</th>
             </tr>
           </thead>
           <tbody>
