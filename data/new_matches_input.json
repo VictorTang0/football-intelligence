@@ -1,37 +1,5 @@
 [
   {
-    "id": "match_260728_001",
-    "match_no": "周二001",
-    "issue_date": "260728",
-    "sportteryMatchId": 2040643,
-    "league": "欧冠",
-    "home": "库奥皮奥",
-    "away": "萨巴赫",
-    "kickoff": "2026-07-28T23:00:00+08:00",
-    "initial_odds": {
-      "home": 2.66,
-      "draw": 3.4,
-      "away": 2.18
-    },
-    "handicap_line": "+1"
-  },
-  {
-    "id": "match_260728_002",
-    "match_no": "周二002",
-    "issue_date": "260728",
-    "sportteryMatchId": 2040644,
-    "league": "欧冠",
-    "home": "哈茨",
-    "away": "格风暴",
-    "kickoff": "2026-07-29T02:45:00+08:00",
-    "initial_odds": {
-      "home": 1.82,
-      "draw": 3.92,
-      "away": 3.08
-    },
-    "handicap_line": "-1"
-  },
-  {
     "id": "match_260729_001",
     "match_no": "周三001",
     "issue_date": "260729",
@@ -41,9 +9,9 @@
     "away": "奥莫尼亚",
     "kickoff": "2026-07-29T23:00:00+08:00",
     "initial_odds": {
-      "home": 2.09,
+      "home": 2.0,
       "draw": 3.1,
-      "away": 3.05
+      "away": 3.26
     },
     "handicap_line": "-1"
   },
@@ -57,10 +25,74 @@
     "away": "奥胡斯",
     "kickoff": "2026-07-30T01:00:00+08:00",
     "initial_odds": {
-      "home": 1.63,
-      "draw": 3.8,
-      "away": 3.95
+      "home": 1.57,
+      "draw": 3.85,
+      "away": 4.3
     },
     "handicap_line": "-1"
+  },
+  {
+    "id": "match_260729_003",
+    "match_no": "周三003",
+    "issue_date": "260729",
+    "sportteryMatchId": 2040647,
+    "league": "巴甲",
+    "home": "米拉索尔",
+    "away": "里莫",
+    "kickoff": "2026-07-30T06:30:00+08:00",
+    "initial_odds": {
+      "home": 1.55,
+      "draw": 3.65,
+      "away": 4.75
+    },
+    "handicap_line": "-1"
+  },
+  {
+    "id": "match_260729_004",
+    "match_no": "周三004",
+    "issue_date": "260729",
+    "sportteryMatchId": 2040648,
+    "league": "巴甲",
+    "home": "巴西国际",
+    "away": "弗拉门戈",
+    "kickoff": "2026-07-30T06:30:00+08:00",
+    "initial_odds": {
+      "home": 3.8,
+      "draw": 3.32,
+      "away": 1.77
+    },
+    "handicap_line": "+1"
+  },
+  {
+    "id": "match_260729_005",
+    "match_no": "周三005",
+    "issue_date": "260729",
+    "sportteryMatchId": 2040649,
+    "league": "巴甲",
+    "home": "弗鲁米嫩",
+    "away": "巴伊亚",
+    "kickoff": "2026-07-30T08:30:00+08:00",
+    "initial_odds": {
+      "home": 1.63,
+      "draw": 3.5,
+      "away": 4.35
+    },
+    "handicap_line": "-1"
+  },
+  {
+    "id": "match_260729_006",
+    "match_no": "周三006",
+    "issue_date": "260729",
+    "sportteryMatchId": 2040650,
+    "league": "巴甲",
+    "home": "维多利亚",
+    "away": "帕梅拉斯",
+    "kickoff": "2026-07-30T08:30:00+08:00",
+    "initial_odds": {
+      "home": 3.82,
+      "draw": 3.2,
+      "away": 1.8
+    },
+    "handicap_line": "+1"
   }
 ]
