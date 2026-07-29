@@ -118,11 +118,8 @@ const MatchIQ = (() => {
     const rawUpcoming = matches.filter(m => {
       // 1. Exclude finished matches that already have actual_result (they belong exclusively to History Table)
       if (m.status === 'finished' || m.is_finished || m.ultimate_conclusion?.actual_result) return false;
-      // 2. Include waiting_result matches
-      if (m.status === 'waiting_result' || m.status_label === '等待赛果') return true;
-      // 3. Include pending matches
-      if (m.status === 'pending' || m.status === 'Pending') return true;
-      return false;
+      // 2. Strict on-sale active pending matches only
+      return m.status === 'pending' || m.status === 'Pending';
     });
     const upcomingMatches = sortMatchesBySporttery(rawUpcoming);
     const weights = state.weights;
@@ -272,7 +269,7 @@ const MatchIQ = (() => {
               <div style="font-size:13px">暂无比赛分析数据</div>
             </div>`;
         } else {
-          // 对在售卡片按竞彩官方开售期号 (Date Ascending) 与 组内编号 (Code Descending) 统一排序
+          // 对在售卡片按竞彩官方开售期号 (Date Ascending) 与 组内编号 (Code Ascending 001->006) 正序排列 (与竞彩网完全一致)
           const sortedUpcomingForCards = [...upcomingMatches].sort((a, b) => {
             const getTag = (m) => {
               let t = m.issue_date || m.business_date || '';
@@ -295,7 +292,7 @@ const MatchIQ = (() => {
               if (mNo) return parseInt(mNo[1], 10);
               return 0;
             };
-            return getNum(b) - getNum(a); // 组内编号从大到小 (002 -> 001)
+            return getNum(a) - getNum(b); // 组内编号从小到大正序 (001 -> 002 -> 003 -> 004 -> 005 -> 006)
           });
 
           matchesGrid.innerHTML = sortedUpcomingForCards.map(m => {
