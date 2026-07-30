@@ -76,9 +76,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "28.9",
-            "drawPct": "29.1",
-            "awayPct": "42.0"
+            "homePct": "28.6",
+            "drawPct": "26.5",
+            "awayPct": "44.9"
           },
           "styleTag": {
             "name": "⚖️ 战术胶着型",
@@ -90,61 +90,61 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 680,
-              "pct": "13.6%"
+              "count": 599,
+              "pct": "12.0%"
             },
             {
               "score": "0-1",
-              "count": 479,
-              "pct": "9.6%"
-            },
-            {
-              "score": "0-0",
-              "count": 442,
-              "pct": "8.8%"
+              "count": 566,
+              "pct": "11.3%"
             },
             {
               "score": "1-2",
-              "count": 432,
-              "pct": "8.6%"
+              "count": 437,
+              "pct": "8.7%"
+            },
+            {
+              "score": "0-0",
+              "count": 436,
+              "pct": "8.7%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 1114,
-              "pct": "22.3%"
-            },
-            {
-              "hf": "平平",
-              "count": 907,
-              "pct": "18.1%"
+              "count": 1153,
+              "pct": "23.1%"
             },
             {
               "hf": "平负",
-              "count": 824,
-              "pct": "16.5%"
+              "count": 894,
+              "pct": "17.9%"
+            },
+            {
+              "hf": "平平",
+              "count": 840,
+              "pct": "16.8%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 159,
-              "pct": "3.2%"
+              "count": 178,
+              "pct": "3.6%"
             },
             {
               "score": "2-3",
-              "count": 128,
-              "pct": "2.6%"
+              "count": 151,
+              "pct": "3.0%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "28.9",
-            "drawPct": "29.1",
-            "awayPct": "42.0"
+            "homePct": "28.6",
+            "drawPct": "26.5",
+            "awayPct": "44.9"
           },
           "styleTag": {
             "name": "⚖️ 战术胶着型",
@@ -156,52 +156,52 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 680,
-              "pct": "13.6%"
+              "count": 599,
+              "pct": "12.0%"
             },
             {
               "score": "0-1",
-              "count": 479,
-              "pct": "9.6%"
-            },
-            {
-              "score": "0-0",
-              "count": 442,
-              "pct": "8.8%"
+              "count": 566,
+              "pct": "11.3%"
             },
             {
               "score": "1-2",
-              "count": 432,
-              "pct": "8.6%"
+              "count": 437,
+              "pct": "8.7%"
+            },
+            {
+              "score": "0-0",
+              "count": 436,
+              "pct": "8.7%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 1114,
-              "pct": "22.3%"
-            },
-            {
-              "hf": "平平",
-              "count": 907,
-              "pct": "18.1%"
+              "count": 1153,
+              "pct": "23.1%"
             },
             {
               "hf": "平负",
-              "count": 824,
-              "pct": "16.5%"
+              "count": 894,
+              "pct": "17.9%"
+            },
+            {
+              "hf": "平平",
+              "count": 840,
+              "pct": "16.8%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 159,
-              "pct": "3.2%"
+              "count": 178,
+              "pct": "3.6%"
             },
             {
               "score": "2-3",
-              "count": 128,
-              "pct": "2.6%"
+              "count": 151,
+              "pct": "3.0%"
             }
           ]
         }
@@ -293,9 +293,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "71.6",
-            "drawPct": "18.9",
-            "awayPct": "9.4"
+            "homePct": "70.3",
+            "drawPct": "19.4",
+            "awayPct": "10.2"
           },
           "styleTag": {
             "name": "🛡️ 强弱悬殊型",
@@ -307,18 +307,18 @@
           "topScores": [
             {
               "score": "1-0",
-              "count": 742,
-              "pct": "14.8%"
+              "count": 683,
+              "pct": "13.7%"
             },
             {
               "score": "2-0",
-              "count": 673,
-              "pct": "13.5%"
+              "count": 660,
+              "pct": "13.2%"
             },
             {
               "score": "3-0",
-              "count": 485,
-              "pct": "9.7%"
+              "count": 481,
+              "pct": "9.6%"
             },
             {
               "score": "2-1",
@@ -329,39 +329,39 @@
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2191,
-              "pct": "43.8%"
+              "count": 2156,
+              "pct": "43.1%"
             },
             {
               "hf": "平胜",
-              "count": 1198,
-              "pct": "24.0%"
+              "count": 1215,
+              "pct": "24.3%"
             },
             {
               "hf": "平平",
-              "count": 630,
-              "pct": "12.6%"
+              "count": 625,
+              "pct": "12.5%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 235,
-              "pct": "4.7%"
+              "count": 246,
+              "pct": "4.9%"
             },
             {
               "score": "4-1",
-              "count": 148,
-              "pct": "3.0%"
+              "count": 171,
+              "pct": "3.4%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "71.6",
-            "drawPct": "18.9",
-            "awayPct": "9.4"
+            "homePct": "70.3",
+            "drawPct": "19.4",
+            "awayPct": "10.2"
           },
           "styleTag": {
             "name": "🛡️ 强弱悬殊型",
@@ -373,18 +373,18 @@
           "topScores": [
             {
               "score": "1-0",
-              "count": 742,
-              "pct": "14.8%"
+              "count": 683,
+              "pct": "13.7%"
             },
             {
               "score": "2-0",
-              "count": 673,
-              "pct": "13.5%"
+              "count": 660,
+              "pct": "13.2%"
             },
             {
               "score": "3-0",
-              "count": 485,
-              "pct": "9.7%"
+              "count": 481,
+              "pct": "9.6%"
             },
             {
               "score": "2-1",
@@ -395,30 +395,30 @@
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2191,
-              "pct": "43.8%"
+              "count": 2156,
+              "pct": "43.1%"
             },
             {
               "hf": "平胜",
-              "count": 1198,
-              "pct": "24.0%"
+              "count": 1215,
+              "pct": "24.3%"
             },
             {
               "hf": "平平",
-              "count": 630,
-              "pct": "12.6%"
+              "count": 625,
+              "pct": "12.5%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 235,
-              "pct": "4.7%"
+              "count": 246,
+              "pct": "4.9%"
             },
             {
               "score": "4-1",
-              "count": 148,
-              "pct": "3.0%"
+              "count": 171,
+              "pct": "3.4%"
             }
           ]
         }
@@ -511,9 +511,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "27.1",
-            "drawPct": "27.0",
-            "awayPct": "45.9"
+            "homePct": "27.2",
+            "drawPct": "27.8",
+            "awayPct": "45.1"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -525,8 +525,8 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 636,
-              "pct": "12.7%"
+              "count": 611,
+              "pct": "12.2%"
             },
             {
               "score": "0-1",
@@ -535,51 +535,51 @@
             },
             {
               "score": "1-2",
-              "count": 437,
-              "pct": "8.7%"
+              "count": 455,
+              "pct": "9.1%"
             },
             {
-              "score": "1-0",
-              "count": 409,
-              "pct": "8.2%"
+              "score": "0-0",
+              "count": 425,
+              "pct": "8.5%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 1228,
-              "pct": "24.6%"
+              "count": 1179,
+              "pct": "23.6%"
             },
             {
               "hf": "平负",
-              "count": 840,
-              "pct": "16.8%"
+              "count": 878,
+              "pct": "17.6%"
             },
             {
               "hf": "平平",
-              "count": 838,
-              "pct": "16.8%"
+              "count": 847,
+              "pct": "16.9%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 171,
-              "pct": "3.4%"
+              "count": 197,
+              "pct": "3.9%"
             },
             {
               "score": "2-3",
-              "count": 153,
-              "pct": "3.1%"
+              "count": 139,
+              "pct": "2.8%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "27.1",
-            "drawPct": "27.0",
-            "awayPct": "45.9"
+            "homePct": "27.2",
+            "drawPct": "27.8",
+            "awayPct": "45.1"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -591,8 +591,8 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 636,
-              "pct": "12.7%"
+              "count": 611,
+              "pct": "12.2%"
             },
             {
               "score": "0-1",
@@ -601,42 +601,42 @@
             },
             {
               "score": "1-2",
-              "count": 437,
-              "pct": "8.7%"
+              "count": 455,
+              "pct": "9.1%"
             },
             {
-              "score": "1-0",
-              "count": 409,
-              "pct": "8.2%"
+              "score": "0-0",
+              "count": 425,
+              "pct": "8.5%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 1228,
-              "pct": "24.6%"
+              "count": 1179,
+              "pct": "23.6%"
             },
             {
               "hf": "平负",
-              "count": 840,
-              "pct": "16.8%"
+              "count": 878,
+              "pct": "17.6%"
             },
             {
               "hf": "平平",
-              "count": 838,
-              "pct": "16.8%"
+              "count": 847,
+              "pct": "16.9%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 171,
-              "pct": "3.4%"
+              "count": 197,
+              "pct": "3.9%"
             },
             {
               "score": "2-3",
-              "count": 153,
-              "pct": "3.1%"
+              "count": 139,
+              "pct": "2.8%"
             }
           ]
         }
@@ -728,9 +728,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "73.3",
-            "drawPct": "18.4",
-            "awayPct": "8.2"
+            "homePct": "73.9",
+            "drawPct": "17.8",
+            "awayPct": "8.3"
           },
           "styleTag": {
             "name": "🛡️ 强弱悬殊型",
@@ -741,62 +741,62 @@
           },
           "topScores": [
             {
-              "score": "1-0",
-              "count": 722,
+              "score": "2-0",
+              "count": 718,
               "pct": "14.4%"
             },
             {
-              "score": "2-0",
-              "count": 719,
-              "pct": "14.4%"
+              "score": "1-0",
+              "count": 660,
+              "pct": "13.2%"
             },
             {
               "score": "3-0",
-              "count": 489,
+              "count": 492,
               "pct": "9.8%"
             },
             {
-              "score": "1-1",
-              "count": 447,
-              "pct": "8.9%"
+              "score": "2-1",
+              "count": 467,
+              "pct": "9.3%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2239,
-              "pct": "44.8%"
+              "count": 2343,
+              "pct": "46.9%"
             },
             {
               "hf": "平胜",
-              "count": 1268,
-              "pct": "25.4%"
+              "count": 1199,
+              "pct": "24.0%"
             },
             {
               "hf": "平平",
-              "count": 596,
-              "pct": "11.9%"
+              "count": 591,
+              "pct": "11.8%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 269,
+              "count": 272,
               "pct": "5.4%"
             },
             {
               "score": "4-1",
-              "count": 178,
-              "pct": "3.6%"
+              "count": 170,
+              "pct": "3.4%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "73.3",
-            "drawPct": "18.4",
-            "awayPct": "8.2"
+            "homePct": "73.9",
+            "drawPct": "17.8",
+            "awayPct": "8.3"
           },
           "styleTag": {
             "name": "🛡️ 强弱悬殊型",
@@ -807,53 +807,53 @@
           },
           "topScores": [
             {
-              "score": "1-0",
-              "count": 722,
+              "score": "2-0",
+              "count": 718,
               "pct": "14.4%"
             },
             {
-              "score": "2-0",
-              "count": 719,
-              "pct": "14.4%"
+              "score": "1-0",
+              "count": 660,
+              "pct": "13.2%"
             },
             {
               "score": "3-0",
-              "count": 489,
+              "count": 492,
               "pct": "9.8%"
             },
             {
-              "score": "1-1",
-              "count": 447,
-              "pct": "8.9%"
+              "score": "2-1",
+              "count": 467,
+              "pct": "9.3%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2239,
-              "pct": "44.8%"
+              "count": 2343,
+              "pct": "46.9%"
             },
             {
               "hf": "平胜",
-              "count": 1268,
-              "pct": "25.4%"
+              "count": 1199,
+              "pct": "24.0%"
             },
             {
               "hf": "平平",
-              "count": 596,
-              "pct": "11.9%"
+              "count": 591,
+              "pct": "11.8%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 269,
+              "count": 272,
               "pct": "5.4%"
             },
             {
               "score": "4-1",
-              "count": 178,
-              "pct": "3.6%"
+              "count": 170,
+              "pct": "3.4%"
             }
           ]
         }
@@ -946,9 +946,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "74.8",
-            "drawPct": "16.9",
-            "awayPct": "8.3"
+            "homePct": "73.9",
+            "drawPct": "17.3",
+            "awayPct": "8.8"
           },
           "styleTag": {
             "name": "🛡️ 强弱悬殊型",
@@ -960,51 +960,51 @@
           "topScores": [
             {
               "score": "2-0",
-              "count": 708,
-              "pct": "14.2%"
+              "count": 716,
+              "pct": "14.3%"
             },
             {
               "score": "1-0",
-              "count": 654,
-              "pct": "13.1%"
+              "count": 636,
+              "pct": "12.7%"
             },
             {
               "score": "3-0",
-              "count": 513,
-              "pct": "10.3%"
+              "count": 478,
+              "pct": "9.6%"
             },
             {
               "score": "2-1",
-              "count": 423,
-              "pct": "8.5%"
+              "count": 474,
+              "pct": "9.5%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2353,
-              "pct": "47.1%"
+              "count": 2347,
+              "pct": "46.9%"
             },
             {
               "hf": "平胜",
-              "count": 1231,
-              "pct": "24.6%"
+              "count": 1187,
+              "pct": "23.7%"
             },
             {
               "hf": "平平",
-              "count": 562,
-              "pct": "11.2%"
+              "count": 581,
+              "pct": "11.6%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 292,
-              "pct": "5.8%"
+              "count": 275,
+              "pct": "5.5%"
             },
             {
               "score": "4-1",
-              "count": 199,
+              "count": 202,
               "pct": "4.0%"
             }
           ]
@@ -1012,9 +1012,9 @@
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "74.8",
-            "drawPct": "16.9",
-            "awayPct": "8.3"
+            "homePct": "73.9",
+            "drawPct": "17.3",
+            "awayPct": "8.8"
           },
           "styleTag": {
             "name": "🛡️ 强弱悬殊型",
@@ -1026,51 +1026,51 @@
           "topScores": [
             {
               "score": "2-0",
-              "count": 708,
-              "pct": "14.2%"
+              "count": 716,
+              "pct": "14.3%"
             },
             {
               "score": "1-0",
-              "count": 654,
-              "pct": "13.1%"
+              "count": 636,
+              "pct": "12.7%"
             },
             {
               "score": "3-0",
-              "count": 513,
-              "pct": "10.3%"
+              "count": 478,
+              "pct": "9.6%"
             },
             {
               "score": "2-1",
-              "count": 423,
-              "pct": "8.5%"
+              "count": 474,
+              "pct": "9.5%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2353,
-              "pct": "47.1%"
+              "count": 2347,
+              "pct": "46.9%"
             },
             {
               "hf": "平胜",
-              "count": 1231,
-              "pct": "24.6%"
+              "count": 1187,
+              "pct": "23.7%"
             },
             {
               "hf": "平平",
-              "count": 562,
-              "pct": "11.2%"
+              "count": 581,
+              "pct": "11.6%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 292,
-              "pct": "5.8%"
+              "count": 275,
+              "pct": "5.5%"
             },
             {
               "score": "4-1",
-              "count": 199,
+              "count": 202,
               "pct": "4.0%"
             }
           ]
@@ -1164,9 +1164,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "60.8",
-            "drawPct": "23.1",
-            "awayPct": "16.1"
+            "homePct": "61.4",
+            "drawPct": "23.4",
+            "awayPct": "15.1"
           },
           "styleTag": {
             "name": "🔥 强攻突破型",
@@ -1178,61 +1178,61 @@
           "topScores": [
             {
               "score": "1-0",
-              "count": 697,
-              "pct": "13.9%"
+              "count": 672,
+              "pct": "13.4%"
             },
             {
               "score": "2-0",
-              "count": 549,
-              "pct": "11.0%"
-            },
-            {
-              "score": "2-1",
-              "count": 514,
-              "pct": "10.3%"
+              "count": 574,
+              "pct": "11.5%"
             },
             {
               "score": "1-1",
-              "count": 505,
-              "pct": "10.1%"
+              "count": 522,
+              "pct": "10.4%"
+            },
+            {
+              "score": "2-1",
+              "count": 477,
+              "pct": "9.5%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 1766,
-              "pct": "35.3%"
+              "count": 1768,
+              "pct": "35.4%"
             },
             {
               "hf": "平胜",
-              "count": 1107,
-              "pct": "22.1%"
+              "count": 1115,
+              "pct": "22.3%"
             },
             {
               "hf": "平平",
-              "count": 749,
-              "pct": "15.0%"
+              "count": 766,
+              "pct": "15.3%"
             }
           ],
           "wildOutliers": [
             {
-              "score": "4-0",
-              "count": 145,
-              "pct": "2.9%"
+              "score": "4-1",
+              "count": 153,
+              "pct": "3.1%"
             },
             {
-              "score": "4-1",
-              "count": 142,
-              "pct": "2.8%"
+              "score": "4-0",
+              "count": 148,
+              "pct": "3.0%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "60.8",
-            "drawPct": "23.1",
-            "awayPct": "16.1"
+            "homePct": "61.4",
+            "drawPct": "23.4",
+            "awayPct": "15.1"
           },
           "styleTag": {
             "name": "🔥 强攻突破型",
@@ -1244,52 +1244,52 @@
           "topScores": [
             {
               "score": "1-0",
-              "count": 697,
-              "pct": "13.9%"
+              "count": 672,
+              "pct": "13.4%"
             },
             {
               "score": "2-0",
-              "count": 549,
-              "pct": "11.0%"
-            },
-            {
-              "score": "2-1",
-              "count": 514,
-              "pct": "10.3%"
+              "count": 574,
+              "pct": "11.5%"
             },
             {
               "score": "1-1",
-              "count": 505,
-              "pct": "10.1%"
+              "count": 522,
+              "pct": "10.4%"
+            },
+            {
+              "score": "2-1",
+              "count": 477,
+              "pct": "9.5%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 1766,
-              "pct": "35.3%"
+              "count": 1768,
+              "pct": "35.4%"
             },
             {
               "hf": "平胜",
-              "count": 1107,
-              "pct": "22.1%"
+              "count": 1115,
+              "pct": "22.3%"
             },
             {
               "hf": "平平",
-              "count": 749,
-              "pct": "15.0%"
+              "count": 766,
+              "pct": "15.3%"
             }
           ],
           "wildOutliers": [
             {
-              "score": "4-0",
-              "count": 145,
-              "pct": "2.9%"
+              "score": "4-1",
+              "count": 153,
+              "pct": "3.1%"
             },
             {
-              "score": "4-1",
-              "count": 142,
-              "pct": "2.8%"
+              "score": "4-0",
+              "count": 148,
+              "pct": "3.0%"
             }
           ]
         }
@@ -1381,9 +1381,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "60.3",
-            "drawPct": "22.4",
-            "awayPct": "17.3"
+            "homePct": "61.4",
+            "drawPct": "23.0",
+            "awayPct": "15.6"
           },
           "styleTag": {
             "name": "🔥 强攻突破型",
@@ -1395,61 +1395,61 @@
           "topScores": [
             {
               "score": "1-0",
-              "count": 565,
-              "pct": "11.3%"
+              "count": 582,
+              "pct": "11.6%"
             },
             {
               "score": "1-1",
-              "count": 532,
-              "pct": "10.6%"
+              "count": 524,
+              "pct": "10.5%"
             },
             {
               "score": "2-0",
-              "count": 516,
+              "count": 513,
               "pct": "10.3%"
             },
             {
               "score": "2-1",
-              "count": 490,
-              "pct": "9.8%"
+              "count": 475,
+              "pct": "9.5%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 1736,
-              "pct": "34.7%"
+              "count": 1849,
+              "pct": "37.0%"
             },
             {
               "hf": "平胜",
-              "count": 1072,
-              "pct": "21.4%"
+              "count": 1037,
+              "pct": "20.7%"
             },
             {
               "hf": "平平",
-              "count": 679,
-              "pct": "13.6%"
+              "count": 701,
+              "pct": "14.0%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-1",
-              "count": 173,
+              "count": 177,
               "pct": "3.5%"
             },
             {
-              "score": "3-2",
-              "count": 154,
-              "pct": "3.1%"
+              "score": "4-0",
+              "count": 167,
+              "pct": "3.3%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "60.3",
-            "drawPct": "22.4",
-            "awayPct": "17.3"
+            "homePct": "61.4",
+            "drawPct": "23.0",
+            "awayPct": "15.6"
           },
           "styleTag": {
             "name": "🔥 强攻突破型",
@@ -1461,52 +1461,52 @@
           "topScores": [
             {
               "score": "1-0",
-              "count": 565,
-              "pct": "11.3%"
+              "count": 582,
+              "pct": "11.6%"
             },
             {
               "score": "1-1",
-              "count": 532,
-              "pct": "10.6%"
+              "count": 524,
+              "pct": "10.5%"
             },
             {
               "score": "2-0",
-              "count": 516,
+              "count": 513,
               "pct": "10.3%"
             },
             {
               "score": "2-1",
-              "count": 490,
-              "pct": "9.8%"
+              "count": 475,
+              "pct": "9.5%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 1736,
-              "pct": "34.7%"
+              "count": 1849,
+              "pct": "37.0%"
             },
             {
               "hf": "平胜",
-              "count": 1072,
-              "pct": "21.4%"
+              "count": 1037,
+              "pct": "20.7%"
             },
             {
               "hf": "平平",
-              "count": 679,
-              "pct": "13.6%"
+              "count": 701,
+              "pct": "14.0%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-1",
-              "count": 173,
+              "count": 177,
               "pct": "3.5%"
             },
             {
-              "score": "3-2",
-              "count": 154,
-              "pct": "3.1%"
+              "score": "4-0",
+              "count": 167,
+              "pct": "3.3%"
             }
           ]
         }
@@ -1599,9 +1599,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "43.2",
-            "drawPct": "27.0",
-            "awayPct": "29.7"
+            "homePct": "42.9",
+            "drawPct": "26.4",
+            "awayPct": "30.7"
           },
           "styleTag": {
             "name": "⚖️ 战术胶着型",
@@ -1613,61 +1613,61 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 640,
-              "pct": "12.8%"
+              "count": 629,
+              "pct": "12.6%"
             },
             {
               "score": "1-0",
-              "count": 485,
-              "pct": "9.7%"
+              "count": 506,
+              "pct": "10.1%"
             },
             {
               "score": "2-1",
-              "count": 481,
-              "pct": "9.6%"
+              "count": 441,
+              "pct": "8.8%"
             },
             {
-              "score": "0-0",
-              "count": 402,
-              "pct": "8.0%"
+              "score": "0-1",
+              "count": 414,
+              "pct": "8.3%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 1096,
-              "pct": "21.9%"
+              "count": 1123,
+              "pct": "22.5%"
             },
             {
               "hf": "平胜",
-              "count": 850,
-              "pct": "17.0%"
+              "count": 840,
+              "pct": "16.8%"
             },
             {
               "hf": "平平",
-              "count": 811,
-              "pct": "16.2%"
+              "count": 773,
+              "pct": "15.5%"
             }
           ],
           "wildOutliers": [
             {
               "score": "3-2",
-              "count": 160,
-              "pct": "3.2%"
+              "count": 141,
+              "pct": "2.8%"
             },
             {
               "score": "2-3",
-              "count": 131,
-              "pct": "2.6%"
+              "count": 117,
+              "pct": "2.3%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "43.2",
-            "drawPct": "27.0",
-            "awayPct": "29.7"
+            "homePct": "42.9",
+            "drawPct": "26.4",
+            "awayPct": "30.7"
           },
           "styleTag": {
             "name": "⚖️ 战术胶着型",
@@ -1679,52 +1679,52 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 640,
-              "pct": "12.8%"
+              "count": 629,
+              "pct": "12.6%"
             },
             {
               "score": "1-0",
-              "count": 485,
-              "pct": "9.7%"
+              "count": 506,
+              "pct": "10.1%"
             },
             {
               "score": "2-1",
-              "count": 481,
-              "pct": "9.6%"
+              "count": 441,
+              "pct": "8.8%"
             },
             {
-              "score": "0-0",
-              "count": 402,
-              "pct": "8.0%"
+              "score": "0-1",
+              "count": 414,
+              "pct": "8.3%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 1096,
-              "pct": "21.9%"
+              "count": 1123,
+              "pct": "22.5%"
             },
             {
               "hf": "平胜",
-              "count": 850,
-              "pct": "17.0%"
+              "count": 840,
+              "pct": "16.8%"
             },
             {
               "hf": "平平",
-              "count": 811,
-              "pct": "16.2%"
+              "count": 773,
+              "pct": "15.5%"
             }
           ],
           "wildOutliers": [
             {
               "score": "3-2",
-              "count": 160,
-              "pct": "3.2%"
+              "count": 141,
+              "pct": "2.8%"
             },
             {
               "score": "2-3",
-              "count": 131,
-              "pct": "2.6%"
+              "count": 117,
+              "pct": "2.3%"
             }
           ]
         }
@@ -1817,9 +1817,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "18.9",
-            "drawPct": "22.8",
-            "awayPct": "58.3"
+            "homePct": "18.5",
+            "drawPct": "24.2",
+            "awayPct": "57.3"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -1831,61 +1831,61 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 535,
-              "pct": "10.7%"
+              "count": 532,
+              "pct": "10.6%"
             },
             {
               "score": "0-2",
-              "count": 523,
+              "count": 527,
               "pct": "10.5%"
             },
             {
               "score": "0-1",
-              "count": 517,
-              "pct": "10.3%"
+              "count": 525,
+              "pct": "10.5%"
             },
             {
               "score": "1-2",
-              "count": 497,
-              "pct": "9.9%"
+              "count": 506,
+              "pct": "10.1%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 1710,
-              "pct": "34.2%"
+              "count": 1649,
+              "pct": "33.0%"
             },
             {
               "hf": "平负",
-              "count": 1001,
-              "pct": "20.0%"
+              "count": 994,
+              "pct": "19.9%"
             },
             {
               "hf": "平平",
-              "count": 670,
-              "pct": "13.4%"
+              "count": 722,
+              "pct": "14.4%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 279,
-              "pct": "5.6%"
+              "count": 286,
+              "pct": "5.7%"
             },
             {
-              "score": "2-3",
-              "count": 156,
-              "pct": "3.1%"
+              "score": "1-4",
+              "count": 140,
+              "pct": "2.8%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "18.9",
-            "drawPct": "22.8",
-            "awayPct": "58.3"
+            "homePct": "18.5",
+            "drawPct": "24.2",
+            "awayPct": "57.3"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -1897,52 +1897,52 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 535,
-              "pct": "10.7%"
+              "count": 532,
+              "pct": "10.6%"
             },
             {
               "score": "0-2",
-              "count": 523,
+              "count": 527,
               "pct": "10.5%"
             },
             {
               "score": "0-1",
-              "count": 517,
-              "pct": "10.3%"
+              "count": 525,
+              "pct": "10.5%"
             },
             {
               "score": "1-2",
-              "count": 497,
-              "pct": "9.9%"
+              "count": 506,
+              "pct": "10.1%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 1710,
-              "pct": "34.2%"
+              "count": 1649,
+              "pct": "33.0%"
             },
             {
               "hf": "平负",
-              "count": 1001,
-              "pct": "20.0%"
+              "count": 994,
+              "pct": "19.9%"
             },
             {
               "hf": "平平",
-              "count": 670,
-              "pct": "13.4%"
+              "count": 722,
+              "pct": "14.4%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 279,
-              "pct": "5.6%"
+              "count": 286,
+              "pct": "5.7%"
             },
             {
-              "score": "2-3",
-              "count": 156,
-              "pct": "3.1%"
+              "score": "1-4",
+              "count": 140,
+              "pct": "2.8%"
             }
           ]
         }
@@ -2073,9 +2073,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "10.7",
-            "drawPct": "17.2",
-            "awayPct": "72.2"
+            "homePct": "10.9",
+            "drawPct": "16.6",
+            "awayPct": "72.5"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -2086,52 +2086,52 @@
           },
           "topScores": [
             {
-              "score": "0-2",
-              "count": 499,
-              "pct": "10.0%"
+              "score": "1-2",
+              "count": 485,
+              "pct": "9.7%"
             },
             {
-              "score": "1-2",
-              "count": 464,
-              "pct": "9.3%"
+              "score": "0-2",
+              "count": 484,
+              "pct": "9.7%"
             },
             {
               "score": "0-1",
-              "count": 410,
-              "pct": "8.2%"
+              "count": 420,
+              "pct": "8.4%"
             },
             {
               "score": "0-3",
-              "count": 392,
-              "pct": "7.8%"
+              "count": 403,
+              "pct": "8.1%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 2325,
-              "pct": "46.5%"
+              "count": 2320,
+              "pct": "46.4%"
             },
             {
               "hf": "平负",
-              "count": 1053,
-              "pct": "21.1%"
+              "count": 1050,
+              "pct": "21.0%"
             },
             {
               "hf": "平平",
-              "count": 469,
-              "pct": "9.4%"
+              "count": 453,
+              "pct": "9.1%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 392,
-              "pct": "7.8%"
+              "count": 403,
+              "pct": "8.1%"
             },
             {
-              "score": "1-4",
-              "count": 264,
+              "score": "0-4",
+              "count": 263,
               "pct": "5.3%"
             }
           ]
@@ -2139,9 +2139,9 @@
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "10.7",
-            "drawPct": "17.2",
-            "awayPct": "72.2"
+            "homePct": "10.9",
+            "drawPct": "16.6",
+            "awayPct": "72.5"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -2152,52 +2152,52 @@
           },
           "topScores": [
             {
-              "score": "0-2",
-              "count": 499,
-              "pct": "10.0%"
+              "score": "1-2",
+              "count": 485,
+              "pct": "9.7%"
             },
             {
-              "score": "1-2",
-              "count": 464,
-              "pct": "9.3%"
+              "score": "0-2",
+              "count": 484,
+              "pct": "9.7%"
             },
             {
               "score": "0-1",
-              "count": 410,
-              "pct": "8.2%"
+              "count": 420,
+              "pct": "8.4%"
             },
             {
               "score": "0-3",
-              "count": 392,
-              "pct": "7.8%"
+              "count": 403,
+              "pct": "8.1%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 2325,
-              "pct": "46.5%"
+              "count": 2320,
+              "pct": "46.4%"
             },
             {
               "hf": "平负",
-              "count": 1053,
-              "pct": "21.1%"
+              "count": 1050,
+              "pct": "21.0%"
             },
             {
               "hf": "平平",
-              "count": 469,
-              "pct": "9.4%"
+              "count": 453,
+              "pct": "9.1%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 392,
-              "pct": "7.8%"
+              "count": 403,
+              "pct": "8.1%"
             },
             {
-              "score": "1-4",
-              "count": 264,
+              "score": "0-4",
+              "count": 263,
               "pct": "5.3%"
             }
           ]
@@ -3418,9 +3418,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "29.5",
-            "drawPct": "29.0",
-            "awayPct": "41.5"
+            "homePct": "30.9",
+            "drawPct": "27.7",
+            "awayPct": "41.3"
           },
           "styleTag": {
             "name": "⚔️ 均势对喷型",
@@ -3432,61 +3432,61 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 634,
-              "pct": "12.7%"
+              "count": 621,
+              "pct": "12.4%"
             },
             {
               "score": "0-1",
-              "count": 539,
-              "pct": "10.8%"
+              "count": 527,
+              "pct": "10.5%"
+            },
+            {
+              "score": "1-0",
+              "count": 506,
+              "pct": "10.1%"
             },
             {
               "score": "0-0",
-              "count": 491,
-              "pct": "9.8%"
-            },
-            {
-              "score": "1-2",
-              "count": 448,
-              "pct": "9.0%"
+              "count": 456,
+              "pct": "9.1%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 1064,
-              "pct": "21.3%"
+              "count": 1080,
+              "pct": "21.6%"
             },
             {
               "hf": "平平",
-              "count": 911,
-              "pct": "18.2%"
+              "count": 849,
+              "pct": "17.0%"
             },
             {
               "hf": "平负",
-              "count": 825,
-              "pct": "16.5%"
+              "count": 820,
+              "pct": "16.4%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 151,
-              "pct": "3.0%"
+              "count": 163,
+              "pct": "3.3%"
             },
             {
               "score": "2-3",
-              "count": 126,
-              "pct": "2.5%"
+              "count": 117,
+              "pct": "2.3%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "29.5",
-            "drawPct": "29.0",
-            "awayPct": "41.5"
+            "homePct": "30.9",
+            "drawPct": "27.7",
+            "awayPct": "41.3"
           },
           "styleTag": {
             "name": "⚔️ 均势对喷型",
@@ -3498,52 +3498,52 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 634,
-              "pct": "12.7%"
+              "count": 621,
+              "pct": "12.4%"
             },
             {
               "score": "0-1",
-              "count": 539,
-              "pct": "10.8%"
+              "count": 527,
+              "pct": "10.5%"
+            },
+            {
+              "score": "1-0",
+              "count": 506,
+              "pct": "10.1%"
             },
             {
               "score": "0-0",
-              "count": 491,
-              "pct": "9.8%"
-            },
-            {
-              "score": "1-2",
-              "count": 448,
-              "pct": "9.0%"
+              "count": 456,
+              "pct": "9.1%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 1064,
-              "pct": "21.3%"
+              "count": 1080,
+              "pct": "21.6%"
             },
             {
               "hf": "平平",
-              "count": 911,
-              "pct": "18.2%"
+              "count": 849,
+              "pct": "17.0%"
             },
             {
               "hf": "平负",
-              "count": 825,
-              "pct": "16.5%"
+              "count": 820,
+              "pct": "16.4%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 151,
-              "pct": "3.0%"
+              "count": 163,
+              "pct": "3.3%"
             },
             {
               "score": "2-3",
-              "count": 126,
-              "pct": "2.5%"
+              "count": 117,
+              "pct": "2.3%"
             }
           ]
         }
@@ -3702,9 +3702,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "74.6",
-            "drawPct": "17.3",
-            "awayPct": "8.1"
+            "homePct": "74.7",
+            "drawPct": "17.6",
+            "awayPct": "7.7"
           },
           "styleTag": {
             "name": "🛡️ 强弱悬殊型",
@@ -3716,61 +3716,61 @@
           "topScores": [
             {
               "score": "2-0",
-              "count": 717,
+              "count": 715,
               "pct": "14.3%"
             },
             {
               "score": "1-0",
-              "count": 649,
-              "pct": "13.0%"
+              "count": 657,
+              "pct": "13.1%"
             },
             {
               "score": "3-0",
-              "count": 513,
-              "pct": "10.3%"
+              "count": 530,
+              "pct": "10.6%"
             },
             {
               "score": "2-1",
-              "count": 440,
-              "pct": "8.8%"
+              "count": 444,
+              "pct": "8.9%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2369,
-              "pct": "47.4%"
+              "count": 2401,
+              "pct": "48.0%"
             },
             {
               "hf": "平胜",
-              "count": 1197,
-              "pct": "23.9%"
+              "count": 1161,
+              "pct": "23.2%"
             },
             {
               "hf": "平平",
-              "count": 579,
+              "count": 581,
               "pct": "11.6%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 318,
-              "pct": "6.4%"
+              "count": 291,
+              "pct": "5.8%"
             },
             {
               "score": "4-1",
-              "count": 177,
-              "pct": "3.5%"
+              "count": 203,
+              "pct": "4.1%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "74.6",
-            "drawPct": "17.3",
-            "awayPct": "8.1"
+            "homePct": "74.7",
+            "drawPct": "17.6",
+            "awayPct": "7.7"
           },
           "styleTag": {
             "name": "🛡️ 强弱悬殊型",
@@ -3782,52 +3782,52 @@
           "topScores": [
             {
               "score": "2-0",
-              "count": 717,
+              "count": 715,
               "pct": "14.3%"
             },
             {
               "score": "1-0",
-              "count": 649,
-              "pct": "13.0%"
+              "count": 657,
+              "pct": "13.1%"
             },
             {
               "score": "3-0",
-              "count": 513,
-              "pct": "10.3%"
+              "count": 530,
+              "pct": "10.6%"
             },
             {
               "score": "2-1",
-              "count": 440,
-              "pct": "8.8%"
+              "count": 444,
+              "pct": "8.9%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2369,
-              "pct": "47.4%"
+              "count": 2401,
+              "pct": "48.0%"
             },
             {
               "hf": "平胜",
-              "count": 1197,
-              "pct": "23.9%"
+              "count": 1161,
+              "pct": "23.2%"
             },
             {
               "hf": "平平",
-              "count": 579,
+              "count": 581,
               "pct": "11.6%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 318,
-              "pct": "6.4%"
+              "count": 291,
+              "pct": "5.8%"
             },
             {
               "score": "4-1",
-              "count": 177,
-              "pct": "3.5%"
+              "count": 203,
+              "pct": "4.1%"
             }
           ]
         }
@@ -3911,8 +3911,8 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "71.2",
-            "drawPct": "19.2",
+            "homePct": "71.0",
+            "drawPct": "19.4",
             "awayPct": "9.6"
           },
           "styleTag": {
@@ -3925,60 +3925,60 @@
           "topScores": [
             {
               "score": "1-0",
-              "count": 691,
-              "pct": "13.8%"
+              "count": 715,
+              "pct": "14.3%"
             },
             {
               "score": "2-0",
-              "count": 687,
+              "count": 685,
               "pct": "13.7%"
             },
             {
               "score": "2-1",
-              "count": 473,
-              "pct": "9.5%"
+              "count": 480,
+              "pct": "9.6%"
             },
             {
               "score": "3-0",
-              "count": 453,
-              "pct": "9.1%"
+              "count": 445,
+              "pct": "8.9%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2171,
-              "pct": "43.4%"
+              "count": 2126,
+              "pct": "42.5%"
             },
             {
               "hf": "平胜",
-              "count": 1210,
-              "pct": "24.2%"
+              "count": 1253,
+              "pct": "25.1%"
             },
             {
               "hf": "平平",
-              "count": 626,
-              "pct": "12.5%"
+              "count": 628,
+              "pct": "12.6%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 244,
-              "pct": "4.9%"
+              "count": 214,
+              "pct": "4.3%"
             },
             {
               "score": "4-1",
-              "count": 154,
-              "pct": "3.1%"
+              "count": 161,
+              "pct": "3.2%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "71.2",
-            "drawPct": "19.2",
+            "homePct": "71.0",
+            "drawPct": "19.4",
             "awayPct": "9.6"
           },
           "styleTag": {
@@ -3991,52 +3991,52 @@
           "topScores": [
             {
               "score": "1-0",
-              "count": 691,
-              "pct": "13.8%"
+              "count": 715,
+              "pct": "14.3%"
             },
             {
               "score": "2-0",
-              "count": 687,
+              "count": 685,
               "pct": "13.7%"
             },
             {
               "score": "2-1",
-              "count": 473,
-              "pct": "9.5%"
+              "count": 480,
+              "pct": "9.6%"
             },
             {
               "score": "3-0",
-              "count": 453,
-              "pct": "9.1%"
+              "count": 445,
+              "pct": "8.9%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2171,
-              "pct": "43.4%"
+              "count": 2126,
+              "pct": "42.5%"
             },
             {
               "hf": "平胜",
-              "count": 1210,
-              "pct": "24.2%"
+              "count": 1253,
+              "pct": "25.1%"
             },
             {
               "hf": "平平",
-              "count": 626,
-              "pct": "12.5%"
+              "count": 628,
+              "pct": "12.6%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 244,
-              "pct": "4.9%"
+              "count": 214,
+              "pct": "4.3%"
             },
             {
               "score": "4-1",
-              "count": 154,
-              "pct": "3.1%"
+              "count": 161,
+              "pct": "3.2%"
             }
           ]
         }
@@ -4120,9 +4120,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "68.2",
-            "drawPct": "19.8",
-            "awayPct": "12.1"
+            "homePct": "68.1",
+            "drawPct": "19.0",
+            "awayPct": "12.9"
           },
           "styleTag": {
             "name": "🛡️ 强弱悬殊型",
@@ -4134,61 +4134,61 @@
           "topScores": [
             {
               "score": "2-0",
-              "count": 668,
-              "pct": "13.4%"
+              "count": 626,
+              "pct": "12.5%"
             },
             {
               "score": "1-0",
-              "count": 594,
-              "pct": "11.9%"
+              "count": 610,
+              "pct": "12.2%"
             },
             {
               "score": "2-1",
-              "count": 474,
-              "pct": "9.5%"
+              "count": 459,
+              "pct": "9.2%"
             },
             {
               "score": "1-1",
-              "count": 453,
-              "pct": "9.1%"
+              "count": 437,
+              "pct": "8.7%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2106,
-              "pct": "42.1%"
+              "count": 2092,
+              "pct": "41.8%"
             },
             {
               "hf": "平胜",
-              "count": 1120,
-              "pct": "22.4%"
+              "count": 1128,
+              "pct": "22.6%"
             },
             {
               "hf": "平平",
-              "count": 608,
-              "pct": "12.2%"
+              "count": 605,
+              "pct": "12.1%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 225,
-              "pct": "4.5%"
+              "count": 210,
+              "pct": "4.2%"
             },
             {
               "score": "4-1",
-              "count": 178,
-              "pct": "3.6%"
+              "count": 172,
+              "pct": "3.4%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "68.2",
-            "drawPct": "19.8",
-            "awayPct": "12.1"
+            "homePct": "68.1",
+            "drawPct": "19.0",
+            "awayPct": "12.9"
           },
           "styleTag": {
             "name": "🛡️ 强弱悬殊型",
@@ -4200,52 +4200,52 @@
           "topScores": [
             {
               "score": "2-0",
-              "count": 668,
-              "pct": "13.4%"
+              "count": 626,
+              "pct": "12.5%"
             },
             {
               "score": "1-0",
-              "count": 594,
-              "pct": "11.9%"
+              "count": 610,
+              "pct": "12.2%"
             },
             {
               "score": "2-1",
-              "count": 474,
-              "pct": "9.5%"
+              "count": 459,
+              "pct": "9.2%"
             },
             {
               "score": "1-1",
-              "count": 453,
-              "pct": "9.1%"
+              "count": 437,
+              "pct": "8.7%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2106,
-              "pct": "42.1%"
+              "count": 2092,
+              "pct": "41.8%"
             },
             {
               "hf": "平胜",
-              "count": 1120,
-              "pct": "22.4%"
+              "count": 1128,
+              "pct": "22.6%"
             },
             {
               "hf": "平平",
-              "count": 608,
-              "pct": "12.2%"
+              "count": 605,
+              "pct": "12.1%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 225,
-              "pct": "4.5%"
+              "count": 210,
+              "pct": "4.2%"
             },
             {
               "score": "4-1",
-              "count": 178,
-              "pct": "3.6%"
+              "count": 172,
+              "pct": "3.4%"
             }
           ]
         }
@@ -4329,8 +4329,8 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "51.6",
-            "drawPct": "24.9",
+            "homePct": "51.2",
+            "drawPct": "25.4",
             "awayPct": "23.5"
           },
           "styleTag": {
@@ -4343,60 +4343,60 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 557,
-              "pct": "11.1%"
+              "count": 596,
+              "pct": "11.9%"
             },
             {
               "score": "1-0",
-              "count": 543,
-              "pct": "10.9%"
+              "count": 541,
+              "pct": "10.8%"
             },
             {
               "score": "2-1",
-              "count": 490,
-              "pct": "9.8%"
+              "count": 487,
+              "pct": "9.7%"
             },
             {
               "score": "2-0",
-              "count": 419,
-              "pct": "8.4%"
+              "count": 427,
+              "pct": "8.5%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 1459,
-              "pct": "29.2%"
+              "count": 1455,
+              "pct": "29.1%"
             },
             {
               "hf": "平胜",
-              "count": 947,
-              "pct": "18.9%"
+              "count": 937,
+              "pct": "18.7%"
             },
             {
               "hf": "平平",
-              "count": 756,
-              "pct": "15.1%"
+              "count": 763,
+              "pct": "15.3%"
             }
           ],
           "wildOutliers": [
             {
               "score": "3-2",
-              "count": 133,
-              "pct": "2.7%"
+              "count": 146,
+              "pct": "2.9%"
             },
             {
               "score": "4-1",
-              "count": 131,
-              "pct": "2.6%"
+              "count": 116,
+              "pct": "2.3%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "51.6",
-            "drawPct": "24.9",
+            "homePct": "51.2",
+            "drawPct": "25.4",
             "awayPct": "23.5"
           },
           "styleTag": {
@@ -4409,52 +4409,52 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 557,
-              "pct": "11.1%"
+              "count": 596,
+              "pct": "11.9%"
             },
             {
               "score": "1-0",
-              "count": 543,
-              "pct": "10.9%"
+              "count": 541,
+              "pct": "10.8%"
             },
             {
               "score": "2-1",
-              "count": 490,
-              "pct": "9.8%"
+              "count": 487,
+              "pct": "9.7%"
             },
             {
               "score": "2-0",
-              "count": 419,
-              "pct": "8.4%"
+              "count": 427,
+              "pct": "8.5%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 1459,
-              "pct": "29.2%"
+              "count": 1455,
+              "pct": "29.1%"
             },
             {
               "hf": "平胜",
-              "count": 947,
-              "pct": "18.9%"
+              "count": 937,
+              "pct": "18.7%"
             },
             {
               "hf": "平平",
-              "count": 756,
-              "pct": "15.1%"
+              "count": 763,
+              "pct": "15.3%"
             }
           ],
           "wildOutliers": [
             {
               "score": "3-2",
-              "count": 133,
-              "pct": "2.7%"
+              "count": 146,
+              "pct": "2.9%"
             },
             {
               "score": "4-1",
-              "count": 131,
-              "pct": "2.6%"
+              "count": 116,
+              "pct": "2.3%"
             }
           ]
         }
@@ -4538,9 +4538,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "80.6",
-            "drawPct": "13.6",
-            "awayPct": "5.8"
+            "homePct": "79.8",
+            "drawPct": "14.1",
+            "awayPct": "6.1"
           },
           "styleTag": {
             "name": "🛡️ 强弱悬殊型",
@@ -4552,61 +4552,61 @@
           "topScores": [
             {
               "score": "2-0",
-              "count": 666,
-              "pct": "13.3%"
-            },
-            {
-              "score": "1-0",
-              "count": 546,
-              "pct": "10.9%"
+              "count": 645,
+              "pct": "12.9%"
             },
             {
               "score": "3-0",
-              "count": 543,
-              "pct": "10.9%"
+              "count": 597,
+              "pct": "11.9%"
             },
             {
-              "score": "2-1",
-              "count": 392,
-              "pct": "7.8%"
+              "score": "1-0",
+              "count": 516,
+              "pct": "10.3%"
+            },
+            {
+              "score": "4-0",
+              "count": 394,
+              "pct": "7.9%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2676,
-              "pct": "53.5%"
+              "count": 2717,
+              "pct": "54.3%"
             },
             {
               "hf": "平胜",
-              "count": 1175,
-              "pct": "23.5%"
+              "count": 1094,
+              "pct": "21.9%"
             },
             {
               "hf": "平平",
-              "count": 429,
-              "pct": "8.6%"
+              "count": 452,
+              "pct": "9.0%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 356,
-              "pct": "7.1%"
+              "count": 394,
+              "pct": "7.9%"
             },
             {
               "score": "4-1",
-              "count": 271,
-              "pct": "5.4%"
+              "count": 238,
+              "pct": "4.8%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "80.6",
-            "drawPct": "13.6",
-            "awayPct": "5.8"
+            "homePct": "79.8",
+            "drawPct": "14.1",
+            "awayPct": "6.1"
           },
           "styleTag": {
             "name": "🛡️ 强弱悬殊型",
@@ -4618,52 +4618,52 @@
           "topScores": [
             {
               "score": "2-0",
-              "count": 666,
-              "pct": "13.3%"
-            },
-            {
-              "score": "1-0",
-              "count": 546,
-              "pct": "10.9%"
+              "count": 645,
+              "pct": "12.9%"
             },
             {
               "score": "3-0",
-              "count": 543,
-              "pct": "10.9%"
+              "count": 597,
+              "pct": "11.9%"
             },
             {
-              "score": "2-1",
-              "count": 392,
-              "pct": "7.8%"
+              "score": "1-0",
+              "count": 516,
+              "pct": "10.3%"
+            },
+            {
+              "score": "4-0",
+              "count": 394,
+              "pct": "7.9%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2676,
-              "pct": "53.5%"
+              "count": 2717,
+              "pct": "54.3%"
             },
             {
               "hf": "平胜",
-              "count": 1175,
-              "pct": "23.5%"
+              "count": 1094,
+              "pct": "21.9%"
             },
             {
               "hf": "平平",
-              "count": 429,
-              "pct": "8.6%"
+              "count": 452,
+              "pct": "9.0%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 356,
-              "pct": "7.1%"
+              "count": 394,
+              "pct": "7.9%"
             },
             {
               "score": "4-1",
-              "count": 271,
-              "pct": "5.4%"
+              "count": 238,
+              "pct": "4.8%"
             }
           ]
         }
@@ -4751,9 +4751,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "67.5",
-            "drawPct": "20.8",
-            "awayPct": "11.7"
+            "homePct": "66.9",
+            "drawPct": "21.2",
+            "awayPct": "11.9"
           },
           "styleTag": {
             "name": "🛡️ 强弱悬殊型",
@@ -4765,61 +4765,61 @@
           "topScores": [
             {
               "score": "1-0",
-              "count": 679,
-              "pct": "13.6%"
+              "count": 716,
+              "pct": "14.3%"
             },
             {
               "score": "2-0",
-              "count": 645,
-              "pct": "12.9%"
+              "count": 669,
+              "pct": "13.4%"
             },
             {
               "score": "1-1",
-              "count": 453,
-              "pct": "9.1%"
+              "count": 461,
+              "pct": "9.2%"
             },
             {
               "score": "2-1",
-              "count": 446,
-              "pct": "8.9%"
+              "count": 449,
+              "pct": "9.0%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2046,
-              "pct": "40.9%"
+              "count": 2075,
+              "pct": "41.5%"
             },
             {
               "hf": "平胜",
-              "count": 1149,
-              "pct": "23.0%"
+              "count": 1113,
+              "pct": "22.3%"
             },
             {
               "hf": "平平",
-              "count": 686,
+              "count": 685,
               "pct": "13.7%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 215,
-              "pct": "4.3%"
+              "count": 204,
+              "pct": "4.1%"
             },
             {
               "score": "4-1",
-              "count": 174,
-              "pct": "3.5%"
+              "count": 163,
+              "pct": "3.3%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "67.5",
-            "drawPct": "20.8",
-            "awayPct": "11.7"
+            "homePct": "66.9",
+            "drawPct": "21.2",
+            "awayPct": "11.9"
           },
           "styleTag": {
             "name": "🛡️ 强弱悬殊型",
@@ -4831,52 +4831,52 @@
           "topScores": [
             {
               "score": "1-0",
-              "count": 679,
-              "pct": "13.6%"
+              "count": 716,
+              "pct": "14.3%"
             },
             {
               "score": "2-0",
-              "count": 645,
-              "pct": "12.9%"
+              "count": 669,
+              "pct": "13.4%"
             },
             {
               "score": "1-1",
-              "count": 453,
-              "pct": "9.1%"
+              "count": 461,
+              "pct": "9.2%"
             },
             {
               "score": "2-1",
-              "count": 446,
-              "pct": "8.9%"
+              "count": 449,
+              "pct": "9.0%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2046,
-              "pct": "40.9%"
+              "count": 2075,
+              "pct": "41.5%"
             },
             {
               "hf": "平胜",
-              "count": 1149,
-              "pct": "23.0%"
+              "count": 1113,
+              "pct": "22.3%"
             },
             {
               "hf": "平平",
-              "count": 686,
+              "count": 685,
               "pct": "13.7%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 215,
-              "pct": "4.3%"
+              "count": 204,
+              "pct": "4.1%"
             },
             {
               "score": "4-1",
-              "count": 174,
-              "pct": "3.5%"
+              "count": 163,
+              "pct": "3.3%"
             }
           ]
         }
@@ -4964,9 +4964,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "47.5",
-            "drawPct": "25.8",
-            "awayPct": "26.7"
+            "homePct": "45.8",
+            "drawPct": "26.9",
+            "awayPct": "27.3"
           },
           "styleTag": {
             "name": "⚖️ 战术胶着型",
@@ -4978,51 +4978,51 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 580,
-              "pct": "11.6%"
+              "count": 606,
+              "pct": "12.1%"
             },
             {
               "score": "1-0",
-              "count": 567,
-              "pct": "11.3%"
+              "count": 529,
+              "pct": "10.6%"
             },
             {
               "score": "2-1",
-              "count": 484,
-              "pct": "9.7%"
+              "count": 465,
+              "pct": "9.3%"
             },
             {
-              "score": "0-1",
-              "count": 415,
-              "pct": "8.3%"
+              "score": "0-0",
+              "count": 419,
+              "pct": "8.4%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 1290,
-              "pct": "25.8%"
+              "count": 1207,
+              "pct": "24.1%"
             },
             {
               "hf": "平胜",
-              "count": 906,
-              "pct": "18.1%"
+              "count": 879,
+              "pct": "17.6%"
             },
             {
               "hf": "平平",
-              "count": 784,
-              "pct": "15.7%"
+              "count": 831,
+              "pct": "16.6%"
             }
           ],
           "wildOutliers": [
             {
               "score": "3-2",
-              "count": 137,
+              "count": 136,
               "pct": "2.7%"
             },
             {
               "score": "2-3",
-              "count": 104,
+              "count": 103,
               "pct": "2.1%"
             }
           ]
@@ -5030,9 +5030,9 @@
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "47.5",
-            "drawPct": "25.8",
-            "awayPct": "26.7"
+            "homePct": "45.8",
+            "drawPct": "26.9",
+            "awayPct": "27.3"
           },
           "styleTag": {
             "name": "⚖️ 战术胶着型",
@@ -5044,51 +5044,51 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 580,
-              "pct": "11.6%"
+              "count": 606,
+              "pct": "12.1%"
             },
             {
               "score": "1-0",
-              "count": 567,
-              "pct": "11.3%"
+              "count": 529,
+              "pct": "10.6%"
             },
             {
               "score": "2-1",
-              "count": 484,
-              "pct": "9.7%"
+              "count": 465,
+              "pct": "9.3%"
             },
             {
-              "score": "0-1",
-              "count": 415,
-              "pct": "8.3%"
+              "score": "0-0",
+              "count": 419,
+              "pct": "8.4%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 1290,
-              "pct": "25.8%"
+              "count": 1207,
+              "pct": "24.1%"
             },
             {
               "hf": "平胜",
-              "count": 906,
-              "pct": "18.1%"
+              "count": 879,
+              "pct": "17.6%"
             },
             {
               "hf": "平平",
-              "count": 784,
-              "pct": "15.7%"
+              "count": 831,
+              "pct": "16.6%"
             }
           ],
           "wildOutliers": [
             {
               "score": "3-2",
-              "count": 137,
+              "count": 136,
               "pct": "2.7%"
             },
             {
               "score": "2-3",
-              "count": 104,
+              "count": 103,
               "pct": "2.1%"
             }
           ]
@@ -5173,9 +5173,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "62.8",
-            "drawPct": "21.8",
-            "awayPct": "15.4"
+            "homePct": "62.0",
+            "drawPct": "23.4",
+            "awayPct": "14.7"
           },
           "styleTag": {
             "name": "🔥 强攻突破型",
@@ -5187,21 +5187,21 @@
           "topScores": [
             {
               "score": "1-0",
-              "count": 623,
-              "pct": "12.5%"
+              "count": 593,
+              "pct": "11.9%"
             },
             {
               "score": "2-0",
-              "count": 560,
-              "pct": "11.2%"
-            },
-            {
-              "score": "2-1",
-              "count": 518,
-              "pct": "10.4%"
+              "count": 579,
+              "pct": "11.6%"
             },
             {
               "score": "1-1",
+              "count": 514,
+              "pct": "10.3%"
+            },
+            {
+              "score": "2-1",
               "count": 476,
               "pct": "9.5%"
             }
@@ -5209,39 +5209,39 @@
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 1810,
-              "pct": "36.2%"
+              "count": 1846,
+              "pct": "36.9%"
             },
             {
               "hf": "平胜",
-              "count": 1111,
-              "pct": "22.2%"
+              "count": 1077,
+              "pct": "21.5%"
             },
             {
               "hf": "平平",
-              "count": 658,
-              "pct": "13.2%"
+              "count": 723,
+              "pct": "14.5%"
             }
           ],
           "wildOutliers": [
             {
-              "score": "4-0",
-              "count": 175,
-              "pct": "3.5%"
+              "score": "4-1",
+              "count": 165,
+              "pct": "3.3%"
             },
             {
-              "score": "4-1",
-              "count": 156,
-              "pct": "3.1%"
+              "score": "4-0",
+              "count": 161,
+              "pct": "3.2%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "62.8",
-            "drawPct": "21.8",
-            "awayPct": "15.4"
+            "homePct": "62.0",
+            "drawPct": "23.4",
+            "awayPct": "14.7"
           },
           "styleTag": {
             "name": "🔥 强攻突破型",
@@ -5253,21 +5253,21 @@
           "topScores": [
             {
               "score": "1-0",
-              "count": 623,
-              "pct": "12.5%"
+              "count": 593,
+              "pct": "11.9%"
             },
             {
               "score": "2-0",
-              "count": 560,
-              "pct": "11.2%"
-            },
-            {
-              "score": "2-1",
-              "count": 518,
-              "pct": "10.4%"
+              "count": 579,
+              "pct": "11.6%"
             },
             {
               "score": "1-1",
+              "count": 514,
+              "pct": "10.3%"
+            },
+            {
+              "score": "2-1",
               "count": 476,
               "pct": "9.5%"
             }
@@ -5275,30 +5275,30 @@
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 1810,
-              "pct": "36.2%"
+              "count": 1846,
+              "pct": "36.9%"
             },
             {
               "hf": "平胜",
-              "count": 1111,
-              "pct": "22.2%"
+              "count": 1077,
+              "pct": "21.5%"
             },
             {
               "hf": "平平",
-              "count": 658,
-              "pct": "13.2%"
+              "count": 723,
+              "pct": "14.5%"
             }
           ],
           "wildOutliers": [
             {
-              "score": "4-0",
-              "count": 175,
-              "pct": "3.5%"
+              "score": "4-1",
+              "count": 165,
+              "pct": "3.3%"
             },
             {
-              "score": "4-1",
-              "count": 156,
-              "pct": "3.1%"
+              "score": "4-0",
+              "count": 161,
+              "pct": "3.2%"
             }
           ]
         }
@@ -5386,9 +5386,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "19.1",
-            "drawPct": "23.6",
-            "awayPct": "57.3"
+            "homePct": "17.7",
+            "drawPct": "24.2",
+            "awayPct": "58.1"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -5400,61 +5400,61 @@
           "topScores": [
             {
               "score": "0-1",
-              "count": 574,
-              "pct": "11.5%"
+              "count": 596,
+              "pct": "11.9%"
             },
             {
               "score": "1-1",
-              "count": 545,
+              "count": 543,
               "pct": "10.9%"
             },
             {
-              "score": "0-2",
-              "count": 497,
-              "pct": "9.9%"
+              "score": "1-2",
+              "count": 503,
+              "pct": "10.1%"
             },
             {
-              "score": "1-2",
-              "count": 460,
-              "pct": "9.2%"
+              "score": "0-2",
+              "count": 486,
+              "pct": "9.7%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 1680,
-              "pct": "33.6%"
+              "count": 1663,
+              "pct": "33.3%"
             },
             {
               "hf": "平负",
-              "count": 984,
-              "pct": "19.7%"
+              "count": 1033,
+              "pct": "20.7%"
             },
             {
               "hf": "平平",
-              "count": 712,
-              "pct": "14.2%"
+              "count": 753,
+              "pct": "15.1%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 319,
-              "pct": "6.4%"
+              "count": 311,
+              "pct": "6.2%"
             },
             {
               "score": "1-4",
-              "count": 143,
-              "pct": "2.9%"
+              "count": 154,
+              "pct": "3.1%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "19.1",
-            "drawPct": "23.6",
-            "awayPct": "57.3"
+            "homePct": "17.7",
+            "drawPct": "24.2",
+            "awayPct": "58.1"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -5466,52 +5466,52 @@
           "topScores": [
             {
               "score": "0-1",
-              "count": 574,
-              "pct": "11.5%"
+              "count": 596,
+              "pct": "11.9%"
             },
             {
               "score": "1-1",
-              "count": 545,
+              "count": 543,
               "pct": "10.9%"
             },
             {
-              "score": "0-2",
-              "count": 497,
-              "pct": "9.9%"
+              "score": "1-2",
+              "count": 503,
+              "pct": "10.1%"
             },
             {
-              "score": "1-2",
-              "count": 460,
-              "pct": "9.2%"
+              "score": "0-2",
+              "count": 486,
+              "pct": "9.7%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 1680,
-              "pct": "33.6%"
+              "count": 1663,
+              "pct": "33.3%"
             },
             {
               "hf": "平负",
-              "count": 984,
-              "pct": "19.7%"
+              "count": 1033,
+              "pct": "20.7%"
             },
             {
               "hf": "平平",
-              "count": 712,
-              "pct": "14.2%"
+              "count": 753,
+              "pct": "15.1%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 319,
-              "pct": "6.4%"
+              "count": 311,
+              "pct": "6.2%"
             },
             {
               "score": "1-4",
-              "count": 143,
-              "pct": "2.9%"
+              "count": 154,
+              "pct": "3.1%"
             }
           ]
         }
@@ -5599,9 +5599,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "21.6",
-            "drawPct": "26.6",
-            "awayPct": "51.8"
+            "homePct": "21.3",
+            "drawPct": "24.5",
+            "awayPct": "54.2"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -5613,61 +5613,61 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 601,
-              "pct": "12.0%"
+              "count": 554,
+              "pct": "11.1%"
             },
             {
               "score": "0-1",
-              "count": 520,
-              "pct": "10.4%"
-            },
-            {
-              "score": "1-2",
-              "count": 491,
-              "pct": "9.8%"
+              "count": 546,
+              "pct": "10.9%"
             },
             {
               "score": "0-2",
-              "count": 429,
-              "pct": "8.6%"
+              "count": 494,
+              "pct": "9.9%"
+            },
+            {
+              "score": "1-2",
+              "count": 466,
+              "pct": "9.3%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 1415,
-              "pct": "28.3%"
+              "count": 1476,
+              "pct": "29.5%"
             },
             {
               "hf": "平负",
-              "count": 975,
-              "pct": "19.5%"
+              "count": 1032,
+              "pct": "20.6%"
             },
             {
               "hf": "平平",
-              "count": 816,
-              "pct": "16.3%"
+              "count": 703,
+              "pct": "14.1%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 239,
-              "pct": "4.8%"
+              "count": 268,
+              "pct": "5.4%"
             },
             {
               "score": "2-3",
-              "count": 154,
-              "pct": "3.1%"
+              "count": 163,
+              "pct": "3.3%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "21.6",
-            "drawPct": "26.6",
-            "awayPct": "51.8"
+            "homePct": "21.3",
+            "drawPct": "24.5",
+            "awayPct": "54.2"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -5679,52 +5679,52 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 601,
-              "pct": "12.0%"
+              "count": 554,
+              "pct": "11.1%"
             },
             {
               "score": "0-1",
-              "count": 520,
-              "pct": "10.4%"
-            },
-            {
-              "score": "1-2",
-              "count": 491,
-              "pct": "9.8%"
+              "count": 546,
+              "pct": "10.9%"
             },
             {
               "score": "0-2",
-              "count": 429,
-              "pct": "8.6%"
+              "count": 494,
+              "pct": "9.9%"
+            },
+            {
+              "score": "1-2",
+              "count": 466,
+              "pct": "9.3%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 1415,
-              "pct": "28.3%"
+              "count": 1476,
+              "pct": "29.5%"
             },
             {
               "hf": "平负",
-              "count": 975,
-              "pct": "19.5%"
+              "count": 1032,
+              "pct": "20.6%"
             },
             {
               "hf": "平平",
-              "count": 816,
-              "pct": "16.3%"
+              "count": 703,
+              "pct": "14.1%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 239,
-              "pct": "4.8%"
+              "count": 268,
+              "pct": "5.4%"
             },
             {
               "score": "2-3",
-              "count": 154,
-              "pct": "3.1%"
+              "count": 163,
+              "pct": "3.3%"
             }
           ]
         }
@@ -5812,9 +5812,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "40.9",
-            "drawPct": "27.9",
-            "awayPct": "31.2"
+            "homePct": "41.7",
+            "drawPct": "26.7",
+            "awayPct": "31.6"
           },
           "styleTag": {
             "name": "⚔️ 均势对喷型",
@@ -5826,61 +5826,61 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 646,
-              "pct": "12.9%"
+              "count": 592,
+              "pct": "11.8%"
             },
             {
               "score": "1-0",
-              "count": 573,
-              "pct": "11.5%"
+              "count": 586,
+              "pct": "11.7%"
             },
             {
               "score": "0-1",
-              "count": 452,
-              "pct": "9.0%"
+              "count": 472,
+              "pct": "9.4%"
             },
             {
               "score": "0-0",
-              "count": 447,
+              "count": 446,
               "pct": "8.9%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 1010,
-              "pct": "20.2%"
-            },
-            {
-              "hf": "平平",
-              "count": 884,
-              "pct": "17.7%"
+              "count": 1022,
+              "pct": "20.4%"
             },
             {
               "hf": "平胜",
-              "count": 876,
-              "pct": "17.5%"
+              "count": 878,
+              "pct": "17.6%"
+            },
+            {
+              "hf": "平平",
+              "count": 833,
+              "pct": "16.7%"
             }
           ],
           "wildOutliers": [
             {
               "score": "3-2",
-              "count": 127,
+              "count": 125,
               "pct": "2.5%"
             },
             {
               "score": "2-3",
-              "count": 121,
-              "pct": "2.4%"
+              "count": 115,
+              "pct": "2.3%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "40.9",
-            "drawPct": "27.9",
-            "awayPct": "31.2"
+            "homePct": "41.7",
+            "drawPct": "26.7",
+            "awayPct": "31.6"
           },
           "styleTag": {
             "name": "⚔️ 均势对喷型",
@@ -5892,52 +5892,52 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 646,
-              "pct": "12.9%"
+              "count": 592,
+              "pct": "11.8%"
             },
             {
               "score": "1-0",
-              "count": 573,
-              "pct": "11.5%"
+              "count": 586,
+              "pct": "11.7%"
             },
             {
               "score": "0-1",
-              "count": 452,
-              "pct": "9.0%"
+              "count": 472,
+              "pct": "9.4%"
             },
             {
               "score": "0-0",
-              "count": 447,
+              "count": 446,
               "pct": "8.9%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 1010,
-              "pct": "20.2%"
-            },
-            {
-              "hf": "平平",
-              "count": 884,
-              "pct": "17.7%"
+              "count": 1022,
+              "pct": "20.4%"
             },
             {
               "hf": "平胜",
-              "count": 876,
-              "pct": "17.5%"
+              "count": 878,
+              "pct": "17.6%"
+            },
+            {
+              "hf": "平平",
+              "count": 833,
+              "pct": "16.7%"
             }
           ],
           "wildOutliers": [
             {
               "score": "3-2",
-              "count": 127,
+              "count": 125,
               "pct": "2.5%"
             },
             {
               "score": "2-3",
-              "count": 121,
-              "pct": "2.4%"
+              "count": 115,
+              "pct": "2.3%"
             }
           ]
         }
@@ -6023,9 +6023,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "38.9",
-            "drawPct": "28.3",
-            "awayPct": "32.8"
+            "homePct": "39.8",
+            "drawPct": "27.0",
+            "awayPct": "33.1"
           },
           "styleTag": {
             "name": "⚔️ 均势对喷型",
@@ -6037,61 +6037,61 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 644,
-              "pct": "12.9%"
+              "count": 634,
+              "pct": "12.7%"
             },
             {
               "score": "1-0",
-              "count": 546,
-              "pct": "10.9%"
+              "count": 538,
+              "pct": "10.8%"
             },
             {
               "score": "0-1",
-              "count": 441,
+              "count": 439,
               "pct": "8.8%"
             },
             {
-              "score": "0-0",
-              "count": 420,
-              "pct": "8.4%"
+              "score": "2-1",
+              "count": 410,
+              "pct": "8.2%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 970,
-              "pct": "19.4%"
+              "count": 1019,
+              "pct": "20.4%"
             },
             {
               "hf": "平平",
-              "count": 859,
-              "pct": "17.2%"
+              "count": 819,
+              "pct": "16.4%"
             },
             {
               "hf": "平胜",
-              "count": 806,
-              "pct": "16.1%"
+              "count": 817,
+              "pct": "16.3%"
             }
           ],
           "wildOutliers": [
             {
-              "score": "0-3",
-              "count": 107,
-              "pct": "2.1%"
+              "score": "3-2",
+              "count": 120,
+              "pct": "2.4%"
             },
             {
-              "score": "3-2",
-              "count": 106,
-              "pct": "2.1%"
+              "score": "2-3",
+              "count": 118,
+              "pct": "2.4%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "38.9",
-            "drawPct": "28.3",
-            "awayPct": "32.8"
+            "homePct": "39.8",
+            "drawPct": "27.0",
+            "awayPct": "33.1"
           },
           "styleTag": {
             "name": "⚔️ 均势对喷型",
@@ -6103,52 +6103,52 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 644,
-              "pct": "12.9%"
+              "count": 634,
+              "pct": "12.7%"
             },
             {
               "score": "1-0",
-              "count": 546,
-              "pct": "10.9%"
+              "count": 538,
+              "pct": "10.8%"
             },
             {
               "score": "0-1",
-              "count": 441,
+              "count": 439,
               "pct": "8.8%"
             },
             {
-              "score": "0-0",
-              "count": 420,
-              "pct": "8.4%"
+              "score": "2-1",
+              "count": 410,
+              "pct": "8.2%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 970,
-              "pct": "19.4%"
+              "count": 1019,
+              "pct": "20.4%"
             },
             {
               "hf": "平平",
-              "count": 859,
-              "pct": "17.2%"
+              "count": 819,
+              "pct": "16.4%"
             },
             {
               "hf": "平胜",
-              "count": 806,
-              "pct": "16.1%"
+              "count": 817,
+              "pct": "16.3%"
             }
           ],
           "wildOutliers": [
             {
-              "score": "0-3",
-              "count": 107,
-              "pct": "2.1%"
+              "score": "3-2",
+              "count": 120,
+              "pct": "2.4%"
             },
             {
-              "score": "3-2",
-              "count": 106,
-              "pct": "2.1%"
+              "score": "2-3",
+              "count": 118,
+              "pct": "2.4%"
             }
           ]
         }
@@ -6236,9 +6236,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "73.5",
-            "drawPct": "18.7",
-            "awayPct": "7.8"
+            "homePct": "73.8",
+            "drawPct": "18.2",
+            "awayPct": "8.0"
           },
           "styleTag": {
             "name": "🛡️ 强弱悬殊型",
@@ -6250,13 +6250,13 @@
           "topScores": [
             {
               "score": "2-0",
-              "count": 742,
-              "pct": "14.8%"
+              "count": 713,
+              "pct": "14.3%"
             },
             {
               "score": "1-0",
-              "count": 677,
-              "pct": "13.5%"
+              "count": 684,
+              "pct": "13.7%"
             },
             {
               "score": "3-0",
@@ -6265,46 +6265,46 @@
             },
             {
               "score": "2-1",
-              "count": 425,
-              "pct": "8.5%"
+              "count": 404,
+              "pct": "8.1%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2342,
-              "pct": "46.8%"
+              "count": 2385,
+              "pct": "47.7%"
             },
             {
               "hf": "平胜",
-              "count": 1173,
-              "pct": "23.5%"
+              "count": 1155,
+              "pct": "23.1%"
             },
             {
               "hf": "平平",
-              "count": 637,
-              "pct": "12.7%"
+              "count": 607,
+              "pct": "12.1%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 285,
-              "pct": "5.7%"
+              "count": 314,
+              "pct": "6.3%"
             },
             {
               "score": "4-1",
-              "count": 176,
-              "pct": "3.5%"
+              "count": 187,
+              "pct": "3.7%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "73.5",
-            "drawPct": "18.7",
-            "awayPct": "7.8"
+            "homePct": "73.8",
+            "drawPct": "18.2",
+            "awayPct": "8.0"
           },
           "styleTag": {
             "name": "🛡️ 强弱悬殊型",
@@ -6316,13 +6316,13 @@
           "topScores": [
             {
               "score": "2-0",
-              "count": 742,
-              "pct": "14.8%"
+              "count": 713,
+              "pct": "14.3%"
             },
             {
               "score": "1-0",
-              "count": 677,
-              "pct": "13.5%"
+              "count": 684,
+              "pct": "13.7%"
             },
             {
               "score": "3-0",
@@ -6331,37 +6331,37 @@
             },
             {
               "score": "2-1",
-              "count": 425,
-              "pct": "8.5%"
+              "count": 404,
+              "pct": "8.1%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2342,
-              "pct": "46.8%"
+              "count": 2385,
+              "pct": "47.7%"
             },
             {
               "hf": "平胜",
-              "count": 1173,
-              "pct": "23.5%"
+              "count": 1155,
+              "pct": "23.1%"
             },
             {
               "hf": "平平",
-              "count": 637,
-              "pct": "12.7%"
+              "count": 607,
+              "pct": "12.1%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 285,
-              "pct": "5.7%"
+              "count": 314,
+              "pct": "6.3%"
             },
             {
               "score": "4-1",
-              "count": 176,
-              "pct": "3.5%"
+              "count": 187,
+              "pct": "3.7%"
             }
           ]
         }
@@ -6449,8 +6449,8 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "78.1",
-            "drawPct": "15.2",
+            "homePct": "78.3",
+            "drawPct": "15.1",
             "awayPct": "6.7"
           },
           "styleTag": {
@@ -6463,60 +6463,60 @@
           "topScores": [
             {
               "score": "2-0",
-              "count": 670,
-              "pct": "13.4%"
+              "count": 705,
+              "pct": "14.1%"
             },
             {
               "score": "1-0",
-              "count": 600,
-              "pct": "12.0%"
+              "count": 605,
+              "pct": "12.1%"
             },
             {
               "score": "3-0",
-              "count": 540,
-              "pct": "10.8%"
+              "count": 573,
+              "pct": "11.5%"
             },
             {
               "score": "2-1",
-              "count": 411,
-              "pct": "8.2%"
+              "count": 415,
+              "pct": "8.3%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2612,
+              "count": 2609,
               "pct": "52.2%"
             },
             {
               "hf": "平胜",
-              "count": 1133,
-              "pct": "22.7%"
+              "count": 1151,
+              "pct": "23.0%"
             },
             {
               "hf": "平平",
-              "count": 506,
-              "pct": "10.1%"
+              "count": 482,
+              "pct": "9.6%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 339,
-              "pct": "6.8%"
+              "count": 355,
+              "pct": "7.1%"
             },
             {
               "score": "4-1",
-              "count": 213,
-              "pct": "4.3%"
+              "count": 203,
+              "pct": "4.1%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "78.1",
-            "drawPct": "15.2",
+            "homePct": "78.3",
+            "drawPct": "15.1",
             "awayPct": "6.7"
           },
           "styleTag": {
@@ -6529,52 +6529,52 @@
           "topScores": [
             {
               "score": "2-0",
-              "count": 670,
-              "pct": "13.4%"
+              "count": 705,
+              "pct": "14.1%"
             },
             {
               "score": "1-0",
-              "count": 600,
-              "pct": "12.0%"
+              "count": 605,
+              "pct": "12.1%"
             },
             {
               "score": "3-0",
-              "count": 540,
-              "pct": "10.8%"
+              "count": 573,
+              "pct": "11.5%"
             },
             {
               "score": "2-1",
-              "count": 411,
-              "pct": "8.2%"
+              "count": 415,
+              "pct": "8.3%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2612,
+              "count": 2609,
               "pct": "52.2%"
             },
             {
               "hf": "平胜",
-              "count": 1133,
-              "pct": "22.7%"
+              "count": 1151,
+              "pct": "23.0%"
             },
             {
               "hf": "平平",
-              "count": 506,
-              "pct": "10.1%"
+              "count": 482,
+              "pct": "9.6%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 339,
-              "pct": "6.8%"
+              "count": 355,
+              "pct": "7.1%"
             },
             {
               "score": "4-1",
-              "count": 213,
-              "pct": "4.3%"
+              "count": 203,
+              "pct": "4.1%"
             }
           ]
         }
@@ -6662,9 +6662,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "66.1",
-            "drawPct": "22.0",
-            "awayPct": "11.9"
+            "homePct": "66.8",
+            "drawPct": "21.1",
+            "awayPct": "12.1"
           },
           "styleTag": {
             "name": "🛡️ 强弱悬殊型",
@@ -6676,61 +6676,61 @@
           "topScores": [
             {
               "score": "1-0",
-              "count": 722,
-              "pct": "14.4%"
+              "count": 688,
+              "pct": "13.8%"
             },
             {
               "score": "2-0",
-              "count": 644,
-              "pct": "12.9%"
+              "count": 649,
+              "pct": "13.0%"
             },
             {
               "score": "1-1",
-              "count": 513,
-              "pct": "10.3%"
+              "count": 472,
+              "pct": "9.4%"
             },
             {
               "score": "2-1",
-              "count": 464,
-              "pct": "9.3%"
+              "count": 457,
+              "pct": "9.1%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2030,
-              "pct": "40.6%"
+              "count": 1998,
+              "pct": "40.0%"
             },
             {
               "hf": "平胜",
-              "count": 1119,
-              "pct": "22.4%"
+              "count": 1157,
+              "pct": "23.1%"
             },
             {
               "hf": "平平",
-              "count": 696,
-              "pct": "13.9%"
+              "count": 674,
+              "pct": "13.5%"
             }
           ],
           "wildOutliers": [
             {
-              "score": "4-0",
-              "count": 162,
-              "pct": "3.2%"
+              "score": "4-1",
+              "count": 180,
+              "pct": "3.6%"
             },
             {
-              "score": "4-1",
-              "count": 149,
-              "pct": "3.0%"
+              "score": "4-0",
+              "count": 161,
+              "pct": "3.2%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "66.1",
-            "drawPct": "22.0",
-            "awayPct": "11.9"
+            "homePct": "66.8",
+            "drawPct": "21.1",
+            "awayPct": "12.1"
           },
           "styleTag": {
             "name": "🛡️ 强弱悬殊型",
@@ -6742,52 +6742,52 @@
           "topScores": [
             {
               "score": "1-0",
-              "count": 722,
-              "pct": "14.4%"
+              "count": 688,
+              "pct": "13.8%"
             },
             {
               "score": "2-0",
-              "count": 644,
-              "pct": "12.9%"
+              "count": 649,
+              "pct": "13.0%"
             },
             {
               "score": "1-1",
-              "count": 513,
-              "pct": "10.3%"
+              "count": 472,
+              "pct": "9.4%"
             },
             {
               "score": "2-1",
-              "count": 464,
-              "pct": "9.3%"
+              "count": 457,
+              "pct": "9.1%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2030,
-              "pct": "40.6%"
+              "count": 1998,
+              "pct": "40.0%"
             },
             {
               "hf": "平胜",
-              "count": 1119,
-              "pct": "22.4%"
+              "count": 1157,
+              "pct": "23.1%"
             },
             {
               "hf": "平平",
-              "count": 696,
-              "pct": "13.9%"
+              "count": 674,
+              "pct": "13.5%"
             }
           ],
           "wildOutliers": [
             {
-              "score": "4-0",
-              "count": 162,
-              "pct": "3.2%"
+              "score": "4-1",
+              "count": 180,
+              "pct": "3.6%"
             },
             {
-              "score": "4-1",
-              "count": 149,
-              "pct": "3.0%"
+              "score": "4-0",
+              "count": 161,
+              "pct": "3.2%"
             }
           ]
         }
@@ -6874,9 +6874,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "77.9",
-            "drawPct": "15.3",
-            "awayPct": "6.8"
+            "homePct": "77.1",
+            "drawPct": "16.3",
+            "awayPct": "6.7"
           },
           "styleTag": {
             "name": "🛡️ 强弱悬殊型",
@@ -6888,61 +6888,61 @@
           "topScores": [
             {
               "score": "2-0",
-              "count": 704,
-              "pct": "14.1%"
+              "count": 726,
+              "pct": "14.5%"
             },
             {
               "score": "1-0",
-              "count": 625,
-              "pct": "12.5%"
+              "count": 596,
+              "pct": "11.9%"
             },
             {
               "score": "3-0",
-              "count": 537,
-              "pct": "10.7%"
+              "count": 574,
+              "pct": "11.5%"
             },
             {
               "score": "2-1",
-              "count": 454,
-              "pct": "9.1%"
+              "count": 431,
+              "pct": "8.6%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2538,
-              "pct": "50.8%"
+              "count": 2519,
+              "pct": "50.4%"
             },
             {
               "hf": "平胜",
-              "count": 1179,
-              "pct": "23.6%"
+              "count": 1183,
+              "pct": "23.7%"
             },
             {
               "hf": "平平",
-              "count": 502,
-              "pct": "10.0%"
+              "count": 533,
+              "pct": "10.7%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 337,
-              "pct": "6.7%"
+              "count": 308,
+              "pct": "6.2%"
             },
             {
               "score": "4-1",
-              "count": 203,
-              "pct": "4.1%"
+              "count": 211,
+              "pct": "4.2%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "77.9",
-            "drawPct": "15.3",
-            "awayPct": "6.8"
+            "homePct": "77.1",
+            "drawPct": "16.3",
+            "awayPct": "6.7"
           },
           "styleTag": {
             "name": "🛡️ 强弱悬殊型",
@@ -6954,52 +6954,52 @@
           "topScores": [
             {
               "score": "2-0",
-              "count": 704,
-              "pct": "14.1%"
+              "count": 726,
+              "pct": "14.5%"
             },
             {
               "score": "1-0",
-              "count": 625,
-              "pct": "12.5%"
+              "count": 596,
+              "pct": "11.9%"
             },
             {
               "score": "3-0",
-              "count": 537,
-              "pct": "10.7%"
+              "count": 574,
+              "pct": "11.5%"
             },
             {
               "score": "2-1",
-              "count": 454,
-              "pct": "9.1%"
+              "count": 431,
+              "pct": "8.6%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2538,
-              "pct": "50.8%"
+              "count": 2519,
+              "pct": "50.4%"
             },
             {
               "hf": "平胜",
-              "count": 1179,
-              "pct": "23.6%"
+              "count": 1183,
+              "pct": "23.7%"
             },
             {
               "hf": "平平",
-              "count": 502,
-              "pct": "10.0%"
+              "count": 533,
+              "pct": "10.7%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 337,
-              "pct": "6.7%"
+              "count": 308,
+              "pct": "6.2%"
             },
             {
               "score": "4-1",
-              "count": 203,
-              "pct": "4.1%"
+              "count": 211,
+              "pct": "4.2%"
             }
           ]
         }
@@ -7087,9 +7087,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "57.3",
-            "drawPct": "24.4",
-            "awayPct": "18.2"
+            "homePct": "57.1",
+            "drawPct": "25.0",
+            "awayPct": "17.9"
           },
           "styleTag": {
             "name": "🔥 强攻突破型",
@@ -7101,61 +7101,61 @@
           "topScores": [
             {
               "score": "1-0",
-              "count": 660,
-              "pct": "13.2%"
+              "count": 637,
+              "pct": "12.7%"
             },
             {
               "score": "1-1",
-              "count": 546,
-              "pct": "10.9%"
+              "count": 596,
+              "pct": "11.9%"
             },
             {
               "score": "2-0",
-              "count": 527,
-              "pct": "10.5%"
+              "count": 499,
+              "pct": "10.0%"
             },
             {
               "score": "2-1",
-              "count": 453,
-              "pct": "9.1%"
+              "count": 496,
+              "pct": "9.9%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 1624,
-              "pct": "32.5%"
+              "count": 1640,
+              "pct": "32.8%"
             },
             {
               "hf": "平胜",
-              "count": 1057,
-              "pct": "21.1%"
+              "count": 1043,
+              "pct": "20.9%"
             },
             {
               "hf": "平平",
-              "count": 770,
-              "pct": "15.4%"
+              "count": 804,
+              "pct": "16.1%"
             }
           ],
           "wildOutliers": [
             {
-              "score": "3-2",
-              "count": 142,
-              "pct": "2.8%"
-            },
-            {
               "score": "4-0",
               "count": 141,
               "pct": "2.8%"
+            },
+            {
+              "score": "4-1",
+              "count": 128,
+              "pct": "2.6%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "57.3",
-            "drawPct": "24.4",
-            "awayPct": "18.2"
+            "homePct": "57.1",
+            "drawPct": "25.0",
+            "awayPct": "17.9"
           },
           "styleTag": {
             "name": "🔥 强攻突破型",
@@ -7167,52 +7167,52 @@
           "topScores": [
             {
               "score": "1-0",
-              "count": 660,
-              "pct": "13.2%"
+              "count": 637,
+              "pct": "12.7%"
             },
             {
               "score": "1-1",
-              "count": 546,
-              "pct": "10.9%"
+              "count": 596,
+              "pct": "11.9%"
             },
             {
               "score": "2-0",
-              "count": 527,
-              "pct": "10.5%"
+              "count": 499,
+              "pct": "10.0%"
             },
             {
               "score": "2-1",
-              "count": 453,
-              "pct": "9.1%"
+              "count": 496,
+              "pct": "9.9%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 1624,
-              "pct": "32.5%"
+              "count": 1640,
+              "pct": "32.8%"
             },
             {
               "hf": "平胜",
-              "count": 1057,
-              "pct": "21.1%"
+              "count": 1043,
+              "pct": "20.9%"
             },
             {
               "hf": "平平",
-              "count": 770,
-              "pct": "15.4%"
+              "count": 804,
+              "pct": "16.1%"
             }
           ],
           "wildOutliers": [
             {
-              "score": "3-2",
-              "count": 142,
-              "pct": "2.8%"
-            },
-            {
               "score": "4-0",
               "count": 141,
               "pct": "2.8%"
+            },
+            {
+              "score": "4-1",
+              "count": 128,
+              "pct": "2.6%"
             }
           ]
         }
@@ -7300,9 +7300,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "12.5",
+            "homePct": "12.3",
             "drawPct": "21.2",
-            "awayPct": "66.3"
+            "awayPct": "66.5"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -7313,62 +7313,62 @@
           },
           "topScores": [
             {
-              "score": "0-2",
-              "count": 616,
-              "pct": "12.3%"
+              "score": "0-1",
+              "count": 607,
+              "pct": "12.1%"
             },
             {
-              "score": "0-1",
-              "count": 596,
+              "score": "0-2",
+              "count": 595,
               "pct": "11.9%"
             },
             {
-              "score": "1-2",
-              "count": 511,
-              "pct": "10.2%"
+              "score": "1-1",
+              "count": 494,
+              "pct": "9.9%"
             },
             {
-              "score": "1-1",
-              "count": 479,
-              "pct": "9.6%"
+              "score": "1-2",
+              "count": 477,
+              "pct": "9.5%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 2007,
-              "pct": "40.1%"
+              "count": 2032,
+              "pct": "40.6%"
             },
             {
               "hf": "平负",
-              "count": 1114,
-              "pct": "22.3%"
+              "count": 1123,
+              "pct": "22.5%"
             },
             {
               "hf": "平平",
-              "count": 637,
-              "pct": "12.7%"
+              "count": 654,
+              "pct": "13.1%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 347,
-              "pct": "6.9%"
+              "count": 396,
+              "pct": "7.9%"
             },
             {
               "score": "0-4",
-              "count": 195,
-              "pct": "3.9%"
+              "count": 208,
+              "pct": "4.2%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "12.5",
+            "homePct": "12.3",
             "drawPct": "21.2",
-            "awayPct": "66.3"
+            "awayPct": "66.5"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -7379,53 +7379,53 @@
           },
           "topScores": [
             {
-              "score": "0-2",
-              "count": 616,
-              "pct": "12.3%"
+              "score": "0-1",
+              "count": 607,
+              "pct": "12.1%"
             },
             {
-              "score": "0-1",
-              "count": 596,
+              "score": "0-2",
+              "count": 595,
               "pct": "11.9%"
             },
             {
-              "score": "1-2",
-              "count": 511,
-              "pct": "10.2%"
+              "score": "1-1",
+              "count": 494,
+              "pct": "9.9%"
             },
             {
-              "score": "1-1",
-              "count": 479,
-              "pct": "9.6%"
+              "score": "1-2",
+              "count": 477,
+              "pct": "9.5%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 2007,
-              "pct": "40.1%"
+              "count": 2032,
+              "pct": "40.6%"
             },
             {
               "hf": "平负",
-              "count": 1114,
-              "pct": "22.3%"
+              "count": 1123,
+              "pct": "22.5%"
             },
             {
               "hf": "平平",
-              "count": 637,
-              "pct": "12.7%"
+              "count": 654,
+              "pct": "13.1%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 347,
-              "pct": "6.9%"
+              "count": 396,
+              "pct": "7.9%"
             },
             {
               "score": "0-4",
-              "count": 195,
-              "pct": "3.9%"
+              "count": 208,
+              "pct": "4.2%"
             }
           ]
         }
@@ -7513,9 +7513,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "67.6",
-            "drawPct": "21.1",
-            "awayPct": "11.3"
+            "homePct": "66.5",
+            "drawPct": "21.9",
+            "awayPct": "11.6"
           },
           "styleTag": {
             "name": "🛡️ 强弱悬殊型",
@@ -7526,62 +7526,62 @@
           },
           "topScores": [
             {
-              "score": "2-0",
-              "count": 662,
-              "pct": "13.2%"
-            },
-            {
               "score": "1-0",
-              "count": 627,
-              "pct": "12.5%"
+              "count": 645,
+              "pct": "12.9%"
             },
             {
-              "score": "2-1",
-              "count": 504,
-              "pct": "10.1%"
+              "score": "2-0",
+              "count": 644,
+              "pct": "12.9%"
             },
             {
               "score": "1-1",
-              "count": 461,
-              "pct": "9.2%"
+              "count": 482,
+              "pct": "9.6%"
+            },
+            {
+              "score": "2-1",
+              "count": 465,
+              "pct": "9.3%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2107,
-              "pct": "42.1%"
+              "count": 1984,
+              "pct": "39.7%"
             },
             {
               "hf": "平胜",
-              "count": 1105,
-              "pct": "22.1%"
+              "count": 1167,
+              "pct": "23.3%"
             },
             {
               "hf": "平平",
-              "count": 694,
-              "pct": "13.9%"
+              "count": 719,
+              "pct": "14.4%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 230,
-              "pct": "4.6%"
+              "count": 227,
+              "pct": "4.5%"
             },
             {
               "score": "4-1",
-              "count": 145,
-              "pct": "2.9%"
+              "count": 166,
+              "pct": "3.3%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "67.6",
-            "drawPct": "21.1",
-            "awayPct": "11.3"
+            "homePct": "66.5",
+            "drawPct": "21.9",
+            "awayPct": "11.6"
           },
           "styleTag": {
             "name": "🛡️ 强弱悬殊型",
@@ -7592,53 +7592,53 @@
           },
           "topScores": [
             {
-              "score": "2-0",
-              "count": 662,
-              "pct": "13.2%"
-            },
-            {
               "score": "1-0",
-              "count": 627,
-              "pct": "12.5%"
+              "count": 645,
+              "pct": "12.9%"
             },
             {
-              "score": "2-1",
-              "count": 504,
-              "pct": "10.1%"
+              "score": "2-0",
+              "count": 644,
+              "pct": "12.9%"
             },
             {
               "score": "1-1",
-              "count": 461,
-              "pct": "9.2%"
+              "count": 482,
+              "pct": "9.6%"
+            },
+            {
+              "score": "2-1",
+              "count": 465,
+              "pct": "9.3%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 2107,
-              "pct": "42.1%"
+              "count": 1984,
+              "pct": "39.7%"
             },
             {
               "hf": "平胜",
-              "count": 1105,
-              "pct": "22.1%"
+              "count": 1167,
+              "pct": "23.3%"
             },
             {
               "hf": "平平",
-              "count": 694,
-              "pct": "13.9%"
+              "count": 719,
+              "pct": "14.4%"
             }
           ],
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 230,
-              "pct": "4.6%"
+              "count": 227,
+              "pct": "4.5%"
             },
             {
               "score": "4-1",
-              "count": 145,
-              "pct": "2.9%"
+              "count": 166,
+              "pct": "3.3%"
             }
           ]
         }
@@ -7725,9 +7725,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "21.7",
-            "drawPct": "24.5",
-            "awayPct": "53.9"
+            "homePct": "22.4",
+            "drawPct": "24.9",
+            "awayPct": "52.8"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -7739,61 +7739,61 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 562,
-              "pct": "11.2%"
+              "count": 582,
+              "pct": "11.6%"
             },
             {
               "score": "0-1",
-              "count": 531,
-              "pct": "10.6%"
+              "count": 494,
+              "pct": "9.9%"
             },
             {
               "score": "1-2",
-              "count": 505,
-              "pct": "10.1%"
+              "count": 455,
+              "pct": "9.1%"
             },
             {
               "score": "0-2",
-              "count": 427,
-              "pct": "8.5%"
+              "count": 421,
+              "pct": "8.4%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 1512,
-              "pct": "30.2%"
+              "count": 1470,
+              "pct": "29.4%"
             },
             {
               "hf": "平负",
-              "count": 948,
-              "pct": "19.0%"
+              "count": 967,
+              "pct": "19.3%"
             },
             {
               "hf": "平平",
-              "count": 679,
-              "pct": "13.6%"
+              "count": 697,
+              "pct": "13.9%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 237,
-              "pct": "4.7%"
+              "count": 242,
+              "pct": "4.8%"
             },
             {
               "score": "2-3",
-              "count": 162,
-              "pct": "3.2%"
+              "count": 171,
+              "pct": "3.4%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "21.7",
-            "drawPct": "24.5",
-            "awayPct": "53.9"
+            "homePct": "22.4",
+            "drawPct": "24.9",
+            "awayPct": "52.8"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -7805,52 +7805,52 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 562,
-              "pct": "11.2%"
+              "count": 582,
+              "pct": "11.6%"
             },
             {
               "score": "0-1",
-              "count": 531,
-              "pct": "10.6%"
+              "count": 494,
+              "pct": "9.9%"
             },
             {
               "score": "1-2",
-              "count": 505,
-              "pct": "10.1%"
+              "count": 455,
+              "pct": "9.1%"
             },
             {
               "score": "0-2",
-              "count": 427,
-              "pct": "8.5%"
+              "count": 421,
+              "pct": "8.4%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 1512,
-              "pct": "30.2%"
+              "count": 1470,
+              "pct": "29.4%"
             },
             {
               "hf": "平负",
-              "count": 948,
-              "pct": "19.0%"
+              "count": 967,
+              "pct": "19.3%"
             },
             {
               "hf": "平平",
-              "count": 679,
-              "pct": "13.6%"
+              "count": 697,
+              "pct": "13.9%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 237,
-              "pct": "4.7%"
+              "count": 242,
+              "pct": "4.8%"
             },
             {
               "score": "2-3",
-              "count": 162,
-              "pct": "3.2%"
+              "count": 171,
+              "pct": "3.4%"
             }
           ]
         }
@@ -7937,9 +7937,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "21.9",
-            "drawPct": "24.8",
-            "awayPct": "53.3"
+            "homePct": "23.4",
+            "drawPct": "24.1",
+            "awayPct": "52.5"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -7951,61 +7951,61 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 560,
-              "pct": "11.2%"
-            },
-            {
-              "score": "1-2",
-              "count": 482,
-              "pct": "9.6%"
+              "count": 513,
+              "pct": "10.3%"
             },
             {
               "score": "0-1",
-              "count": 479,
-              "pct": "9.6%"
+              "count": 488,
+              "pct": "9.8%"
+            },
+            {
+              "score": "1-2",
+              "count": 464,
+              "pct": "9.3%"
             },
             {
               "score": "0-2",
-              "count": 417,
-              "pct": "8.3%"
+              "count": 410,
+              "pct": "8.2%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 1488,
-              "pct": "29.8%"
+              "count": 1450,
+              "pct": "29.0%"
             },
             {
               "hf": "平负",
-              "count": 972,
-              "pct": "19.4%"
+              "count": 977,
+              "pct": "19.5%"
             },
             {
               "hf": "平平",
-              "count": 755,
-              "pct": "15.1%"
+              "count": 697,
+              "pct": "13.9%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 248,
-              "pct": "5.0%"
+              "count": 241,
+              "pct": "4.8%"
             },
             {
               "score": "2-3",
-              "count": 175,
-              "pct": "3.5%"
+              "count": 185,
+              "pct": "3.7%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "21.9",
-            "drawPct": "24.8",
-            "awayPct": "53.3"
+            "homePct": "23.4",
+            "drawPct": "24.1",
+            "awayPct": "52.5"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -8017,52 +8017,52 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 560,
-              "pct": "11.2%"
-            },
-            {
-              "score": "1-2",
-              "count": 482,
-              "pct": "9.6%"
+              "count": 513,
+              "pct": "10.3%"
             },
             {
               "score": "0-1",
-              "count": 479,
-              "pct": "9.6%"
+              "count": 488,
+              "pct": "9.8%"
+            },
+            {
+              "score": "1-2",
+              "count": 464,
+              "pct": "9.3%"
             },
             {
               "score": "0-2",
-              "count": 417,
-              "pct": "8.3%"
+              "count": 410,
+              "pct": "8.2%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 1488,
-              "pct": "29.8%"
+              "count": 1450,
+              "pct": "29.0%"
             },
             {
               "hf": "平负",
-              "count": 972,
-              "pct": "19.4%"
+              "count": 977,
+              "pct": "19.5%"
             },
             {
               "hf": "平平",
-              "count": 755,
-              "pct": "15.1%"
+              "count": 697,
+              "pct": "13.9%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 248,
-              "pct": "5.0%"
+              "count": 241,
+              "pct": "4.8%"
             },
             {
               "score": "2-3",
-              "count": 175,
-              "pct": "3.5%"
+              "count": 185,
+              "pct": "3.7%"
             }
           ]
         }
@@ -8150,9 +8150,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "22.6",
-            "drawPct": "24.2",
-            "awayPct": "53.2"
+            "homePct": "22.8",
+            "drawPct": "24.1",
+            "awayPct": "53.0"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -8164,61 +8164,61 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 554,
-              "pct": "11.1%"
+              "count": 552,
+              "pct": "11.0%"
             },
             {
               "score": "0-1",
-              "count": 513,
-              "pct": "10.3%"
+              "count": 487,
+              "pct": "9.7%"
             },
             {
               "score": "1-2",
-              "count": 471,
-              "pct": "9.4%"
+              "count": 486,
+              "pct": "9.7%"
             },
             {
               "score": "0-2",
-              "count": 419,
-              "pct": "8.4%"
+              "count": 395,
+              "pct": "7.9%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 1510,
+              "count": 1511,
               "pct": "30.2%"
             },
             {
               "hf": "平负",
-              "count": 930,
-              "pct": "18.6%"
+              "count": 907,
+              "pct": "18.1%"
             },
             {
               "hf": "平平",
-              "count": 725,
-              "pct": "14.5%"
+              "count": 689,
+              "pct": "13.8%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 231,
+              "count": 229,
               "pct": "4.6%"
             },
             {
               "score": "2-3",
-              "count": 172,
-              "pct": "3.4%"
+              "count": 176,
+              "pct": "3.5%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "22.6",
-            "drawPct": "24.2",
-            "awayPct": "53.2"
+            "homePct": "22.8",
+            "drawPct": "24.1",
+            "awayPct": "53.0"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -8230,52 +8230,52 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 554,
-              "pct": "11.1%"
+              "count": 552,
+              "pct": "11.0%"
             },
             {
               "score": "0-1",
-              "count": 513,
-              "pct": "10.3%"
+              "count": 487,
+              "pct": "9.7%"
             },
             {
               "score": "1-2",
-              "count": 471,
-              "pct": "9.4%"
+              "count": 486,
+              "pct": "9.7%"
             },
             {
               "score": "0-2",
-              "count": 419,
-              "pct": "8.4%"
+              "count": 395,
+              "pct": "7.9%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 1510,
+              "count": 1511,
               "pct": "30.2%"
             },
             {
               "hf": "平负",
-              "count": 930,
-              "pct": "18.6%"
+              "count": 907,
+              "pct": "18.1%"
             },
             {
               "hf": "平平",
-              "count": 725,
-              "pct": "14.5%"
+              "count": 689,
+              "pct": "13.8%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 231,
+              "count": 229,
               "pct": "4.6%"
             },
             {
               "score": "2-3",
-              "count": 172,
-              "pct": "3.4%"
+              "count": 176,
+              "pct": "3.5%"
             }
           ]
         }
@@ -8359,132 +8359,132 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "54.7",
+            "homePct": "55.1",
             "drawPct": "24.5",
-            "awayPct": "20.7"
+            "awayPct": "20.4"
           },
           "styleTag": {
-            "name": "⚖️ 战术胶着型",
-            "desc": "两队中场缠斗，进球受限，防守拉锯剧烈",
-            "color": "#38bdf8",
-            "bg": "rgba(56,189,248,0.12)",
-            "border": "rgba(56,189,248,0.3)"
+            "name": "🔥 强攻突破型",
+            "desc": "主场优势显著，主队进攻欲望强劲，看好主胜突破",
+            "color": "#4ade80",
+            "bg": "rgba(74,222,128,0.12)",
+            "border": "rgba(74,222,128,0.35)"
           },
           "topScores": [
             {
               "score": "1-0",
-              "count": 595,
-              "pct": "11.9%"
+              "count": 561,
+              "pct": "11.2%"
             },
             {
               "score": "2-1",
-              "count": 523,
-              "pct": "10.5%"
+              "count": 539,
+              "pct": "10.8%"
             },
             {
               "score": "1-1",
-              "count": 521,
+              "count": 518,
               "pct": "10.4%"
             },
             {
               "score": "2-0",
-              "count": 478,
-              "pct": "9.6%"
+              "count": 486,
+              "pct": "9.7%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 1563,
-              "pct": "31.3%"
+              "count": 1596,
+              "pct": "31.9%"
             },
             {
               "hf": "平胜",
-              "count": 974,
-              "pct": "19.5%"
+              "count": 963,
+              "pct": "19.3%"
             },
             {
               "hf": "平平",
-              "count": 751,
-              "pct": "15.0%"
+              "count": 724,
+              "pct": "14.5%"
             }
           ],
           "wildOutliers": [
             {
               "score": "3-2",
-              "count": 150,
-              "pct": "3.0%"
+              "count": 140,
+              "pct": "2.8%"
             },
             {
               "score": "4-1",
-              "count": 123,
-              "pct": "2.5%"
+              "count": 118,
+              "pct": "2.4%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "54.7",
+            "homePct": "55.1",
             "drawPct": "24.5",
-            "awayPct": "20.7"
+            "awayPct": "20.4"
           },
           "styleTag": {
-            "name": "⚖️ 战术胶着型",
-            "desc": "两队中场缠斗，进球受限，防守拉锯剧烈",
-            "color": "#38bdf8",
-            "bg": "rgba(56,189,248,0.12)",
-            "border": "rgba(56,189,248,0.3)"
+            "name": "🔥 强攻突破型",
+            "desc": "主场优势显著，主队进攻欲望强劲，看好主胜突破",
+            "color": "#4ade80",
+            "bg": "rgba(74,222,128,0.12)",
+            "border": "rgba(74,222,128,0.35)"
           },
           "topScores": [
             {
               "score": "1-0",
-              "count": 595,
-              "pct": "11.9%"
+              "count": 561,
+              "pct": "11.2%"
             },
             {
               "score": "2-1",
-              "count": 523,
-              "pct": "10.5%"
+              "count": 539,
+              "pct": "10.8%"
             },
             {
               "score": "1-1",
-              "count": 521,
+              "count": 518,
               "pct": "10.4%"
             },
             {
               "score": "2-0",
-              "count": 478,
-              "pct": "9.6%"
+              "count": 486,
+              "pct": "9.7%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 1563,
-              "pct": "31.3%"
+              "count": 1596,
+              "pct": "31.9%"
             },
             {
               "hf": "平胜",
-              "count": 974,
-              "pct": "19.5%"
+              "count": 963,
+              "pct": "19.3%"
             },
             {
               "hf": "平平",
-              "count": 751,
-              "pct": "15.0%"
+              "count": 724,
+              "pct": "14.5%"
             }
           ],
           "wildOutliers": [
             {
               "score": "3-2",
-              "count": 150,
-              "pct": "3.0%"
+              "count": 140,
+              "pct": "2.8%"
             },
             {
               "score": "4-1",
-              "count": 123,
-              "pct": "2.5%"
+              "count": 118,
+              "pct": "2.4%"
             }
           ]
         }
@@ -8572,9 +8572,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "23.2",
-            "drawPct": "23.6",
-            "awayPct": "53.2"
+            "homePct": "21.6",
+            "drawPct": "24.1",
+            "awayPct": "54.3"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -8586,61 +8586,61 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 551,
-              "pct": "11.0%"
-            },
-            {
-              "score": "1-2",
-              "count": 495,
-              "pct": "9.9%"
+              "count": 544,
+              "pct": "10.9%"
             },
             {
               "score": "0-1",
-              "count": 484,
-              "pct": "9.7%"
+              "count": 503,
+              "pct": "10.1%"
+            },
+            {
+              "score": "1-2",
+              "count": 476,
+              "pct": "9.5%"
             },
             {
               "score": "0-2",
-              "count": 413,
-              "pct": "8.3%"
+              "count": 402,
+              "pct": "8.0%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 1507,
-              "pct": "30.1%"
+              "count": 1533,
+              "pct": "30.7%"
             },
             {
               "hf": "平负",
-              "count": 912,
-              "pct": "18.2%"
+              "count": 957,
+              "pct": "19.1%"
             },
             {
               "hf": "平平",
-              "count": 686,
-              "pct": "13.7%"
+              "count": 697,
+              "pct": "13.9%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 229,
-              "pct": "4.6%"
+              "count": 253,
+              "pct": "5.1%"
             },
             {
               "score": "2-3",
-              "count": 196,
-              "pct": "3.9%"
+              "count": 191,
+              "pct": "3.8%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "23.2",
-            "drawPct": "23.6",
-            "awayPct": "53.2"
+            "homePct": "21.6",
+            "drawPct": "24.1",
+            "awayPct": "54.3"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -8652,52 +8652,52 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 551,
-              "pct": "11.0%"
-            },
-            {
-              "score": "1-2",
-              "count": 495,
-              "pct": "9.9%"
+              "count": 544,
+              "pct": "10.9%"
             },
             {
               "score": "0-1",
-              "count": 484,
-              "pct": "9.7%"
+              "count": 503,
+              "pct": "10.1%"
+            },
+            {
+              "score": "1-2",
+              "count": 476,
+              "pct": "9.5%"
             },
             {
               "score": "0-2",
-              "count": 413,
-              "pct": "8.3%"
+              "count": 402,
+              "pct": "8.0%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 1507,
-              "pct": "30.1%"
+              "count": 1533,
+              "pct": "30.7%"
             },
             {
               "hf": "平负",
-              "count": 912,
-              "pct": "18.2%"
+              "count": 957,
+              "pct": "19.1%"
             },
             {
               "hf": "平平",
-              "count": 686,
-              "pct": "13.7%"
+              "count": 697,
+              "pct": "13.9%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 229,
-              "pct": "4.6%"
+              "count": 253,
+              "pct": "5.1%"
             },
             {
               "score": "2-3",
-              "count": 196,
-              "pct": "3.9%"
+              "count": 191,
+              "pct": "3.8%"
             }
           ]
         }
@@ -8785,9 +8785,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "22.0",
-            "drawPct": "23.3",
-            "awayPct": "54.7"
+            "homePct": "22.5",
+            "drawPct": "24.5",
+            "awayPct": "53.0"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -8798,62 +8798,62 @@
           },
           "topScores": [
             {
-              "score": "0-1",
-              "count": 541,
-              "pct": "10.8%"
+              "score": "1-1",
+              "count": 518,
+              "pct": "10.4%"
             },
             {
-              "score": "1-1",
-              "count": 529,
-              "pct": "10.6%"
+              "score": "0-1",
+              "count": 486,
+              "pct": "9.7%"
             },
             {
               "score": "1-2",
-              "count": 503,
-              "pct": "10.1%"
+              "count": 486,
+              "pct": "9.7%"
             },
             {
               "score": "0-2",
-              "count": 404,
-              "pct": "8.1%"
+              "count": 430,
+              "pct": "8.6%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 1568,
-              "pct": "31.4%"
+              "count": 1499,
+              "pct": "30.0%"
             },
             {
               "hf": "平负",
-              "count": 963,
-              "pct": "19.3%"
+              "count": 935,
+              "pct": "18.7%"
             },
             {
               "hf": "平平",
-              "count": 668,
-              "pct": "13.4%"
+              "count": 700,
+              "pct": "14.0%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 238,
+              "count": 240,
               "pct": "4.8%"
             },
             {
               "score": "2-3",
-              "count": 192,
-              "pct": "3.8%"
+              "count": 167,
+              "pct": "3.3%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "22.0",
-            "drawPct": "23.3",
-            "awayPct": "54.7"
+            "homePct": "22.5",
+            "drawPct": "24.5",
+            "awayPct": "53.0"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -8864,53 +8864,53 @@
           },
           "topScores": [
             {
-              "score": "0-1",
-              "count": 541,
-              "pct": "10.8%"
+              "score": "1-1",
+              "count": 518,
+              "pct": "10.4%"
             },
             {
-              "score": "1-1",
-              "count": 529,
-              "pct": "10.6%"
+              "score": "0-1",
+              "count": 486,
+              "pct": "9.7%"
             },
             {
               "score": "1-2",
-              "count": 503,
-              "pct": "10.1%"
+              "count": 486,
+              "pct": "9.7%"
             },
             {
               "score": "0-2",
-              "count": 404,
-              "pct": "8.1%"
+              "count": 430,
+              "pct": "8.6%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 1568,
-              "pct": "31.4%"
+              "count": 1499,
+              "pct": "30.0%"
             },
             {
               "hf": "平负",
-              "count": 963,
-              "pct": "19.3%"
+              "count": 935,
+              "pct": "18.7%"
             },
             {
               "hf": "平平",
-              "count": 668,
-              "pct": "13.4%"
+              "count": 700,
+              "pct": "14.0%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 238,
+              "count": 240,
               "pct": "4.8%"
             },
             {
               "score": "2-3",
-              "count": 192,
-              "pct": "3.8%"
+              "count": 167,
+              "pct": "3.3%"
             }
           ]
         }
@@ -8998,9 +8998,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "4.9",
-            "drawPct": "9.7",
-            "awayPct": "85.4"
+            "homePct": "4.3",
+            "drawPct": "9.4",
+            "awayPct": "86.3"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -9012,61 +9012,61 @@
           "topScores": [
             {
               "score": "0-3",
-              "count": 453,
-              "pct": "9.1%"
+              "count": 472,
+              "pct": "9.4%"
             },
             {
               "score": "0-2",
-              "count": 415,
-              "pct": "8.3%"
+              "count": 451,
+              "pct": "9.0%"
             },
             {
               "score": "1-3",
-              "count": 406,
-              "pct": "8.1%"
+              "count": 375,
+              "pct": "7.5%"
             },
             {
-              "score": "0-4",
-              "count": 405,
-              "pct": "8.1%"
+              "score": "1-4",
+              "count": 364,
+              "pct": "7.3%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 3128,
+              "count": 3132,
               "pct": "62.6%"
             },
             {
               "hf": "平负",
-              "count": 930,
-              "pct": "18.6%"
+              "count": 1002,
+              "pct": "20.0%"
             },
             {
               "hf": "平平",
-              "count": 260,
-              "pct": "5.2%"
+              "count": 248,
+              "pct": "5.0%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 453,
-              "pct": "9.1%"
+              "count": 472,
+              "pct": "9.4%"
             },
             {
-              "score": "0-4",
-              "count": 405,
-              "pct": "8.1%"
+              "score": "1-4",
+              "count": 364,
+              "pct": "7.3%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "4.9",
-            "drawPct": "9.7",
-            "awayPct": "85.4"
+            "homePct": "4.3",
+            "drawPct": "9.4",
+            "awayPct": "86.3"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -9078,52 +9078,52 @@
           "topScores": [
             {
               "score": "0-3",
-              "count": 453,
-              "pct": "9.1%"
+              "count": 472,
+              "pct": "9.4%"
             },
             {
               "score": "0-2",
-              "count": 415,
-              "pct": "8.3%"
+              "count": 451,
+              "pct": "9.0%"
             },
             {
               "score": "1-3",
-              "count": 406,
-              "pct": "8.1%"
+              "count": 375,
+              "pct": "7.5%"
             },
             {
-              "score": "0-4",
-              "count": 405,
-              "pct": "8.1%"
+              "score": "1-4",
+              "count": 364,
+              "pct": "7.3%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 3128,
+              "count": 3132,
               "pct": "62.6%"
             },
             {
               "hf": "平负",
-              "count": 930,
-              "pct": "18.6%"
+              "count": 1002,
+              "pct": "20.0%"
             },
             {
               "hf": "平平",
-              "count": 260,
-              "pct": "5.2%"
+              "count": 248,
+              "pct": "5.0%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 453,
-              "pct": "9.1%"
+              "count": 472,
+              "pct": "9.4%"
             },
             {
-              "score": "0-4",
-              "count": 405,
-              "pct": "8.1%"
+              "score": "1-4",
+              "count": 364,
+              "pct": "7.3%"
             }
           ]
         }
@@ -9211,9 +9211,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "4.8",
-            "drawPct": "8.8",
-            "awayPct": "86.4"
+            "homePct": "4.5",
+            "drawPct": "9.2",
+            "awayPct": "86.3"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -9224,62 +9224,62 @@
           },
           "topScores": [
             {
-              "score": "0-2",
-              "count": 469,
-              "pct": "9.4%"
-            },
-            {
               "score": "0-3",
-              "count": 426,
-              "pct": "8.5%"
-            },
-            {
-              "score": "0-4",
-              "count": 412,
-              "pct": "8.2%"
+              "count": 437,
+              "pct": "8.7%"
             },
             {
               "score": "1-3",
-              "count": 373,
-              "pct": "7.5%"
+              "count": 432,
+              "pct": "8.6%"
+            },
+            {
+              "score": "0-2",
+              "count": 406,
+              "pct": "8.1%"
+            },
+            {
+              "score": "0-4",
+              "count": 370,
+              "pct": "7.4%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 3183,
-              "pct": "63.7%"
+              "count": 3133,
+              "pct": "62.7%"
             },
             {
               "hf": "平负",
-              "count": 945,
-              "pct": "18.9%"
+              "count": 987,
+              "pct": "19.7%"
             },
             {
               "hf": "平平",
-              "count": 218,
-              "pct": "4.4%"
+              "count": 232,
+              "pct": "4.6%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 426,
-              "pct": "8.5%"
+              "count": 437,
+              "pct": "8.7%"
             },
             {
               "score": "0-4",
-              "count": 412,
-              "pct": "8.2%"
+              "count": 370,
+              "pct": "7.4%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "4.8",
-            "drawPct": "8.8",
-            "awayPct": "86.4"
+            "homePct": "4.5",
+            "drawPct": "9.2",
+            "awayPct": "86.3"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -9290,53 +9290,53 @@
           },
           "topScores": [
             {
-              "score": "0-2",
-              "count": 469,
-              "pct": "9.4%"
-            },
-            {
               "score": "0-3",
-              "count": 426,
-              "pct": "8.5%"
-            },
-            {
-              "score": "0-4",
-              "count": 412,
-              "pct": "8.2%"
+              "count": 437,
+              "pct": "8.7%"
             },
             {
               "score": "1-3",
-              "count": 373,
-              "pct": "7.5%"
+              "count": 432,
+              "pct": "8.6%"
+            },
+            {
+              "score": "0-2",
+              "count": 406,
+              "pct": "8.1%"
+            },
+            {
+              "score": "0-4",
+              "count": 370,
+              "pct": "7.4%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 3183,
-              "pct": "63.7%"
+              "count": 3133,
+              "pct": "62.7%"
             },
             {
               "hf": "平负",
-              "count": 945,
-              "pct": "18.9%"
+              "count": 987,
+              "pct": "19.7%"
             },
             {
               "hf": "平平",
-              "count": 218,
-              "pct": "4.4%"
+              "count": 232,
+              "pct": "4.6%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 426,
-              "pct": "8.5%"
+              "count": 437,
+              "pct": "8.7%"
             },
             {
               "score": "0-4",
-              "count": 412,
-              "pct": "8.2%"
+              "count": 370,
+              "pct": "7.4%"
             }
           ]
         }
@@ -9422,9 +9422,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "4.9",
-            "drawPct": "8.5",
-            "awayPct": "86.6"
+            "homePct": "4.5",
+            "drawPct": "9.2",
+            "awayPct": "86.3"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -9436,61 +9436,61 @@
           "topScores": [
             {
               "score": "0-3",
-              "count": 474,
-              "pct": "9.5%"
+              "count": 463,
+              "pct": "9.3%"
             },
             {
-              "score": "0-2",
-              "count": 416,
-              "pct": "8.3%"
-            },
-            {
-              "score": "1-3",
+              "score": "0-4",
               "count": 404,
               "pct": "8.1%"
             },
             {
-              "score": "0-4",
-              "count": 401,
+              "score": "0-2",
+              "count": 399,
               "pct": "8.0%"
+            },
+            {
+              "score": "1-3",
+              "count": 391,
+              "pct": "7.8%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 3088,
-              "pct": "61.8%"
+              "count": 3079,
+              "pct": "61.6%"
             },
             {
               "hf": "平负",
-              "count": 1023,
-              "pct": "20.5%"
+              "count": 1006,
+              "pct": "20.1%"
             },
             {
               "hf": "平平",
-              "count": 247,
-              "pct": "4.9%"
+              "count": 240,
+              "pct": "4.8%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 474,
-              "pct": "9.5%"
+              "count": 463,
+              "pct": "9.3%"
             },
             {
               "score": "0-4",
-              "count": 401,
-              "pct": "8.0%"
+              "count": 404,
+              "pct": "8.1%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "4.9",
-            "drawPct": "8.5",
-            "awayPct": "86.6"
+            "homePct": "4.5",
+            "drawPct": "9.2",
+            "awayPct": "86.3"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -9502,52 +9502,52 @@
           "topScores": [
             {
               "score": "0-3",
-              "count": 474,
-              "pct": "9.5%"
+              "count": 463,
+              "pct": "9.3%"
             },
             {
-              "score": "0-2",
-              "count": 416,
-              "pct": "8.3%"
-            },
-            {
-              "score": "1-3",
+              "score": "0-4",
               "count": 404,
               "pct": "8.1%"
             },
             {
-              "score": "0-4",
-              "count": 401,
+              "score": "0-2",
+              "count": 399,
               "pct": "8.0%"
+            },
+            {
+              "score": "1-3",
+              "count": 391,
+              "pct": "7.8%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 3088,
-              "pct": "61.8%"
+              "count": 3079,
+              "pct": "61.6%"
             },
             {
               "hf": "平负",
-              "count": 1023,
-              "pct": "20.5%"
+              "count": 1006,
+              "pct": "20.1%"
             },
             {
               "hf": "平平",
-              "count": 247,
-              "pct": "4.9%"
+              "count": 240,
+              "pct": "4.8%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 474,
-              "pct": "9.5%"
+              "count": 463,
+              "pct": "9.3%"
             },
             {
               "score": "0-4",
-              "count": 401,
-              "pct": "8.0%"
+              "count": 404,
+              "pct": "8.1%"
             }
           ]
         }
@@ -9633,9 +9633,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "4.6",
-            "drawPct": "9.9",
-            "awayPct": "85.5"
+            "homePct": "4.9",
+            "drawPct": "9.1",
+            "awayPct": "86.1"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -9647,61 +9647,61 @@
           "topScores": [
             {
               "score": "0-3",
-              "count": 440,
-              "pct": "8.8%"
+              "count": 487,
+              "pct": "9.7%"
             },
             {
               "score": "0-2",
-              "count": 416,
-              "pct": "8.3%"
+              "count": 456,
+              "pct": "9.1%"
             },
             {
               "score": "0-4",
-              "count": 406,
-              "pct": "8.1%"
+              "count": 380,
+              "pct": "7.6%"
             },
             {
               "score": "1-3",
-              "count": 380,
-              "pct": "7.6%"
+              "count": 359,
+              "pct": "7.2%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 3145,
-              "pct": "62.9%"
+              "count": 3084,
+              "pct": "61.7%"
             },
             {
               "hf": "平负",
-              "count": 923,
-              "pct": "18.5%"
+              "count": 1029,
+              "pct": "20.6%"
             },
             {
               "hf": "平平",
-              "count": 257,
-              "pct": "5.1%"
+              "count": 239,
+              "pct": "4.8%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 440,
-              "pct": "8.8%"
+              "count": 487,
+              "pct": "9.7%"
             },
             {
               "score": "0-4",
-              "count": 406,
-              "pct": "8.1%"
+              "count": 380,
+              "pct": "7.6%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "4.6",
-            "drawPct": "9.9",
-            "awayPct": "85.5"
+            "homePct": "4.9",
+            "drawPct": "9.1",
+            "awayPct": "86.1"
           },
           "styleTag": {
             "name": "💣 反客为主型",
@@ -9713,52 +9713,52 @@
           "topScores": [
             {
               "score": "0-3",
-              "count": 440,
-              "pct": "8.8%"
+              "count": 487,
+              "pct": "9.7%"
             },
             {
               "score": "0-2",
-              "count": 416,
-              "pct": "8.3%"
+              "count": 456,
+              "pct": "9.1%"
             },
             {
               "score": "0-4",
-              "count": 406,
-              "pct": "8.1%"
+              "count": 380,
+              "pct": "7.6%"
             },
             {
               "score": "1-3",
-              "count": 380,
-              "pct": "7.6%"
+              "count": 359,
+              "pct": "7.2%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 3145,
-              "pct": "62.9%"
+              "count": 3084,
+              "pct": "61.7%"
             },
             {
               "hf": "平负",
-              "count": 923,
-              "pct": "18.5%"
+              "count": 1029,
+              "pct": "20.6%"
             },
             {
               "hf": "平平",
-              "count": 257,
-              "pct": "5.1%"
+              "count": 239,
+              "pct": "4.8%"
             }
           ],
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 440,
-              "pct": "8.8%"
+              "count": 487,
+              "pct": "9.7%"
             },
             {
               "score": "0-4",
-              "count": 406,
-              "pct": "8.1%"
+              "count": 380,
+              "pct": "7.6%"
             }
           ]
         }
@@ -9846,9 +9846,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "37.7",
-            "drawPct": "27.3",
-            "awayPct": "35.0"
+            "homePct": "36.8",
+            "drawPct": "27.8",
+            "awayPct": "35.4"
           },
           "styleTag": {
             "name": "⚔️ 均势对喷型",
@@ -9860,61 +9860,61 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 613,
-              "pct": "12.3%"
-            },
-            {
-              "score": "1-0",
-              "count": 495,
-              "pct": "9.9%"
+              "count": 622,
+              "pct": "12.4%"
             },
             {
               "score": "0-1",
+              "count": 440,
+              "pct": "8.8%"
+            },
+            {
+              "score": "1-0",
               "count": 421,
               "pct": "8.4%"
             },
             {
               "score": "2-1",
-              "count": 419,
-              "pct": "8.4%"
+              "count": 414,
+              "pct": "8.3%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 962,
-              "pct": "19.2%"
+              "count": 928,
+              "pct": "18.6%"
             },
             {
               "hf": "负负",
-              "count": 876,
-              "pct": "17.5%"
+              "count": 887,
+              "pct": "17.7%"
             },
             {
               "hf": "平平",
-              "count": 816,
-              "pct": "16.3%"
+              "count": 824,
+              "pct": "16.5%"
             }
           ],
           "wildOutliers": [
             {
-              "score": "3-2",
-              "count": 141,
-              "pct": "2.8%"
+              "score": "2-3",
+              "count": 151,
+              "pct": "3.0%"
             },
             {
-              "score": "2-3",
-              "count": 134,
-              "pct": "2.7%"
+              "score": "0-3",
+              "count": 116,
+              "pct": "2.3%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "37.7",
-            "drawPct": "27.3",
-            "awayPct": "35.0"
+            "homePct": "36.8",
+            "drawPct": "27.8",
+            "awayPct": "35.4"
           },
           "styleTag": {
             "name": "⚔️ 均势对喷型",
@@ -9926,52 +9926,52 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 613,
-              "pct": "12.3%"
-            },
-            {
-              "score": "1-0",
-              "count": 495,
-              "pct": "9.9%"
+              "count": 622,
+              "pct": "12.4%"
             },
             {
               "score": "0-1",
+              "count": 440,
+              "pct": "8.8%"
+            },
+            {
+              "score": "1-0",
               "count": 421,
               "pct": "8.4%"
             },
             {
               "score": "2-1",
-              "count": 419,
-              "pct": "8.4%"
+              "count": 414,
+              "pct": "8.3%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 962,
-              "pct": "19.2%"
+              "count": 928,
+              "pct": "18.6%"
             },
             {
               "hf": "负负",
-              "count": 876,
-              "pct": "17.5%"
+              "count": 887,
+              "pct": "17.7%"
             },
             {
               "hf": "平平",
-              "count": 816,
-              "pct": "16.3%"
+              "count": 824,
+              "pct": "16.5%"
             }
           ],
           "wildOutliers": [
             {
-              "score": "3-2",
-              "count": 141,
-              "pct": "2.8%"
+              "score": "2-3",
+              "count": 151,
+              "pct": "3.0%"
             },
             {
-              "score": "2-3",
-              "count": 134,
-              "pct": "2.7%"
+              "score": "0-3",
+              "count": 116,
+              "pct": "2.3%"
             }
           ]
         }
@@ -10059,9 +10059,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "39.0",
-            "drawPct": "26.1",
-            "awayPct": "35.0"
+            "homePct": "37.4",
+            "drawPct": "27.0",
+            "awayPct": "35.6"
           },
           "styleTag": {
             "name": "⚔️ 均势对喷型",
@@ -10073,8 +10073,8 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 574,
-              "pct": "11.5%"
+              "count": 604,
+              "pct": "12.1%"
             },
             {
               "score": "1-0",
@@ -10083,51 +10083,51 @@
             },
             {
               "score": "0-1",
-              "count": 423,
-              "pct": "8.5%"
+              "count": 422,
+              "pct": "8.4%"
             },
             {
-              "score": "2-1",
-              "count": 422,
+              "score": "1-2",
+              "count": 420,
               "pct": "8.4%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 944,
-              "pct": "18.9%"
+              "count": 954,
+              "pct": "19.1%"
             },
             {
               "hf": "负负",
-              "count": 845,
-              "pct": "16.9%"
+              "count": 890,
+              "pct": "17.8%"
             },
             {
-              "hf": "平胜",
-              "count": 835,
-              "pct": "16.7%"
+              "hf": "平平",
+              "count": 831,
+              "pct": "16.6%"
             }
           ],
           "wildOutliers": [
             {
               "score": "2-3",
-              "count": 151,
-              "pct": "3.0%"
+              "count": 138,
+              "pct": "2.8%"
             },
             {
               "score": "3-2",
-              "count": 123,
-              "pct": "2.5%"
+              "count": 133,
+              "pct": "2.7%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "39.0",
-            "drawPct": "26.1",
-            "awayPct": "35.0"
+            "homePct": "37.4",
+            "drawPct": "27.0",
+            "awayPct": "35.6"
           },
           "styleTag": {
             "name": "⚔️ 均势对喷型",
@@ -10139,8 +10139,8 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 574,
-              "pct": "11.5%"
+              "count": 604,
+              "pct": "12.1%"
             },
             {
               "score": "1-0",
@@ -10149,42 +10149,42 @@
             },
             {
               "score": "0-1",
-              "count": 423,
-              "pct": "8.5%"
+              "count": 422,
+              "pct": "8.4%"
             },
             {
-              "score": "2-1",
-              "count": 422,
+              "score": "1-2",
+              "count": 420,
               "pct": "8.4%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 944,
-              "pct": "18.9%"
+              "count": 954,
+              "pct": "19.1%"
             },
             {
               "hf": "负负",
-              "count": 845,
-              "pct": "16.9%"
+              "count": 890,
+              "pct": "17.8%"
             },
             {
-              "hf": "平胜",
-              "count": 835,
-              "pct": "16.7%"
+              "hf": "平平",
+              "count": 831,
+              "pct": "16.6%"
             }
           ],
           "wildOutliers": [
             {
               "score": "2-3",
-              "count": 151,
-              "pct": "3.0%"
+              "count": 138,
+              "pct": "2.8%"
             },
             {
               "score": "3-2",
-              "count": 123,
-              "pct": "2.5%"
+              "count": 133,
+              "pct": "2.7%"
             }
           ]
         }
@@ -10272,9 +10272,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "36.6",
-            "drawPct": "27.4",
-            "awayPct": "36.0"
+            "homePct": "36.1",
+            "drawPct": "26.9",
+            "awayPct": "37.0"
           },
           "styleTag": {
             "name": "⚔️ 均势对喷型",
@@ -10286,51 +10286,51 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 628,
-              "pct": "12.6%"
-            },
-            {
-              "score": "1-0",
-              "count": 495,
-              "pct": "9.9%"
+              "count": 604,
+              "pct": "12.1%"
             },
             {
               "score": "0-1",
-              "count": 447,
-              "pct": "8.9%"
+              "count": 484,
+              "pct": "9.7%"
             },
             {
-              "score": "1-2",
-              "count": 411,
-              "pct": "8.2%"
+              "score": "1-0",
+              "count": 432,
+              "pct": "8.6%"
+            },
+            {
+              "score": "2-1",
+              "count": 422,
+              "pct": "8.4%"
             }
           ],
           "topHalfFull": [
             {
-              "hf": "胜胜",
-              "count": 905,
-              "pct": "18.1%"
+              "hf": "负负",
+              "count": 900,
+              "pct": "18.0%"
             },
             {
-              "hf": "负负",
+              "hf": "胜胜",
               "count": 896,
               "pct": "17.9%"
             },
             {
               "hf": "平平",
-              "count": 790,
-              "pct": "15.8%"
+              "count": 825,
+              "pct": "16.5%"
             }
           ],
           "wildOutliers": [
             {
               "score": "2-3",
-              "count": 125,
-              "pct": "2.5%"
+              "count": 156,
+              "pct": "3.1%"
             },
             {
               "score": "3-2",
-              "count": 121,
+              "count": 122,
               "pct": "2.4%"
             }
           ]
@@ -10338,9 +10338,9 @@
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "36.6",
-            "drawPct": "27.4",
-            "awayPct": "36.0"
+            "homePct": "36.1",
+            "drawPct": "26.9",
+            "awayPct": "37.0"
           },
           "styleTag": {
             "name": "⚔️ 均势对喷型",
@@ -10352,51 +10352,51 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 628,
-              "pct": "12.6%"
-            },
-            {
-              "score": "1-0",
-              "count": 495,
-              "pct": "9.9%"
+              "count": 604,
+              "pct": "12.1%"
             },
             {
               "score": "0-1",
-              "count": 447,
-              "pct": "8.9%"
+              "count": 484,
+              "pct": "9.7%"
             },
             {
-              "score": "1-2",
-              "count": 411,
-              "pct": "8.2%"
+              "score": "1-0",
+              "count": 432,
+              "pct": "8.6%"
+            },
+            {
+              "score": "2-1",
+              "count": 422,
+              "pct": "8.4%"
             }
           ],
           "topHalfFull": [
             {
-              "hf": "胜胜",
-              "count": 905,
-              "pct": "18.1%"
+              "hf": "负负",
+              "count": 900,
+              "pct": "18.0%"
             },
             {
-              "hf": "负负",
+              "hf": "胜胜",
               "count": 896,
               "pct": "17.9%"
             },
             {
               "hf": "平平",
-              "count": 790,
-              "pct": "15.8%"
+              "count": 825,
+              "pct": "16.5%"
             }
           ],
           "wildOutliers": [
             {
               "score": "2-3",
-              "count": 125,
-              "pct": "2.5%"
+              "count": 156,
+              "pct": "3.1%"
             },
             {
               "score": "3-2",
-              "count": 121,
+              "count": 122,
               "pct": "2.4%"
             }
           ]
@@ -10485,9 +10485,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "36.1",
+            "homePct": "35.9",
             "drawPct": "28.0",
-            "awayPct": "35.9"
+            "awayPct": "36.1"
           },
           "styleTag": {
             "name": "⚔️ 均势对喷型",
@@ -10499,61 +10499,61 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 630,
-              "pct": "12.6%"
+              "count": 640,
+              "pct": "12.8%"
             },
             {
-              "score": "0-1",
+              "score": "1-0",
               "count": 451,
               "pct": "9.0%"
             },
             {
-              "score": "1-0",
-              "count": 426,
-              "pct": "8.5%"
+              "score": "0-1",
+              "count": 448,
+              "pct": "9.0%"
             },
             {
               "score": "2-1",
-              "count": 404,
-              "pct": "8.1%"
+              "count": 437,
+              "pct": "8.7%"
             }
           ],
           "topHalfFull": [
             {
-              "hf": "胜胜",
-              "count": 936,
-              "pct": "18.7%"
+              "hf": "负负",
+              "count": 943,
+              "pct": "18.9%"
             },
             {
-              "hf": "负负",
-              "count": 908,
-              "pct": "18.2%"
+              "hf": "胜胜",
+              "count": 902,
+              "pct": "18.0%"
             },
             {
               "hf": "平平",
-              "count": 835,
+              "count": 833,
               "pct": "16.7%"
             }
           ],
           "wildOutliers": [
             {
-              "score": "3-2",
-              "count": 134,
-              "pct": "2.7%"
+              "score": "2-3",
+              "count": 128,
+              "pct": "2.6%"
             },
             {
-              "score": "2-3",
-              "count": 134,
-              "pct": "2.7%"
+              "score": "0-3",
+              "count": 121,
+              "pct": "2.4%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "36.1",
+            "homePct": "35.9",
             "drawPct": "28.0",
-            "awayPct": "35.9"
+            "awayPct": "36.1"
           },
           "styleTag": {
             "name": "⚔️ 均势对喷型",
@@ -10565,52 +10565,52 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 630,
-              "pct": "12.6%"
+              "count": 640,
+              "pct": "12.8%"
             },
             {
-              "score": "0-1",
+              "score": "1-0",
               "count": 451,
               "pct": "9.0%"
             },
             {
-              "score": "1-0",
-              "count": 426,
-              "pct": "8.5%"
+              "score": "0-1",
+              "count": 448,
+              "pct": "9.0%"
             },
             {
               "score": "2-1",
-              "count": 404,
-              "pct": "8.1%"
+              "count": 437,
+              "pct": "8.7%"
             }
           ],
           "topHalfFull": [
             {
-              "hf": "胜胜",
-              "count": 936,
-              "pct": "18.7%"
+              "hf": "负负",
+              "count": 943,
+              "pct": "18.9%"
             },
             {
-              "hf": "负负",
-              "count": 908,
-              "pct": "18.2%"
+              "hf": "胜胜",
+              "count": 902,
+              "pct": "18.0%"
             },
             {
               "hf": "平平",
-              "count": 835,
+              "count": 833,
               "pct": "16.7%"
             }
           ],
           "wildOutliers": [
             {
-              "score": "3-2",
-              "count": 134,
-              "pct": "2.7%"
+              "score": "2-3",
+              "count": 128,
+              "pct": "2.6%"
             },
             {
-              "score": "2-3",
-              "count": 134,
-              "pct": "2.7%"
+              "score": "0-3",
+              "count": 121,
+              "pct": "2.4%"
             }
           ]
         }
@@ -10698,8 +10698,8 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "37.0",
-            "drawPct": "28.0",
+            "homePct": "37.1",
+            "drawPct": "27.9",
             "awayPct": "35.0"
           },
           "styleTag": {
@@ -10712,60 +10712,60 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 627,
-              "pct": "12.5%"
-            },
-            {
-              "score": "1-0",
-              "count": 455,
-              "pct": "9.1%"
+              "count": 655,
+              "pct": "13.1%"
             },
             {
               "score": "0-1",
-              "count": 442,
-              "pct": "8.8%"
+              "count": 472,
+              "pct": "9.4%"
+            },
+            {
+              "score": "1-0",
+              "count": 462,
+              "pct": "9.2%"
             },
             {
               "score": "2-1",
-              "count": 435,
-              "pct": "8.7%"
+              "count": 439,
+              "pct": "8.8%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 880,
-              "pct": "17.6%"
+              "count": 893,
+              "pct": "17.9%"
             },
             {
               "hf": "平平",
-              "count": 875,
-              "pct": "17.5%"
+              "count": 872,
+              "pct": "17.4%"
             },
             {
               "hf": "负负",
-              "count": 859,
-              "pct": "17.2%"
+              "count": 856,
+              "pct": "17.1%"
             }
           ],
           "wildOutliers": [
             {
-              "score": "2-3",
-              "count": 139,
-              "pct": "2.8%"
+              "score": "0-3",
+              "count": 126,
+              "pct": "2.5%"
             },
             {
               "score": "3-2",
-              "count": 125,
-              "pct": "2.5%"
+              "count": 119,
+              "pct": "2.4%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "37.0",
-            "drawPct": "28.0",
+            "homePct": "37.1",
+            "drawPct": "27.9",
             "awayPct": "35.0"
           },
           "styleTag": {
@@ -10778,52 +10778,52 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 627,
-              "pct": "12.5%"
-            },
-            {
-              "score": "1-0",
-              "count": 455,
-              "pct": "9.1%"
+              "count": 655,
+              "pct": "13.1%"
             },
             {
               "score": "0-1",
-              "count": 442,
-              "pct": "8.8%"
+              "count": 472,
+              "pct": "9.4%"
+            },
+            {
+              "score": "1-0",
+              "count": 462,
+              "pct": "9.2%"
             },
             {
               "score": "2-1",
-              "count": 435,
-              "pct": "8.7%"
+              "count": 439,
+              "pct": "8.8%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 880,
-              "pct": "17.6%"
+              "count": 893,
+              "pct": "17.9%"
             },
             {
               "hf": "平平",
-              "count": 875,
-              "pct": "17.5%"
+              "count": 872,
+              "pct": "17.4%"
             },
             {
               "hf": "负负",
-              "count": 859,
-              "pct": "17.2%"
+              "count": 856,
+              "pct": "17.1%"
             }
           ],
           "wildOutliers": [
             {
-              "score": "2-3",
-              "count": 139,
-              "pct": "2.8%"
+              "score": "0-3",
+              "count": 126,
+              "pct": "2.5%"
             },
             {
               "score": "3-2",
-              "count": 125,
-              "pct": "2.5%"
+              "count": 119,
+              "pct": "2.4%"
             }
           ]
         }
@@ -10911,8 +10911,8 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "36.7",
-            "drawPct": "27.7",
+            "homePct": "37.6",
+            "drawPct": "26.7",
             "awayPct": "35.6"
           },
           "styleTag": {
@@ -10925,60 +10925,60 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 646,
-              "pct": "12.9%"
+              "count": 623,
+              "pct": "12.5%"
             },
             {
-              "score": "0-1",
-              "count": 486,
-              "pct": "9.7%"
+              "score": "2-1",
+              "count": 446,
+              "pct": "8.9%"
             },
             {
               "score": "1-0",
-              "count": 465,
-              "pct": "9.3%"
+              "count": 437,
+              "pct": "8.7%"
             },
             {
-              "score": "1-2",
-              "count": 409,
-              "pct": "8.2%"
+              "score": "0-1",
+              "count": 430,
+              "pct": "8.6%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 945,
+              "count": 943,
               "pct": "18.9%"
             },
             {
               "hf": "负负",
-              "count": 883,
-              "pct": "17.7%"
+              "count": 857,
+              "pct": "17.1%"
             },
             {
               "hf": "平平",
-              "count": 818,
-              "pct": "16.4%"
+              "count": 786,
+              "pct": "15.7%"
             }
           ],
           "wildOutliers": [
             {
-              "score": "2-3",
-              "count": 135,
-              "pct": "2.7%"
+              "score": "3-2",
+              "count": 131,
+              "pct": "2.6%"
             },
             {
-              "score": "3-2",
-              "count": 130,
-              "pct": "2.6%"
+              "score": "0-3",
+              "count": 123,
+              "pct": "2.5%"
             }
           ]
         },
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "36.7",
-            "drawPct": "27.7",
+            "homePct": "37.6",
+            "drawPct": "26.7",
             "awayPct": "35.6"
           },
           "styleTag": {
@@ -10991,52 +10991,52 @@
           "topScores": [
             {
               "score": "1-1",
-              "count": 646,
-              "pct": "12.9%"
+              "count": 623,
+              "pct": "12.5%"
             },
             {
-              "score": "0-1",
-              "count": 486,
-              "pct": "9.7%"
+              "score": "2-1",
+              "count": 446,
+              "pct": "8.9%"
             },
             {
               "score": "1-0",
-              "count": 465,
-              "pct": "9.3%"
+              "count": 437,
+              "pct": "8.7%"
             },
             {
-              "score": "1-2",
-              "count": 409,
-              "pct": "8.2%"
+              "score": "0-1",
+              "count": 430,
+              "pct": "8.6%"
             }
           ],
           "topHalfFull": [
             {
               "hf": "胜胜",
-              "count": 945,
+              "count": 943,
               "pct": "18.9%"
             },
             {
               "hf": "负负",
-              "count": 883,
-              "pct": "17.7%"
+              "count": 857,
+              "pct": "17.1%"
             },
             {
               "hf": "平平",
-              "count": 818,
-              "pct": "16.4%"
+              "count": 786,
+              "pct": "15.7%"
             }
           ],
           "wildOutliers": [
             {
-              "score": "2-3",
-              "count": 135,
-              "pct": "2.7%"
+              "score": "3-2",
+              "count": 131,
+              "pct": "2.6%"
             },
             {
-              "score": "3-2",
-              "count": 130,
-              "pct": "2.6%"
+              "score": "0-3",
+              "count": 123,
+              "pct": "2.5%"
             }
           ]
         }
