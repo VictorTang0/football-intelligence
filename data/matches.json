@@ -101516,7 +101516,7 @@
         "humidity": 57,
         "wind_kmh": 6
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-29T19:37:36.068557",
@@ -102048,7 +102048,9 @@
         "ev_score": 0.0,
         "reasoning": "巴西甲级联赛比赛双方战术意图各有侧重。 基本面上，维多利亚在【战术克制与匹配】上拥有明显优势（评分 8.7 对 7.5），但帕尔梅拉斯在【近期状态与动能】上（评分 7.4 对 6.1）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 4.03 降至 3.95，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败】。",
         "confidence_trend": "up",
-        "predicted_score": "0-1 或 0-0 或 1-2 (竞彩)"
+        "predicted_score": "0-1 或 0-0 或 1-2 (竞彩)",
+        "actual_result": "0-4",
+        "actual_half_result": "0-2"
       },
       "team_stats": {
         "home": {
@@ -102852,7 +102854,13 @@
       "radar_triggered": false,
       "match_no": "周三 006",
       "issue_date": "260729",
-      "business_date": "2026-07-29"
+      "business_date": "2026-07-29",
+      "result": {
+        "home_score": 0,
+        "away_score": 4,
+        "half_home_score": 0,
+        "half_away_score": 2
+      }
     }
   ]
 }

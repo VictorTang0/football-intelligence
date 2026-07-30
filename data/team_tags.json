@@ -234,32 +234,24 @@
     }
   },
   "维多利亚": {
-    "matches_evaluated": 4,
+    "matches_evaluated": 6,
     "last_updated": "2026-07-30",
     "tags": {
-      "铜墙铁壁": {
-        "score": 72.6,
-        "level": 3,
-        "level_name": "高能级",
-        "weight_boost": 0.2178,
-        "confidence": 76,
-        "desc": "近 4 场失球仅 0.00 球 (连续得分: 72.6分)"
-      },
       "主场狂魔": {
-        "score": 47.6,
+        "score": 41.7,
         "level": 2,
         "level_name": "初具规模",
-        "weight_boost": 0.1428,
-        "confidence": 60,
-        "desc": "主场胜率达 100.0% (连续得分: 47.6分)"
+        "weight_boost": 0.1251,
+        "confidence": 68,
+        "desc": "主场胜率达 50.0% (连续得分: 41.7分)"
       },
       "平局大师": {
-        "score": 72.4,
-        "level": 3,
-        "level_name": "高能级",
-        "weight_boost": 0.2172,
-        "confidence": 76,
-        "desc": "平局率达 50.0% (连续得分: 72.4分)"
+        "score": 54.2,
+        "level": 2,
+        "level_name": "初具规模",
+        "weight_boost": 0.1626,
+        "confidence": 74,
+        "desc": "平局率达 33.3% (连续得分: 54.2分)"
       }
     }
   },
@@ -2188,6 +2180,28 @@
         "weight_boost": 0.12,
         "confidence": 57,
         "desc": "平局率达 100.0% (连续得分: 40.0分)"
+      }
+    }
+  },
+  "帕尔梅拉斯": {
+    "matches_evaluated": 2,
+    "last_updated": "2026-07-30",
+    "tags": {
+      "灌球高手": {
+        "score": 38.3,
+        "level": 1,
+        "level_name": "萌芽级",
+        "weight_boost": 0.1149,
+        "confidence": 56,
+        "desc": "近 2 场轰入 4.00 球 (连续得分: 38.3分)"
+      },
+      "铜墙铁壁": {
+        "score": 36.3,
+        "level": 1,
+        "level_name": "萌芽级",
+        "weight_boost": 0.1089,
+        "confidence": 56,
+        "desc": "近 2 场失球仅 0.00 球 (连续得分: 36.3分)"
       }
     }
   }
