@@ -2799,13 +2799,26 @@ const MatchIQRender = (() => {
         had = "客胜";
       }
       
-      // 从竞彩网获取真实的让球数，拒绝固定让 1 球
+      // 从竞彩网获取真实的让球盘口，拒绝硬编码
       let hc = -1;
-      const hcRaw = m.handicap_line;
-      if (hcRaw !== undefined && hcRaw !== null && hcRaw !== '') {
-        hc = parseInt(hcRaw, 10);
-      } else {
-        hc = had === "主胜" ? -1 : 1;
+      let hcFound = false;
+      if (m.handicap_line !== undefined && m.handicap_line !== null && m.handicap_line !== '') {
+        const parsed = parseInt(m.handicap_line, 10);
+        if (!isNaN(parsed)) {
+          hc = parsed;
+          hcFound = true;
+        }
+      }
+      if (!hcFound && m.odds_analysis?.lottery_handicap?.handicap) {
+        const str = m.odds_analysis.lottery_handicap.handicap;
+        const numMatch = str.match(/-?\d+/);
+        if (numMatch) {
+          const num = parseInt(numMatch[0], 10);
+          if (!isNaN(num)) {
+            hc = (str.includes("受让") || str.includes("+")) ? Math.abs(num) : -Math.abs(num);
+            hcFound = true;
+          }
+        }
       }
 
       const mlsText = score || '';
