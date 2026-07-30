@@ -26,8 +26,8 @@
     "kickoff": "2026-07-31T01:00:00+08:00",
     "initial_odds": {
       "home": 1.8,
-      "draw": 3.4,
-      "away": 3.6
+      "draw": 3.48,
+      "away": 3.5
     },
     "handicap_line": "-1"
   },
@@ -41,9 +41,9 @@
     "away": "哈马比",
     "kickoff": "2026-07-31T02:30:00+08:00",
     "initial_odds": {
-      "home": 2.09,
-      "draw": 3.35,
-      "away": 2.85
+      "home": 2.02,
+      "draw": 3.45,
+      "away": 2.9
     },
     "handicap_line": "-1"
   },
@@ -57,9 +57,9 @@
     "away": "特温特",
     "kickoff": "2026-07-31T02:30:00+08:00",
     "initial_odds": {
-      "home": 2.95,
+      "home": 2.85,
       "draw": 3.6,
-      "away": 1.95
+      "away": 2.0
     },
     "handicap_line": "+1"
   },
@@ -92,6 +92,54 @@
       "home": 1.72,
       "draw": 3.15,
       "away": 4.35
+    },
+    "handicap_line": "-1"
+  },
+  {
+    "id": "match_260731_001",
+    "match_no": "周五001",
+    "issue_date": "260731",
+    "sportteryMatchId": 2040667,
+    "league": "挪超",
+    "home": "瓦勒伦加",
+    "away": "汉坎",
+    "kickoff": "2026-08-01T01:00:00+08:00",
+    "initial_odds": {
+      "home": 1.47,
+      "draw": 4.25,
+      "away": 4.7
+    },
+    "handicap_line": "-1"
+  },
+  {
+    "id": "match_260731_002",
+    "match_no": "周五002",
+    "issue_date": "260731",
+    "sportteryMatchId": 2040668,
+    "league": "挪超",
+    "home": "博德闪耀",
+    "away": "利勒斯特",
+    "kickoff": "2026-08-01T03:00:00+08:00",
+    "initial_odds": {
+      "home": 1.17,
+      "draw": 6.1,
+      "away": 9.0
+    },
+    "handicap_line": "-2"
+  },
+  {
+    "id": "match_260731_003",
+    "match_no": "周五003",
+    "issue_date": "260731",
+    "sportteryMatchId": 2040669,
+    "league": "美职",
+    "home": "纽约城",
+    "away": "多伦多",
+    "kickoff": "2026-08-01T07:30:00+08:00",
+    "initial_odds": {
+      "home": 1.55,
+      "draw": 3.78,
+      "away": 4.55
     },
     "handicap_line": "-1"
   }
