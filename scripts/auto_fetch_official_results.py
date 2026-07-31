@@ -50,15 +50,17 @@ def evaluate_match_prediction(m, ft_score, ht_score):
     
     conclusions = m.get("conclusions", {})
     rec = m.get("ultimate_conclusion", {}).get("recommendation", "")
+    p_bet = m.get("ultimate_conclusion", {}).get("primary_bet", "")
+    target_text = f"{rec} {p_bet}"
     
     # Recommendation correctness
     rec_correct = False
-    if "主胜" in rec and ft_outcome == "H": rec_correct = True
-    elif "客胜" in rec and ft_outcome == "A": rec_correct = True
-    elif "平局" in rec and ft_outcome == "D": rec_correct = True
-    elif "主不败" in rec and ft_outcome in ["H", "D"]: rec_correct = True
-    elif "客不败" in rec and ft_outcome in ["A", "D"]: rec_correct = True
-    elif "双选不败" in rec: rec_correct = True
+    if "主胜" in target_text and ft_outcome == "H": rec_correct = True
+    elif "客胜" in target_text and ft_outcome == "A": rec_correct = True
+    elif "平局" in target_text and ft_outcome == "D": rec_correct = True
+    elif "主不败" in target_text and ft_outcome in ["H", "D"]: rec_correct = True
+    elif "客不败" in target_text and ft_outcome in ["A", "D"]: rec_correct = True
+    elif "双选不败" in target_text: rec_correct = True
     
     # Half-full correctness
     pred_hafu = conclusions.get("half_full", "")
