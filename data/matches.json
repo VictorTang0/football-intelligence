@@ -102957,7 +102957,7 @@
         "humidity": 72,
         "wind_kmh": 6
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-30T12:08:12.005425",
@@ -103153,7 +103153,9 @@
         "ev_score": 0.0,
         "reasoning": "欧罗巴联赛比赛双方战术意图各有侧重。 基本面上，中日德兰在【近期状态与动能】上拥有明显优势（评分 6.9 对 3.7），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 2.24 / 2.65 / 2.65 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "stable",
-        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "0-2",
+        "actual_half_result": "0-1"
       },
       "team_stats": {
         "home": {
@@ -104004,7 +104006,14 @@
       "current_recommendation": "客不败",
       "current_scores": "1-0 或 0-0 或 2-1 (竞彩)",
       "current_goals": "小 2.5",
-      "radar_triggered": true
+      "radar_triggered": true,
+      "result": {
+        "home_score": 0,
+        "away_score": 2,
+        "half_home_score": 0,
+        "half_away_score": 1,
+        "hafu": "平负"
+      }
     },
     {
       "id": "match_260731_周四002",
@@ -104022,7 +104031,7 @@
         "humidity": 72,
         "wind_kmh": 6
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-30T12:08:12.021308",
@@ -104218,7 +104227,9 @@
         "ev_score": 0.0,
         "reasoning": "欧罗巴联赛比赛双方战术意图各有侧重。 基本面上，帕福斯在【环境气候适应性】上拥有明显优势（评分 8.2 对 6.9），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 2.24 / 2.65 / 2.65 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "stable",
-        "predicted_score": "1-0 或 0-0 或 1-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 1-1 (竞彩)",
+        "actual_result": "2-0",
+        "actual_half_result": "1-0"
       },
       "team_stats": {
         "home": {
@@ -105028,7 +105039,14 @@
       "current_recommendation": "客不败",
       "current_scores": "1-0 或 0-0 或 1-1 (竞彩)",
       "current_goals": "小 2.5",
-      "radar_triggered": false
+      "radar_triggered": false,
+      "result": {
+        "home_score": 2,
+        "away_score": 0,
+        "half_home_score": 1,
+        "half_away_score": 0,
+        "hafu": "胜胜"
+      }
     },
     {
       "id": "match_260731_周四003",
@@ -105046,7 +105064,7 @@
         "humidity": 53,
         "wind_kmh": 9
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-30T12:08:12.032411",
@@ -105242,7 +105260,9 @@
         "ev_score": 0.0,
         "reasoning": "欧罗巴联赛比赛双方战术意图各有侧重。 基本面上，安德莱赫特在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），但哈马比在【球队基础硬实力】上（评分 9.8 对 7.7）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 2.24 / 2.65 / 2.65 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "stable",
-        "predicted_score": "1-0 或 0-0 或 1-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 1-1 (竞彩)",
+        "actual_result": "3-1",
+        "actual_half_result": "0-1"
       },
       "team_stats": {
         "home": {
@@ -106093,7 +106113,14 @@
       "current_recommendation": "客不败",
       "current_scores": "1-0 或 0-0 或 1-1 (竞彩)",
       "current_goals": "大 2.5 (竞彩)",
-      "radar_triggered": false
+      "radar_triggered": false,
+      "result": {
+        "home_score": 3,
+        "away_score": 1,
+        "half_home_score": 0,
+        "half_away_score": 1,
+        "hafu": "负胜"
+      }
     },
     {
       "id": "match_260731_周四004",
@@ -106111,7 +106138,7 @@
         "humidity": 53,
         "wind_kmh": 9
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-30T12:08:12.041817",
@@ -106307,7 +106334,9 @@
         "ev_score": 0.0,
         "reasoning": "欧罗巴联赛比赛双方战术意图各有侧重。 基本面上，费伦茨瓦罗斯在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 2.24 / 2.65 / 2.65 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "stable",
-        "predicted_score": "1-0 或 0-0 或 1-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 1-1 (竞彩)",
+        "actual_result": "2-2",
+        "actual_half_result": "1-0"
       },
       "team_stats": {
         "home": {
@@ -107166,7 +107195,14 @@
       "current_recommendation": "客不败",
       "current_scores": "1-0 或 0-0 或 1-1 (竞彩)",
       "current_goals": "小 2.5",
-      "radar_triggered": false
+      "radar_triggered": false,
+      "result": {
+        "home_score": 2,
+        "away_score": 2,
+        "half_home_score": 1,
+        "half_away_score": 0,
+        "hafu": "胜平"
+      }
     },
     {
       "id": "match_260731_周四005",
@@ -107184,7 +107220,7 @@
         "humidity": 58,
         "wind_kmh": 7
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-30T12:08:12.051691",
@@ -107380,7 +107416,9 @@
         "ev_score": 0.0,
         "reasoning": "欧罗巴联赛比赛双方战术意图各有侧重。 基本面上，本菲卡在【近期状态与动能】上拥有明显优势（评分 7.9 对 4.7），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 2.24 / 2.65 / 2.65 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "stable",
-        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "5-0",
+        "actual_half_result": "2-0"
       },
       "team_stats": {
         "home": {
@@ -108210,7 +108248,14 @@
       "current_recommendation": "客不败",
       "current_scores": "1-0 或 0-0 或 2-1 (竞彩)",
       "current_goals": "小 2.5",
-      "radar_triggered": true
+      "radar_triggered": true,
+      "result": {
+        "home_score": 5,
+        "away_score": 0,
+        "half_home_score": 2,
+        "half_away_score": 0,
+        "hafu": "胜胜"
+      }
     },
     {
       "id": "match_260731_周四006",
@@ -108228,7 +108273,7 @@
         "humidity": 62,
         "wind_kmh": 14
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-07-30T12:08:12.061035",
@@ -108424,7 +108469,9 @@
         "ev_score": 0.0,
         "reasoning": "巴西甲级联赛比赛双方战术意图各有侧重。 基本面上，科林蒂安在【环境气候适应性】上拥有明显优势（评分 8.2 对 6.9），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 2.24 / 2.65 / 2.65 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【平局】。",
         "confidence_trend": "stable",
-        "predicted_score": "1-1 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-1 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "0-0",
+        "actual_half_result": "0-0"
       },
       "team_stats": {
         "home": {
@@ -109304,7 +109351,14 @@
       "current_recommendation": "平局",
       "current_scores": "1-1 或 0-0 或 2-1 (竞彩)",
       "current_goals": "小 2.5",
-      "radar_triggered": true
+      "radar_triggered": true,
+      "result": {
+        "home_score": 0,
+        "away_score": 0,
+        "half_home_score": 0,
+        "half_away_score": 0,
+        "hafu": "平平"
+      }
     }
   ]
 }
