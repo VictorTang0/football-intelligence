@@ -23,14 +23,34 @@ def main():
         matches_db = json.load(f)
 
     now = datetime.now()
-    today_str = now.strftime("%Y-%m-%d")
+    today_issue = now.strftime("%y%m%d")
 
     pending_yesterday_or_earlier = []
     for m in matches_db.get("matches", []):
         st = m.get("status", "").lower()
         if st in ["pending", "waiting_result"]:
-            kickoff_str = m.get("kickoff", "").split("T")[0].split(" ")[0]
-            if kickoff_str < today_str:
+            issue = m.get("issue_date") or m.get("business_date", "").replace("-", "")[2:]
+            if not issue:
+                import re
+                m_id = re.search(r'match_(\d{6})_', m.get("id", ""))
+                issue = m_id.group(1) if m_id else ""
+            
+            is_past_issue = bool(issue and issue < today_issue)
+            
+            # Check if kickoff time is at least 3 hours in the past
+            is_past_kickoff = False
+            k_str = m.get("kickoff", "").replace("T", " ").split("+")[0]
+            try:
+                k_time = datetime.strptime(k_str, "%Y-%m-%d %H:%M:%S")
+                is_past_kickoff = (now - k_time).total_seconds() > 3 * 3600
+            except Exception:
+                try:
+                    k_time = datetime.strptime(k_str, "%Y-%m-%d %H:%M")
+                    is_past_kickoff = (now - k_time).total_seconds() > 3 * 3600
+                except Exception:
+                    pass
+
+            if is_past_issue or is_past_kickoff:
                 pending_yesterday_or_earlier.append(m)
 
     if not pending_yesterday_or_earlier:
