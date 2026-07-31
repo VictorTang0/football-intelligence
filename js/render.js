@@ -1703,20 +1703,40 @@ const MatchIQRender = (() => {
   }
 
   // ─── HISTORY RECORDS SECTION ───
-  // Expose toggle function globally for history table collapsing
-  window.toggleOlderHistory = function() {
-    const tbody = document.getElementById('history-older-days-tbody');
-    const btn = document.getElementById('btn-toggle-older-history');
-    if (!tbody || !btn) return;
-    const isHidden = tbody.style.display === 'none';
-    if (isHidden) {
-      tbody.style.display = 'table-row-group';
-      btn.innerHTML = '收起较旧的历史记录 ▴';
-    } else {
-      tbody.style.display = 'none';
-      const count = btn.getAttribute('data-count') || '0';
-      btn.innerHTML = `展开较旧的 3 日历史记录 (共 ${count} 场) ▾`;
+  // Expose robust toggle functions globally for history table collapsing
+  window.toggleGenericHistory = function(targetId, btnEl, labelText, count) {
+    const target = document.getElementById(targetId);
+    const btn = btnEl || document.getElementById('btn-toggle-' + targetId);
+    if (!target) {
+      console.warn('[MatchIQ] Toggle target not found:', targetId);
+      return;
     }
+    
+    const computedDisplay = window.getComputedStyle(target).display;
+    const isHidden = computedDisplay === 'none' || target.style.display === 'none' || target.classList.contains('hidden') || target.classList.contains('collapsed');
+    const displayMode = (target.tagName && target.tagName.toLowerCase() === 'tbody') ? 'table-row-group' : 'block';
+    
+    if (isHidden) {
+      target.style.display = displayMode;
+      target.classList.remove('hidden', 'collapsed');
+      if (btn) {
+        btn.innerHTML = `收起${labelText || '历史明细'} ▴`;
+        btn.classList.add('expanded');
+      }
+    } else {
+      target.style.display = 'none';
+      target.classList.add('hidden', 'collapsed');
+      if (btn) {
+        const displayCount = count || btn.getAttribute('data-count') || '';
+        const countStr = displayCount ? ` (共 ${displayCount} 场)` : '';
+        btn.innerHTML = `展开较旧的${labelText || '战绩明细'}${countStr} ▾`;
+        btn.classList.remove('expanded');
+      }
+    }
+  };
+
+  window.toggleOlderHistory = function() {
+    window.toggleGenericHistory('main-model-older-tbody', document.getElementById('btn-toggle-older-history'), '主模型战绩');
   };
 
   // ─── HISTORY RECORDS SECTION ───
@@ -3034,18 +3054,7 @@ const MatchIQRender = (() => {
 
   // Expose toggle function globally for radar history table collapsing
   window.toggleOlderRadarHistory = function() {
-    const tbody = document.getElementById('radar-older-days-tbody');
-    const btn = document.getElementById('btn-toggle-older-radar-history');
-    if (!tbody || !btn) return;
-    const isHidden = tbody.style.display === 'none';
-    if (isHidden) {
-      tbody.style.display = 'table-row-group';
-      btn.innerHTML = '收起较旧的风控历史 ▴';
-    } else {
-      tbody.style.display = 'none';
-      const count = btn.getAttribute('data-count') || '0';
-      btn.innerHTML = `展开较旧的 4 日风控历史记录 (共 ${count} 场) ▾`;
-    }
+    window.toggleGenericHistory('radar-older-days-tbody', document.getElementById('btn-toggle-older-radar-history'), '风控历史记录');
   };
 
   function renderRadarHistory(historyData) {
