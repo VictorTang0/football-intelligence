@@ -72,8 +72,12 @@ def main():
     for m in matches_db.get("matches", []):
         st = m.get("status", "").lower()
         if st in ["pending", "waiting_result"]:
-            kickoff_str = m.get("kickoff", "").split("T")[0].split(" ")[0]
-            if kickoff_str < today_str:
+            issue = m.get("issue_date") or m.get("business_date", "").replace("-", "")[2:]
+            if not issue:
+                import re
+                m_id = re.search(r'match_(\d{6})_', m.get("id", ""))
+                issue = m_id.group(1) if m_id else ""
+            if issue and issue < today_issue:
                 still_pending.append(m)
 
     if still_pending:

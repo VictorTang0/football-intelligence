@@ -1,8 +1,1310 @@
 {
-  "total_predictions": 111,
+  "total_predictions": 117,
   "correct_predictions": 69,
-  "accuracy_rate": 0.6216,
+  "accuracy_rate": 0.5897,
   "records": [
+    {
+      "match_id": "match_260731_006",
+      "id": "match_260731_006",
+      "code": "6",
+      "match_no": "周日 006",
+      "issue_date": "260731",
+      "league": "美职",
+      "home": "洛杉矶FC",
+      "away": "达拉斯FC",
+      "date": "2026-08-01",
+      "time": "10:30",
+      "actual_result": "洛杉矶FC 1-1 达拉斯FC (1-0)",
+      "is_correct": true,
+      "confidence": 52,
+      "predictions": {
+        "recommendation": {
+          "val": "主不败",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "双选不败",
+          "correct": true
+        },
+        "mainstream": {
+          "val": "主不败",
+          "correct": true
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平胜 (竞彩) 或 胜胜",
+          "correct": false
+        },
+        "over_under": {
+          "val": "小 2.5 (竞彩)",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "1-0 或 0-0 或 2-1 (竞彩)",
+          "correct": false
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [
+          "2:1",
+          "3:1"
+        ],
+        "m10_snapshot_count": 1,
+        "had_hhad_divergence": true
+      },
+      "m10_hub_analysis": {
+        "had_recommendation": "主胜",
+        "hhad_recommendation": "让胜",
+        "predicted_score": "2-0 或 2-1",
+        "over_under": "大 2.5",
+        "half_full": "胜胜 或 平胜",
+        "m10_bold_score": "💥 3-1 或 4-1 (强攻大胜)",
+        "m10_bold_reason": "主胜赔率 2.00 属于强攻区间，攻防两端压制",
+        "confidence": 50,
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "58.6",
+            "drawPct": "22.9",
+            "awayPct": "18.5"
+          },
+          "styleTag": {
+            "name": "🔥 强攻突破型",
+            "desc": "主场优势显著，主队进攻欲望强劲，看好主胜突破",
+            "color": "#4ade80",
+            "bg": "rgba(74,222,128,0.12)",
+            "border": "rgba(74,222,128,0.35)"
+          },
+          "topScores": [
+            {
+              "score": "1-0",
+              "count": 634,
+              "pct": "12.7%"
+            },
+            {
+              "score": "2-0",
+              "count": 513,
+              "pct": "10.3%"
+            },
+            {
+              "score": "2-1",
+              "count": 513,
+              "pct": "10.3%"
+            },
+            {
+              "score": "1-1",
+              "count": 488,
+              "pct": "9.8%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 1701,
+              "pct": "34.0%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1024,
+              "pct": "20.5%"
+            },
+            {
+              "hf": "平平",
+              "count": 699,
+              "pct": "14.0%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "3-2",
+              "count": 155,
+              "pct": "3.1%"
+            },
+            {
+              "score": "4-0",
+              "count": 151,
+              "pct": "3.0%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "58.6",
+            "drawPct": "22.9",
+            "awayPct": "18.5"
+          },
+          "styleTag": {
+            "name": "🔥 强攻突破型",
+            "desc": "主场优势显著，主队进攻欲望强劲，看好主胜突破",
+            "color": "#4ade80",
+            "bg": "rgba(74,222,128,0.12)",
+            "border": "rgba(74,222,128,0.35)"
+          },
+          "topScores": [
+            {
+              "score": "1-0",
+              "count": 634,
+              "pct": "12.7%"
+            },
+            {
+              "score": "2-0",
+              "count": 513,
+              "pct": "10.3%"
+            },
+            {
+              "score": "2-1",
+              "count": 513,
+              "pct": "10.3%"
+            },
+            {
+              "score": "1-1",
+              "count": 488,
+              "pct": "9.8%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 1701,
+              "pct": "34.0%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1024,
+              "pct": "20.5%"
+            },
+            {
+              "hf": "平平",
+              "count": 699,
+              "pct": "14.0%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "3-2",
+              "count": 155,
+              "pct": "3.1%"
+            },
+            {
+              "score": "4-0",
+              "count": 151,
+              "pct": "3.0%"
+            }
+          ]
+        }
+      },
+      "injury_analysis": {
+        "home_injuries": [],
+        "away_injuries": [],
+        "sources_merged": [],
+        "system_impact_eval": "双方伤停处于正常轮换范围，对主预测系统无重大异常扰动。"
+      },
+      "radar_alert": {
+        "type": "变盘水温诱导/风控防范预警",
+        "target": "主胜",
+        "diff": -0.02,
+        "recommendation": "主胜",
+        "actual_result": "洛杉矶FC 1-1 达拉斯FC (1-0)",
+        "is_correct": false
+      }
+    },
+    {
+      "match_id": "match_260731_005",
+      "id": "match_260731_005",
+      "code": "5",
+      "match_no": "周日 005",
+      "issue_date": "260731",
+      "league": "巴甲",
+      "home": "圣保罗",
+      "away": "桑托斯",
+      "date": "2026-08-01",
+      "time": "08:30",
+      "actual_result": "圣保罗 0-0 桑托斯 (0-0)",
+      "is_correct": true,
+      "confidence": 49,
+      "predictions": {
+        "recommendation": {
+          "val": "平局",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "平局",
+          "correct": true
+        },
+        "mainstream": {
+          "val": "平局",
+          "correct": true
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": false
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平平 或 平胜 (竞彩)",
+          "correct": false
+        },
+        "over_under": {
+          "val": "小 2.5",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "1-1 或 0-0 或 2-1 (竞彩)",
+          "correct": true
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [
+          "2:1",
+          "3:1"
+        ],
+        "m10_snapshot_count": 1,
+        "had_hhad_divergence": true
+      },
+      "m10_hub_analysis": {
+        "had_recommendation": "主胜",
+        "hhad_recommendation": "让胜",
+        "predicted_score": "2-0 或 2-1",
+        "over_under": "大 2.5",
+        "half_full": "胜胜 或 平胜",
+        "m10_bold_score": "💥 3-1 或 4-1 (强攻大胜)",
+        "m10_bold_reason": "主胜赔率 2.00 属于强攻区间，攻防两端压制",
+        "confidence": 50,
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "59.0",
+            "drawPct": "23.0",
+            "awayPct": "18.0"
+          },
+          "styleTag": {
+            "name": "🔥 强攻突破型",
+            "desc": "主场优势显著，主队进攻欲望强劲，看好主胜突破",
+            "color": "#4ade80",
+            "bg": "rgba(74,222,128,0.12)",
+            "border": "rgba(74,222,128,0.35)"
+          },
+          "topScores": [
+            {
+              "score": "1-0",
+              "count": 606,
+              "pct": "12.1%"
+            },
+            {
+              "score": "1-1",
+              "count": 551,
+              "pct": "11.0%"
+            },
+            {
+              "score": "2-1",
+              "count": 515,
+              "pct": "10.3%"
+            },
+            {
+              "score": "2-0",
+              "count": 503,
+              "pct": "10.1%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 1696,
+              "pct": "33.9%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1065,
+              "pct": "21.3%"
+            },
+            {
+              "hf": "平平",
+              "count": 713,
+              "pct": "14.3%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 168,
+              "pct": "3.4%"
+            },
+            {
+              "score": "4-1",
+              "count": 139,
+              "pct": "2.8%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "59.0",
+            "drawPct": "23.0",
+            "awayPct": "18.0"
+          },
+          "styleTag": {
+            "name": "🔥 强攻突破型",
+            "desc": "主场优势显著，主队进攻欲望强劲，看好主胜突破",
+            "color": "#4ade80",
+            "bg": "rgba(74,222,128,0.12)",
+            "border": "rgba(74,222,128,0.35)"
+          },
+          "topScores": [
+            {
+              "score": "1-0",
+              "count": 606,
+              "pct": "12.1%"
+            },
+            {
+              "score": "1-1",
+              "count": 551,
+              "pct": "11.0%"
+            },
+            {
+              "score": "2-1",
+              "count": 515,
+              "pct": "10.3%"
+            },
+            {
+              "score": "2-0",
+              "count": 503,
+              "pct": "10.1%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 1696,
+              "pct": "33.9%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1065,
+              "pct": "21.3%"
+            },
+            {
+              "hf": "平平",
+              "count": 713,
+              "pct": "14.3%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 168,
+              "pct": "3.4%"
+            },
+            {
+              "score": "4-1",
+              "count": 139,
+              "pct": "2.8%"
+            }
+          ]
+        }
+      },
+      "injury_analysis": {
+        "home_injuries": [],
+        "away_injuries": [],
+        "sources_merged": [],
+        "system_impact_eval": "双方伤停处于正常轮换范围，对主预测系统无重大异常扰动。"
+      },
+      "radar_alert": {
+        "type": "变盘水温诱导/风控防范预警",
+        "target": "主胜",
+        "diff": -0.02,
+        "recommendation": "主胜",
+        "actual_result": "圣保罗 0-0 桑托斯 (0-0)",
+        "is_correct": false
+      }
+    },
+    {
+      "match_id": "match_260731_004",
+      "id": "match_260731_004",
+      "code": "4",
+      "match_no": "周日 004",
+      "issue_date": "260731",
+      "league": "挪超",
+      "home": "桑纳菲",
+      "away": "维京",
+      "date": "2026-08-01",
+      "time": "08:00",
+      "actual_result": "1-2",
+      "is_correct": false,
+      "confidence": 82,
+      "predictions": {
+        "recommendation": {
+          "val": "客不败 (竞彩)",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "双选不败",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "客不败",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": true
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平负 或 负负 或 平胜 (竞彩)",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5 (竞彩)",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "2-1 (竞彩) 或 1-1",
+          "correct": true
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [
+          "2:1",
+          "3:1"
+        ],
+        "m10_snapshot_count": 1,
+        "had_hhad_divergence": true
+      },
+      "m10_hub_analysis": {
+        "had_recommendation": "主胜",
+        "hhad_recommendation": "让胜",
+        "predicted_score": "2-0 或 2-1",
+        "over_under": "大 2.5",
+        "half_full": "胜胜 或 平胜",
+        "m10_bold_score": "💥 3-1 或 4-1 (强攻大胜)",
+        "m10_bold_reason": "主胜赔率 2.00 属于强攻区间，攻防两端压制",
+        "confidence": 50,
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "58.3",
+            "drawPct": "23.9",
+            "awayPct": "17.8"
+          },
+          "styleTag": {
+            "name": "🔥 强攻突破型",
+            "desc": "主场优势显著，主队进攻欲望强劲，看好主胜突破",
+            "color": "#4ade80",
+            "bg": "rgba(74,222,128,0.12)",
+            "border": "rgba(74,222,128,0.35)"
+          },
+          "topScores": [
+            {
+              "score": "1-0",
+              "count": 583,
+              "pct": "11.7%"
+            },
+            {
+              "score": "2-0",
+              "count": 522,
+              "pct": "10.4%"
+            },
+            {
+              "score": "1-1",
+              "count": 504,
+              "pct": "10.1%"
+            },
+            {
+              "score": "2-1",
+              "count": 485,
+              "pct": "9.7%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 1660,
+              "pct": "33.2%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1044,
+              "pct": "20.9%"
+            },
+            {
+              "hf": "平平",
+              "count": 760,
+              "pct": "15.2%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "3-2",
+              "count": 137,
+              "pct": "2.7%"
+            },
+            {
+              "score": "4-1",
+              "count": 131,
+              "pct": "2.6%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "58.3",
+            "drawPct": "23.9",
+            "awayPct": "17.8"
+          },
+          "styleTag": {
+            "name": "🔥 强攻突破型",
+            "desc": "主场优势显著，主队进攻欲望强劲，看好主胜突破",
+            "color": "#4ade80",
+            "bg": "rgba(74,222,128,0.12)",
+            "border": "rgba(74,222,128,0.35)"
+          },
+          "topScores": [
+            {
+              "score": "1-0",
+              "count": 583,
+              "pct": "11.7%"
+            },
+            {
+              "score": "2-0",
+              "count": 522,
+              "pct": "10.4%"
+            },
+            {
+              "score": "1-1",
+              "count": 504,
+              "pct": "10.1%"
+            },
+            {
+              "score": "2-1",
+              "count": 485,
+              "pct": "9.7%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 1660,
+              "pct": "33.2%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1044,
+              "pct": "20.9%"
+            },
+            {
+              "hf": "平平",
+              "count": 760,
+              "pct": "15.2%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "3-2",
+              "count": 137,
+              "pct": "2.7%"
+            },
+            {
+              "score": "4-1",
+              "count": 131,
+              "pct": "2.6%"
+            }
+          ]
+        }
+      },
+      "injury_analysis": {
+        "home_injuries": [],
+        "away_injuries": [],
+        "sources_merged": [],
+        "system_impact_eval": "双方伤停处于正常轮换范围，对主预测系统无重大异常扰动。"
+      },
+      "radar_alert": {
+        "type": "变盘水温诱导/风控防范预警",
+        "target": "主胜",
+        "diff": -0.02,
+        "recommendation": "主胜",
+        "actual_result": "1-2",
+        "is_correct": true
+      }
+    },
+    {
+      "match_id": "match_260731_003",
+      "id": "match_260731_003",
+      "code": "3",
+      "match_no": "周日 003",
+      "issue_date": "260731",
+      "league": "美职",
+      "home": "纽约城",
+      "away": "多伦多FC",
+      "date": "2026-08-01",
+      "time": "07:30",
+      "actual_result": "3-1",
+      "is_correct": false,
+      "confidence": 59,
+      "predictions": {
+        "recommendation": {
+          "val": "反基本面冷门 (主队不败) (竞彩)",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "双选不败",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "客不败",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平平 或 平胜 (竞彩)",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5 (竞彩)",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "2-1 (竞彩) 或 1-1",
+          "correct": false
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [
+          "2:1",
+          "3:1"
+        ],
+        "m10_snapshot_count": 1,
+        "had_hhad_divergence": true
+      },
+      "m10_hub_analysis": {
+        "had_recommendation": "主胜",
+        "hhad_recommendation": "让胜",
+        "predicted_score": "2-0 或 2-1",
+        "over_under": "大 2.5",
+        "half_full": "胜胜 或 平胜",
+        "m10_bold_score": "💥 4-0 或 5-0 (屠杀血洗)",
+        "m10_bold_reason": "主胜赔率 1.52 低于 1.65，客队防线崩盘指数 CollapseRatio=1.01 触发",
+        "confidence": 50,
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "75.1",
+            "drawPct": "17.0",
+            "awayPct": "7.9"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "2-0",
+              "count": 726,
+              "pct": "14.5%"
+            },
+            {
+              "score": "1-0",
+              "count": 689,
+              "pct": "13.8%"
+            },
+            {
+              "score": "3-0",
+              "count": 529,
+              "pct": "10.6%"
+            },
+            {
+              "score": "2-1",
+              "count": 443,
+              "pct": "8.9%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 2380,
+              "pct": "47.6%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1238,
+              "pct": "24.8%"
+            },
+            {
+              "hf": "平平",
+              "count": 561,
+              "pct": "11.2%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 284,
+              "pct": "5.7%"
+            },
+            {
+              "score": "4-1",
+              "count": 170,
+              "pct": "3.4%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "75.1",
+            "drawPct": "17.0",
+            "awayPct": "7.9"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "2-0",
+              "count": 726,
+              "pct": "14.5%"
+            },
+            {
+              "score": "1-0",
+              "count": 689,
+              "pct": "13.8%"
+            },
+            {
+              "score": "3-0",
+              "count": 529,
+              "pct": "10.6%"
+            },
+            {
+              "score": "2-1",
+              "count": 443,
+              "pct": "8.9%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 2380,
+              "pct": "47.6%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1238,
+              "pct": "24.8%"
+            },
+            {
+              "hf": "平平",
+              "count": 561,
+              "pct": "11.2%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 284,
+              "pct": "5.7%"
+            },
+            {
+              "score": "4-1",
+              "count": 170,
+              "pct": "3.4%"
+            }
+          ]
+        }
+      },
+      "injury_analysis": {
+        "home_injuries": [],
+        "away_injuries": [],
+        "sources_merged": [],
+        "system_impact_eval": "双方伤停处于正常轮换范围，对主预测系统无重大异常扰动。"
+      },
+      "radar_alert": {
+        "type": "变盘水温诱导/风控防范预警",
+        "target": "主胜",
+        "diff": -0.02,
+        "recommendation": "主胜",
+        "actual_result": "3-1",
+        "is_correct": false
+      }
+    },
+    {
+      "match_id": "match_260731_002",
+      "id": "match_260731_002",
+      "code": "2",
+      "match_no": "周日 002",
+      "issue_date": "260731",
+      "league": "挪超",
+      "home": "博德闪耀",
+      "away": "利勒斯特罗姆",
+      "date": "2026-08-01",
+      "time": "01:00",
+      "actual_result": "5-1",
+      "is_correct": true,
+      "confidence": 82,
+      "predictions": {
+        "recommendation": {
+          "val": "客不败 (竞彩)",
+          "correct": true
+        },
+        "primary_bet": {
+          "val": "双选不败",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "客不败",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平胜 (竞彩) 或 胜胜",
+          "correct": false
+        },
+        "over_under": {
+          "val": "大 2.5 (竞彩)",
+          "correct": true
+        },
+        "most_likely_score": {
+          "val": "1-0 或 0-0 或 2-1 (竞彩)",
+          "correct": false
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [
+          "2:1",
+          "3:1"
+        ],
+        "m10_snapshot_count": 1,
+        "had_hhad_divergence": true
+      },
+      "m10_hub_analysis": {
+        "had_recommendation": "客胜",
+        "hhad_recommendation": "让负",
+        "predicted_score": "0-2 或 1-2",
+        "over_under": "大 2.5",
+        "half_full": "负负 或 平负",
+        "m10_bold_score": "💥 1-2 或 2-3 (逆袭对轰)",
+        "m10_bold_reason": "客队受让优势明显，反击效率极高",
+        "confidence": 50,
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "82.0",
+            "drawPct": "12.5",
+            "awayPct": "5.5"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "2-0",
+              "count": 634,
+              "pct": "12.7%"
+            },
+            {
+              "score": "3-0",
+              "count": 571,
+              "pct": "11.4%"
+            },
+            {
+              "score": "1-0",
+              "count": 534,
+              "pct": "10.7%"
+            },
+            {
+              "score": "4-0",
+              "count": 406,
+              "pct": "8.1%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 2776,
+              "pct": "55.5%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1166,
+              "pct": "23.3%"
+            },
+            {
+              "hf": "平平",
+              "count": 410,
+              "pct": "8.2%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 406,
+              "pct": "8.1%"
+            },
+            {
+              "score": "4-1",
+              "count": 265,
+              "pct": "5.3%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "82.0",
+            "drawPct": "12.5",
+            "awayPct": "5.5"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "2-0",
+              "count": 634,
+              "pct": "12.7%"
+            },
+            {
+              "score": "3-0",
+              "count": 571,
+              "pct": "11.4%"
+            },
+            {
+              "score": "1-0",
+              "count": 534,
+              "pct": "10.7%"
+            },
+            {
+              "score": "4-0",
+              "count": 406,
+              "pct": "8.1%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 2776,
+              "pct": "55.5%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1166,
+              "pct": "23.3%"
+            },
+            {
+              "hf": "平平",
+              "count": 410,
+              "pct": "8.2%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 406,
+              "pct": "8.1%"
+            },
+            {
+              "score": "4-1",
+              "count": 265,
+              "pct": "5.3%"
+            }
+          ]
+        }
+      },
+      "injury_analysis": {
+        "home_injuries": [],
+        "away_injuries": [],
+        "sources_merged": [],
+        "system_impact_eval": "双方伤停处于正常轮换范围，对主预测系统无重大异常扰动。"
+      },
+      "radar_alert": {
+        "type": "变盘水温诱导/风控防范预警",
+        "target": "客胜",
+        "diff": -0.02,
+        "recommendation": "客胜",
+        "actual_result": "5-1",
+        "is_correct": true
+      }
+    },
+    {
+      "match_id": "match_260731_001",
+      "id": "match_260731_001",
+      "code": "1",
+      "match_no": "周日 001",
+      "issue_date": "260731",
+      "league": "挪超",
+      "home": "瓦勒伦加",
+      "away": "汉坎",
+      "date": "2026-07-31",
+      "time": "23:00",
+      "actual_result": "瓦勒伦加 0-3 汉坎 (0-1)",
+      "is_correct": false,
+      "confidence": 38,
+      "predictions": {
+        "recommendation": {
+          "val": "反基本面冷门 (主队不败) (竞彩)",
+          "correct": false
+        },
+        "primary_bet": {
+          "val": "双选不败",
+          "correct": false
+        },
+        "mainstream": {
+          "val": "客不败",
+          "correct": false
+        },
+        "upset": {
+          "val": "客队客场爆冷",
+          "correct": true
+        },
+        "aggressive": {
+          "val": "比分 2-1",
+          "correct": false
+        },
+        "conservative": {
+          "val": "主队受让",
+          "correct": false
+        },
+        "half_full": {
+          "val": "平平 或 平胜 (竞彩)",
+          "correct": false
+        },
+        "over_under": {
+          "val": "小 2.5",
+          "correct": false
+        },
+        "most_likely_score": {
+          "val": "1-0 或 0-0 或 2-1 (竞彩)",
+          "correct": false
+        }
+      },
+      "conclusions": {
+        "sporttery_hot_scores": [
+          "2:1",
+          "3:1"
+        ],
+        "m10_snapshot_count": 2,
+        "had_hhad_divergence": true
+      },
+      "m10_hub_analysis": {
+        "had_recommendation": "主不败",
+        "hhad_recommendation": "让胜",
+        "predicted_score": "1-0 或 1-1",
+        "over_under": "大 2.5",
+        "half_full": "无推荐",
+        "m10_bold_score": "💥 3-0 或 4-1 (深盘防冷大胜)",
+        "m10_bold_reason": "主不败水温锁死下盘，防守反击打穿对手",
+        "confidence": 50,
+        "simulation_5000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "74.2",
+            "drawPct": "17.2",
+            "awayPct": "8.5"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "2-0",
+              "count": 704,
+              "pct": "14.1%"
+            },
+            {
+              "score": "1-0",
+              "count": 631,
+              "pct": "12.6%"
+            },
+            {
+              "score": "3-0",
+              "count": 479,
+              "pct": "9.6%"
+            },
+            {
+              "score": "2-1",
+              "count": 448,
+              "pct": "9.0%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 2387,
+              "pct": "47.7%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1164,
+              "pct": "23.3%"
+            },
+            {
+              "hf": "平平",
+              "count": 561,
+              "pct": "11.2%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 300,
+              "pct": "6.0%"
+            },
+            {
+              "score": "4-1",
+              "count": 206,
+              "pct": "4.1%"
+            }
+          ]
+        },
+        "simulation_1000": {
+          "iterations": 5000,
+          "winRate": {
+            "homePct": "74.2",
+            "drawPct": "17.2",
+            "awayPct": "8.5"
+          },
+          "styleTag": {
+            "name": "🛡️ 强弱悬殊型",
+            "desc": "主队压制力极强，高概率触发零封或多球屠杀",
+            "color": "#a855f7",
+            "bg": "rgba(168,85,247,0.15)",
+            "border": "rgba(168,85,247,0.4)"
+          },
+          "topScores": [
+            {
+              "score": "2-0",
+              "count": 704,
+              "pct": "14.1%"
+            },
+            {
+              "score": "1-0",
+              "count": 631,
+              "pct": "12.6%"
+            },
+            {
+              "score": "3-0",
+              "count": 479,
+              "pct": "9.6%"
+            },
+            {
+              "score": "2-1",
+              "count": 448,
+              "pct": "9.0%"
+            }
+          ],
+          "topHalfFull": [
+            {
+              "hf": "胜胜",
+              "count": 2387,
+              "pct": "47.7%"
+            },
+            {
+              "hf": "平胜",
+              "count": 1164,
+              "pct": "23.3%"
+            },
+            {
+              "hf": "平平",
+              "count": 561,
+              "pct": "11.2%"
+            }
+          ],
+          "wildOutliers": [
+            {
+              "score": "4-0",
+              "count": 300,
+              "pct": "6.0%"
+            },
+            {
+              "score": "4-1",
+              "count": 206,
+              "pct": "4.1%"
+            }
+          ]
+        }
+      },
+      "injury_analysis": {
+        "home_injuries": [],
+        "away_injuries": [],
+        "sources_merged": [],
+        "system_impact_eval": "双方伤停处于正常轮换范围，对主预测系统无重大异常扰动。"
+      },
+      "radar_alert": {
+        "type": "变盘水温诱导/风控防范预警",
+        "target": "主不败",
+        "diff": -0.02,
+        "recommendation": "主不败",
+        "actual_result": "瓦勒伦加 0-3 汉坎 (0-1)",
+        "is_correct": false
+      }
+    },
     {
       "match_id": "match_260731_周四006",
       "id": "match_260731_周四006",
@@ -4240,21 +5542,21 @@
       "away": "博德闪耀",
       "date": "2026-07-26",
       "time": "23:00",
-      "actual_result": "桑纳菲 0-3 博德闪耀 (0-1)",
-      "is_correct": true,
+      "actual_result": "1-2",
+      "is_correct": false,
       "confidence": 71,
       "predictions": {
         "recommendation": {
           "val": "客胜",
-          "correct": true
+          "correct": false
         },
         "primary_bet": {
           "val": "客胜",
-          "correct": true
+          "correct": false
         },
         "mainstream": {
           "val": "客胜",
-          "correct": true
+          "correct": false
         },
         "upset": {
           "val": "客队客场爆冷",
@@ -4262,7 +5564,7 @@
         },
         "aggressive": {
           "val": "比分 2-1",
-          "correct": false
+          "correct": true
         },
         "conservative": {
           "val": "主队受让",
@@ -4434,8 +5736,8 @@
         "target": "主不败",
         "diff": -0.02,
         "recommendation": "主不败",
-        "actual_result": "桑纳菲 0-3 博德闪耀 (0-1)",
-        "is_correct": false
+        "actual_result": "1-2",
+        "is_correct": true
       }
     },
     {
@@ -12036,13 +13338,13 @@
       "away": "汉坎",
       "date": "2026-07-23",
       "time": "01:00",
-      "actual_result": "博德闪耀 3-0 汉坎 (1-0)",
+      "actual_result": "5-1",
       "is_correct": true,
       "confidence": 51,
       "predictions": {
         "recommendation": {
           "val": "反基本面冷门 (客队不败)",
-          "correct": false
+          "correct": true
         },
         "primary_bet": {
           "val": "双选不败",
@@ -12074,7 +13376,7 @@
         },
         "most_likely_score": {
           "val": "0-1 或 0-0 或 3-0 (竞彩)",
-          "correct": true
+          "correct": false
         }
       },
       "conclusions": {
@@ -12234,8 +13536,8 @@
         "target": "主胜",
         "diff": -0.02,
         "recommendation": "主胜",
-        "actual_result": "博德闪耀 3-0 汉坎 (1-0)",
-        "is_correct": true
+        "actual_result": "5-1",
+        "is_correct": false
       }
     },
     {
@@ -19783,21 +21085,21 @@
       "away": "格雷米奥",
       "date": "2026-07-18",
       "time": "07:00",
-      "actual_result": "米拉索尔 2-1 格雷米奥 (2-0)",
-      "is_correct": true,
+      "actual_result": "米拉索尔 1-1 格雷米奥 (1-0)",
+      "is_correct": false,
       "confidence": 72,
       "predictions": {
         "recommendation": {
           "val": "主胜 (状态压制)",
-          "correct": true
+          "correct": false
         },
         "primary_bet": {
           "val": "主胜",
-          "correct": true
+          "correct": false
         },
         "mainstream": {
           "val": "米拉索尔小胜",
-          "correct": true
+          "correct": false
         },
         "upset": {
           "val": "格雷米奥死守客平",
@@ -19809,7 +21111,7 @@
         },
         "conservative": {
           "val": "米拉索尔不败",
-          "correct": true
+          "correct": false
         },
         "half_full": {
           "val": "平/主",
@@ -20407,17 +21709,17 @@
       "away": "腓特烈",
       "date": "2026-07-18",
       "time": "01:15",
-      "actual_result": "博德闪耀 1-0 腓特烈 (1-0)",
-      "is_correct": true,
+      "actual_result": "5-1",
+      "is_correct": false,
       "confidence": 68,
       "predictions": {
         "recommendation": {
           "val": "主胜/防平 (让球博冷)",
-          "correct": true
+          "correct": false
         },
         "primary_bet": {
           "val": "腓特烈受让胜 (+2)",
-          "correct": true
+          "correct": false
         },
         "mainstream": {
           "val": "博德闪耀完胜",
@@ -20429,11 +21731,11 @@
         },
         "aggressive": {
           "val": "比分 1-0 或 2-1",
-          "correct": true
+          "correct": false
         },
         "conservative": {
           "val": "腓特烈受让",
-          "correct": true
+          "correct": false
         },
         "half_full": {
           "val": "平/主",
@@ -20441,7 +21743,7 @@
         },
         "over_under": {
           "val": "小 2.75",
-          "correct": true
+          "correct": false
         },
         "most_likely_score": {
           "val": "2-1",
@@ -24310,28 +25612,28 @@
     }
   ],
   "radar_stats": {
-    "total_alerts": 111,
-    "correct_alerts": 53,
-    "accuracy_rate": 0.4775
+    "total_alerts": 117,
+    "correct_alerts": 55,
+    "accuracy_rate": 0.4701
   },
-  "score_accuracy_rate": 0.1802,
-  "half_full_accuracy_rate": 0.1081,
+  "score_accuracy_rate": 0.1795,
+  "half_full_accuracy_rate": 0.1026,
   "hafu_accuracy_rate": 0.2609,
   "sporttery_primary_stats": {
     "direction": {
-      "hits": 2,
-      "total": 11,
-      "accuracy_rate": 0.1818
+      "hits": 3,
+      "total": 15,
+      "accuracy_rate": 0.2
     },
     "goals": {
       "hits": 15,
-      "total": 44,
-      "accuracy_rate": 0.3409
+      "total": 45,
+      "accuracy_rate": 0.3333
     },
     "score": {
-      "hits": 5,
-      "total": 44,
-      "accuracy_rate": 0.1136
+      "hits": 4,
+      "total": 50,
+      "accuracy_rate": 0.08
     },
     "half_full": {
       "hits": 0,
