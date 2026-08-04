@@ -15,7 +15,10 @@ const MatchIQRender = (() => {
     return d.toLocaleString('zh-CN', { month:'numeric', day:'numeric', hour:'2-digit', minute:'2-digit', hour12: false });
   }
 
-  function formatMatchNo(id) {
+  function formatMatchNo(idOrMatch, matchObj = null) {
+    const m = (typeof idOrMatch === 'object' && idOrMatch !== null) ? idOrMatch : matchObj;
+    if (m && m.match_no) return m.match_no;
+    const id = (typeof idOrMatch === 'string') ? idOrMatch : (m ? m.id : '');
     if (!id) return '';
     const matchReg = /match_(\d{2})(\d{2})(\d{2})_(\d+)/.exec(id);
     if (matchReg) {
@@ -2732,7 +2735,7 @@ const MatchIQRender = (() => {
     sortedDates.forEach(dateTag => {
       const rawMatches = groups[dateTag] || [];
 
-      // 2. 组内按竞彩编号从大到小排序 (Code Descending: 周二 218 -> 周二 201)
+      // 2. 组内按竞彩编号从小到大正序排列 (Code Ascending: 周二 001 -> 周二 002 -> 周二 003...)
       const sortedMatches = [...rawMatches].sort((a, b) => {
         const getNum = (m) => {
           const mid = m.id || m.match_id || '';
@@ -2743,7 +2746,7 @@ const MatchIQRender = (() => {
           if (mNo) return parseInt(mNo[1], 10);
           return 0;
         };
-        return getNum(b) - getNum(a);
+        return getNum(a) - getNum(b);
       });
 
       // 统一插入竞彩官方期号组 Header (包含组内场数)
