@@ -71,21 +71,30 @@ const MatchIQ = (() => {
 
   const weekdayMap = {"周一": 1, "周二": 2, "周三": 3, "周四": 4, "周五": 5, "周六": 6, "周日": 7};
   function getSportterySortKey(m) {
-    // 优先使用竞彩官方开售业务日期 issue_date (如 260725) 或 business_date (如 2026-07-25)
+    // 统一将日期标签规范化为 6 位数字 YYMMDD (例如 260804, 260805)
     let dateCode = m.issue_date || m.business_date || '';
+    if (dateCode) {
+      const clean = dateCode.replace(/-/g, '');
+      if (clean.length === 8) dateCode = clean.slice(2);
+      else if (clean.length === 6) dateCode = clean;
+    }
     if (!dateCode) {
-      const matchReg = /match_(\d{6})_(\d+)/.exec(m.id || '');
+      const matchReg = /match_(\d{6})_/.exec(m.id || '');
       if (matchReg) {
         dateCode = matchReg[1];
+      } else if (m.kickoff) {
+        const dStr = m.kickoff.split('T')[0].split(' ')[0].replace(/-/g, '');
+        if (dStr.length >= 8) dateCode = dStr.slice(2, 8);
       } else {
-        dateCode = (m.kickoff || '').split('T')[0].split(' ')[0] || '9999-99-99';
+        dateCode = '999999';
       }
     }
+    
     let code = m.match_code;
     if (code === undefined || code === null) {
       const numStr = m.match_no || m.matchNumStr || m.id || '';
-      const numMatch = numStr.match(/\d+$/);
-      code = numMatch ? parseInt(numMatch[0], 10) : 999;
+      const numMatches = numStr.match(/\d+/g);
+      code = numMatches ? parseInt(numMatches[numMatches.length - 1], 10) : 999;
     }
     return [dateCode, code, m.kickoff || '', m.id || ''];
   }
@@ -269,31 +278,8 @@ const MatchIQ = (() => {
               <div style="font-size:13px">暂无比赛分析数据</div>
             </div>`;
         } else {
-          // 对在售卡片按竞彩官方开售期号 (Date Ascending) 与 组内编号 (Code Ascending 001->006) 正序排列 (与竞彩网完全一致)
-          const sortedUpcomingForCards = [...upcomingMatches].sort((a, b) => {
-            const getTag = (m) => {
-              let t = m.issue_date || m.business_date || '';
-              if (!t) {
-                const mId = (m.id || '').match(/match_(\d{6})_/);
-                t = mId ? mId[1] : (m.kickoff || '').split('T')[0].split(' ')[0].replace(/-/g, '').slice(2);
-              }
-              return t;
-            };
-            const dateA = getTag(a);
-            const dateB = getTag(b);
-            if (dateA !== dateB) return dateA.localeCompare(dateB); // 日期从早到晚
-            
-            const getNum = (m) => {
-              const mid = m.id || m.match_id || '';
-              const no = m.match_no || '';
-              const mId = mid.match(/_(\d+)$/);
-              if (mId) return parseInt(mId[1], 10);
-              const mNo = no.match(/(\d+)/);
-              if (mNo) return parseInt(mNo[1], 10);
-              return 0;
-            };
-            return getNum(a) - getNum(b); // 组内编号从小到大正序 (001 -> 002 -> 003 -> 004 -> 005 -> 006)
-          });
+          // 对在售卡片按竞彩官方开售期号与组内编号正序排列 (与汇总表格及竞彩网 100% 一致)
+          const sortedUpcomingForCards = sortMatchesBySporttery(upcomingMatches);
 
           matchesGrid.innerHTML = sortedUpcomingForCards.map(m => {
             try {
