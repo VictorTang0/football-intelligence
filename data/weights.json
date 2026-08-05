@@ -1,13 +1,13 @@
 {
-  "version": "v5.7",
-  "last_evolved": "2026-08-05T12:01:46.728867",
-  "total_matches_validated": 125,
-  "overall_accuracy": 0.576,
+  "version": "v5.8",
+  "last_evolved": "2026-08-05T12:26:16.068738",
+  "total_matches_validated": 126,
+  "overall_accuracy": 0.5714,
   "factors": [
     {
       "id": "M01",
       "name": "球队基础硬实力",
-      "weight": 0.3297,
+      "weight": 0.314,
       "initial": 0.25,
       "category": "基础战力",
       "delta": 0.0,
@@ -16,7 +16,7 @@
     {
       "id": "M02",
       "name": "首发阵容健康度",
-      "weight": 0.2691,
+      "weight": 0.2563,
       "initial": 0.15,
       "category": "基础战力",
       "delta": 0.0,
@@ -25,7 +25,7 @@
     {
       "id": "M03",
       "name": "战术克制与匹配",
-      "weight": -0.1865,
+      "weight": -0.1776,
       "initial": 0.15,
       "category": "战术相克",
       "delta": 0.0,
@@ -34,7 +34,7 @@
     {
       "id": "M04",
       "name": "中场与推进效率",
-      "weight": -0.5231,
+      "weight": -0.4981,
       "initial": 0.1,
       "category": "战术相克",
       "delta": 0.0,
@@ -43,7 +43,7 @@
     {
       "id": "M05",
       "name": "近期状态与动能",
-      "weight": -0.0524,
+      "weight": -0.0499,
       "initial": 0.15,
       "category": "动态动能",
       "delta": 0.0,
@@ -52,7 +52,7 @@
     {
       "id": "M06",
       "name": "赛程密集与体能",
-      "weight": 0.0115,
+      "weight": 0.011,
       "initial": 0.05,
       "category": "动态动能",
       "delta": 0.0,
@@ -61,7 +61,7 @@
     {
       "id": "M07",
       "name": "环境气候适应性",
-      "weight": 0.4655,
+      "weight": 0.4433,
       "initial": 0.05,
       "category": "环境心理",
       "delta": 0.0,
@@ -70,7 +70,7 @@
     {
       "id": "M08",
       "name": "战意与抢分压力",
-      "weight": 0.5516,
+      "weight": 0.5729,
       "initial": 0.1,
       "category": "环境心理",
       "delta": 0.0,
@@ -79,7 +79,7 @@
     {
       "id": "M09",
       "name": "历史交锋与心理克制",
-      "weight": 0.1347,
+      "weight": 0.1283,
       "initial": 0.08,
       "category": "战术心理",
       "delta": 0.0,
@@ -161,7 +161,7 @@
     "环境心理": 0.0022,
     "战术心理": 0.1661
   },
-  "score_accuracy": 0.168,
-  "half_full_accuracy": 0.096,
+  "score_accuracy": 0.1746,
+  "half_full_accuracy": 0.0952,
   "evolution_count": 34
 }

@@ -127183,7 +127183,7 @@
         "humidity": 70,
         "wind_kmh": 15
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-04T19:36:32.174301",
@@ -127715,7 +127715,8 @@
         "ev_score": 0.0,
         "reasoning": "巴西杯比赛双方战术意图各有侧重。 基本面上，里莫在【环境气候适应性】上拥有明显优势（评分 8.2 对 6.9），但桑托斯在【近期状态与动能】上（评分 6.0 对 4.6）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 3.37 降至 3.30，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败】。",
         "confidence_trend": "up",
-        "predicted_score": "0-1 或 0-0 或 0-2 (竞彩)"
+        "predicted_score": "0-1 或 0-0 或 0-2 (竞彩)",
+        "actual_result": "里莫 0-1 桑托斯 (0-0)"
       },
       "team_stats": {
         "home": {
@@ -128497,7 +128498,16 @@
       "current_goals": "小 2.5",
       "radar_triggered": false,
       "match_no": "周二001",
-      "issue_date": "260804"
+      "issue_date": "260804",
+      "result": {
+        "actual_result": "里莫 0-1 桑托斯 (0-0)",
+        "ft_score": "0:1",
+        "ht_score": "0:0",
+        "rec_correct": true,
+        "hafu_correct": false,
+        "ou_correct": true,
+        "score_correct": true
+      }
     },
     {
       "id": "match_260804_002",
@@ -129884,7 +129894,7 @@
         "rec_correct": true,
         "hafu_correct": false,
         "ou_correct": false,
-        "score_correct": false
+        "score_correct": true
       }
     },
     {
