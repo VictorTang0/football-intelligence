@@ -219,36 +219,47 @@ def sync():
         
         # Calculate or sync radar alert correctness
         alert = m.get("radar_alert")
+        odds = m.get("odds_analysis", {})
+        m10_h = m.get("m10_hub_analysis", {})
+        upset_idx = m.get("upset_risk_index") or conc.get("upset_risk_index", 0)
+        divergence = conc.get("had_hhad_divergence", False)
+        radar_trig = m.get("radar_triggered", False) or m.get("is_radar_alert", False)
+
         if not alert:
-            odds = m.get("odds_analysis", {})
-            m10_h = m.get("m10_hub_analysis", {})
-            upset_idx = m.get("upset_risk_index") or conc.get("upset_risk_index", 50)
-            
-            pinnacle = odds.get("pinnacle", {})
-            current = pinnacle.get("current")
-            initial = pinnacle.get("initial")
-            
-            rec_desc = m10_h.get("had_recommendation") or uc.get("recommendation", "主不败")
-            if rec_desc == "无推荐": rec_desc = "主不败"
-            
-            actual_outcome = "H" if is_home_win else "A" if is_away_win else "D"
-            
+            # 仅当真正触发欧亚背离、高冷门指数 (>=65%) 或风控雷达干预时，才纳入风控雷达历史记录
+            if divergence or upset_idx >= 65 or radar_trig:
+                rec_desc = m10_h.get("had_recommendation") or uc.get("recommendation", "主不败")
+                if rec_desc == "无推荐": rec_desc = "主不败"
+                
+                alert_is_correct = False
+                if "主胜" in rec_desc and is_home_win: alert_is_correct = True
+                elif "客胜" in rec_desc and is_away_win: alert_is_correct = True
+                elif "平" in rec_desc and is_draw: alert_is_correct = True
+                elif "主不败" in rec_desc and (is_home_win or is_draw): alert_is_correct = True
+                elif "客不败" in rec_desc and (is_away_win or is_draw): alert_is_correct = True
+
+                alert_type = "欧亚指数严重背离" if divergence else ("冷门爆冷高度预警" if upset_idx >= 65 else "induce")
+                alert = {
+                    "type": alert_type,
+                    "target": rec_desc.split("(")[0].strip(),
+                    "diff": -0.05 if upset_idx >= 65 else -0.03,
+                    "recommendation": rec_desc.split("(")[0].strip(),
+                    "actual_result": actual_result,
+                    "is_correct": alert_is_correct
+                }
+            else:
+                alert = None
+        else:
+            # 存在原始 radar_alert 时同步准确率
+            rec_desc = alert.get("recommendation") or uc.get("recommendation", "")
             alert_is_correct = False
             if "主胜" in rec_desc and is_home_win: alert_is_correct = True
             elif "客胜" in rec_desc and is_away_win: alert_is_correct = True
             elif "平" in rec_desc and is_draw: alert_is_correct = True
             elif "主不败" in rec_desc and (is_home_win or is_draw): alert_is_correct = True
             elif "客不败" in rec_desc and (is_away_win or is_draw): alert_is_correct = True
-
-            # 只要触发 M10 水温跳水、欧亚背离或冷门指数 >= 55%，即自动纳入风控雷达历史记录
-            alert = {
-                "type": "变盘水温诱导/风控防范预警" if upset_idx < 65 else "冷门爆冷高度预警",
-                "target": rec_desc,
-                "diff": -0.05 if upset_idx >= 65 else -0.02,
-                "recommendation": rec_desc,
-                "actual_result": actual_result,
-                "is_correct": alert_is_correct
-            }
+            alert["is_correct"] = alert_is_correct
+            alert["actual_result"] = actual_result
 
         raw_ko = m.get("kickoff") or m.get("date") or ""
         time_part = ""

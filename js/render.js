@@ -3104,18 +3104,26 @@ const MatchIQRender = (() => {
 
         // Match rows under this date
         groups[date].forEach(r => {
-          const alert = r.radar_alert;
+          const alert = r.radar_alert || {};
           const isCorrect = alert.is_correct;
-          const diffStr = (alert.diff > 0 ? '+' : '') + alert.diff.toFixed(2);
+          const diffVal = alert.diff !== undefined ? alert.diff : -0.02;
+          const diffStr = (diffVal > 0 ? '+' : '') + diffVal.toFixed(2);
+          const targetStr = alert.target || alert.recommendation || '风控推荐';
           
           let alertBadge = '';
           let alertDetails = '';
           if (alert.type === 'protect') {
-            alertBadge = '<span style="color:#4caf50; background:rgba(76,175,80,0.08); border:1px solid rgba(76,175,80,0.25); padding:2px 6px; border-radius:4px; font-weight:700; font-size:11px; white-space:nowrap; display:inline-block;">🟢 降水保护</span>';
-            alertDetails = `散户爆买【${alert.target}】，庄家即时降水防范 (${diffStr})`;
+            alertBadge = '<span style="color:#10b981; background:rgba(16, 185, 129, 0.08); border:1px solid rgba(16, 185, 129, 0.25); padding:2px 6px; border-radius:4px; font-weight:700; font-size:11px; white-space:nowrap; display:inline-block;">🟢 降水保护</span>';
+            alertDetails = `散户爆买【${targetStr}】，庄家即时降水防范 (${diffStr})`;
+          } else if (alert.type === 'induce') {
+            alertBadge = '<span style="color:#ef4444; background:rgba(239, 68, 68, 0.08); border:1px solid rgba(239, 68, 68, 0.25); padding:2px 6px; border-radius:4px; font-weight:700; font-size:11px; white-space:nowrap; display:inline-block;">🚨 资本诱盘</span>';
+            alertDetails = `散户热买【${targetStr}】，庄家反向阻尼升水 (${diffStr})`;
+          } else if (alert.type === '欧亚指数严重背离') {
+            alertBadge = '<span style="color:#8b5cf6; background:rgba(139, 92, 246, 0.08); border:1px solid rgba(139, 92, 246, 0.25); padding:2px 6px; border-radius:4px; font-weight:700; font-size:11px; white-space:nowrap; display:inline-block;">⚡ 欧亚背离</span>';
+            alertDetails = `竞彩胜平负与让球盘指数方向严重背离`;
           } else {
-            alertBadge = '<span style="color:#ef4444; background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.25); padding:2px 6px; border-radius:4px; font-weight:700; font-size:11px; white-space:nowrap; display:inline-block;">🚨 资本诱盘</span>';
-            alertDetails = `散户热买【${alert.target}】，庄家反向阻尼升水 (${diffStr})`;
+            alertBadge = '<span style="color:#f59e0b; background:rgba(245, 158, 11, 0.08); border:1px solid rgba(245, 158, 11, 0.25); padding:2px 6px; border-radius:4px; font-weight:700; font-size:11px; white-space:nowrap; display:inline-block;">⚠️ 爆冷预警</span>';
+            alertDetails = `机构赔率异常震荡，冷门预警指数高企 (${diffStr})`;
           }
 
           const statusBadge = isCorrect 
