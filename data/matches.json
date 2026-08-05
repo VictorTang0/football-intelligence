@@ -125789,7 +125789,7 @@
         "wind_kmh": 15,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-04T11:13:20.712452",
@@ -125958,7 +125958,8 @@
         "ev_score": 0.0,
         "reasoning": "欧冠比赛双方战术意图各有侧重。 基本面上，圣吉联合在【环境气候适应性】上拥有明显优势（评分 8.2 对 6.9），但博德闪耀在【近期状态与动能】上（评分 8.8 对 4.1）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 2.24 / 3.55 / 2.50 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "stable",
-        "predicted_score": "1-0 或 0-0 或 1-2 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 1-2 (竞彩)",
+        "actual_result": "圣吉联合 3-3 博德闪耀 (2-2)"
       },
       "team_stats": {
         "home": {
@@ -126832,7 +126833,16 @@
       "current_scores": "1-0 或 0-0 或 1-2 (竞彩)",
       "current_goals": "小 2.5 (竞彩)",
       "radar_triggered": true,
-      "match_no": "周二004"
+      "match_no": "周二004",
+      "result": {
+        "actual_result": "圣吉联合 3-3 博德闪耀 (2-2)",
+        "ft_score": "3:3",
+        "ht_score": "2:2",
+        "rec_correct": true,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": false
+      }
     },
     {
       "id": "match_260804_001",
@@ -127742,7 +127752,7 @@
         "humidity": 59,
         "wind_kmh": 6
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-04T15:39:51.208937",
@@ -127807,7 +127817,8 @@
         "ev_score": 0.0,
         "reasoning": "欧冠比赛双方战术意图各有侧重。 基本面上，米亚尔比在【环境气候适应性】上拥有明显优势（评分 8.2 对 6.9），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 2.04 / 3.28 / 3.00 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "down",
-        "predicted_score": "1-0 或 0-0 或 0-2 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 0-2 (竞彩)",
+        "actual_result": "米亚尔比 1-2 布拉迪斯 (0-0)"
       },
       "team_stats": {
         "home": {
@@ -128656,7 +128667,16 @@
       "current_goals": "小 2.5",
       "radar_triggered": false,
       "match_no": "周二002",
-      "issue_date": "260804"
+      "issue_date": "260804",
+      "result": {
+        "actual_result": "米亚尔比 1-2 布拉迪斯 (0-0)",
+        "ft_score": "1:2",
+        "ht_score": "0:0",
+        "rec_correct": true,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": false
+      }
     },
     {
       "id": "match_260805_002",
@@ -129630,7 +129650,7 @@
         "humidity": 51,
         "wind_kmh": 16
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-04T15:39:51.223444",
@@ -129695,7 +129715,8 @@
         "ev_score": 0.0,
         "reasoning": "欧冠比赛双方战术意图各有侧重。 基本面上，奥林匹亚在【近期状态与动能】上拥有明显优势（评分 6.5 对 5.1），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 1.43 / 3.92 / 5.70 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败 (竞彩)】。",
         "confidence_trend": "down",
-        "predicted_score": "1-0 或 0-0 或 2-0 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-0 (竞彩)",
+        "actual_result": "奥林匹亚 0-0 奈梅亨 (0-0)"
       },
       "team_stats": {
         "home": {
@@ -130558,7 +130579,16 @@
       "current_goals": "小 2.5",
       "radar_triggered": false,
       "match_no": "周二003",
-      "issue_date": "260804"
+      "issue_date": "260804",
+      "result": {
+        "actual_result": "奥林匹亚 0-0 奈梅亨 (0-0)",
+        "ft_score": "0:0",
+        "ht_score": "0:0",
+        "rec_correct": true,
+        "hafu_correct": true,
+        "ou_correct": true,
+        "score_correct": true
+      }
     },
     {
       "id": "match_260805_003",
@@ -131587,7 +131617,7 @@
         "wind_kmh": 16,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-04T11:13:20.787763",
@@ -131756,7 +131786,8 @@
         "ev_score": 0.0,
         "reasoning": "欧冠比赛双方战术意图各有侧重。 基本面上，布斯巴达在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指主胜由 3.62 降至 3.55，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【反基本面冷门 (客队不败) (竞彩)】。",
         "confidence_trend": "up",
-        "predicted_score": "0-1 或 0-0 或 0-2 (竞彩)"
+        "predicted_score": "0-1 或 0-0 或 0-2 (竞彩)",
+        "actual_result": "布斯巴达 2-1 里昂 (0-1)"
       },
       "team_stats": {
         "home": {
@@ -132601,7 +132632,16 @@
       "current_scores": "0-1 或 0-0 或 0-2 (竞彩)",
       "current_goals": "小 2.5",
       "radar_triggered": false,
-      "match_no": "周二005"
+      "match_no": "周二005",
+      "result": {
+        "actual_result": "布斯巴达 2-1 里昂 (0-1)",
+        "ft_score": "2:1",
+        "ht_score": "0:1",
+        "rec_correct": true,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": false
+      }
     }
   ]
 }
