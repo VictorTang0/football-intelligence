@@ -6265,8 +6265,13 @@
             },
             {
               "score": "2-1",
-              "count": 506,
+              "count": 505,
               "pct": "10.1%"
+            },
+            {
+              "score": "1-1",
+              "count": 470,
+              "pct": "9.4%"
             }
           ],
           "topHalfFull": [
@@ -6331,8 +6336,13 @@
             },
             {
               "score": "2-1",
-              "count": 506,
+              "count": 505,
               "pct": "10.1%"
+            },
+            {
+              "score": "1-1",
+              "count": 470,
+              "pct": "9.4%"
             }
           ],
           "topHalfFull": [
@@ -7595,6 +7605,11 @@
               "pct": "10.5%"
             },
             {
+              "score": "3-0",
+              "count": 548,
+              "pct": "11.0%"
+            },
+            {
               "score": "2-1",
               "count": 461,
               "pct": "9.2%"
@@ -7659,6 +7674,11 @@
               "score": "3-0",
               "count": 526,
               "pct": "10.5%"
+            },
+            {
+              "score": "3-0",
+              "count": 548,
+              "pct": "11.0%"
             },
             {
               "score": "2-1",
@@ -12098,11 +12118,11 @@
             "awayPct": "29.2"
           },
           "styleTag": {
-            "name": "⚖️ 战术胶着型",
-            "desc": "两队中场缠斗，进球受限，防守拉锯剧烈",
-            "color": "#38bdf8",
-            "bg": "rgba(56,189,248,0.12)",
-            "border": "rgba(56,189,248,0.3)"
+            "name": "⚔️ 均势对喷型",
+            "desc": "两队实力极度接近，易诱发互相撕裂防线的大比分或平局",
+            "color": "#fbbf24",
+            "bg": "rgba(251,191,36,0.15)",
+            "border": "rgba(251,191,36,0.4)"
           },
           "topScores": [
             {
@@ -12164,11 +12184,11 @@
             "awayPct": "29.2"
           },
           "styleTag": {
-            "name": "⚖️ 战术胶着型",
-            "desc": "两队中场缠斗，进球受限，防守拉锯剧烈",
-            "color": "#38bdf8",
-            "bg": "rgba(56,189,248,0.12)",
-            "border": "rgba(56,189,248,0.3)"
+            "name": "⚔️ 均势对喷型",
+            "desc": "两队实力极度接近，易诱发互相撕裂防线的大比分或平局",
+            "color": "#fbbf24",
+            "bg": "rgba(251,191,36,0.15)",
+            "border": "rgba(251,191,36,0.4)"
           },
           "topScores": [
             {
@@ -16433,8 +16453,8 @@
             },
             {
               "score": "2-0",
-              "count": 521,
-              "pct": "10.4%"
+              "count": 484,
+              "pct": "9.7%"
             },
             {
               "score": "2-1",
@@ -16499,8 +16519,8 @@
             },
             {
               "score": "2-0",
-              "count": 521,
-              "pct": "10.4%"
+              "count": 484,
+              "pct": "9.7%"
             },
             {
               "score": "2-1",
@@ -17120,9 +17140,9 @@
         "simulation_5000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "77.1",
-            "drawPct": "15.6",
-            "awayPct": "7.3"
+            "homePct": "77.5",
+            "drawPct": "15.9",
+            "awayPct": "6.6"
           },
           "styleTag": {
             "name": "🛡️ 强弱悬殊型",
@@ -17149,8 +17169,8 @@
             },
             {
               "score": "2-1",
-              "count": 389,
-              "pct": "7.8%"
+              "count": 446,
+              "pct": "8.9%"
             }
           ],
           "topHalfFull": [
@@ -17186,9 +17206,9 @@
         "simulation_1000": {
           "iterations": 5000,
           "winRate": {
-            "homePct": "77.1",
-            "drawPct": "15.6",
-            "awayPct": "7.3"
+            "homePct": "77.5",
+            "drawPct": "15.9",
+            "awayPct": "6.6"
           },
           "styleTag": {
             "name": "🛡️ 强弱悬殊型",
@@ -17215,8 +17235,8 @@
             },
             {
               "score": "2-1",
-              "count": 389,
-              "pct": "7.8%"
+              "count": 446,
+              "pct": "8.9%"
             }
           ],
           "topHalfFull": [
@@ -30959,8 +30979,8 @@
           "wildOutliers": [
             {
               "score": "3-2",
-              "count": 148,
-              "pct": "3.0%"
+              "count": 154,
+              "pct": "3.1%"
             },
             {
               "score": "2-3",
@@ -31025,8 +31045,8 @@
           "wildOutliers": [
             {
               "score": "3-2",
-              "count": 148,
-              "pct": "3.0%"
+              "count": 154,
+              "pct": "3.1%"
             },
             {
               "score": "2-3",
@@ -34468,8 +34488,8 @@
             },
             {
               "hf": "平胜",
-              "count": 904,
-              "pct": "18.1%"
+              "count": 855,
+              "pct": "17.1%"
             },
             {
               "hf": "平平",
@@ -34534,8 +34554,8 @@
             },
             {
               "hf": "平胜",
-              "count": 904,
-              "pct": "18.1%"
+              "count": 855,
+              "pct": "17.1%"
             },
             {
               "hf": "平平",
@@ -64403,8 +64423,8 @@
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 157,
-              "pct": "3.1%"
+              "count": 173,
+              "pct": "3.5%"
             },
             {
               "score": "2-3",
@@ -64469,8 +64489,8 @@
           "wildOutliers": [
             {
               "score": "0-3",
-              "count": 157,
-              "pct": "3.1%"
+              "count": 173,
+              "pct": "3.5%"
             },
             {
               "score": "2-3",
@@ -69786,8 +69806,8 @@
             },
             {
               "hf": "平平",
-              "count": 707,
-              "pct": "14.1%"
+              "count": 690,
+              "pct": "13.8%"
             }
           ],
           "wildOutliers": [
@@ -69852,8 +69872,8 @@
             },
             {
               "hf": "平平",
-              "count": 707,
-              "pct": "14.1%"
+              "count": 690,
+              "pct": "13.8%"
             }
           ],
           "wildOutliers": [
@@ -73596,8 +73616,8 @@
             },
             {
               "hf": "平平",
-              "count": 575,
-              "pct": "11.5%"
+              "count": 591,
+              "pct": "11.8%"
             }
           ],
           "wildOutliers": [
@@ -73662,8 +73682,8 @@
             },
             {
               "hf": "平平",
-              "count": 575,
-              "pct": "11.5%"
+              "count": 591,
+              "pct": "11.8%"
             }
           ],
           "wildOutliers": [
@@ -84243,8 +84263,8 @@
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 1968,
-              "pct": "39.4%"
+              "count": 1997,
+              "pct": "39.9%"
             },
             {
               "hf": "平负",
@@ -84309,8 +84329,8 @@
           "topHalfFull": [
             {
               "hf": "负负",
-              "count": 1968,
-              "pct": "39.4%"
+              "count": 1997,
+              "pct": "39.9%"
             },
             {
               "hf": "平负",
@@ -89472,11 +89492,11 @@
             "awayPct": "30.1"
           },
           "styleTag": {
-            "name": "⚖️ 战术胶着型",
-            "desc": "两队中场缠斗，进球受限，防守拉锯剧烈",
-            "color": "#38bdf8",
-            "bg": "rgba(56,189,248,0.12)",
-            "border": "rgba(56,189,248,0.3)"
+            "name": "⚔️ 均势对喷型",
+            "desc": "两队实力极度接近，易诱发互相撕裂防线的大比分或平局",
+            "color": "#fbbf24",
+            "bg": "rgba(251,191,36,0.15)",
+            "border": "rgba(251,191,36,0.4)"
           },
           "topScores": [
             {
@@ -89538,11 +89558,11 @@
             "awayPct": "30.1"
           },
           "styleTag": {
-            "name": "⚖️ 战术胶着型",
-            "desc": "两队中场缠斗，进球受限，防守拉锯剧烈",
-            "color": "#38bdf8",
-            "bg": "rgba(56,189,248,0.12)",
-            "border": "rgba(56,189,248,0.3)"
+            "name": "⚔️ 均势对喷型",
+            "desc": "两队实力极度接近，易诱发互相撕裂防线的大比分或平局",
+            "color": "#fbbf24",
+            "bg": "rgba(251,191,36,0.15)",
+            "border": "rgba(251,191,36,0.4)"
           },
           "topScores": [
             {
@@ -95661,8 +95681,8 @@
             },
             {
               "hf": "平胜",
-              "count": 1075,
-              "pct": "21.5%"
+              "count": 1107,
+              "pct": "22.1%"
             },
             {
               "hf": "平平",
@@ -95727,8 +95747,8 @@
             },
             {
               "hf": "平胜",
-              "count": 1075,
-              "pct": "21.5%"
+              "count": 1107,
+              "pct": "22.1%"
             },
             {
               "hf": "平平",
@@ -116877,7 +116897,7 @@
             },
             {
               "score": "0-2",
-              "count": 458,
+              "count": 459,
               "pct": "9.2%"
             },
             {
@@ -116943,7 +116963,7 @@
             },
             {
               "score": "0-2",
-              "count": 458,
+              "count": 459,
               "pct": "9.2%"
             },
             {
@@ -119713,6 +119733,11 @@
               "pct": "10.7%"
             },
             {
+              "score": "0-4",
+              "count": 422,
+              "pct": "8.4%"
+            },
+            {
               "score": "0-2",
               "count": 486,
               "pct": "9.7%"
@@ -119777,6 +119802,11 @@
               "score": "0-3",
               "count": 537,
               "pct": "10.7%"
+            },
+            {
+              "score": "0-4",
+              "count": 422,
+              "pct": "8.4%"
             },
             {
               "score": "0-2",
@@ -121260,9 +121290,9 @@
               "pct": "3.0%"
             },
             {
-              "score": "2-3",
-              "count": 137,
-              "pct": "2.7%"
+              "score": "3-2",
+              "count": 132,
+              "pct": "2.6%"
             }
           ]
         },
@@ -121326,9 +121356,9 @@
               "pct": "3.0%"
             },
             {
-              "score": "2-3",
-              "count": 137,
-              "pct": "2.7%"
+              "score": "3-2",
+              "count": 132,
+              "pct": "2.6%"
             }
           ]
         }
@@ -124109,8 +124139,8 @@
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 335,
-              "pct": "6.7%"
+              "count": 296,
+              "pct": "5.9%"
             },
             {
               "score": "4-1",
@@ -124175,8 +124205,8 @@
           "wildOutliers": [
             {
               "score": "4-0",
-              "count": 335,
-              "pct": "6.7%"
+              "count": 296,
+              "pct": "5.9%"
             },
             {
               "score": "4-1",
@@ -131207,34 +131237,34 @@
         "had": false,
         "score": true,
         "ou": false,
-        "hf": true,
-        "goals": true
+        "hf": false,
+        "goals": false
       },
       "odds_movement_str": "胜 1.57➔1.61 | 平 3.65➔3.65 | 负 4.6➔4.26",
       "subitem_arrows": {
         "had": {
-          "primary": "down",
-          "m10": "up"
+          "primary": "none",
+          "m10": "none"
         },
         "hhad": {
-          "primary": "down",
-          "m10": "up"
+          "primary": "none",
+          "m10": "none"
         },
         "score": {
-          "primary": "down",
-          "m10": "down"
+          "primary": "none",
+          "m10": "none"
         },
         "goals": {
-          "primary": "down",
-          "m10": "down"
+          "primary": "none",
+          "m10": "none"
         },
         "hf": {
-          "primary": "down",
-          "m10": "up"
+          "primary": "none",
+          "m10": "none"
         }
       },
-      "has_changed_in_push": true,
-      "has_conclusion_changed": true,
+      "has_changed_in_push": false,
+      "has_conclusion_changed": false,
       "odds_water_changed": true,
       "baseline_recommendation": "待推演 (需运行盘口更新)",
       "current_recommendation": "客不败",
@@ -136618,7 +136648,7 @@
       "ultimate_conclusion": {
         "recommendation": "客不败",
         "primary_bet": "双选不败",
-        "confidence": 59,
+        "confidence": 58,
         "risk_level": "中",
         "ev_score": 0.0,
         "reasoning": "巴西杯比赛双方战术意图各有侧重。 基本面上，维多利亚在【环境气候适应性】上拥有明显优势（评分 8.2 对 6.9），但巴竞技在【战意与抢分压力】上（评分 6.0 对 5.2）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 2.03 / 3.20 / 3.10 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",

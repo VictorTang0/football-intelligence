@@ -52,7 +52,7 @@
     {
       "id": "M06",
       "name": "赛程密集与体能",
-      "weight": 0.0116,
+      "weight": 0.0122,
       "initial": 0.05,
       "category": "动态动能",
       "delta": 0.0,
@@ -129,7 +129,7 @@
   "experts": {
     "fundamental": {
       "name": "基本面专家",
-      "weight": 1.1763,
+      "weight": 1.1679,
       "dimensions": [
         "M01",
         "M02",
@@ -139,7 +139,7 @@
     },
     "narrative": {
       "name": "情报与战意专家",
-      "weight": 0.2165,
+      "weight": 0.2062,
       "dimensions": [
         "M03",
         "M04",
@@ -150,7 +150,7 @@
     },
     "odds_capital": {
       "name": "资金与赔率专家",
-      "weight": -0.3928,
+      "weight": -0.3741,
       "dimensions": []
     }
   },
