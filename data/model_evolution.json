@@ -1,5 +1,5 @@
 {
-  "current_version": "v5.9",
+  "current_version": "v6.0",
   "evolution_count": 40,
   "snapshots": [
     {
@@ -1128,9 +1128,9 @@
       ]
     },
     {
-      "version": "v5.9",
+      "version": "v6.0",
       "date": "2026-08-06",
-      "trigger": "结算 3 场最新完赛赛果与智算拟合进化",
+      "trigger": "v6.0 全联赛量化架构工程进化发布 (Pyramid + Proxy xG + M10 风控门控)",
       "accuracy_before": 0.5714,
       "accuracy_after": 0.5581,
       "score_accuracy": 0.1705,
@@ -1157,6 +1157,6 @@
       ]
     }
   ],
-  "last_updated": "2026-08-06T12:25:37.526148",
+  "last_updated": "2026-08-06T13:35:48.369047",
   "version": "v4.0"
 }
