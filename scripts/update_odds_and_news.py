@@ -1984,6 +1984,32 @@ def main():
             except Exception:
                 pass
 
+        # Extract Official Sporttery HHAD Handicap (竞彩让球胜平负让球数与赔率)
+        hhad_list = oh.get("hhadList", [])
+        if hhad_list and len(hhad_list) > 0:
+            curr_hhad = hhad_list[-1]
+            gl_val = curr_hhad.get("goalLine") or curr_hhad.get("goalLineValue", "")
+            if gl_val:
+                gl_str = str(gl_val).strip()
+                if not gl_str.startswith("+") and not gl_str.startswith("-"):
+                    try:
+                        n = int(gl_str)
+                        gl_str = f"+{n}" if n > 0 else f"{n}"
+                    except Exception:
+                        pass
+                m["handicap"] = gl_str
+                m["goal_line"] = gl_str
+                m["handicap_line"] = gl_str
+                if "conclusions" not in m: m["conclusions"] = {}
+                m["conclusions"]["handicap"] = gl_str
+                m["hhad_odds"] = {
+                    "goalLine": gl_str,
+                    "home": float(curr_hhad.get("h", 0)) if curr_hhad.get("h") else 0,
+                    "draw": float(curr_hhad.get("d", 0)) if curr_hhad.get("d") else 0,
+                    "away": float(curr_hhad.get("a", 0)) if curr_hhad.get("a") else 0,
+                    "updateTime": curr_hhad.get("updateTime", "")
+                }
+
         # 1.5 Dynamic Bookmaker Intent & Smoke Screen Deduction
         pinnacle_odds = m["odds_analysis"]["pinnacle"]["current"]
         ph, pd, pa = pinnacle_odds["home"], pinnacle_odds["draw"], pinnacle_odds["away"]

@@ -89,7 +89,14 @@ def process_matches(api_data):
             
             # 6. Extract HHAD (让球胜平负) Line
             hhad = m.get("hhad", {})
-            handicap_line = hhad.get("goalLine", "") # e.g. "-1" or "+1"
+            raw_gl = hhad.get("goalLine") or hhad.get("goalLineValue", "") # e.g. "-1" or "+1" or "-2"
+            handicap_line = str(raw_gl).strip() if raw_gl else "-1"
+            if handicap_line and not handicap_line.startswith("+") and not handicap_line.startswith("-"):
+                try:
+                    gl_num = int(handicap_line)
+                    handicap_line = f"+{gl_num}" if gl_num > 0 else f"{gl_num}"
+                except Exception:
+                    pass
             
             # We construct a record for new_matches_input.json
             new_matches_input.append({
