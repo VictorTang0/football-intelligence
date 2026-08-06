@@ -2825,8 +2825,9 @@ const MatchIQRender = (() => {
       // 从竞彩网获取真实的让球盘口，拒绝硬编码
       let hc = -1;
       let hcFound = false;
-      if (m.handicap_line !== undefined && m.handicap_line !== null && m.handicap_line !== '') {
-        const parsed = parseInt(m.handicap_line, 10);
+      const hcStr = m.handicap || m.goal_line || m.handicap_line || m.hhad_odds?.goalLine || m.conclusions?.handicap || '';
+      if (hcStr !== '') {
+        const parsed = parseInt(hcStr, 10);
         if (!isNaN(parsed)) {
           hc = parsed;
           hcFound = true;
