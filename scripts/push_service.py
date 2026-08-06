@@ -366,6 +366,23 @@ def push_daily_results(records_settled, model_evolution):
     content = f"""{COMMON_CSS}<div style="font-family:Arial,sans-serif;background-color:#0f172a;color:#f1f5f9;padding:12px;border-radius:8px;border:1px solid rgba(0,212,255,0.2);"><h3 style="color:#10b981;margin-top:0;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:6px;">💰 MATCH IQ 昨日红黑清算单</h3><p style="font-size:12px;color:#94a3b8;">昨日已完赛赛事预测结算列表：</p><table style="width:100%;border-collapse:collapse;margin:12px 0;font-size:11px;color:#e2e8f0;text-align:left;"><thead><tr style="background-color:rgba(255,255,255,0.03);border-bottom:1px solid rgba(255,255,255,0.1);"><th style="padding:6px;">编号</th><th style="padding:6px;">赛事对阵</th><th style="padding:6px;">预测推荐</th><th style="padding:6px;">赛果</th><th style="padding:6px;">结果</th></tr></thead><tbody>{rows_html}</tbody></table><div style="background-color:rgba(56,189,248,0.05);padding:10px;border-radius:6px;border:1px solid rgba(56,189,248,0.2);font-size:12px;margin-top:12px;line-height:1.5;">🚀 <strong>模型自动进化报告 ({version})</strong><br/>• 历史总验证场次: <span style="color:#f1f5f9;font-weight:bold;">{total_validated} 场</span><br/>• 胜平负/方向命中率: <span style="color:#10b981;font-weight:bold;">{direction_acc * 100:.2f}%</span><br/>• 最可能比分命中率: <span style="color:#fbbf24;font-weight:bold;">{score_acc * 100:.2f}%</span></div><p style="font-size:11px;color:#64748b;text-align:center;margin-top:12px;margin-bottom:0;">💬 自动结算已部署 • <a href="https://victortang0.github.io/football-intelligence/" style="color:#00d4ff;text-decoration:none;">打开 MATCH IQ 看板 ➔</a></p></div>"""
     return send_push(f"💰 MATCH IQ 战绩结算及模型进化 ({version})", content)
 
+def ensure_fresh_odds_update():
+    """
+    Guarantees that live odds from Sporttery API are fetched and predictions/Kelly EV are recalculated
+    right before push notifications are generated and delivered.
+    """
+    try:
+        import sys, subprocess
+        scripts_dir = os.path.dirname(os.path.abspath(__file__))
+        update_script = os.path.join(scripts_dir, "update_odds_and_news.py")
+        if os.path.exists(update_script):
+            print("🔄 [Push Pre-Flight Check] Running update_odds_and_news.py to ensure live odds & predictions are updated before push...")
+            subprocess.run([sys.executable, update_script], check=True)
+            return True
+    except Exception as e:
+        print(f"⚠️ Warning: Pre-push odds update failed: {e}")
+    return False
+
 def push_initial_predictions(matches):
     has_any = any(m.get("has_changed_in_push") or m.get("odds_water_changed") for m in matches)
     return push_scheduled_update(matches, has_any_change=has_any)
@@ -376,3 +393,9 @@ def push_live_change_alert(changed_matches):
 def push_closing_summary(matches, is_pre_final=False):
     has_any = any(m.get("has_changed_in_push") or m.get("odds_water_changed") for m in matches)
     return push_scheduled_update(matches, has_any_change=has_any)
+
+if __name__ == "__main__":
+    import subprocess
+    print("📲 Executing standalone push service pipeline (fetching live odds & pushing)...")
+    ensure_fresh_odds_update()
+
