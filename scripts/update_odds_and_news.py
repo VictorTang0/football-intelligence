@@ -639,6 +639,31 @@ def apply_dynamic_factor_scores(m):
     h_base = 5.0 + h_ppg * 2.0 + h_gd * 1.2
     a_base = 5.0 + a_ppg * 2.0 + a_gd * 1.2
 
+    # Import and apply Market Value (M01 Log-Scale Value Ratio) & CFI Travel/Fatigue Index
+    try:
+        from market_value_service import calculate_market_value_factors
+        from travel_and_fatigue_service import calculate_travel_and_fatigue
+        
+        mv_res = calculate_market_value_factors(home, away)
+        m["market_value_analysis"] = mv_res
+        
+        tf_res = calculate_travel_and_fatigue(home, away, m.get("kickoff", ""))
+        m["travel_and_fatigue_analysis"] = tf_res
+        
+        # Apply M01 Log-Scale Market Value Multiplier
+        m01_mult = mv_res.get("m01_multiplier", 1.0)
+        if m01_mult > 1.0:
+            h_base *= m01_mult
+        elif m01_mult < 1.0:
+            a_base *= (2.0 - m01_mult)
+            
+        # Apply Travel / Fatigue / Altitude CFI Index to Away Team (or Home Team)
+        cfi = tf_res.get("cfi_index", 1.0)
+        if cfi < 1.0:
+            a_base *= cfi
+    except Exception as e:
+        print(f"Warning: Failed to apply market value / travel fatigue factors: {e}")
+
     # Adjust M01 based on tags
     for tag in h_tags:
         if tag in ["灌球高手", "顺风狂飙", "主场狂魔"]:
@@ -653,7 +678,7 @@ def apply_dynamic_factor_scores(m):
 
     m01_home = round(max(3.0, min(9.8, h_base)), 1)
     m01_away = round(max(3.0, min(9.8, a_base)), 1)
-    # 2. Lineup Health (M02) - Base 9.2, reduced dynamically by verified injury news
+    # 2. Lineup Health (M02) - Base 9.2, reduced dynamically by verified injury news and lineup market value coverage
     m02_home = 9.2
     m02_away = 9.2
     
