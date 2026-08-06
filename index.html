@@ -70,12 +70,15 @@
           <span class="logo-sub">Football Intelligence System</span>
         </div>
       </div>
-      <div class="header-status">
+      <div class="header-status" style="display:flex; align-items:center; gap:8px;">
+        <span class="status-badge window-active" id="smart-window-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); font-size: 11px; padding: 3px 8px; border-radius: 6px; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;" title="中国时间指定采集窗口期: 工作日 11:00-22:00 / 周末 11:00-23:00">
+          <span class="dot" style="width: 6px; height: 6px; background: #10b981; border-radius: 50%;"></span>🔥 智能窗口 (UTC+8)
+        </span>
         <span class="status-badge demo" id="demo-mode-badge">
           <span class="dot"></span>DEMO MODE
         </span>
         <span class="status-badge version" id="version-badge-wrap">
-          模型 <span id="version-badge">v3.5</span>
+          模型 <span id="version-badge">v6.0</span>
         </span>
       </div>
       <div class="header-meta">
@@ -439,11 +442,11 @@
 </div><!-- /#app -->
 
 <!-- Scripts (order matters) -->
-<script src="js/simulation-engine.js?v=6.01"></script>
-<script src="js/odds-analyzer.js?v=6.01"></script>
-<script src="js/charts.js?v=6.01"></script>
-<script src="js/render.js?v=6.01"></script>
-<script src="js/main.js?v=6.01"></script>
+<script src="js/simulation-engine.js?v=6.02"></script>
+<script src="js/odds-analyzer.js?v=6.02"></script>
+<script src="js/charts.js?v=6.02"></script>
+<script src="js/render.js?v=6.02"></script>
+<script src="js/main.js?v=6.02"></script>
 
 <script>
   // Update footer timestamp

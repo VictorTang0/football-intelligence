@@ -156,9 +156,32 @@ const MatchIQ = (() => {
       const historyCountEl = document.getElementById('header-history-count');
       const evoCountEl = document.getElementById('header-evo-count');
 
-      const latestVersion = evolution?.snapshots?.slice(-1)[0]?.version || weights?.version || 'v3.5';
+      const latestVersion = evolution?.snapshots?.slice(-1)[0]?.version || weights?.version || 'v6.0';
       if (versionBadge) versionBadge.textContent = latestVersion;
       if (matchCountEl) matchCountEl.textContent = upcomingMatches.length;
+
+      // Dynamic UTC+8 Smart Window Badge Renderer
+      const smartWinBadge = document.getElementById('smart-window-badge');
+      if (smartWinBadge) {
+        const now = new Date();
+        const hrs = now.getHours();
+        const day = now.getDay();
+        const isWeekend = (day === 0 || day === 6);
+        const endHour = isWeekend ? 23 : 22;
+        const isActive = (hrs >= 11 && hrs <= endHour);
+
+        if (isActive) {
+          smartWinBadge.style.background = 'rgba(16, 185, 129, 0.1)';
+          smartWinBadge.style.color = '#10b981';
+          smartWinBadge.style.borderColor = 'rgba(16, 185, 129, 0.3)';
+          smartWinBadge.innerHTML = `<span class="dot" style="width: 6px; height: 6px; background: #10b981; border-radius: 50%;"></span>🔥 高峰水温 (UTC+8)`;
+        } else {
+          smartWinBadge.style.background = 'rgba(148, 163, 184, 0.1)';
+          smartWinBadge.style.color = '#94a3b8';
+          smartWinBadge.style.borderColor = 'rgba(148, 163, 184, 0.3)';
+          smartWinBadge.innerHTML = `<span class="dot" style="width: 6px; height: 6px; background: #94a3b8; border-radius: 50%;"></span>🌙 休眠防耗 (UTC+8)`;
+        }
+      }
 
       // M10 竞彩大师 5 维独立开奖命中率 (415场实盘水温训) 专属渲染
       const m10Stats = history?.m10_stats || {};
