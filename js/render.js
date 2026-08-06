@@ -1760,7 +1760,7 @@ const MatchIQRender = (() => {
       if (mId) {
         issueTag = mId[1];
       } else {
-        const rawDate = r.date || '2026-07-26';
+        const rawDate = r.date || new Date().toISOString().slice(0, 10);
         issueTag = rawDate.split(' ')[0].split('T')[0].replace(/-/g, '').slice(2);
       }
       
