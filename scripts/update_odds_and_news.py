@@ -2388,15 +2388,17 @@ def main():
                 m["ultimate_conclusion"]["confidence"] = int(m["ultimate_conclusion"]["confidence"] * 0.85)
 
             
-        # 1. Update Primary Bet
-        if "主胜" in rec or "主队" in rec:
+        # 1. Update Primary Bet to be explicit and clear (主不败 / 客不败 / 双选胜负)
+        if "主胜" in rec or "主队胜" in rec or "主不败" in rec:
             m["ultimate_conclusion"]["primary_bet"] = "主胜" if ph < 1.7 else "主不败"
-        elif "客胜" in rec or "客队" in rec:
+        elif "客胜" in rec or "客队胜" in rec or "客不败" in rec:
             m["ultimate_conclusion"]["primary_bet"] = "客胜" if pa < 1.7 else "客不败"
-        elif "平局" in rec or "分出" in rec:
+        elif "分出胜负" in rec or "双选胜负" in rec:
+            m["ultimate_conclusion"]["primary_bet"] = "双选胜负"
+        elif "平局" in rec:
             m["ultimate_conclusion"]["primary_bet"] = "平局"
         else:
-            m["ultimate_conclusion"]["primary_bet"] = "双选不败"
+            m["ultimate_conclusion"]["primary_bet"] = "主不败" if ph <= pa else "客不败"
             
         # 2. Update Confidence & Risk Level dynamically via MoE factor consensus with Rolling Temperature Scaling
         moe_abs = abs(moe_score)
