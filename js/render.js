@@ -1050,12 +1050,35 @@ const MatchIQRender = (() => {
         <div style="background: rgba(15,23,42,0.6); border: 1px solid rgba(56,189,248,0.25); border-radius: 8px; padding: 12px 14px; margin-bottom: 14px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 6px;">
             <div style="font-size: 13px; font-weight: 700; color: #38bdf8;">
-              ⚽ 战术阵型与预测首发 (战术克制系数 T_matrix: <span style="color:#fbbf24;">${tMat}</span>)
+              ⚽ 战术阵型与预测首发 (主客战术克制实时比对)
             </div>
             <div style="font-size:11px; color:var(--text-3);">
               主阵型: <span style="color:#10b981; font-weight:bold;">${hForm}</span> vs 客阵型: <span style="color:#818cf8; font-weight:bold;">${aForm}</span>
             </div>
           </div>
+
+          <!-- Dual-Bar Visual Tactical Comparison -->
+          ${(() => {
+            const tVal = parseFloat(tMat) || 1.15;
+            let hPct = Math.round((tVal / (tVal + 1.0)) * 100);
+            if (hPct > 85) hPct = 85;
+            if (hPct < 15) hPct = 15;
+            const aPct = 100 - hPct;
+            const advantageText = tVal >= 1.05 ? `主队战术压制 (+${Math.round((tVal - 1.0)*100)}%)` : (tVal <= 0.95 ? `客队战术反制 (+${Math.round((1.0 - tVal)*100)}%)` : `战术博弈均势`);
+            const advColor = tVal >= 1.05 ? `#10b981` : (tVal <= 0.95 ? `#818cf8` : `#fbbf24`);
+            return `
+            <div style="margin-bottom: 12px; background: rgba(0,0,0,0.3); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.06);">
+              <div style="display:flex; justify-content:space-between; align-items:center; font-size:11.5px; margin-bottom:6px;">
+                <span style="color:#10b981; font-weight:bold;">${homeName} (主) 战术克制度: ${hPct}%</span>
+                <span style="color:${advColor}; font-size:10.5px; font-weight:bold; background:rgba(255,255,255,0.06); padding:2px 8px; border-radius:4px;">⚡ ${advantageText} (T: ${tMat})</span>
+                <span style="color:#818cf8; font-weight:bold;">${awayName} (客) 战术克制度: ${aPct}%</span>
+              </div>
+              <div style="height: 10px; width: 100%; background: rgba(255,255,255,0.08); border-radius: 5px; overflow: hidden; display: flex;">
+                <div style="width: ${hPct}%; background: linear-gradient(90deg, #059669, #10b981); height: 100%;"></div>
+                <div style="width: ${aPct}%; background: linear-gradient(90deg, #6366f1, #818cf8); height: 100%;"></div>
+              </div>
+            </div>`;
+          })()}
 
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-bottom:10px;">
             <div>
