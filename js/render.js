@@ -3024,27 +3024,66 @@ const MatchIQRender = (() => {
         else if (mArrow === 'down') res += '<span style="color:#fbbf24; font-weight:900; margin-left:2px;" title="M10系统资金走势下降">↓</span>';
         return res;
       }
+      // 构建 【三系统智算综合结论 (MoE+M10+沙盘)】 深度结构化节点
+      let hadPrimaryStr = cRec.replace(/\(?竞彩\)?/g, '').replace('主不败', '主胜/平局').replace('客不败', '平局/客胜').trim();
+      let hadItems = hadPrimaryStr.split('/');
+      let underlinedHadHtml = `<u><strong style="color:#10b981; border-bottom:2px solid #10b981; padding-bottom:1px;">${hadItems[0]}</strong></u>`;
+      if (hadItems.length > 1) {
+        underlinedHadHtml += ` | <span style="color:var(--text-2);">${hadItems[1]}</span>`;
+      }
 
-      const directionHTML = `
-        <div style="text-align:left; font-size:clamp(12px, 0.95vw, 13.5px); line-height:1.5;">
-          <div style="margin-bottom:3px;">${hadMarker}${recDisplayHtml}${getArrowHtml('had')}</div>
-          <div style="margin-bottom:3px; color:var(--text-3); font-size:12px;">${hhadDisplayHtml}${getArrowHtml('hhad')}</div>
-          <div style="font-size:11px; color:var(--text-3);">信心: <span style="${confClass}">${conf}%</span> | <span style="color:var(--text-2);">${coldTag}</span></div>
-          ${waterHtml}
+      let hhadItems = hhadRec.replace(/\(?竞彩\)?/g, '').split('/');
+      let underlinedHhadHtml = `<u><strong style="color:#38bdf8; border-bottom:2px solid #38bdf8; padding-bottom:1px;">${hhadItems[0]}</strong></u>`;
+      if (hhadItems.length > 1) {
+        underlinedHhadHtml += ` | <span style="color:var(--text-3);">${hhadItems[1]}</span>`;
+      }
+
+      // Top 3 Scores (Sorted by probability)
+      let topScoresArr = [];
+      if (m.m10_hub_analysis?.simulation_5000?.topScores) {
+        topScoresArr = m.m10_hub_analysis.simulation_5000.topScores.slice(0, 3).map(s => s.score);
+      }
+      if (topScoresArr.length === 0) {
+        topScoresArr = (score || '2-1 或 1-0 或 3-1').replace(/\(?竞彩\)?/g, '').replace(/或/g, ',').split(',').map(s => s.trim()).filter(Boolean).slice(0, 3);
+      }
+      const topScoresDisplay = topScoresArr.join(', ');
+
+      // Top 3 Half-Full (With comeback badges)
+      let topHafuArr = [];
+      if (m.m10_hub_analysis?.simulation_5000?.topHalfFull) {
+        topHafuArr = m.m10_hub_analysis.simulation_5000.topHalfFull.slice(0, 3).map(h => h.hf);
+      }
+      if (topHafuArr.length === 0) {
+        topHafuArr = (halfFullClean || '胜胜 或 平胜').replace(/\(?竞彩\)?/g, '').replace(/或/g, ',').split(',').map(h => h.trim()).filter(Boolean).slice(0, 3);
+      }
+      
+      const topHafuDisplayHtml = topHafuArr.map(hfItem => {
+        if (['胜负', '负胜', '胜平', '负平'].includes(hfItem)) {
+          return `<span style="color:#fbbf24; font-weight:bold;">${hfItem} <span style="font-size:9px; background:rgba(245,158,11,0.15); color:#fbbf24; border:1px solid rgba(245,158,11,0.3); padding:0px 3px; border-radius:3px;">⚡逆转</span></span>`;
+        }
+        return `<span style="color:#818cf8;">${hfItem}</span>`;
+      }).join(' / ');
+
+      const triSystemConsolidatedHTML = `
+        <div style="text-align:left; font-size:12.5px; line-height:1.55; padding:2px 0;">
+          <div style="margin-bottom:3px; color:var(--text-1);">
+            🎯 <span style="color:var(--text-3); font-size:11px;">胜平负:</span> ${underlinedHadHtml}
+            <span style="margin-left:8px; color:var(--text-3); font-size:11px;">让球(${hcLabel}):</span> ${underlinedHhadHtml} ${spStr}
+          </div>
+          <div style="margin-bottom:3px; font-family:var(--font-mono); font-size:12px; color:#10b981;">
+            📊 <span style="color:var(--text-3); font-family:var(--font-main); font-size:11px;">拟合比分 (Top 3):</span> <strong style="letter-spacing:0.5px;">${topScoresDisplay}</strong>
+          </div>
+          <div style="font-size:11.5px;">
+            ⏱️ <span style="color:var(--text-3); font-size:11px;">半全场 (Top 3):</span> ${topHafuDisplayHtml}
+          </div>
         </div>
       `;
 
-      // 动态生成进球数及大小球组合（包含竞彩标签及具体进球数推荐）
-      let ou = m.conclusions?.over_under || '--';
-      let ouHTML = renderTaggedText(ou);
-      const combinedGoalsHTML = `${ouHTML}${getGoalsFormattedHTML(m, 'table')}`;
-
-      const multiRecHTML = `
-        <div class="multi-rec-box">
-          <div class="mr-item"><span class="mr-label">方向</span><span class="mr-val highlight" style="color:${recColor};">${hadMarker}${confidenceConclusion}${upsetBadgeHtml}${getArrowHtml('had')}</span></div>
-          <div class="mr-item"><span class="mr-label">比分</span><span class="mr-val font-mono">${scoreMarker}${renderUnderlinedTwoScores(twoScores)}${getArrowHtml('score')}</span></div>
-          <div class="mr-item"><span class="mr-label">进球</span><span class="mr-val" style="font-weight:700;">${goalsMarker}${combinedGoalsHTML}${getArrowHtml('goals')}</span></div>
-          <div class="mr-item"><span class="mr-label">半全</span><span class="mr-val" style="color:#818cf8;">${hfMarker}${renderTaggedText(halfFullClean)}${getArrowHtml('hf')}</span></div>
+      const handicapColumnHTML = `
+        <div style="text-align:left; font-size:12px; line-height:1.4;">
+          <div style="font-weight:bold; color:#38bdf8;">让球数: ${hcLabel}</div>
+          <div style="font-size:11px; color:var(--text-3); margin-top:2px;">盘口水温: ${coldTag}</div>
+          ${waterHtml}
         </div>
       `;
 
@@ -3063,46 +3102,34 @@ const MatchIQRender = (() => {
             <div><span style="color:var(--text-1);">${m.home}</span> <span style="color:var(--text-4); font-size:12px;">VS</span> <span style="color:var(--text-1);">${m.away}</span></div>
             <div>${tagHtml}</div>
           </div>
-          <div class="msc-grid">
-            <div class="msc-item">
-              <span class="msc-label">预测方向</span>
-              <span class="msc-val" style="color:${recColor}; font-weight:700;">${hadMarker}${confidenceConclusion}${upsetBadgeHtml}${getArrowHtml('had')}</span>
-            </div>
-            <div class="msc-item">
-              <span class="msc-label">置信度</span>
-              <span class="msc-val" style="color:${combinedColor}; font-weight:700;">${conf}% (${risk}风险)</span>
-            </div>
-            <div class="msc-item">
-              <span class="msc-label">最可能比分</span>
-              <span class="msc-val font-mono" style="color:var(--green);">${scoreMarker}${renderUnderlinedTwoScores(twoScores)}${getArrowHtml('score')}</span>
-            </div>
-            <div class="msc-item">
-              <span class="msc-label">半全场 / 进球</span>
-              <span class="msc-val" style="color:#818cf8; font-size:11px;">${hfMarker}${renderTaggedText(halfFullClean)}${getArrowHtml('hf')} <span style="color:var(--text-2);">(${combinedGoalsHTML}${getArrowHtml('goals')})</span></span>
-            </div>
+          <div style="padding:10px 12px; background:rgba(0,0,0,0.25); border-radius:8px; margin-top:8px;">
+            ${triSystemConsolidatedHTML}
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px; font-size:11.5px;">
+            <span style="color:var(--text-3);">竞彩让球: <strong style="color:#38bdf8;">${hcLabel}</strong></span>
+            <span style="color:${combinedColor}; font-weight:700;">置信度: ${conf}% (${risk}风险)</span>
           </div>
         </div>
       `;
 
       tableRowsHtml += `
         <tr style="${isWaitingResult ? 'background:rgba(245, 158, 11, 0.03);' : ''}; border-bottom:1px solid rgba(255,255,255,0.05);">
-          <!-- 1. 编号 & 2. 联赛: 缩短二者间距 -->
-          <td class="font-mono" style="color:var(--text-3); font-weight:700; padding:10px 2px 10px 12px; width:70px; white-space:nowrap;">${matchNo}</td>
-          <td style="padding:10px 8px 10px 0px; width:65px; text-align:left;">${getLeagueBadgeHtml(league)}</td>
+          <!-- 1. 编号 & 2. 联赛 -->
+          <td class="font-mono" style="color:var(--text-3); font-weight:700; padding:10px 2px 10px 12px; width:65px; white-space:nowrap;">${matchNo}</td>
+          <td style="padding:10px 8px 10px 0px; width:60px; text-align:left;">${getLeagueBadgeHtml(league)}</td>
           
-          <!-- 3. 开赛时间 & 4. 对阵: 缩短二者间距 -->
-          <td style="padding:10px 4px 10px 2px; width:70px; white-space:nowrap; font-family:var(--font-mono); font-size:11.5px; color:var(--text-3);">${kickoffDisplay}</td>
+          <!-- 3. 开赛时间 & 4. 对阵 -->
+          <td style="padding:10px 4px 10px 2px; width:65px; white-space:nowrap; font-family:var(--font-mono); font-size:11.5px; color:var(--text-3);">${kickoffDisplay}</td>
           <td style="padding:10px 12px 10px 2px;">${matchup}</td>
           
-          <!-- 5. 预测结论 -->
-          <td style="padding:10px 8px;">${directionHTML}</td>
+          <!-- 5. 竞彩盘口/让球数 -->
+          <td style="padding:10px 8px; width:110px;">${handicapColumnHTML}</td>
           
-          <!-- 6. 置信度 & 7. 最可能比分: 缩短二者间距 -->
-          <td style="padding:10px 2px 10px 6px; width:55px; text-align:center;">${combinedBadge}</td>
-          <td class="font-mono" style="color:var(--green); font-weight:800; font-size:clamp(14px, 1.1vw, 16px); padding:10px 12px 10px 2px; width:80px; text-align:center; white-space:nowrap;">${scoreMarker}${renderUnderlinedScore(score)}${getArrowHtml('score')}</td>
+          <!-- 6. 置信度 -->
+          <td style="padding:10px 2px 10px 6px; width:65px; text-align:center;">${combinedBadge}</td>
           
-          <!-- 8. 多维推荐结论 -->
-          <td style="padding: 6px 12px 6px 8px; white-space: normal;">${multiRecHTML}</td>
+          <!-- 7. 三系统智算综合结论 (合并最可能比分与多维推荐) -->
+          <td style="padding:8px 14px; white-space:normal;">${triSystemConsolidatedHTML}</td>
         </tr>
       `;
       mobileCardsHtml += mobileCardHtml;
@@ -3115,14 +3142,13 @@ const MatchIQRender = (() => {
         <table class="summary-table" style="width:100%; border-collapse:collapse; text-align:left; font-size:13px; color:var(--text-2);">
           <thead>
             <tr style="border-bottom:1px solid var(--border-subtle); background:rgba(255,255,255,0.02);">
-              <th style="padding:12px 2px 12px 12px; width:70px;">编号</th>
-              <th style="padding:12px 8px 12px 0px; width:65px;">联赛</th>
-              <th style="padding:12px 4px 12px 2px; width:70px;">开赛</th>
+              <th style="padding:12px 2px 12px 12px; width:65px;">编号</th>
+              <th style="padding:12px 8px 12px 0px; width:60px;">联赛</th>
+              <th style="padding:12px 4px 12px 2px; width:65px;">开赛</th>
               <th style="padding:12px 12px 12px 2px;">对阵</th>
-              <th style="padding:12px 8px;">预测结论</th>
-              <th style="padding:12px 2px 12px 6px; width:55px; text-align:center;">置信度</th>
-              <th style="padding:12px 12px 12px 2px; width:80px; text-align:center;">最可能比分</th>
-              <th style="padding:12px 12px 12px 8px;">多维推荐结论</th>
+              <th style="padding:12px 8px; width:110px;">竞彩盘口</th>
+              <th style="padding:12px 2px 12px 6px; width:65px; text-align:center;">置信度</th>
+              <th style="padding:12px 14px; text-align:left;">三系统智算综合结论 (MoE+M10+沙盘)</th>
             </tr>
           </thead>
           <tbody>
