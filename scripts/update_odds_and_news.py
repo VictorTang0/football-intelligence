@@ -448,8 +448,8 @@ def apply_dynamic_fundamental_coupling(m):
                 m["conclusions"]["upset_direction"] = "主胜/平局"
                 m["prediction_updated"] = True
         elif "【平局】" in kc:
-            if "平局" in rec or "双选不败" in rec:
-                m["ultimate_conclusion"]["recommendation"] = "分出胜负"
+            if "平局" in rec or "不败" in rec:
+                m["ultimate_conclusion"]["recommendation"] = "双选胜负"
                 m["conclusions"]["upset_direction"] = "双边胜负"
                 m["prediction_updated"] = True
         
@@ -2259,7 +2259,7 @@ def main():
             elif moe_score < -0.08:
                 new_rec = "客胜" if pa < 1.95 else "客不败"
             else:
-                new_rec = "平局" if pd < 3.2 else "双选不败"
+                new_rec = "平局" if pd < 3.2 else ("主不败" if ph <= pa else "客不败")
 
         # ─── PROPOSAL A: ANTI-FUNDAMENTAL UPSET TIGHTENING ───
         if "反基本面" in new_rec or "冷门" in new_rec:
@@ -2271,7 +2271,7 @@ def main():
         is_home_dominant = any(t in league_name for t in ["挪超", "挪威", "芬超", "芬兰", "韩职", "韩国", "巴甲", "巴西"])
         if is_home_dominant:
             if ("客胜" in new_rec or "客队" in new_rec) and not is_away_strong_favorite:
-                new_rec = "双选不败 (主场倾斜保护)"
+                new_rec = "主不败 (主场倾斜保护)"
                 
         if mid == "match_260716_208":
             new_rec = "客胜 (温哥华反击优势)"

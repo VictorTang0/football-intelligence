@@ -147,9 +147,9 @@ const MatchIQRender = (() => {
     }
     else if (upsetProb >= 0.40 && upsetDir) {
       isUpsetMitigated = true;
-      if (cleanRec === "主胜" || cleanRec === "双选不败" || cleanRec.includes("主")) {
+      if (cleanRec === "主胜" || cleanRec === "主不败" || cleanRec.includes("主")) {
         text = "主胜 或 平局";
-      } else if (cleanRec === "客胜" || cleanRec.includes("客")) {
+      } else if (cleanRec === "客胜" || cleanRec === "客不败" || cleanRec.includes("客")) {
         text = "平局 或 客胜";
       } else {
         text = `${cleanRec} 或 平局`;
@@ -160,9 +160,9 @@ const MatchIQRender = (() => {
       if (conf >= 75) {
         text = cleanRec;
       } else {
-        if (cleanRec === "主胜" || cleanRec === "双选不败" || cleanRec.includes("主")) {
+        if (cleanRec === "主胜" || cleanRec === "主不败" || cleanRec.includes("主")) {
           text = "主胜 或 平局";
-        } else if (cleanRec === "客胜" || cleanRec.includes("客")) {
+        } else if (cleanRec === "客胜" || cleanRec === "客不败" || cleanRec.includes("客")) {
           text = "平局 或 客胜";
         } else {
           text = `${cleanRec} 或 平局`;
