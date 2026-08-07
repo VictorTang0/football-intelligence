@@ -67,142 +67,113 @@ def sync():
         is_draw = (h_g == a_g)
         is_away_win = (h_g < a_g)
 
-        # Check if we can preserve correctness from existing record
-        preserve_existing = False
-        if mid in existing_records:
-            existing_rec = existing_records[mid]
-            if existing_rec.get("actual_result") == actual_result:
-                preserve_existing = True
-
-        if preserve_existing:
-            existing_rec = existing_records[mid]
-            preds = existing_rec.get("predictions", {})
-            rec_correct = preds.get("recommendation", {}).get("correct", False)
-            pb_correct = preds.get("primary_bet", {}).get("correct", False)
-            ms_correct = preds.get("mainstream", {}).get("correct", False)
-            up_correct = preds.get("upset", {}).get("correct", False)
-            agg_correct = preds.get("aggressive", {}).get("correct", False)
-            cons_correct = preds.get("conservative", {}).get("correct", False)
-            hf_correct = preds.get("half_full", {}).get("correct", False)
-            ou_correct = preds.get("over_under", {}).get("correct", False)
-            mls_correct = preds.get("most_likely_score", {}).get("correct", False)
-            is_correct = existing_rec.get("is_correct", rec_correct)
-        else:
-            # Calculate correctness of recommendation
-            rec = uc.get("recommendation", "")
-            rec_correct = False
-            if is_home_win:
-                if any(x in rec for x in ["主胜", "主队胜", "主不败", "主队不败", "双选胜平", "胜平", "双选胜负", "胜负", "分出胜负"]) or rec == "胜":
-                    rec_correct = True
-            elif is_draw:
-                if any(x in rec for x in ["平局", "主不败", "主队不败", "客不败", "客队不败", "双选胜平", "双选平负", "胜平", "平负", "不败"]) or rec == "平":
-                    rec_correct = True
-            elif is_away_win:
-                if any(x in rec for x in ["客胜", "客队胜", "客不败", "客队不败", "双选平负", "平负", "双选胜负", "胜负", "分出胜负"]) or rec == "负":
-                    rec_correct = True
-                
-            # Check primary_bet correctness
-            pb = uc.get("primary_bet", "")
-            pb_correct = False
-            if is_home_win:
-                if any(x in pb for x in ["主胜", "主队胜", "主不败", "主队不败", "双选胜平", "胜平", "双选胜负", "胜负", "分出胜负"]) or pb == "胜":
-                    pb_correct = True
-            elif is_draw:
-                if any(x in pb for x in ["平局", "主不败", "主队不败", "客不败", "客队不败", "双选胜平", "双选平负", "胜平", "平负", "不败"]) or pb == "平":
-                    pb_correct = True
-            elif is_away_win:
-                if any(x in pb for x in ["客胜", "客队胜", "客不败", "客队不败", "双选平负", "平负", "双选胜负", "胜负", "分出胜负"]) or pb == "负":
-                    pb_correct = True
-
-            # Check mainstream correctness
-            ms = conc.get("mainstream", "")
-            ms_correct = False
-            if is_home_win:
-                if any(x in ms for x in ["全取三分", "主胜", "主队捷", "捍卫主场"]):
-                    ms_correct = True
-            elif is_draw:
-                if any(x in ms for x in ["平局", "拉锯", "不败", "带走分数"]):
-                    ms_correct = True
-            elif is_away_win:
-                if any(x in ms for x in ["客胜", "客队捷", "反客为主", "带走分数"]):
-                    ms_correct = True
-
-            # Check upset correctness
-            up = conc.get("upset", "")
-            up_correct = False
-            if is_home_win:
-                if any(x in up for x in ["主胜", "主队", "爆冷"]):
-                    up_correct = True
-            elif is_draw:
-                if any(x in up for x in ["平局", "握手言和"]):
-                    up_correct = True
-            elif is_away_win:
-                if any(x in up for x in ["客胜", "客队", "爆冷", "分出胜负"]):
-                    up_correct = True
-
-            # Check aggressive correctness
-            agg = conc.get("aggressive", "")
-            agg_score = agg.replace("比分", "").strip()
-            agg_correct = (agg_score == f"{h_g}-{a_g}")
-
-            # Check conservative correctness
-            cons = conc.get("conservative", "")
-            cons_correct = False
-            if "让胜" in cons:
-                if "主+1" in cons:
-                    cons_correct = (h_g + 1 > a_g)
-                elif "主-1" in cons:
-                    cons_correct = (h_g - 1 > a_g)
-                else:
-                    cons_correct = (h_g > a_g)
-            elif "让负" in cons:
-                if "主-1" in cons:
-                    cons_correct = (h_g - 1 < a_g)
-                elif "主+1" in cons:
-                    cons_correct = (h_g + 1 < a_g)
-                else:
-                    cons_correct = (h_g < a_g)
-            elif "胜" == cons:
-                cons_correct = (h_g > a_g)
-            elif "平" == cons:
-                cons_correct = (h_g == a_g)
-            elif "负" == cons:
-                cons_correct = (h_g < a_g)
-            elif "主不败" in cons or "让主捷" in cons:
-                cons_correct = (h_g >= a_g)
-            elif "客不败" in cons:
-                cons_correct = (h_g <= a_g)
-
-            # Check over_under correctness
-            ou = conc.get("over_under", "")
-            ou_correct = False
-            total_goals = h_g + a_g
-            if "大 2.5" in ou:
-                ou_correct = (total_goals > 2.5)
-            elif "小 2.5" in ou:
-                ou_correct = (total_goals < 2.5)
-
-            # Check most_likely_score correctness
-            mls = conc.get("most_likely_score", "")
-            mls_parts = mls.replace("或", " ").split()
-            mls_correct = False
-            for part in mls_parts:
-                clean = part.split('(')[0].strip()
-                if clean == f"{h_g}-{a_g}":
-                    mls_correct = True
-
-            # Check half_full correctness
-            hf_correct = False
-            half_full_actual = uc.get("half_full_actual")
-            if half_full_actual:
-                hf = conc.get("half_full", "")
-                hf_parts = hf.replace("或", " ").replace("/", "").replace(" ", "").split()
-                actual_hf_clean = half_full_actual.replace("/", "")
-                for part in hf_parts:
-                    if part == actual_hf_clean:
-                        hf_correct = True
+        # Always perform fresh dynamic evaluation to prevent stale cache bugs
+        rec = uc.get("recommendation", "")
+        rec_correct = False
+        if is_home_win:
+            if any(x in rec for x in ["主胜", "主队胜", "主不败", "主队不败", "双选胜平", "胜平", "双选胜负", "胜负", "分出胜负", "双选不败"]) or rec == "胜":
+                rec_correct = True
+        elif is_draw:
+            if any(x in rec for x in ["平局", "主不败", "主队不败", "客不败", "客队不败", "双选胜平", "双选平负", "胜平", "平负", "不败", "双选不败"]) or rec == "平":
+                rec_correct = True
+        elif is_away_win:
+            if any(x in rec for x in ["客胜", "客队胜", "客不败", "客队不败", "双选平负", "平负", "双选胜负", "胜负", "分出胜负", "双选不败"]) or rec == "负":
+                rec_correct = True
             
-            is_correct = rec_correct
+        # Check primary_bet correctness
+        pb = uc.get("primary_bet", "")
+        pb_correct = False
+        if is_home_win:
+            if any(x in pb for x in ["主胜", "主队胜", "主不败", "主队不败", "双选胜平", "胜平", "双选胜负", "胜负", "分出胜负", "双选不败"]) or pb == "胜":
+                pb_correct = True
+        elif is_draw:
+            if any(x in pb for x in ["平局", "主不败", "主队不败", "客不败", "客队不败", "双选胜平", "双选平负", "胜平", "平负", "不败", "双选不败"]) or pb == "平":
+                pb_correct = True
+        elif is_away_win:
+            if any(x in pb for x in ["客胜", "客队胜", "客不败", "客队不败", "双选平负", "平负", "双选胜负", "胜负", "分出胜负", "双选不败"]) or pb == "负":
+                pb_correct = True
+
+        # Check mainstream correctness
+        ms = conc.get("mainstream", "")
+        ms_correct = False
+        if is_home_win:
+            if any(x in ms for x in ["全取三分", "主胜", "主队捷", "捍卫主场", "主不败"]):
+                ms_correct = True
+        elif is_draw:
+            if any(x in ms for x in ["平局", "拉锯", "不败", "带走分数", "主不败", "客不败"]):
+                ms_correct = True
+        elif is_away_win:
+            if any(x in ms for x in ["客胜", "客队捷", "反客为主", "带走分数", "客不败"]):
+                ms_correct = True
+
+        # Check upset correctness
+        up = conc.get("upset", "")
+        up_correct = False
+        if is_home_win:
+            if any(x in up for x in ["主胜", "主队", "爆冷"]):
+                up_correct = True
+        elif is_draw:
+            if any(x in up for x in ["平局", "握手言和"]):
+                up_correct = True
+        elif is_away_win:
+            if any(x in up for x in ["客胜", "客队", "爆冷", "分出胜负"]):
+                up_correct = True
+
+        # Check aggressive correctness
+        agg = conc.get("aggressive", "")
+        agg_score = agg.replace("比分", "").strip()
+        agg_correct = (agg_score == f"{h_g}-{a_g}")
+
+        # Check conservative correctness
+        cons = conc.get("conservative", "")
+        cons_correct = False
+        if "让胜" in cons:
+            if "主+1" in cons: cons_correct = (h_g + 1 > a_g)
+            elif "主-1" in cons: cons_correct = (h_g - 1 > a_g)
+            else: cons_correct = (h_g > a_g)
+        elif "让负" in cons:
+            if "主-1" in cons: cons_correct = (h_g - 1 < a_g)
+            elif "主+1" in cons: cons_correct = (h_g + 1 < a_g)
+            else: cons_correct = (h_g < a_g)
+        elif "胜" == cons or "主胜" in cons: cons_correct = (h_g > a_g)
+        elif "平" == cons or "平局" in cons: cons_correct = (h_g == a_g)
+        elif "负" == cons or "客胜" in cons: cons_correct = (h_g < a_g)
+        elif "主不败" in cons or "让主捷" in cons: cons_correct = (h_g >= a_g)
+        elif "客不败" in cons: cons_correct = (h_g <= a_g)
+
+        # Check over_under correctness
+        ou = conc.get("over_under", "")
+        ou_correct = False
+        total_goals = h_g + a_g
+        if "大 2.5" in ou: ou_correct = (total_goals > 2.5)
+        elif "小 2.5" in ou: ou_correct = (total_goals < 2.5)
+
+        # Check most_likely_score correctness
+        mls = conc.get("most_likely_score", "")
+        mls_parts = mls.replace("或", " ").split()
+        mls_correct = False
+        for part in mls_parts:
+            clean_part = part.split('(')[0].strip()
+            if clean_part == f"{h_g}-{a_g}":
+                mls_correct = True
+
+        # Check half_full correctness automatically from actual_result if needed
+        hf_correct = False
+        half_m = re.search(r'\(\s*(\d+)\s*[-–:]\s*(\d+)\s*\)', actual_result)
+        actual_hf = uc.get("half_full_actual")
+        if not actual_hf and half_m:
+            h1, h2 = int(half_m.group(1)), int(half_m.group(2))
+            hh_g, ha_g = (h1, h2) if pos_home < pos_away else (h2, h1)
+            h_res = "胜" if hh_g > ha_g else ("平" if hh_g == ha_g else "负")
+            f_res = "胜" if h_g > a_g else ("平" if h_g == a_g else "负")
+            actual_hf = h_res + f_res
+
+        if actual_hf:
+            hf = conc.get("half_full", "")
+            if actual_hf in hf or actual_hf in hf.replace("/", ""):
+                hf_correct = True
+        
+        is_correct = rec_correct
 
         # Build predictions dict
         predictions_map = {
