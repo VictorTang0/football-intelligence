@@ -2774,6 +2774,14 @@ def main():
     except Exception as e:
         print(f"⚠️ M10 Hub Auto-Deduction Warning: {e}")
 
+    # ── 自动化填充/刷新 智算情报、出阵阵容与伤停枢纽 ──
+    try:
+        import enrich_intelligence_hub
+        for m in data.get("matches", []):
+            m["intelligence_hub"] = enrich_intelligence_hub.build_intelligence_hub_for_match(m)
+    except Exception as e:
+        print(f"⚠️ Intelligence Hub Enrich Warning: {e}")
+
     # ── SAVE UPDATED DATA TO DISK ──
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
