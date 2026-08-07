@@ -54,9 +54,10 @@ def sync_evolution_data():
         # Check if new matches were validated since the last evolution snapshot
         if total_validated > prev_validated:
             try:
-                new_version_str = "v6.0"
+                ver_num = float(curr_version_str.replace("v", ""))
+                new_version_str = f"v{round(ver_num + 0.1, 1)}"
             except Exception:
-                new_version_str = "v6.0"
+                new_version_str = "v6.1"
                 
             prev_acc = latest_snapshot.get("accuracy_after", history_acc)
             
