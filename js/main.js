@@ -338,6 +338,16 @@ const MatchIQ = (() => {
       console.error('[MatchIQ] Error rendering history grid:', e);
     }
 
+    // ── Tri-System Consolidated History Section ──
+    try {
+      const triHistoryContainer = document.getElementById('tri-system-history-container');
+      if (triHistoryContainer) {
+        triHistoryContainer.innerHTML = MatchIQRender.renderTriSystemHistory(history);
+      }
+    } catch (e) {
+      console.error('[MatchIQ] Error rendering tri-system history:', e);
+    }
+
     // ── Risk Radar History Section ──
     try {
       const radarHistoryContainer = document.getElementById('risk-radar-history-container');

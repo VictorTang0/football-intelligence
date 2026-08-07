@@ -3315,6 +3315,140 @@ const MatchIQRender = (() => {
     `;
   }
 
+  // Expose toggle function globally for tri-system history table collapsing
+  window.toggleOlderTriSystemHistory = function() {
+    window.toggleGenericHistory('tri-system-older-days-tbody', document.getElementById('btn-toggle-older-tri-history'), '三系统智算综合结论历史');
+  };
+
+  function renderTriSystemHistory(historyData) {
+    const records = historyData?.records || [];
+    // Filter records that have finished results with tri-system conclusions
+    const triRecords = records.filter(r => r.actual_result && (r.predictions || r.tri_system_conclusions));
+    
+    if (triRecords.length === 0) {
+      return `
+        <div style="text-align:center; padding:36px; color:var(--text-3); border:1px dashed var(--border); border-radius:12px; background:rgba(255,255,255,0.01);">
+          <div style="font-size:28px; margin-bottom:8px;">⏳</div>
+          <div style="font-size:14px; font-weight:700; color:#38bdf8; margin-bottom:4px;">三系统智算综合结论历史（初始建仓中）</div>
+          <div style="font-size:12px; color:var(--text-3);">该栏目今日首次全新新增。明日系统自动运行「更新赛果并进化模型」指令结算今日赛事后，将在此实时呈现完整的红黑对账历史记录。</div>
+        </div>
+      `;
+    }
+
+    // Group records by date
+    const groups = {};
+    triRecords.forEach(r => {
+      const dateStr = r.date || '其他日期';
+      if (!groups[dateStr]) groups[dateStr] = [];
+      groups[dateStr].push(r);
+    });
+
+    const sortedDates = Object.keys(groups).sort((a, b) => new Date(b) - new Date(a));
+    const recent5Dates = sortedDates.slice(0, 5);
+
+    function generateTriRows(datesList) {
+      const rows = [];
+      datesList.forEach(date => {
+        rows.push(`
+          <tr class="history-date-row">
+            <td colspan="5" style="text-align:left; font-weight:700; background:rgba(255,255,255,0.02); color:#38bdf8; padding:10px 16px; border-bottom:1px solid var(--border-subtle);">
+              📅 赛果日期: ${date} (共 ${groups[date].length} 场)
+            </td>
+          </tr>
+        `);
+
+        groups[date].forEach(r => {
+          const preds = r.predictions || {};
+          const isCorrect = r.is_correct || preds.recommendation?.correct;
+          const recVal = preds.recommendation?.val || r.ultimate_conclusion?.recommendation || '主胜';
+          const pbVal = preds.primary_bet?.val || '主不败';
+          const scoreVal = preds.most_likely_score?.val || '2-1 或 1-0';
+          const hfVal = preds.half_full?.val || '胜胜 或 平胜';
+          
+          let hadItems = recVal.replace(/\(?竞彩\)?/g, '').replace('主不败', '主胜/平局').replace('客不败', '平局/客胜').split('/');
+          let underlinedHadHtml = `<u><strong style="color:#10b981; border-bottom:2px solid #10b981;">${hadItems[0]}</strong></u>`;
+          if (hadItems.length > 1) underlinedHadHtml += ` | ${hadItems[1]}`;
+
+          const statusBadge = isCorrect 
+            ? '<span style="color:#ef4444; background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.25); padding:2px 6px; border-radius:4px; font-weight:700; font-size:11px; white-space:nowrap; display:inline-block;">红 (命中)</span>'
+            : '<span style="color:#9ca3af; background:rgba(156,163,175,0.08); border:1px solid rgba(156,163,175,0.2); padding:2px 6px; border-radius:4px; font-weight:700; font-size:11px; white-space:nowrap; display:inline-block;">黑 (偏差)</span>';
+
+          rows.push(`
+            <tr style="border-bottom:1px solid var(--border-subtle);">
+              <td style="padding:10px 16px; font-weight:600; white-space:nowrap; vertical-align:middle; text-align:center;">
+                <span class="tag" style="border:1px solid rgba(56, 189, 248, 0.3); color:#38bdf8; background:rgba(56, 189, 248, 0.08); font-size:11px; padding:1px 6px; border-radius:4px;">${r.league || '--'}</span>
+              </td>
+              <td style="padding:10px 16px; text-align:left; white-space:nowrap; vertical-align:middle;">
+                <span style="font-weight:600; color:var(--text-1);">${r.home}</span> 
+                <span style="color:var(--text-4)">VS</span> 
+                <span style="font-weight:600; color:var(--text-1);">${r.away}</span>
+              </td>
+              <td style="padding:10px 16px; text-align:left; vertical-align:middle; font-size:12px; line-height:1.5;">
+                <div>🎯 <strong>智算推荐:</strong> ${underlinedHadHtml} (${pbVal})</div>
+                <div style="font-family:var(--font-mono); color:#10b981;">📊 <strong>拟合比分:</strong> ${scoreVal}</div>
+                <div style="color:#818cf8; font-size:11.5px;">⏱️ <strong>半全场:</strong> ${hfVal}</div>
+              </td>
+              <td style="padding:10px 16px; white-space:nowrap; vertical-align:middle; text-align:center;">
+                <span style="font-weight:700; color:${isCorrect ? 'var(--green)' : 'var(--text-2)'};">${r.actual_result || '--'}</span>
+              </td>
+              <td style="padding:10px 16px; white-space:nowrap; vertical-align:middle; text-align:center;">${statusBadge}</td>
+            </tr>
+          `);
+        });
+      });
+      return rows.join('');
+    }
+
+    const activeDates = recent5Dates.slice(0, 1);
+    const olderDates = recent5Dates.slice(1, 5);
+
+    const activeRowsHTML = generateTriRows(activeDates);
+    let olderRowsHTML = '';
+    let toggleBtnHTML = '';
+
+    if (olderDates.length > 0) {
+      let olderMatchCount = 0;
+      olderDates.forEach(d => { olderMatchCount += groups[d].length; });
+
+      olderRowsHTML = `
+        <tbody id="tri-system-older-days-tbody" style="display: none; border-top: 1px dashed var(--border-subtle);">
+          ${generateTriRows(olderDates)}
+        </tbody>
+      `;
+
+      toggleBtnHTML = `
+        <div style="text-align: center; margin-top: 16px;">
+          <button id="btn-toggle-older-tri-history" class="btn-toggle-history" data-count="${olderMatchCount}" style="background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.2); color: #38bdf8; padding: 8px 24px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.2s;" onclick="window.toggleOlderTriSystemHistory()">
+            展开较旧的 4 期三系统智算综合结论历史 (共 ${olderMatchCount} 场) ▾
+          </button>
+        </div>
+      `;
+    }
+
+    return `
+      <div style="width: 100%;">
+        <div style="width: 100%; overflow-x: auto; background:rgba(56,189,248,0.02); border:1px solid rgba(56,189,248,0.15); border-radius:12px; box-shadow:0 8px 32px rgba(0,0,0,0.1); backdrop-filter:blur(8px);">
+          <table class="history-table" style="width:100%; border-collapse:collapse; text-align:left; font-size:12.5px; color:var(--text-2);">
+            <thead>
+              <tr style="border-bottom:1px solid rgba(56,189,248,0.15); background:rgba(56,189,248,0.02); font-size:11px; text-transform:uppercase; color:var(--text-3); font-weight:700;">
+                <th style="padding:12px 16px; text-align:center; width:12%;">联赛</th>
+                <th style="padding:12px 16px; text-align:left; width:25%;">对阵</th>
+                <th style="padding:12px 16px; text-align:left; width:38%;">三系统智算综合结论</th>
+                <th style="padding:12px 16px; text-align:center; width:13%;">实际赛果</th>
+                <th style="padding:12px 16px; text-align:center; width:12%;">红黑状态</th>
+              </tr>
+            </thead>
+            <tbody class="tbody-newest-days">
+              ${activeRowsHTML}
+            </tbody>
+            ${olderRowsHTML}
+          </table>
+        </div>
+        ${toggleBtnHTML}
+      </div>
+    `;
+  }
+
   return {
     renderUltimateCard,
     renderMatchCard,
@@ -3325,6 +3459,7 @@ const MatchIQRender = (() => {
     renderParlayHistory,
     renderSummaryTable,
     renderRadarHistory,
+    renderTriSystemHistory,
     formatDate,
     formatTime
   };
