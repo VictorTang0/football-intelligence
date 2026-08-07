@@ -279,6 +279,18 @@ def render_match_card_html(m):
             
         m10_text = " | ".join(parts) if parts else "水温拉锯平稳"
 
+    # Travel / Fatigue / Altitude (CEFI) & Market Value (M01) Summary Rows
+    env_info = m.get("travel_and_fatigue_analysis", {})
+    mv_info = m.get("market_value_analysis", {})
+    
+    env_html = ""
+    if env_info and env_info.get("summary_str") and env_info.get("summary_str") != "休整与环境充沛":
+        env_html = f'<div>🏔️ <strong>赛程环境</strong>: <span style="color:#fbbf24;font-weight:bold;">{env_info.get("summary_str")}</span></div>'
+        
+    mv_html = ""
+    if mv_info and mv_info.get("summary_str"):
+        mv_html = f'<div>💶 <strong>阵容身价</strong>: <span style="color:#94a3b8;">{mv_info.get("summary_str")}</span></div>'
+
     # Monte Carlo 5000 Sandbox Simulation & Wild Outliers (大球比分) matching Web UI render.js L1263-L1315
     wild_html = ""
     try:
@@ -308,7 +320,7 @@ def render_match_card_html(m):
         clean_script = script.replace("【庄家看好剧本】", "").strip()
         script_html = f'<div class="m-script">🎬 <strong>看好剧本</strong>: {clean_script}</div>'
 
-    return f'''<div class="m-card"><div class="m-header"><span style="font-size:11px;color:#94a3b8;font-weight:bold;">{match_no} • {kickoff} ({league}) {time_dot}</span><span style="font-size:10px;padding:1.5px 6px;border-radius:4px;background:{risk_bg};color:{risk_color};font-weight:bold;">{risk_level}风控</span></div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;"><div class="m-teams">{home} <span style="color:#64748b;font-size:11px;font-weight:normal;">VS</span> {away}</div><div class="m-rec">{rec_display} <span style="font-size:11px;color:{conf_color};">[{conf}%]</span>{radar_badge}</div></div>{water_row_html}<div class="m-box"><div>🎯 <strong>竞彩玩法</strong>: {handicap_html}</div><div>⚽ <strong>最可能比分</strong>: {dot_score}<span style="color:#10b981;font-weight:bold;">{scores}</span>{arrow_score} | 💥 <strong>大胆比分</strong>: <span style="color:#fbbf24;font-weight:bold;">{bold_score_val}</span></div><div>⚽ <strong>具体进球</strong>: {dot_goals}{goals_html}{arrow_goals} | ⏱️ <strong>半全场</strong>: {dot_hf}<span style="color:#a855f7;font-weight:bold;">{hf}</span>{arrow_hf}</div><div>🟡 <strong>M10中枢结论</strong>: <span style="color:#fbbf24;font-weight:bold;">{m10_text}</span></div><div>🎮 <strong>沙盘推演(5000次)</strong>: <span style="color:#38bdf8;font-weight:bold;">{sandtable_html}</span></div>{wild_html}</div>{script_html}</div>'''
+    return f'''<div class="m-card"><div class="m-header"><span style="font-size:11px;color:#94a3b8;font-weight:bold;">{match_no} • {kickoff} ({league}) {time_dot}</span><span style="font-size:10px;padding:1.5px 6px;border-radius:4px;background:{risk_bg};color:{risk_color};font-weight:bold;">{risk_level}风控</span></div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;"><div class="m-teams">{home} <span style="color:#64748b;font-size:11px;font-weight:normal;">VS</span> {away}</div><div class="m-rec">{rec_display} <span style="font-size:11px;color:{conf_color};">[{conf}%]</span>{radar_badge}</div></div>{water_row_html}<div class="m-box"><div>🎯 <strong>竞彩玩法</strong>: {handicap_html}</div><div>⚽ <strong>最可能比分</strong>: {dot_score}<span style="color:#10b981;font-weight:bold;">{scores}</span>{arrow_score} | 💥 <strong>大胆比分</strong>: <span style="color:#fbbf24;font-weight:bold;">{bold_score_val}</span></div><div>⚽ <strong>具体进球</strong>: {dot_goals}{goals_html}{arrow_goals} | ⏱️ <strong>半全场</strong>: {dot_hf}<span style="color:#a855f7;font-weight:bold;">{hf}</span>{arrow_hf}</div><div>🟡 <strong>M10中枢结论</strong>: <span style="color:#fbbf24;font-weight:bold;">{m10_text}</span></div>{env_html}<div>🎮 <strong>沙盘推演(5000次)</strong>: <span style="color:#38bdf8;font-weight:bold;">{sandtable_html}</span></div>{wild_html}</div>{script_html}</div>'''
 
 def push_scheduled_update(matches, has_any_change=False):
     # 防骚扰硬性冷却过滤: 间隔 < 30 分钟且没有重大变盘变化时静默跳过
