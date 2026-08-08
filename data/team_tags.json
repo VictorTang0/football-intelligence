@@ -1042,16 +1042,16 @@
     }
   },
   "奥斯KFUM": {
-    "matches_evaluated": 4,
+    "matches_evaluated": 6,
     "last_updated": "2026-08-08",
     "tags": {
       "无心恋战": {
-        "score": 77.0,
-        "level": 4,
-        "level_name": "统治级",
-        "weight_boost": 0.231,
-        "confidence": 77,
-        "desc": "近 4 场失球达 3.00 球 (连续得分: 77.0分)"
+        "score": 67.9,
+        "level": 3,
+        "level_name": "高能级",
+        "weight_boost": 0.2037,
+        "confidence": 80,
+        "desc": "近 6 场失球达 2.00 球 (连续得分: 67.9分)"
       }
     }
   },
@@ -1166,24 +1166,62 @@
     }
   },
   "赫尔火花": {
-    "matches_evaluated": 4,
+    "matches_evaluated": 6,
     "last_updated": "2026-08-08",
     "tags": {
       "灌球高手": {
-        "score": 42.0,
-        "level": 2,
-        "level_name": "初具规模",
-        "weight_boost": 0.126,
-        "confidence": 65,
-        "desc": "近 4 场轰入 2.00 球 (连续得分: 42.0分)"
+        "score": 62.2,
+        "level": 3,
+        "level_name": "高能级",
+        "weight_boost": 0.1866,
+        "confidence": 77,
+        "desc": "近 6 场轰入 2.00 球 (连续得分: 62.2分)"
       },
       "铜墙铁壁": {
-        "score": 54.0,
+        "score": 36.1,
+        "level": 1,
+        "level_name": "萌芽级",
+        "weight_boost": 0.1083,
+        "confidence": 66,
+        "desc": "近 6 场失球仅 1.00 球 (连续得分: 36.1分)"
+      },
+      "平局大师": {
+        "score": 54.2,
         "level": 2,
         "level_name": "初具规模",
-        "weight_boost": 0.162,
+        "weight_boost": 0.1626,
+        "confidence": 74,
+        "desc": "平局率达 33.3% (连续得分: 54.2分)"
+      }
+    }
+  },
+  "塞伊奈": {
+    "matches_evaluated": 4,
+    "last_updated": "2026-08-08",
+    "tags": {
+      "平局大师": {
+        "score": 72.4,
+        "level": 3,
+        "level_name": "高能级",
+        "weight_boost": 0.2172,
+        "confidence": 76,
+        "desc": "平局率达 50.0% (连续得分: 72.4分)"
+      },
+      "逆转专家": {
+        "score": 68.8,
+        "level": 3,
+        "level_name": "高能级",
+        "weight_boost": 0.2064,
+        "confidence": 74,
+        "desc": "多次半场落后追平/翻盘 (连续得分: 68.8分)"
+      },
+      "无心恋战": {
+        "score": 54.3,
+        "level": 2,
+        "level_name": "初具规模",
+        "weight_boost": 0.1629,
         "confidence": 69,
-        "desc": "近 4 场失球仅 0.50 球 (连续得分: 54.0分)"
+        "desc": "近 4 场失球达 2.00 球 (连续得分: 54.3分)"
       }
     }
   },
@@ -1550,20 +1588,6 @@
         "weight_boost": 0.1428,
         "confidence": 60,
         "desc": "主场胜率达 100.0% (连续得分: 47.6分)"
-      }
-    }
-  },
-  "桑纳菲": {
-    "matches_evaluated": 6,
-    "last_updated": "2026-08-08",
-    "tags": {
-      "主场狂魔": {
-        "score": 41.7,
-        "level": 2,
-        "level_name": "初具规模",
-        "weight_boost": 0.1251,
-        "confidence": 68,
-        "desc": "主场胜率达 50.0% (连续得分: 41.7分)"
       }
     }
   },
@@ -2597,6 +2621,86 @@
       }
     }
   },
+  "横滨水手": {
+    "matches_evaluated": 2,
+    "last_updated": "2026-08-08",
+    "tags": {
+      "无心恋战": {
+        "score": 39.9,
+        "level": 1,
+        "level_name": "萌芽级",
+        "weight_boost": 0.1197,
+        "confidence": 57,
+        "desc": "近 2 场失球达 4.00 球 (连续得分: 39.9分)"
+      }
+    }
+  },
+  "鹿岛鹿角": {
+    "matches_evaluated": 2,
+    "last_updated": "2026-08-08",
+    "tags": {
+      "灌球高手": {
+        "score": 38.3,
+        "level": 1,
+        "level_name": "萌芽级",
+        "weight_boost": 0.1149,
+        "confidence": 56,
+        "desc": "近 2 场轰入 4.00 球 (连续得分: 38.3分)"
+      },
+      "无心恋战": {
+        "score": 38.5,
+        "level": 1,
+        "level_name": "萌芽级",
+        "weight_boost": 0.1155,
+        "confidence": 56,
+        "desc": "近 2 场失球达 3.00 球 (连续得分: 38.5分)"
+      }
+    }
+  },
+  "大阪钢巴": {
+    "matches_evaluated": 2,
+    "last_updated": "2026-08-08",
+    "tags": {
+      "灌球高手": {
+        "score": 38.3,
+        "level": 1,
+        "level_name": "萌芽级",
+        "weight_boost": 0.1149,
+        "confidence": 56,
+        "desc": "近 2 场轰入 4.00 球 (连续得分: 38.3分)"
+      },
+      "主场狂魔": {
+        "score": 47.6,
+        "level": 2,
+        "level_name": "初具规模",
+        "weight_boost": 0.1428,
+        "confidence": 60,
+        "desc": "主场胜率达 100.0% (连续得分: 47.6分)"
+      },
+      "无心恋战": {
+        "score": 38.5,
+        "level": 1,
+        "level_name": "萌芽级",
+        "weight_boost": 0.1155,
+        "confidence": 56,
+        "desc": "近 2 场失球达 3.00 球 (连续得分: 38.5分)"
+      }
+    }
+  },
+  "浦和红钻": {
+    "matches_evaluated": 2,
+    "last_updated": "2026-08-08",
+    "tags": {
+      "无心恋战": {
+        "score": 39.9,
+        "level": 1,
+        "level_name": "萌芽级",
+        "weight_boost": 0.1197,
+        "confidence": 57,
+        "desc": "近 2 场失球达 4.00 球 (连续得分: 39.9分)"
+      }
+    }
+  },
   "比亚韦": {
     "matches_evaluated": 2,
     "last_updated": "2026-08-08",
@@ -2608,6 +2712,128 @@
         "weight_boost": 0.1428,
         "confidence": 60,
         "desc": "主场胜率达 100.0% (连续得分: 47.6分)"
+      }
+    }
+  },
+  "坎布尔": {
+    "matches_evaluated": 2,
+    "last_updated": "2026-08-08",
+    "tags": {
+      "无心恋战": {
+        "score": 39.9,
+        "level": 1,
+        "level_name": "萌芽级",
+        "weight_boost": 0.1197,
+        "confidence": 57,
+        "desc": "近 2 场失球达 4.00 球 (连续得分: 39.9分)"
+      }
+    }
+  },
+  "SBV精英": {
+    "matches_evaluated": 2,
+    "last_updated": "2026-08-08",
+    "tags": {
+      "灌球高手": {
+        "score": 38.3,
+        "level": 1,
+        "level_name": "萌芽级",
+        "weight_boost": 0.1149,
+        "confidence": 56,
+        "desc": "近 2 场轰入 4.00 球 (连续得分: 38.3分)"
+      },
+      "铜墙铁壁": {
+        "score": 36.3,
+        "level": 1,
+        "level_name": "萌芽级",
+        "weight_boost": 0.1089,
+        "confidence": 56,
+        "desc": "近 2 场失球仅 0.00 球 (连续得分: 36.3分)"
+      }
+    }
+  },
+  "埃门": {
+    "matches_evaluated": 2,
+    "last_updated": "2026-08-08",
+    "tags": {
+      "铜墙铁壁": {
+        "score": 36.3,
+        "level": 1,
+        "level_name": "萌芽级",
+        "weight_boost": 0.1089,
+        "confidence": 56,
+        "desc": "近 2 场失球仅 0.00 球 (连续得分: 36.3分)"
+      },
+      "主场狂魔": {
+        "score": 47.6,
+        "level": 2,
+        "level_name": "初具规模",
+        "weight_boost": 0.1428,
+        "confidence": 60,
+        "desc": "主场胜率达 100.0% (连续得分: 47.6分)"
+      }
+    }
+  },
+  "柏林赫塔": {
+    "matches_evaluated": 2,
+    "last_updated": "2026-08-08",
+    "tags": {
+      "铜墙铁壁": {
+        "score": 36.3,
+        "level": 1,
+        "level_name": "萌芽级",
+        "weight_boost": 0.1089,
+        "confidence": 56,
+        "desc": "近 2 场失球仅 0.00 球 (连续得分: 36.3分)"
+      }
+    }
+  },
+  "米堡": {
+    "matches_evaluated": 2,
+    "last_updated": "2026-08-08",
+    "tags": {
+      "铜墙铁壁": {
+        "score": 36.3,
+        "level": 1,
+        "level_name": "萌芽级",
+        "weight_boost": 0.1089,
+        "confidence": 56,
+        "desc": "近 2 场失球仅 0.00 球 (连续得分: 36.3分)"
+      },
+      "主场狂魔": {
+        "score": 47.6,
+        "level": 2,
+        "level_name": "初具规模",
+        "weight_boost": 0.1428,
+        "confidence": 60,
+        "desc": "主场胜率达 100.0% (连续得分: 47.6分)"
+      }
+    }
+  },
+  "埃斯托里": {
+    "matches_evaluated": 2,
+    "last_updated": "2026-08-08",
+    "tags": {
+      "平局大师": {
+        "score": 40.0,
+        "level": 2,
+        "level_name": "初具规模",
+        "weight_boost": 0.12,
+        "confidence": 57,
+        "desc": "平局率达 100.0% (连续得分: 40.0分)"
+      }
+    }
+  },
+  "法马利康": {
+    "matches_evaluated": 2,
+    "last_updated": "2026-08-08",
+    "tags": {
+      "平局大师": {
+        "score": 40.0,
+        "level": 2,
+        "level_name": "初具规模",
+        "weight_boost": 0.12,
+        "confidence": 57,
+        "desc": "平局率达 100.0% (连续得分: 40.0分)"
       }
     }
   }
