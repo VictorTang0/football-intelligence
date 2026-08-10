@@ -44,14 +44,23 @@ def send_push(title, content):
         "template": "html"
     }
     data = json.dumps(payload).encode("utf-8")
-    req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
-    try:
-        with urllib.request.urlopen(req, timeout=10) as response:
-            res_text = response.read().decode("utf-8")
-            return json.loads(res_text)
-    except Exception as e:
-        print(f"Push error: {e}")
-        return {"code": 500, "msg": str(e)}
+    
+    last_err = None
+    for attempt in range(1, 4):
+        try:
+            req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
+            with urllib.request.urlopen(req, timeout=10) as response:
+                res_text = response.read().decode("utf-8")
+                res_json = json.loads(res_text)
+                if res_json.get("code") == 200:
+                    return res_json
+                last_err = res_json
+        except Exception as e:
+            last_err = str(e)
+            print(f"Push attempt {attempt} error: {e}")
+            time.sleep(2)
+            
+    return {"code": 500, "msg": str(last_err)}
 
 def sort_matches_by_date_and_code(matches_list):
     def sort_key(m):
@@ -342,10 +351,12 @@ def push_scheduled_update(matches, has_any_change=False):
         print(f"Warning during cooldown check: {e}")
 
     sorted_matches = sort_matches_by_date_and_code(matches)
-    cards_html = "".join([render_match_card_html(m) for m in sorted_matches])
+    # Cap to max 5 matches per batch to strictly stay under PushPlus 20,000 character limit
+    pushed_batch = sorted_matches[:5]
+    cards_html = "".join([render_match_card_html(m) for m in pushed_batch])
     
     title_prefix = "情况有变" if has_any_change else "牌没问题"
-    title = f"{title_prefix} - MATCH IQ 临场简报 ({len(matches)}场)"
+    title = f"{title_prefix} - MATCH IQ 临场简报 ({len(pushed_batch)}场)"
     
     header_color = "#f43f5e" if has_any_change else "#10b981"
     sub_text = "极简临场变盘与双系统总结卡片 (变盘项已标 🟡)：" if has_any_change else "临场水温平稳，双系统总结卡片："
