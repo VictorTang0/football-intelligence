@@ -150485,7 +150485,7 @@
         "humidity": 77,
         "wind_kmh": 10
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.197131",
@@ -150628,7 +150628,8 @@
         "ev_score": 0.0,
         "reasoning": "日职比赛双方战术意图各有侧重。 基本面上，横滨水手在【历史交锋与心理克制】上拥有明显优势（评分 6.6 对 3.4），但鹿岛鹿角在【近期状态与动能】上（评分 7.4 对 6.0）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 3.77 降至 3.70，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败 (竞彩)】。",
         "confidence_trend": "up",
-        "predicted_score": "0-1 或 0-0 (竞彩)"
+        "predicted_score": "0-1 或 0-0 (竞彩)",
+        "actual_result": "横滨水手 3-4 鹿岛鹿角 (2-1)"
       },
       "team_stats": {
         "home": {
@@ -151722,6 +151723,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "横滨水手 3-4 鹿岛鹿角 (2-1)",
+        "ft_score": "3:4",
+        "ht_score": "2:1",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": true,
+        "score_correct": false
       }
     },
     {
@@ -151740,7 +151750,7 @@
         "humidity": 80,
         "wind_kmh": 6
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.264685",
@@ -151883,7 +151893,8 @@
         "ev_score": 0.0,
         "reasoning": "日职比赛双方战术意图各有侧重。 基本面上，大阪钢巴在【近期状态与动能】上拥有明显优势（评分 7.4 对 5.1），但浦和红钻在【历史交锋与心理克制】上（评分 6.1 对 3.9）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 2.24 / 3.20 / 2.70 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "down",
-        "predicted_score": "1-0 或 0-0"
+        "predicted_score": "1-0 或 0-0",
+        "actual_result": "大阪钢巴 4-3 浦和红钻 (2-1)"
       },
       "team_stats": {
         "home": {
@@ -152980,6 +152991,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "大阪钢巴 4-3 浦和红钻 (2-1)",
+        "ft_score": "4:3",
+        "ht_score": "2:1",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": false
       }
     },
     {
@@ -157555,7 +157575,7 @@
         "humidity": 51,
         "wind_kmh": 13
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.542472",
@@ -157698,7 +157718,8 @@
         "ev_score": 0.0,
         "reasoning": "日职比赛双方战术意图各有侧重。 基本面上，大阪樱花在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），但冈山绿雉在【历史交锋与心理克制】上（评分 8.0 对 2.0）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 1.81 / 3.35 / 3.60 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "down",
-        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "大阪樱花 2-1 冈山绿雉 (2-1)"
       },
       "team_stats": {
         "home": {
@@ -158652,6 +158673,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "大阪樱花 2-1 冈山绿雉 (2-1)",
+        "ft_score": "2:1",
+        "ht_score": "2:1",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": true,
+        "score_correct": true
       }
     },
     {
@@ -158670,7 +158700,7 @@
         "humidity": 51,
         "wind_kmh": 13
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.560601",
@@ -158813,7 +158843,8 @@
         "ev_score": 0.0,
         "reasoning": "日乙比赛双方战术意图各有侧重。 基本面上，大宫松鼠在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），但新潟天鹅在【近期状态与动能】上（评分 5.2 对 4.1）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 1.81 / 3.50 / 3.45 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "down",
-        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "大宫松鼠 1-0 新潟天鹅 (1-0)"
       },
       "team_stats": {
         "home": {
@@ -159697,6 +159728,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "大宫松鼠 1-0 新潟天鹅 (1-0)",
+        "ft_score": "1:0",
+        "ht_score": "1:0",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": true,
+        "score_correct": true
       }
     },
     {
@@ -159715,7 +159755,7 @@
         "humidity": 50,
         "wind_kmh": 13
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.284799",
@@ -159858,7 +159898,8 @@
         "ev_score": 0.0,
         "reasoning": "芬超联赛常呈现低比分拉锯，防守落位速度是决定性因素。 基本面上，塞伊奈在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），但赫尔火花在【近期状态与动能】上（评分 6.5 对 5.1）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 1.99 / 3.55 / 2.90 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【双选胜负】。",
         "confidence_trend": "up",
-        "predicted_score": "2-2 或 1-1 或 2-1 (竞彩)"
+        "predicted_score": "2-2 或 1-1 或 2-1 (竞彩)",
+        "actual_result": "塞伊奈 2-2 赫尔火花 (1-2)"
       },
       "team_stats": {
         "home": {
@@ -160897,6 +160938,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "塞伊奈 2-2 赫尔火花 (1-2)",
+        "ft_score": "2:2",
+        "ht_score": "1:2",
+        "rec_correct": true,
+        "hafu_correct": false,
+        "ou_correct": true,
+        "score_correct": true
       }
     },
     {
@@ -160915,7 +160965,7 @@
         "humidity": 57,
         "wind_kmh": 17
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.576526",
@@ -161058,7 +161108,8 @@
         "ev_score": 0.0,
         "reasoning": "韩职联赛强调防守纪律性，整体攻防转化较慢。 基本面上，安养FC在【球队基础硬实力】上拥有明显优势（评分 9.2 对 6.5），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 2.72 / 3.15 / 2.25 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败 (竞彩)】。",
         "confidence_trend": "up",
-        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "安养FC 1-2 大田市民 (0-2)"
       },
       "team_stats": {
         "home": {
@@ -162034,6 +162085,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "安养FC 1-2 大田市民 (0-2)",
+        "ft_score": "1:2",
+        "ht_score": "0:2",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": false
       }
     },
     {
@@ -162052,7 +162112,7 @@
         "humidity": 60,
         "wind_kmh": 18
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.308389",
@@ -162195,7 +162255,8 @@
         "ev_score": 0.0,
         "reasoning": "挪超联赛大开大合，大球率高，进攻端对体能消耗极大。 基本面上，桑纳菲在【战意与抢分压力】上拥有明显优势（评分 6.4 对 4.800000000000001），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 1.92 / 3.50 / 3.10 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【双选让平或让负】。",
         "confidence_trend": "up",
-        "predicted_score": "2-2 或 1-1 或 2-1 (竞彩)"
+        "predicted_score": "2-2 或 1-1 或 2-1 (竞彩)",
+        "actual_result": "桑纳菲 0-1 奥斯KFUM (0-1)"
       },
       "team_stats": {
         "home": {
@@ -163160,6 +163221,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "桑纳菲 0-1 奥斯KFUM (0-1)",
+        "ft_score": "0:1",
+        "ht_score": "0:1",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": false
       }
     },
     {
@@ -163178,7 +163248,7 @@
         "humidity": 57,
         "wind_kmh": 17
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.590845",
@@ -163321,7 +163391,8 @@
         "ev_score": 0.0,
         "reasoning": "韩职联赛强调防守纪律性，整体攻防转化较慢。 基本面上，全北现代在【历史交锋与心理克制】上拥有明显优势（评分 6.4 对 3.6），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 1.60 / 3.45 / 4.65 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "down",
-        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "全北现代 1-3 济州SK (0-1)"
       },
       "team_stats": {
         "home": {
@@ -164406,6 +164477,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "全北现代 1-3 济州SK (0-1)",
+        "ft_score": "1:3",
+        "ht_score": "0:1",
+        "rec_correct": true,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": false
       }
     },
     {
@@ -164424,7 +164504,7 @@
         "humidity": 63,
         "wind_kmh": 14
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.344648",
@@ -164567,7 +164647,8 @@
         "ev_score": 0.0,
         "reasoning": "荷甲比赛双方战术意图各有侧重。 基本面上，坎布尔在【近期状态与动能】上拥有明显优势（评分 8.8 对 6.5），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指主胜由 2.41 降至 2.36，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败】。",
         "confidence_trend": "up",
-        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "坎布尔 0-4 SBV精英 (0-3)"
       },
       "team_stats": {
         "home": {
@@ -165536,6 +165617,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "坎布尔 0-4 SBV精英 (0-3)",
+        "ft_score": "0:4",
+        "ht_score": "0:3",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": false
       }
     },
     {
@@ -165554,7 +165644,7 @@
         "humidity": 57,
         "wind_kmh": 17
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.604430",
@@ -165697,7 +165787,8 @@
         "ev_score": 0.0,
         "reasoning": "韩职联赛强调防守纪律性，整体攻防转化较慢。 基本面上，金泉尚武在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），但首尔FC在【近期状态与动能】上（评分 8.2 对 3.1）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 3.67 降至 3.60，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败】。",
         "confidence_trend": "up",
-        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "金泉尚武 0-0 首尔FC (0-0)"
       },
       "team_stats": {
         "home": {
@@ -166783,6 +166874,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "金泉尚武 0-0 首尔FC (0-0)",
+        "ft_score": "0:0",
+        "ht_score": "0:0",
+        "rec_correct": true,
+        "hafu_correct": true,
+        "ou_correct": false,
+        "score_correct": true
       }
     },
     {
@@ -166801,7 +166901,7 @@
         "humidity": 63,
         "wind_kmh": 14
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.379363",
@@ -166944,7 +167044,8 @@
         "ev_score": 0.0,
         "reasoning": "荷乙比赛双方战术意图各有侧重。 基本面上，奥斯在【历史交锋与心理克制】上拥有明显优势（评分 8.0 对 2.0），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指主胜由 4.54 降至 4.45，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败 (竞彩)】。",
         "confidence_trend": "up",
-        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "奥斯 1-2 布雷达 (1-0)"
       },
       "team_stats": {
         "home": {
@@ -167920,6 +168021,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "奥斯 1-2 布雷达 (1-0)",
+        "ft_score": "1:2",
+        "ht_score": "1:0",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": false
       }
     },
     {
@@ -167938,7 +168048,7 @@
         "humidity": 63,
         "wind_kmh": 14
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.409717",
@@ -168081,7 +168191,8 @@
         "ev_score": 0.0,
         "reasoning": "荷乙比赛双方战术意图各有侧重。 基本面上，埃门在【历史交锋与心理克制】上拥有明显优势（评分 8.0 对 2.0），但罗达JC在【近期状态与动能】上（评分 7.0 对 4.1）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 2.25 / 3.50 / 2.52 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败】。",
         "confidence_trend": "up",
-        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "埃门 1-0 罗达JC (0-0)"
       },
       "team_stats": {
         "home": {
@@ -169069,6 +169180,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "埃门 1-0 罗达JC (0-0)",
+        "ft_score": "1:0",
+        "ht_score": "0:0",
+        "rec_correct": true,
+        "hafu_correct": true,
+        "ou_correct": true,
+        "score_correct": true
       }
     },
     {
@@ -169087,7 +169207,7 @@
         "humidity": 66,
         "wind_kmh": 15
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.633716",
@@ -169230,7 +169350,8 @@
         "ev_score": 0.0,
         "reasoning": "英联赛杯比赛双方战术意图各有侧重。 基本面上，女王巡游在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指主胜由 2.83 降至 2.77，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败】。",
         "confidence_trend": "up",
-        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "女王巡游 1-1 米尔沃尔 (0-0)"
       },
       "team_stats": {
         "home": {
@@ -170216,6 +170337,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "女王巡游 1-1 米尔沃尔 (0-0)",
+        "ft_score": "1:1",
+        "ht_score": "0:0",
+        "rec_correct": true,
+        "hafu_correct": true,
+        "ou_correct": true,
+        "score_correct": false
       }
     },
     {
@@ -170234,7 +170364,7 @@
         "humidity": 63,
         "wind_kmh": 11
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.442447",
@@ -170377,7 +170507,8 @@
         "ev_score": 0.0,
         "reasoning": "德乙比赛双方战术意图各有侧重。 基本面上，波鸿在【环境气候适应性】上拥有明显优势（评分 8.2 对 6.9），但柏林赫塔在【近期状态与动能】上（评分 7.4 对 5.6）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 2.15 / 3.40 / 2.70 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败】。",
         "confidence_trend": "up",
-        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "波鸿 0-1 柏林赫塔 (0-1)"
       },
       "team_stats": {
         "home": {
@@ -171308,6 +171439,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "波鸿 0-1 柏林赫塔 (0-1)",
+        "ft_score": "0:1",
+        "ht_score": "0:1",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": true,
+        "score_correct": false
       }
     },
     {
@@ -171326,7 +171466,7 @@
         "humidity": 66,
         "wind_kmh": 15
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.476949",
@@ -171469,7 +171609,8 @@
         "ev_score": 0.0,
         "reasoning": "英联赛杯比赛双方战术意图各有侧重。 基本面上，米堡在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 1.50 / 3.90 / 4.85 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "down",
-        "predicted_score": "2-1 (竞彩) 或 1-1"
+        "predicted_score": "2-1 (竞彩) 或 1-1",
+        "actual_result": "米堡 1-0 雷克斯 (0-0)"
       },
       "team_stats": {
         "home": {
@@ -172424,6 +172565,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "米堡 1-0 雷克斯 (0-0)",
+        "ft_score": "1:0",
+        "ht_score": "0:0",
+        "rec_correct": false,
+        "hafu_correct": true,
+        "ou_correct": false,
+        "score_correct": false
       }
     },
     {
@@ -172442,7 +172592,7 @@
         "humidity": 54,
         "wind_kmh": 11
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.647837",
@@ -172585,7 +172735,8 @@
         "ev_score": 0.0,
         "reasoning": "英联赛杯比赛双方战术意图各有侧重。 基本面上，西汉姆联在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 1.40 / 4.20 / 5.65 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "down",
-        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "西汉姆联 3-1 朴次茅斯 (2-1)"
       },
       "team_stats": {
         "home": {
@@ -173516,6 +173667,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "西汉姆联 3-1 朴次茅斯 (2-1)",
+        "ft_score": "3:1",
+        "ht_score": "2:1",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": false
       }
     },
     {
@@ -173534,7 +173694,7 @@
         "humidity": 51,
         "wind_kmh": 13
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.516028",
@@ -173677,7 +173837,8 @@
         "ev_score": 0.0,
         "reasoning": "葡超比赛双方战术意图各有侧重。 基本面上，埃斯托里在【历史交锋与心理克制】上拥有明显优势（评分 8.0 对 2.0），但法马利康在【近期状态与动能】上（评分 5.2 对 3.2）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 3.01 降至 2.95，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败 (竞彩)】。",
         "confidence_trend": "up",
-        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "埃斯托里 1-1 法马利康 (0-1)"
       },
       "team_stats": {
         "home": {
@@ -174726,6 +174887,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "埃斯托里 1-1 法马利康 (0-1)",
+        "ft_score": "1:1",
+        "ht_score": "0:1",
+        "rec_correct": true,
+        "hafu_correct": false,
+        "ou_correct": true,
+        "score_correct": false
       }
     },
     {
@@ -174744,7 +174914,7 @@
         "humidity": 54,
         "wind_kmh": 11
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.661298",
@@ -174887,7 +175057,8 @@
         "ev_score": 0.0,
         "reasoning": "英联赛杯比赛双方战术意图各有侧重。 基本面上，斯旺西在【近期状态与动能】上拥有明显优势（评分 6.5 对 4.1），但伯明翰在【历史交锋与心理克制】上（评分 6.1 对 3.9）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 2.60 / 3.20 / 2.32 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "stable",
-        "predicted_score": "1-2 或 1-1 或 2-1 (竞彩)"
+        "predicted_score": "1-2 或 1-1 或 2-1 (竞彩)",
+        "actual_result": "斯旺西 0-1 伯明翰 (0-1)"
       },
       "team_stats": {
         "home": {
@@ -175874,6 +176045,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "斯旺西 0-1 伯明翰 (0-1)",
+        "ft_score": "0:1",
+        "ht_score": "0:1",
+        "rec_correct": true,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": false
       }
     },
     {
@@ -175892,7 +176072,7 @@
         "humidity": 52,
         "wind_kmh": 10
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.680750",
@@ -176035,7 +176215,8 @@
         "ev_score": 0.0,
         "reasoning": "荷甲比赛双方战术意图各有侧重。 基本面上，奈梅亨在【环境气候适应性】上拥有明显优势（评分 8.2 对 6.9），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 1.37 / 4.45 / 5.75 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败 (竞彩)】。",
         "confidence_trend": "down",
-        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "奈梅亨 1-2 特尔斯达 (0-2)"
       },
       "team_stats": {
         "home": {
@@ -176986,6 +177167,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "奈梅亨 1-2 特尔斯达 (0-2)",
+        "ft_score": "1:2",
+        "ht_score": "0:2",
+        "rec_correct": true,
+        "hafu_correct": false,
+        "ou_correct": true,
+        "score_correct": false
       }
     },
     {
@@ -177004,7 +177194,7 @@
         "humidity": 52,
         "wind_kmh": 10
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.700090",
@@ -177147,7 +177337,8 @@
         "ev_score": 0.0,
         "reasoning": "葡超比赛双方战术意图各有侧重。 基本面上，马里迪莫在【环境气候适应性】上拥有明显优势（评分 8.2 对 6.9），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 1.98 / 3.10 / 3.32 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "down",
-        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "马里迪莫 1-0 卡萨皮亚 (0-0)"
       },
       "team_stats": {
         "home": {
@@ -178078,6 +178269,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "马里迪莫 1-0 卡萨皮亚 (0-0)",
+        "ft_score": "1:0",
+        "ht_score": "0:0",
+        "rec_correct": false,
+        "hafu_correct": true,
+        "ou_correct": true,
+        "score_correct": true
       }
     },
     {
@@ -178096,7 +178296,7 @@
         "humidity": 51,
         "wind_kmh": 13
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.959825",
@@ -178239,7 +178439,8 @@
         "ev_score": 0.0,
         "reasoning": "日职比赛双方战术意图各有侧重。 基本面上，东京绿茵在【历史交锋与心理克制】上拥有明显优势（评分 6.3 对 3.7），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指主胜由 2.82 降至 2.76，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败】。",
         "confidence_trend": "up",
-        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "东京绿茵 1-1 川崎前锋 (0-0)"
       },
       "team_stats": {
         "home": {
@@ -179225,6 +179426,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "东京绿茵 1-1 川崎前锋 (0-0)",
+        "ft_score": "1:1",
+        "ht_score": "0:0",
+        "rec_correct": true,
+        "hafu_correct": true,
+        "ou_correct": true,
+        "score_correct": false
       }
     },
     {
@@ -179243,7 +179453,7 @@
         "humidity": 57,
         "wind_kmh": 17
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.997257",
@@ -179386,7 +179596,8 @@
         "ev_score": 0.0,
         "reasoning": "日职比赛双方战术意图各有侧重。 基本面上，长崎航海在【历史交锋与心理克制】上拥有明显优势（评分 8.0 对 2.0），但京都在【近期状态与动能】上（评分 6.0 对 4.6）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 2.91 降至 2.85，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败】。",
         "confidence_trend": "up",
-        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "长崎航海 2-1 京都 (2-0)"
       },
       "team_stats": {
         "home": {
@@ -180336,6 +180547,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "长崎航海 2-1 京都 (2-0)",
+        "ft_score": "2:1",
+        "ht_score": "2:0",
+        "rec_correct": true,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": true
       }
     },
     {
@@ -180354,7 +180574,7 @@
         "humidity": 57,
         "wind_kmh": 17
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:54.033630",
@@ -180497,7 +180717,8 @@
         "ev_score": 0.0,
         "reasoning": "日乙比赛双方战术意图各有侧重。 基本面上，山形山神在【近期状态与动能】上拥有明显优势（评分 8.8 对 5.2），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指主胜由 2.37 降至 2.32，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "down",
-        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "山形山神 2-0 枥木城 (1-0)"
       },
       "team_stats": {
         "home": {
@@ -181382,6 +181603,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "山形山神 2-0 枥木城 (1-0)",
+        "ft_score": "2:0",
+        "ht_score": "1:0",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": true,
+        "score_correct": false
       }
     },
     {
@@ -181400,7 +181630,7 @@
         "humidity": 68,
         "wind_kmh": 12
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:54.060490",
@@ -181543,7 +181773,8 @@
         "ev_score": 0.0,
         "reasoning": "荷甲比赛双方战术意图各有侧重。 基本面上，鹿斯巴达在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指主胜由 4.44 降至 4.35，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败 (竞彩)】。",
         "confidence_trend": "up",
-        "predicted_score": "1-2 或 1-1 或 2-1 (竞彩)"
+        "predicted_score": "1-2 或 1-1 或 2-1 (竞彩)",
+        "actual_result": "鹿斯巴达 0-1 费耶诺德 (0-1)"
       },
       "team_stats": {
         "home": {
@@ -182566,6 +182797,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "鹿斯巴达 0-1 费耶诺德 (0-1)",
+        "ft_score": "0:1",
+        "ht_score": "0:1",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": false
       }
     },
     {
@@ -182584,7 +182824,7 @@
         "humidity": 74,
         "wind_kmh": 15
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:54.097584",
@@ -182727,7 +182967,8 @@
         "ev_score": 0.0,
         "reasoning": "德乙比赛双方战术意图各有侧重。 基本面上，圣保利在【历史交锋与心理克制】上拥有明显优势（评分 6.8 对 3.2），但菲尔特在【近期状态与动能】上（评分 5.5 对 3.2）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 1.65 / 3.70 / 3.95 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "down",
-        "predicted_score": "2-1 (竞彩) 或 1-1"
+        "predicted_score": "2-1 (竞彩) 或 1-1",
+        "actual_result": "圣保利 1-1 菲尔特 (0-0)"
       },
       "team_stats": {
         "home": {
@@ -183696,6 +183937,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "圣保利 1-1 菲尔特 (0-0)",
+        "ft_score": "1:1",
+        "ht_score": "0:0",
+        "rec_correct": true,
+        "hafu_correct": true,
+        "ou_correct": false,
+        "score_correct": true
       }
     },
     {
@@ -183714,7 +183964,7 @@
         "humidity": 74,
         "wind_kmh": 15
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:54.114943",
@@ -183857,7 +184107,8 @@
         "ev_score": 0.0,
         "reasoning": "德乙比赛双方战术意图各有侧重。 基本面上，纽伦堡在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），但德累斯顿在【历史交锋与心理克制】上（评分 8.0 对 2.0）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 2.00 / 3.38 / 3.00 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "down",
-        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "纽伦堡 3-0 德累斯顿 (2-0)"
       },
       "team_stats": {
         "home": {
@@ -184807,6 +185058,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "纽伦堡 3-0 德累斯顿 (2-0)",
+        "ft_score": "3:0",
+        "ht_score": "2:0",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": true,
+        "score_correct": false
       }
     },
     {
@@ -184825,7 +185085,7 @@
         "humidity": 65,
         "wind_kmh": 18
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:54.131072",
@@ -184968,7 +185228,8 @@
         "ev_score": 0.0,
         "reasoning": "荷甲比赛双方战术意图各有侧重。 基本面上，兹沃勒在【环境气候适应性】上拥有明显优势（评分 8.2 对 6.9），但阿贾克斯在【近期状态与动能】上（评分 5.6 对 4.2）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 5.36 降至 5.25，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败 (竞彩)】。",
         "confidence_trend": "up",
-        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "兹沃勒 0-2 阿贾克斯 (0-0)"
       },
       "team_stats": {
         "home": {
@@ -186027,6 +186288,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "兹沃勒 0-2 阿贾克斯 (0-0)",
+        "ft_score": "0:2",
+        "ht_score": "0:0",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": true,
+        "score_correct": false
       }
     },
     {
@@ -186045,7 +186315,7 @@
         "humidity": 65,
         "wind_kmh": 18
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:54.146540",
@@ -186188,7 +186458,8 @@
         "ev_score": 0.0,
         "reasoning": "荷甲比赛双方战术意图各有侧重。 基本面上，格罗宁根在【环境气候适应性】上拥有明显优势（评分 8.2 对 6.9），但乌德勒支在【历史交锋与心理克制】上（评分 6.7 对 3.3）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 2.22 / 3.25 / 2.70 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败】。",
         "confidence_trend": "up",
-        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "格罗宁根 2-1 乌德勒支 (1-0)"
       },
       "team_stats": {
         "home": {
@@ -187193,6 +187464,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "格罗宁根 2-1 乌德勒支 (1-0)",
+        "ft_score": "2:1",
+        "ht_score": "1:0",
+        "rec_correct": true,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": true
       }
     },
     {
@@ -187211,7 +187491,7 @@
         "humidity": 74,
         "wind_kmh": 15
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:54.161228",
@@ -187354,7 +187634,8 @@
         "ev_score": 0.0,
         "reasoning": "荷甲比赛双方战术意图各有侧重。 基本面上，海伦芬在【战意与抢分压力】上拥有明显优势（评分 6.4 对 4.800000000000001），但特温特在【近期状态与动能】上（评分 6.8 对 5.1）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 2.70 / 3.55 / 2.10 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败 (竞彩)】。",
         "confidence_trend": "up",
-        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "海伦芬 1-0 特温特 (0-0)"
       },
       "team_stats": {
         "home": {
@@ -188377,6 +188658,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "海伦芬 1-0 特温特 (0-0)",
+        "ft_score": "1:0",
+        "ht_score": "0:0",
+        "rec_correct": true,
+        "hafu_correct": true,
+        "ou_correct": true,
+        "score_correct": false
       }
     },
     {
@@ -188395,7 +188685,7 @@
         "humidity": 57,
         "wind_kmh": 17
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.716518",
@@ -188538,7 +188828,8 @@
         "ev_score": 0.0,
         "reasoning": "荷甲比赛双方战术意图各有侧重。 基本面上，前进之鹰在【历史交锋与心理克制】上拥有明显优势（评分 8.0 对 2.0），但威廉二世在【近期状态与动能】上（评分 6.0 对 5.1）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 1.43 / 4.15 / 5.30 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "down",
-        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "前进之鹰 4-1 威廉二世 (1-1)"
       },
       "team_stats": {
         "home": {
@@ -189507,6 +189798,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "前进之鹰 4-1 威廉二世 (1-1)",
+        "ft_score": "4:1",
+        "ht_score": "1:1",
+        "rec_correct": false,
+        "hafu_correct": true,
+        "ou_correct": false,
+        "score_correct": false
       }
     },
     {
@@ -189525,7 +189825,7 @@
         "humidity": 63,
         "wind_kmh": 14
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.731721",
@@ -189668,7 +189968,8 @@
         "ev_score": 0.0,
         "reasoning": "葡超比赛双方战术意图各有侧重。 基本面上，吉马良斯在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），但阿罗卡在【历史交锋与心理克制】上（评分 5.4 对 4.6）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 1.75 / 3.35 / 3.85 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "down",
-        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "吉马良斯 0-1 阿罗卡 (0-0)"
       },
       "team_stats": {
         "home": {
@@ -190726,6 +191027,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "吉马良斯 0-1 阿罗卡 (0-0)",
+        "ft_score": "0:1",
+        "ht_score": "0:0",
+        "rec_correct": true,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": false
       }
     },
     {
@@ -190744,7 +191054,7 @@
         "humidity": 66,
         "wind_kmh": 15
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.747870",
@@ -190887,7 +191197,8 @@
         "ev_score": 0.0,
         "reasoning": "荷甲比赛双方战术意图各有侧重。 基本面上，埃因霍温在【近期状态与动能】上拥有明显优势（评分 7.4 对 4.6），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 2.00 / 3.00 / 3.00 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "down",
-        "predicted_score": "2-1 (竞彩) 或 1-1"
+        "predicted_score": "2-1 (竞彩) 或 1-1",
+        "actual_result": "埃因霍温 2-2 福图纳 (0-1)"
       },
       "team_stats": {
         "home": {
@@ -191927,6 +192238,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "埃因霍温 2-2 福图纳 (0-1)",
+        "ft_score": "2:2",
+        "ht_score": "0:1",
+        "rec_correct": true,
+        "hafu_correct": false,
+        "ou_correct": true,
+        "score_correct": false
       }
     },
     {
@@ -191945,7 +192265,7 @@
         "humidity": 64,
         "wind_kmh": 11
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.815535",
@@ -192088,7 +192408,8 @@
         "ev_score": 0.0,
         "reasoning": "法乙比赛双方战术意图各有侧重。 基本面上，波城FC在【历史交锋与心理克制】上拥有明显优势（评分 6.3 对 3.7），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指主胜由 2.86 降至 2.80，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败】。",
         "confidence_trend": "up",
-        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "波城FC 0-1 阿纳西 (0-1)"
       },
       "team_stats": {
         "home": {
@@ -193074,6 +193395,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "波城FC 0-1 阿纳西 (0-1)",
+        "ft_score": "0:1",
+        "ht_score": "0:1",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": true,
+        "score_correct": true
       }
     },
     {
@@ -193092,7 +193422,7 @@
         "humidity": 64,
         "wind_kmh": 11
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.837035",
@@ -193235,7 +193565,8 @@
         "ev_score": 0.0,
         "reasoning": "法乙比赛双方战术意图各有侧重。 基本面上，蒙彼利埃在【近期状态与动能】上拥有明显优势（评分 7.0 对 5.1），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 1.74 / 3.20 / 4.15 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "down",
-        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "蒙彼利埃 1-1 第戎 (0-0)"
       },
       "team_stats": {
         "home": {
@@ -194165,6 +194496,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "蒙彼利埃 1-1 第戎 (0-0)",
+        "ft_score": "1:1",
+        "ht_score": "0:0",
+        "rec_correct": true,
+        "hafu_correct": true,
+        "ou_correct": true,
+        "score_correct": false
       }
     },
     {
@@ -194183,7 +194523,7 @@
         "humidity": 64,
         "wind_kmh": 11
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.856046",
@@ -194326,7 +194666,8 @@
         "ev_score": 0.0,
         "reasoning": "法乙比赛双方战术意图各有侧重。 基本面上，南特在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），但圣旺红星在【近期状态与动能】上（评分 6.5 对 3.0）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 1.71 / 3.26 / 4.20 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "down",
-        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "南特 0-1 圣旺红星 (0-0)"
       },
       "team_stats": {
         "home": {
@@ -195256,6 +195597,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "南特 0-1 圣旺红星 (0-0)",
+        "ft_score": "0:1",
+        "ht_score": "0:0",
+        "rec_correct": true,
+        "hafu_correct": false,
+        "ou_correct": true,
+        "score_correct": false
       }
     },
     {
@@ -195274,7 +195624,7 @@
         "humidity": 54,
         "wind_kmh": 11
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.891280",
@@ -195417,7 +195767,8 @@
         "ev_score": 0.0,
         "reasoning": "荷甲比赛双方战术意图各有侧重。 基本面上，阿尔克马在【历史交锋与心理克制】上拥有明显优势（评分 8.0 对 2.0），但海牙在【近期状态与动能】上（评分 8.3 对 7.0）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 1.37 / 4.48 / 5.70 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "down",
-        "predicted_score": "2-1 (竞彩) 或 1-1"
+        "predicted_score": "2-1 (竞彩) 或 1-1",
+        "actual_result": "阿尔克马 2-0 海牙 (0-0)"
       },
       "team_stats": {
         "home": {
@@ -196399,6 +196750,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "阿尔克马 2-0 海牙 (0-0)",
+        "ft_score": "2:0",
+        "ht_score": "0:0",
+        "rec_correct": false,
+        "hafu_correct": true,
+        "ou_correct": false,
+        "score_correct": false
       }
     },
     {
@@ -196417,7 +196777,7 @@
         "humidity": 52,
         "wind_kmh": 10
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:53.924374",
@@ -196560,7 +196920,8 @@
         "ev_score": 0.0,
         "reasoning": "葡超比赛双方战术意图各有侧重。 基本面上，阿马多拉在【环境气候适应性】上拥有明显优势（评分 8.2 对 6.9），但里斯本在【近期状态与动能】上（评分 7.9 对 5.1）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 2.00 / 3.00 / 3.00 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败】。",
         "confidence_trend": "up",
-        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "阿马多拉 2-2 里斯本 (0-0)"
       },
       "team_stats": {
         "home": {
@@ -197547,6 +197908,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "阿马多拉 2-2 里斯本 (0-0)",
+        "ft_score": "2:2",
+        "ht_score": "0:0",
+        "rec_correct": true,
+        "hafu_correct": true,
+        "ou_correct": false,
+        "score_correct": false
       }
     },
     {
@@ -197565,7 +197935,7 @@
         "humidity": 65,
         "wind_kmh": 18
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:54.175907",
@@ -197708,7 +198078,8 @@
         "ev_score": 0.0,
         "reasoning": "葡超比赛双方战术意图各有侧重。 基本面上，波尔图在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），但阿尔维卡在【历史交锋与心理克制】上（评分 8.0 对 2.0）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 2.00 / 3.00 / 3.00 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "down",
-        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "波尔图 2-0 阿尔维卡 (2-0)"
       },
       "team_stats": {
         "home": {
@@ -198658,6 +199029,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "波尔图 2-0 阿尔维卡 (2-0)",
+        "ft_score": "2:0",
+        "ht_score": "2:0",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": false
       }
     },
     {
@@ -198676,7 +199056,7 @@
         "humidity": 79,
         "wind_kmh": 18
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-07T11:40:54.192052",
@@ -198819,7 +199199,8 @@
         "ev_score": 0.0,
         "reasoning": "葡超比赛双方战术意图各有侧重。 基本面上，吉维森特在【历史交锋与心理克制】上拥有明显优势（评分 5.6 对 4.4），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 1.70 / 3.30 / 4.20 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "down",
-        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "吉维森特 1-0 里奥阿维 (0-0)"
       },
       "team_stats": {
         "home": {
@@ -199823,6 +200204,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "吉维森特 1-0 里奥阿维 (0-0)",
+        "ft_score": "1:0",
+        "ht_score": "0:0",
+        "rec_correct": false,
+        "hafu_correct": true,
+        "ou_correct": true,
+        "score_correct": true
       }
     }
   ]
