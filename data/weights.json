@@ -1,13 +1,13 @@
 {
-  "version": "v6.2",
-  "last_evolved": "2026-08-10T14:53:42.806365",
-  "total_matches_validated": 173,
-  "overall_accuracy": 0.4624,
+  "version": "v6.3",
+  "last_evolved": "2026-08-10T14:59:48.570575",
+  "total_matches_validated": 184,
+  "overall_accuracy": 0.4946,
   "factors": [
     {
       "id": "M01",
       "name": "球队基础硬实力",
-      "weight": 0.2507,
+      "weight": 0.2285,
       "initial": 0.25,
       "category": "基础战力",
       "delta": 0.0,
@@ -16,7 +16,7 @@
     {
       "id": "M02",
       "name": "首发阵容健康度",
-      "weight": 0.3287,
+      "weight": 0.2996,
       "initial": 0.15,
       "category": "基础战力",
       "delta": 0.0,
@@ -25,7 +25,7 @@
     {
       "id": "M03",
       "name": "战术克制与匹配",
-      "weight": -0.5323,
+      "weight": -0.4852,
       "initial": 0.15,
       "category": "战术相克",
       "delta": 0.0,
@@ -34,7 +34,7 @@
     {
       "id": "M04",
       "name": "中场与推进效率",
-      "weight": -0.3004,
+      "weight": -0.2283,
       "initial": 0.1,
       "category": "战术相克",
       "delta": 0.0,
@@ -43,7 +43,7 @@
     {
       "id": "M05",
       "name": "近期状态与动能",
-      "weight": -0.0452,
+      "weight": 0.0067,
       "initial": 0.15,
       "category": "动态动能",
       "delta": 0.0,
@@ -52,7 +52,7 @@
     {
       "id": "M06",
       "name": "赛程密集与体能",
-      "weight": -0.027,
+      "weight": 0.0256,
       "initial": 0.05,
       "category": "动态动能",
       "delta": 0.0,
@@ -61,7 +61,7 @@
     {
       "id": "M07",
       "name": "环境气候适应性",
-      "weight": 0.5018,
+      "weight": 0.5102,
       "initial": 0.05,
       "category": "环境心理",
       "delta": 0.0,
@@ -70,7 +70,7 @@
     {
       "id": "M08",
       "name": "战意与抢分压力",
-      "weight": 0.7132,
+      "weight": 0.5947,
       "initial": 0.1,
       "category": "环境心理",
       "delta": 0.0,
@@ -79,7 +79,7 @@
     {
       "id": "M09",
       "name": "历史交锋与心理克制",
-      "weight": 0.1105,
+      "weight": 0.0481,
       "initial": 0.08,
       "category": "战术心理",
       "delta": 0.0,
@@ -129,7 +129,7 @@
   "experts": {
     "fundamental": {
       "name": "基本面专家",
-      "weight": 1.1244,
+      "weight": 1.0259,
       "dimensions": [
         "M01",
         "M02",
@@ -139,7 +139,7 @@
     },
     "narrative": {
       "name": "情报与战意专家",
-      "weight": 0.1581,
+      "weight": 0.1963,
       "dimensions": [
         "M03",
         "M04",
@@ -150,7 +150,7 @@
     },
     "odds_capital": {
       "name": "资金与赔率专家",
-      "weight": -0.2825,
+      "weight": -0.2222,
       "dimensions": []
     }
   },
@@ -161,7 +161,7 @@
     "环境心理": 0.0022,
     "战术心理": 0.1661
   },
-  "score_accuracy": 0.2081,
-  "half_full_accuracy": 0.2775,
+  "score_accuracy": 0.2065,
+  "half_full_accuracy": 0.2772,
   "evolution_count": 34
 }
