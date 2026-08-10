@@ -162836,7 +162836,7 @@
         "rec_correct": true,
         "hafu_correct": false,
         "ou_correct": true,
-        "score_correct": true
+        "score_correct": false
       }
     },
     {
@@ -170688,7 +170688,7 @@
         "ht_score": "0:0",
         "rec_correct": true,
         "hafu_correct": true,
-        "ou_correct": false,
+        "ou_correct": true,
         "score_correct": true
       }
     },
@@ -189071,9 +189071,9 @@
         "ft_score": "2:1",
         "ht_score": "2:0",
         "rec_correct": true,
-        "hafu_correct": false,
+        "hafu_correct": true,
         "ou_correct": false,
-        "score_correct": true
+        "score_correct": false
       }
     },
     {
@@ -190537,7 +190537,7 @@
         "actual_result": "山形山神 2-0 枥木城 (1-0)",
         "ft_score": "2:0",
         "ht_score": "1:0",
-        "rec_correct": false,
+        "rec_correct": true,
         "hafu_correct": false,
         "ou_correct": true,
         "score_correct": false
@@ -192122,7 +192122,7 @@
         "actual_result": "鹿斯巴达 0-1 费耶诺德 (0-1)",
         "ft_score": "0:1",
         "ht_score": "0:1",
-        "rec_correct": false,
+        "rec_correct": true,
         "hafu_correct": false,
         "ou_correct": false,
         "score_correct": false
@@ -193654,7 +193654,7 @@
         "ft_score": "1:1",
         "ht_score": "0:0",
         "rec_correct": true,
-        "hafu_correct": true,
+        "hafu_correct": false,
         "ou_correct": false,
         "score_correct": true
       }
@@ -195165,9 +195165,9 @@
         "actual_result": "纽伦堡 3-0 德累斯顿 (2-0)",
         "ft_score": "3:0",
         "ht_score": "2:0",
-        "rec_correct": false,
+        "rec_correct": true,
         "hafu_correct": false,
-        "ou_correct": true,
+        "ou_correct": false,
         "score_correct": false
       }
     },
@@ -195436,7 +195436,7 @@
         "reasoning": "瑞超联赛的人工草皮主场优势极其明显，客队适应常面临考验。 基本面上，哈马比在【历史交锋与心理克制】上拥有明显优势（评分 7.0 对 3.0），但赫根在【战术克制与匹配】上（评分 8.7 对 8.1）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 1.46 / 4.35 / 4.65 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主胜 (竞彩)】。",
         "confidence_trend": "up",
         "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)",
-        "actual_result": "兹沃勒 0-2 阿贾克斯 (0-0)"
+        "actual_result": "哈马比 3-0 赫根 (2-0)"
       },
       "team_stats": {
         "home": {
@@ -196492,12 +196492,12 @@
         ]
       },
       "result": {
-        "actual_result": "兹沃勒 0-2 阿贾克斯 (0-0)",
-        "ft_score": "0:2",
-        "ht_score": "0:0",
-        "rec_correct": false,
+        "actual_result": "哈马比 3-0 赫根 (2-0)",
+        "ft_score": "3:0",
+        "ht_score": "2:0",
+        "rec_correct": true,
         "hafu_correct": false,
-        "ou_correct": true,
+        "ou_correct": false,
         "score_correct": false
       }
     },
@@ -198059,6 +198059,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "格罗宁根 2-1 乌德勒支 (1-0)",
+        "ft_score": "2:1",
+        "ht_score": "1:0",
+        "rec_correct": true,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": true
       }
     },
     {
@@ -198078,7 +198087,7 @@
         "wind_kmh": 16,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-10T11:02:13.585785",
@@ -198325,7 +198334,8 @@
         "ev_score": 0.0,
         "reasoning": "挪超联赛大开大合，大球率高，进攻端对体能消耗极大。 基本面上，利勒斯特在【历史交锋与心理克制】上拥有明显优势（评分 6.3 对 3.7），但罗森博格在【近期状态与动能】上（评分 7.4 对 5.5）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 2.15 / 3.55 / 2.61 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败 (竞彩)】。",
         "confidence_trend": "up",
-        "predicted_score": "2-1 (竞彩) 或 1-1"
+        "predicted_score": "2-1 (竞彩) 或 1-1",
+        "actual_result": "利勒斯特 0-2 罗森博格 (0-1)"
       },
       "team_stats": {
         "home": {
@@ -199317,6 +199327,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "利勒斯特 0-2 罗森博格 (0-1)",
+        "ft_score": "0:2",
+        "ht_score": "0:1",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": false
       }
     },
     {
@@ -199336,7 +199355,7 @@
         "wind_kmh": 10,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-10T11:02:13.596614",
@@ -199583,7 +199602,8 @@
         "ev_score": 0.0,
         "reasoning": "芬超联赛常呈现低比分拉锯，防守落位速度是决定性因素。 基本面上，国际图尔在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），但拉赫蒂在【近期状态与动能】上（评分 7.9 对 6.1）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 1.60 / 3.50 / 4.60 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主胜】。",
         "confidence_trend": "stable",
-        "predicted_score": "2-0 或 1-0 或 2-1 (竞彩)"
+        "predicted_score": "2-0 或 1-0 或 2-1 (竞彩)",
+        "actual_result": "国际图尔 0-0 拉赫蒂 (0-0)"
       },
       "team_stats": {
         "home": {
@@ -200515,6 +200535,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "国际图尔 0-0 拉赫蒂 (0-0)",
+        "ft_score": "0:0",
+        "ht_score": "0:0",
+        "rec_correct": false,
+        "hafu_correct": true,
+        "ou_correct": true,
+        "score_correct": false
       }
     },
     {
@@ -200534,7 +200563,7 @@
         "wind_kmh": 10,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-10T11:02:13.607467",
@@ -200781,7 +200810,8 @@
         "ev_score": 0.0,
         "reasoning": "瑞超联赛的人工草皮主场优势极其明显，客队适应常面临考验。 基本面上，哈尔姆斯在【历史交锋与心理克制】上拥有明显优势（评分 8.0 对 2.0），但盖斯在【近期状态与动能】上（评分 6.0 对 4.1）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 5.30 降至 5.20，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败】。",
         "confidence_trend": "up",
-        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "哈尔姆斯 0-2 盖斯 (0-0)"
       },
       "team_stats": {
         "home": {
@@ -201776,6 +201806,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "哈尔姆斯 0-2 盖斯 (0-0)",
+        "ft_score": "0:2",
+        "ht_score": "0:0",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": true,
+        "score_correct": false
       }
     },
     {
@@ -201795,7 +201834,7 @@
         "wind_kmh": 19,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-10T11:02:13.618141",
@@ -202042,7 +202081,8 @@
         "ev_score": 0.0,
         "reasoning": "瑞超联赛的人工草皮主场优势极其明显，客队适应常面临考验。 基本面上，哥德堡在【历史交锋与心理克制】上拥有明显优势（评分 7.2 对 2.8），但卡尔马在【战意与抢分压力】上（评分 6.0 对 5.2）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 2.33 降至 2.28，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败】。",
         "confidence_trend": "up",
-        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "哥德堡 3-2 卡尔马 (1-1)"
       },
       "team_stats": {
         "home": {
@@ -203050,13 +203090,13 @@
         ]
       },
       "result": {
-        "actual_result": "格罗宁根 2-1 乌德勒支 (1-0)",
-        "ft_score": "2:1",
-        "ht_score": "1:0",
+        "actual_result": "哥德堡 3-2 卡尔马 (1-1)",
+        "ft_score": "3:2",
+        "ht_score": "1:1",
         "rec_correct": true,
-        "hafu_correct": false,
+        "hafu_correct": true,
         "ou_correct": false,
-        "score_correct": true
+        "score_correct": false
       }
     },
     {
@@ -206437,7 +206477,8 @@
         "ev_score": 0.0,
         "reasoning": "挪超联赛大开大合，大球率高，进攻端对体能消耗极大。 基本面上，汉坎在【历史交锋与心理克制】上拥有明显优势（评分 6.3 对 3.7），但奥勒松在【战术克制与匹配】上（评分 8.1 对 7.5）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 1.93 / 3.60 / 3.00 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【双选让平或让负】。",
         "confidence_trend": "up",
-        "predicted_score": "1-1 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-1 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "汉坎 1-1 奥勒松 (0-1)"
       },
       "team_stats": {
         "home": {
@@ -207443,6 +207484,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "汉坎 1-1 奥勒松 (0-1)",
+        "ft_score": "1:1",
+        "ht_score": "0:1",
+        "rec_correct": true,
+        "hafu_correct": false,
+        "ou_correct": true,
+        "score_correct": true
       }
     },
     {
@@ -218295,7 +218345,7 @@
         "wind_kmh": 8,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-10T11:02:13.639191",
@@ -218542,7 +218592,8 @@
         "ev_score": 0.0,
         "reasoning": "芬超联赛常呈现低比分拉锯，防守落位速度是决定性因素。 基本面上，AC奥卢在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），但赫尔辛基在【近期状态与动能】上（评分 6.9 对 4.6）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 3.37 降至 3.30，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "stable",
-        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "AC奥卢 0-1 赫尔辛基 (0-1)"
       },
       "team_stats": {
         "home": {
@@ -219531,13 +219582,13 @@
         ]
       },
       "result": {
-        "actual_result": "阿马多拉 2-2 里斯本 (0-0)",
-        "ft_score": "2:2",
-        "ht_score": "0:0",
+        "actual_result": "AC奥卢 0-1 赫尔辛基 (0-1)",
+        "ft_score": "0:1",
+        "ht_score": "0:1",
         "rec_correct": true,
-        "hafu_correct": true,
+        "hafu_correct": false,
         "ou_correct": false,
-        "score_correct": false
+        "score_correct": true
       }
     },
     {
@@ -221041,6 +221092,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "波尔图 2-0 阿尔维卡 (2-0)",
+        "ft_score": "2:0",
+        "ht_score": "2:0",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": true,
+        "score_correct": false
       }
     },
     {
@@ -221060,7 +221120,7 @@
         "wind_kmh": 11,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-10T11:02:13.665707",
@@ -221307,7 +221367,8 @@
         "ev_score": 0.0,
         "reasoning": "挪超联赛大开大合，大球率高，进攻端对体能消耗极大。 基本面上，克里斯蒂在【战意与抢分压力】上拥有明显优势（评分 6.4 对 4.800000000000001），但莫尔德在【历史交锋与心理克制】上（评分 6.8 对 3.2）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 4.08 降至 4.00，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败 (主场倾斜保护)】。",
         "confidence_trend": "up",
-        "predicted_score": "1-2 或 1-1 或 2-1 (竞彩)"
+        "predicted_score": "1-2 或 1-1 或 2-1 (竞彩)",
+        "actual_result": "克里斯蒂 2-1 莫尔德 (1-0)"
       },
       "team_stats": {
         "home": {
@@ -222317,6 +222378,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "克里斯蒂 2-1 莫尔德 (1-0)",
+        "ft_score": "2:1",
+        "ht_score": "1:0",
+        "rec_correct": true,
+        "hafu_correct": false,
+        "ou_correct": true,
+        "score_correct": true
       }
     },
     {
@@ -222336,7 +222406,7 @@
         "wind_kmh": 14,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-10T11:02:13.676458",
@@ -222583,7 +222653,8 @@
         "ev_score": 0.0,
         "reasoning": "葡超比赛双方战术意图各有侧重。 基本面上，本菲卡在【近期状态与动能】上拥有明显优势（评分 7.9 对 5.2），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 2.00 / 3.00 / 3.00 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败】。",
         "confidence_trend": "up",
-        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "本菲卡 2-2 维塞乌 (1-0)"
       },
       "team_stats": {
         "home": {
@@ -223472,10 +223543,10 @@
         ]
       },
       "result": {
-        "actual_result": "波尔图 2-0 阿尔维卡 (2-0)",
-        "ft_score": "2:0",
-        "ht_score": "2:0",
-        "rec_correct": false,
+        "actual_result": "本菲卡 2-2 维塞乌 (1-0)",
+        "ft_score": "2:2",
+        "ht_score": "1:0",
+        "rec_correct": true,
         "hafu_correct": false,
         "ou_correct": false,
         "score_correct": false
@@ -225052,6 +225123,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "吉维森特 1-0 里奥阿维 (0-0)",
+        "ft_score": "1:0",
+        "ht_score": "0:0",
+        "rec_correct": true,
+        "hafu_correct": false,
+        "ou_correct": true,
+        "score_correct": true
       }
     },
     {
@@ -225071,7 +225151,7 @@
         "wind_kmh": 16,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-10T11:02:13.687341",
@@ -225318,7 +225398,8 @@
         "ev_score": 0.0,
         "reasoning": "葡超比赛双方战术意图各有侧重。 基本面上，摩雷伦斯在【历史交锋与心理克制】上拥有明显优势（评分 6.0 对 4.0），但布拉加在【近期状态与动能】上（评分 5.6 对 4.6）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 4.95 降至 4.85，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "stable",
-        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "0-1 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "摩雷伦斯 2-2 布拉加 (1-1)"
       },
       "team_stats": {
         "home": {
@@ -226328,6 +226409,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "摩雷伦斯 2-2 布拉加 (1-1)",
+        "ft_score": "2:2",
+        "ht_score": "1:1",
+        "rec_correct": true,
+        "hafu_correct": true,
+        "ou_correct": true,
+        "score_correct": false
       }
     },
     {
@@ -226347,7 +226437,7 @@
         "wind_kmh": 13,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-10T11:02:13.697466",
@@ -226594,7 +226684,8 @@
         "ev_score": 0.0,
         "reasoning": "巴甲比赛双方战术意图各有侧重。 基本面上，桑托斯在【战意与抢分压力】上拥有明显优势（评分 6.4 对 4.800000000000001），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 2.05 / 2.92 / 3.35 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主不败】。",
         "confidence_trend": "up",
-        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-1 (竞彩)",
+        "actual_result": "桑托斯 0-2 巴竞技 (0-2)"
       },
       "team_stats": {
         "home": {
@@ -227545,6 +227636,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "桑托斯 0-2 巴竞技 (0-2)",
+        "ft_score": "0:2",
+        "ht_score": "0:2",
+        "rec_correct": false,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": false
       }
     },
     {
@@ -227564,7 +227664,7 @@
         "wind_kmh": 7,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-10T11:02:13.707083",
@@ -227811,7 +227911,8 @@
         "ev_score": 0.0,
         "reasoning": "巴甲比赛双方战术意图各有侧重。 基本面上，弗拉门戈在【近期状态与动能】上拥有明显优势（评分 8.8 对 6.1），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 1.15 / 5.80 / 11.50 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【主胜 (竞彩)】。",
         "confidence_trend": "stable",
-        "predicted_score": "2-0 或 1-0 或 2-1 (竞彩)"
+        "predicted_score": "2-0 或 1-0 或 2-1 (竞彩)",
+        "actual_result": "弗拉门戈 2-0 维多利亚 (1-0)"
       },
       "team_stats": {
         "home": {
@@ -228718,6 +228819,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "弗拉门戈 2-0 维多利亚 (1-0)",
+        "ft_score": "2:0",
+        "ht_score": "1:0",
+        "rec_correct": true,
+        "hafu_correct": true,
+        "ou_correct": true,
+        "score_correct": true
       }
     },
     {
