@@ -337,7 +337,7 @@ def calculate_kelly_conclusion(m):
     oh, od, oa = pinnacle_odds["home"], pinnacle_odds["draw"], pinnacle_odds["away"]
     ih, id_, ia = init_odds["home"], init_odds["draw"], init_odds["away"]
     
-    sentiment = m["odds_analysis"]["retail_sentiment"]
+    sentiment = m.get("odds_analysis", {}).get("retail_sentiment", {"home_pct": 45, "draw_pct": 28, "away_pct": 27})
     if "home_pct" in sentiment:
         sh = sentiment["home_pct"] / 100.0
         sd = sentiment["draw_pct"] / 100.0
@@ -750,7 +750,9 @@ def apply_dynamic_factor_scores(m):
     is_home_artificial = "人工草皮" in venue_notes
     is_away_accustomed_to_artificial = True
     
-    away_name = m["team_stats"]["away"]["name"]
+    away_name = m.get("away", "")
+    if "team_stats" in m and "away" in m["team_stats"] and isinstance(m["team_stats"]["away"], dict):
+        away_name = m["team_stats"]["away"].get("name", away_name)
     # 远离人工草皮并以天然草皮为主场的队伍（如马尔默、卡尔马）
     if away_name in ["马尔默", "卡尔马"]:
         is_away_accustomed_to_artificial = False
@@ -2151,6 +2153,10 @@ def main():
             m["intelligence"]["media_predictions"] = fresh_media[mid]
             print(f"  Media predictions updated for {m['home']}.")
             
+        if "ultimate_conclusion" not in m:
+            m["ultimate_conclusion"] = {"recommendation": "主胜", "confidence": 65, "risk_level": "中"}
+        if "conclusions" not in m:
+            m["conclusions"] = {}
         old_rec = m["ultimate_conclusion"].get("recommendation", "")
         
         pinnacle_odds = m["odds_analysis"]["pinnacle"]["current"]
