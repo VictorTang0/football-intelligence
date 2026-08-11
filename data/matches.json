@@ -228857,7 +228857,7 @@
         "wind_kmh": 18,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-10T15:01:26.468662",
@@ -229415,7 +229415,8 @@
         "ev_score": 0.0,
         "reasoning": "瑞超联赛的人工草皮主场优势极其明显，客队适应常面临考验。 基本面上，天狼星在【近期状态与动能】上拥有明显优势（评分 8.8 对 5.1），但布鲁马波在【历史交锋与心理克制】上（评分 8.0 对 2.0）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指 1.20 / 5.65 / 8.40 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【客不败】。",
         "confidence_trend": "down",
-        "predicted_score": "2-1 或 1-1 或 3-0 (竞彩)"
+        "predicted_score": "2-1 或 1-1 或 3-0 (竞彩)",
+        "actual_result": "天狼星 2-2 布鲁马波 (2-2)"
       },
       "team_stats": {
         "home": {
@@ -230442,6 +230443,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "天狼星 2-2 布鲁马波 (2-2)",
+        "ft_score": "2:2",
+        "ht_score": "2:2",
+        "rec_correct": true,
+        "hafu_correct": false,
+        "ou_correct": true,
+        "score_correct": false
       }
     },
     {
@@ -230461,7 +230471,7 @@
         "wind_kmh": 16,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-10T15:01:26.488782",
@@ -231019,7 +231029,8 @@
         "ev_score": 0.0,
         "reasoning": "瑞超联赛的人工草皮主场优势极其明显，客队适应常面临考验。 基本面上，韦斯特罗在【近期状态与动能】上拥有明显优势（评分 7.4 对 6.0），但佐加顿斯在【球队基础硬实力】上（评分 9.6 对 8.1）给主队带来制约。结合战意（主 80% / 客 75%），即时欧指主胜由 4.33 降至 4.25，庄家防范主队赔付。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【反基本面冷门 (客队不败) (竞彩)】。",
         "confidence_trend": "up",
-        "predicted_score": "1-2 (竞彩) 或 1-1"
+        "predicted_score": "1-2 (竞彩) 或 1-1",
+        "actual_result": "韦斯特罗 1-0 佐加顿斯 (1-0)"
       },
       "team_stats": {
         "home": {
@@ -232020,6 +232031,15 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
+      },
+      "result": {
+        "actual_result": "韦斯特罗 1-0 佐加顿斯 (1-0)",
+        "ft_score": "1:0",
+        "ht_score": "1:0",
+        "rec_correct": true,
+        "hafu_correct": false,
+        "ou_correct": false,
+        "score_correct": false
       }
     },
     {
@@ -232039,7 +232059,7 @@
         "wind_kmh": 12,
         "is_new": false
       },
-      "status": "pending",
+      "status": "finished",
       "odds_history": [
         {
           "timestamp": "2026-08-10T15:01:26.502936",
@@ -232597,7 +232617,8 @@
         "ev_score": 0.0,
         "reasoning": "葡超比赛双方战术意图各有侧重。 基本面上，圣克拉拉在【环境气候适应性】上拥有明显优势（评分 8.5 对 7.5），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 75%），即时欧指 1.67 / 3.25 / 4.50 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【反基本面冷门 (主队不败) (竞彩)】。",
         "confidence_trend": "down",
-        "predicted_score": "1-0 或 0-0 或 2-0 (竞彩)"
+        "predicted_score": "1-0 或 0-0 或 2-0 (竞彩)",
+        "actual_result": "圣克拉拉 2-2 葡国民 (2-2)"
       },
       "team_stats": {
         "home": {
@@ -233583,13 +233604,13 @@
         ]
       },
       "result": {
-        "actual_result": "吉维森特 1-0 里奥阿维 (0-0)",
-        "ft_score": "1:0",
-        "ht_score": "0:0",
-        "rec_correct": false,
+        "actual_result": "圣克拉拉 2-2 葡国民 (2-2)",
+        "ft_score": "2:2",
+        "ht_score": "2:2",
+        "rec_correct": true,
         "hafu_correct": true,
-        "ou_correct": true,
-        "score_correct": true
+        "ou_correct": false,
+        "score_correct": false
       }
     }
   ]
