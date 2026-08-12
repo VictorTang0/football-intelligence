@@ -42,7 +42,7 @@ def sync():
         uc = m.get("ultimate_conclusion", {})
         conc = m.get("conclusions", {})
         
-        actual_result = uc.get("actual_result", "")
+        actual_result = m.get("actual_result") or uc.get("actual_result", "")
         if not actual_result:
             print(f"⚠️ Warning: Finished match {mid} has no actual_result. Skipping.")
             continue
