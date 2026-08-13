@@ -246112,7 +246112,7 @@
       "home": "巴黎圣日耳曼",
       "away": "阿斯顿维拉",
       "kickoff": "2026-08-13T03:00:00+08:00",
-      "status": "pending",
+      "status": "finished",
       "handicap": "-1",
       "odds_analysis": {
         "sporttery": {
@@ -247308,7 +247308,8 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
-      }
+      },
+      "actual_result": "巴黎圣日耳曼 2-1 阿斯顿维拉 (1-1)"
     },
     {
       "id": "match_260812_002",
@@ -247318,7 +247319,7 @@
       "home": "普拉滕斯",
       "away": "科金博",
       "kickoff": "2026-08-13T06:00:00+08:00",
-      "status": "pending",
+      "status": "finished",
       "handicap": "-1",
       "odds_analysis": {
         "sporttery": {
@@ -248156,7 +248157,8 @@
         "confidence_trend": "down",
         "primary_bet": "平局",
         "predicted_score": "1-1 或 0-0 或 2-1 (竞彩)",
-        "reasoning": "解放者杯比赛双方战术意图各有侧重。 基本面上，普拉滕斯在【战意与抢分压力】上拥有明显优势（评分 8.0 对 7.0），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 70%），即时欧指 1.74 / 2.96 / 4.60 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【平局】。"
+        "reasoning": "解放者杯比赛双方战术意图各有侧重。 基本面上，普拉滕斯在【战意与抢分压力】上拥有明显优势（评分 8.0 对 7.0），两队防线与战术匹配相对均衡。结合战意（主 80% / 客 70%），即时欧指 1.74 / 2.96 / 4.60 较初盘有小幅微震。 配合凯利指数与变盘防守策略，模型判定本场首选推荐为【平局】。",
+        "actual_result": "普拉滕斯 1-1 科金博 (1-0)"
       },
       "market_value_analysis": {
         "home_market_value": 25.0,
@@ -248529,7 +248531,17 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
-      }
+      },
+      "result": {
+        "actual_result": "普拉滕斯 1-1 科金博 (1-0)",
+        "ft_score": "1:1",
+        "ht_score": "1:0",
+        "rec_correct": true,
+        "hafu_correct": false,
+        "ou_correct": true,
+        "score_correct": true
+      },
+      "actual_result": "普拉滕斯 1-1 科金博 (1-0)"
     },
     {
       "id": "match_260812_003",
@@ -248539,7 +248551,7 @@
       "home": "帕尔梅拉斯",
       "away": "波特诺山丘",
       "kickoff": "2026-08-13T06:00:00+08:00",
-      "status": "pending",
+      "status": "finished",
       "handicap": "-1",
       "odds_analysis": {
         "sporttery": {
@@ -249931,7 +249943,8 @@
           "SportsMole 临场专栏",
           "Sky Sports 2026-08-07 实时核验"
         ]
-      }
+      },
+      "actual_result": "帕尔梅拉斯 1-1 波特诺山丘 (0-0)"
     }
   ]
 }
